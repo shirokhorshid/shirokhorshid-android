@@ -5,6 +5,12 @@ android {
     buildToolsVersion "23.0.3"
     useLibrary 'org.apache.http.legacy'
 
+    repositories{
+        flatDir{
+            dirs 'libs'
+        }
+    }
+
     def versionPropsFile = new File('version.properties')
 
     if (versionPropsFile.canRead()) {
@@ -74,7 +80,7 @@ dependencies {
     compile files('libs/jackson-core-2.2.0.jar')
     compile files('libs/achartengine-1.0.0.jar')
     compile files('libs/snakeyaml-1.10-android.jar')
-    compile files('libs/classes.jar')
+    compile(name:'ca.psiphon', ext:'aar')
     compile 'com.google.android.gms:play-services-safetynet:9.0.2'
     compile project(':tray')
 }
