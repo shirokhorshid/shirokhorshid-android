@@ -77,8 +77,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final int MSG_TUNNEL_STARTING = 5;
     public static final int MSG_TUNNEL_STOPPING = 6;
     public static final int MSG_TUNNEL_CONNECTION_STATE = 7;
-    public static final int MSG_CLIENT_REGION = 8;
-    public static final int MSG_DATA_TRANSFER_STATS = 9;
+    public static final int MSG_DATA_TRANSFER_STATS = 8;
 
     public static final String INTENT_ACTION_HANDSHAKE = "com.psiphon3.psiphonlibrary.TunnelManager.HANDSHAKE";
 
@@ -861,9 +860,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                Bundle data = new Bundle();
-                data.putString(DATA_TUNNEL_STATE_CLIENT_REGION, region);
-                sendClientMessage(MSG_CLIENT_REGION, data);
+                m_tunnelState.clientRegion = region;
             }
         });
     }
