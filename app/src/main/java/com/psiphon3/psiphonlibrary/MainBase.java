@@ -104,9 +104,6 @@ public abstract class MainBase {
             super.onCreate(savedInstanceState);
 
             MyLog.setLogger(this);
-
-            //truncate logs database
-            LoggingProvider.LogDatabaseHelper.truncateLogs(this);
         }
 
         @Override
@@ -359,6 +356,11 @@ public abstract class MainBase {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+
+            if (!isServiceRunning()) {
+                // remove logs from previous sessions
+                LoggingProvider.LogDatabaseHelper.truncateLogs(this, true);
+            }
 
             m_multiProcessPreferences = new AppPreferences(this);
             // Migrate 'More Options' SharedPreferences to tray preferences:
