@@ -69,8 +69,5 @@ public class TunnelVpnService extends VpnService
         m_Manager.onRevoke();
     }
     
-    public VpnService.Builder newBuilder()
-    {
-        return new VpnService.Builder();
-    }
+    public VpnService.Builder newBuilder() { return new VpnService.Builder(); }
 }

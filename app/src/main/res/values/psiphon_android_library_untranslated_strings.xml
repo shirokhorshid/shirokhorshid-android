@@ -11,6 +11,9 @@
     <string name="preferencesNotifications">preferencesNotifications</string>
     <string name="preferenceNotificationsWithSound">preferenceNotificationsWithSoundDefaultOff</string>
     <string name="preferenceNotificationsWithVibrate">preferenceNotificationsWithVibrateDefaultOff</string>
+    <string name="routingSettingsCategoryKey">routingSettingsCategoryKey</string>
+    <string name="preferenceExcludeAppsFromVpn">useExcludedAppsPreference</string>
+    <string name="preferenceExcludeAppsFromVpnString">preferenceExcludeAppsFromVpnString</string>
     <string name="make_request_close_http_client">makeRequest error closing HTTP client: %s</string>
     <string name="make_request_close_http_response">makeRequest error closing HTTP response: %s</string>
     <string name="rotating_target_protocol_state">rotating target protocol state</string>
