@@ -57,15 +57,16 @@ public class RegionAdapter extends ArrayAdapter<Integer>
     private static Region[] regions =
     {
         new Region(PsiphonConstants.REGION_CODE_ANY, R.string.region_name_any, R.drawable.flag_unknown, true),
-        new Region("US", R.string.region_name_us, R.drawable.flag_us, false),
-        new Region("GB", R.string.region_name_gb, R.drawable.flag_gb, false),
         new Region("CA", R.string.region_name_ca, R.drawable.flag_ca, false),
-        new Region("JP", R.string.region_name_jp, R.drawable.flag_jp, false),
         new Region("DE", R.string.region_name_de, R.drawable.flag_de, false),
+        new Region("ES", R.string.region_name_es, R.drawable.flag_es, false),
+        new Region("GB", R.string.region_name_gb, R.drawable.flag_gb, false),
         new Region("HK", R.string.region_name_hk, R.drawable.flag_hk, false),
-        new Region("SG", R.string.region_name_sg, R.drawable.flag_sg, false),
-        new Region("NL", R.string.region_name_nl, R.drawable.flag_nl, false),
         new Region("IN", R.string.region_name_in, R.drawable.flag_in, false),
+        new Region("JP", R.string.region_name_jp, R.drawable.flag_jp, false),
+        new Region("NL", R.string.region_name_nl, R.drawable.flag_nl, false),
+        new Region("SG", R.string.region_name_sg, R.drawable.flag_sg, false),
+        new Region("US", R.string.region_name_us, R.drawable.flag_us, false),
     };
     
     private static boolean initialized = false;
