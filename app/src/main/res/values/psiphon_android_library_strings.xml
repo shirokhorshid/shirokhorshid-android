@@ -130,6 +130,7 @@
     <string name="region_name_sg">Singapore</string>
     <string name="region_name_nl">Netherlands</string>
     <string name="region_name_in">India</string>
+    <string name="region_name_es">Spain</string>
     <string name="about">About Psiphon</string>
     <string name="feedback">Feedback</string>
     <string name="tunnel_whole_device_toggle">Tunnel Whole Device (requires Android 4.0+)</string>
