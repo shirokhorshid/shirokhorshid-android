@@ -78,7 +78,8 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
         mVpnAppExclusions = (InstalledAppsMultiSelectListPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
         if (Build.VERSION.SDK_INT < LOLLIPOP) {
             PreferenceCategory c = (PreferenceCategory) findPreference(getString(R.string.routingSettingsCategoryKey));
-            c.removeAll();
+            // Removes the whole category and should be revisited if/when more individual preferences exist here
+            preferences.removePreference(c);
         }
 
         mUseProxy = (CheckBoxPreference) preferences.findPreference(getString(R.string.useProxySettingsPreference));

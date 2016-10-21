@@ -478,18 +478,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
     };
 
-<<<<<<< local
-    private Handler periodicMaintenanceHandler = new Handler();
-    private final long periodicMaintenanceIntervalMs = 12 * 60 * 60 * 1000;
-    private final Runnable periodicMaintenance = new Runnable() {
-        @Override
-        public void run() {
-            LoggingProvider.LogDatabaseHelper.truncateLogs(getContext());
-            periodicMaintenanceHandler.postDelayed(this, periodicMaintenanceIntervalMs);
-        }
-    };
-
-=======
     private Handler periodicMaintenanceHandler = new Handler();
     private final long periodicMaintenanceIntervalMs = 12 * 60 * 60 * 1000;
     private final Runnable periodicMaintenance = new Runnable() {
@@ -500,7 +488,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
     };
 
->>>>>>> other
     private void runTunnel() {
 
         Utils.initializeSecureRandom();
@@ -600,7 +587,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             List<String> excludedApps;
             if (excludedAppsFromPreference.isEmpty()) {
                 excludedApps = Collections.emptyList();
-                MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.NOT_SENSITIVE);
+                MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
             } else {
                 excludedApps = Arrays.asList(excludedAppsFromPreference.split(","));
             };
@@ -609,7 +596,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 for (String packageId : excludedApps) {
                     try {
                         vpnBuilder.addDisallowedApplication(packageId);
-                        MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.NOT_SENSITIVE, packageId);
+                        MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
                     } catch (PackageManager.NameNotFoundException e) {
                         // Because the list that is passed in to this builder was created by
                         // a PackageManager instance, this exception should never be thrown

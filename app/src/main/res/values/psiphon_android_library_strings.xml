@@ -147,6 +147,8 @@
     <string name="preference_routing_title">Routing</string>
     <string name="preference_routing_exclude_apps_title">Exclude Apps</string>
     <string name="preference_routing_exclude_apps_summary">Prevent chosen apps from being tunnelled</string>
+    <string name="app_list_row_name">App Name</string>
+    <string name="app_list_row_package_id">com.example.app</string>
     <string name="individual_app_excluded">App excluded from tunnel: %s</string>
     <string name="no_apps_excluded">No applications were excluded from the tunnel</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
