@@ -111,8 +111,14 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
 
         String excludedValuesFromPreference = mpPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
         if (!excludedValuesFromPreference.isEmpty()) {
-            Set<String> excludedValuesSet = new HashSet<>(Arrays.asList(excludedValuesFromPreference));
+            Set<String> excludedValuesSet = new HashSet<>(Arrays.asList(excludedValuesFromPreference.split(",")));
             mVpnAppExclusions.setValues(excludedValuesSet);
+
+            SharedPreferences.Editor e = preferences.getEditor();
+            e.putString(getString(R.string.preferenceExcludeAppsFromVpnString), excludedValuesFromPreference);
+            // Use commit (sync) instead of apply (async) to prevent possible race with restarting
+            // the tunnel happening before the value is fully persisted to shared preferences
+            e.commit();
         }
 
         mUseProxy.setChecked(mpPreferences.getBoolean(getString(R.string.useProxySettingsPreference), false));
