@@ -28,22 +28,15 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.preference.CheckBoxPreference;
 import android.preference.MultiSelectListPreference;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -55,13 +48,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 
-import static com.psiphon3.R.string.moreOptionsPreferencesName;
-
 class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
     private Context mContext;
     private int resLayout;
     private List<AppEntry> appList;
-    public Set<String> excludedApps;
+    private Set<String> excludedApps;
 
     InstalledAppsMultiSelectListPreferenceAdapter(Context context, int textViewResourceId, List<AppEntry> appList, Set<String> excludedApps) {
         this.mContext = context;
@@ -134,7 +125,7 @@ class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class InstalledAppsMultiSelectListPreference extends MultiSelectListPreference {
-    List<AppEntry> appList;
+    private List<AppEntry> appList;
 
     public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);

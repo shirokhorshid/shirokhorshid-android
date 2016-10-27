@@ -29,9 +29,9 @@
         <ImageView
             android:id="@+id/app_list_row_icon"
             android:contentDescription="App Icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|left"
+            android:layout_width="@android:dimen/app_icon_size"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:layout_gravity="center_vertical|start"
             android:scaleType="fitCenter"/>
         <TextView
             android:id="@+id/app_list_row_name"
@@ -44,7 +44,7 @@
             android:id="@+id/app_list_row_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|right"
+            android:layout_gravity="center_vertical|end"
             android:layout_marginLeft="4dp" />
     </TableRow>
 </TableLayout>
