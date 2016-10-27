@@ -190,9 +190,8 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
             PackageInfo p = packages.get(i);
 
             // The returned app list excludes:
-            //  - Android's 'system' packages to make the list more manageable to read and work with
             //  - Apps that don't require internet access
-            if (!isSystemPackage(p) && isInternetPermissionGranted(p)) {
+            if (isInternetPermissionGranted(p)) {
                 String appName = p.applicationInfo.loadLabel(pm).toString();
                 String packageId = p.packageName;
                 Drawable icon = p.applicationInfo.loadIcon(pm);
