@@ -129,21 +129,21 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
 
     public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-
-        List<AppEntry> installedApps = getInstalledApps();
-        this.appList = installedApps;
-
-        LinkedHashMap<String, String> installedPackagesMap = new LinkedHashMap<>();
-        for (AppEntry app : installedApps) {
-            installedPackagesMap.put(app.getPackageId(), app.getName());
-        }
-
-        setEntries(installedPackagesMap.values().toArray(new String[installedPackagesMap.size()]));
-        setEntryValues(installedPackagesMap.keySet().toArray(new String[installedPackagesMap.size()]));
     }
 
    @Override
    protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
+       List<AppEntry> installedApps = getInstalledApps();
+       this.appList = installedApps;
+
+       LinkedHashMap<String, String> installedPackagesMap = new LinkedHashMap<>();
+       for (AppEntry app : installedApps) {
+           installedPackagesMap.put(app.getPackageId(), app.getName());
+       }
+
+       setEntries(installedPackagesMap.values().toArray(new String[installedPackagesMap.size()]));
+       setEntryValues(installedPackagesMap.keySet().toArray(new String[installedPackagesMap.size()]));
+       
        final InstalledAppsMultiSelectListPreferenceAdapter adapter = new InstalledAppsMultiSelectListPreferenceAdapter(
                getContext(),
                R.layout.preference_widget_applist_row,
