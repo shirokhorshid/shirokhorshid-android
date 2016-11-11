@@ -40,6 +40,7 @@ import com.psiphon3.R;
 import net.grandcentrix.tray.AppPreferences;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -108,12 +109,9 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
             if (!excludedValuesFromPreference.isEmpty()) {
                 Set<String> excludedValuesSet = new HashSet<>(Arrays.asList(excludedValuesFromPreference.split(",")));
                 ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(excludedValuesSet);
-
-                SharedPreferences.Editor e = preferences.getEditor();
-                e.putString(getString(R.string.preferenceExcludeAppsFromVpnString), excludedValuesFromPreference);
-                // Use commit (sync) instead of apply (async) to prevent possible race with restarting
-                // the tunnel happening before the value is fully persisted to shared preferences
-                e.commit();
+            } else {
+                Set<String> noneExcluded = Collections.emptySet();
+                ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(noneExcluded);
             }
         }
 
