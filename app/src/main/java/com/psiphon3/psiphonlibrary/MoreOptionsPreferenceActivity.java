@@ -106,6 +106,13 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
         // If it isn't null here, we can reasonably assume it can be cast to our MultiSelectListPreference
         if (mVpnAppExclusions != null) {
             String excludedValuesFromPreference = mpPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+
+            SharedPreferences.Editor e = preferences.getEditor();
+            e.putString(getString(R.string.preferenceExcludeAppsFromVpnString), excludedValuesFromPreference);
+            // Use commit (sync) instead of apply (async) to prevent possible race with restarting
+            // the tunnel happening before the value is fully persisted to shared preferences
+            e.commit();
+
             if (!excludedValuesFromPreference.isEmpty()) {
                 Set<String> excludedValuesSet = new HashSet<>(Arrays.asList(excludedValuesFromPreference.split(",")));
                 ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(excludedValuesSet);
