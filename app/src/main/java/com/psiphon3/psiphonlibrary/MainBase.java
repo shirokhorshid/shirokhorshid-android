@@ -104,9 +104,6 @@ public abstract class MainBase {
             super.onCreate(savedInstanceState);
 
             MyLog.setLogger(this);
-
-            //truncate logs database
-            LoggingProvider.LogDatabaseHelper.truncateLogs(this);
         }
 
         @Override
@@ -359,6 +356,11 @@ public abstract class MainBase {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+
+            if (!isServiceRunning()) {
+                // remove logs from previous sessions
+                LoggingProvider.LogDatabaseHelper.truncateLogs(this, true);
+            }
 
             m_multiProcessPreferences = new AppPreferences(this);
             // Migrate 'More Options' SharedPreferences to tray preferences:
@@ -1301,10 +1303,6 @@ public abstract class MainBase {
                     case TunnelManager.MSG_TUNNEL_CONNECTION_STATE:
                         m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
                         updateServiceStateUI();
-                        break;
-
-                    case TunnelManager.MSG_CLIENT_REGION:
-                        m_tunnelState.clientRegion = data.getString(TunnelManager.DATA_TUNNEL_STATE_CLIENT_REGION);
                         break;
 
                     case TunnelManager.MSG_DATA_TRANSFER_STATS:

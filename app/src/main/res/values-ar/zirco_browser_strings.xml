@@ -131,8 +131,8 @@
   <string name="Constants.SearchUrlWikipedia">http://en.wikipedia.org/w/index.php?search=%s&amp;go=Go</string>
   <string name="PreferencesActivity.SearchUrlPreferenceTitle">عنوان url الخاص بالبحث</string>
   <string name="PreferencesActivity.SearchUrlPreferenceSummary">تحديد عنوان url الخاص بالبحث.</string>
-  <string name="SearchUrlPreferenceActivity.Title">عنوان url الخاص بالبحث</string>
-  <string name="SearchUrlPreferenceActivity.Prompt">عنوان url الخاص بالبحث</string>
+  <string name="SearchUrlPreferenceActivity.Title">عنوان الرابط الخاص بالبحث</string>
+  <string name="SearchUrlPreferenceActivity.Prompt">عنوان الرابط  الخاص بالبحث</string>
   <string name="PreferencesActivity.SearchUrlGoogle">جوجل</string>
   <string name="PreferencesActivity.SearchUrlWikipedia">ويكيبيديا</string>
   <string name="PreferencesActivity.SearchUrlCustom">مخصص</string>
@@ -157,18 +157,18 @@
   <string name="PreferencesActivity.UserAgentDefault">الافتراضي</string>
   <string name="PreferencesActivity.UserAgentDesktop">سطح المكتب</string>
   <string name="PreferencesActivity.UserAgentCustom">مخصص</string>
-  <string name="Main.MenuCopyLinkUrl">نسخ عنوان url الخاص بالارتباط</string>
+  <string name="Main.MenuCopyLinkUrl">نسخ عنوان الرابط الخاص بالارتباط</string>
   <string name="Main.MenuViewImage">عرض الصورة</string>
   <string name="Main.MenuCopyImageUrl">نسخ رابط الصورة</string>
   <string name="Main.MenuDownloadImage">تنزيل الصورة</string>
   <string name="Main.MenuSendEmail">إرسال بريد إلكتروني</string>
-  <string name="Main.MenuCopyEmailUrl">نسخ عنوان url الخاص بالبريد الإلكتروني</string>
+  <string name="Main.MenuCopyEmailUrl">نسخ عنوان الرابط الخاص بالبريد الإلكتروني</string>
   <string name="Commons.UrlCopyToastMessage">تم نسخ عنوان Url إلى الحافظة.</string>
   <string name="DownloadNotification.DownloadStart">بدء التنزيل.</string>
-  <string name="DownloadNotification.DownloadInProgress">التنزيل قيد التقدم.</string>
+  <string name="DownloadNotification.DownloadInProgress">جاري التنزيل</string>
   <string name="DownloadNotification.DownloadComplete">اكتمال التنزيل.</string>
   <string name="DownloadNotification.DownloadCanceled">تم إلغاء التنزيل.</string>
-  <string name="BookmarksHistoryActivity.MenuCopyLinkUrl">نسخ عنوان url</string>
+  <string name="BookmarksHistoryActivity.MenuCopyLinkUrl">نسخ عنوان الرابط</string>
   <string name="PreferencesActivity.ClearCacheOnExitPreferenceTitle">مسح ذاكرة التخزين المؤقتة عند الخروج</string>
   <string name="PreferencesActivity.ClearCacheOnExitPreferenceSummary">إذا تم نقره،  سيتم مسح ذاكرة التخزين المؤقتة عند الخروج من التطبيق.</string>
   <string name="PreferencesActivity.UIPreferenceTitle">إعدادات واجهة المستخدم</string>
@@ -186,7 +186,7 @@
   <string name="Commons.SslUntrusted">هذه الشهادة ليست صادرة من مصدر موثوق به.</string>
   <string name="Commons.SslIDMismatch">اسم الموقع لا يتطابق مع الاسم الموجود في الشهادة.</string>
   <string name="Commons.SslExpired">انتهت صلاحية هذه الشهادة.</string>
-  <string name="Commons.SslNotYetValid">هذه الشهادة لم تعد صالحة بعد.</string>
+  <string name="Commons.SslNotYetValid">هذه الشهادة ليست صالحة بعد.</string>
   <string name="MobileViewListActivity.Title">مستعرض سايفون - قائمة مواقع الويب لطريقة العرض المتنقلة</string>
   <string name="MobileViewListActivity.ListEmpty">القائمة فارغة.</string>
   <string name="MobileViewListActivity.AddMessage">إضافة موقع ويب.</string>
