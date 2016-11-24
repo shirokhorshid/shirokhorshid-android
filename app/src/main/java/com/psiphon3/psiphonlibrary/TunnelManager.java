@@ -633,6 +633,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             json.put("RemoteServerListUrl", EmbeddedValues.REMOTE_SERVER_LIST_URL);
 
+            json.put("ObfuscatedServerListRootURL", EmbeddedValues.OBFUSCATED_SERVER_LIST_ROOT_URL);
+
             json.put("RemoteServerListSignaturePublicKey", EmbeddedValues.REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY);
 
             json.put("UpstreamProxyUrl", UpstreamProxySettings.getUpstreamProxyUrl(context));
@@ -656,6 +658,15 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 File remoteServerListDownload = new File(tempTunnelDir, "remote_server_list");
                 json.put("RemoteServerListDownloadFilename", remoteServerListDownload.getAbsolutePath());
+
+                File oslDownloadDir = new File(tempTunnelDir, "osl");
+                if (!oslDownloadDir.exists()
+                        && !oslDownloadDir.mkdirs()) {
+                    // Failed to create osl directory
+                    // TODO: proceed anyway?
+                    return null;
+                }
+                json.put("ObfuscatedServerListDownloadDirectory", oslDownloadDir.getAbsolutePath());
 
                 // This number is an arbitrary guess at what might be the "best" balance between
                 // wake-lock-battery-burning and successful upgrade downloading.
