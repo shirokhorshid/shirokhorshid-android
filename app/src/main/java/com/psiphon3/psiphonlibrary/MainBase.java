@@ -377,6 +377,7 @@ public abstract class MainBase {
                     // More Options preferences
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithSound), getString(R.string.preferenceNotificationsWithSound)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithVibrate), getString(R.string.preferenceNotificationsWithVibrate)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpnString), getString(R.string.preferenceExcludeAppsFromVpnString)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.useProxySettingsPreference), getString(R.string.useProxySettingsPreference)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.useSystemProxySettingsPreference), getString(R.string.useSystemProxySettingsPreference)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsPreference), getString(R.string.useCustomProxySettingsPreference)),
@@ -1020,8 +1021,15 @@ public abstract class MainBase {
             return false;
         }
 
-        private boolean isProxySettingsRestartRequired() {
+        private boolean isSettingsRestartRequired() {
             SharedPreferences prefs = getSharedPreferences(getString(R.string.moreOptionsPreferencesName), MODE_PRIVATE);
+
+            // check if "excluded apps" list has changed
+            String spExcludedAppsString = prefs.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+            if (!spExcludedAppsString.equals(m_multiProcessPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), ""))) {
+                return true;
+            }
+
 
             // check if "use proxy" has changed
             boolean useHTTPProxyPreference = prefs.getBoolean(getString(R.string.useProxySettingsPreference),
@@ -1089,13 +1097,14 @@ public abstract class MainBase {
             } else if (request == REQUEST_CODE_PREFERENCE) {
 
                 // Verify if restart is required before saving new settings
-                boolean bRestartRequired = isProxySettingsRestartRequired();
+                boolean bRestartRequired = isSettingsRestartRequired();
 
                 // Import 'More Options' values to tray preferences
                 String prefName = getString(R.string.moreOptionsPreferencesName);
                 m_multiProcessPreferences.migrate(
                         new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithSound), getString(R.string.preferenceNotificationsWithSound)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithVibrate), getString(R.string.preferenceNotificationsWithVibrate)),
+                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpnString), getString(R.string.preferenceExcludeAppsFromVpnString)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.downloadWifiOnlyPreference), getString(R.string.downloadWifiOnlyPreference)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.disableTimeoutsPreference), getString(R.string.disableTimeoutsPreference)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.useProxySettingsPreference), getString(R.string.useProxySettingsPreference)),
