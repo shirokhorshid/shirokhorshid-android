@@ -23,6 +23,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.DialogPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -38,10 +39,15 @@ import com.psiphon3.R;
 
 import net.grandcentrix.tray.AppPreferences;
 
-public class MoreOptionsPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener,
-        OnPreferenceClickListener {
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+public class MoreOptionsPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
     CheckBoxPreference mNotificationSound;
     CheckBoxPreference mNotificationVibration;
+    DialogPreference mVpnAppExclusions;
     CheckBoxPreference mUseProxy;
     RadioButtonPreference mUseSystemProxy;
     RadioButtonPreference mUseCustomProxy;
@@ -61,12 +67,14 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
         PreferenceManager prefMgr = getPreferenceManager();
         prefMgr.setSharedPreferencesName(getString(R.string.moreOptionsPreferencesName));
 
-
         addPreferencesFromResource(R.xml.preferences);
         PreferenceScreen preferences = getPreferenceScreen();
 
         mNotificationSound = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithSound));
         mNotificationVibration = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithVibrate));
+
+        mVpnAppExclusions = (DialogPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
+
         mUseProxy = (CheckBoxPreference) preferences.findPreference(getString(R.string.useProxySettingsPreference));
         mUseSystemProxy = (RadioButtonPreference) preferences
                 .findPreference(getString(R.string.useSystemProxySettingsPreference));
@@ -93,6 +101,27 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
 
         mNotificationSound.setChecked(mpPreferences.getBoolean(getString(R.string.preferenceNotificationsWithSound), false));
         mNotificationVibration.setChecked(mpPreferences.getBoolean(getString(R.string.preferenceNotificationsWithVibrate), false));
+
+        // R.xml.preferences is conditionally loaded at API version 11 and higher from the xml-v11 folder
+        // If it isn't null here, we can reasonably assume it can be cast to our MultiSelectListPreference
+        if (mVpnAppExclusions != null) {
+            String excludedValuesFromPreference = mpPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+
+            SharedPreferences.Editor e = preferences.getEditor();
+            e.putString(getString(R.string.preferenceExcludeAppsFromVpnString), excludedValuesFromPreference);
+            // Use commit (sync) instead of apply (async) to prevent possible race with restarting
+            // the tunnel happening before the value is fully persisted to shared preferences
+            e.commit();
+
+            if (!excludedValuesFromPreference.isEmpty()) {
+                Set<String> excludedValuesSet = new HashSet<>(Arrays.asList(excludedValuesFromPreference.split(",")));
+                ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(excludedValuesSet);
+            } else {
+                Set<String> noneExcluded = Collections.emptySet();
+                ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(noneExcluded);
+            }
+        }
+
         mUseProxy.setChecked(mpPreferences.getBoolean(getString(R.string.useProxySettingsPreference), false));
         // set use system proxy preference by default
         mUseSystemProxy.setChecked(mpPreferences.getBoolean(getString(R.string.useSystemProxySettingsPreference), true));
