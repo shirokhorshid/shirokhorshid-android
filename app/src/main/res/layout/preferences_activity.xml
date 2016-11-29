@@ -15,25 +15,37 @@
    GNU General Public License for more details.
  -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="@string/PreferencesActivity.GeneralSettingsCategoryTitle">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<PreferenceCategory android:title="@string/PreferencesActivity.GeneralSettingsCategoryTitle"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 		<Preference
 			android:title="@string/PreferencesActivity.HomePagePreferenceTitle"
 			android:summary="@string/PreferencesActivity.HomePagePreferenceSummary"
-			android:key="GeneralHomePage" />		
+			android:key="GeneralHomePage"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<Preference
 			android:title="@string/PreferencesActivity.SearchUrlPreferenceTitle"
 			android:summary="@string/PreferencesActivity.SearchUrlPreferenceSummary"
-			android:key="GeneralSearchUrl" />
+			android:key="GeneralSearchUrl"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<PreferenceScreen
 			android:key="UIPreferencesScreen"
 			android:title="@string/PreferencesActivity.UIPreferenceTitle"
-			android:summary="@string/PreferencesActivity.UIPreferenceSummary">
+			android:summary="@string/PreferencesActivity.UIPreferenceSummary"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.FullScreenPreferenceTitle"
 				android:defaultValue="false"
 				android:summary="@string/PreferencesActivity.FullScreenPreferenceSummary"
-				android:key="GeneralFullScreen" />
+				android:key="GeneralFullScreen"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<!-- PSIPHON: always show the title bar
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.HideTitleBarPreferenceTitle"
@@ -45,188 +57,262 @@
 				android:title="@string/PreferencesActivity.ShowToastOnTabSwitchPreferenceTitle"
 				android:defaultValue="true"
 				android:summary="@string/PreferencesActivity.ShowToastOnTabSwitchPreferenceSummary"
-				android:key="GeneralShowToastOnTabSwitch" />
+				android:key="GeneralShowToastOnTabSwitch"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<ListPreference
 				android:title="@string/PreferencesActivity.SwitchTabsMethodPreferenceTitle"
 				android:summary="@string/PreferencesActivity.SwitchTabsMethodPreferenceSummary"
 				android:key="GeneralSwitchTabMethod"
 				android:defaultValue="buttons"
 				android:entries="@array/SwitchTabsMethodEntries"
-				android:entryValues="@array/SwitchTabsMethodValues" />
+				android:entryValues="@array/SwitchTabsMethodValues"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<ListPreference
 				android:title="@string/PreferencesActivity.BarDurationPreferenceTitle"
 				android:summary="@string/PreferencesActivity.BarDurationPreferenceSummary"
 				android:key="GeneralBarsDuration"
 				android:defaultValue="3000"
 				android:entries="@array/BarDurationEntries"
-				android:entryValues="@array/BarDurationValues" />
+				android:entryValues="@array/BarDurationValues"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<ListPreference
 				android:title="@string/PreferencesActivity.BubblePositionPreferenceTitle"
 				android:summary="@string/PreferencesActivity.BubblePositionPreferenceSummary"
 				android:key="GeneralBubblePosition"
 				android:defaultValue="right"
 				android:entries="@array/BubblePositionEntries"
-				android:entryValues="@array/BubblePositionValues" />
+				android:entryValues="@array/BubblePositionValues"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<ListPreference
 				android:title="@string/PreferencesActivity.VolumeKeysBehaviourPreferenceTitle"
 				android:summary="@string/PreferencesActivity.VolumeKeysBehaviourPreferenceSummary"
 				android:key="GeneralVolumeKeysBehaviour"
 				android:defaultValue="DEFAULT"
 				android:entries="@array/VolumeKeysActionEntries"
-				android:entryValues="@array/VolumeKeysActionValues" />			
+				android:entryValues="@array/VolumeKeysActionValues"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 		</PreferenceScreen>
 		<PreferenceScreen
 			android:key="StartPageCustomizationPreferencesScreen"
 			android:title="@string/PreferencesActivity.StartPageCustomizationPreferenceTitle"
-			android:summary="@string/PreferencesActivity.StartPageCustomizationPreferenceSummary">
+			android:summary="@string/PreferencesActivity.StartPageCustomizationPreferenceSummary"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.StartPageEnableSearchPreferenceTitle"
 				android:defaultValue="false"
 				android:summary="@string/PreferencesActivity.StartPageEnableSearchPreferenceSummary"
-				android:key="StartPageEnableSearch" />
+				android:key="StartPageEnableSearch"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.StartPageEnableBookmarksPreferenceTitle"
 				android:defaultValue="true"
 				android:summary="@string/PreferencesActivity.StartPageEnableBookmarksPreferenceSummary"
-				android:key="StartPageEnableBookmarks" />
+				android:key="StartPageEnableBookmarks"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<EditTextPreference
 				android:name="@string/PreferencesActivity.StartPageBookmarksLimitPreferenceTitle"
 				android:summary="@string/PreferencesActivity.StartPageBookmarksLimitPreferenceSummary"
 				android:defaultValue="5"
 				android:numeric="integer"
 				android:title="@string/PreferencesActivity.StartPageBookmarksLimitPreferenceTitle"
-				android:key="StartPageBookmarksLimit" />
+				android:key="StartPageBookmarksLimit"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.StartPageEnableHistoryPreferenceTitle"
 				android:defaultValue="true"
 				android:summary="@string/PreferencesActivity.StartPageEnableHistoryPreferenceSummary"
-				android:key="StartPageEnableHistory" />
+				android:key="StartPageEnableHistory"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<EditTextPreference
 				android:name="@string/PreferencesActivity.StartPageHistoryLimitPreferenceTitle"
 				android:summary="@string/PreferencesActivity.StartPageHistoryLimitPreferenceSummary"
 				android:defaultValue="5"
 				android:numeric="integer"
 				android:title="@string/PreferencesActivity.StartPageHistoryLimitPreferenceTitle"
-				android:key="StartPageHistoryLimit" />
+				android:key="StartPageHistoryLimit"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 		</PreferenceScreen> 
 		<PreferenceScreen android:key="WeavePreferencesScreen"
 			android:title="@string/PreferencesActivity.WeavePreferenceTitle"
-			android:summary="@string/PreferencesActivity.WeavePreferenceSummary">
+			android:summary="@string/PreferencesActivity.WeavePreferenceSummary"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.UseWeavePreferenceTitle"
 				android:summary="@string/PreferencesActivity.UseWeavePreferenceSummary"
 				android:defaultValue="false"				
-				android:key="PREFERENCE_USE_WEAVE" />
+				android:key="PREFERENCE_USE_WEAVE"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<Preference
 				android:title="@string/PreferencesActivity.WeaveServerPreferenceTitle"
 				android:summary="@string/PreferencesActivity.WeaveServerPreferenceSummary"
-				android:key="PREFERENCE_WEAVE_SERVER" />
+				android:key="PREFERENCE_WEAVE_SERVER"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<EditTextPreference android:name="@string/PreferencesActivity.WeaveUsernameTitle"
 				android:summary="@string/PreferencesActivity.WeaveUsernameSummary"
 				android:title="@string/PreferencesActivity.WeaveUsernameTitle"
-				android:defaultValue="" android:key="PREFERENCE_WEAVE_USERNAME" />
+				android:defaultValue="" android:key="PREFERENCE_WEAVE_USERNAME"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<EditTextPreference android:name="@string/PreferencesActivity.WeavePasswordTitle"
 				android:summary="@string/PreferencesActivity.WeavePasswordSummary"
 				android:title="@string/PreferencesActivity.WeavePasswordTitle"
-				android:defaultValue="" android:password="true" android:key="PREFERENCE_WEAVE_PASSWORD" />
+				android:defaultValue="" android:password="true" android:key="PREFERENCE_WEAVE_PASSWORD"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<EditTextPreference android:name="@string/PreferencesActivity.WeaveKeyTitle"
 				android:summary="@string/PreferencesActivity.WeaveKeySummary"
 				android:title="@string/PreferencesActivity.WeaveKeyTitle"
-				android:defaultValue="" android:key="PREFERENCE_WEAVE_KEY" />
+				android:defaultValue="" android:key="PREFERENCE_WEAVE_KEY"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 		</PreferenceScreen>
 	</PreferenceCategory>
 	<PreferenceCategory
 		android:key="BrowserPreferenceCategory"
-		android:title="@string/PreferencesActivity.BrowserSettingsCategoryTitle">
+		android:title="@string/PreferencesActivity.BrowserSettingsCategoryTitle"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 		<ListPreference
 			android:title="@string/PreferencesActivity.DefaultZoomPreferenceTitle"
 			android:summary="@string/PreferencesActivity.DefaultZoomPreferenceSummary"
 			android:key="DefaultZoomLevel"
 			android:defaultValue="MEDIUM"
 			android:entries="@array/DefaultZoomEntries"
-			android:entryValues="@array/DefaultZoomValues" />
+			android:entryValues="@array/DefaultZoomValues"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<Preference
 			android:title="@string/PreferencesActivity.UserAgentPreferenceTitle"
 			android:summary="@string/PreferencesActivity.UserAgentPreferenceSummary"
-			android:key="BrowserUserAgent" />	
+			android:key="BrowserUserAgent"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<CheckBoxPreference
 			android:title="@string/PreferencesActivity.EnableJavascriptPreferenceTitle"
 			android:defaultValue="true"
 			android:summary="@string/PreferencesActivity.EnableJavascriptPreferenceSummary"
-			android:key="BrowserEnableJavascript" />
+			android:key="BrowserEnableJavascript"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<CheckBoxPreference
 			android:title="@string/PreferencesActivity.LoadImagesPreferenceTitle"
 			android:defaultValue="true"
 			android:summary="@string/PreferencesActivity.LoadImagesPreferenceSummary"
-			android:key="BrowserEnableImages" />
+			android:key="BrowserEnableImages"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<CheckBoxPreference
 			android:title="@string/PreferencesActivity.UseWideViewPortPreferenceTitle"
 			android:defaultValue="true"
 			android:summary="@string/PreferencesActivity.UseWideViewPortPreferenceSummary"
-			android:key="BrowserUseWideViewPort" />
+			android:key="BrowserUseWideViewPort"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<CheckBoxPreference
 			android:title="@string/PreferencesActivity.LoadWithOverviewPreferenceTitle"
 			android:defaultValue="true"
 			android:summary="@string/PreferencesActivity.LoadWithOverviewPreferenceSummary"
-			android:key="BrowserLoadWithOverview" />
+			android:key="BrowserLoadWithOverview"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<CheckBoxPreference
 			android:title="@string/PreferencesActivity.EnableRestoreLastPagePreferenceTitle"			
 			android:summary="@string/PreferencesActivity.EnableRestoreLastPagePreferenceSummary"
 			android:defaultValue="true"
-			android:key="PREFERENCES_BROWSER_RESTORE_LAST_PAGE" />
+			android:key="PREFERENCES_BROWSER_RESTORE_LAST_PAGE"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<CheckBoxPreference
 			android:title="@string/PreferencesActivity.EnablePluginsTitle"
 			android:defaultValue="true"
-			android:key="BrowserEnablePluginsEclair" />
+			android:key="BrowserEnablePluginsEclair"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<ListPreference
 			android:title="@string/PreferencesActivity.EnablePluginsTitle"
 			android:key="BrowserEnablePlugins"
 			android:defaultValue="ON_DEMAND"
 			android:entries="@array/PluginsEntries"
-			android:entryValues="@array/PluginsValues" />		
+			android:entryValues="@array/PluginsValues"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 		<PreferenceScreen
 			android:key="PrivacyPreferencesScreen"
 			android:title="@string/PreferencesActivity.PrivacyPreferenceTitle"
-			android:summary="@string/PreferencesActivity.PrivacyPreferenceSummary">
+			android:summary="@string/PreferencesActivity.PrivacyPreferenceSummary"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
 			<EditTextPreference
 				android:name="@string/PreferencesActivity.HistorySizePreferenceTitle"
 				android:summary="@string/PreferencesActivity.HistorySizePreferenceSummary"
 				android:defaultValue="90"
 				android:numeric="integer"
 				android:title="@string/PreferencesActivity.HistorySizePreferenceTitle"
-				android:key="BrowserHistorySize" />
+				android:key="BrowserHistorySize"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.EnableFormDataPreferenceTitle"
 				android:defaultValue="true"
 				android:summary="@string/PreferencesActivity.EnableFormDataPreferenceSummary"
-				android:key="BrowserEnableFormData" />
+				android:key="BrowserEnableFormData"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.EnablePasswordsPreferenceTitle"
 				android:defaultValue="true"
 				android:summary="@string/PreferencesActivity.EnablePasswordsPreferenceSummary"
-				android:key="BrowserEnablePasswords" />
+				android:key="BrowserEnablePasswords"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.EnableCookiesPreferenceTitle"
 				android:defaultValue="true"
 				android:summary="@string/PreferencesActivity.EnableCookiesPreferenceSummary"
-				android:key="BrowserEnableCookies" />
+				android:key="BrowserEnableCookies"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<CheckBoxPreference
 				android:title="@string/PreferencesActivity.ClearCacheOnExitPreferenceTitle"
 				android:defaultValue="false"
 				android:summary="@string/PreferencesActivity.ClearCacheOnExitPreferenceSummary"
-				android:key="PrivacyClearCacheOnExit" />
+				android:key="PrivacyClearCacheOnExit"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<Preference
 				android:title="@string/PreferencesActivity.PrivacyClearHistoryTitle"
-				android:key="PrivacyClearHistory" />
+				android:key="PrivacyClearHistory"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<Preference
 				android:title="@string/PreferencesActivity.PrivacyClearFormDataTitle"
-				android:key="PrivacyClearFormData" />
+				android:key="PrivacyClearFormData"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<Preference
 				android:title="@string/PreferencesActivity.PrivacyClearCacheTitle"
-				android:key="PrivacyClearCache" />
+				android:key="PrivacyClearCache"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 			<Preference
 				android:title="@string/PreferencesActivity.PrivacyClearCookiesTitle"
-				android:key="PrivacyClearCookies" />
+				android:key="PrivacyClearCookies"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent" />
 		</PreferenceScreen>	   
 	</PreferenceCategory>
 	<!-- PSIPHON: Disable AdBlocker
@@ -242,35 +328,53 @@
 			android:key="AdBlockerWhiteList" />
 	</PreferenceCategory>
     -->
-	<PreferenceCategory android:title="@string/PreferencesActivity.MobileViewCategoryTitle">
+	<PreferenceCategory android:title="@string/PreferencesActivity.MobileViewCategoryTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
 		<Preference
 			android:title="@string/PreferencesActivity.MobileViewListPreferenceTitle"
 			android:summary="@string/PreferencesActivity.MobileViewListPreferenceSummary"
-			android:key="MobileViewList" />
+			android:key="MobileViewList"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
 	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/PreferencesActivity.DesktopViewCategoryTitle">
+	<PreferenceCategory android:title="@string/PreferencesActivity.DesktopViewCategoryTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
 		<Preference
 			android:title="@string/PreferencesActivity.DesktopViewListPreferenceTitle"
 			android:summary="@string/PreferencesActivity.DesktopViewListPreferenceSummary"
-			android:key="DesktopViewList" />
+			android:key="DesktopViewList"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
 	</PreferenceCategory>
-		<PreferenceCategory android:title="@string/PreferencesActivity.AdvancedCategoryTitle">
+		<PreferenceCategory android:title="@string/PreferencesActivity.AdvancedCategoryTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
     	<PreferenceScreen
             android:key="ToolsHistoryBookmarksPreferencesScreen"
             android:title="@string/PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle"
-            android:summary="@string/PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">        
+            android:summary="@string/PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
     		<Preference
 				android:title="@string/PreferencesActivity.ExportHistoryBookmarksPreferenceTitle"
 				android:summary="@string/PreferencesActivity.ExportHistoryBookmarksPreferenceSummary"
-				android:key="ExportHistoryBookmarks" />
+				android:key="ExportHistoryBookmarks"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 			<Preference
 				android:title="@string/PreferencesActivity.ImportHistoryBookmarksPreferenceTitle"
 				android:summary="@string/PreferencesActivity.ImportHistoryBookmarksPreferenceSummary"
-				android:key="ImportHistoryBookmarks" />
+				android:key="ImportHistoryBookmarks"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
 			<Preference
                 android:title="@string/PreferencesActivity.PrivacyClearHistoryBookmarksTitle"
                 android:summary="@string/PreferencesActivity.SummaryCannotBeUndone"
-                android:key="ClearHistoryBookmarks" />
+                android:key="ClearHistoryBookmarks"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
         </PreferenceScreen>
 <!--        <ListPreference
 			android:title="@string/PreferencesActivity.BookmarksDatabaseTitle"
@@ -286,14 +390,20 @@
             android:summary="@string/PreferencesActivity.EnableProxySettingsSummary" />
 -->
     </PreferenceCategory>
-	<PreferenceCategory android:title="@string/PreferencesActivity.AboutCategoryTitle">
+	<PreferenceCategory android:title="@string/PreferencesActivity.AboutCategoryTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
 		<Preference
 			android:title="@string/PreferencesActivity.AboutPreferenceTitle"
 			android:summary="@string/PreferencesActivity.AboutPreferenceSummary"
-			android:key="About" />
+			android:key="About"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
 		<Preference
 			android:title="@string/PreferencesActivity.ChangelogPreferenceTitle"
 			android:summary="@string/PreferencesActivity.ChangelogPreferenceSummary"
-			android:key="Changelog" />
+			android:key="Changelog"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
 	</PreferenceCategory>
 </PreferenceScreen>
