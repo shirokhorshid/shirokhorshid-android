@@ -40,6 +40,7 @@
   <string name="ServerInterface.HTTPSRequestFailed">Ошибка HTTPS запроса: </string>
   <string name="socks_ports_failed">Не удалось запустить SOCKS прокси: нет свободных портов</string>
   <string name="http_proxy_ports_failed">Не удалось запустить HTTP прокси: нет свободных портов</string>
+  <string name="socks_port_in_use">Запрошенный порт локального SOCKS прокси %d используется другим приложением. Нельзя продолжить.</string>
   <string name="transparent_proxy_running">Transparent прокси запущен на порту %d</string>
   <string name="transparent_proxy_ports_failed">Не удалось запустить transparent прокси: нет свободных портов</string>
   <string name="transparent_proxy_command_failed">Ошибка комманды конфигурации transparent прокси: %s</string>
@@ -129,6 +130,8 @@
   <string name="region_name_nl">Нидерланды</string>
   <string name="about">Что такое Psiphon</string>
   <string name="feedback">Отзыв</string>
+  <string name="tunnel_whole_device_toggle">Туннелировать все интернет соединения (требует Android 4.0+)</string>
+  <string name="disable_timeouts">Отключение лимита времени соединения для медленных сетей</string>
   <string name="region_selector">Выберите регион</string>
   <string name="network_proxy_connect_exception">Ошибка соединения с HTTP прокси сети: %s</string>
   <string name="network_proxy_connect_information">Подключение через ваш HTTP Proxy: %s</string>
@@ -142,9 +145,29 @@
   <string name="preference_notifications_with_sound_summary">Воспроизводить звук при изменении статуса подключения</string>
   <string name="preference_notifications_with_vibrate_title">Вибрация</string>
   <string name="preference_notifications_with_vibrate_summary">Вибрировать при изменении статуса подключения</string>
+  <string name="preference_download_wifi_only_toggle">Скачать обновления только по WiFi</string>
   <string name="moreOptions">Другие настройки</string>
   <string name="root_mode_not_supported">Режим root не поддерживается на этой версии Android</string>
+  <string name="proxySettingsCategoryTitle">Настройки прокси</string>
+  <string name="custom_proxy_host_summary">Имя хоста прокси-сервера или IP</string>
+  <string name="custom_proxy_port_summary">Порт прокси-сервера</string>
+  <string name="use_proxy_authentication_title">Использовать аутентификацию прокси</string>
+  <string name="proxy_username_title">Имя пользователя для прокси</string>
+  <string name="proxy_username_summary">Имя пользователя для аутентификации прокси</string>
+  <string name="proxy_password_title">Пароль для прокси</string>
+  <string name="proxy_password_summary">Пароль для аутентификации прокси</string>
+  <string name="proxy_domain_title">Домен прокси</string>
+  <string name="proxy_domain_summary">Домен для аутентификации прокси</string>
+  <string name="http_proxy_port_in_use">Запрошенный локальный HTTP прокси порт %d уже используется другим приложением. Нельзя продолжить.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Регион раздельного туннелирования: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">Нетуннелированное: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">Ошибка внешнего прокси: %s</string>
+  <string name="diagnostic">Диагностика: %s</string>
+  <string name="start_tunnel_failed">Начать туннель не удалось: %s</string>
+  <string name="tunnel_connecting">Идет соединение туннеля…</string>
+  <string name="tunnel_connected">Соединение туннеля установлено</string>
+  <string name="waiting">Ожидание…</string>
 </resources>
