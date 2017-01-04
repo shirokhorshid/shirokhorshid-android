@@ -154,6 +154,12 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
             PROPAGATION_CHANNEL_ID = mpPreferences.getString(PROPAGATION_CHANNEL_ID_PREFERENCE, PROPAGATION_CHANNEL_ID);
             SPONSOR_ID = mpPreferences.getString(SPONSOR_ID_PREFERENCE, SPONSOR_ID);
             REMOTE_SERVER_LIST_URL = mpPreferences.getString(REMOTE_SERVER_LIST_URL_PREFERENCE, REMOTE_SERVER_LIST_URL);
+
+            // Workaround: older persisted RSL URLs don't reference the new compressed resource used by tunnel-core
+            if (REMOTE_SERVER_LIST_URL.endsWith("server_list")) {
+                REMOTE_SERVER_LIST_URL += "_compressed";
+            }
+
             REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY = mpPreferences.getString(REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY_PREFERENCE, REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY);
             INFO_LINK_URL = mpPreferences.getString(INFO_LINK_URL_PREFERENCE, INFO_LINK_URL);
             UPGRADE_URL = mpPreferences.getString(UPGRADE_URL_PREFERENCE, UPGRADE_URL);
