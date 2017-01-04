@@ -144,6 +144,12 @@
     <string name="wdm_force_iptables_toggle">Force root Tunnel Whole Device method</string>
     <string name="http_prefix_toggle">Masquerade as HTTP</string>
     <string name="preference_notifications_title">Notifications</string>
+    <string name="preference_routing_title">Routing</string>
+    <string name="preference_routing_exclude_apps_title">Exclude Apps</string>
+    <string name="preference_routing_exclude_apps_summary">Prevent chosen apps from being tunnelled</string>
+    <string name="preference_routing_exclude_apps_ok_button_text">Set</string>
+    <string name="individual_app_excluded">App excluded from tunnel: %s</string>
+    <string name="no_apps_excluded">No applications were excluded from the tunnel</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>
     <string name="preference_notifications_with_vibrate_title">Vibrate</string>
@@ -178,4 +184,6 @@
     <string name="tunnel_connected">Tunnel connected</string>
     <string name="waiting">Waiting…</string>
 
+    <!-- Empty string array to initialize things that will be programatically populated later -->
+    <string-array name="empty_array"/>
 </resources>
