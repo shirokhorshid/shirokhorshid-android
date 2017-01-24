@@ -163,11 +163,11 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
             // Note: there was no OBFUSCATED_SERVER_LIST_ROOT_URL_PREFERENCE
             String jsonFormat = "[{\"URL\": \"%s\", \"OnlyAfterAttempts\" : 0, \"SkipVerify\" : false}]";
             if (remoteServerListUrl.length() > 0 && mpPreferences.getString(REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE, "").length() == 0) {
-                mpPreferences.put(REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE, String.format(jsonFormat, remoteServerListUrl));
+                mpPreferences.put(REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE, String.format(jsonFormat, Utils.Base64.encode(remoteServerListUrl)));
             }
             String upgradeUrl = mpPreferences.getString(UPGRADE_URL_PREFERENCE, "");
             if (upgradeUrl.length() > 0 && mpPreferences.getString(UPGRADE_URLS_JSON_PREFERENCE, "").length() == 0) {
-                mpPreferences.put(UPGRADE_URLS_JSON_PREFERENCE, String.format(jsonFormat, upgradeUrl));
+                mpPreferences.put(UPGRADE_URLS_JSON_PREFERENCE, String.format(jsonFormat, Utils.Base64.encode(upgradeUrl)));
             }
 
             PROPAGATION_CHANNEL_ID = mpPreferences.getString(PROPAGATION_CHANNEL_ID_PREFERENCE, PROPAGATION_CHANNEL_ID);
