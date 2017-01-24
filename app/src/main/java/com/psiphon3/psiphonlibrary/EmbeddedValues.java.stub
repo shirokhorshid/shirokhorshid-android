@@ -42,11 +42,11 @@ cog.outl('public static final boolean IS_PLAY_STORE_BUILD = %s;' % ('true' if ut
 cog.outl('public static final String HOME_TAB_URL_EXCLUSIONS[] = {"%s"};' % utils.get_embedded_value(buildname, 'HOME_TAB_URL_EXCLUSIONS'))
 cog.outl('public static String PROPAGATION_CHANNEL_ID = "%s";' % utils.get_embedded_value(buildname, 'PROPAGATION_CHANNEL_ID'))
 cog.outl('public static String SPONSOR_ID = "%s";' % utils.get_embedded_value(buildname, 'SPONSOR_ID'))
-cog.outl('public static String REMOTE_SERVER_LIST_URL = "%s";' % utils.get_embedded_value(buildname, 'REMOTE_SERVER_LIST_URL'))
-cog.outl('public static String OBFUSCATED_SERVER_LIST_ROOT_URL = "%s";' % utils.get_embedded_value(buildname, 'OBFUSCATED_SERVER_LIST_ROOT_URL'))
+cog.outl('public static String REMOTE_SERVER_LIST_URLS_JSON = "%s";' % utils.get_embedded_value(buildname, 'REMOTE_SERVER_LIST_URLS_JSON'))
+cog.outl('public static String OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON = "%s";' % utils.get_embedded_value(buildname, 'OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON'))
 cog.outl('public static String REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY = "%s";' % utils.get_embedded_value(buildname, 'REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY'))
 cog.outl('public static String INFO_LINK_URL = "%s";' % utils.get_embedded_value(buildname, 'INFO_LINK_URL'))
-cog.outl('public static String UPGRADE_URL = "%s";' % utils.get_embedded_value(buildname, 'UPGRADE_URL'))
+cog.outl('public static String UPGRADE_URLS_JSON = "%s";' % utils.get_embedded_value(buildname, 'UPGRADE_URLS_JSON'))
 cog.outl('public static String UPGRADE_SIGNATURE_PUBLIC_KEY = "%s";' % utils.get_embedded_value(buildname, 'UPGRADE_SIGNATURE_PUBLIC_KEY'))
 cog.outl('public static String GET_NEW_VERSION_URL = "%s";' % utils.get_embedded_value(buildname, 'GET_NEW_VERSION_URL'))
 cog.outl('public static String GET_NEW_VERSION_EMAIL = "%s";' % utils.get_embedded_value(buildname, 'GET_NEW_VERSION_EMAIL'))
@@ -82,13 +82,15 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
 
     public static String SPONSOR_ID = "";
 
-    public static String REMOTE_SERVER_LIST_URL = "https://s3.amazonaws.com/invalid_bucket_name/server_entries";
+    public static String REMOTE_SERVER_LIST_URLS_JSON = "{}";
     public static String REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY = "";
+
+    public static String OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON = "{}";
 
     // NOTE: Info link may be opened when not tunneled
     public static String INFO_LINK_URL = "https://sites.google.com/a/psiphon3.com/psiphon3/";
 
-    public static String UPGRADE_URL = "";
+    public static String UPGRADE_URLS_JSON = "{}";
     public static String UPGRADE_SIGNATURE_PUBLIC_KEY = "";
 
     // To be shown to the user in the feedback page.
@@ -102,9 +104,12 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
     private static final String PROPAGATION_CHANNEL_ID_PREFERENCE = "propagationChannelIdPreference";
     private static final String SPONSOR_ID_PREFERENCE = "sponsorIdPreference";
     private static final String REMOTE_SERVER_LIST_URL_PREFERENCE = "remoteServerListUrlPreference";
+    private static final String REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE = "remoteServerListUrlsJsonPreference";
+    private static final String OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON_PREFERENCE = "obfuscatedServerListUrlsJsonPreference";
     private static final String REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY_PREFERENCE = "remoteServerListSignaturePublicKeyPreference";
     private static final String INFO_LINK_URL_PREFERENCE = "infoLinkUrlPreference";
     private static final String UPGRADE_URL_PREFERENCE = "upgradeUrlPreference";
+    private static final String UPGRADE_URLS_JSON_PREFERENCE = "upgradeUrlsJsonPreference";
     private static final String UPGRADE_SIGNATURE_PUBLIC_KEY_PREFERENCE = "upgradeSignaturePublicKeyPreference";
     private static final String GET_NEW_VERSION_URL_PREFERENCE = "getNewVersionUrlPreference";
     private static final String GET_NEW_VERSION_EMAIL_PREREFENCE = "getNewVersionEmailPreference";
@@ -113,11 +118,11 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
 
  public static void initialize(Context context)
     {
-
         // migrate existing values to Tray
         AppPreferences mpPreferences = new AppPreferences(context);
-        String prefFileName =  context.getPackageName() + "_preferences";
+        String prefFileName = context.getPackageName() + "_preferences";
 
+        // Note: *_URLS_JSON parameters were added after Tray and are not migrated
         mpPreferences.migrate(
                 new SharedPreferencesImport(context, prefFileName, PROPAGATION_CHANNEL_ID_PREFERENCE, PROPAGATION_CHANNEL_ID_PREFERENCE),
                 new SharedPreferencesImport(context, prefFileName, SPONSOR_ID_PREFERENCE, SPONSOR_ID_PREFERENCE),
@@ -132,37 +137,46 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
                 new SharedPreferencesImport(context, prefFileName, DATA_COLLECTION_INFO_URL_PREFERENCE, DATA_COLLECTION_INFO_URL_PREFERENCE)
         );
 
-
-
-
-        if (!IS_PLAY_STORE_BUILD)
-        {
+        if (!IS_PLAY_STORE_BUILD) {
             mpPreferences.put(PROPAGATION_CHANNEL_ID_PREFERENCE, PROPAGATION_CHANNEL_ID);
             mpPreferences.put(SPONSOR_ID_PREFERENCE, SPONSOR_ID);
-            mpPreferences.put(REMOTE_SERVER_LIST_URL_PREFERENCE, REMOTE_SERVER_LIST_URL);
+            mpPreferences.put(REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE, REMOTE_SERVER_LIST_URLS_JSON);
+            mpPreferences.put(OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON_PREFERENCE, OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON);
             mpPreferences.put(REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY_PREFERENCE, REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY);
             mpPreferences.put(INFO_LINK_URL_PREFERENCE, INFO_LINK_URL);
-            mpPreferences.put(UPGRADE_URL_PREFERENCE, UPGRADE_URL);
+            mpPreferences.put(UPGRADE_URLS_JSON_PREFERENCE, UPGRADE_URLS_JSON);
             mpPreferences.put(UPGRADE_SIGNATURE_PUBLIC_KEY_PREFERENCE, UPGRADE_SIGNATURE_PUBLIC_KEY);
             mpPreferences.put(GET_NEW_VERSION_URL_PREFERENCE, GET_NEW_VERSION_URL);
             mpPreferences.put(GET_NEW_VERSION_EMAIL_PREREFENCE, GET_NEW_VERSION_EMAIL);
             mpPreferences.put(FAQ_URL_PREFERENCE, FAQ_URL);
             mpPreferences.put(DATA_COLLECTION_INFO_URL_PREFERENCE, DATA_COLLECTION_INFO_URL);
-        }
-        else
-        {
-            PROPAGATION_CHANNEL_ID = mpPreferences.getString(PROPAGATION_CHANNEL_ID_PREFERENCE, PROPAGATION_CHANNEL_ID);
-            SPONSOR_ID = mpPreferences.getString(SPONSOR_ID_PREFERENCE, SPONSOR_ID);
-            REMOTE_SERVER_LIST_URL = mpPreferences.getString(REMOTE_SERVER_LIST_URL_PREFERENCE, REMOTE_SERVER_LIST_URL);
+        } else {
 
             // Workaround: older persisted RSL URLs don't reference the new compressed resource used by tunnel-core
-            if (REMOTE_SERVER_LIST_URL.endsWith("server_list")) {
-                REMOTE_SERVER_LIST_URL += "_compressed";
+            String remoteServerListUrl = mpPreferences.getString(REMOTE_SERVER_LIST_URL_PREFERENCE, "");
+            if (remoteServerListUrl.endsWith("server_list")) {
+                remoteServerListUrl += "_compressed";
+                mpPreferences.getString(REMOTE_SERVER_LIST_URL_PREFERENCE, remoteServerListUrl);
             }
 
+            // Migrate legacy persistent *_URL parameters to *_URL_JSON format
+            // Note: there was no OBFUSCATED_SERVER_LIST_ROOT_URL_PREFERENCE
+            String jsonFormat = "[{\"URL\": \"%s\", \"OnlyAfterAttempts\" : 0, \"SkipVerify\" : false}]";
+            if (remoteServerListUrl.length() > 0 && mpPreferences.getString(REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE, "").length() == 0) {
+                mpPreferences.put(REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE, String.format(jsonFormat, remoteServerListUrl));
+            }
+            String upgradeUrl = mpPreferences.getString(UPGRADE_URL_PREFERENCE, "");
+            if (upgradeUrl.length() > 0 && mpPreferences.getString(UPGRADE_URLS_JSON_PREFERENCE, "").length() == 0) {
+                mpPreferences.put(UPGRADE_URLS_JSON_PREFERENCE, String.format(jsonFormat, upgradeUrl));
+            }
+
+            PROPAGATION_CHANNEL_ID = mpPreferences.getString(PROPAGATION_CHANNEL_ID_PREFERENCE, PROPAGATION_CHANNEL_ID);
+            SPONSOR_ID = mpPreferences.getString(SPONSOR_ID_PREFERENCE, SPONSOR_ID);
+            REMOTE_SERVER_LIST_URLS_JSON = mpPreferences.getString(REMOTE_SERVER_LIST_URLS_JSON_PREFERENCE, REMOTE_SERVER_LIST_URLS_JSON);
+            OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON = mpPreferences.getString(OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON_PREFERENCE, OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON);
             REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY = mpPreferences.getString(REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY_PREFERENCE, REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY);
             INFO_LINK_URL = mpPreferences.getString(INFO_LINK_URL_PREFERENCE, INFO_LINK_URL);
-            UPGRADE_URL = mpPreferences.getString(UPGRADE_URL_PREFERENCE, UPGRADE_URL);
+            UPGRADE_URLS_JSON = mpPreferences.getString(UPGRADE_URLS_JSON_PREFERENCE, UPGRADE_URLS_JSON);
             UPGRADE_SIGNATURE_PUBLIC_KEY = mpPreferences.getString(UPGRADE_SIGNATURE_PUBLIC_KEY_PREFERENCE, UPGRADE_SIGNATURE_PUBLIC_KEY);
             GET_NEW_VERSION_URL = mpPreferences.getString(GET_NEW_VERSION_URL_PREFERENCE, GET_NEW_VERSION_URL);
             GET_NEW_VERSION_EMAIL = mpPreferences.getString(GET_NEW_VERSION_EMAIL_PREREFENCE, GET_NEW_VERSION_EMAIL);
