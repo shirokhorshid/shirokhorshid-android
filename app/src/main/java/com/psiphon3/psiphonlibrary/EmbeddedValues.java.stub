@@ -153,7 +153,7 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
         {
             AppPreferences mpPreferences = new AppPreferences(context);
             try {
-                mpPreferences.getString(PROPAGATION_CHANNEL_ID_PREFERENCE);
+                mpPreferences.getString(SPONSOR_ID_PREFERENCE);
             } catch (ItemNotFoundException e) {
                 return false;
             }
