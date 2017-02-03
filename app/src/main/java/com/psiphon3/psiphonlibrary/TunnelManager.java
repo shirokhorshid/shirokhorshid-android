@@ -650,7 +650,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             if (UpgradeChecker.upgradeCheckNeeded(context)) {
 
-                json.put("UpgradeDownloadURLs", new JSONObject(EmbeddedValues.UPGRADE_URLS_JSON));
+                json.put("UpgradeDownloadURLs", new JSONArray(EmbeddedValues.UPGRADE_URLS_JSON));
 
                 json.put("UpgradeDownloadClientVersionHeader", "x-amz-meta-psiphon-client-version");
 
@@ -662,9 +662,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             json.put("SponsorId", EmbeddedValues.SPONSOR_ID);
 
-            json.put("RemoteServerListURLs", new JSONObject(EmbeddedValues.REMOTE_SERVER_LIST_URLS_JSON));
+            json.put("RemoteServerListURLs", new JSONArray(EmbeddedValues.REMOTE_SERVER_LIST_URLS_JSON));
 
-            json.put("ObfuscatedServerListRootURLs", new JSONObject(EmbeddedValues.OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON));
+            json.put("ObfuscatedServerListRootURLs", new JSONArray(EmbeddedValues.OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON));
 
             json.put("RemoteServerListSignaturePublicKey", EmbeddedValues.REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY);
 
