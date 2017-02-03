@@ -75,11 +75,11 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
 
     public static final String PROPAGATION_CHANNEL_ID = "";
 
-    public static final String REMOTE_SERVER_LIST_URLS_JSON = "{}";
+    public static final String REMOTE_SERVER_LIST_URLS_JSON = "[]";
     public static final String REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY = "";
-    public static final String OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON = "{}";
+    public static final String OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON = "[]";
 
-    public static final String UPGRADE_URLS_JSON = "{}";
+    public static final String UPGRADE_URLS_JSON = "[]";
     public static final String UPGRADE_SIGNATURE_PUBLIC_KEY = "";
 
     // Following embedded values may be overridden with values from Preferences. This is to prevent
