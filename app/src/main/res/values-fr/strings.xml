@@ -11,11 +11,11 @@
   <string name="open_browser">Ouvrir le navigateur</string>
   <string name="browser_task_label">Navigateur Psiphon</string>
   <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des informations complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, veuillez envoyer un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
-  <string name="FeedbackActivity.Success">Merci pour vos commentaires</string>
+  <string name="FeedbackActivity.Success">Merci pour votre rétroaction</string>
   <string name="FeedbackActivity.Failure">L\'envoi a échoué. Veuillez ressayer.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Échec lors de l\'envoi de vos commentaires</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Paramètres d\'URL invalides dans l\'envoi du formulaire de commentaires</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Échec lors du chargement du contenu de la page de commentaires</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Échec d\'envoi de votre rétroaction</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Paramètres d\'URL invalides dans l\'envoi du formulaire de rétroaction</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Échec de récupération du contenu de la page de rétroaction</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnelliser tout l\'appareil\u00A0?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La tunnellisation intégrale est possible pour votre appareil.\n\nAvec ette option, tout le trafic Internet de toutes vos applis, incluant tous les navigateurs, sera tunnellisé par Psiphon.\n\nVous pouvez autrement choisir de ne tunnelliser que le trafic du navigateur Psiphon, toutes les autres applis se connectant directement par votre connexion Internet habituelle.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tout l\'appareil</string>
