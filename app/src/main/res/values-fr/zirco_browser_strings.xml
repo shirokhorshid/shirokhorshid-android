@@ -3,7 +3,7 @@
   <string name="ApplicationName">Navigateur Psiphon</string>
   <string name="ApplicationNameUrl">Psiphon - %s</string>
   <string name="ApplicationDescription">Le navigateur Psiphon est un navigateur libre pour Android basé sur le navigateur Zirco.</string>
-  <string name="AboutActivity.Title">À propos de l\'appli</string>
+  <string name="AboutActivity.Title">À propos</string>
   <string name="AboutActivity.VersionText">Version :</string>
   <string name="AboutActivity.LicenseText">Licence :</string>
   <string name="Main.MenuAddBookmark">Ajouter un signet</string>
@@ -107,8 +107,8 @@
   <string name="Commons.SDCardErrorNoSDMsg">Aucune carte SD trouvée.</string>
   <string name="Commons.SDCardErrorSDUnavailable">La carte SD n\'est pas disponible.</string>
   <string name="Commons.Close">Fermer</string>
-  <string name="PreferencesActivity.AboutCategoryTitle">À propos de l\'appli</string>
-  <string name="PreferencesActivity.AboutPreferenceTitle">À propos de l\'appli</string>
+  <string name="PreferencesActivity.AboutCategoryTitle">À propos</string>
+  <string name="PreferencesActivity.AboutPreferenceTitle">À propos</string>
   <string name="PreferencesActivity.AboutPreferenceSummary">Informations sur cette application.</string>
   <string name="BookmarksListActivity.MostUsedSortMode">Plus utilisé</string>
   <string name="PreferencesActivity.DefaultZoomPreferenceTitle">Niveau de zoom par défaut</string>
@@ -317,5 +317,5 @@
   <string name="DesktopViewListActivity.ListEmpty">La liste est vide.</string>
   <string name="DesktopViewListActivity.AddMessage">Ajouter un site Web</string>
   <string name="DesktopViewListActivity.ClearMessage">Effacer tous les sites</string>
-  <string name="Main.MenuFeedback">Commentaire</string>
+  <string name="Main.MenuFeedback">Rétroaction</string>
 </resources>
