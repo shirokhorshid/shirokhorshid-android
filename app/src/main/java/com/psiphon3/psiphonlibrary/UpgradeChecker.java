@@ -185,7 +185,7 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
      * @return true if the app is allowed to self-upgrade, false otherwise.
      */
     private static boolean allowedToSelfUpgrade(Context appContext) {
-        if (EmbeddedValues.UPGRADE_URL.length() == 0) {
+        if (EmbeddedValues.UPGRADE_URLS_JSON.length() == "[]".length()) {
             // We don't know where to find an upgrade.
             return false;
         }
