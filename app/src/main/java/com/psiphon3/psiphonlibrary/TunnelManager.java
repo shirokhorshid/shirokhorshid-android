@@ -542,6 +542,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             sendClientMessage(MSG_TUNNEL_STOPPING, null);
 
+            // If a client registers with the service at this point, it should be given a tunnel
+            // state bundle (specifically DATA_TUNNEL_STATE_IS_CONNECTED) that is consistent with
+            // the MSG_TUNNEL_STOPPING message it just received
+            setIsConnected(false);
+
             m_tunnel.stop();
 
             periodicMaintenanceHandler.removeCallbacks(periodicMaintenance);
