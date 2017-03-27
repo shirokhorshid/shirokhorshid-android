@@ -263,6 +263,7 @@ static void udpgw_client_handler_received (void *unused, BAddr local_addr, BAddr
 
 int g_terminate = 0;
 JNIEnv* g_env = 0;
+int sendKeepAlive = 1;
 
 void PsiphonLog(const char *levelStr, const char *channelStr, const char *msgStr)
 {
@@ -340,6 +341,22 @@ JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_terminateTun2Socks(
     JNIEnv* env)
 {
     __sync_bool_compare_and_swap(&g_terminate, 0, 1);
+    return 0;
+}
+
+JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_disableUdpGwKeepalive(
+    jclass cls,
+    JNIEnv* env)
+{
+    __sync_bool_compare_and_swap(&sendKeepAlive, 1, 0);
+    return 0;
+}
+
+JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_enableUdpGwKeepalive(
+    jclass cls,
+    JNIEnv* env)
+{
+    __sync_bool_compare_and_swap(&sendKeepAlive, 0, 1);
     return 0;
 }
 

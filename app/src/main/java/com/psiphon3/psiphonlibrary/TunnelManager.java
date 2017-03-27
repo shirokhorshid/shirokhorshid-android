@@ -542,6 +542,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             sendClientMessage(MSG_TUNNEL_STOPPING, null);
 
+            // If a client registers with the service at this point, it should be given a tunnel
+            // state bundle (specifically DATA_TUNNEL_STATE_IS_CONNECTED) that is consistent with
+            // the MSG_TUNNEL_STOPPING message it just received
+            setIsConnected(false);
+
             m_tunnel.stop();
 
             periodicMaintenanceHandler.removeCallbacks(periodicMaintenance);
@@ -649,13 +654,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             json.put("ClientVersion", EmbeddedValues.CLIENT_VERSION);
 
             if (UpgradeChecker.upgradeCheckNeeded(context)) {
-                Uri upgradeDownloadUrl = Uri.parse(EmbeddedValues.UPGRADE_URL);
-                upgradeDownloadUrl = upgradeDownloadUrl.buildUpon()
-                        .appendQueryParameter("tunnel_name", tempTunnelName == null ? "main" : tempTunnelName)
-                        .appendQueryParameter("client_version", EmbeddedValues.CLIENT_VERSION)
-                        .appendQueryParameter("client_platform", clientPlatform)
-                        .build();
-                json.put("UpgradeDownloadUrl", upgradeDownloadUrl.toString());
+
+                json.put("UpgradeDownloadURLs", new JSONArray(EmbeddedValues.UPGRADE_URLS_JSON));
 
                 json.put("UpgradeDownloadClientVersionHeader", "x-amz-meta-psiphon-client-version");
 
@@ -667,9 +667,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             json.put("SponsorId", EmbeddedValues.SPONSOR_ID);
 
-            json.put("RemoteServerListUrl", EmbeddedValues.REMOTE_SERVER_LIST_URL);
+            json.put("RemoteServerListURLs", new JSONArray(EmbeddedValues.REMOTE_SERVER_LIST_URLS_JSON));
 
-            json.put("ObfuscatedServerListRootURL", EmbeddedValues.OBFUSCATED_SERVER_LIST_ROOT_URL);
+            json.put("ObfuscatedServerListRootURLs", new JSONArray(EmbeddedValues.OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON));
 
             json.put("RemoteServerListSignaturePublicKey", EmbeddedValues.REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY);
 

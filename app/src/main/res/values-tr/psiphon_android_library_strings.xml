@@ -76,8 +76,8 @@
   <string name="data_transfer_elapsed_time">Bağlantı süresi: %s</string>
   <string name="check_tunnel_failed">Tünel denetimi başarısız. Cihazınız tüm cihazı tünelleme seçeneğini desteklemiyor olabilir.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Geri bildirim tanılama dosyası oluşturma veya yazma başarısız</string>
-  <string name="Diagnostics.EncryptedFailed">Geri bildirim tanıma bilgisi şifreleme başarısız. Bu bilgi geri bildirim e-postasına eklenmeyecek.</string>
+  <string name="Diagnostics.AttachmentWriteFailed">Geribildirim tanılama dosyası oluşturma veya yazma başarısız</string>
+  <string name="Diagnostics.EncryptedFailed">Geribildirim tanıma bilgisi şifreleme başarısız. Bu bilgi geri bildirim e-postasına eklenmeyecek.</string>
   <string name="TransparentProxyConfig.iptablesExtractFailed">Iptables ikilisini çıkartma başarısız.</string>
   <string name="transparent_proxy_routing_failed">Saydam vekil sunucu yönlendirme başlatılamadı: %s</string>
   <string name="transparent_proxy_routing_running">Saydam vekil sunucu yönlendirmesi çalışıyor</string>
