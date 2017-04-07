@@ -11,11 +11,11 @@
   <string name="open_browser">Tarayıcıyı Aç</string>
   <string name="browser_task_label">Psiphon Tarayıcı</string>
   <string name="FeedbackActivity.DefaultText">Özel bir yorumunuz varsa veya çalışmayan web siteleri hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmadıysa lütfen bize &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresinden e-posta gönderin.</string>
-  <string name="FeedbackActivity.Success">Geri bildiriminiz için teşekkür ederiz</string>
+  <string name="FeedbackActivity.Success">Geribildiriminiz için teşekkür ederiz</string>
   <string name="FeedbackActivity.Failure">Gönderim başarısız. Lütfen tekrar deneyin.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Geri bildirim gönderme başarısız</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Geri bildirim formu gönderiminde geçersiz Adres Parametreleri</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Geri bildirim sayfa içeriği alma başarısız</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Geribildirim gönderme başarısız</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Geribildirim formu gönderiminde geçersiz Adres Parametreleri</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Geribildirim sayfa içeriği alma başarısız</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tüm cihaz tünellensin mi?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Cihazınız için tüm cihaz tünelleme seçeneği kullanılabilir.\n\nBu seçenek ile tarayıcılar da dahil tüm uygulamaların İnternet trafiği Psiphon aracılığı ile tünellenecek.\n\nEk olarak, diğer uygulamaların İnternet\'e doğrudan standart bağlantı ile çıkabilmesi için sadece birlikte gelen Psiphon tarayıcıyı tünellemeyi seçebilirsiniz.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tüm Cihazı Tünelle</string>
