@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">Psiphon</string>
+  <string name="banner_desc">sponsorimainospalkki; napsauta sponsorisivulla vierailua varten</string>
+  <string name="start_desc">yhdistä Psiphon-sovellukseen; yhdistä napsauttamalla</string>
+  <string name="message_image_success_desc">kuvake osoittaen onnistumisilmoitusta</string>
+  <string name="message_image_error_desc">kuvake osoittaen virheilmoitusta</string>
+  <string name="message_image_debug_desc">kuvake osoittaen vikajäljitysilmoitusta</string>
+  <string name="message_image_warning_desc">kuvake osoittaen varoitusilmoitusta</string>
+  <string name="exit">Poistu</string>
+  <string name="open_browser">Avaa selain</string>
+  <string name="browser_task_label">Psiphon-selain</string>
+  <string name="FeedbackActivity.DefaultText">Jos sinulla on jotain erityisiä kommentteja, lisätietoja webbisivuista, jotka eivät toimi, tai jos tämä lomake ei toimi sinulle, lähetä sähköpostiviesti &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;</string>
+  <string name="FeedbackActivity.Success">Kiitoksia palautteesi lähettämisestä</string>
+  <string name="FeedbackActivity.Failure">Lähetys epäonnistui. Yritä uudelleen.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Palautteen lähettäminen epäonnistui</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Virheelliset verkko-osoiteparametrit palautelomakelähetyksessä</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Palautesivun sisällön saaminen epäonnistui</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunneloitko koko laitteen?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Koko laitteen tunnelointi on laitteellesi saatavilla oleva vaihtoehto.\n\nTällä valitsimella, kaikki Internet-liikenne kaikille sovelluksille mukaan lukien kaikki selaimet tunneloidaan Psiphon-sovelluksen kautta.\n\nVaihtoehtoisesti, voi valita vain Psiphon-selainryhmän tunneloinnin, mikä sallii muiden sovellusten liikennöidä suoraan vakion Internet-liittymän kautta.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunneloi koko laite</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Käytä vain Psiphon-selainta</string>
+</resources>
