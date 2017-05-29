@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">Psiphon</string>
+  <string name="banner_desc">Banner penaja; klik untuk melawat laman utama penaja</string>
+  <string name="start_desc">Sambung ke Psiphon; klik untuk sambung</string>
+  <string name="message_image_success_desc">Ikon menunjukkan mesej yang berjaya</string>
+  <string name="message_image_error_desc">Ikon menunjukkan mesej yang gagal</string>
+  <string name="message_image_debug_desc">Ikon menunjukkan mesej nyahpijat</string>
+  <string name="message_image_warning_desc">Ikon menunjukkan mesej amaran</string>
+  <string name="exit">Keluar</string>
+  <string name="open_browser">Buka Pelayar</string>
+  <string name="browser_task_label">Pelayar Psiphon</string>
+  <string name="FeedbackActivity.DefaultText">Jika anda mempunyai komen yang spesifik, info lanjut tentang laman web yang tidak berfungsi, atau borang ini tidak dapat digunakan, sila email &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Terima kasih kerana menghantar borang maklumbalas anda</string>
+  <string name="FeedbackActivity.Failure">Penyerahan gagal. Sila cuba lagi.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Gagal untuk menghantar maklumbalas</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Parameter URL adalah ralat di dalam borang maklumbalas</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Gagal untuk mendapatkan halaman maklumbalas</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnel keseluruhan peranti?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Pilihan tunnel keseluruhan peranti tersedia untuk peranti anda. \n\nDengan pilihan ini, kesemua trafik internet untuk semua aplikasi termasuk semua pelayar akan ditunnel melalui Psiphon.\n\nAlternatifnya, anda boleh memilih untuk tunnel hanya melalui pelayar Psiphon dimana akan membuatkan semua aplikasi melalui sambungan internet biasa anda.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Seluruh Peranti</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Guna Pelayar Psiphon sahaja</string>
+</resources>

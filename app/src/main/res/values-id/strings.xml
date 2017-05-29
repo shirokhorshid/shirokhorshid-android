@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">Psiphon</string>
+  <string name="banner_desc">spanduk sponsor; klik untuk mengunjungi laman web sponsor</string>
+  <string name="start_desc">menyambung ke Psiphon; klik untuk menyambung</string>
+  <string name="message_image_success_desc">ikon penanda pesan sukses</string>
+  <string name="message_image_error_desc">ikon penanda pesan kesalahan</string>
+  <string name="message_image_debug_desc">ikon penanda pesan debug</string>
+  <string name="message_image_warning_desc">ikon penanda pesan peringatan</string>
+  <string name="exit">Keluar</string>
+  <string name="open_browser">Buka Peramban</string>
+  <string name="browser_task_label">Peramban Psiphon</string>
+  <string name="FeedbackActivity.DefaultText">Jika Anda ingin memberi komentar, ingin mencari informasi lebih lanjut tentang situs web yang tidak berfungsi, atau formulir ini rusak, silakan kirim email ke &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Terima kasih telah mengirim kritik dan saran!</string>
+  <string name="FeedbackActivity.Failure">Pengiriman gagal. Silakan coba lagi.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Gagal mengirim kritik dan saran</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Parameter URL pada kiriman formulir kritik dan saran tidak berlaku</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Gagal mengambil isi laman kritik dan saran</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Alihkan sambungan seluruh perangkat?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Opsi pengalihan sambungan seluruh perangkat ke terowongan tersedia pada perangkat Anda.\n\nDengan opsi ini, lalu lintas internet semua aplikasi, termasuk peramban, akan dialihkan melalui terowongan Psiphon.\n\nAnda juga boleh hanya mengalihkan lalu lintas peramban Psiphon saja sehingga semua aplikasi lain akan tetap melalui sambungan internet normal.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Alihkan Sambungan Seluruh Perangkat</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Hanya Gunakan Peramban Psiphon Saja</string>
+</resources>
