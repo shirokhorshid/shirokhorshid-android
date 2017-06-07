@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="ssh_connecting">SSH qoşulma</string>
+  <string name="ssh_connected">SSH-lə bağlantı baş tutdu.</string>
+  <string name="ssh_connection_failed">SSH-lə bağlantı baş tutmadı.</string>
+  <string name="ssh_authenticating">SSH təsdiqləyir...</string>
+  <string name="ssh_authentication_failed">SSH təsdiqləmə baş tutmadı</string>
+  <string name="ssh_authenticated">SSH təsdiqləmə baş tutdu</string>
+  <string name="socks_starting">SOCKS işə başlayır...</string>
+  <string name="socks_running">SOCKS %d portunda işləyir</string>
+  <string name="socks_stopped">SOCKS dayandı</string>
+  <string name="ssh_stopped">SSH dayandı</string>
+  <string name="error_message">Səhv oldu</string>
+  <string name="http_proxy_starting">HTTP proksi işə başlayır</string>
+  <string name="http_proxy_running">HTTP proksi %d portunda işləyr</string>
+  <string name="http_proxy_stopped">HTTP proksi dayandı</string>
+  <string name="http_proxy_stopped_unexpectedly">HTTP proksi gözlənilmədən dayandı</string>
+  <string name="ServerInterface.FailedToCreateServerEntries">Saxlamaq üçün giriş serverləri yaratmaq alınmadı</string>
+  <string name="ServerInterface.FailedToStoreServerEntries">Server girişlərini saxlamaq alınmadı</string>
+  <string name="ServerInterface.FailedToReadStoredServerEntries">Saxlanmış server girişlərini oxumaq alınmadı</string>
+  <string name="ServerInterface.FailedToParseStoredServerEntries">Saxlanmış server girişlərinin təhlili alınmadı </string>
+  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Daxil edilmiş server girişlərinin təhlili alınmadı</string>
+  <string name="ServerInterface.FailedToParseHandshake">Bağlantı haqda təsdiqin təhlili alınmadı.</string>
+  <string name="ServerInterface.FailedToStoreLastConnected">Son bağlantı tarixinin saxlanması alınmadı</string>
+  <string name="ServerInterface.FailedToParseLastConnected">JSON-nun son bağlantı tarixinin təhlili alınmadı.</string>
+  <string name="ServerInterface.FailedToReadLastConnected">Son bağlantı tarixini oxumaq alınmadl.</string>
+  <string name="PsiphonAndroidService.HandshakeRequestFailed">Bağlantı haqda təsdiq tələbi alınmadı</string>
+  <string name="ssh_disconnected_unexpectedly">SSH ilə bağlantı gözlənilmədən kəsildi.</string>
+  <string name="client_version">Proqram versiyası %s</string>
+  <string name="no_server_entries">Bağlantı üçün server yoxdur</string>
+  <string name="ServerInterface.InvalidRemoteServerList">Kənarlaşdırılmış server siyahısı etibarsızdır</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">Fərqli ictimai açarla imzalanmış təsdiqlənmiş məlumat paketi</string>
+  <string name="AuthenticatedDataPackage.InvalidSignature">Təsdiqlənmiş məlumat paketi üzərindəki imza etibarsızdır </string>
+  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Təsdiqlənmiş məlumat paketinin təhlili alınmadı</string>
+  <string name="AuthenticatedDataPackage.MissingValue">Təsdiqlənmiş məlumat paketində çatışmayan göstərici</string>
+  <string name="starting_tunnel">Tuneli başla</string>
+  <string name="stopping_tunnel">Tuneli dayandır</string>
+  <string name="stopped_tunnel">Tunel dayanıb</string>
+  <string name="ServerInterface.StopRequested">Dayanmaq tələb olunur</string>
+  <string name="ServerInterface.HTTPSRequestFailed">HTTPS qoşulması alınmadı, səhv var:</string>
+  <string name="share_proxies_prompt_negative">Dayan</string>
+  <string name="region_name_nl">Niderlandlar</string>
+  <string name="about">Psiphon haqda</string>
+  <string name="feedback">Şərhiniz</string>
+  <string name="region_selector">Bölgəni seçin</string>
+  <string name="preference_notifications_title">Bildirişlər</string>
+  <string name="preference_notifications_with_sound_title">Səsli</string>
+  <string name="moreOptions">Əlavə opsiyalar</string>
+  <string name="proxySettingsCategoryTitle">Proksi quraşdırmalar</string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+</resources>

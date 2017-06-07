@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">Psiphon</string>
+  <string name="start_desc">Kochekera paPsiphon; baya kuti ukochekere</string>
+  <string name="message_image_success_desc">Zvaita</string>
+  <string name="message_image_error_desc">Zvaramba</string>
+  <string name="message_image_warning_desc">Yambiro</string>
+  <string name="exit">Regedza</string>
+  <string name="open_browser">Vhura browser</string>
+  <string name="browser_task_label">Browser rePsiphon</string>
+  <string name="FeedbackActivity.Success">Tinotenda nemhinduro yawapa</string>
+  <string name="FeedbackActivity.Failure">Zvawanga uchida kutumira zvaramba kuenda. Edza zvakare</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Zvawatumira zvaramba kuenda</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Tatadza kuwana peji yechiremu chemhinduro</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Unoda kuti mudziyo wako ishande padandemutande munzira yakahwanda here?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Ita kuti mudziyo ushande padandemutande munzira yakahwanda </string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Shandisa Psiphon Browser Chete</string>
+</resources>

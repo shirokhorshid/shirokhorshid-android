@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">Psiphon</string>
+  <string name="banner_desc">sponsor banner: clicca per visitare la pagina dello sponsor</string>
+  <string name="start_desc">connetti a Psiphon; clicca per connetterti</string>
+  <string name="message_image_success_desc">icona che indica un messaggio di successo</string>
+  <string name="message_image_error_desc">icona indicante un messaggio di errore</string>
+  <string name="message_image_debug_desc">icona indicante un messaggio di debug</string>
+  <string name="message_image_warning_desc">icona indicante un messaggio di avviso</string>
+  <string name="exit">Chiudi</string>
+  <string name="open_browser">Apri Browser</string>
+  <string name="browser_task_label">Psiphon Browser</string>
+  <string name="FeedbackActivity.DefaultText">Se hai qualche specifico commento, informazioni su siti che non funzionano correttamente p questa maschera non funziona per te, invia una mail a &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Grazie per avere inviato i tuoi commenti</string>
+  <string name="FeedbackActivity.Failure">Invio fallito. Riprova per favore.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Invio commenti fallito</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Parametri non corretti nella maschera di commento</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Impossibile caricare la pagina di commento</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Utilizzare il Tunnel per tutto il dispositivo?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">L\'opzione \"intero dispositivo\" è disponibile.\n\nCon questa opzione tutto il traffico Internet per tutte le applicazioni sarà inviato tramite Psiphon.\n\n In alternativa, puoi scegliere di inviare tramite Psiphon solo il traffico del browser Psiphon lasciando che la altre app si connettano ad Internet direttamente tramite la connessione standard.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Utilizzare il Tunnel per tutto il dispositivo</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Utilizzare solo lo Psiphon Browser</string>
+</resources>
