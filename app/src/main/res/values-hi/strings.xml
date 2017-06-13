@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">साईफोन</string>
+  <string name="banner_desc">प्रायोजक बैनर; प्रायोजक मुख पृष्ठ पर जाएं क्लिक करें</string>
+  <string name="start_desc">साईफोन  से कनेक्ट; कनेक्ट करने के लिए क्लिक करें</string>
+  <string name="message_image_success_desc">आइकन एक सफलता संदेश दर्शाता है</string>
+  <string name="message_image_error_desc">आइकन एक त्रुटि संदेश दर्शाता है</string>
+  <string name="message_image_debug_desc">आइकन एक डीबग संदेश को इंगित करता है</string>
+  <string name="message_image_warning_desc">आइकन एक चेतावनी संदेश दर्शाता है</string>
+  <string name="exit">छोड़ो</string>
+  <string name="open_browser">खुला ब्राउज़र</string>
+  <string name="browser_task_label">साइफ़ोन ब्राउज़र</string>
+  <string name="FeedbackActivity.DefaultText">अगर आपके पास कोई विशिष्ट टिप्पणी है, वे वेब साइट्स के बारे में अधिक जानकारी जो काम नहीं करती हैं, या यदि यह फ़ॉर्म आपके लिए काम नहीं कर रहा है, तो कृपया ईमेल करें &amp; lt; a href = "mailto: feedback@psiphon.ca" &amp; gt; feedback@psiphon.ca&amp;lt ; / A &amp; gt;</string>
+  <string name="FeedbackActivity.Success">अपना फीडबैक देने के लिए धन्यवाद</string>
+  <string name="FeedbackActivity.Failure">सबमिशन विफल रहा कृपया पुन: प्रयास करें।</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">फ़ीडबैक सबमिट करने में विफल</string>
+  <string name="FeedbackActivity.InvalidURLParameters">फ़ीडबैक फ़ॉर्म सबमिशन में अमान्य यूआरएल पैरामीटर</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">प्रतिक्रिया पृष्ठ सामग्री प्राप्त करने में विफल</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">पूरी डिवाइस को टनल ?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">संपूर्ण डिवाइस टनल  विकल्प आपके डिवाइस के लिए उपलब्ध है। \ N \ n इस विकल्प के साथ, सभी ब्राउज़रों सहित सभी एप्लिकेशन के लिए आपके सभी इंटरनेट ट्रैफ़िक को साइफ़ोन के माध्यम से टनलेड किया जाएगा। \ N \ n वैकल्पिक रूप से, आप केवल बंडल किए गए साईफोन  ब्राउज़र को टनल  चुन सकते हैं जो आपके मानक इंटरनेट कनेक्शन के माध्यम से सीधे जा रहे सभी अन्य ऐप्स को छोड़ देगा।</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">टनल  पूरे डिवाइस</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">केवल साइफ़ोन ब्राउज़र का उपयोग करें</string>
+</resources>

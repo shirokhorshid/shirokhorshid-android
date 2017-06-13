@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="ssh_connecting">កំពុងតភ្ជាប់ SSH…</string>
+  <string name="ssh_connected">បានតភ្ជាប់SSH </string>
+  <string name="ssh_connection_failed">ការតភ្ជាប់ SSH បរាជ័យ</string>
+  <string name="ssh_authenticating">កំពុងផ្ទៀងផ្ទាត់ SSH...</string>
+  <string name="ssh_authentication_failed">ការផ្ទៀងផ្ទាត់ SSH បរាជ័យ</string>
+  <string name="ssh_authenticated">ជំនួយ</string>
+  <string name="socks_starting">កំពុងដំណើរការ SOCKS ...</string>
+  <string name="socks_stopped">SOCKS បានបញ្ឈប់</string>
+  <string name="ssh_stopped">SSH បានបញ្ឈប់</string>
+  <string name="http_proxy_stopped_unexpectedly">HTTP proxy បានបញ្ឈប់ដោយមិនរំពឹងទុក</string>
+  <string name="ServerInterface.FailedToStoreServerEntries">បរាជ័យក្នុងការស្តារការបញ្ចូលម៉ាស៊ីនមេ។</string>
+  <string name="ServerInterface.FailedToReadStoredServerEntries">បរាជ័យក្នុងការអានការបញ្ចូលម៉ាស៊ីនមេ។</string>
+  <string name="stop">បញ្ឈប់</string>
+  <string name="logs_tab_name">កំណត់ត្រា</string>
+  <string name="share_proxies_prompt_negative">បោះបង់</string>
+  <string name="custom_proxy_settings_port">Port</string>
+  <string name="region_name_us">សហរដ្ឋអាមេរិក</string>
+  <string name="region_name_gb">ចក្រភពអង់គ្លេស</string>
+  <string name="region_name_ca">កាណាដា</string>
+  <string name="region_name_de">អាល្លឺម៉ង់</string>
+  <string name="region_name_jp">ជប៉ុន</string>
+  <string name="region_name_hk">ហុងកុង</string>
+  <string name="region_name_sg">សឹង្ហបុរី</string>
+  <string name="region_name_nl">ហូឡង់</string>
+  <string name="feedback">មតិយោបល់</string>
+  <string name="preference_notifications_title">ការជូនដំណឹង</string>
+  <string name="preference_notifications_with_sound_title">សំឡេង</string>
+  <string name="preference_notifications_with_vibrate_title">ញ័រ</string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+</resources>

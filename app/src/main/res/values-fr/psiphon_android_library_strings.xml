@@ -131,7 +131,7 @@
   <string name="about">À propos de Psiphon</string>
   <string name="feedback">Rétroaction</string>
   <string name="tunnel_whole_device_toggle">Tunnelliser tout l\'appareil (Android 4.0+ exigé)</string>
-  <string name="disable_timeouts">Désactiver les dépassements de temps pour les réseaux lents</string>
+  <string name="disable_timeouts">Désactiver les temporisations pour les réseaux lents</string>
   <string name="region_selector">Choisir une région</string>
   <string name="network_proxy_connect_exception">Échec de connexion au mandataire HTTP du réseau\u00A0: %s </string>
   <string name="network_proxy_connect_information">Connexion au travers de votre mandataire HTTP\u00A0: %s</string>

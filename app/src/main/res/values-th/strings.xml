@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">แบนเนอร์ผู้ลนับสนุน; แตะเพื่อเยี่ยมชมหน้าหลักของผู้สนุับสนุน</string>
+  <string name="start_desc">เชื่อมต่อกับ Psiphon; แตะเพื่อเชื่อมต่อ</string>
+  <string name="exit">ออก</string>
+  <string name="open_browser">เปิดเบราเซอร์</string>
+  <string name="browser_task_label">เบราเซอร์ของ Psiphon</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ใช้เฉพาะเบราเซอร์ของ Psiphon</string>
+</resources>
