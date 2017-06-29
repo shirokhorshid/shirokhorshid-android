@@ -289,7 +289,7 @@
   <string name="DownloadListActivity.RemoveCompletedDownloads">Enlever les téléchargements terminés</string>
   <string name="QuickAction.Find">Trouver sur la page</string>
   <string name="SearchDialog.Hint">Trouver sur la page</string>
-  <string name="PreferencesActivity.AdvancedCategoryTitle">Avancé</string>
+  <string name="PreferencesActivity.AdvancedCategoryTitle">Évolué</string>
   <string name="PreferencesActivity.BookmarksDatabaseTitle">Stockage des signets</string>
   <string name="PreferencesActivity.BookmarksDatabaseSummary">Choisir le mode de stockage des signets.</string>
   <string name="PreferencesActivity.BookmarksDatabaseStock">Signets Android</string>
