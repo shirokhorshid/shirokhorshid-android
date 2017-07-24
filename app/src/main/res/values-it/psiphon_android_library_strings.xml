@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="ssh_connecting">SSH - connessione in corso</string>
+  <string name="ssh_connected">SSH - connesso</string>
+  <string name="ssh_connection_failed">SSH - connessione fallita</string>
+  <string name="ssh_authenticating">SSH - autenticazione</string>
+  <string name="ssh_authentication_failed">SSH - autenticazione fallita</string>
+  <string name="ssh_authenticated">SSH - autenticato</string>
+  <string name="socks_starting">SOCKS in avviamento</string>
+  <string name="socks_running">SOCKS in esecuzione sulla porta %d</string>
+  <string name="socks_stopped">SOCKS arrestato</string>
+  <string name="ssh_stopped">SSH arrestato</string>
+  <string name="error_message">Si è verificato un errore:</string>
+  <string name="http_proxy_starting">HTTP proxy in avvio...</string>
+  <string name="http_proxy_running">HTTP proxy in esecuzione sulla porta %d</string>
+  <string name="http_proxy_stopped">HTTP proxy arrestato</string>
+  <string name="http_proxy_stopped_unexpectedly">HTTP proxy arresto inprevisto</string>
+  <string name="ssh_disconnected_unexpectedly">SSH disconnessione imprevista</string>
+  <string name="client_version">Versione Client %s</string>
+  <string name="vpn_service_failed">Errore servizio VPN: %s</string>
+  <string name="vpn_service_running">Servizio VPN in esecuzione</string>
+  <string name="vpn_service_stopped">Servizio VPN arrestato</string>
+  <string name="vpn_service_revoked">Servizio VPN revocato</string>
+  <string name="debug_message">%s</string>
+  <string name="UpgradeManager.UpgradePromptTitle">Aggiornamento Psiphon</string>
+  <string name="disconnected">Disconnesso</string>
+  <string name="stop">Stop</string>
+  <string name="settings_tab_name">Opzioni</string>
+  <string name="logs_tab_name">Registrazioni</string>
+  <string name="share_proxies_prompt_negative">Cancella</string>
+  <string name="custom_proxy_settings_port">Porta</string>
+  <string name="region_name_us">Stati Uniti</string>
+  <string name="region_name_gb">Regno Unito</string>
+  <string name="region_name_ca">Canada</string>
+  <string name="region_name_de">Germania</string>
+  <string name="region_name_jp">Giappone</string>
+  <string name="region_name_hk">Hong Kong</string>
+  <string name="region_name_sg">Singapore</string>
+  <string name="region_name_nl">Olanda</string>
+  <string name="feedback">Commento</string>
+  <string name="http_prefix_toggle">Mascherato come HTTP</string>
+  <string name="preference_notifications_title">Notifiche</string>
+  <string name="preference_notifications_with_sound_title">Suono</string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+</resources>

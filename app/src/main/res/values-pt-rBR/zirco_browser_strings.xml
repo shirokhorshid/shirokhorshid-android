@@ -55,7 +55,7 @@
   <string name="PreferencesActivity.BrowserSettingsCategoryTitle">Configurações de navegação</string>
   <string name="PreferencesActivity.HistorySizePreferenceTitle">Tamanho do histórico</string>
   <string name="PreferencesActivity.HistorySizePreferenceSummary">Tamanho do histórico em dias.</string>
-  <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">Habilitar JavaScipt</string>
+  <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">Habilitar JavaScript</string>
   <string name="PreferencesActivity.EnableJavascriptPreferenceSummary">Habilitar ou desabilitar JavaScript.</string>
   <string name="PreferencesActivity.LoadImagesPreferenceTitle">Carregar imagens</string>
   <string name="PreferencesActivity.LoadImagesPreferenceSummary">Habilitar ou desabilitar carregamento de imagens.</string>
@@ -71,8 +71,8 @@
   <string name="PreferencesActivity.PrivacyClearFormDataTitle">Limpar dados de formulários</string>
   <string name="PreferencesActivity.PrivacyClearCacheTitle">Limpar cache</string>
   <string name="PreferencesActivity.PrivacyClearCookiesTitle">Limpar cookies</string>
-  <string name="PreferencesActivity.BarDurationPreferenceTitle">Duração de mostrar barras</string>
-  <string name="PreferencesActivity.BarDurationPreferenceSummary">Duração de mostrar barras de ferramentas.</string>
+  <string name="PreferencesActivity.BarDurationPreferenceTitle">Duração da exibição de barras</string>
+  <string name="PreferencesActivity.BarDurationPreferenceSummary">Duração da exibição de barras de ferramentas.</string>
   <string name="PreferencesActivity.BarDuration1sec">1 segundo</string>
   <string name="PreferencesActivity.BarDuration2sec">2 segundos</string>
   <string name="PreferencesActivity.BarDuration3sec">3 segundos</string>
@@ -129,13 +129,13 @@
   <string name="PreferencesActivity.HomepageCustom">Página personalizada</string>
   <string name="Constants.SearchUrlGoogle">http://www.google.com/m?hl=en&amp;gl=us&amp;client=ms-null&amp;source=android-browser-key&amp;q=%s</string>
   <string name="Constants.SearchUrlWikipedia">http://en.wikipedia.org/w/index.php?search=%s&amp;go=Go</string>
-  <string name="PreferencesActivity.SearchUrlPreferenceTitle">Endereço de pesquisa</string>
-  <string name="PreferencesActivity.SearchUrlPreferenceSummary">Definir o endereço de pesquisa.</string>
-  <string name="SearchUrlPreferenceActivity.Title">Endereço de pesquisa</string>
-  <string name="SearchUrlPreferenceActivity.Prompt">Endereço de pesquisa</string>
+  <string name="PreferencesActivity.SearchUrlPreferenceTitle">Endereço URL de Pesquisa</string>
+  <string name="PreferencesActivity.SearchUrlPreferenceSummary">Definir o endereço URL onde pesquisar.</string>
+  <string name="SearchUrlPreferenceActivity.Title">Endereço URL de Pesquisa</string>
+  <string name="SearchUrlPreferenceActivity.Prompt">Endereço URL de Pesquisa</string>
   <string name="PreferencesActivity.SearchUrlGoogle">Google</string>
   <string name="PreferencesActivity.SearchUrlWikipedia">Wikipedia</string>
-  <string name="PreferencesActivity.SearchUrlCustom">Personalizar</string>
+  <string name="PreferencesActivity.SearchUrlCustom">Personalizado</string>
   <string name="StartPage.Search">Pesquisar</string>
   <string name="StartPage.SearchButton">Ir</string>
   <string name="PreferencesActivity.StartPageCustomizationPreferenceTitle">Personalização da página inicial</string>
@@ -145,7 +145,7 @@
   <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceTitle">Mostrar favoritos mais usados</string>
   <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceSummary">Se marcado, os favoritos mais usados serão mostrados.</string>
   <string name="PreferencesActivity.StartPageEnableHistoryPreferenceTitle">Mostrar histórico recente</string>
-  <string name="PreferencesActivity.StartPageEnableHistoryPreferenceSummary">Se checado, o histórico recente será mostrado.</string>
+  <string name="PreferencesActivity.StartPageEnableHistoryPreferenceSummary">Se marcado, o histórico recente será mostrado.</string>
   <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceTitle">Número de favoritos mais usados</string>
   <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceSummary">O número de favoritos mais usados a mostrar.</string>
   <string name="PreferencesActivity.StartPageHistoryLimitPreferenceTitle">Número de itens do histórico recente</string>

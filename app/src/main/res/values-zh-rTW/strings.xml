@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">賽風</string>
+  <string name="banner_desc">贊助商標誌；點擊訪問贊助商主頁</string>
+  <string name="start_desc">連接到賽風；點擊連接</string>
+  <string name="message_image_success_desc">表示成功消息的圖標</string>
+  <string name="message_image_error_desc">表示錯誤消息的圖標</string>
+  <string name="message_image_debug_desc">表示調試消息的圖標</string>
+  <string name="message_image_warning_desc">表示警告消息的圖標</string>
+  <string name="exit">退出</string>
+  <string name="open_browser">打開瀏覽器</string>
+  <string name="browser_task_label">賽風瀏覽器</string>
+  <string name="FeedbackActivity.DefaultText">如果您有任何具體建議，有任何網站失效的訊息或者此表單無法使用的情況，請寄郵件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
+  <string name="FeedbackActivity.Success">感謝您提供回饋意見</string>
+  <string name="FeedbackActivity.Failure">送出失敗。請再試一次。</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">傳送回饋失敗</string>
+  <string name="FeedbackActivity.InvalidURLParameters">傳送提回饋表單中有無效的網址參數</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">獲取回饋頁面的內容失敗</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">全局代理本設備？</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">全局代理模式在您的設備上可用。\n\n打開此選項後，賽風將代理所有程序的網路流量，包括所有瀏覽器。\n\n另外，您也可以選擇只代理附帶的賽風瀏覽器，讓其他程序通過平常的網路連接。</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理設備</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">只使用賽風瀏覽器</string>
+</resources>
