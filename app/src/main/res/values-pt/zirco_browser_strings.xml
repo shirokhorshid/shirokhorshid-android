@@ -186,6 +186,7 @@
   <string name="Main.MenuShareEmailUrl">Partilhar e-mail</string>
   <string name="PreferencesActivity.HideTitleBarPreferenceTitle">Ocultar as barras de título</string>
   <string name="PreferencesActivity.SwitchTabButtons">Botões</string>
+  <string name="PreferencesActivity.SwitchTabFling">Fling</string>
   <string name="PreferencesActivity.SwitchTabBoth">Ambas</string>
   <string name="HistoryListActivity.Today">Hoje</string>
   <string name="HistoryListActivity.Yesterday">Ontem</string>
@@ -195,6 +196,7 @@
   <string name="QuickAction.Home">Página Principal</string>
   <string name="QuickAction.Share">Partilhar</string>
   <string name="QuickAction.SelectText">Selecionar texto</string>
+  <string name="QuickAction.MobileView">Ver móvel</string>
   <string name="PreferencesActivity.WeavePreferenceTitle">Sincronização dos favoritos do Firefox</string>
   <string name="PreferencesActivity.UseWeavePreferenceTitle">Utilizar Sincronização do Firefox</string>
   <string name="PreferencesActivity.WeaveServerPreferenceTitle">Servidor</string>

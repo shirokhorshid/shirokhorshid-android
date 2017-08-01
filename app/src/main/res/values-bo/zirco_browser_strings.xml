@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">སཡི་ཕྷོན་བལྟ་ཆས།</string>
-  <string name="ApplicationNameUrl">སཡི་ཕྷོན།-%s</string>
-  <string name="ApplicationDescription">སཡི་ཕྷོན་བལྟ་ཆས་ནི་ཕྱི་གསལ་ནང་གསལ་གྱི་ཨང་རྟགས་ཨེན་ཀྲོཌ་གཞི་རྕར་བཞག་པའི་Zirco འཚོལ་ཆས་ཤིག་ཡིན།</string>
+  <string name="ApplicationName">སཡི་ཕོན་བལྟ་ཆས།</string>
+  <string name="ApplicationNameUrl">སཡི་ཕོན།-%s</string>
+  <string name="ApplicationDescription">སཡི་ཕོན་བལྟ་ཆས་ནི་ཕྱི་གསལ་ནང་གསལ་གྱི་ཨང་རྟགས་ཨེན་ཀྲོཌ་གཞི་རྕར་བཞག་པའི་Zirco འཚོལ་ཆས་ཤིག་ཡིན།</string>
   <string name="AboutActivity.Title">ང་ཚོའི་སྐོར།</string>
   <string name="AboutActivity.VersionText">ཐོན།</string>
   <string name="AboutActivity.LicenseText">ཆོག་མཆན་ལག་ཁྱེར།</string>
@@ -21,7 +21,7 @@
   <string name="Main.ToastTabSwitchFullMessage">དྲྭ་ཤོག%1$s:%2$s</string>
   <string name="Main.VndErrorTitle">url ཁ་ཕྱེ་མི་ཐུབ་</string>
   <string name="Main.VndErrorMessage">ཁྱེད་རང་ལ་url ཁ་ཕྱེ་ཆོག་པའི་མཉེན་ཆས་མིན་འདུག:%s</string>
-  <string name="BookmarksListActivity.Title">སཡི་ཕྷོན་བལྟ་ཆས། - དེབ་རྟགས།</string>
+  <string name="BookmarksListActivity.Title">སཡི་ཕོན་བལྟ་ཆས། - དེབ་རྟགས།</string>
   <string name="BookmarksListActivity.MenuSortMode">རིམ་སྒྲིག</string>
   <string name="BookmarksListActivity.MenuAddBookmark">དེབ་རྟགས་སྣོན།</string>
   <string name="BookmarksListActivity.Empty">དེབ་རྟགས་མེད།</string>
@@ -34,14 +34,14 @@
   <string name="EditBookmarkActivity.TitleAdd">དེབ་རྟགས་སྣོན།</string>
   <string name="EditBookmarkActivity.TitleLabel">མིང་།</string>
   <string name="EditBookmarkActivity.UrlLabel">གནས་ས།</string>
-  <string name="HistoryListActivity.Title">སཡི་ཕྷོན་བལྟ་ཆས། - བསྔོགས་ཤུལ།</string>
+  <string name="HistoryListActivity.Title">སཡི་ཕོན་བལྟ་ཆས། - བསྔོགས་ཤུལ།</string>
   <string name="HistoryListActivity.MenuOpenInTab">དྲྭ་ཤོག་གསར་པ་ཁ་ཕྱེ།</string>
   <string name="HistoryListActivity.MenuDelete">སུབ།</string>
-  <string name="DownloadListActivity.Title">སཡི་ཕྷོན་བལྟ་ཆས། - ཕབ་ལེན།</string>
+  <string name="DownloadListActivity.Title">སཡི་ཕོན་བལྟ་ཆས། - ཕབ་ལེན།</string>
   <string name="DownloadListActivity.Empty">ཕབ་ལེན་མིན་འདུག</string>
   <string name="DownloadListActivity.Aborted">%s (བཀག་པ།)</string>
   <string name="DownloadListActivity.Finished">%s (ཚར་སོང་།)</string>
-  <string name="AdBlockerWhiteListActivity.Title">སཡི་ཕྷོན་བལྟ་ཆས། - ཁྱབ་བསྒྲགས་འགོག་བྱེད་ཀྱི་ཐོ་གཞུང་དཀར་པོ།</string>
+  <string name="AdBlockerWhiteListActivity.Title">སཡི་ཕོན་བལྟ་ཆས། - ཁྱབ་བསྒྲགས་འགོག་བྱེད་ཀྱི་ཐོ་གཞུང་དཀར་པོ།</string>
   <string name="AdBlockerWhiteListActivity.Empty">ཐོ་གཞུང་དཀར་པོ་སྟོང་སོང་།</string>
   <string name="AdBlockerWhiteListActivity.AddMessage">ཐོ་གཞུང་དཀར་པོ་ཁ་སྣོན།</string>
   <string name="AdBlockerWhiteListActivity.ClearMessage">ཐོ་གཞུང་དཀར་པོ་གཙང་བཟོ།</string>
@@ -187,7 +187,7 @@
   <string name="Commons.SslIDMismatch">དྲྭ་ཚིགས་ཏུ་འཁོད་པའི་མིང་དང་ལག་འཁྱེར་སྒང་ལ་འཁོད་པའི་མིང་གཉིས་མཐུན་གྱི་མིན་འདུག</string>
   <string name="Commons.SslExpired">ལག་འཁྱེར་འདིའི་དུས་ཡུན་རྫོགས་ཚར་འདུག</string>
   <string name="Commons.SslNotYetValid">ཆོག་མཆན་ལག་འཁྱེར་འདི་ཁུངས་ལྡན་རེད་མིན་འདུག</string>
-  <string name="MobileViewListActivity.Title">སཡི་ཕྷོན་བལྟ་ཆས། - ལག་ཐོགས་ཁ་པར་ནང་དུ་བལྟ་ཐུབ་པའི་དྲྭ་ཚིགས་ཐོ་གཞུང་།</string>
+  <string name="MobileViewListActivity.Title">སཡི་ཕོན་བལྟ་ཆས། - ལག་ཐོགས་ཁ་པར་ནང་དུ་བལྟ་ཐུབ་པའི་དྲྭ་ཚིགས་ཐོ་གཞུང་།</string>
   <string name="MobileViewListActivity.ListEmpty">ཐོ་གཞུང་སྟོང་པ་རེད།</string>
   <string name="MobileViewListActivity.AddMessage">དྲྭ་ཚིགས་ཁ་སྣོན།</string>
   <string name="MobileViewListActivity.ClearMessage">དྲྭ་ཚིགས་ཚང་མ་གཙང་བཟོ།</string>
@@ -314,7 +314,7 @@
   <string name="PreferencesActivity.DesktopViewCategoryTitle">ཅོག་ངོས་ལྟ་བའི་སྒྲིག་བཀོད།</string>
   <string name="PreferencesActivity.DesktopViewListPreferenceTitle">ཅོག་ངོས་ཐོ་གཞུང་།</string>
   <string name="PreferencesActivity.DesktopViewListPreferenceSummary">དྲྭ་རྒྱ་འདིའི་ནང་ཐོ་གཞུང་ཁག་རྣམས་ཅོག་ངོས་སྒེར་སྤྱོད་ངོ་ཚབ་རྒྱུད་དེ་ནང་འཇུག་བྱེད།</string>
-  <string name="DesktopViewListActivity.Title">སཡི་ཕྷོན་བལྟ་ཆས། -ཅོག་ངོས་སྟེང་དུ་ལྟ་ཐུབ་པའི་དྲྭ་ཚིགས་ཐོ་གཞུང་།</string>
+  <string name="DesktopViewListActivity.Title">སཡི་ཕོན་བལྟ་ཆས། -ཅོག་ངོས་སྟེང་དུ་ལྟ་ཐུབ་པའི་དྲྭ་ཚིགས་ཐོ་གཞུང་།</string>
   <string name="DesktopViewListActivity.ListEmpty">ཐོ་གཞུང་སྟོང་པ་རེད།</string>
   <string name="DesktopViewListActivity.AddMessage">དྲྭ་ཚིགས་ཁ་སྣོན།</string>
   <string name="DesktopViewListActivity.ClearMessage">དྲྭ་ཚིགས་ཚང་མ་གཙང་བཟོ།</string>
