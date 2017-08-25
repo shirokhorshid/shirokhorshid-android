@@ -4,7 +4,7 @@
   <string name="ApplicationNameUrl">Psiphon - %s</string>
   <string name="ApplicationDescription">Psiphon brauzeri Android esasly Zirco brauzer üçin açyk çeşmeli brauzerdir.</string>
   <string name="AboutActivity.Title">Hakynda</string>
-  <string name="AboutActivity.VersionText">Wersiýa:</string>
+  <string name="AboutActivity.VersionText">Görnüş</string>
   <string name="AboutActivity.LicenseText">Ygtyýarnama:</string>
   <string name="Main.MenuAddBookmark">Ýer belligi goş</string>
   <string name="Main.MenuShowBookmarks">Ýer bellikleri</string>
@@ -159,6 +159,7 @@
   <string name="PreferencesActivity.UserAgentCustom">Aýratyn</string>
   <string name="Main.MenuCopyLinkUrl">Baglanyşyk URL-sini göçür</string>
   <string name="Main.MenuViewImage">Şekili görkez</string>
+  <string name="Main.MenuCopyImageUrl">Suratyñ URL-ny göçur</string>
   <string name="Main.MenuDownloadImage">Şekili göçürip al</string>
   <string name="Main.MenuSendEmail">E-poçta iber</string>
   <string name="Main.MenuCopyEmailUrl">E-poçta URL-sini göçür</string>
@@ -227,6 +228,7 @@
   <string name="QuickAction.Share">Paýlaş</string>
   <string name="QuickAction.SelectText">Teksti belle</string>
   <string name="QuickAction.MobileView">Ykjam görkeziş </string>
+  <string name="AboutActivity.OtherLicenseText">Şu programma Zirco brauzer proýektyñ şifryny içine alýar (https://code.google.com/p/zirco-browser/),GPLv3 tarapyndan lisenziýalan. Ol Green Droid proýektyñ  şifryrlaryny hem içine alýar (https://github.com/cyrilmottier/GreenDroid), şeýle hem Šaman proýektyñkyny (https://github.com/emergentdotorg/shaman), ikisem Apaçi ygtyýarnamanyñ  2-nji wersiýasynyñ astyndan ilisenziýalanan. </string>
   <string name="PreferencesActivity.WeavePreferenceTitle">Firefox ýer belliklerini sinhronlamak</string>
   <string name="PreferencesActivity.WeavePreferenceSummary">Firefox Sync bilen ýer belliklerini sinhronlamak sazlamalaryny dolandyryň.</string>
   <string name="PreferencesActivity.UseWeavePreferenceTitle">Firefox Sync ulan</string>

@@ -16,4 +16,8 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Seslenmäni tabşyrmak şowsuz</string>
   <string name="FeedbackActivity.InvalidURLParameters">Seslenme maglumatnamasyny tabşyrmakda nädogry URL parametrleri</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Seslenme sahypasynyň mazmunyny almak şowsuz</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Bütin enjam üçin tünel açaÿynmy?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Enjam üçin gizlin geçelge opsiýasy bar.\n\nBu opsiýa, Internet akymy ähli programmalaryňa we brauzerleriňe Psiphon gizlin geçelge arkaly baglanar.\n\nGoşmaça, beýleki programmalaryňyza gönüden standart Internet bilen baglanyp bilersiniz, jem şeklinde bolsa Psiphon brauwzeriniň gizlin geçelgesini saýlap bilersiňiz.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Bütin enjamy gizlin yoly bile geçir</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Diñe Psiphon Brauzery ullan</string>
 </resources>
