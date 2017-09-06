@@ -130,6 +130,19 @@
     <string name="region_name_sg">Singapore</string>
     <string name="region_name_nl">Netherlands</string>
     <string name="region_name_in">India</string>
+    <string name="region_name_es">Spain</string>
+    <string name="region_name_at">Austria</string>
+    <string name="region_name_be">Belgium</string>
+    <string name="region_name_bg">Bulgaria</string>
+    <string name="region_name_ch">Switzerland</string>
+    <string name="region_name_cz">Czech Republic</string>
+    <string name="region_name_dk">Denmark</string>
+    <string name="region_name_fr">France</string>
+    <string name="region_name_hu">Hungary</string>
+    <string name="region_name_it">Italy</string>
+    <string name="region_name_no">Norway</string>
+    <string name="region_name_ro">Romania</string>
+    <string name="region_name_se">Sweden</string>
     <string name="about">About Psiphon</string>
     <string name="feedback">Feedback</string>
     <string name="tunnel_whole_device_toggle">Tunnel Whole Device (requires Android 4.0+)</string>
@@ -143,6 +156,12 @@
     <string name="wdm_force_iptables_toggle">Force root Tunnel Whole Device method</string>
     <string name="http_prefix_toggle">Masquerade as HTTP</string>
     <string name="preference_notifications_title">Notifications</string>
+    <string name="preference_routing_title">Routing</string>
+    <string name="preference_routing_exclude_apps_title">Exclude Apps</string>
+    <string name="preference_routing_exclude_apps_summary">Prevent chosen apps from being tunnelled</string>
+    <string name="preference_routing_exclude_apps_ok_button_text">Set</string>
+    <string name="individual_app_excluded">App excluded from tunnel: %s</string>
+    <string name="no_apps_excluded">No applications were excluded from the tunnel</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>
     <string name="preference_notifications_with_vibrate_title">Vibrate</string>
@@ -176,4 +195,7 @@
     <string name="tunnel_connecting">Tunnel connecting…</string>
     <string name="tunnel_connected">Tunnel connected</string>
     <string name="waiting">Waiting…</string>
+
+    <!-- Empty string array to initialize things that will be programatically populated later -->
+    <string-array name="empty_array"/>
 </resources>

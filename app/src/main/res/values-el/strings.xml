@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="app_name">Psiphon</string>
+  <string name="message_image_error_desc">εικονίδιο που δείχνει μήνυμα σφάλματος</string>
+  <string name="message_image_warning_desc">εικονίδιο που δείχνει μήνυμα προειδοποίησης</string>
+  <string name="open_browser">Άνοιγμα Περιηγητή</string>
+  <string name="browser_task_label">Περιηγητής Psiphon</string>
+  <string name="FeedbackActivity.Success">Σας ευχαριστούμε για την καταχώρηση του σχολίου σας</string>
+  <string name="FeedbackActivity.Failure">Η καταχώρηση απέτυχε. Δοκιμάστε ξανά.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Αποτυχία καταχώρησης σχολίου.</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Χρήση Μόνο του Περιηγητή Psiphon</string>
+</resources>

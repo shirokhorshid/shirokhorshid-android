@@ -10,15 +10,15 @@
   <string name="exit">خروج</string>
   <string name="open_browser">فتح المتصفح</string>
   <string name="browser_task_label">متصفح سايفون </string>
-  <string name="FeedbackActivity.DefaultText">اذا كانت لديك أي نعليقات محدده٫ آو معلومات آخرى حول مواقع لا تعمل٫ أو إذا كانت هذه الاستماره لا تعمل٫ يرجى أرسال رساله إلى :
+  <string name="FeedbackActivity.DefaultText">اذا كانت لديك أي تعليقات محدده٫ آو معلومات آخرى حول مواقع لا تعمل٫ أو إذا كانت هذه الاستماره لا تعمل٫ يرجى مراسلة:
  l &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
-  <string name="FeedbackActivity.Success">نشكرك على إرسال الرد.</string>
-  <string name="FeedbackActivity.Failure">فشل الارسال. يرجى معاودة المحاوله.</string>
+  <string name="FeedbackActivity.Success">شكرا على إرسال الرد.</string>
+  <string name="FeedbackActivity.Failure">فشل الارسال. يرجى إعادة المحاوله.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">فشل في إرسال الرد.</string>
   <string name="FeedbackActivity.InvalidURLParameters">باراميترات خاطئه في استمارة الرد.</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">فشل في الحصول على مضمون صفحة الرد.</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">نقل الجهاز بأكمله عبر النفق؟</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage"> خيار جهاز المسار الآمن متوفر بأكمله لجهازك. \ n \ n مع هذا الخيار ، كل حركة المرور على الإنترنت الخاص بك لجميع التطبيقات، بما في ذلك جميع المتصفحات، ستمر من خلال سايفون . \ n \ يمكنك أيضا اختيار تمرير مجموعة متصفح سايفون فقط وذلك سيترك كل ألتطبيقات ألأخرى لتمر مباشرة من خلالإتصالك العادي بالإنترنت.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">نقل الجهاز بأكمله عبر النفق</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">استخدم متصفح سايفون فقط</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage"> خيار تمرير كامل الجهاز عبر نفق متوفر لجهازك.\n\nهذا الخيار يتيح لك تمرير كل إتصالك بالإنترنت عبر نفق برنامج سايفون،  بما فيه التطبيقات والمتصفحات.\n\nيمكنك أيضا اختيار تمرير متصفح سايفون فقط عبر النفق وهذا يعني أن كل المتصفحات وألتطبيقات ألأخرى ستمر عبر إتصالك العادي بالإنترنت.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">خيار النفق</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">خيار المتصفح</string>
 </resources>

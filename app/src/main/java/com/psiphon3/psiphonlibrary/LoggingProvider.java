@@ -169,7 +169,7 @@ public class LoggingProvider extends ContentProvider {
      * The database where logs are stored until they can be consumed by the app.
      */
     public static class LogDatabaseHelper extends SQLiteOpenHelper {
-        private static final int DAYS_TO_STORE_LOGS = 3;
+        private static final int DAYS_TO_STORE_LOGS = 2;
         private static final String DATABASE_NAME = "loggingprovider.db";
         private static final int DATABASE_VERSION = 2;
 
@@ -296,16 +296,16 @@ public class LoggingProvider extends ContentProvider {
          * To be called by the UI at a time when it's appropriate to truncate logs database.
          * May execute asynchronously.
          */
-        public static void truncateLogs(Context context) {
+        public static void truncateLogs(Context context, boolean full) {
             // If this function is being called in the UI thread, then we need to do the work in an
             // async task. Otherwise we'll do the work directly.
             // For info about content provider thread use: http://stackoverflow.com/a/3571583
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                TruncateLogsTask task = new TruncateLogsTask(context);
+                TruncateLogsTask task = new TruncateLogsTask(context, full);
                 task.execute();
             }
             else {
-                LogDatabaseHelper.truncateLogsHelper(context);
+                LogDatabaseHelper.truncateLogsHelper(context, full);
             }
 
         }
@@ -315,37 +315,43 @@ public class LoggingProvider extends ContentProvider {
          */
         private static class TruncateLogsTask extends AsyncTask<Void, Void, Void> {
             private Context mContext;
-            public TruncateLogsTask (Context context){
+            private boolean mFull;
+            public TruncateLogsTask (Context context, boolean full) {
                 mContext = context;
+                mFull = full;
             }
 
             @Override
             protected Void doInBackground(Void... params) {
-                LogDatabaseHelper.truncateLogsHelper(mContext);
+                LogDatabaseHelper.truncateLogsHelper(mContext, mFull);
                 return null;
             }
         }
 
         /**
-         * Does the log retrieval work. Should be called via retrieveLogs or RetrieveLogsTask.
+         * Does the log truncation work. Should be called via truncateLogs or TruncateLogsTask.
          * @param context
          */
-        private static void truncateLogsHelper(Context context) {
+        private static void truncateLogsHelper(Context context, boolean full) {
             SQLiteDatabase db = LogDatabaseHelper.get(context).getDB();
 
-            String whereClause = COLUMN_NAME_TIMESTAMP +"<?";
+            String whereClause = null;
+            String[] whereArgs = null;
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat(
-                    "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-            Date date = new Date();
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            cal.add(Calendar.DATE, -DAYS_TO_STORE_LOGS);
+            if (!full) {
+                whereClause = COLUMN_NAME_TIMESTAMP + "<?";
 
-            db.delete(TABLE_NAME,
-                    whereClause,
-                    new String[]{dateFormat.format(cal.getTime())}
-            );
+                SimpleDateFormat dateFormat = new SimpleDateFormat(
+                        "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                Date date = new Date();
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(date);
+                cal.add(Calendar.DATE, -DAYS_TO_STORE_LOGS);
+
+                whereArgs = new String[]{dateFormat.format(cal.getTime())};
+            }
+
+            db.delete(TABLE_NAME, whereClause, whereArgs);
         }
 
         /**

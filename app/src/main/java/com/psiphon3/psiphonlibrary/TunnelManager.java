@@ -25,9 +25,12 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.net.VpnService;
 import android.net.VpnService.Builder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -53,11 +56,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import ca.psiphon.PsiphonTunnel;
+
+import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private static final int MAX_CLIENT_VERIFICATION_ATTEMPTS = 5;
@@ -77,8 +84,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final int MSG_TUNNEL_STARTING = 5;
     public static final int MSG_TUNNEL_STOPPING = 6;
     public static final int MSG_TUNNEL_CONNECTION_STATE = 7;
-    public static final int MSG_CLIENT_REGION = 8;
-    public static final int MSG_DATA_TRANSFER_STATS = 9;
+    public static final int MSG_DATA_TRANSFER_STATS = 8;
 
     public static final String INTENT_ACTION_HANDSHAKE = "com.psiphon3.psiphonlibrary.TunnelManager.HANDSHAKE";
 
@@ -472,6 +478,16 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
     };
 
+    private Handler periodicMaintenanceHandler = new Handler();
+    private final long periodicMaintenanceIntervalMs = 12 * 60 * 60 * 1000;
+    private final Runnable periodicMaintenance = new Runnable() {
+        @Override
+        public void run() {
+            LoggingProvider.LogDatabaseHelper.truncateLogs(getContext(), false);
+            periodicMaintenanceHandler.postDelayed(this, periodicMaintenanceIntervalMs);
+        }
+    };
+
     private void runTunnel() {
 
         Utils.initializeSecureRandom();
@@ -492,6 +508,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         DataTransferStats.getDataTransferStatsForService().startSession();
         sendDataTransferStatsHandler.postDelayed(sendDataTransferStats, sendDataTransferStatsIntervalMs);
+        periodicMaintenanceHandler.postDelayed(periodicMaintenance, periodicMaintenanceIntervalMs);
 
         boolean runVpn =
                 m_tunnelConfig.wholeDevice &&
@@ -525,8 +542,14 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             sendClientMessage(MSG_TUNNEL_STOPPING, null);
 
+            // If a client registers with the service at this point, it should be given a tunnel
+            // state bundle (specifically DATA_TUNNEL_STATE_IS_CONNECTED) that is consistent with
+            // the MSG_TUNNEL_STOPPING message it just received
+            setIsConnected(false);
+
             m_tunnel.stop();
 
+            periodicMaintenanceHandler.removeCallbacks(periodicMaintenance);
             sendDataTransferStatsHandler.removeCallbacks(sendDataTransferStats);
             DataTransferStats.getDataTransferStatsForService().stop();
 
@@ -558,7 +581,36 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public Builder newVpnServiceBuilder() {
-        return ((TunnelVpnService) m_parentService).newBuilder();
+        Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
+        if (Build.VERSION.SDK_INT >= LOLLIPOP) {
+            final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
+            Resources res = getContext().getResources();
+
+
+            // Check for individual apps to exclude
+            String excludedAppsFromPreference = multiProcessPreferences.getString(res.getString(R.string.preferenceExcludeAppsFromVpnString), "");
+            List<String> excludedApps;
+            if (excludedAppsFromPreference.isEmpty()) {
+                excludedApps = Collections.emptyList();
+                MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+            } else {
+                excludedApps = Arrays.asList(excludedAppsFromPreference.split(","));
+            };
+
+            if (excludedApps.size() > 0) {
+                for (String packageId : excludedApps) {
+                    try {
+                        vpnBuilder.addDisallowedApplication(packageId);
+                        MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        // Because the list that is passed in to this builder was created by
+                        // a PackageManager instance, this exception should never be thrown
+                    }
+                }
+            }
+        }
+
+        return vpnBuilder;
     }
 
     /**
@@ -602,13 +654,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             json.put("ClientVersion", EmbeddedValues.CLIENT_VERSION);
 
             if (UpgradeChecker.upgradeCheckNeeded(context)) {
-                Uri upgradeDownloadUrl = Uri.parse(EmbeddedValues.UPGRADE_URL);
-                upgradeDownloadUrl = upgradeDownloadUrl.buildUpon()
-                        .appendQueryParameter("tunnel_name", tempTunnelName == null ? "main" : tempTunnelName)
-                        .appendQueryParameter("client_version", EmbeddedValues.CLIENT_VERSION)
-                        .appendQueryParameter("client_platform", clientPlatform)
-                        .build();
-                json.put("UpgradeDownloadUrl", upgradeDownloadUrl.toString());
+
+                json.put("UpgradeDownloadURLs", new JSONArray(EmbeddedValues.UPGRADE_URLS_JSON));
 
                 json.put("UpgradeDownloadClientVersionHeader", "x-amz-meta-psiphon-client-version");
 
@@ -620,7 +667,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             json.put("SponsorId", EmbeddedValues.SPONSOR_ID);
 
-            json.put("RemoteServerListUrl", EmbeddedValues.REMOTE_SERVER_LIST_URL);
+            json.put("RemoteServerListURLs", new JSONArray(EmbeddedValues.REMOTE_SERVER_LIST_URLS_JSON));
+
+            json.put("ObfuscatedServerListRootURLs", new JSONArray(EmbeddedValues.OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON));
 
             json.put("RemoteServerListSignaturePublicKey", EmbeddedValues.REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY);
 
@@ -645,6 +694,15 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 File remoteServerListDownload = new File(tempTunnelDir, "remote_server_list");
                 json.put("RemoteServerListDownloadFilename", remoteServerListDownload.getAbsolutePath());
+
+                File oslDownloadDir = new File(tempTunnelDir, "osl");
+                if (!oslDownloadDir.exists()
+                        && !oslDownloadDir.mkdirs()) {
+                    // Failed to create osl directory
+                    // TODO: proceed anyway?
+                    return null;
+                }
+                json.put("ObfuscatedServerListDownloadDirectory", oslDownloadDir.getAbsolutePath());
 
                 // This number is an arbitrary guess at what might be the "best" balance between
                 // wake-lock-battery-burning and successful upgrade downloading.
@@ -849,9 +907,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                Bundle data = new Bundle();
-                data.putString(DATA_TUNNEL_STATE_CLIENT_REGION, region);
-                sendClientMessage(MSG_CLIENT_REGION, data);
+                m_tunnelState.clientRegion = region;
             }
         });
     }

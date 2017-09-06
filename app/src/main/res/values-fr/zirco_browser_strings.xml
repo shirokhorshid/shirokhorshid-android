@@ -3,7 +3,7 @@
   <string name="ApplicationName">Navigateur Psiphon</string>
   <string name="ApplicationNameUrl">Psiphon - %s</string>
   <string name="ApplicationDescription">Le navigateur Psiphon est un navigateur libre pour Android basé sur le navigateur Zirco.</string>
-  <string name="AboutActivity.Title">À propos de l\'appli</string>
+  <string name="AboutActivity.Title">À propos</string>
   <string name="AboutActivity.VersionText">Version :</string>
   <string name="AboutActivity.LicenseText">Licence :</string>
   <string name="Main.MenuAddBookmark">Ajouter un signet</string>
@@ -65,12 +65,12 @@
   <string name="PreferencesActivity.EnableFormDataPreferenceSummary">Active ou désactive l\'enregistrement des données de formulaire.</string>
   <string name="PreferencesActivity.EnablePasswordsPreferenceTitle">Enregistrer les mots de passe</string>
   <string name="PreferencesActivity.EnablePasswordsPreferenceSummary">Activer ou désactiver l\'enregistrement des mots de passe.</string>
-  <string name="PreferencesActivity.EnableCookiesPreferenceTitle">Autoriser les fichiers témoins</string>
-  <string name="PreferencesActivity.EnableCookiesPreferenceSummary">Activer ou désactiver les fichiers témoins.</string>
+  <string name="PreferencesActivity.EnableCookiesPreferenceTitle">Autoriser les témoins</string>
+  <string name="PreferencesActivity.EnableCookiesPreferenceSummary">Activer ou désactiver les témoins.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryTitle">Effacer l\'historique</string>
   <string name="PreferencesActivity.PrivacyClearFormDataTitle">Effacer les données de formulaire</string>
   <string name="PreferencesActivity.PrivacyClearCacheTitle">Effacer le cache</string>
-  <string name="PreferencesActivity.PrivacyClearCookiesTitle">Effacer les fichiers témoins</string>
+  <string name="PreferencesActivity.PrivacyClearCookiesTitle">Effacer les témoins</string>
   <string name="PreferencesActivity.BarDurationPreferenceTitle">Durée d\'affichage des barres</string>
   <string name="PreferencesActivity.BarDurationPreferenceSummary">Durée d\'affichage des barres d\'outils.</string>
   <string name="PreferencesActivity.BarDuration1sec">1 seconde</string>
@@ -101,14 +101,14 @@
   <string name="Commons.ClearingFormData">Effacement des données de formulaire...</string>
   <string name="Commons.ClearCache">Effacer le cache</string>
   <string name="Commons.ClearingCache">Effacement du cache...</string>
-  <string name="Commons.ClearCookies">Effacer les fichiers témoins</string>
-  <string name="Commons.ClearingCookies">Effacement des fichiers témoins...</string>
+  <string name="Commons.ClearCookies">Effacer les témoins</string>
+  <string name="Commons.ClearingCookies">Effacement des témoins...</string>
   <string name="Commons.SDCardErrorTitle">Carte SD non disponible</string>
   <string name="Commons.SDCardErrorNoSDMsg">Aucune carte SD trouvée.</string>
   <string name="Commons.SDCardErrorSDUnavailable">La carte SD n\'est pas disponible.</string>
   <string name="Commons.Close">Fermer</string>
-  <string name="PreferencesActivity.AboutCategoryTitle">À propos de l\'appli</string>
-  <string name="PreferencesActivity.AboutPreferenceTitle">À propos de l\'appli</string>
+  <string name="PreferencesActivity.AboutCategoryTitle">À propos</string>
+  <string name="PreferencesActivity.AboutPreferenceTitle">À propos</string>
   <string name="PreferencesActivity.AboutPreferenceSummary">Informations sur cette application.</string>
   <string name="BookmarksListActivity.MostUsedSortMode">Plus utilisé</string>
   <string name="PreferencesActivity.DefaultZoomPreferenceTitle">Niveau de zoom par défaut</string>
@@ -289,7 +289,7 @@
   <string name="DownloadListActivity.RemoveCompletedDownloads">Enlever les téléchargements terminés</string>
   <string name="QuickAction.Find">Trouver sur la page</string>
   <string name="SearchDialog.Hint">Trouver sur la page</string>
-  <string name="PreferencesActivity.AdvancedCategoryTitle">Avancé</string>
+  <string name="PreferencesActivity.AdvancedCategoryTitle">Évolué</string>
   <string name="PreferencesActivity.BookmarksDatabaseTitle">Stockage des signets</string>
   <string name="PreferencesActivity.BookmarksDatabaseSummary">Choisir le mode de stockage des signets.</string>
   <string name="PreferencesActivity.BookmarksDatabaseStock">Signets Android</string>
@@ -317,5 +317,5 @@
   <string name="DesktopViewListActivity.ListEmpty">La liste est vide.</string>
   <string name="DesktopViewListActivity.AddMessage">Ajouter un site Web</string>
   <string name="DesktopViewListActivity.ClearMessage">Effacer tous les sites</string>
-  <string name="Main.MenuFeedback">Commentaire</string>
+  <string name="Main.MenuFeedback">Rétroaction</string>
 </resources>

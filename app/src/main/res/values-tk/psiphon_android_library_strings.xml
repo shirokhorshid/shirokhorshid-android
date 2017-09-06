@@ -40,6 +40,7 @@
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Beýgeldiş şowsuz. Beýgeldiş faýlyndan toplum maglumatlaryny çykaryp alyp bolanok.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Beýgeldiş faýly tapylmady</string>
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon beýgeldiş</string>
+  <string name="stop">Dur</string>
   <string name="share_proxies_prompt_negative">Bes et</string>
   <string name="about">Psiphon hakynda</string>
   <string name="feedback">Seslenme</string>
