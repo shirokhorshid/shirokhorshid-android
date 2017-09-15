@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH正在连接...</string>
+  <string name="ssh_connecting">SSH 正在连接...</string>
   <string name="ssh_connected">SSH连接成功</string>
   <string name="ssh_connection_failed">SSH连接失败</string>
   <string name="ssh_authenticating">SSH正在进行身份验证...</string>

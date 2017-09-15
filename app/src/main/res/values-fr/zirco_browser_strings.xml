@@ -93,7 +93,7 @@
   <string name="Commons.PleaseWait">Veuillez patientez</string>
   <string name="Commons.Yes">Oui</string>
   <string name="Commons.No">Non</string>
-  <string name="Commons.NoUndoMessage">Cette opération ne peut être annulée. Souhaitez-vous continuer\u00A0?</string>
+  <string name="Commons.NoUndoMessage">Cette opération ne peut être annulée. Souhaitez-vous continuer ?</string>
   <string name="Commons.JavaScriptDialog">Fenêtre de dialogue JavaScript</string>
   <string name="Commons.ClearHistory">Effacer l\'historique</string>
   <string name="Commons.ClearingHistory">Effacement de l\'historique...</string>
@@ -116,7 +116,7 @@
   <string name="PreferencesActivity.DefaultZoomClose">Fermer</string>
   <string name="PreferencesActivity.DefaultZoomMedium">Moyen</string>
   <string name="PreferencesActivity.DefaultZoomFar">Éloigné</string>
-  <string name="StartPage.Welcome">Bienvenue !</string>
+  <string name="StartPage.Welcome">Bienvenue !</string>
   <string name="StartPage.Bookmarks">Signets les plus utilisés</string>
   <string name="StartPage.History">Historique récent</string>
   <string name="ChangelogActivity.Title">Journal des changements</string>
@@ -175,7 +175,7 @@
   <string name="PreferencesActivity.UIPreferenceSummary">Personnaliser l\'interface utilisateur</string>
   <string name="Main.MenuExit">Quitter</string>
   <string name="PreferencesActivity.RestartDialogTitle">Redémarrage exigé</string>
-  <string name="PreferencesActivity.RestartDialogMessage">Ce changement ne prendra effet qu\'au redémarrage de l\'application. Le faire maintenant\u00A0?</string>
+  <string name="PreferencesActivity.RestartDialogMessage">Ce changement ne prendra effet qu\'au redémarrage de l\'application. Le faire maintenant ?</string>
   <string name="PreferencesActivity.EnablePluginsTitle">Activer les greffons</string>
   <string name="PreferencesActivity.PluginsAlwaysOff">Toujours désactivés</string>
   <string name="PreferencesActivity.PluginsOnDemand">Sur demande</string>
@@ -268,7 +268,7 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Échec lors de l\'exportation</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Message d\'erreur : %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Échec lors de l\'importation</string>
-  <string name="Commons.OperationCanBeLongMessage">Cette opération peut prendre du temps. Voulez-vous continuer ?</string>
+  <string name="Commons.OperationCanBeLongMessage">Cette opération peut prendre du temps. Voulez-vous continuer ?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Gérer les signets et l\'historique</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Importer, exporter, effacer l\'historique et les signets.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Exporter les signets et l\'historique</string>

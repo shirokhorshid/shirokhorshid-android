@@ -10,12 +10,12 @@
   <string name="exit">Закрыть</string>
   <string name="open_browser">Открыть браузер</string>
   <string name="browser_task_label">Psiphon Browser</string>
-  <string name="FeedbackActivity.DefaultText">Если у вас есть какие-либо особые  комментарии, дополнительная информация о сайтах, которые не загружаются или эта форма не работает для вас, пишите нам на &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Если у вас есть какие-либо особые комментарии, дополнительная информация о сайтах, которые не загружаются или эта форма не работает для вас, пишите нам на &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Спасибо за ваш отзыв</string>
-  <string name="FeedbackActivity.Failure">Отсылка не сработала. Попробуйте еще раз</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Ошибка при отсылке отзыва.</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Неверные параметры в URL при отсылке формы отзыва</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Форма отзыва не загружается</string>
+  <string name="FeedbackActivity.Failure">Сбой отправки. Попробуйте еще раз.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Сбой отправки отзыва.</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Неверные параметры ссылки при отправке формы отзыва</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Сбой загрузки формы отзыва</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Туннелировать интернет соединение для всех приложений?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Для вашего устройства доступна опция полного тунеллирования устройства.\n\nС этой опцией весь ваш интернет трафик для всех приложений, включая все браузеры, будет тунеллирован через Psiphon.\n\nЛибо вы можете выбрать тунеллирование только встроенного браузера Psiphon, а все остальные приложения будут использовать ваше стандартное подключение к интернет напрямую.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Туннелировать все интернет соединения</string>
