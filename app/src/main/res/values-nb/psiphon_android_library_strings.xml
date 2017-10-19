@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH kobler til...</string>
+  <string name="ssh_connecting">SSH kobler til…</string>
   <string name="ssh_connected">SSH tilkoblet</string>
   <string name="ssh_connection_failed">SSH tilkobling feilet</string>
-  <string name="ssh_authenticating">SSH identitetsbekreftelse...</string>
+  <string name="ssh_authenticating">SSH identitetsbekreftelse…</string>
   <string name="ssh_authentication_failed">SSH identitetsbekreftelse feilet</string>
   <string name="ssh_authenticated">SSH bekreftet identitet</string>
-  <string name="socks_starting">SOCKS starter...</string>
+  <string name="socks_starting">SOCKS starter…</string>
   <string name="socks_running">SOCKS kjører på port %d</string>
   <string name="socks_stopped">SOCKS stoppet</string>
   <string name="ssh_stopped">SSH stoppet</string>
   <string name="error_message">En feil skjedde:</string>
-  <string name="http_proxy_starting">HTTP mellomlager starter...</string>
+  <string name="http_proxy_starting">HTTP mellomlager starter…</string>
   <string name="http_proxy_running">HTTP-mellomlager kjører på port %d</string>
   <string name="http_proxy_stopped">HTTP-mellomlager stoppet</string>
   <string name="http_proxy_stopped_unexpectedly">HTTP-mellomlager stopper uventet</string>
@@ -33,8 +33,8 @@
   <string name="AuthenticatedDataPackage.InvalidSignature">Ugyldig signatur på bekreftelse av identitet for datapakke</string>
   <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Klarte ikke å tolke bekreftet identitet for datapakke</string>
   <string name="AuthenticatedDataPackage.MissingValue">Mangler verdi i bekreftelse av identitet for datapakke</string>
-  <string name="starting_tunnel">Starter tunnel...</string>
-  <string name="stopping_tunnel">Stopper tunnel...</string>
+  <string name="starting_tunnel">Starter tunnel…</string>
+  <string name="stopping_tunnel">Stopper tunnel…</string>
   <string name="stopped_tunnel">Tunnel stoppet</string>
   <string name="ServerInterface.StopRequested">Stopp forespurt</string>
   <string name="ServerInterface.HTTPSRequestFailed">HTTPS-forespørsel feilet med følgende melding:</string>
@@ -54,13 +54,13 @@
   <string name="psiphon_stopped">Stoppet</string>
   <string name="psiphon_running_whole_device">Kjører i hele-fjøla -modus</string>
   <string name="psiphon_running_browser_only">Kjører i bare-nettleser -modus</string>
-  <string name="waiting_for_network_connectivity">Venter på nettverkstilkobling...</string>
-  <string name="checking_for_root_access">Sjekker superbrukerrettigheter...</string>
-  <string name="psiphon_service_notification_message_connecting">Kobler til...</string>
+  <string name="waiting_for_network_connectivity">Venter på nettverkstilkobling…</string>
+  <string name="checking_for_root_access">Sjekker superbrukerrettigheter…</string>
+  <string name="psiphon_service_notification_message_connecting">Kobler til…</string>
   <string name="psiphon_service_notification_id">Psiphon tjeneste-kunngjøring</string>
   <string name="preferred_servers">Forvalgte tjenere: %d</string>
-  <string name="selecting_server">Velger tjener...</string>
-  <string name="fetch_remote_server_list">Henter liste over tjenere eksternt...</string>
+  <string name="selecting_server">Velger tjener…</string>
+  <string name="fetch_remote_server_list">Henter liste over tjenere eksternt…</string>
   <string name="vpn_service_failed">VPN-tjeneste feilet: %s</string>
   <string name="vpn_service_running">VPN-tjeneste kjører</string>
   <string name="vpn_service_stopped">VNP-tjeneste stoppet</string>
@@ -70,14 +70,14 @@
   <string name="tun2socks_running">VPN til SOCKS kjører</string>
   <string name="tun2socks_stopped">VPN til SOCKS stoppet</string>
   <string name="vpn_service_no_private_address_available">Ingen private adresser tilgjengelig for VPN-tjeneste</string>
-  <string name="psiphon_running_generic">Kjører...</string>
+  <string name="psiphon_running_generic">Kjører…</string>
   <string name="data_transfer_bytes_sent">Byte avsendt: %1$s (%2$.2f%% komprimert)</string>
   <string name="data_transfer_bytes_received">Byte mottatt: %1$s (%2$.2f%% komprimert)</string>
   <string name="data_transfer_elapsed_time">Tilkoblingstid: %s</string>
   <string name="check_tunnel_failed">Sjekk-tunnel feilet. Det kan hende din enhet mangler støtte for hele-fjøla -tunnel-modus.</string>
   <string name="debug_message">%s</string>
   <string name="Diagnostics.AttachmentWriteFailed">Klarte ikke å lage eller skrive tilbakemeldingsfil for diagnostikk</string>
-  <string name="Diagnostics.EncryptedFailed">Klarte ikke å kryptere tilbakemeldingsfil for diagnostikk. Denne informasjonen vil ikke bli tilknyttet din tilbakemeldings-epost.</string>
+  <string name="Diagnostics.EncryptedFailed">Klarte ikke å kryptere tilbakemeldingsfil for diagnostikk. Denne informasjonen vil ikke bli tilknyttet din tilbakemeldingse-post.</string>
   <string name="TransparentProxyConfig.iptablesExtractFailed">Klarte ikke å pakke ut iptables-binærfil.</string>
   <string name="transparent_proxy_routing_failed">Klarte ikke å starte gjennomsiktig mellomtjener-ruting: %s</string>
   <string name="transparent_proxy_routing_running">Gjennomsiktig mellomtjener-ruting kjører</string>
@@ -120,7 +120,7 @@
   <string name="custom_proxy_settings_host">Verts-adresse</string>
   <string name="custom_proxy_settings_port">Port</string>
   <string name="region_name_any">Best ytelse</string>
-  <string name="region_name_us">USA</string>
+  <string name="region_name_us">Amerikas forente stater</string>
   <string name="region_name_gb">Storbritannia</string>
   <string name="region_name_ca">Kanada</string>
   <string name="region_name_de">Tyskland</string>

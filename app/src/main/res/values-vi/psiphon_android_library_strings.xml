@@ -26,7 +26,7 @@
   <string name="ServerInterface.FailedToReadLastConnected">Không thể đọc thời gian đã kết nối lần cuối.</string>
   <string name="PsiphonAndroidService.HandshakeRequestFailed">Yêu cầu handshake thất bại.</string>
   <string name="ssh_disconnected_unexpectedly">SSH ngắt kết nối bất ngờ</string>
-  <string name="client_version">Phiên Bản Client %s</string>
+  <string name="client_version">Phiên Bản Trình %s</string>
   <string name="no_server_entries">Không có máy chủ để kết nối</string>
   <string name="ServerInterface.InvalidRemoteServerList">Danh sách máy chủ từ xa không hợp lệ</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Gói dữ liệu xác thực đã được ký bằng khóa công khai khác.</string>
@@ -74,7 +74,7 @@
   <string name="data_transfer_bytes_sent">Số bytes gửi đi:  %1$s (%2$.2f%% được nén)</string>
   <string name="data_transfer_bytes_received">Số bytes nhận được: %1$s (%2$.2f%% được nén)</string>
   <string name="data_transfer_elapsed_time">Thời gian kết nối: %s</string>
-  <string name="check_tunnel_failed">Kiểm tra đường hầm thất bại. Thiết bị của bạn có thể không hỗ trợ tùy chọn đường hầm toàn thiết bị.</string>
+  <string name="check_tunnel_failed">Kiểm tra đường hầm thất bại. Thiết bị của bạn có thể không hỗ trợ tùy chọn kết nối toàn thiết bị xuyên qua Psiphon.</string>
   <string name="debug_message">%s</string>
   <string name="Diagnostics.AttachmentWriteFailed">Không tạo hay ghi tập tin chẩn đoán phản hồi được</string>
   <string name="Diagnostics.EncryptedFailed">Không mã hóa thông tin chẩn đoán phản hồi được. Thông tin này sẽ không được đính kèm vào email phản hồi.</string>
@@ -121,7 +121,7 @@
   <string name="custom_proxy_settings_port">Cổng</string>
   <string name="region_name_any">Hiệu năng tốt nhất</string>
   <string name="region_name_us">Hoa Kỳ</string>
-  <string name="region_name_gb">Vương quốc Anh</string>
+  <string name="region_name_gb">Anh Quốc</string>
   <string name="region_name_ca">Canada</string>
   <string name="region_name_de">Đức</string>
   <string name="region_name_jp">Nhật Bản</string>
@@ -130,16 +130,16 @@
   <string name="region_name_nl">Hà Lan</string>
   <string name="about">Giới thiệu về Psiphon</string>
   <string name="feedback">Ý kiến phản hồi</string>
-  <string name="tunnel_whole_device_toggle">Xuyên hầm Toàn Thiết Bị (cần Android 4.0+)</string>
+  <string name="tunnel_whole_device_toggle">Kết Nối Toàn Thiết Bị Xuyên Qua Psiphon (cần Android 4.0+)</string>
   <string name="disable_timeouts">Tắt hạn chờ cho mạng chậm</string>
   <string name="region_selector">Chọn vùng</string>
   <string name="network_proxy_connect_exception">Không thể kết nối với proxy HTTP của mạng: %s</string>
   <string name="network_proxy_connect_information">Kết nối thông qua proxy HTTP của bạn: %s</string>
   <string name="network_proxy_connect_invalid_values">Thiết đặt Proxy HTTP không hợp lệ</string>
-  <string name="tunnel_whole_device_exception">Thiết bị của bạn không hỗ trợ tùy chọn đường hầm toàn thiết bị non-root.</string>
+  <string name="tunnel_whole_device_exception">Thiết bị của bạn không hỗ trợ tùy chọn kết nối toàn thiết bị xuyên qua Psiphon cho thiết bị chưa được root.</string>
   <string name="run_polipo_failed">Không chạy được Polipo: %s</string>
-  <string name="wdm_force_iptables_toggle">Buộc dùng phương pháp xuyên Hầm Toàn Thiết Bị với root</string>
-  <string name="http_prefix_toggle">Ngụy trang là HTTP</string>
+  <string name="wdm_force_iptables_toggle">Buộc dùng phương pháp Kết Nối Toàn Thiết Bị Xuyên qua Psiphon với root</string>
+  <string name="http_prefix_toggle">Ngụy trang làm HTTP</string>
   <string name="preference_notifications_title">Thông báo</string>
   <string name="preference_notifications_with_sound_title">Âm thanh</string>
   <string name="preference_notifications_with_sound_summary">Phát âm thanh khi tình trạng kết nối thay đổi</string>
@@ -167,7 +167,7 @@
   <string name="upstream_proxy_error">Có lỗi proxy ở luồng trên: %s</string>
   <string name="diagnostic">Chẩn đoán: %s</string>
   <string name="start_tunnel_failed">Khởi động đường hầm thất bại: %s</string>
-  <string name="tunnel_connecting">Đường hầm đang kết nối...</string>
-  <string name="tunnel_connected">Đường hầm được kết nối</string>
+  <string name="tunnel_connecting">Đang kết nối an toàn qua Psiphon...</string>
+  <string name="tunnel_connected">Đã kết nối an toàn qua Psiphon</string>
   <string name="waiting">Đang chờ...</string>
 </resources>

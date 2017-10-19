@@ -17,6 +17,8 @@
   <string name="http_proxy_stopped_unexpectedly">HTTP proxy arresto inprevisto</string>
   <string name="ssh_disconnected_unexpectedly">SSH disconnessione imprevista</string>
   <string name="client_version">Versione Client %s</string>
+  <string name="psiphon_stopped">Fermato</string>
+  <string name="psiphon_service_notification_message_connecting">Connessione in corso...</string>
   <string name="vpn_service_failed">Errore servizio VPN: %s</string>
   <string name="vpn_service_running">Servizio VPN in esecuzione</string>
   <string name="vpn_service_stopped">Servizio VPN arrestato</string>
@@ -24,9 +26,15 @@
   <string name="debug_message">%s</string>
   <string name="UpgradeManager.UpgradePromptTitle">Aggiornamento Psiphon</string>
   <string name="disconnected">Disconnesso</string>
+  <string name="label_sent">Inviato</string>
+  <string name="label_received">Ricevuto</string>
+  <string name="start">Avvia</string>
   <string name="stop">Stop</string>
+  <string name="home_tab_name">Pagina Iniziale</string>
   <string name="settings_tab_name">Opzioni</string>
+  <string name="statistics_tab_name">Statistiche</string>
   <string name="logs_tab_name">Registrazioni</string>
+  <string name="share_proxies_prompt_positive">Riavvia ora</string>
   <string name="share_proxies_prompt_negative">Cancella</string>
   <string name="custom_proxy_settings_port">Porta</string>
   <string name="region_name_us">Stati Uniti</string>
@@ -41,6 +49,9 @@
   <string name="http_prefix_toggle">Mascherato come HTTP</string>
   <string name="preference_notifications_title">Notifiche</string>
   <string name="preference_notifications_with_sound_title">Suono</string>
+  <string name="preference_notifications_with_vibrate_title">Vibrazione</string>
+  <string name="proxySettingsCategoryTitle">Configurazione del proxy</string>
+  <string name="custom_proxy_port_summary">Porta del server proxy</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->

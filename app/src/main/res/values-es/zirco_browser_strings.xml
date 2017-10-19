@@ -172,7 +172,7 @@
   <string name="PreferencesActivity.ClearCacheOnExitPreferenceTitle">Limpiar caché al salir</string>
   <string name="PreferencesActivity.ClearCacheOnExitPreferenceSummary">Si está marcada, la caché del navegador será limpiada al salir de la aplicación.</string>
   <string name="PreferencesActivity.UIPreferenceTitle">Ajustes de la interfaz de usuario</string>
-  <string name="PreferencesActivity.UIPreferenceSummary">Personalizan la interfaz de usuario.</string>
+  <string name="PreferencesActivity.UIPreferenceSummary">Personalizar la interfaz de usuario.</string>
   <string name="Main.MenuExit">Salir</string>
   <string name="PreferencesActivity.RestartDialogTitle">Se requiere reinicio</string>
   <string name="PreferencesActivity.RestartDialogMessage">Este cambio no surtirá efecto hasta que se reinicie la aplicación. ¿Quiere hacerlo ahora?</string>
@@ -276,7 +276,7 @@
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Importar marcadores e historial</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importa marcadores e historial desde la tarjeta SD.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Limpiar historial y/o marcadores</string>
-  <string name="PreferencesActivity.SummaryCannotBeUndone">Úselo con precaución, esta acción no se puede revertir.</string>
+  <string name="PreferencesActivity.SummaryCannotBeUndone">Úselo con precaución, esta acción no se puede deshacer.</string>
   <string name="Commons.ClearingHistoryBookmarks">Limpiando historial y/o marcadores...</string>
   <string name="Commons.ClearHistoryBookmarks">Limpiar historial y/o marcadores</string>
   <string name="Commons.Bookmarks">Marcadores</string>

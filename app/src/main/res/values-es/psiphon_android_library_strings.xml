@@ -66,9 +66,9 @@
   <string name="vpn_service_stopped">Servicio VPN detenido</string>
   <string name="vpn_service_revoked">Servicio VPN revocado</string>
   <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN to SOCKS falló</string>
-  <string name="tun2socks_running">VPN to SOCKS en ejecución</string>
-  <string name="tun2socks_stopped">VPN to SOCKS se detuvo</string>
+  <string name="tun2socks_failed">VPN a SOCKS falló</string>
+  <string name="tun2socks_running">VPN a SOCKS en ejecución</string>
+  <string name="tun2socks_stopped">VPN a SOCKS se detuvo</string>
   <string name="vpn_service_no_private_address_available">No hay dirección privada disponible para el servicio VPN</string>
   <string name="psiphon_running_generic">Ejecutándose...</string>
   <string name="data_transfer_bytes_sent">Bytes enviados: %1$s (%2$.2f%% comprimidos)</string>
@@ -130,7 +130,7 @@
   <string name="region_name_nl">Países Bajos</string>
   <string name="about">Acerca de Psiphon</string>
   <string name="feedback">Comentarios</string>
-  <string name="tunnel_whole_device_toggle">Dervivar por el túnel el dispositivo al completo (requiere Android 4.0+)</string>
+  <string name="tunnel_whole_device_toggle">Derivar por el túnel el dispositivo al completo (requiere Android 4.0+)</string>
   <string name="disable_timeouts">Deshabilitar tiempos de espera para redes lentas</string>
   <string name="region_selector">Seleccionar región</string>
   <string name="network_proxy_connect_exception">Fallo al conectar al proxy HTTP de la red: %s</string>

@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">Psiphon brauzeri</string>
+  <string name="ApplicationName">Psiphon Brauzeri</string>
   <string name="ApplicationNameUrl">Psiphon - %s</string>
-  <string name="ApplicationDescription">Psiphon brauzeri Android esasly Zirco brauzer üçin açyk çeşmeli brauzerdir.</string>
+  <string name="ApplicationDescription">Psiphon Brauzeri Android esasly Zirco Brauzer üçin açyk çeşmeli brauzerdir.</string>
   <string name="AboutActivity.Title">Hakynda</string>
-  <string name="AboutActivity.VersionText">Görnüş</string>
+  <string name="AboutActivity.VersionText">Görnüş:</string>
   <string name="AboutActivity.LicenseText">Ygtyýarnama:</string>
   <string name="Main.MenuAddBookmark">Ýer belligi goş</string>
   <string name="Main.MenuShowBookmarks">Ýer bellikleri</string>
@@ -12,13 +12,13 @@
   <string name="Main.MenuShowDownloads">Göçürilip alnanlar</string>
   <string name="Main.MenuPreferences">Saýlawlar</string>
   <string name="Main.MenuOpen">Aç</string>
-  <string name="Main.MenuOpenNewTab">Täze goýmada aç</string>
-  <string name="Main.MenuDownload">Göçürip al</string>
-  <string name="Main.DownloadStartedMsg">Göçürip almak başlaýar.</string>
+  <string name="Main.MenuOpenNewTab">Täze panelda aç</string>
+  <string name="Main.MenuDownload">Indir</string>
+  <string name="Main.DownloadStartedMsg">Indirmek başlaýar.</string>
   <string name="Main.DownloadFinishedMsg">Göçürip almak tamamlandy.</string>
   <string name="Main.DownloadErrorMsg">Göçürip almak säwligi: %s</string>
-  <string name="Main.ToastTabSwitchMessage">%s goýmasy</string>
-  <string name="Main.ToastTabSwitchFullMessage">%1$s goýmasy: %2$s</string>
+  <string name="Main.ToastTabSwitchMessage">%s paneli</string>
+  <string name="Main.ToastTabSwitchFullMessage">%1$s paneli: %2$s</string>
   <string name="Main.VndErrorTitle">URL-ni açyp bolanok</string>
   <string name="Main.VndErrorMessage">Bu URL-ni açmak üçin programmaňyz ýok bolmagy mümkin: %s.</string>
   <string name="BookmarksListActivity.Title">Psiphon brauzer - Ýer bellikleri</string>
@@ -35,10 +35,10 @@
   <string name="EditBookmarkActivity.TitleLabel">Ady:</string>
   <string name="EditBookmarkActivity.UrlLabel">Ýeri:</string>
   <string name="HistoryListActivity.Title">Psiphon brauzer - Taryh</string>
-  <string name="HistoryListActivity.MenuOpenInTab">Täze goýmada aç</string>
+  <string name="HistoryListActivity.MenuOpenInTab">Täze panelde aç</string>
   <string name="HistoryListActivity.MenuDelete">Ýokla</string>
-  <string name="DownloadListActivity.Title">Psiphon brauzer - Göçürilip alnanlar</string>
-  <string name="DownloadListActivity.Empty">Göçürilip alnan zat ýok</string>
+  <string name="DownloadListActivity.Title">Psiphon Brauzer - Indirilenler</string>
+  <string name="DownloadListActivity.Empty">Indirlen zat ýok</string>
   <string name="DownloadListActivity.Aborted">%s (Bes edildi)</string>
   <string name="DownloadListActivity.Finished">%s (Tamamlandy)</string>
   <string name="AdBlockerWhiteListActivity.Title">Psiphon brauzeri - Mahabatlary bökdeýjiniň rugsat berlenler sanawy</string>
@@ -65,12 +65,12 @@
   <string name="PreferencesActivity.EnableFormDataPreferenceSummary">Forma maglumatlaryny ýatda saklamagy işjeňleşdiriň ýa-da işlemeýän ediň.</string>
   <string name="PreferencesActivity.EnablePasswordsPreferenceTitle">Parollary ýatda sakla</string>
   <string name="PreferencesActivity.EnablePasswordsPreferenceSummary">Parol ýatda saklamagy işjeňleşdiriň ýa-da işlemeýän ediň.</string>
-  <string name="PreferencesActivity.EnableCookiesPreferenceTitle">Gutapjyklara rugsat ber</string>
-  <string name="PreferencesActivity.EnableCookiesPreferenceSummary">Gutapjyklary işjeňleşdiriň ýa-da işlemeýän ediň.</string>
+  <string name="PreferencesActivity.EnableCookiesPreferenceTitle">\"Cookies\" rugsat ber</string>
+  <string name="PreferencesActivity.EnableCookiesPreferenceSummary">\"Cookies\" işjeňleşdiriň ýa-da işlemeýän ediň.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryTitle">Taryhy arassala</string>
   <string name="PreferencesActivity.PrivacyClearFormDataTitle">Forma maglumatlaryny arassala</string>
   <string name="PreferencesActivity.PrivacyClearCacheTitle">Deslapky ýady arassala</string>
-  <string name="PreferencesActivity.PrivacyClearCookiesTitle">Gutapjyklary arassala</string>
+  <string name="PreferencesActivity.PrivacyClearCookiesTitle">\"Cookies\" arassala</string>
   <string name="PreferencesActivity.BarDurationPreferenceTitle">Zolaklaryň dowamlylygyny görkez</string>
   <string name="PreferencesActivity.BarDurationPreferenceSummary">Gural zolaklarynyň dowamlylygyny görkeziň.</string>
   <string name="PreferencesActivity.BarDuration1sec">1 sekunt</string>
@@ -101,8 +101,8 @@
   <string name="Commons.ClearingFormData">Forma maglumatlary arassalanýar...</string>
   <string name="Commons.ClearCache">Deslapky ýady arassala</string>
   <string name="Commons.ClearingCache">Deslapky ýat arassalanýar...</string>
-  <string name="Commons.ClearCookies">Gutapjyklary arassala</string>
-  <string name="Commons.ClearingCookies">Gutapjyklar arassalanýar...</string>
+  <string name="Commons.ClearCookies">\"Cookies\" arassala</string>
+  <string name="Commons.ClearingCookies">\"Cookies\" arassalanýar...</string>
   <string name="Commons.SDCardErrorTitle">SD karta elýeterli däl</string>
   <string name="Commons.SDCardErrorNoSDMsg">SD karta tapylmady.</string>
   <string name="Commons.SDCardErrorSDUnavailable">SD karta elýeterli däl.</string>

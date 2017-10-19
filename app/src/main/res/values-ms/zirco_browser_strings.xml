@@ -62,14 +62,25 @@
   <string name="PreferencesActivity.PrivacyPreferenceTitle">Tetapan privasi</string>
   <string name="PreferencesActivity.PrivacyPreferenceSummary">Urus tetapan privasi</string>
   <string name="PreferencesActivity.EnableFormDataPreferenceTitle">Simpan borang data</string>
+  <string name="Commons.Cancel">Batal</string>
+  <string name="Commons.Yes">Ya</string>
+  <string name="Commons.No">Tidak</string>
+  <string name="Commons.Close">Balas</string>
   <string name="PreferencesActivity.AboutCategoryTitle">Tentang</string>
   <string name="PreferencesActivity.AboutPreferenceTitle">Tentang</string>
+  <string name="PreferencesActivity.DefaultZoomClose">Balas</string>
   <string name="HomepagePreferenceActivity.Title">Halaman utama</string>
   <string name="HomepagePreferenceActivity.Prompt">Halaman utama</string>
+  <string name="StartPage.Search">Cari</string>
   <string name="DownloadNotification.DownloadStart">Mula Muat Turun.</string>
   <string name="DownloadNotification.DownloadComplete">Muat Turun selesai.</string>
+  <string name="Main.MenuExit">Keluar</string>
+  <string name="Commons.Continue">Teruskan</string>
+  <string name="Commons.Add">Tambah</string>
   <string name="Commons.Delete">Padam</string>
   <string name="QuickAction.Home">Halaman utama</string>
   <string name="Commons.Bookmarks">Penanda</string>
   <string name="Commons.History">Sejarah</string>
+  <string name="Commons.All">Semua</string>
+  <string name="HttpAuthenticationDialog.UserName">Nama</string>
 </resources>

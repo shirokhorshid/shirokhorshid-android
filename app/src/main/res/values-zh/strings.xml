@@ -10,14 +10,14 @@
   <string name="exit">退出</string>
   <string name="open_browser">打开浏览器</string>
   <string name="browser_task_label">赛风浏览器</string>
-  <string name="FeedbackActivity.DefaultText">如果您有任何具体建议，有任何网站失效的信息或者此表单无法使用的情况，请发邮件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
-  <string name="FeedbackActivity.Success">感谢您提交反馈意见</string>
-  <string name="FeedbackActivity.Failure">提交失败。请再试一次。</string>
+  <string name="FeedbackActivity.DefaultText">如果您有具体建议、网站无法正常运行的详情，或者该表单无法使用，请发邮件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
+  <string name="FeedbackActivity.Success">谢谢您的反馈</string>
+  <string name="FeedbackActivity.Failure">提交失败，请再试。</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">提交反馈失败</string>
   <string name="FeedbackActivity.InvalidURLParameters">提交的反馈表单中有无效的网址参数</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">获取反馈页面的内容失败</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">全局代理本设备？</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">全局代理模式在您的设备上可用。\n\n打开此选项后，赛风将代理所有程序的网络流量，包括所有浏览器。\n\n另外，您也可以选择只代理附带的赛风浏览器，让其他程序通过平常的网络连接。</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理设备</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">只使用赛风浏览器</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">无法获取反馈页面的内容</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">是否启用全局代理？</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">您的设备可使用全局代理。\n\n启用该选项后，全部应用（包括浏览器）都将通过赛风连接互联网。\n\n另外，您也可以选择仅使用集成的赛风浏览器。该选项表示，除赛风浏览器之外，其他应用将正常连接。</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">仅赛风浏览器</string>
 </resources>

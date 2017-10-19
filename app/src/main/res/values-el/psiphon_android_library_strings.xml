@@ -35,6 +35,7 @@
   <string name="compression_savings">%s αποθηκευμένο</string>
   <string name="start">Εκκίνηση</string>
   <string name="stop">Τερματισμός</string>
+  <string name="home_tab_name">Αρχική</string>
   <string name="settings_tab_name">Επιλογές</string>
   <string name="statistics_tab_name">Στατιστικά</string>
   <string name="logs_tab_name">Αρχεία καταγραφής</string>

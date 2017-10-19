@@ -104,6 +104,7 @@
   <string name="PreferencesActivity.SearchUrlWikipedia">Wikipedia</string>
   <string name="StartPage.Search">Αναζήτηση</string>
   <string name="PreferencesActivity.StartPageEnableHistoryPreferenceTitle">Εμφάνιση πρόσφατου ιστορικού</string>
+  <string name="PreferencesActivity.UserAgentDefault">Προεπιλεγμένο</string>
   <string name="PreferencesActivity.UserAgentDesktop">Επιφάνεια εργασίας</string>
   <string name="Main.MenuViewImage">Εμφάνιση εικόνας</string>
   <string name="Main.MenuCopyImageUrl">Αντιγραφή url εικόνας</string>
