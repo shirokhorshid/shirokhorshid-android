@@ -35,8 +35,10 @@
   <string name="compression_savings">%s αποθηκευμένο</string>
   <string name="start">Εκκίνηση</string>
   <string name="stop">Τερματισμός</string>
+  <string name="home_tab_name">Αρχική</string>
   <string name="settings_tab_name">Επιλογές</string>
   <string name="statistics_tab_name">Στατιστικά</string>
+  <string name="logs_tab_name">Αρχεία καταγραφής</string>
   <string name="share_proxies_prompt_title">Απαιτείται επανεκκίνηση της εφαρμογής</string>
   <string name="share_proxies_prompt_message">Για να εφαρμοστεί αυτή η ρύθμιση πρέπει να γίνει επανεκκίνηση της εφαρμογής.</string>
   <string name="share_proxies_prompt_positive">Επανεκκίνηση τώρα</string>
@@ -64,6 +66,7 @@
   <string name="moreOptions">Περισσότερες επιλογές</string>
   <string name="proxy_username_title">Όνομα χρήστη διαμεσολαβητή</string>
   <string name="proxy_password_title">Κωδικός ασφαλείας διαμεσολαβητή</string>
+  <string name="proxy_domain_title">Τομέας διακομιστή</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->

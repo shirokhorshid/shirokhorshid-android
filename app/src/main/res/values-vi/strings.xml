@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">Psiphon</string>
-  <string name="banner_desc">banner nhà tài trợ; nhấp vào để truy cập trang chủ của nhà tài trợ</string>
+  <string name="banner_desc">nhà tài trợ; nhấp vào để truy cập trang chủ của nhà tài trợ</string>
   <string name="start_desc">kết nối với Psiphon; nhấp vào để kết nối</string>
   <string name="message_image_success_desc">biểu tượng cho biết thông báo thành công</string>
   <string name="message_image_error_desc">biểu tượng cho biết thông báo thất bại</string>
@@ -10,14 +10,14 @@
   <string name="exit">Thoát</string>
   <string name="open_browser">Mở Trình Duyệt</string>
   <string name="browser_task_label">Trình Duyệt Psiphon</string>
-  <string name="FeedbackActivity.DefaultText">Nếu bạn có bất kỳ nhận xét cụ thể nào, muốn biết thêm thông tin về các trang web không hoạt động, hoặc mẫu đơn này không có tác dụng với bạn, vui lòng gửi thư điện tử đến &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Nếu bạn có bất kỳ nhận xét cụ thể nào, muốn biết thêm thông tin về các trang web không hoạt động, hoặc mẫu đơn này không có tác dụng với bạn, vui lòng gửi email đến &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Cám ơn bạn đã gửi thông tin phản hồi</string>
   <string name="FeedbackActivity.Failure">Gửi thất bại. Vui lòng thử lại.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Không thể gửi thông tin phản hồi</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Thông Số URL không hợp lệ trong quá trình gửi mẫu đơn phản hồi</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Liên kết không hợp lệ trong quá trình gửi mẫu đơn phản hồi</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Không thể lấy nội dung trang thông tin phản hồi</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Đường hầm toàn bộ thiết bị?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Tùy chọn đường hầm toàn bộ thiết bị đang có sẵn cho thiết bị của bạn. \n \n Với tùy chọn này, tất cả lưu lượng truy cập Internet của bạn cho tất cả các ứng dụng bao gồm tất cả các trình duyệt sẽ được đưa vào đường hầm qua Psiphon. \n \n Ngoài ra, bạn có thể chọn để đường hầm chỉ cho gói trình duyệt Psiphon, còn tất cả các ứng dụng khác sẽ đi trực tiếp thông qua kết nối Internet chuẩn của bạn.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Thiết bị đường hầm toàn bộ</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Chỉ sử dụng trình duyệt Psiphon</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Kết nối toàn bộ thiết bị xuyên qua hầm?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Thiết bị của bạn có tùy chọn để kết nối toàn bộ thiết bị xuyên qua Psiphon. \n \n Với tùy chọn này, tất cả lưu lượng truy cập Internet của bạn cho tất cả các ứng dụng luôn cả các trình duyệt sẽ được đi xuyên qua Psiphon. \n \n Ngoài ra, bạn có thể chọn để kết nối an toàn riêng cho gói trình duyệt Psiphon, còn tất cả các ứng dụng khác sẽ đi trực tiếp thông qua kết nối Internet bình thường của bạn.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Kết nối toàn bộ thiết bị xuyên qua hầm</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Chỉ dùng trình duyệt Psiphon</string>
 </resources>

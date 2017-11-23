@@ -125,6 +125,8 @@
   <string name="PreferencesActivity.StartPageHistoryLimitPreferenceTitle">Nhamba dzamaaitemu dzemakare amanje</string>
   <string name="PreferencesActivity.StartPageHistoryLimitPreferenceSummary">Nhamba dzemakare amanje dzekuratidza.</string>
   <string name="PreferencesActivity.UserAgentPreferenceSummary">Perevedza user agent wekushandisa.</string>
+  <string name="PreferencesActivity.UserAgentDefault">Hurongwa</string>
+  <string name="PreferencesActivity.UserAgentDesktop">Kombiuta</string>
   <string name="Main.MenuViewImage">Wona mufananidzo</string>
   <string name="Main.MenuSendEmail">Tumira tsamba mbozha</string>
   <string name="DownloadNotification.DownloadStart">Tanga kututunura.</string>
@@ -142,6 +144,7 @@
   <string name="HistoryListActivity.LastSevenDays">Mumazuva 7 adarika</string>
   <string name="HistoryListActivity.LastMonth">Mumwedzi wadarika</string>
   <string name="QuickAction.Home">Peji yekutangira</string>
+  <string name="QuickAction.Share">Gova</string>
   <string name="PreferencesActivity.WeavePasswordTitle">Password</string>
   <string name="Commons.Bookmarks">Bookmarks</string>
   <string name="Commons.History">Makare</string>

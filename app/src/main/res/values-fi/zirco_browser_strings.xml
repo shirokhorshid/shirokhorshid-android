@@ -104,6 +104,7 @@
   <string name="PreferencesActivity.AboutPreferenceSummary">Tiedot tästä sovelluksesta.</string>
   <string name="BookmarksListActivity.MostUsedSortMode">Useimmin käytetyt</string>
   <string name="PreferencesActivity.DefaultZoomClose">Sulje</string>
+  <string name="PreferencesActivity.DefaultZoomMedium">Keskipitkä</string>
   <string name="StartPage.Welcome">Tervetuloa!</string>
   <string name="StartPage.Bookmarks">Useimmiten käytetyt kirjanmerkit</string>
   <string name="StartPage.History">Äskettäinen selainhistoria</string>

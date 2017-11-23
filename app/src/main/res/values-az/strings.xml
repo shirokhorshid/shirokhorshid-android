@@ -2,22 +2,22 @@
 <resources>
   <string name="app_name">Psiphon</string>
   <string name="banner_desc">sponsor banner; sponsorun səhifəsinə keçmək üçün klikləyin</string>
-  <string name="start_desc">Psphonla əlaqə yarat; əlaqə üçün kliklə</string>
-  <string name="message_image_success_desc">cəhdin uğurluluğu haqda mesajı göstərən pəncərə</string>
+  <string name="start_desc">Psiphonla əlaqə yarat; əlaqə üçün kliklə</string>
+  <string name="message_image_success_desc">cəhdin uğurlu olması haqda mesajı göstərən pəncərə</string>
   <string name="message_image_error_desc">cəhdin uğursuzluğu haqda mesajı göstərən pəncərə</string>
   <string name="message_image_debug_desc">sazlanma haqda mesajı göstərən pəncərə</string>
   <string name="message_image_warning_desc">xəbərdarlıq mesajını göstərən pəncərə</string>
-  <string name="exit">Dayan</string>
+  <string name="exit">Bitir</string>
   <string name="open_browser">Səyyahı aç</string>
   <string name="browser_task_label">Psiphon Səyyahı</string>
-  <string name="FeedbackActivity.DefaultText">Xüsusi şərhiniz, işləməyən saytlar haqda əlavə məlumatınız varsa, yaxud bu forma sizə yaramırsa, &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;-a emeyl göndərin.</string>
-  <string name="FeedbackActivity.Success">Fikrinizi bildirdiyinizə görə təşəkkür edirik.</string>
+  <string name="FeedbackActivity.DefaultText">Xüsusi şərhiniz, işləməyən saytlar haqda əlavə məlumatınız varsa, yaxud bu forma sizə yaramırsa, &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; email göndərin.</string>
+  <string name="FeedbackActivity.Success">Fikrinizi bildirdiyinizə görə təşəkkür edirik</string>
   <string name="FeedbackActivity.Failure">Göndəriş alınmadı. Yenə cəhd edin.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Şərh göndərilmədi.</string>
   <string name="FeedbackActivity.InvalidURLParameters">Şərh üçün verilmiş formadakı URL parametrləri etibarsızdır.</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Şərh səhifəsinin məzmununa baxmaq mümkün olmadı.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Bütün qurğuya tunel yaradaq?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Bütöv qurğuya tunel opsiyası sizin qurğuda var. \n\n Bu opsiya vasitəsilə bütün tətbiqetmələr, o cümlədən bütün səyyahlarla internet trafikiniz Psiphon.\n\n tunelindən keçəcək. Alternativ olaraq, yalnız əlavədəki Psiphon səyyahı tunelini seçə bilərsiniz.  Bu tunel bütün digər tətbiqetmələrə aid olmayacaq, onlar sizin standart İnternet əlaqəniz vasitəsilə işləyəcək. </string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Bütün qurğuya tunel yaradaq.</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Yalnız Psiphon səyyahından istifadə edin.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Bütün qurğu üçün tunel yaradılsın?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Sizin qurğuda bütöv qurğuya tunel opsiyası  var. \n\n Bu opsiya vasitəsilə bütün tətbiqetmələr, o cümlədən bütün səyyahlarla internet trafikiniz Psiphon.\n\n tunelindən keçəcək. Alternativ olaraq, yalnız Psiphon səyyahı ilə işləyən tuneli seçə bilərsiniz.  Bu tunel bütün digər tətbiqetmələrə aid olmayacaq, onlar sizin standart İnternet əlaqəniz vasitəsilə işləyəcək. </string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Bütün qurğuya tunel yarat</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Yalnız Psiphon səyyahından istifadə edin</string>
 </resources>

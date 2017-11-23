@@ -71,8 +71,8 @@
   <string name="tun2socks_stopped">RPV vers SOCKS arrêté</string>
   <string name="vpn_service_no_private_address_available">Aucune adresse privée disponible pour le service RPV</string>
   <string name="psiphon_running_generic">En fonction...</string>
-  <string name="data_transfer_bytes_sent">Octets envoyés : %1$s (%2$.2f%% comprimées)</string>
-  <string name="data_transfer_bytes_received">Octets reçus : %1$s (%2$.2f%% comprimées)</string>
+  <string name="data_transfer_bytes_sent">Octets envoyés : %1$s (%2$.2f %% comprimées)</string>
+  <string name="data_transfer_bytes_received">Octets reçus : %1$s (%2$.2f %% comprimées)</string>
   <string name="data_transfer_elapsed_time">Temps de connexion\u00A0: %s</string>
   <string name="check_tunnel_failed">La vérification du tunnel a échoué. Votre appareil pourrait ne pas prendre en charge l\'option de tunnellisation de tout l\'appareil. </string>
   <string name="debug_message">%s</string>
@@ -99,7 +99,7 @@
   <string name="disconnected">Déconnecté</string>
   <string name="label_sent">Envoyé</string>
   <string name="label_received">Reçu</string>
-  <string name="compression_ratio">%1$.2f%% comprimées</string>
+  <string name="compression_ratio">%1$.2f %% comprimées</string>
   <string name="compression_savings">%s enregistré</string>
   <string name="start">Démarrer</string>
   <string name="stop">Arrêter</string>
@@ -151,9 +151,9 @@
   <string name="proxySettingsCategoryTitle">Paramètres du mandataire</string>
   <string name="custom_proxy_host_summary">Nom d\'hôte du serveur mandataire ou IP</string>
   <string name="custom_proxy_port_summary">Port du serveur mandataire</string>
-  <string name="use_proxy_authentication_title">Utiliser l\'authentification pour serveur mandataire</string>
+  <string name="use_proxy_authentication_title">Utiliser l\'authentification pour le mandataire</string>
   <string name="proxy_username_title">Nom d\'utilisateur pour le mandataire</string>
-  <string name="proxy_username_summary">Nom d\'utilisateur d\'authentification pour serveur mandataire </string>
+  <string name="proxy_username_summary">Nom d\'utilisateur d\'authentification pour le mandataire </string>
   <string name="proxy_password_title">Mot de passe du mandataire</string>
   <string name="proxy_password_summary">Mot de passe pour l\'authentification par serveur mandataire</string>
   <string name="proxy_domain_title">Domaine du mandataire</string>

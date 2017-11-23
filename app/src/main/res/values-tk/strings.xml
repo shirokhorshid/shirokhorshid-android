@@ -9,11 +9,15 @@
   <string name="message_image_warning_desc">duýduryş habaryny görkezýän kiçi belgi</string>
   <string name="exit">Çykyş</string>
   <string name="open_browser">Brauzeri aç</string>
-  <string name="browser_task_label">Psiphon brauzeri</string>
+  <string name="browser_task_label">Psiphon Brauzeri</string>
   <string name="FeedbackActivity.DefaultText">Haýsydyr bir aýratyn teswiriňiz bar bolsa, işlemeýän web saýtlar barada has giňişleýin maglumat üçin ýa-da bu maglumatnama siziň üçin işlemeýän bolsa, e-poçta iberiň &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Seslenme ibereniňiz üçin sag boluň</string>
   <string name="FeedbackActivity.Failure">Tabşyrmak şowsuz. Täzeden synanyşyň</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Seslenmäni tabşyrmak şowsuz</string>
   <string name="FeedbackActivity.InvalidURLParameters">Seslenme maglumatnamasyny tabşyrmakda nädogry URL parametrleri</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Seslenme sahypasynyň mazmunyny almak şowsuz</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Bütin enjam üçin tünel açaÿynmy?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Siziň ulanýan enjamyňyz üçin, bütin enjam tunel opsiýasy elýeterli.\n\nBu opsiýa, Internet akymy ähli programmalaryňa we brauzerleriňe Psiphon tuneli arkaly baglanar.\n\nGoşmaça, beýleki programmalaryňyza gönüden standart Internet bilen baglanyp bilersiňiz, jem şeklinde bolsa Psiphon brauwzeriniň gizlin geçelgesini saýlap bilersiňiz.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Bütin Enjamy Tunelle</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Diñe Psiphon Brauzery ulan</string>
 </resources>
