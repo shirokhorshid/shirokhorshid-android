@@ -136,7 +136,6 @@
   <string name="network_proxy_connect_exception">Networkyň HTTP Proksisine birikmedi: %s</string>
   <string name="network_proxy_connect_information">HTTP Proksi üsti bilen birikdirilýär: %s</string>
   <string name="network_proxy_connect_invalid_values">HTTP Proksi sazlamary nädogry</string>
-  <string name="tunnel_whole_device_exception">Siziň enjamyňyz bütin kök tunel usulyny goldanok.</string>
   <string name="run_polipo_failed">Polipo işletmek şowsuz: %s</string>
   <string name="wdm_force_iptables_toggle">Bütin tünel köküniň enjam usulyna bat ber</string>
   <string name="http_prefix_toggle">HTTP görnüşinde şeklini çalyş</string>
@@ -145,7 +144,6 @@
   <string name="preference_notifications_with_sound_summary">Birikme statusy üýtgän halatynda ses çykar</string>
   <string name="preference_notifications_with_vibrate_title">Titremek</string>
   <string name="preference_notifications_with_vibrate_summary">Birikmäniň  statusy üýtgände titre</string>
-  <string name="preference_download_wifi_only_toggle">WIFI baglanşygynda beýgeldişleri indir</string>
   <string name="moreOptions">Goşmaça Opsiýalar</string>
   <string name="root_mode_not_supported">Bu Android wersiýasy asyl görnüş goldamaýar</string>
   <string name="proxySettingsCategoryTitle">Proksi Sazlamalary</string>
@@ -170,4 +168,6 @@
   <string name="tunnel_connecting">Tunel birikdirilýär...</string>
   <string name="tunnel_connected">Tunel birikdi</string>
   <string name="waiting">Garaşylýar...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

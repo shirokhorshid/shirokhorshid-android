@@ -141,7 +141,6 @@
   <string name="network_proxy_connect_information">جاري الإتصال عبر بروكسي  HTTP 
  : %s</string>
   <string name="network_proxy_connect_invalid_values">إعدادات بروكسي HTTP غير صالحة </string>
-  <string name="tunnel_whole_device_exception">جهازك لا يدعم خيار \"عدم استخدام الجذر  لتمرير الجهاز بأكمله بالنفق\" </string>
   <string name="run_polipo_failed">فشل عملية تشغيل  تطبيق  Polipo :
  %s</string>
   <string name="wdm_force_iptables_toggle">فرض جذر وضعية \"نقل الجهاز بأكمله عبر نفق\" </string>
@@ -151,7 +150,6 @@
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
   <string name="preference_notifications_with_vibrate_title">إهتزاز </string>
   <string name="preference_notifications_with_vibrate_summary">الإهتزاز عند تغير حالة الإتصال </string>
-  <string name="preference_download_wifi_only_toggle">تنزيل التحديثات على شبكة ألواي فاي فقط </string>
   <string name="moreOptions">إعدادات أخرى </string>
   <string name="root_mode_not_supported">النمط الجذري  \"الروت مود\" غير مدعوم على هذا الإصدار من أندرويد </string>
   <string name="proxySettingsCategoryTitle">إعدادات البروكسي </string>
@@ -176,4 +174,6 @@
   <string name="tunnel_connecting">النفق يحاول الإتصال... </string>
   <string name="tunnel_connected">النفق متصل </string>
   <string name="waiting">جاري الإنتظار ...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

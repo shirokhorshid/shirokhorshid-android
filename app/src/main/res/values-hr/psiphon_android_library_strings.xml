@@ -136,7 +136,6 @@
   <string name="network_proxy_connect_exception">Spajanje na mrežni HTTP proxy nije uspjelo: %s</string>
   <string name="network_proxy_connect_information">Spajanje preko Vašeg HTTP proxy-a: %s</string>
   <string name="network_proxy_connect_invalid_values">Neispravane postavke HTTP proxy-a</string>
-  <string name="tunnel_whole_device_exception">Vaš uređaj ne podržava ne-root opciju tuneliranja cijelog uređaja.</string>
   <string name="run_polipo_failed">Pokretanje Polipo-a nije uspjelo: %s</string>
   <string name="wdm_force_iptables_toggle">Prisili root metodu  tuneliranja cijelog uređaja</string>
   <string name="http_prefix_toggle">Ponašaj se kao HTTP</string>
@@ -145,7 +144,6 @@
   <string name="preference_notifications_with_sound_summary">Sviraj zvuk kad se status veze promjeni</string>
   <string name="preference_notifications_with_vibrate_title">Vibriraj</string>
   <string name="preference_notifications_with_vibrate_summary">Vibriraj kad se status veze promjeni</string>
-  <string name="preference_download_wifi_only_toggle">Preuzmi nadogradnje samo na WiFi mreži</string>
   <string name="moreOptions">Više opcija</string>
   <string name="root_mode_not_supported">Root način nije podržan na ovoj verziji Android-a</string>
   <string name="proxySettingsCategoryTitle">Postavke proxy-a</string>
@@ -170,4 +168,6 @@
   <string name="tunnel_connecting">Tunel se spaja...</string>
   <string name="tunnel_connected">Tunel spojen</string>
   <string name="waiting">Čekam...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

@@ -118,6 +118,20 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapur</string>
   <string name="region_name_nl">Niederlande</string>
+  <string name="region_name_in">Indien</string>
+  <string name="region_name_es">Spanien</string>
+  <string name="region_name_at">Österreich</string>
+  <string name="region_name_be">Belgien</string>
+  <string name="region_name_bg">Bulgarien</string>
+  <string name="region_name_ch">Schweiz</string>
+  <string name="region_name_cz">Tschechische Republik</string>
+  <string name="region_name_dk">Dänemark</string>
+  <string name="region_name_fr">Frankreich</string>
+  <string name="region_name_hu">Ungarn</string>
+  <string name="region_name_it">Italien</string>
+  <string name="region_name_no">Norwegen</string>
+  <string name="region_name_ro">Rumänien</string>
+  <string name="region_name_se">Schweden</string>
   <string name="about">Über Psiphon</string>
   <string name="feedback">Rückmeldung</string>
   <string name="disable_timeouts">Zeitüberschreitungen für langsame Netzwerke deaktivieren</string>
@@ -128,6 +142,10 @@
   <string name="run_polipo_failed">Ausführen von Polipo ist fehlgeschlagen: %s</string>
   <string name="http_prefix_toggle">Maskieren als HTTP</string>
   <string name="preference_notifications_title">Benachrichtigungen</string>
+  <string name="preference_routing_title">Routing</string>
+  <string name="preference_routing_exclude_apps_title">Apps ausschließen</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">Festlegen</string>
+  <string name="individual_app_excluded">App von Tunnel ausgeschlossen: %s</string>
   <string name="preference_notifications_with_sound_title">Ton</string>
   <string name="preference_notifications_with_sound_summary">Ton abspielen, wenn sich der Verbindungsstatus ändert</string>
   <string name="preference_notifications_with_vibrate_title">Vibrieren</string>
@@ -145,10 +163,15 @@
   <string name="proxy_domain_title">Proxy-Domain</string>
   <string name="proxy_domain_summary">Domain für Proxy-Authentifizierung</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Tunnelregion aufteilen : %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <string name="untunneled_address">Ungetunnelt: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="diagnostic">Diagnose: %s</string>
+  <string name="start_tunnel_failed">Start des Tunnels fehlgeschlagen: %s</string>
   <string name="tunnel_connecting">Tunnel wird verbunden…</string>
   <string name="tunnel_connected">Tunnel verbunden</string>
+  <string name="waiting">Wartend…</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

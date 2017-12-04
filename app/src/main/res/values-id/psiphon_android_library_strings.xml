@@ -136,7 +136,6 @@
   <string name="network_proxy_connect_exception">Gagal menyambung ke Proksi HTTP jaringan: %s</string>
   <string name="network_proxy_connect_information">Menyambung lewat Proksi HTTP Anda: %s</string>
   <string name="network_proxy_connect_invalid_values">Setelan Proksi HTTP tak berlaku</string>
-  <string name="tunnel_whole_device_exception">Perangkat Anda tidak mendukung opsi pengalihan sambungan seluruh perangkat tanpa akses root.</string>
   <string name="run_polipo_failed">Gagal menjalankan Polipo: %s</string>
   <string name="wdm_force_iptables_toggle">Paksa pakai metode root Alihkan Sambungan Seluruh Perangkat</string>
   <string name="http_prefix_toggle">Samarkan sebagai HTTP</string>
@@ -145,7 +144,6 @@
   <string name="preference_notifications_with_sound_summary">Beri tanda suara saat status sambungan berubah</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
   <string name="preference_notifications_with_vibrate_summary">Beri tanda getar saat status sambungan berubah</string>
-  <string name="preference_download_wifi_only_toggle">Unduh pembaharuan hanya menggunakan WiFi</string>
   <string name="moreOptions">Opsi Lanjutan</string>
   <string name="root_mode_not_supported">Modus root tidak didukung oleh versi Android ini</string>
   <string name="proxySettingsCategoryTitle">Setelan Proksi</string>
@@ -170,4 +168,6 @@
   <string name="tunnel_connecting">Menyambung ke terowongan...</string>
   <string name="tunnel_connected">Terowongan tersambung</string>
   <string name="waiting">Menunggu...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

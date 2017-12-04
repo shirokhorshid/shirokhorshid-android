@@ -137,7 +137,6 @@
   <string name="network_proxy_connect_exception">Mislukt verbinding te maken met de netwerken HTTP Proxy: %s</string>
   <string name="network_proxy_connect_information">Verbinden via uw HTTP Proxy: %s</string>
   <string name="network_proxy_connect_invalid_values">Ongeldige HTTP Proxy-instellingen</string>
-  <string name="tunnel_whole_device_exception">Je apparaat biedt geen ondersteuning voor de gehele inrichting tunnel optie non-root.</string>
   <string name="run_polipo_failed">Uitvoeren Polipo mislukt: %s</string>
   <string name="wdm_force_iptables_toggle">Functie Dwingen root Tunnel Gehele Apparaat </string>
   <string name="http_prefix_toggle">Voordoen als HTTP</string>
@@ -146,7 +145,6 @@
   <string name="preference_notifications_with_sound_summary">Speel geluid wanneer status van de verbinding verandert</string>
   <string name="preference_notifications_with_vibrate_title">Trillen</string>
   <string name="preference_notifications_with_vibrate_summary">Trillen als status van de verbinding verandert</string>
-  <string name="preference_download_wifi_only_toggle">Download verbetering op WiFi alleen</string>
   <string name="moreOptions">Meer Optie</string>
   <string name="root_mode_not_supported">Root-modus wordt niet ondersteund in deze versie van Android</string>
   <string name="proxySettingsCategoryTitle">Proxy Instellingen</string>
@@ -171,4 +169,6 @@
   <string name="tunnel_connecting">Tunnel verbinden...</string>
   <string name="tunnel_connected">Tunnel verbonden</string>
   <string name="waiting">Wachten...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

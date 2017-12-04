@@ -136,7 +136,6 @@
   <string name="network_proxy_connect_exception">དྲྭ་རྒྱའི་HTTP ངོ་ཚབ་མཐུད་ཐུབ་མ་སོང་།: %s</string>
   <string name="network_proxy_connect_information">HTTP ངོ་ཚབ་རྒྱུད་དེ་མཐུད་བཞིན་པ།: %s</string>
   <string name="network_proxy_connect_invalid_values">HTTP ངོ་ཚབ་སྒྲིག་བཀོད་ཁུངས་མེད།</string>
-  <string name="tunnel_whole_device_exception">ཁྱེད་རང་གི་ཡོ་བྱད་འདི་ཡོ་བྱད་ཆ་ཚང་ཡུར་བ་ཨ་མ་མ་ཡིན་པའི་་ནང་བཏུས་པའི་གདམ་ག་འདིར་རྒྱབ་སྐྱོར་བྱེད་ཀྱི་མིན་འདུག</string>
   <string name="run_polipo_failed">polipo འཁོར་བསྐྱོད་ཐུབ་མ་སོང་།%s</string>
   <string name="wdm_force_iptables_toggle">ཡུར་བ་ཨ་མའི་ནང་གི་ཡོ་བྱད་ཤུགས་ལྡན་ཆ་ཚང་བའི་ཐབས་ལམ།</string>
   <string name="http_prefix_toggle">HTTPལས་མོ།</string>
@@ -145,7 +144,6 @@
   <string name="preference_notifications_with_sound_summary">འབྲེལ་མཐུད་བརྗེས་སྐབས་སྐད་བརྡ་བཏང་རོགས།</string>
   <string name="preference_notifications_with_vibrate_title">འབེར་རྒྱབ་པ།</string>
   <string name="preference_notifications_with_vibrate_summary">འབྲེལ་གཏུགས་ཀྱི་གནས་བབ་འགྱུར་ཚེ་འབེར་རྒྱབ།</string>
-  <string name="preference_download_wifi_only_toggle">Wifi ཁོ་ནའི་ཐོག་ནས་ཐོན་རིམ་སྤར་ཕབ་ལེན།</string>
   <string name="moreOptions">གདམ་ག་མང་པོ།</string>
   <string name="root_mode_not_supported">Andriod ཐོན་གསར་ནང་ཨ་མ་འདི་རྒྱབ་སྐྱོར་བྱེད་ཐུབ་ཀྱི་མིན་འདུག</string>
   <string name="proxySettingsCategoryTitle">ངོ་ཚབ་སྒྲིག་བཀོད།</string>
@@ -170,4 +168,6 @@
   <string name="tunnel_connecting">ཡུར་བ་ལ་མཐུད་བཞིན་པ།...</string>
   <string name="tunnel_connected">ཡུར་བར་མཐུད་ཚར་སོང་།</string>
   <string name="waiting">སྒུག་བཞིན་པ།</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>
