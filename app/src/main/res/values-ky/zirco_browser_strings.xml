@@ -309,7 +309,7 @@
   <string name="ProxySettings.ProxySettingsEnabled">Прокси баптоолору ийгиликтүү иштетилди.</string>
   <string name="PreferencesActivity.EnableRestoreLastPagePreferenceTitle">Өтмөктөрдү калыбына келтирүү</string>
   <string name="PreferencesActivity.EnableRestoreLastPagePreferenceSummary">Эгер байракча коюлса, кыстармалар жеткиликтүү болсо кайра калыбына келтирилет.</string>
-  <string name="VideoLoading">Видеону жүктөө\u 2026</string>
+  <string name="VideoLoading">Видеону жүктөө\u2026</string>
   <string name="PreferencesActivity.DesktopViewCategoryTitle">Жумуш үстөл көрүнүшүнүн баптоолору</string>
   <string name="PreferencesActivity.DesktopViewListPreferenceTitle">Жумуш үстөл режиминин тизмеси</string>
   <string name="PreferencesActivity.DesktopViewListPreferenceSummary">Бул тизмедеги вебсайттар Desktop User Agent аркылуу жүктөлөт.</string>
