@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">སཡི་ཕོན།</string>
   <string name="banner_desc">སྦྱིན་བདག་ཕྲེད་དར། སྦྱིན་བདག་ཚོའི་དྲྭ་ཤོག་ཨ་མར་གཟིགས་འདོད་ན་འདིར་སྣོན་རོགས།</string>
   <string name="start_desc">སཡི་ཕོན་ལ་མཐུད། འབྲེལ་བ་གནང་འདོད་ན་འདིར་སྣོན་རོགས།</string>
   <string name="message_image_success_desc">འཕྲིན་ཐུང་གཏོང་ཐུབ་པར་མཚོན་བྱེད་ཀྱི་རྟགས་ཅན།</string>

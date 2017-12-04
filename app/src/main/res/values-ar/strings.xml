@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name"> سايفون</string>
   <string name="banner_desc">شعار الشركة الراعية؛ انقر لزيارة الصفحة الرئيسية للشركة الراعية</string>
   <string name="start_desc">الاتصال بسايفون؛ انقر للاتصال</string>
   <string name="message_image_success_desc">أيقونة تشير إلى رسالة النجاح </string>

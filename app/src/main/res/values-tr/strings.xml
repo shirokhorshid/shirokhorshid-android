@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="banner_desc">sponsor başlığı; ana sayfasını ziyaret etmek için tıklayın</string>
   <string name="start_desc">Psiphon\'a bağlan; bağlanmak için tıklayın</string>
   <string name="message_image_success_desc">bir başarı iletisi belirten simge</string>

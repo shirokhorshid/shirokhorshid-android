@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">банер спонсора; натисніть, щоб відвідати головну сторінку спонсора</string>
+  <string name="start_desc">під\'єднатися до Psiphon; натисніть для під\'єднання</string>
+  <string name="message_image_success_desc">піктограма із повідомленням про успішне виконання</string>
+  <string name="message_image_error_desc">піктограма із повідомленням про помилку</string>
+  <string name="message_image_debug_desc">піктограма із повідомленням про налагодження </string>
+  <string name="message_image_warning_desc">піктограма із повідомленням про попередження</string>
+  <string name="exit">Вийти</string>
+  <string name="open_browser">Відкрити Браузер</string>
+  <string name="browser_task_label">Psiphon Браузер</string>
+  <string name="FeedbackActivity.DefaultText">Якщо у вас є якісь конкретні зауваження, додаткова інформація про веб-сайти, які не працюють, або якщо ця форма не працює для вас, надішліть електронною поштою &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Дякуємо, що надіслали свій відгук</string>
+  <string name="FeedbackActivity.Failure">Не вдалося відправити відгук. Будь ласка, спробуйте ще раз.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Не вдалося залишити відгук</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Недійсні параметри адреси URL у формі подання відгуку</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Не вдалося отримати зміст сторінки з відгуком</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Тунелювати весь пристрій?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Повний пристрій доступний для вашого пристрою.\n\n З цим параметром весь ваш Інтернет-трафік для всіх застосунків, включаючи всі веб-переглядачі, буде проходити через Psiphon.\n\n Як альтернативу, ви можете вибрати тунель лише через браузер Psiphon, що спрямує трафік всіх інших програм  через безпосереднє стандартне з\'єднання з Інтернетом.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тунелювати весь пристрій</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Використовувати лише браузер Psiphon</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">баннери парастор; барои саҳифаи асосии парастор гузаштан, зер кунед</string>
+  <string name="start_desc">ба Psiphon пайваст шудан; барои пайваст шудан, зер кунед</string>
+  <string name="message_image_success_desc">нишона бо ишораи паёми муваффақ</string>
+  <string name="message_image_error_desc">нишона бо ишораи паёми хатогӣ</string>
+  <string name="message_image_debug_desc">нишона бо ишораи паёми ислоҳи нуқсон</string>
+  <string name="message_image_warning_desc">нишона бо ишораи паёми огоҳӣ</string>
+  <string name="exit">Баромадан</string>
+  <string name="open_browser">Браузерро кушодан</string>
+  <string name="browser_task_label">Psiphon Browser</string>
+  <string name="FeedbackActivity.DefaultText">Агар ягон шарҳи муайян, маълумоти бештар оиди вебсайтҳое, ки кор намекунанд, ё агар ин варақа дуруст кор накунад, ба &lt;a href=”mailto:feedback@psiphon.ca”&gt;feedback@psiphon.ca&lt;/a&gt; мактуби электронӣ бифиристед.</string>
+  <string name="FeedbackActivity.Success">Барои изҳори назаратон миннатдорем</string>
+  <string name="FeedbackActivity.Failure">Пешниҳод барор наёфт.  Кӯшишро такрор кунед.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Пешниҳоди изҳори назар барор наёфт</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Параметрҳои URL дар пешниҳоди варақаи изҳори назар нодуруст мебошанд</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Дарёфти муҳтавои саҳифаи изҳори назар барор наёфт</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Тамоми трафики дастгоҳро тавассути нақб равона кунем?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Барои дастгоҳи шумо имкони тамоми трафикро тавассути нақб равона кардан дастрас аст.\n\nБо ин имкон, тамоми трафики интернети шумо барои ҳамаи барномаҳо (аз ҷумла, ҳамаи браузерҳо) бо истифодаи Psiphon тавассути нақб равона карда мешавад.\n\nВагарна, шумо метавонед танҳо трафики браузери ҳамроҳи Psiphon тавассути нақб равона кунед, ки дар ин маврид трафики ҳамаи барномаҳои дигар тавассути пайвасти стандартии шумо ба интернет равона карда мешавад.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тамоми трафики дастгоҳро тавассути нақб равона кардан</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Танҳо Psiphon Browser-ро истифода бурдан</string>
+</resources>

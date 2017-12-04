@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="banner_desc">hemaýatkär mahabaty; hemaýatkäriň baş sahypasyna girmek üçin basyň</string>
   <string name="start_desc">Psiphon-a birikdir; birikmek üçin basyň</string>
   <string name="message_image_success_desc">üstünlik habaryny görkezýän kiçi belgi</string>

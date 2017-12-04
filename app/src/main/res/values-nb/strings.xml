@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="banner_desc">sponsor-banner; klikk for å besøke sponsor-siden på nett</string>
   <string name="start_desc">koble til Psiphon; trykk for å koble til</string>
   <string name="message_image_success_desc">ikon som indikerer en gladmelding</string>

@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="start_desc">Kochekera paPsiphon; baya kuti ukochekere</string>
   <string name="message_image_success_desc">Zvaita</string>
   <string name="message_image_error_desc">Zvaramba</string>

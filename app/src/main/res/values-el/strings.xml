@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="banner_desc">banner χορηγού. Κάντε κλικ για να επισκεφθείτε την αρχική σελίδα του χορηγού</string>
   <string name="start_desc">Συνδεθείτε στο Psiphon. Κάντε κλικ για να συνδεθείτε</string>
   <string name="message_image_success_desc">Εικονίδιο που υποδεικνύει ένα μήνυμα επιτυχίας</string>
