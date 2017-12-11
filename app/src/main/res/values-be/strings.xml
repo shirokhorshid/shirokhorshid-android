@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">банер спонсара; націсніце, каб наведаць хатнюю старонку спонсара</string>
+  <string name="start_desc">падлучыцца да Psiphon; націсніце, каб падлучыцца</string>
+  <string name="message_image_success_desc">значок для паведамлення аб паспяховай аперацыі </string>
+  <string name="message_image_error_desc">значок для паведамлення аб памылцы</string>
+  <string name="message_image_debug_desc">значок для паведамлення аб адладцы</string>
+  <string name="message_image_warning_desc">значок для паведамлення-папярэджання</string>
+  <string name="exit">Выхад</string>
+  <string name="open_browser">Адкрыць браўзер</string>
+  <string name="browser_task_label">Браўзер Psiphon</string>
+  <string name="FeedbackActivity.DefaultText">Калі ёсць каментарыі, дадатковая інфармацыя пра вэб-сайты, якія не працуюць, або калі не спрацоўвае гэтая форма, калі ласка, напішыце &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Дзякуй за зваротную сувязь</string>
+  <string name="FeedbackActivity.Failure">Не атрымалася адправіць. Паспрабуйце зноў.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Не атрымалася адправіць водгук</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Памылковыя параметры URL у форме зваротнай сувязі</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Не атрымалася загрузіць змесціва старонкі зваротнай сувязі</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Тунэляваць усю прыладу?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Опцыя тунэлявання ўсёй прылады даступная на вашай прыладзе.\n\nПры падключэнні гэтай опцыі, увесь інтэрнэт-трафік для ўсіх праграм, уключаючы браўзеры, будзе тунэлявацца праз Psiphon.\n\nВы можаце ўключыць тунэляванне  толькі для пакету браўзера Psiphon, тады ўсе іншыя праграмы будуць па-ранейшаму ісці наўпрост праз стандартнае падключэнне да інтэрнэту.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тунэляваць усю прыладу</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Толькі браўзер Psiphon</string>
+</resources>

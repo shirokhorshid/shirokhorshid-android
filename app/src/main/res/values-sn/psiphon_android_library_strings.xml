@@ -94,7 +94,6 @@
   <string name="http_prefix_toggle">Ita kunge HTTP</string>
   <string name="preference_notifications_title">Zviziviso</string>
   <string name="preference_notifications_with_sound_title">Ruzha</string>
-  <string name="preference_download_wifi_only_toggle">Tutunura kwidziridzo yesoftware paWIFI chete</string>
   <string name="moreOptions">Sarudzo dzimwe</string>
   <string name="proxySettingsCategoryTitle">Gadziro dzeProxy</string>
   <string name="custom_proxy_port_summary">Port yeProxy server</string>
@@ -102,4 +101,6 @@
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="waiting">Kumirira...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="label_sent">ส่งแล้ว</string>
+  <string name="start">เริ่ม</string>
+  <string name="stop">หยุด</string>
+  <string name="home_tab_name">หน้าหลัก</string>
+  <string name="settings_tab_name">ตัวเลือก</string>
+  <string name="share_proxies_prompt_positive">เริ่มต้นใหม่เดี๋ยวนี้</string>
+  <string name="share_proxies_prompt_negative">ยกเลิก</string>
+  <string name="custom_proxy_settings_port">พอร์ต</string>
+  <string name="region_name_us">สหรัฐอเมริกา</string>
+  <string name="region_name_gb">สหราชอาณาจักร</string>
+  <string name="region_name_ca">แคนาดา</string>
+  <string name="region_name_jp">ญี่ปุ่น</string>
+  <string name="region_name_sg">สิงคโปร์</string>
+  <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
+</resources>

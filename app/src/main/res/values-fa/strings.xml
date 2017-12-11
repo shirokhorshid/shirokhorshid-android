@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">سایفون</string>
   <string name="banner_desc">بنر حامیان؛ برای دیدن صفحه اصلی  حامیان کلیک کنید</string>
   <string name="start_desc">اتصال به سایفون؛ برای وصل شدن کلیک کنید</string>
   <string name="message_image_success_desc">شمایل نشانگر پیغام موفقیت است</string>

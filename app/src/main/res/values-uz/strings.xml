@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">homiy banneri; homiy sahifasiga o‘tish uchun bosing</string>
+  <string name="start_desc">Psiphonga ulanish; ulanish uchun bosing</string>
+  <string name="message_image_success_desc">xabar yuborilganligi ikonkasi</string>
+  <string name="message_image_error_desc">xato xabar ikonkasi</string>
+  <string name="message_image_debug_desc">tuzatish xabari ikonkasi</string>
+  <string name="message_image_warning_desc">ogohlantiruvchi xabar ikonkasi</string>
+  <string name="exit">Chiqish</string>
+  <string name="open_browser">Brauzerni ochish</string>
+  <string name="browser_task_label">Psiphon brauzeri</string>
+  <string name="FeedbackActivity.DefaultText">Agar ishlamayotgan veb-saytlar bo‘yicha fikr-mulohazalaringiz yoki xabar qilish formasi ishlamasa, e-pochta orqali &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; manzilimizga xat yuboring.</string>
+  <string name="FeedbackActivity.Success">Fikr-mulohazalaringiz uchun rahmat</string>
+  <string name="FeedbackActivity.Failure">Xabar yuborilmadi. Qaytadan urinib ko‘ring.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Fikr-mulohaza yuborilmadi</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Fikr-mulohaza yuborishda yaroqsiz URL parametrlar kiritildi</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Fikr-mulohaza sahifasi axboroti yuklanmadi</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Butun qurilma ulanishi shifrlansinmi?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Qurilmangizda butun qurilma ulanishini shifrlasa bo‘ladi.\n\nBu funksiya yordamida barcha ilovalar va brauzerlar trafigini Psiphon tuneli orqali shifrlash mumkin.\n\nBundan tashqari, faqatgina Psiphon brauzeri ulanishi shifrlanishi mumkin, qolgan ilovalar to‘g‘ridan-to‘g‘ri birlamchi internet ulanishi orqali ishlayveradi.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Butun qurilma ulanishini shifrlash</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Faqat Psiphon brauzeri ulanishini shifrlash</string>
+</resources>

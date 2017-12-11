@@ -117,4 +117,6 @@
   <string name="tunnel_connecting">A ligar o túnel...</string>
   <string name="tunnel_connected">Túnel ligado</string>
   <string name="waiting">A aguardar...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

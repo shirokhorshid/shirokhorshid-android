@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">بنر حامی مالی؛ برای بازدید از صفحه مرکزی حامی مالی کلیک کنید</string>
+  <string name="start_desc">اتصال به سایفون؛ برای اتصال کلیک کنید</string>
+  <string name="message_image_success_desc">آیکن نشان‌دهنده پیام موفقیت</string>
+  <string name="message_image_error_desc">آیکن نشان‌دهنده پیام خطا</string>
+  <string name="message_image_debug_desc">آیکن نشان‌دهنده پیام خطایابی</string>
+  <string name="message_image_warning_desc">آیکن نشان‌دهنده پیام هوشدار</string>
+  <string name="exit">خروج</string>
+  <string name="open_browser">باز کردن مرورگر</string>
+  <string name="browser_task_label">مرورگر سایفون</string>
+  <string name="FeedbackActivity.DefaultText">اگر کدام نظر خاص دارید، به معلومات بیشتر در مورد ویب سایت‌های که کار نمیکنند نیاز دارید یا اگر این فورم برایتان کار نمیکند، لطفاً به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;. ایمیل بفرستید.</string>
+  <string name="FeedbackActivity.Success">از اینکه نظرتان را ارسال کردید سپاسگزار هستیم</string>
+  <string name="FeedbackActivity.Failure">ارسال ناموفق بود. لطفاً دوباره امتحان کنید.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">ارسال ملاحظه ناموفق بود</string>
+  <string name="FeedbackActivity.InvalidURLParameters">پارامیترهای آدرس ویب نامعتبر در ارسال فورم ملاحظه</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">دریافت محتوای صفحه ملاحظه ناموفق بود</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">تمام دستگاه از تونل استفاده کند؟</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">گذینه استفاده از تونل برای تمام دستگاه در اختیارتان قرار دارد.\n\nبا استفاده از این گذینه، تمام ترافیک انترنیت شما برای تمام برنامه‌ها از جمله تمام مرورگرها از تونل سایفون عبور میکنند.\n\nگذینه دیگر که میتوانید انتخاب کنید این است که تنها مرورگر همراه با سایفون را تونل کنید که این عمل باعث میشود تا همه برنامه‌های دیگر مستقیماً از طریق اتصال معمول به انترنیت استفاده کنند.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">استفاده از تونل برای تمام دستگاه</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">فقط استفاده از مرورگر سایفون</string>
+</resources>

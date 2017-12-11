@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">демеуші баннері; демеушінің басты бетіне бару үшін шерту</string>
+  <string name="start_desc">Psiphon қызметіне қосылу; қосылу үшін шерту</string>
+  <string name="message_image_success_desc">сәттілік хабарын көрсететін белгіше</string>
+  <string name="message_image_error_desc">қателік хабарын көрсететін белгіше</string>
+  <string name="message_image_debug_desc">жөндеу хабарын көрсететін белгіше</string>
+  <string name="message_image_warning_desc">ескерту хабарын көрсететін белгіше</string>
+  <string name="exit">Жүйеден шығу</string>
+  <string name="open_browser">Шолғышты ашу</string>
+  <string name="browser_task_label">Psiphon шолғышы</string>
+  <string name="FeedbackActivity.DefaultText">Егер сізде жұмыс істемейтін сайттар туралы нақты пікірлер, толығырақ ақпарат болса немесе бұл пішін сізде жұмыс істемесе, онда мына эл. поштаға жазыңыз: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Пікір жібергеніңіз үшін размет</string>
+  <string name="FeedbackActivity.Failure">ңыз.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Пікір жіберу сәтсіз болды</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Кері байланыс пікірі пішінін жіберудегі URL параметрлері жарамсыз</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Кері байланыс беті мазмұнын алу сәтсіз болды</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Құрылғыны түгел туннельдеу керек пе?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Құрылғыңызда толық туннельдеу мүмкіндігі бар.\n\nБұл мүмкіндіктің көмегімен барлық қолданбалар, соның ішінде барлық шолғыштар қолданатын интернет трафигі Psiphon арқылы туннельделеді.\n\nБолмаса, сіз тек құрамдас Psiphon шолғышын туннельдеуді таңдай аласыз, басқа қолданбалар сіздің интернетпен байланысыңыз арқылы тікелей өтеді.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Құрылғыны түгел туннельдеу</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Тек Psiphon шолғышын пайдалану </string>
+</resources>

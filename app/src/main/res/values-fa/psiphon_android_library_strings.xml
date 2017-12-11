@@ -129,6 +129,20 @@
   <string name="region_name_hk">هنگ کنگ</string>
   <string name="region_name_sg">سنگاپور</string>
   <string name="region_name_nl">هلند</string>
+  <string name="region_name_in">هند</string>
+  <string name="region_name_es">اسپانیا</string>
+  <string name="region_name_at">اتریش</string>
+  <string name="region_name_be">بلژیک</string>
+  <string name="region_name_bg">بلغارستان</string>
+  <string name="region_name_ch">سوییس</string>
+  <string name="region_name_cz">جمهوری چک</string>
+  <string name="region_name_dk">دانمارک</string>
+  <string name="region_name_fr">فرانسه</string>
+  <string name="region_name_hu">مجارستان</string>
+  <string name="region_name_it">ایتالیا</string>
+  <string name="region_name_no">نروژ</string>
+  <string name="region_name_ro">رومانی</string>
+  <string name="region_name_se">سوئد</string>
   <string name="about">درباره سایفون</string>
   <string name="feedback">بازخوردها</string>
   <string name="tunnel_whole_device_toggle">تونل تمام دستگاه «نیاز به اندروید ۴.۰ به بالا دارد»</string>
@@ -137,16 +151,18 @@
   <string name="network_proxy_connect_exception">اتصال به شبکه اچ‌تی‌تی‌پی پراکسی امکان پذیر نبود: %s</string>
   <string name="network_proxy_connect_information">ایجاد اتصال از طریق http پراکسی: %s</string>
   <string name="network_proxy_connect_invalid_values">تنظمیات http پراکسی نا معتبر است. </string>
-  <string name="tunnel_whole_device_exception">گوشی شما امکان تونل تمام گوشی را پشتیبانی نمی‌کند. ببخشید.</string>
+  <string name="tunnel_whole_device_exception"> به دلیل عدم وجود API VpnService دستگاه شما از تمام گزینه های تونل دستگاه پشتیبانی نمی کند.</string>
   <string name="run_polipo_failed">اجرای پولیپو ناموفق بود: %s</string>
   <string name="wdm_force_iptables_toggle">اجباری کردن استفاده از تونل در تمام گوشی</string>
   <string name="http_prefix_toggle">ترافیک را مثل http نشان بده</string>
   <string name="preference_notifications_title">اطلاعیه ها</string>
+  <string name="preference_routing_exclude_apps_title">حذف برنامه ها</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">تنظیم</string>
   <string name="preference_notifications_with_sound_title">صدا </string>
   <string name="preference_notifications_with_sound_summary">وقتی وضعیت اتصال تغییر میکند صدا پخش شود</string>
   <string name="preference_notifications_with_vibrate_title">ویبره</string>
   <string name="preference_notifications_with_vibrate_summary">وقتی وضعیت اتصال تغییر میکند موبایل ویبره کند. </string>
-  <string name="preference_download_wifi_only_toggle">دانلود آپدیت‌‌ها فقط از طریق وای‌فای </string>
+  <string name="preference_download_wifi_only_toggle">دانلود بروزرسانی فقط با Wi-Fi</string>
   <string name="moreOptions">گزینه های بیشتر</string>
   <string name="root_mode_not_supported">این نسخه اندروید از حالت روت پشتیبانی نمی کند</string>
   <string name="proxySettingsCategoryTitle">تنظیمات پروکسی</string>
@@ -171,4 +187,6 @@
   <string name="tunnel_connecting">در حال اتصال به تونل...</string>
   <string name="tunnel_connected">متصل شد</string>
   <string name="waiting">منتظر...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

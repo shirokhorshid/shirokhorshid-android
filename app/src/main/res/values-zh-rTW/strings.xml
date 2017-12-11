@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">賽風</string>
   <string name="banner_desc">贊助商標誌；點擊訪問贊助商主頁</string>
   <string name="start_desc">連接到賽風；點擊連接</string>
   <string name="message_image_success_desc">表示成功消息的圖標</string>

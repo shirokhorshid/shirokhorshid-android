@@ -128,6 +128,20 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapur</string>
   <string name="region_name_nl">Países Bajos</string>
+  <string name="region_name_in">India</string>
+  <string name="region_name_es">España</string>
+  <string name="region_name_at">Austria</string>
+  <string name="region_name_be">Bélgica</string>
+  <string name="region_name_bg">Bulgaria</string>
+  <string name="region_name_ch">Suiza</string>
+  <string name="region_name_cz">República Checa</string>
+  <string name="region_name_dk">Dinamarca</string>
+  <string name="region_name_fr">Francia</string>
+  <string name="region_name_hu">Hungría</string>
+  <string name="region_name_it">Italia</string>
+  <string name="region_name_no">Noruega</string>
+  <string name="region_name_ro">Rumanía</string>
+  <string name="region_name_se">Suecia</string>
   <string name="about">Acerca de Psiphon</string>
   <string name="feedback">Comentarios</string>
   <string name="tunnel_whole_device_toggle">Derivar por el túnel el dispositivo al completo (requiere Android 4.0+)</string>
@@ -136,16 +150,22 @@
   <string name="network_proxy_connect_exception">Fallo al conectar al proxy HTTP de la red: %s</string>
   <string name="network_proxy_connect_information">Conectando mediante su proxy HTTP: %s</string>
   <string name="network_proxy_connect_invalid_values">Configuraciones de proxy HTTP no válidas</string>
-  <string name="tunnel_whole_device_exception">Su dispositivo no soporta la opción de derivar por el túnel el dispositivo al completo sin estar rooteado.</string>
+  <string name="tunnel_whole_device_exception">Su dispositivo no soporta la opción de tunelizado del dispositivo completo debido a la ausencia de la API VpnService.</string>
   <string name="run_polipo_failed">La ejecución de Polipo falló: %s</string>
   <string name="wdm_force_iptables_toggle">Forzar el método \'Derivar por el túnel el dispositivo al completo\' de dispositivo rooteado</string>
   <string name="http_prefix_toggle">Enmascarar como HTTP</string>
   <string name="preference_notifications_title">Notificaciones</string>
+  <string name="preference_routing_title">Enrutamiento</string>
+  <string name="preference_routing_exclude_apps_title">Excluir apps</string>
+  <string name="preference_routing_exclude_apps_summary">Evita que las apps seleccionadas sean tunelizadas</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">Establecer</string>
+  <string name="individual_app_excluded">App excluida del túnel: %s</string>
+  <string name="no_apps_excluded">Ninguna aplicación fue excluida del túnel</string>
   <string name="preference_notifications_with_sound_title">Sonido</string>
   <string name="preference_notifications_with_sound_summary">Reproduce un sonido cuando cambie el estado de la conexión</string>
   <string name="preference_notifications_with_vibrate_title">Vibración</string>
   <string name="preference_notifications_with_vibrate_summary">Vibra cuando el estado de la conexión cambia</string>
-  <string name="preference_download_wifi_only_toggle">Descargar actualizaciones sólo sobre WiFi</string>
+  <string name="preference_download_wifi_only_toggle">Descarga de actualizaciones sólo sobre Wi-Fi</string>
   <string name="moreOptions">Más opciones</string>
   <string name="root_mode_not_supported">El modo root no está soportado en esta versión de Android</string>
   <string name="proxySettingsCategoryTitle">Configuraciones para proxy</string>
@@ -170,4 +190,6 @@
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
   <string name="waiting">Esperando...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

@@ -136,7 +136,6 @@
   <string name="network_proxy_connect_exception">Falha ao conectar ao Proxy HTTP da rede: %s</string>
   <string name="network_proxy_connect_information">Conectando através do seu Proxy HTTP: %s</string>
   <string name="network_proxy_connect_invalid_values">Configurações de Proxy HTTP Inválidas</string>
-  <string name="tunnel_whole_device_exception">Seu dispositivo não suporta o tunelamento para todo o dispositivo sem ser administrador do mesmo.</string>
   <string name="run_polipo_failed">Erro ao Rodar Polipo: %s</string>
   <string name="wdm_force_iptables_toggle">Método de Forçar o Tunelamento de Todo o Dispositivo como Administrador</string>
   <string name="http_prefix_toggle">Mascarar como HTTP</string>
@@ -145,7 +144,6 @@
   <string name="preference_notifications_with_sound_summary">Toque um som ao mudar o estado da conexão</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>
   <string name="preference_notifications_with_vibrate_summary">Vibrar ao mudar o estado da conexão</string>
-  <string name="preference_download_wifi_only_toggle">Baixar atualizações apenas pelo WI-FI</string>
   <string name="moreOptions">Mais opções</string>
   <string name="root_mode_not_supported">Modo de administrador não é suportado nessa versão do Android</string>
   <string name="proxySettingsCategoryTitle">Configurações de Proxy</string>
@@ -170,4 +168,6 @@
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
   <string name="waiting">Aguarde...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

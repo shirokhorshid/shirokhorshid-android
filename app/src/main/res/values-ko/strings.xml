@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="banner_desc">스폰서 배너; 클릭하면 스폰서의 홈페이지로 이동합니다</string>
   <string name="start_desc">Psiphon에 접속; 클릭하면 접속합니다</string>
   <string name="message_image_success_desc">성공 메시지를 나타내는 아이콘</string>

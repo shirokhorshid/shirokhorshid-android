@@ -135,7 +135,6 @@
   <string name="network_proxy_connect_exception">네트워크의 HTTP Proxy에 접속 실패했습니다: %s</string>
   <string name="network_proxy_connect_information">HTTP Proxy를 통해 연결하는 중: %s</string>
   <string name="network_proxy_connect_invalid_values">유효하지 않은 HTTP Proxy 설정</string>
-  <string name="tunnel_whole_device_exception">현재 기기는 완전한 기기 터널링 옵션을 지원하지 않으며 루팅이 필요합니다.</string>
   <string name="run_polipo_failed">Polipo 실행에 실패했습니다: %s</string>
   <string name="wdm_force_iptables_toggle">강제 루트 완전한 기기 터널링 메서드</string>
   <string name="http_prefix_toggle">Masquerade를 HTTP로</string>
@@ -168,4 +167,6 @@
   <string name="tunnel_connecting">터널 연결중...</string>
   <string name="tunnel_connected">터널 연결됨</string>
   <string name="waiting">기다려 주세요...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="banner_desc">sponsor banner: clicca per visitare la pagina dello sponsor</string>
   <string name="start_desc">connetti a Psiphon; clicca per connetterti</string>
   <string name="message_image_success_desc">icona che indica un messaggio di successo</string>

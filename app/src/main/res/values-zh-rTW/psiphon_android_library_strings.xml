@@ -136,7 +136,6 @@
   <string name="network_proxy_connect_exception">無法連接到網絡的HTTP代理：%s</string>
   <string name="network_proxy_connect_information">正在通過您的HTTP代理連接：%s</string>
   <string name="network_proxy_connect_invalid_values">無效的HTTP代理設置</string>
-  <string name="tunnel_whole_device_exception">您的設備不支持未 root 的全局代理選項。</string>
   <string name="run_polipo_failed">運行Polipo失敗: %s</string>
   <string name="wdm_force_iptables_toggle">強制獲取最高權限進行全局代理</string>
   <string name="http_prefix_toggle">偽裝成HTTP</string>
@@ -145,7 +144,6 @@
   <string name="preference_notifications_with_sound_summary">當連接狀態改變時發出聲音</string>
   <string name="preference_notifications_with_vibrate_title">震動</string>
   <string name="preference_notifications_with_vibrate_summary">當連接狀態改變時震動</string>
-  <string name="preference_download_wifi_only_toggle">僅在 WiFi 環境下下載更新</string>
   <string name="moreOptions">更多選項</string>
   <string name="root_mode_not_supported">您的安卓版本不支持 root 模式</string>
   <string name="proxySettingsCategoryTitle">代理設置</string>
@@ -170,4 +168,6 @@
   <string name="tunnel_connecting">通道連接中…</string>
   <string name="tunnel_connected">通道已連接</string>
   <string name="waiting">等待中…</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

@@ -136,7 +136,6 @@
   <string name="network_proxy_connect_exception">Ağın HTTP Vekil Sunucusu\'na bağlanılamadı: %s</string>
   <string name="network_proxy_connect_information">HTTP Vekil Sunucunuz aracılığıyla bağlanılıyor: %s</string>
   <string name="network_proxy_connect_invalid_values">Geçersiz HTTP Vekil Sunucu ayarları</string>
-  <string name="tunnel_whole_device_exception">Cihazınız root olmadan tüm cihazı tünelle seçeneğini desteklemiyor.</string>
   <string name="run_polipo_failed">Polipo\'yu çalıştırma başarısız: %s</string>
   <string name="wdm_force_iptables_toggle">Yönetici Tüm Cihazı Tünelle yöntemini zorla</string>
   <string name="http_prefix_toggle">HTTP olarak görün</string>
@@ -145,7 +144,6 @@
   <string name="preference_notifications_with_sound_summary">Bağlantı durumu değiştiğinde ses çal</string>
   <string name="preference_notifications_with_vibrate_title">Titret</string>
   <string name="preference_notifications_with_vibrate_summary">Bağlantı durumu değiştiğinde titret</string>
-  <string name="preference_download_wifi_only_toggle">Güncellemeleri yalnızca WİFİ\'da yükle</string>
   <string name="moreOptions">Daha Fazla Seçenek</string>
   <string name="root_mode_not_supported">Android\'in bu sürümünde root modu desteklenmiyor</string>
   <string name="proxySettingsCategoryTitle">Vekil Sunucu Ayarları</string>
@@ -170,4 +168,6 @@
   <string name="tunnel_connecting">Tünel bağlanıyor...</string>
   <string name="tunnel_connected">Tünel bağlı</string>
   <string name="waiting">Bekliyor...</string>
+  <!--Empty string array to initialize things that will be programatically populated later-->
+  <string-array name="empty_array"></string-array>
 </resources>

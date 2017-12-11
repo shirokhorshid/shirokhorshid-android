@@ -166,7 +166,7 @@
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>
     <string name="preference_notifications_with_vibrate_title">Vibrate</string>
     <string name="preference_notifications_with_vibrate_summary">Vibrate when connection status changes</string>
-    <string name="preference_download_wifi_only_toggle">Download upgrades on WiFi only</string>
+    <string name="preference_download_wifi_only_toggle">Download upgrades on Wi-Fi only</string>
     <string name="moreOptions">More Options</string>
     <string name="root_mode_not_supported">Root mode is not supported on this version of Android</string>
     <string name="proxySettingsCategoryTitle">Proxy Settings</string>

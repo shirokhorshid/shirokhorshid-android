@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">Psiphon</string>
   <string name="banner_desc">spanduk sponsor; klik untuk mengunjungi laman web sponsor</string>
   <string name="start_desc">menyambung ke Psiphon; klik untuk menyambung</string>
   <string name="message_image_success_desc">ikon penanda pesan sukses</string>
