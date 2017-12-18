@@ -131,6 +131,20 @@
   <string name="region_name_hk">هونج كونج</string>
   <string name="region_name_sg">سنغافورة</string>
   <string name="region_name_nl">هولندا</string>
+  <string name="region_name_in">الهند</string>
+  <string name="region_name_es">إسبانيا</string>
+  <string name="region_name_at">النمسا</string>
+  <string name="region_name_be">بلجيكا</string>
+  <string name="region_name_bg">بلغاريا</string>
+  <string name="region_name_ch">سويسرا</string>
+  <string name="region_name_cz">جمهورية التشيك</string>
+  <string name="region_name_dk">الدنمارك</string>
+  <string name="region_name_fr">فرنسا</string>
+  <string name="region_name_hu">اليونان</string>
+  <string name="region_name_it">إيطاليا</string>
+  <string name="region_name_no">النرويج</string>
+  <string name="region_name_ro">رومانيا</string>
+  <string name="region_name_se">السويد</string>
   <string name="about">من نحن؟</string>
   <string name="feedback">رأيك </string>
   <string name="tunnel_whole_device_toggle">تمرير الجهاز بأكمله عبر النفق (يتطلب أندرويد 4.0+) </string>
@@ -141,15 +155,23 @@
   <string name="network_proxy_connect_information">جاري الإتصال عبر بروكسي  HTTP 
  : %s</string>
   <string name="network_proxy_connect_invalid_values">إعدادات بروكسي HTTP غير صالحة </string>
+  <string name="tunnel_whole_device_exception">جهازك لايدعم خيار تمرير كامل الجهاز بالنفق بسبب فقدان VpnService API.</string>
   <string name="run_polipo_failed">فشل عملية تشغيل  تطبيق  Polipo :
  %s</string>
   <string name="wdm_force_iptables_toggle">فرض جذر وضعية \"نقل الجهاز بأكمله عبر نفق\" </string>
   <string name="http_prefix_toggle">التنكر بصورة بروتوكول HTTP </string>
   <string name="preference_notifications_title">الإعلامات </string>
+  <string name="preference_routing_title">توجيه</string>
+  <string name="preference_routing_exclude_apps_title">التطبيقات المستبعدة</string>
+  <string name="preference_routing_exclude_apps_summary">منع التطبيقات المحددة من تمريرها بالنفق</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">ضبط</string>
+  <string name="individual_app_excluded">التطبيق المُستبعد من النفق: %s</string>
+  <string name="no_apps_excluded">لم يتم استبعاد أي تطبيق من النفق</string>
   <string name="preference_notifications_with_sound_title">صوت </string>
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
   <string name="preference_notifications_with_vibrate_title">إهتزاز </string>
   <string name="preference_notifications_with_vibrate_summary">الإهتزاز عند تغير حالة الإتصال </string>
+  <string name="preference_download_wifi_only_toggle">تحميل التحديثات على شبكة الواي فاي فقط </string>
   <string name="moreOptions">إعدادات أخرى </string>
   <string name="root_mode_not_supported">النمط الجذري  \"الروت مود\" غير مدعوم على هذا الإصدار من أندرويد </string>
   <string name="proxySettingsCategoryTitle">إعدادات البروكسي </string>
