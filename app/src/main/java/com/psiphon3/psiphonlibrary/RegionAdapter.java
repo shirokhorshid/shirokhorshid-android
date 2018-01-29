@@ -75,6 +75,7 @@ public class RegionAdapter extends ArrayAdapter<Integer>
         new Region("JP", R.string.region_name_jp, R.drawable.flag_jp, false),
         new Region("NL", R.string.region_name_nl, R.drawable.flag_nl, false),
         new Region("NO", R.string.region_name_no, R.drawable.flag_no, false),
+        new Region("PL", R.string.region_name_pl, R.drawable.flag_pl, false),
         new Region("RO", R.string.region_name_ro, R.drawable.flag_ro, false),
         new Region("SE", R.string.region_name_se, R.drawable.flag_se, false),
         new Region("SG", R.string.region_name_sg, R.drawable.flag_sg, false),
