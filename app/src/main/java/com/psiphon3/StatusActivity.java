@@ -25,6 +25,8 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -333,7 +335,23 @@ public class StatusActivity
                 if (uri != null)
                 {
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
-                    context.startActivity(browserIntent);
+                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    ResolveInfo resolveInfo = getPackageManager().resolveActivity(browserIntent, PackageManager.MATCH_DEFAULT_ONLY);
+                    if (resolveInfo == null || resolveInfo.activityInfo == null ||
+                            resolveInfo.activityInfo.name == null || resolveInfo.activityInfo.name.toLowerCase().contains("resolver")) {
+                        // No default web browser is set, so try opening in Chrome
+                        browserIntent.setPackage("com.android.chrome");
+                        try {
+                            context.startActivity(browserIntent);
+                        } catch (ActivityNotFoundException ex) {
+                            // We tried to open Chrome and it is not installed,
+                            // so reinvoke with the default behaviour
+                            browserIntent.setPackage(null);
+                            context.startActivity(browserIntent);
+                        }
+                    } else {
+                        context.startActivity(browserIntent);
+                    }
                 }
             }
             else
