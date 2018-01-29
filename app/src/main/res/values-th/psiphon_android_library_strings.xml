@@ -5,6 +5,7 @@
   <string name="stop">หยุด</string>
   <string name="home_tab_name">หน้าหลัก</string>
   <string name="settings_tab_name">ตัวเลือก</string>
+  <string name="logs_tab_name">ปูม</string>
   <string name="share_proxies_prompt_positive">เริ่มต้นใหม่เดี๋ยวนี้</string>
   <string name="share_proxies_prompt_negative">ยกเลิก</string>
   <string name="custom_proxy_settings_port">พอร์ต</string>
@@ -13,6 +14,7 @@
   <string name="region_name_ca">แคนาดา</string>
   <string name="region_name_jp">ญี่ปุ่น</string>
   <string name="region_name_sg">สิงคโปร์</string>
+  <string name="preference_notifications_title">การแจ้งเตือน</string>
   <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
