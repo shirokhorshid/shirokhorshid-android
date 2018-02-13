@@ -141,8 +141,6 @@
   <string name="PreferencesActivity.StartPageCustomizationPreferenceTitle">Prilagođavanje početne stranice</string>
   <string name="PreferencesActivity.StartPageCustomizationPreferenceSummary">Prilagodi početnu stranicu.</string>
   <string name="PreferencesActivity.StartPageEnableSearchPreferenceTitle">Prikaži kutiju tražilice</string>
-  <string name="PreferencesActivity.StartPageEnableSearchPreferenceSummary">Ako je ovo označeno, prikazati će se kutija tražilice.</string>
-  <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceTitle">Prikaži najkorištenije oznake</string>
   <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceSummary">Ako je ovo označeno, prikazati će se najkorištenije oznake.</string>
   <string name="PreferencesActivity.StartPageEnableHistoryPreferenceTitle">Prikaži nedavnu povijest</string>
   <string name="PreferencesActivity.StartPageEnableHistoryPreferenceSummary">Ako je ovo označeno, prikazati će se nedavna povijest.</string>

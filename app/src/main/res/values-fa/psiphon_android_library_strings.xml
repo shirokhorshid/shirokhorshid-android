@@ -156,6 +156,7 @@
   <string name="wdm_force_iptables_toggle">اجباری کردن استفاده از تونل در تمام گوشی</string>
   <string name="http_prefix_toggle">ترافیک را مثل http نشان بده</string>
   <string name="preference_notifications_title">اطلاعیه ها</string>
+  <string name="preference_routing_title">در حال مسیریابی</string>
   <string name="preference_routing_exclude_apps_title">حذف برنامه ها</string>
   <string name="preference_routing_exclude_apps_ok_button_text">تنظیم</string>
   <string name="preference_notifications_with_sound_title">صدا </string>

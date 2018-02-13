@@ -53,6 +53,7 @@
   <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">Abilita JavaScript</string>
   <string name="PreferencesActivity.LoadImagesPreferenceTitle">Carica immagini</string>
   <string name="PreferencesActivity.EnablePasswordsPreferenceTitle">Salva password</string>
+  <string name="PreferencesActivity.PrivacyClearHistoryTitle">Cancella Cronologia</string>
   <string name="PreferencesActivity.PrivacyClearCacheTitle">Cancella cache</string>
   <string name="PreferencesActivity.BarDuration1sec">1 secondo</string>
   <string name="PreferencesActivity.BarDuration2sec">2 secondi</string>
@@ -67,6 +68,7 @@
   <string name="Commons.PleaseWait">Attendere</string>
   <string name="Commons.Yes">Sì</string>
   <string name="Commons.No">No</string>
+  <string name="Commons.ClearHistory">Cancella Cronologia</string>
   <string name="Commons.ClearCache">Cancella cache</string>
   <string name="Commons.Close">Chiudi</string>
   <string name="PreferencesActivity.AboutCategoryTitle">Informazioni</string>
@@ -87,16 +89,19 @@
   <string name="UserAgentPreferenceActivity.Title">User agent</string>
   <string name="UserAgentPreferenceActivity.Prompt">User agent</string>
   <string name="PreferencesActivity.UserAgentDefault">Default</string>
+  <string name="PreferencesActivity.UserAgentDesktop">Desktop</string>
   <string name="PreferencesActivity.UserAgentCustom">Personalizzato</string>
   <string name="Main.MenuViewImage">Guarda immagine</string>
   <string name="Main.MenuSendEmail">Invia email</string>
   <string name="DownloadNotification.DownloadStart">Scaricamento avviato.</string>
   <string name="DownloadNotification.DownloadComplete">Scaricamento completo.</string>
+  <string name="PreferencesActivity.ClearCacheOnExitPreferenceTitle">Cancella Cache in uscita</string>
   <string name="Main.MenuExit">Esci</string>
   <string name="Commons.Continue">Continua</string>
   <string name="Commons.Add">Aggiungi</string>
   <string name="Commons.Clear">Pulisci</string>
   <string name="Commons.Delete">Cancella</string>
+  <string name="PreferencesActivity.UseWideViewPortPreferenceTitle">Usa viewport più grandi.</string>
   <string name="PreferencesActivity.SwitchTabBoth">Entrambe</string>
   <string name="HistoryListActivity.LastMonth">Ultimo mese</string>
   <string name="QuickAction.Home">Pagina principale</string>

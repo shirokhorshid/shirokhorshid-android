@@ -131,12 +131,17 @@
   <string name="region_name_in">ឥណ្ឌា</string>
   <string name="region_name_es">ប្រទេសអេស្បាញ</string>
   <string name="region_name_at">ប្រទេសអូត្រីហ្ស</string>
+  <string name="region_name_be">បែលហ្សិក</string>
   <string name="region_name_bg">ប្រទេសប៊ុលហ្គារី</string>
   <string name="region_name_ch">ប្រទេស​ស្វីស</string>
   <string name="region_name_cz">សាធារណរដ្ឋ​ឆែក</string>
   <string name="region_name_dk">ប្រទេសដាណ៌ម៉ាក</string>
   <string name="region_name_fr">ប្រទេសបារាំង</string>
+  <string name="region_name_hu">ហុងគ្រី</string>
   <string name="region_name_it">ប្រទេសអ៊ីតាលី</string>
+  <string name="region_name_no">ន័រវែស</string>
+  <string name="region_name_ro">រូម៉ានី</string>
+  <string name="region_name_se">ស៊ុយអែត</string>
   <string name="about">អំពី Psiphon</string>
   <string name="feedback">មតិយោបល់</string>
   <string name="tunnel_whole_device_toggle">បើករូងលើឧបករណ៍ទាំងមូល (ទាមទារ Android 4.0+)</string>
@@ -145,6 +150,7 @@
   <string name="network_proxy_connect_exception">បរាជ័យក្នុងការតភ្ជាប់ទៅបណ្តាញប្រូកស៊ី HTTP ៖ %s</string>
   <string name="network_proxy_connect_information">កំពុងតភ្ជាប់ប្រូកស៊ី HTTP របស់អ្នក៖ %s</string>
   <string name="network_proxy_connect_invalid_values">ការកំណត់ប្រូកស៊ី HTTP មិនត្រឹមត្រូវ</string>
+  <string name="tunnel_whole_device_exception">ឧបករណ៍របស់អ្នក មិនគាំទ្រការតភ្ជាប់តាមច្រកទាំងអស់ ដោយសារបាត់បង់ VpnService API។</string>
   <string name="run_polipo_failed">ដំណើរការ Polipo បរាជ័យ៖ %s</string>
   <string name="wdm_force_iptables_toggle">វិធីបង្ខំ root លើច្រកឧបករណ៍ទាំងមូល</string>
   <string name="http_prefix_toggle">ក្លែងជា HTTP</string>
@@ -154,6 +160,7 @@
   <string name="preference_routing_exclude_apps_summary">ចៀសវាងជ្រើសរើសកម្មវិធីពីការណ៍កំពុងចូលច្រក</string>
   <string name="preference_routing_exclude_apps_ok_button_text">កំណត់</string>
   <string name="individual_app_excluded">កម្មវិធីដែលបានលើកលែងពីច្រក៖ %s</string>
+  <string name="no_apps_excluded">គ្មាន​កម្មវិធីដែលបានលើកលែងពីច្រកនេះទេ</string>
   <string name="preference_notifications_with_sound_title">សំឡេង</string>
   <string name="preference_notifications_with_sound_summary">ចាក់សំឡេងពេលស្ថានភាពការតភ្ជាប់ផ្លាស់ប្តូរ</string>
   <string name="preference_notifications_with_vibrate_title">ញ័រ</string>
