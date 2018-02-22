@@ -142,6 +142,7 @@
   <string name="region_name_no">Norge</string>
   <string name="region_name_ro">Romania</string>
   <string name="region_name_se">Sverige</string>
+  <string name="region_name_pl">Polen</string>
   <string name="about">Om Psiphon</string>
   <string name="feedback">Tilbakemeldinger</string>
   <string name="tunnel_whole_device_toggle">Tunnel over hele fjøla (krever Android 4.0+)</string>

@@ -142,6 +142,7 @@
   <string name="region_name_no">Норвегія</string>
   <string name="region_name_ro">Румунія</string>
   <string name="region_name_se">Швеція</string>
+  <string name="region_name_pl">Польща</string>
   <string name="about">Про Psiphon</string>
   <string name="feedback">Відгуки</string>
   <string name="tunnel_whole_device_toggle">Тунелювання всього пристрою (вимагається Android 4.0+)</string>

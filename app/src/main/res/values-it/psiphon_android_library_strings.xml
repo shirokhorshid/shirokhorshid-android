@@ -45,6 +45,7 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Olanda</string>
+  <string name="region_name_pl">Polonia</string>
   <string name="feedback">Commento</string>
   <string name="http_prefix_toggle">Mascherato come HTTP</string>
   <string name="preference_notifications_title">Notifiche</string>

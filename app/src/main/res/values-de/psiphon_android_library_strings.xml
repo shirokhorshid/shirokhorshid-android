@@ -132,6 +132,7 @@
   <string name="region_name_no">Norwegen</string>
   <string name="region_name_ro">Rumänien</string>
   <string name="region_name_se">Schweden</string>
+  <string name="region_name_pl">Polen</string>
   <string name="about">Über Psiphon</string>
   <string name="feedback">Rückmeldung</string>
   <string name="disable_timeouts">Zeitüberschreitungen für langsame Netzwerke deaktivieren</string>
