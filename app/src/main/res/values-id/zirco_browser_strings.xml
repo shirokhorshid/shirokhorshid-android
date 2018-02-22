@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">Psiphon</string>
+  <string name="ApplicationName">Peramban Psiphon</string>
   <string name="ApplicationNameUrl">Psiphon - %s</string>
   <string name="ApplicationDescription">Peramban Psiphon adalah peramban bersumber terbuka untuk Android yang didasarkan pada Zirco Browser.</string>
   <string name="AboutActivity.Title">Tentang</string>
   <string name="AboutActivity.VersionText">Versi:</string>
   <string name="AboutActivity.LicenseText">Lisensi:</string>
-  <string name="Main.MenuAddBookmark">Tambah markah</string>
-  <string name="Main.MenuShowBookmarks">Markah</string>
+  <string name="Main.MenuAddBookmark">Tambah penanda</string>
+  <string name="Main.MenuShowBookmarks">Penanda</string>
   <string name="Main.MenuShowHistory">Riwayat</string>
   <string name="Main.MenuShowDownloads">Unduhan</string>
   <string name="Main.MenuPreferences">Preferensi</string>
@@ -21,13 +21,13 @@
   <string name="Main.ToastTabSwitchFullMessage">Tab %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">Tidak dapat membuka URL</string>
   <string name="Main.VndErrorMessage">Anda mungkin tidak punya aplikasi yang bisa membuka URL ini: %s.</string>
-  <string name="BookmarksListActivity.Title">Peramban Psiphon - Markah</string>
+  <string name="BookmarksListActivity.Title">Peramban Psiphon - Penanda</string>
   <string name="BookmarksListActivity.MenuSortMode">Pilah sesuai</string>
-  <string name="BookmarksListActivity.MenuAddBookmark">Tambah markah</string>
-  <string name="BookmarksListActivity.Empty">Tak ada markah</string>
+  <string name="BookmarksListActivity.MenuAddBookmark">Tambah penanda</string>
+  <string name="BookmarksListActivity.Empty">Tak ada penanda</string>
   <string name="BookmarksListActivity.MenuOpenInTab">Buka di tab baru</string>
-  <string name="BookmarksListActivity.MenuEditBookmark">Sunting markah</string>
-  <string name="BookmarksListActivity.MenuDeleteBookmark">Hapus markah</string>
+  <string name="BookmarksListActivity.MenuEditBookmark">Sunting penanda</string>
+  <string name="BookmarksListActivity.MenuDeleteBookmark">Hapus penanda</string>
   <string name="BookmarksListActivity.AlphaSortMode">Urutan abjad</string>
   <string name="BookmarksListActivity.RecentSortMode">Terbaru</string>
   <string name="EditBookmarkActivity.Title">Sunting markah</string>
