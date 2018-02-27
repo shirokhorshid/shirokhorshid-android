@@ -128,6 +128,7 @@
   <string name="region_name_hk">Гонконг</string>
   <string name="region_name_sg">Сингапур</string>
   <string name="region_name_nl">Нидерланды</string>
+  <string name="region_name_pl">Польша</string>
   <string name="about">Что такое Psiphon</string>
   <string name="feedback">Отзыв</string>
   <string name="tunnel_whole_device_toggle">Туннелировать все интернет-соединения (требует Android 4.0+)</string>
