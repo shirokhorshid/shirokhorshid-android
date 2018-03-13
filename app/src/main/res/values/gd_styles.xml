@@ -55,30 +55,30 @@
 
 	<style name="GreenDroid.Animation.PopDown" />
 	<style name="GreenDroid.Animation.PopDown.Left">
-		<item name="@android:windowEnterAnimation">@anim/gd_grow_from_topleft_to_bottomright</item>
-		<item name="@android:windowExitAnimation">@anim/gd_shrink_from_bottomright_to_topleft</item>
+		<item name="android:windowEnterAnimation">@anim/gd_grow_from_topleft_to_bottomright</item>
+		<item name="android:windowExitAnimation">@anim/gd_shrink_from_bottomright_to_topleft</item>
 	</style>
 	<style name="GreenDroid.Animation.PopDown.Right">
-		<item name="@android:windowEnterAnimation">@anim/gd_grow_from_topright_to_bottomleft</item>
-		<item name="@android:windowExitAnimation">@anim/gd_shrink_from_bottomleft_to_topright</item>
+		<item name="android:windowEnterAnimation">@anim/gd_grow_from_topright_to_bottomleft</item>
+		<item name="android:windowExitAnimation">@anim/gd_shrink_from_bottomleft_to_topright</item>
 	</style>
 	<style name="GreenDroid.Animation.PopDown.Center">
-		<item name="@android:windowEnterAnimation">@anim/gd_grow_from_top</item>
-		<item name="@android:windowExitAnimation">@anim/gd_shrink_from_bottom</item>
+		<item name="android:windowEnterAnimation">@anim/gd_grow_from_top</item>
+		<item name="android:windowExitAnimation">@anim/gd_shrink_from_bottom</item>
 	</style>
 
 	<style name="GreenDroid.Animation.PopUp" />
 	<style name="GreenDroid.Animation.PopUp.Left">
-		<item name="@android:windowEnterAnimation">@anim/gd_grow_from_bottomleft_to_topright</item>
-		<item name="@android:windowExitAnimation">@anim/gd_shrink_from_topright_to_bottomleft</item>
+		<item name="android:windowEnterAnimation">@anim/gd_grow_from_bottomleft_to_topright</item>
+		<item name="android:windowExitAnimation">@anim/gd_shrink_from_topright_to_bottomleft</item>
 	</style>
 	<style name="GreenDroid.Animation.PopUp.Right">
-		<item name="@android:windowEnterAnimation">@anim/gd_grow_from_bottomright_to_topleft</item>
-		<item name="@android:windowExitAnimation">@anim/gd_shrink_from_topleft_to_bottomright</item>
+		<item name="android:windowEnterAnimation">@anim/gd_grow_from_bottomright_to_topleft</item>
+		<item name="android:windowExitAnimation">@anim/gd_shrink_from_topleft_to_bottomright</item>
 	</style>
 	<style name="GreenDroid.Animation.PopUp.Center">
-		<item name="@android:windowEnterAnimation">@anim/gd_grow_from_bottom</item>
-		<item name="@android:windowExitAnimation">@anim/gd_shrink_from_top</item>
+		<item name="android:windowEnterAnimation">@anim/gd_grow_from_bottom</item>
+		<item name="android:windowExitAnimation">@anim/gd_shrink_from_top</item>
 	</style>
 
 </resources>
