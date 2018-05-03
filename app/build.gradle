@@ -81,6 +81,5 @@ dependencies {
     compile files('libs/achartengine-1.0.0.jar')
     compile files('libs/snakeyaml-1.10-android.jar')
     compile(name:'ca.psiphon', ext:'aar')
-    compile 'com.google.android.gms:play-services-safetynet:9.0.2'
     compile project(':tray')
 }
