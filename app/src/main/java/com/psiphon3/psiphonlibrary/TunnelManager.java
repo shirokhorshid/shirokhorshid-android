@@ -729,14 +729,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             if (tunnelConfig.disableTimeouts) {
                 //disable timeouts
                 MyLog.g("DisableTimeouts", "disableTimeouts", true);
-                json.put("TunnelConnectTimeoutSeconds", 0);
-                json.put("TunnelPortForwardDialTimeoutSeconds", 0);
-                json.put("TunnelSshKeepAliveProbeTimeoutSeconds", 0);
-                json.put("TunnelSshKeepAlivePeriodicTimeoutSeconds", 0);
-                json.put("FetchRemoteServerListTimeoutSeconds", 0);
-                json.put("PsiphonApiServerTimeoutSeconds", 0);
-                json.put("FetchRoutesTimeoutSeconds", 0);
-                json.put("HttpProxyOriginServerTimeoutSeconds", 0);
+                json.put("NetworkLatencyMultiplier", 3.0);
             }
 
             return json.toString();
@@ -1000,4 +993,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             m_tunnel.setClientVerificationPayload(payload);
         }
     }
+
+    @Override
+    public void onActiveAuthorizationIDs(List<String> authorizations) {}
 }
