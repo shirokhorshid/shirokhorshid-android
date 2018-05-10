@@ -854,7 +854,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public void onConnected() {
-
         m_Handler.post(new Runnable() {
             @Override
             public void run() {

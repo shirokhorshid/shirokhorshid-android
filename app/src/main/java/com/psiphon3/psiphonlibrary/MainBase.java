@@ -1332,9 +1332,11 @@ public abstract class MainBase {
                 // User region is either not set or set to 'Best Performance', do nothing
                 return;
             }
+
             for (String regionCode : availableRegions) {
                 if (selectedEgressRegion.equals(regionCode)) {
                     isSelectedRegionAvailable = true;
+                    break;
                 }
             }
 
