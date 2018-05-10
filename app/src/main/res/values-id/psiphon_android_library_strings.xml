@@ -128,6 +128,7 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapura</string>
   <string name="region_name_nl">Belanda</string>
+  <string name="region_name_pl">Polandia</string>
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
   <string name="tunnel_whole_device_toggle">Alihkan Sambungan Seluruh Perangkat (perlu Android 4.0+)</string>

@@ -128,6 +128,7 @@
   <string name="region_name_hk">홍콩</string>
   <string name="region_name_sg">싱가포르</string>
   <string name="region_name_nl">네덜란드</string>
+  <string name="region_name_pl">폴란드</string>
   <string name="about">Psiphon에 대하여</string>
   <string name="feedback">피드백</string>
   <string name="tunnel_whole_device_toggle">완전한 기기 터널링 (Android 4.0+ 필요)</string>

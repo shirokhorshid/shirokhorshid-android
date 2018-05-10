@@ -128,6 +128,7 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapura</string>
   <string name="region_name_nl">Holanda</string>
+  <string name="region_name_pl">Polônia</string>
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentários</string>
   <string name="tunnel_whole_device_toggle">Tunelar todo o dispositivo (requer Android 4.0+)</string>
