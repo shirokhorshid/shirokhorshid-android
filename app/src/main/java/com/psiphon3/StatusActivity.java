@@ -238,8 +238,7 @@ public class StatusActivity
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
 
-            // TODO: do we need to do this here? Copied from the other intent handling block from above
-            // We only want to respond to the HANDSHAKE_SUCCESS action once,
+            // We only want to respond to the INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE action once,
             // so we need to clear it (by setting it to a non-special intent).
             setIntent(new Intent(
                     "ACTION_VIEW",
