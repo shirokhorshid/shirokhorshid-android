@@ -33,13 +33,16 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
+import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
 import com.psiphon3.psiphonlibrary.TunnelService;
 
@@ -167,6 +170,21 @@ public class StatusActivity
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
+    @Override
+    protected PendingIntent getRegionNotAvailablePendingIntent() {
+        Intent intent = new Intent(
+                TunnelManager.INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE,
+                null,
+                this,
+                com.psiphon3.StatusActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        return PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
     protected void HandleCurrentIntent()
     {
         Intent intent = getIntent();
@@ -205,6 +223,29 @@ public class StatusActivity
                             null,
                             this,
                             this.getClass()));
+        } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE)) {
+            // Switch to settings tab
+            m_tabHost.setCurrentTabByTag("settings");
+
+            // Set egress region preference to 'Best Performance'
+            updateEgressRegionPreference(PsiphonConstants.REGION_CODE_ANY);
+
+            // Set region selection to 'Best Performance' too
+            m_regionSelector.setSelectionByValue(PsiphonConstants.REGION_CODE_ANY);
+
+            // Show "Selected region unavailable" toast
+            Toast toast = Toast.makeText(this, R.string.selected_region_currently_not_available, Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+
+            // TODO: do we need to do this here? Copied from the other intent handling block from above
+            // We only want to respond to the HANDSHAKE_SUCCESS action once,
+            // so we need to clear it (by setting it to a non-special intent).
+            setIntent(new Intent(
+                    "ACTION_VIEW",
+                    null,
+                    this,
+                    this.getClass()));
         }
     }
 
