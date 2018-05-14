@@ -796,10 +796,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         MyLog.g("regionNotAvailablePendingIntent failed: %s", e.getMessage());
                     }
 
-                } else {
-                    // Notify activity so it has a chance to update region selector values
-                    sendClientMessage(MSG_KNOWN_SERVER_REGIONS, null);
                 }
+                // Notify activity so it has a chance to update region selector values
+                sendClientMessage(MSG_KNOWN_SERVER_REGIONS, null);
             }
         });
     }
