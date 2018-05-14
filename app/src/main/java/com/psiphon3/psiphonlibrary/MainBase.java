@@ -1348,6 +1348,7 @@ public abstract class MainBase {
                 String egressRegionPreference = PsiphonConstants.REGION_CODE_ANY;
                 int position = m_regionAdapter.getPositionForRegionCode(egressRegionPreference);
                 m_regionSelector.setSelection(position);
+                updateEgressRegionPreference(egressRegionPreference);
 
                 // Show "Selected region unavailable" toast
                 Toast toast = Toast.makeText(this, R.string.selected_region_currently_not_available, Toast.LENGTH_LONG);
