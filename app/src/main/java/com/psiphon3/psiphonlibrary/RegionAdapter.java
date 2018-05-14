@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,10 +32,10 @@ import com.psiphon3.R;
 
 import net.grandcentrix.tray.AppPreferences;
 
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Comparator;
+import java.util.HashMap;
 
-public class RegionAdapter extends ArrayAdapter<Integer>
+public class RegionAdapter extends ArrayAdapter<String>
 {
     public static final String KNOWN_REGIONS_PREFERENCE = "knownRegionsPreference";
 
@@ -43,164 +44,75 @@ public class RegionAdapter extends ArrayAdapter<Integer>
         String code;
         int nameResourceId;
         int flagResourceId;
-        AtomicBoolean serverExists;
-        
-        Region(String code, int nameResourceId, int flagResourceId, boolean serverExists)
+
+        Region(String code, int nameResourceId, int flagResourceId)
         {
             this.code = code;
             this.nameResourceId = nameResourceId;
             this.flagResourceId = flagResourceId;
-            this.serverExists = new AtomicBoolean(serverExists);
         }
     }
     
-    private static Region[] regions =
-    {
-        new Region(PsiphonConstants.REGION_CODE_ANY, R.string.region_name_any, R.drawable.flag_unknown, true),
-        new Region("AT", R.string.region_name_at, R.drawable.flag_at, false),
-        new Region("BE", R.string.region_name_be, R.drawable.flag_be, false),
-        new Region("BG", R.string.region_name_bg, R.drawable.flag_bg, false),
-        new Region("CA", R.string.region_name_ca, R.drawable.flag_ca, false),
-        new Region("CH", R.string.region_name_ch, R.drawable.flag_ch, false),
-        new Region("CZ", R.string.region_name_cz, R.drawable.flag_cz, false),
-        new Region("DE", R.string.region_name_de, R.drawable.flag_de, false),
-        new Region("DK", R.string.region_name_dk, R.drawable.flag_dk, false),
-        new Region("ES", R.string.region_name_es, R.drawable.flag_es, false),
-        new Region("FR", R.string.region_name_fr, R.drawable.flag_fr, false),
-        new Region("GB", R.string.region_name_gb, R.drawable.flag_gb, false),
-        new Region("HK", R.string.region_name_hk, R.drawable.flag_hk, false),
-        new Region("HU", R.string.region_name_hu, R.drawable.flag_hu, false),
-        new Region("IN", R.string.region_name_in, R.drawable.flag_in, false),
-        new Region("IT", R.string.region_name_it, R.drawable.flag_it, false),
-        new Region("JP", R.string.region_name_jp, R.drawable.flag_jp, false),
-        new Region("NL", R.string.region_name_nl, R.drawable.flag_nl, false),
-        new Region("NO", R.string.region_name_no, R.drawable.flag_no, false),
-        new Region("PL", R.string.region_name_pl, R.drawable.flag_pl, false),
-        new Region("RO", R.string.region_name_ro, R.drawable.flag_ro, false),
-        new Region("SE", R.string.region_name_se, R.drawable.flag_se, false),
-        new Region("SG", R.string.region_name_sg, R.drawable.flag_sg, false),
-        new Region("US", R.string.region_name_us, R.drawable.flag_us, false),
-    };
-    
-    private static boolean initialized = false;
-    
-    public static void initialize(Context context)
-    {
-        // Restore a list of known regions that's cached as a preferences
-        // value. This workaround done because the JSON parsing/processing
-        // of the ServerEntry list that's done in ServerInterface is slow:
-        // up to 2-3 seconds on a fast device with a realistic-sized server
-        // list. That's too long to block the UI thread. (We will still
-        // hit that parsing in the UI thread on the first run with this
-        // feature).
-        
-        // NOTE: this caching assumes regions are only added, not removed.
-        
-        // Would use get/setStringSet, but that requires API 11.
-        // Since JSON parsing is what we want to avoid, we store the list
-        // of ISO 3166-1 alpha-2 region codes as a simple comma delimited
-        // string (without escaping).
-        
-        // NOTE: retaining this with tunnel-core, as this allows region
-        // display, selection, and restore before the tunnel-core is run
-        // and emits AvailableEgressRegions. The original assumption about
-        // regions only being added, not removed, still applies.
-
-        String knownRegions = new AppPreferences(context).getString(KNOWN_REGIONS_PREFERENCE, "");
-        for (String region : knownRegions.split(","))
-        {
-            setServerExists(context, region, true);
-        }
-        
-        initialized = true;
+    private static final HashMap<String, Region> regions;
+    static {
+        regions = new HashMap<>();
+        regions.put(PsiphonConstants.REGION_CODE_ANY, new Region(PsiphonConstants.REGION_CODE_ANY, R.string.region_name_any, R.drawable.flag_unknown));
+        regions.put("AT", new Region("AT", R.string.region_name_at, R.drawable.flag_at));
+        regions.put("BE", new Region("BE", R.string.region_name_be, R.drawable.flag_be));
+        regions.put("BG", new Region("BG", R.string.region_name_bg, R.drawable.flag_bg));
+        regions.put("CA", new Region("CA", R.string.region_name_ca, R.drawable.flag_ca));
+        regions.put("CH", new Region("CH", R.string.region_name_ch, R.drawable.flag_ch));
+        regions.put("CZ", new Region("CZ", R.string.region_name_cz, R.drawable.flag_cz));
+        regions.put("DE", new Region("DE", R.string.region_name_de, R.drawable.flag_de));
+        regions.put("DK", new Region("DK", R.string.region_name_dk, R.drawable.flag_dk));
+        regions.put("ES", new Region("ES", R.string.region_name_es, R.drawable.flag_es));
+        regions.put("FR", new Region("FR", R.string.region_name_fr, R.drawable.flag_fr));
+        regions.put("GB", new Region("GB", R.string.region_name_gb, R.drawable.flag_gb));
+        regions.put("HK", new Region("HK", R.string.region_name_hk, R.drawable.flag_hk));
+        regions.put("HU", new Region("HU", R.string.region_name_hu, R.drawable.flag_hu));
+        regions.put("IN", new Region("IN", R.string.region_name_in, R.drawable.flag_in));
+        regions.put("IT", new Region("IT", R.string.region_name_it, R.drawable.flag_it));
+        regions.put("JP", new Region("JP", R.string.region_name_jp, R.drawable.flag_jp));
+        regions.put("NL", new Region("NL", R.string.region_name_nl, R.drawable.flag_nl));
+        regions.put("NO", new Region("NO", R.string.region_name_no, R.drawable.flag_no));
+        regions.put("PL", new Region("PL", R.string.region_name_pl, R.drawable.flag_pl));
+        regions.put("RO", new Region("RO", R.string.region_name_ro, R.drawable.flag_ro));
+        regions.put("SE", new Region("SE", R.string.region_name_se, R.drawable.flag_se));
+        regions.put("SG", new Region("SG", R.string.region_name_sg, R.drawable.flag_sg));
+        regions.put("US", new Region("US", R.string.region_name_us, R.drawable.flag_us));
     }
 
-    public static void setServersExist(Context context, List<String> regionCodes)
-    {
-        if (regionCodes == null)
-        {
-            return;
-        }
-        for (String regionCode : regionCodes)
-        {
-            setServerExists(context, regionCode, false);
-        }
-    }
-
-    public static void setServerExists(Context context, String regionCode, boolean restoringKnownRegions)
-    {
-        // TODO: may want to replace linear lookup once there are many regions
-
-        boolean newRegion = false;
-        
-        for (Region region : regions)
-        {
-            if (region.code.equals(regionCode))
-            {
-                newRegion = !region.serverExists.get(); 
-                region.serverExists.set(true);
-                break;
-            }
-        }
-        
-        if (newRegion && !restoringKnownRegions)
-        {
-            StringBuilder knownRegions = new StringBuilder();
-
-            for (Region region : regions)
-            {
-                if (region.serverExists.get())
-                {
-                    if (knownRegions.length() > 0)
-                    {
-                        knownRegions.append(",");
-                    }
-                    knownRegions.append(region.code);
-                }
-            }
-
-            new AppPreferences(context).put(KNOWN_REGIONS_PREFERENCE, knownRegions.toString());
-        }
-    }
-    
     Context m_context;
+    String m_lastKnownRegionsPreference;
 
     public RegionAdapter(Context context)
     {
         super(context, R.layout.region_row);
         m_context = context;
-        if (!initialized)
-        {
-            throw new RuntimeException("failed to call RegionAdapter.initialize");
-        }
-        populate();
+        m_lastKnownRegionsPreference = "";
+        updateRegionsFromPreferences();
     }
     
-    public void populate()
-    {
-        // Only change/redraw if the existing region set has changed. This logic
-        // assumes regions can only be added (via setServerExists), not removed.
-        int count = 0;
-        for (int index = 0; index < regions.length; index++)
-        {
-            if (regions[index].serverExists.get())
-            {
-                count++;
-            }
-        }        
-        if (count == getCount())
-        {
+    public void updateRegionsFromPreferences() {
+        String knownRegions = new AppPreferences(m_context).getString(KNOWN_REGIONS_PREFERENCE, "");
+
+        // Only change/redraw if the existing region set has changed.
+        if (knownRegions.length() > 0 && knownRegions.equals(m_lastKnownRegionsPreference)) {
             return;
         }
+        m_lastKnownRegionsPreference = knownRegions;
 
         clear();
-        for (int index = 0; index < regions.length; index++)
-        {
-            if (regions[index].serverExists.get())
-            {
-                add(index);
+
+        // Add 'Best Performance' first
+        add(PsiphonConstants.REGION_CODE_ANY);
+
+        if(knownRegions.length() > 0) {
+            for (String regionCode : m_lastKnownRegionsPreference.split(",")) {
+                add(regionCode);
             }
         }
+
         notifyDataSetChanged();
     }
 
@@ -221,38 +133,17 @@ public class RegionAdapter extends ArrayAdapter<Integer>
         LayoutInflater inflater = (LayoutInflater)m_context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = inflater.inflate(R.layout.region_row, parent, false);
         
-        int index = getItem(position);
+        String regionCode = getItem(position);
+        Region region = regions.get(regionCode);
 
-        ImageView icon = (ImageView)row.findViewById(R.id.regionRowImage);
-        icon.setImageResource(regions[index].flagResourceId);
+        if(region != null) {
+            ImageView icon = (ImageView) row.findViewById(R.id.regionRowImage);
+            icon.setImageResource(regions.get(regionCode).flagResourceId);
 
-        TextView label = (TextView)row.findViewById(R.id.regionRowText);
-        label.setText(m_context.getString(regions[index].nameResourceId));
-
-        return row;
-    }
-    
-    public String getSelectedRegionCode(int position)
-    {
-        int index = getItem(position);
-
-        return regions[index].code;
-    }
-
-    
-    public int getPositionForRegionCode(String regionCode)
-    {
-        for (int index = 0; index < regions.length; index ++)
-        {
-            if (regionCode.equals(regions[index].code))
-            {
-                return getPosition(index);
-            }
+            TextView label = (TextView) row.findViewById(R.id.regionRowText);
+            label.setText(m_context.getString(regions.get(regionCode).nameResourceId));
         }
 
-        // Default to ANY. Might happen if persistent selection is used
-        // on different client version which doesn't have a corresponding Region
-        assert(regions[0].code.equals(PsiphonConstants.REGION_CODE_ANY));
-        return 0;
+        return row;
     }
 }
