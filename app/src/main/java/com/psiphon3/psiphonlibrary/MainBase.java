@@ -1201,7 +1201,6 @@ public abstract class MainBase {
             if (bindService(intent, m_tunnelServiceConnection, 0)) {
                 m_boundToTunnelService = true;
             }
-            sendServiceMessage(TunnelManager.MSG_REGISTER);
         }
 
         private Intent startVpnServiceIntent() {
@@ -1329,7 +1328,6 @@ public abstract class MainBase {
         private void sendServiceMessage(int what) {
             try {
                 Message msg = Message.obtain(null, what);
-                msg.replyTo = m_incomingMessenger;
                 if (m_outgoingMessenger == null) {
                     synchronized (m_queue) {
                         m_queue.add(msg);

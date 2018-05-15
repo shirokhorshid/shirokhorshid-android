@@ -74,7 +74,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Android IPC messages
 
     // Client -> Service
-    public static final int MSG_REGISTER = 0;
     public static final int MSG_UNREGISTER = 1;
     public static final int MSG_STOP_SERVICE = 2;
 
@@ -170,7 +169,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
 
         if (m_firstStart && intent != null) {
-            m_outgoingMessenger = (Messenger) intent.getParcelableExtra(CLIENT_MESSENGER);
             getTunnelConfig(intent);
             m_parentService.startForeground(R.string.psiphon_service_notification_id, this.createNotification(false));
             MyLog.v(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
@@ -183,6 +181,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 }
             });
             m_tunnelThread.start();
+        }
+
+        if(intent != null) {
+            m_outgoingMessenger = (Messenger) intent.getParcelableExtra(CLIENT_MESSENGER);
+            sendClientMessage(MSG_REGISTER_RESPONSE, getTunnelStateBundle());
         }
 
         return Service.START_REDELIVER_INTENT;
@@ -340,13 +343,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             TunnelManager manager = mTunnelManager.get();
             switch (msg.what)
             {
-                case TunnelManager.MSG_REGISTER:
-                    if (manager != null) {
-                        manager.m_outgoingMessenger = msg.replyTo;
-                        manager.sendClientMessage(MSG_REGISTER_RESPONSE, manager.getTunnelStateBundle());
-                    }
-                    break;
-
                 case TunnelManager.MSG_UNREGISTER:
                     if (manager != null) {
                         manager.m_outgoingMessenger = null;
