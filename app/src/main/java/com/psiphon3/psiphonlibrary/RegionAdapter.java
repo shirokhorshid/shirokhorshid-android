@@ -20,7 +20,6 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +31,6 @@ import com.psiphon3.R;
 
 import net.grandcentrix.tray.AppPreferences;
 
-import java.util.Comparator;
 import java.util.HashMap;
 
 public class RegionAdapter extends ArrayAdapter<String>
