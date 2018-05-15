@@ -1263,6 +1263,8 @@ public abstract class MainBase {
 
                     case TunnelManager.MSG_KNOWN_SERVER_REGIONS:
                         m_regionAdapter.updateRegionsFromPreferences();
+                        // Make sure we preserve the selection in case the dataset has changed
+                        m_regionSelector.setSelectionByValue(m_tunnelConfig.egressRegion);
                         break;
 
                     case TunnelManager.MSG_TUNNEL_STARTING:
