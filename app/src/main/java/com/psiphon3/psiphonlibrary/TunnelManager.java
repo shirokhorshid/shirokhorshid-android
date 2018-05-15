@@ -58,7 +58,6 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -75,7 +74,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Android IPC messages
 
     // Client -> Service
-    public static final int MSG_REGISTER = 0;
     public static final int MSG_UNREGISTER = 1;
     public static final int MSG_STOP_SERVICE = 2;
 
@@ -114,6 +112,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final String DATA_TUNNEL_CONFIG_WHOLE_DEVICE = "tunnelConfigWholeDevice";
     public static final String DATA_TUNNEL_CONFIG_EGRESS_REGION = "tunnelConfigEgressRegion";
     public static final String DATA_TUNNEL_CONFIG_DISABLE_TIMEOUTS = "tunnelConfigDisableTimeouts";
+    public static final String CLIENT_MESSENGER = "incomingClientMessenger";
 
     // Tunnel config, received from the client.
     public static class Config {
@@ -185,6 +184,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             m_tunnelThread.start();
         }
 
+        if(intent != null) {
+            m_outgoingMessenger = (Messenger) intent.getParcelableExtra(CLIENT_MESSENGER);
+            sendClientMessage(MSG_REGISTER_RESPONSE, getTunnelStateBundle());
+        }
 
         return Service.START_REDELIVER_INTENT;
     }
@@ -359,13 +362,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             TunnelManager manager = mTunnelManager.get();
             switch (msg.what)
             {
-                case TunnelManager.MSG_REGISTER:
-                    if (manager != null) {
-                        manager.m_outgoingMessenger = msg.replyTo;
-                        manager.sendClientMessage(MSG_REGISTER_RESPONSE, manager.getTunnelStateBundle());
-                    }
-                    break;
-
                 case TunnelManager.MSG_UNREGISTER:
                     if (manager != null) {
                         manager.m_outgoingMessenger = null;
@@ -390,7 +386,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
         try {
             Message msg = Message.obtain(null, what);
-            msg.replyTo = m_incomingMessenger;
             if (data != null) {
                 msg.setData(data);
             }
