@@ -53,8 +53,8 @@
   <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceTitle">Tampilkan peringatan saat berganti tab</string>
   <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceSummary">Jika dicentang, akan muncul peringatan kecil sekilas saat berganti tab.</string>
   <string name="PreferencesActivity.BrowserSettingsCategoryTitle">Setelan peramban</string>
-  <string name="PreferencesActivity.HistorySizePreferenceTitle">Lama riwayat</string>
-  <string name="PreferencesActivity.HistorySizePreferenceSummary">Lama riwayat dalam hari.</string>
+  <string name="PreferencesActivity.HistorySizePreferenceTitle">Ukuran riwayat</string>
+  <string name="PreferencesActivity.HistorySizePreferenceSummary">Ukuran riwayat dalam hari.</string>
   <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">Aktifkan JavaScript</string>
   <string name="PreferencesActivity.EnableJavascriptPreferenceSummary">Mengaktifkan atau menonaktifkan JavaScript.</string>
   <string name="PreferencesActivity.LoadImagesPreferenceTitle">Muat gambar</string>

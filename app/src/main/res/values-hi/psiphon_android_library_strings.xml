@@ -21,6 +21,7 @@
   <string name="preference_notifications_title">सूचनाएं</string>
   <string name="preference_notifications_with_sound_title">ध्वनि</string>
   <string name="preference_notifications_with_vibrate_title">कांपना</string>
+  <string name="preference_notifications_with_vibrate_summary">कनेक्शन की स्थिति बदलते समय कंपन करें</string>
   <string name="proxySettingsCategoryTitle">प्रोक्सी सेटिंग्स </string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
