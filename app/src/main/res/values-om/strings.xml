@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">Baanerii Ispoonsera godhi; fuula jalqabaa Ispoonseraa doowwachuuf as cuqaasi</string>
+  <string name="start_desc">Psiphon waliin wal agarsiisi; wal agarsiisuuf cuqaasi</string>
+  <string name="message_image_success_desc">Fakkii milkaa’ina ergaa mul\'isu</string>
+  <string name="message_image_error_desc">Fakkii  dogoggora ergaa mul\'isu</string>
+  <string name="message_image_debug_desc">Fakkii balleessituu ergaa dogoggoraa mul\'isu</string>
+  <string name="message_image_warning_desc">Fakkii ergaa akeekkachiisaa mul\'isu</string>
+  <string name="exit">Addaan kuti</string>
+  <string name="open_browser">Barbaadduu bani</string>
+  <string name="browser_task_label">Barbaadduu Psiphon </string>
+  <string name="FeedbackActivity.DefaultText">Yaada adda-ba’aa kamiyyu yoo qabaatte, waa\'ee weebsaayitiiwwan hin hojjennee odeeffannoo dabalataa, yookiin  unki kun yoo siif hojjechaa hin jiru ta’e, maaloo kanatti imeelii godhi &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Yaada kee waan galchiteef galatoomi</string>
+  <string name="FeedbackActivity.Failure">Ergaa galchuun hin milkoofne. maaloo irra-deebi’ii yaali.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Yaada galchuun hin milkoofne</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Unka galcha  yaadaa keessatti URL fudhatama hin qabne</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Qabiyyee fuula kenna-yaada argachuun hin milkoofne</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Meeshicha hunda dabarsuu?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Filannoon dabarsa hunda meeshichaa meeshaa keetiif ni jira.  \n\nFilannoo kana waliin, barbaadduuwwan hunda dabalatee dabarsi Interneetii kee martinuu appilikeeshinii hundaaf karaa Psiphon dabarsamuu ni danda\'a. \n\nAkka filmaataatti, barbaadduu psiphon dhiibame qofaa filattanii dabarsuu dandeessan kunis appilikeeshiniiwwan biroo hunda kanneen kallattiin qabiyyee Interneetii idilee fayyadaman kan gad-dhiisu.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Meeshaa guutuu dabarsi</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Barbaadduu Psiphon qofa gargaarami</string>
+</resources>

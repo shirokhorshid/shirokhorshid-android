@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">ባነር ስፖንሰር፡ ናብ ቀንዲ ገጽ ንምኻድ ኣብዚ ጠውቕ</string>
+  <string name="start_desc">ምስ ሳይፎን (Psiphon) ተራኸብ፡ ንምርኻብ ጠውቕ</string>
+  <string name="message_image_success_desc">ዕዉት መልእኽቲ ዘመልክት ኣይከን</string>
+  <string name="message_image_error_desc">ጌጋ መልእኽቲ ዘመልክት ኣይከን</string>
+  <string name="message_image_debug_desc">ጌጋ ዝእርም መልእኽቲ ዘመልክት ኢይከን</string>
+  <string name="message_image_warning_desc">ናይ መጠንቀቕታ መልእኽቲ ዘመልክት ኣይከን</string>
+  <string name="exit">ኣቋርጽ</string>
+  <string name="open_browser">ባይታ መርበብ ንምኽፋት</string>
+  <string name="browser_task_label">ሳይፎን (Psiphon) ባይታ መርበብ </string>
+  <string name="FeedbackActivity.DefaultText">ብዛዕባ ምስራሕ ዝኣበዩ መርበባት ሓበሬታ ርእይቶን ተወሳኺ ሓበሬታን ምስ ዝህልወካ ወይ እዚ ፎረም ምስራሕ ምስ ዝኣብየካ ናብዚ ዝስዕብ ኤመይል ግበር &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">ግብረ-መልሲ ብምሃብካ ነመስግን</string>
+  <string name="FeedbackActivity.Failure">ዘእተኻዮ ኣይሰርሐን-እንደገና ፈትን</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">ግብረ-መልሲ ኣይኣተወን</string>
+  <string name="FeedbackActivity.InvalidURLParameters">ኣብ ምእታው ፎርም ግብረ-መልሲ ዘይሰርሕ ናይ url መልእኽትታት</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">ናይ ትሕዝቶ ገጽ ግብረ-መልሲ ምርካብ ኣይተኻእለን</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">ነታ መሳርሒት ብምልኣ ከተሕልፋ ታነል ክትገብራ ትደሊ?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ነታ መሳርሒት ብምልኣ ከተሕልፋ ዘኽእል ኣማራጺ ቀሪቡ ኣሎ፡ \n\nበዚ ኣማራጺ ኣቢሉ ኩሉ ምትሕልላፍ ኢንተርነት ናብ ኣፕሊኬሽናትን ባይታ መርበብን ብመንገዲ ሳይፎን (Psiphon) ክመሓላለፍ እዩ፡፡ \n\nብተወሳኺ ነቲ ሳይፎን (Psiphon) ባይታ መርበብ ጥራይ ብምምራጽ እቲ ኻልእ ኣፕሊኬሽናት በቲ ንቡር ኢንተርነት ከተመሓላልፍ ትኽእል፡፡</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">ነታ መሳርሒ ብምልኣ ኣመሓላልፋ ወይ ታነል ግበራ</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ሳይፎን (Psiphon) ባይታ መርበብ ጥራይ</string>
+</resources>

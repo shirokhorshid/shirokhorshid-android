@@ -107,6 +107,20 @@ public class SpinnerHelper implements OnItemSelectedListener {
         spinner.setSelection(position);     
     }
 
+    private int getIndex(String value){
+        for (int i=0; i<spinner.getCount(); i++){
+            if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(value)){
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    public void setSelectionByValue(String value) {
+        int position = getIndex(value);
+        setSelection(position);
+    }
+
     public void setSelection(int position, boolean animate) {
         lastPosition = Math.max(-1, position);
         spinner.setSelection(position, animate);        

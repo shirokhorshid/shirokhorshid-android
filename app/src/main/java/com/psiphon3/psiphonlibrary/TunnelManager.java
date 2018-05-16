@@ -27,7 +27,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.net.VpnService;
 import android.net.VpnService.Builder;
 import android.os.Build;
@@ -38,6 +37,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
 
 import com.psiphon3.R;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
@@ -74,7 +74,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Android IPC messages
 
     // Client -> Service
-    public static final int MSG_REGISTER = 0;
     public static final int MSG_UNREGISTER = 1;
     public static final int MSG_STOP_SERVICE = 2;
 
@@ -87,9 +86,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final int MSG_DATA_TRANSFER_STATS = 8;
 
     public static final String INTENT_ACTION_HANDSHAKE = "com.psiphon3.psiphonlibrary.TunnelManager.HANDSHAKE";
+    public static final String INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE = "com.psiphon3.psiphonlibrary.TunnelManager.SELECTED_REGION_NOT_AVAILABLE";
 
     // Service -> Client bundle parameter names
-    public static final String DATA_TUNNEL_STATE_AVAILABLE_EGRESS_REGIONS = "availableEgressRegions";
     public static final String DATA_TUNNEL_STATE_IS_CONNECTED = "isConnected";
     public static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT = "listeningLocalSocksProxyPort";
     public static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT = "listeningLocalHttpProxyPort";
@@ -109,14 +108,17 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Extras in start service intent (Client -> Service)
     public static final String DATA_TUNNEL_CONFIG_HANDSHAKE_PENDING_INTENT = "tunnelConfigHandshakePendingIntent";
     public static final String DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT = "tunnelConfigNotificationPendingIntent";
+    public static final String DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT = "tunnelConfigRegionNotAvailablePendingIntent";
     public static final String DATA_TUNNEL_CONFIG_WHOLE_DEVICE = "tunnelConfigWholeDevice";
     public static final String DATA_TUNNEL_CONFIG_EGRESS_REGION = "tunnelConfigEgressRegion";
     public static final String DATA_TUNNEL_CONFIG_DISABLE_TIMEOUTS = "tunnelConfigDisableTimeouts";
+    public static final String CLIENT_MESSENGER = "incomingClientMessenger";
 
     // Tunnel config, received from the client.
     public static class Config {
         PendingIntent handshakePendingIntent = null;
         PendingIntent notificationPendingIntent = null;
+        PendingIntent regionNotAvailablePendingIntent = null;
         boolean wholeDevice = false;
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
@@ -127,7 +129,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Shared tunnel state, sent to the client in the HANDSHAKE
     // intent and various state-related Messages.
     public static class State {
-        ArrayList<String> availableEgressRegions = new ArrayList<>();
         boolean isConnected = false;
         int listeningLocalSocksProxyPort = 0;
         int listeningLocalHttpProxyPort = 0;
@@ -181,6 +182,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 }
             });
             m_tunnelThread.start();
+        }
+
+        if(intent != null) {
+            m_outgoingMessenger = (Messenger) intent.getParcelableExtra(CLIENT_MESSENGER);
+            sendClientMessage(MSG_REGISTER_RESPONSE, getTunnelStateBundle());
         }
 
         return Service.START_REDELIVER_INTENT;
@@ -248,6 +254,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         m_tunnelConfig.notificationPendingIntent = intent.getParcelableExtra(
                 TunnelManager.DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT);
+
+        m_tunnelConfig.regionNotAvailablePendingIntent = intent.getParcelableExtra(
+                TunnelManager.DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT);
 
         m_tunnelConfig.wholeDevice = intent.getBooleanExtra(
                 TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE, false);
@@ -317,6 +326,21 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
     }
 
+    private  boolean isSelectedEgressRegionAvailable(List<String> availableRegions) {
+        String selectedEgressRegion = m_tunnelConfig.egressRegion;
+        if (selectedEgressRegion == null || selectedEgressRegion.equals(PsiphonConstants.REGION_CODE_ANY)) {
+            // User region is either not set or set to 'Best Performance', do nothing
+            return true;
+        }
+
+        for (String regionCode : availableRegions) {
+            if (selectedEgressRegion.equals(regionCode)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public IBinder onBind(Intent intent) {
         return m_incomingMessenger.getBinder();
     }
@@ -338,13 +362,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             TunnelManager manager = mTunnelManager.get();
             switch (msg.what)
             {
-                case TunnelManager.MSG_REGISTER:
-                    if (manager != null) {
-                        manager.m_outgoingMessenger = msg.replyTo;
-                        manager.sendClientMessage(MSG_REGISTER_RESPONSE, manager.getTunnelStateBundle());
-                    }
-                    break;
-
                 case TunnelManager.MSG_UNREGISTER:
                     if (manager != null) {
                         manager.m_outgoingMessenger = null;
@@ -369,7 +386,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
         try {
             Message msg = Message.obtain(null, what);
-            msg.replyTo = m_incomingMessenger;
             if (data != null) {
                 msg.setData(data);
             }
@@ -405,7 +421,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private Bundle getTunnelStateBundle() {
         Bundle data = new Bundle();
-        data.putStringArrayList(DATA_TUNNEL_STATE_AVAILABLE_EGRESS_REGIONS, m_tunnelState.availableEgressRegions);
         data.putBoolean(DATA_TUNNEL_STATE_IS_CONNECTED, m_tunnelState.isConnected);
         data.putInt(DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT, m_tunnelState.listeningLocalSocksProxyPort);
         data.putInt(DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT, m_tunnelState.listeningLocalHttpProxyPort);
@@ -729,14 +744,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             if (tunnelConfig.disableTimeouts) {
                 //disable timeouts
                 MyLog.g("DisableTimeouts", "disableTimeouts", true);
-                json.put("TunnelConnectTimeoutSeconds", 0);
-                json.put("TunnelPortForwardDialTimeoutSeconds", 0);
-                json.put("TunnelSshKeepAliveProbeTimeoutSeconds", 0);
-                json.put("TunnelSshKeepAlivePeriodicTimeoutSeconds", 0);
-                json.put("FetchRemoteServerListTimeoutSeconds", 0);
-                json.put("PsiphonApiServerTimeoutSeconds", 0);
-                json.put("FetchRoutesTimeoutSeconds", 0);
-                json.put("HttpProxyOriginServerTimeoutSeconds", 0);
+                json.put("NetworkLatencyMultiplier", 3.0);
             }
 
             return json.toString();
@@ -766,12 +774,26 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_tunnelState.availableEgressRegions.clear();
-                m_tunnelState.availableEgressRegions.addAll(regions);
-                Bundle data = new Bundle();
-                data.putStringArrayList(DATA_TUNNEL_STATE_AVAILABLE_EGRESS_REGIONS,
-                        m_tunnelState.availableEgressRegions);
-                sendClientMessage(MSG_KNOWN_SERVER_REGIONS, data);
+                // regions are already sorted alphabetically by tunnel core
+                new AppPreferences(getContext()).put(RegionAdapter.KNOWN_REGIONS_PREFERENCE, TextUtils.join(",", regions));
+
+                if(!isSelectedEgressRegionAvailable(regions)) {
+                    // command service stop
+                    signalStopService();
+
+                    // Send REGION_NOT_AVAILABLE intent,
+                    // Activity intent handler will show "Region not available" toast and populate
+                    // the region selector with new available regions
+                    try {
+                        m_tunnelConfig.regionNotAvailablePendingIntent.send(
+                                m_parentService, 0, null);
+                    } catch (PendingIntent.CanceledException e) {
+                        MyLog.g("regionNotAvailablePendingIntent failed: %s", e.getMessage());
+                    }
+
+                }
+                // Notify activity so it has a chance to update region selector values
+                sendClientMessage(MSG_KNOWN_SERVER_REGIONS, null);
             }
         });
     }
@@ -1000,4 +1022,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             m_tunnel.setClientVerificationPayload(payload);
         }
     }
+
+    @Override
+    public void onActiveAuthorizationIDs(List<String> authorizations) {}
 }
