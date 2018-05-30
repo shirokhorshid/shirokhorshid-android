@@ -33,7 +33,7 @@
   <string name="EditBookmarkActivity.Title">Modifier le signet</string>
   <string name="EditBookmarkActivity.TitleAdd">Ajouter un signet</string>
   <string name="EditBookmarkActivity.TitleLabel">Nom :</string>
-  <string name="EditBookmarkActivity.UrlLabel">Lieu :</string>
+  <string name="EditBookmarkActivity.UrlLabel">Lieu :</string>
   <string name="HistoryListActivity.Title">Navigateur Psiphon - Historique</string>
   <string name="HistoryListActivity.MenuOpenInTab">Ouvrir dans un nouvel onglet</string>
   <string name="HistoryListActivity.MenuDelete">Supprimer</string>
@@ -275,10 +275,10 @@
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Exporter les signets et l’historique vers la carte SD.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Importer les signets et l’historique</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importer les signets et l’historique de la carte SD.</string>
-  <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Effacer l’historique et/ou le signets</string>
+  <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Effacer l’historique ou les signets</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Utiliser avec prudence, cette opération est irréversible.</string>
-  <string name="Commons.ClearingHistoryBookmarks">Effacement de l’historique et/ou des signets...</string>
-  <string name="Commons.ClearHistoryBookmarks">Effacer l’historique et/ou les signets</string>
+  <string name="Commons.ClearingHistoryBookmarks">Effacement de l’historique ou des signets...</string>
+  <string name="Commons.ClearHistoryBookmarks">Effacer l’historique ou les signets</string>
   <string name="Commons.Bookmarks">Signets</string>
   <string name="Commons.History">Historique</string>
   <string name="Commons.All">Tout</string>

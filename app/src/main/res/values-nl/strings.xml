@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Het hele apparaat tunnel optie is beschikbaar voor uw device.\n\nMet deze optie al uw internetverkeer voor alle apps met inbegrip van alle browsers zullen worden tunnelverbinding via Psiphon.\n\nAlternatief, kunt u kiezen om te tunnelen alleen de meegeleverde browser Psiphon die laat alle andere apps gaan rechtstreeks via uw standaard Internet-verbinding.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Gehele Apparaat</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Gebruik Alleen Psiphon Browser </string>
+  <string name="selected_region_currently_not_available">Geselecteerde regio is momenteel niet beschikbaar. Selecteer een andere regio.</string>
 </resources>
