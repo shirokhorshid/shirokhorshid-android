@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
     useLibrary 'org.apache.http.legacy'
 
     repositories{
@@ -75,11 +74,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile files('libs/jackson-core-2.2.0.jar')
-    compile files('libs/achartengine-1.0.0.jar')
-    compile files('libs/snakeyaml-1.10-android.jar')
-    compile(name:'ca.psiphon', ext:'aar')
-    compile project(':tray')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:23.4.0'
+    implementation files('libs/jackson-core-2.2.0.jar')
+    implementation files('libs/achartengine-1.0.0.jar')
+    implementation files('libs/snakeyaml-1.10-android.jar')
+    implementation(name:'ca.psiphon', ext:'aar')
+    implementation project(':tray')
 }
