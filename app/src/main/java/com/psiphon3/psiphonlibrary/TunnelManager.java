@@ -973,9 +973,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     @Override
-    public void onClientVerificationRequired(final String serverNonce, final int ttlSeconds, final boolean resetCache) {}
-
-    @Override
     public void onExiting() {}
 
     @Override
