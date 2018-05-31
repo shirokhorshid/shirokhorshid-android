@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La tunnellisation intégrale est possible pour votre appareil.\n\nAvec ette option, tout le trafic Internet de toutes vos applis, incluant tous les navigateurs, sera tunnellisé par Psiphon.\n\nVous pouvez autrement choisir de ne tunnelliser que le trafic du navigateur Psiphon, toutes les autres applis se connectant directement par votre connexion Internet habituelle.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tout l’appareil</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Navigateur Psiphon seulement</string>
+  <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
 </resources>

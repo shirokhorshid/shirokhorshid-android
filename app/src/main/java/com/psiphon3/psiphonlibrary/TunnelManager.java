@@ -67,10 +67,6 @@ import ca.psiphon.PsiphonTunnel;
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
-    private static final int MAX_CLIENT_VERIFICATION_ATTEMPTS = 5;
-    private int m_clientVerificationAttempts = 0;
-
-
     // Android IPC messages
 
     // Client -> Service
@@ -150,7 +146,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private PsiphonTunnel m_tunnel = null;
     private String m_lastUpstreamProxyErrorMessage;
     private Handler m_Handler = new Handler();
-    private GoogleSafetyNetApiWrapper m_safetyNetwrapper;
 
     public TunnelManager(Service parentService) {
         m_parentService = parentService;
@@ -241,10 +236,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public void signalStopService() {
         if (m_tunnelThreadStopSignal != null) {
             m_tunnelThreadStopSignal.countDown();
-        }
-
-        if (m_safetyNetwrapper != null) {
-            m_safetyNetwrapper.disconnect();
         }
     }
 
@@ -573,9 +564,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             // Stop service
             m_parentService.stopForeground(true);
             m_parentService.stopSelf();
-            if(m_safetyNetwrapper != null) {
-                m_safetyNetwrapper.saveCache(m_parentService);
-            }
         }
     }
 
@@ -899,12 +887,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 Bundle data = new Bundle();
                 data.putBoolean(DATA_TUNNEL_STATE_IS_CONNECTED, true);
                 sendClientMessage(MSG_TUNNEL_CONNECTION_STATE, data);
-
-                // Reset verification attempts count and
-                // request client verification status from the server by
-                // sending an empty message to client verification handler
-                m_clientVerificationAttempts = 0;
-                TunnelManager.this.setClientVerificationResult("");
             }
         });
     }
@@ -991,37 +973,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     @Override
-    public void onClientVerificationRequired(final String serverNonce, final int ttlSeconds, final boolean resetCache) {
-
-        // Server may reply with a new verification request after verification payload is sent
-        // In this case we want to limit a number of possible retries per each session
-        m_clientVerificationAttempts ++;
-
-        if (m_clientVerificationAttempts > MAX_CLIENT_VERIFICATION_ATTEMPTS) {
-            return;
-        }
-        if (ttlSeconds == 0) {
-            // do not send payload if requested TTL is 0
-            return;
-        }
-        m_Handler.post(new Runnable() {
-            @Override
-            public void run() {
-                // Perform safetyNet check
-                m_safetyNetwrapper = GoogleSafetyNetApiWrapper.getInstance(getContext());
-                m_safetyNetwrapper.verify(TunnelManager.this, serverNonce, ttlSeconds, resetCache);
-            }
-        });
-    }
-
-    @Override
     public void onExiting() {}
-
-    public void setClientVerificationResult(String payload) {
-        if (m_tunnel != null) {
-            m_tunnel.setClientVerificationPayload(payload);
-        }
-    }
 
     @Override
     public void onActiveAuthorizationIDs(List<String> authorizations) {}
