@@ -226,6 +226,15 @@
     <string name="tunnel_connected">Tunnel connected</string>
     <string name="waiting">Waiting…</string>
 
+    <!-- Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
+    <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Permission Request</string>
+    <!-- Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
+    <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Allow Psiphon to make better decisions about how to work on your network by granting access to your location.\n\nNote that this information is only used locally on your device, and is not transmitted to our servers or any 3rd parties.</string>
+    <!-- Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
+    <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
+    <!-- Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
+    <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No thanks</string>
+
     <!-- Empty string array to initialize things that will be programatically populated later -->
     <string-array name="empty_array"/>
 </resources>
