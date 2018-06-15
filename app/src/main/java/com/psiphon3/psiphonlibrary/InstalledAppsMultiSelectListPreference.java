@@ -105,6 +105,13 @@ class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
                         excludedApps.add(app.getPackageId());
                         isExcluded.setChecked(true);
                     }
+                    // Store the selection immediately in shared preferences
+                    SharedPreferences.Editor e = mContext.getSharedPreferences(mContext.getString(R.string.moreOptionsPreferencesName),Context.MODE_PRIVATE).edit();
+                    e.putString(mContext.getResources().getString(R.string.preferenceExcludeAppsFromVpnString), getValuesAsString());
+
+                    // Use commit (sync) instead of apply (async) to prevent possible race with restarting
+                    // the tunnel happening before the value is fully persisted to shared preferences
+                    e.commit();
                 }
             });
 
@@ -121,6 +128,19 @@ class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
         return row;
     }
 
+    private String getValuesAsString() {
+        StringBuilder excludedAppsString = new StringBuilder();
+        int i = 0;
+        for (String app : excludedApps) {
+            excludedAppsString.append(app);
+            if (i != excludedApps.size() - 1) {
+                excludedAppsString.append(",");
+            }
+            i++;
+        }
+
+        return excludedAppsString.toString();
+    }
 }
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -129,6 +149,7 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
 
     public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setNegativeButtonText(null);
     }
 
    @Override
@@ -150,36 +171,10 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
                appList,
                getValues());
 
-       builder.setPositiveButton(R.string.preference_routing_exclude_apps_ok_button_text, new DialogInterface.OnClickListener() {
-           @Override
-           public void onClick(DialogInterface dialog, int which) {
-                SharedPreferences.Editor e = getSharedPreferences().edit();
-                e.putString(getContext().getResources().getString(R.string.preferenceExcludeAppsFromVpnString), getValuesAsString());
+       builder.setPositiveButton(R.string.abc_action_mode_done, null);
 
-                // Use commit (sync) instead of apply (async) to prevent possible race with restarting
-                // the tunnel happening before the value is fully persisted to shared preferences
-                e.commit();
-           }
-       });
        builder.setAdapter(adapter, null);
    }
-
-    private String getValuesAsString() {
-        Set<String> excludedApps = getValues();
-        StringBuilder excludedAppsString = new StringBuilder();
-
-        int i = 0;
-        for (String app : excludedApps) {
-            excludedAppsString.append(app);
-            if (i != excludedApps.size() - 1) {
-                excludedAppsString.append(",");
-            }
-            i++;
-        }
-
-        return excludedAppsString.toString();
-    }
-
     private List<AppEntry> getInstalledApps() {
         PackageManager pm = getContext().getPackageManager();
 
