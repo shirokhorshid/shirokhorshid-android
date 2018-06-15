@@ -163,6 +163,9 @@ public class WebViewProxySettings
             {
                 for (Object receiver : ((ArrayMap) receiverMap).keySet())
                 {
+                    if (receiver == null) {
+                        continue;
+                    }
                     Class receiverClass = receiver.getClass();
                     if (receiverClass.getName().contains("ProxyChangeListener"))
                     {
@@ -235,6 +238,9 @@ public class WebViewProxySettings
             {
                 for (Object receiver : ((ArrayMap) receiverMap).keySet())
                 {
+                    if (receiver == null) {
+                        continue;
+                    }
                     Class clazz = receiver.getClass();
                     // NOTE: as of Chrome 67 the ProxyChangeListener now has an obfuscated name,
                     // so we are unable to identify the receiver by name. Instead we'll send the
