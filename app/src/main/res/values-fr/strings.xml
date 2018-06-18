@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">bannière des commanditaires ; cliquez pour visiter le site des commanditaires</string>
-  <string name="start_desc">connexion à Psiphon ; cliquez pour vous connecter</string>
+  <string name="banner_desc">bannière des commanditaires ; cliquez pour visiter le site des commanditaires</string>
+  <string name="start_desc">connexion à Psiphon ; cliquez pour vous connecter</string>
   <string name="message_image_success_desc">icône indiquant un message de réussite</string>
   <string name="message_image_error_desc">icône indiquant un message d’erreur</string>
   <string name="message_image_debug_desc">icône indiquant un message de débogage</string>
