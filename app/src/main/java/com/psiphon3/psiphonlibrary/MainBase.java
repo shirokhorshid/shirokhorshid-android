@@ -1184,40 +1184,46 @@ public abstract class MainBase {
                 if (mpPreferences.getBoolean(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, false)) {
                     proceedStartTunnel();
                 } else {
-                    new AlertDialog.Builder(this)
-                            .setCancelable(false)
-                            .setOnKeyListener(
-                                    new DialogInterface.OnKeyListener() {
-                                        @Override
-                                        public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                                            // Don't dismiss when hardware search button is clicked (Android 2.3 and earlier)
-                                            return keyCode == KeyEvent.KEYCODE_SEARCH;
-                                        }})
-                            .setTitle(R.string.MainBase_AccessCoarseLocationPermissionPromptTitle)
-                            .setMessage(R.string.MainBase_AccessCoarseLocationPermissionPromptMessage)
-                            .setPositiveButton(R.string.MainBase_AccessCoarseLocationPermissionPositiveButton,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int whichButton) {
-                                            m_multiProcessPreferences.put(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, true);
-                                            ActivityCompat.requestPermissions(TabbedActivityBase.this,
-                                                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                                                    REQUEST_CODE_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
-                                        }})
-                            .setNegativeButton(R.string.MainBase_AccessCoarseLocationPermissionNegativeButton,
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int whichButton) {
-                                            m_multiProcessPreferences.put(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, true);
-                                            proceedStartTunnel();
-                                        }})
-                            .setOnCancelListener(
-                                    new DialogInterface.OnCancelListener() {
-                                        @Override
-                                        public void onCancel(DialogInterface dialog) {
-                                            // Do nothing (this prompt may reappear)
-                                        }})
-                            .show();
+                    final Context context = this;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            new AlertDialog.Builder(context)
+                                    .setCancelable(false)
+                                    .setOnKeyListener(
+                                            new DialogInterface.OnKeyListener() {
+                                                @Override
+                                                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                                                    // Don't dismiss when hardware search button is clicked (Android 2.3 and earlier)
+                                                    return keyCode == KeyEvent.KEYCODE_SEARCH;
+                                                }})
+                                    .setTitle(R.string.MainBase_AccessCoarseLocationPermissionPromptTitle)
+                                    .setMessage(R.string.MainBase_AccessCoarseLocationPermissionPromptMessage)
+                                    .setPositiveButton(R.string.MainBase_AccessCoarseLocationPermissionPositiveButton,
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int whichButton) {
+                                                    m_multiProcessPreferences.put(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, true);
+                                                    ActivityCompat.requestPermissions(TabbedActivityBase.this,
+                                                            new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+                                                            REQUEST_CODE_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
+                                                }})
+                                    .setNegativeButton(R.string.MainBase_AccessCoarseLocationPermissionNegativeButton,
+                                            new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int whichButton) {
+                                                    m_multiProcessPreferences.put(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, true);
+                                                    proceedStartTunnel();
+                                                }})
+                                    .setOnCancelListener(
+                                            new DialogInterface.OnCancelListener() {
+                                                @Override
+                                                public void onCancel(DialogInterface dialog) {
+                                                    // Do nothing (this prompt may reappear)
+                                                }})
+                                    .show();
+                        }
+                    });
                 }
             }
         }
