@@ -1183,7 +1183,7 @@ public abstract class MainBase {
                 AppPreferences mpPreferences = new AppPreferences(this);
                 if (mpPreferences.getBoolean(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, false)) {
                     proceedStartTunnel();
-                } else {
+                } else if(!this.isFinishing()){
                     final Context context = this;
                     runOnUiThread(new Runnable() {
                         @Override
