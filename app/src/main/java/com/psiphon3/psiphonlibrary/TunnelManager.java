@@ -628,6 +628,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
      */
     public static String buildTunnelCoreConfig(
             Context context,
+            PsiphonTunnel tunnel,
             Config tunnelConfig,
             String tempTunnelName,
             String clientPlatformPrefix) {
@@ -636,23 +637,24 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         JSONObject json = new JSONObject();
 
         try {
-            String clientPlatform = PsiphonConstants.PLATFORM;
-
+            String prefix = "";
             if (clientPlatformPrefix != null && !clientPlatformPrefix.isEmpty()) {
-                clientPlatform = clientPlatformPrefix + clientPlatform;
+                prefix = clientPlatformPrefix;
             }
+
+            String suffix = "";
 
             // Detect if device is rooted and append to the client_platform string
             if (Utils.isRooted()) {
-                clientPlatform += PsiphonConstants.ROOTED;
+                suffix += PsiphonConstants.ROOTED;
             }
 
             // Detect if this is a Play Store build
             if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
-                clientPlatform += PsiphonConstants.PLAY_STORE_BUILD;
+                suffix += PsiphonConstants.PLAY_STORE_BUILD;
             }
 
-            json.put("ClientPlatform", clientPlatform);
+            tunnel.setClientPlatformAffixes(prefix, suffix);
 
             json.put("ClientVersion", EmbeddedValues.CLIENT_VERSION);
 
@@ -743,7 +745,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public String getPsiphonConfig() {
-        String config = buildTunnelCoreConfig(m_parentService, m_tunnelConfig, null, null);
+        String config = buildTunnelCoreConfig(m_parentService, m_tunnel, m_tunnelConfig, null, null);
         return config == null ? "" : config;
     }
 

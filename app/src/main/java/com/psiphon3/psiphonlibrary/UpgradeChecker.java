@@ -389,6 +389,7 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
 
             String tunnelCoreConfig = TunnelManager.buildTunnelCoreConfig(
                     this,                       // context
+                    mTunnel,
                     tunnelManagerConfig,
                     "upgradechecker",           // tempTunnelName
                     "Psiphon_UpgradeChecker_"); // clientPlatformPrefix
