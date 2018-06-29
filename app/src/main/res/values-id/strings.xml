@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Opsi pengalihan sambungan seluruh perangkat ke terowongan tersedia pada perangkat Anda.\n\nDengan opsi ini, lalu lintas internet semua aplikasi, termasuk peramban, akan dialihkan melalui terowongan Psiphon.\n\nAnda juga boleh hanya mengalihkan lalu lintas peramban Psiphon saja sehingga semua aplikasi lain akan tetap melalui sambungan internet normal.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Alihkan Sambungan Seluruh Perangkat</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Hanya Gunakan Peramban Psiphon Saja</string>
+  <string name="selected_region_currently_not_available">Regional yang dipilih saat ini tidak tersedia, silakan memilih regional lain,</string>
 </resources>
