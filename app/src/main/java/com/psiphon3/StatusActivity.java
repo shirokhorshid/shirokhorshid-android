@@ -284,55 +284,63 @@ public class StatusActivity
             !hasPreference &&
             !isServiceRunning())
         {
-            if (!m_tunnelWholeDevicePromptShown)
+            if (!m_tunnelWholeDevicePromptShown && !this.isFinishing())
             {
                 final Context context = this;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AlertDialog dialog = new AlertDialog.Builder(context)
+                                .setCancelable(false)
+                                .setOnKeyListener(
+                                        new DialogInterface.OnKeyListener() {
+                                            @Override
+                                            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                                                // Don't dismiss when hardware search button is clicked (Android 2.3 and earlier)
+                                                return keyCode == KeyEvent.KEYCODE_SEARCH;
+                                            }
+                                        })
+                                .setTitle(R.string.StatusActivity_WholeDeviceTunnelPromptTitle)
+                                .setMessage(R.string.StatusActivity_WholeDeviceTunnelPromptMessage)
+                                .setPositiveButton(R.string.StatusActivity_WholeDeviceTunnelPositiveButton,
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                // Persist the "on" setting
+                                                updateWholeDevicePreference(true);
+                                                startTunnel();
+                                            }
+                                        })
+                                .setNegativeButton(R.string.StatusActivity_WholeDeviceTunnelNegativeButton,
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int whichButton) {
+                                                // Turn off and persist the "off" setting
+                                                m_tunnelWholeDeviceToggle.setChecked(false);
+                                                updateWholeDevicePreference(false);
+                                                startTunnel();
+                                            }
+                                        })
+                                .setOnCancelListener(
+                                        new DialogInterface.OnCancelListener() {
+                                            @Override
+                                            public void onCancel(DialogInterface dialog) {
+                                                // Don't change or persist preference (this prompt may reappear)
+                                                startTunnel();
+                                            }
+                                        })
+                                .show();
 
-                AlertDialog dialog = new AlertDialog.Builder(context)
-                    .setCancelable(false)
-                    .setOnKeyListener(
-                            new DialogInterface.OnKeyListener() {
-                                @Override
-                                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                                    // Don't dismiss when hardware search button is clicked (Android 2.3 and earlier)
-                                    return keyCode == KeyEvent.KEYCODE_SEARCH;
-                                }})
-                    .setTitle(R.string.StatusActivity_WholeDeviceTunnelPromptTitle)
-                    .setMessage(R.string.StatusActivity_WholeDeviceTunnelPromptMessage)
-                    .setPositiveButton(R.string.StatusActivity_WholeDeviceTunnelPositiveButton,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    // Persist the "on" setting
-                                    updateWholeDevicePreference(true);
-                                    startTunnel();
-                                }})
-                    .setNegativeButton(R.string.StatusActivity_WholeDeviceTunnelNegativeButton,
-                                new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int whichButton) {
-                                        // Turn off and persist the "off" setting
-                                        m_tunnelWholeDeviceToggle.setChecked(false);
-                                        updateWholeDevicePreference(false);
-                                        startTunnel();
-                                    }})
-                    .setOnCancelListener(
-                            new DialogInterface.OnCancelListener() {
-                                @Override
-                                public void onCancel(DialogInterface dialog) {
-                                    // Don't change or persist preference (this prompt may reappear)
-                                    startTunnel();
-                                }})
-                    .show();
-                
-                // Our text no longer fits in the AlertDialog buttons on Lollipop, so force the
-                // font size (on older versions, the text seemed to be scaled down to fit).
-                // TODO: custom layout
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                {
-                    dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
-                    dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
-                }
+                        // Our text no longer fits in the AlertDialog buttons on Lollipop, so force the
+                        // font size (on older versions, the text seemed to be scaled down to fit).
+                        // TODO: custom layout
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                        {
+                            dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
+                            dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
+                        }
+                    }
+                });
                 
                 m_tunnelWholeDevicePromptShown = true;
             }

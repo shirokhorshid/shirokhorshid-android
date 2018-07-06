@@ -20,4 +20,17 @@
     <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Whole Device</string>
     <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Use Psiphon Browser Only</string>
     <string name="selected_region_currently_not_available">Selected region is currently not available, please select another region.</string>
+    <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">We care about your privacy and data security. We keep this app free by showing ads.</string>
+    <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Can we continue to use your data to tailor ads for you?</string>
+    <string name="you_can_change_your_choice_anytime">You can change your choice anytime for Psiphon Pro in the app options. Our ad providers will collect data and use a unique identifier on your device to show you ads.</string>
+    <string name="learn_more_about_our_ad_providers"><u>Learn more about our ad providers</u></string>
+    <string name="yes_continue_to_see_relevant_ads">Yes, continue to see relevant ads</string>
+    <string name="no_see_ads_that_are_less_relevant">No, see ads that are less relevant</string>
+    <string name="pay_for_the_ad_free_version">Upgrade to the ad-free version</string>
+    <string name="click_ad_provider_name_to_see_privacy_policy">Click ad provider name to see their privacy policy</string>
+    <string name="ads_consent_preference_category_title">Advertising personalization</string>
+    <string name="ads_consent_preference_dialog_preference_message">Do you really want to reset your ads personalization preference?</string>
+    <string name="ads_consent_preference_title">Reset ads personalization preference</string>
+    <string name="ads_consent_preference_dialog_title">Reset</string>
+    <string name="ads_consent_preference_summary">Reset your preference to allow ad networks to use cookies and your personal data</string>
 </resources>

@@ -382,7 +382,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
             m_outgoingMessenger.send(msg);
         } catch (RemoteException e) {
-            MyLog.g("sendClientMessage failed: %s", e.getMessage());
+            MyLog.g(String.format("sendClientMessage failed: %s", e.getMessage()));
         }
     }
 
@@ -405,7 +405,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 m_tunnelConfig.handshakePendingIntent.send(
                         m_parentService, 0, fillInExtras);
             } catch (PendingIntent.CanceledException e) {
-                MyLog.g("sendHandshakeIntent failed: %s", e.getMessage());
+                MyLog.g(String.format("sendHandshakeIntent failed: %s", e.getMessage()));
             }
         }
     }
@@ -468,7 +468,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         } catch (FileNotFoundException e) {
             // pass
         } catch (IOException | JSONException | OutOfMemoryError e) {
-            MyLog.g("prepareServerEntries failed: %s", e.getMessage());
+            MyLog.g(String.format("prepareServerEntries failed: %s", e.getMessage()));
         }
 
         return list.toString();
@@ -778,7 +778,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         m_tunnelConfig.regionNotAvailablePendingIntent.send(
                                 m_parentService, 0, null);
                     } catch (PendingIntent.CanceledException e) {
-                        MyLog.g("regionNotAvailablePendingIntent failed: %s", e.getMessage());
+                        MyLog.g(String.format("regionNotAvailablePendingIntent failed: %s", e.getMessage()));
                     }
 
                 }

@@ -1306,7 +1306,7 @@ public abstract class MainBase {
                     m_outgoingMessenger.send(msg);
                 }
             } catch (RemoteException e) {
-                MyLog.g("sendServiceMessage failed: %s", e.getMessage());
+                MyLog.g(String.format("sendServiceMessage failed: %s", e.getMessage()));
             }
         }
 

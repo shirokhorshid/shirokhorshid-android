@@ -3,6 +3,7 @@
   <string name="ApplicationName">साइफ़ोन ब्राउज़र</string>
   <string name="AboutActivity.Title">बारे में</string>
   <string name="AboutActivity.VersionText">संस्करण:</string>
+  <string name="Main.MenuShowBookmarks">बुकमार्क</string>
   <string name="Main.MenuShowHistory">History</string>
   <string name="Main.MenuShowDownloads">डाउनलोड</string>
   <string name="Main.MenuPreferences">पसंद </string>
@@ -31,11 +32,13 @@
   <string name="Commons.Continue">जारी रहना</string>
   <string name="Commons.Add">डालो</string>
   <string name="Commons.Delete">हटाना</string>
+  <string name="QuickAction.Share">शेयर</string>
   <string name="PreferencesActivity.WeaveServerPreferenceTitle">सर्वर</string>
   <string name="PreferencesActivity.WeavePasswordTitle">पासवर्ड</string>
   <string name="PreferencesActivity.WeaveKeyTitle">कुंजी</string>
   <string name="WeaveServerPreferenceActivity.Prompt">सर्वर</string>
   <string name="WeaveServerPreferenceActivity.Title">सर्वर</string>
+  <string name="Commons.Bookmarks">बुकमार्क</string>
   <string name="Commons.History">History</string>
   <string name="PreferencesActivity.AdvancedCategoryTitle">उन्नत</string>
   <string name="HttpAuthenticationDialog.UserName">नाम</string>
