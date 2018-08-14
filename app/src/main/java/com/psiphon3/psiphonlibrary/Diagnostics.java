@@ -412,7 +412,7 @@ public class Diagnostics
             success = true;
         } catch (IOException e)
         {
-            MyLog.g("Diagnostic doFeedbackUpload failed: %s", e.getMessage());
+            MyLog.g(String.format("Diagnostic doFeedbackUpload failed: %s", e.getMessage()));
         }
         finally
         {

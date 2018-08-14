@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ជម្រើសបើកច្រកលើឧបករណ៍ទាំងមូល គឺមានសម្រាប់ឧបករណ៍អ្នក.\n\nជាមួយជម្រើសនេះ រាល់ការតភ្ជាប់អ៊ីនធឺណែត សម្រាប់កម្មវិធីទាំងអស់ រួមបញ្ចូលទាំងកម្មវិធីរុករក នឹងត្រូវឆ្លងកាត់ច្រក Psiphon.\n\nជាជម្រើស អ្នកអាចជ្រើសរើសច្រកដែលភ្ជាប់ជាមួយកម្មវិធីរុករក Psiphon ដែលនេះនឹងទុកច្រកដទៃទៀត ឲ្យតភ្ជាប់ដោយផ្ទាល់ជាមួយអ៊ីនធឺណែតធម្មតា។</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">បើកច្រកលើឧបករណ៍ទាំងមូល</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ប្រើប្រាស់សម្រាប់តែកម្មវិធីរុករក Psiphon </string>
+  <string name="selected_region_currently_not_available">តំបន់ដែលជ្រើសរើសទាន់មិនមានទេនៅពេលនេះ សូមជ្រើសរើសតំបន់មួយផ្សេងទៀត។</string>
 </resources>

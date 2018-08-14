@@ -67,10 +67,6 @@ import ca.psiphon.PsiphonTunnel;
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
-    private static final int MAX_CLIENT_VERIFICATION_ATTEMPTS = 5;
-    private int m_clientVerificationAttempts = 0;
-
-
     // Android IPC messages
 
     // Client -> Service
@@ -150,7 +146,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private PsiphonTunnel m_tunnel = null;
     private String m_lastUpstreamProxyErrorMessage;
     private Handler m_Handler = new Handler();
-    private GoogleSafetyNetApiWrapper m_safetyNetwrapper;
 
     public TunnelManager(Service parentService) {
         m_parentService = parentService;
@@ -241,10 +236,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public void signalStopService() {
         if (m_tunnelThreadStopSignal != null) {
             m_tunnelThreadStopSignal.countDown();
-        }
-
-        if (m_safetyNetwrapper != null) {
-            m_safetyNetwrapper.disconnect();
         }
     }
 
@@ -391,7 +382,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
             m_outgoingMessenger.send(msg);
         } catch (RemoteException e) {
-            MyLog.g("sendClientMessage failed: %s", e.getMessage());
+            MyLog.g(String.format("sendClientMessage failed: %s", e.getMessage()));
         }
     }
 
@@ -414,7 +405,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 m_tunnelConfig.handshakePendingIntent.send(
                         m_parentService, 0, fillInExtras);
             } catch (PendingIntent.CanceledException e) {
-                MyLog.g("sendHandshakeIntent failed: %s", e.getMessage());
+                MyLog.g(String.format("sendHandshakeIntent failed: %s", e.getMessage()));
             }
         }
     }
@@ -477,7 +468,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         } catch (FileNotFoundException e) {
             // pass
         } catch (IOException | JSONException | OutOfMemoryError e) {
-            MyLog.g("prepareServerEntries failed: %s", e.getMessage());
+            MyLog.g(String.format("prepareServerEntries failed: %s", e.getMessage()));
         }
 
         return list.toString();
@@ -573,9 +564,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             // Stop service
             m_parentService.stopForeground(true);
             m_parentService.stopSelf();
-            if(m_safetyNetwrapper != null) {
-                m_safetyNetwrapper.saveCache(m_parentService);
-            }
         }
     }
 
@@ -640,6 +628,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
      */
     public static String buildTunnelCoreConfig(
             Context context,
+            PsiphonTunnel tunnel,
             Config tunnelConfig,
             String tempTunnelName,
             String clientPlatformPrefix) {
@@ -648,23 +637,24 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         JSONObject json = new JSONObject();
 
         try {
-            String clientPlatform = PsiphonConstants.PLATFORM;
-
+            String prefix = "";
             if (clientPlatformPrefix != null && !clientPlatformPrefix.isEmpty()) {
-                clientPlatform = clientPlatformPrefix + clientPlatform;
+                prefix = clientPlatformPrefix;
             }
+
+            String suffix = "";
 
             // Detect if device is rooted and append to the client_platform string
             if (Utils.isRooted()) {
-                clientPlatform += PsiphonConstants.ROOTED;
+                suffix += PsiphonConstants.ROOTED;
             }
 
             // Detect if this is a Play Store build
             if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
-                clientPlatform += PsiphonConstants.PLAY_STORE_BUILD;
+                suffix += PsiphonConstants.PLAY_STORE_BUILD;
             }
 
-            json.put("ClientPlatform", clientPlatform);
+            tunnel.setClientPlatformAffixes(prefix, suffix);
 
             json.put("ClientVersion", EmbeddedValues.CLIENT_VERSION);
 
@@ -755,7 +745,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public String getPsiphonConfig() {
-        String config = buildTunnelCoreConfig(m_parentService, m_tunnelConfig, null, null);
+        String config = buildTunnelCoreConfig(m_parentService, m_tunnel, m_tunnelConfig, null, null);
         return config == null ? "" : config;
     }
 
@@ -788,7 +778,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         m_tunnelConfig.regionNotAvailablePendingIntent.send(
                                 m_parentService, 0, null);
                     } catch (PendingIntent.CanceledException e) {
-                        MyLog.g("regionNotAvailablePendingIntent failed: %s", e.getMessage());
+                        MyLog.g(String.format("regionNotAvailablePendingIntent failed: %s", e.getMessage()));
                     }
 
                 }
@@ -899,12 +889,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 Bundle data = new Bundle();
                 data.putBoolean(DATA_TUNNEL_STATE_IS_CONNECTED, true);
                 sendClientMessage(MSG_TUNNEL_CONNECTION_STATE, data);
-
-                // Reset verification attempts count and
-                // request client verification status from the server by
-                // sending an empty message to client verification handler
-                m_clientVerificationAttempts = 0;
-                TunnelManager.this.setClientVerificationResult("");
             }
         });
     }
@@ -991,37 +975,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     @Override
-    public void onClientVerificationRequired(final String serverNonce, final int ttlSeconds, final boolean resetCache) {
-
-        // Server may reply with a new verification request after verification payload is sent
-        // In this case we want to limit a number of possible retries per each session
-        m_clientVerificationAttempts ++;
-
-        if (m_clientVerificationAttempts > MAX_CLIENT_VERIFICATION_ATTEMPTS) {
-            return;
-        }
-        if (ttlSeconds == 0) {
-            // do not send payload if requested TTL is 0
-            return;
-        }
-        m_Handler.post(new Runnable() {
-            @Override
-            public void run() {
-                // Perform safetyNet check
-                m_safetyNetwrapper = GoogleSafetyNetApiWrapper.getInstance(getContext());
-                m_safetyNetwrapper.verify(TunnelManager.this, serverNonce, ttlSeconds, resetCache);
-            }
-        });
-    }
-
-    @Override
     public void onExiting() {}
-
-    public void setClientVerificationResult(String payload) {
-        if (m_tunnel != null) {
-            m_tunnel.setClientVerificationPayload(payload);
-        }
-    }
 
     @Override
     public void onActiveAuthorizationIDs(List<String> authorizations) {}

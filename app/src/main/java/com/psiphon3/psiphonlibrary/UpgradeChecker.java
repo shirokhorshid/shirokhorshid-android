@@ -389,6 +389,7 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
 
             String tunnelCoreConfig = TunnelManager.buildTunnelCoreConfig(
                     this,                       // context
+                    mTunnel,
                     tunnelManagerConfig,
                     "upgradechecker",           // tempTunnelName
                     "Psiphon_UpgradeChecker_"); // clientPlatformPrefix
@@ -504,9 +505,6 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
 
         @Override
         public void onStartedWaitingForNetworkConnectivity() {}
-
-        @Override
-        public void onClientVerificationRequired(String serverNonce, int ttlSeconds, boolean resetCache) {}
 
         @Override
         public void onActiveAuthorizationIDs(List<String> authorizations) {}
