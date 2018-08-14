@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Повний пристрій доступний для вашого пристрою.\n\n З цим параметром весь ваш Інтернет-трафік для всіх застосунків, включаючи всі веб-переглядачі, буде проходити через Psiphon.\n\n Як альтернативу, ви можете вибрати тунель лише через браузер Psiphon, що спрямує трафік всіх інших програм  через безпосереднє стандартне з\'єднання з Інтернетом.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тунелювати весь пристрій</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Використовувати лише браузер Psiphon</string>
+  <string name="ads_consent_preference_dialog_title">Скинути</string>
 </resources>

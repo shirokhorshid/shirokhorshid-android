@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ཚ་ཚང་ཡུར་བཅུག་བྱ་རྒྱུའི་གདམ་ཀ་ཁྱེད་རང་གི་ཡོ་བྱད་སྒང་ལ་ཐོན་ཡོད། \n\n གདམ་ཀ་འདིས་སཡི་ཕོན་རྒྱུད་དེ་བལྟ་ཆས་དང་མཉེན་ཆས་ཚང་མའི་དྲྭ་རྙོག་དེ་དག་ཡུར་བའི་ནང་བཅུག \n\nགཞན་ཡང་སཡི་ཕོན་བལྟ་ཆས་ཁོ་ནས་ཡུར་བའི་ནང་བཅུག་པ་དགོས་ལ། འདི་མཉེན་ཆས་ལྷག་མ་གཞན་ཐམས་ཅད་ཚད་འཛིན་གྱི་དྲྭ་རྒྱ་ལ་ཐད་ཀར་སྤྱོད་ཐུབ།</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">ཡོ་བྱད་ཆ་ཚང་ཚུར་བཏུས།</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">སཡི་ཕོན་བལྟ་ཆས་ཁོ་ན་བེད་སྤྱོད་གནང་རོགས།</string>
+  <string name="ads_consent_preference_dialog_title">བསྐྱར་སྒྲིག</string>
 </resources>

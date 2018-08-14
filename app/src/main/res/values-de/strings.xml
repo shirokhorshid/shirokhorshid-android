@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Die Funktion alle Informationen ihres Geräts zu tunneln ist auf Ihrem Gerät verfügbar.\n\nMit dieser Funktion können Sie Ihren gesamten Internet traffic einschließlich Apps und Browser mit Psiphon tunneln.\n\nAlternativ können Sie auswählen, dass Sie nur den Psiphon Browser tunneln und alle anderen Apps direkt durch die Standart Internet Verbindung fließen.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Gesamtes Gerät tunneln</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Nur den Psiphon Browser verwenden</string>
+  <string name="ads_consent_preference_dialog_title">Zu&amp;rücksetzen</string>
 </resources>

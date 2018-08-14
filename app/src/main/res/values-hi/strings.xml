@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">संपूर्ण डिवाइस सुरंग विकल्प आपके उपकरण के लिए उपलब्ध है। \ N \ n इस विकल्प के साथ, सभी ब्राउज़रों सहित सभी एप्लिकेशन के लिए आपके सभी इंटरनेट ट्रैफ़िक को साइफ़ोन के माध्यम से सुरंगित किया जाएगा। \ N \ n वैकल्पिक रूप से, आप केवल बंडल किए गए Psiphon ब्राउज़र को सुरंग चुन सकते हैं जो आपके मानक इंटरनेट कनेक्शन के माध्यम से सीधे जा रहे सभी अन्य ऐप्स को छोड़ देगा।</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">सुरंग पूरे डिवाइस</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">केवल साइफ़ोन ब्राउज़र का उपयोग करें</string>
+  <string name="ads_consent_preference_dialog_title">रीसेट करें</string>
 </resources>

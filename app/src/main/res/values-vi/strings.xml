@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Thiết bị của bạn có tùy chọn để kết nối toàn bộ thiết bị xuyên qua Psiphon. \n \n Với tùy chọn này, tất cả lưu lượng truy cập Internet của bạn cho tất cả các ứng dụng luôn cả các trình duyệt sẽ được đi xuyên qua Psiphon. \n \n Ngoài ra, bạn có thể chọn để kết nối an toàn riêng cho gói trình duyệt Psiphon, còn tất cả các ứng dụng khác sẽ đi trực tiếp thông qua kết nối Internet bình thường của bạn.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Kết nối toàn bộ thiết bị xuyên qua hầm</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Chỉ dùng trình duyệt Psiphon</string>
+  <string name="ads_consent_preference_dialog_title">Đặt lại</string>
 </resources>

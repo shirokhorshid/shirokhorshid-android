@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">spanduk sponsor; klik untuk mengunjungi laman web sponsor</string>
-  <string name="start_desc">menyambung ke Psiphon; klik untuk menyambung</string>
-  <string name="message_image_success_desc">ikon penanda pesan sukses</string>
-  <string name="message_image_error_desc">ikon penanda pesan kesalahan</string>
-  <string name="message_image_debug_desc">ikon penanda pesan debug</string>
-  <string name="message_image_warning_desc">ikon penanda pesan peringatan</string>
+  <string name="start_desc">menghubungkan ke Psiphon; klik untuk menghubungkan</string>
+  <string name="message_image_success_desc">ikon menunjukkan pesan sukses</string>
+  <string name="message_image_error_desc">ikon menunjukkan sebuah pesan gagal</string>
+  <string name="message_image_debug_desc">ikon menunjukkan pesan debug</string>
+  <string name="message_image_warning_desc">ikon menunjukkan pesan peringatan</string>
   <string name="exit">Keluar</string>
   <string name="open_browser">Buka Peramban</string>
   <string name="browser_task_label">Peramban Psiphon</string>
@@ -16,8 +16,21 @@
   <string name="FeedbackActivity.InvalidURLParameters">Parameter URL pada kiriman formulir kritik dan saran tidak berlaku</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Gagal mengambil isi laman kritik dan saran</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Alihkan sambungan seluruh perangkat?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Opsi pengalihan sambungan seluruh perangkat ke terowongan tersedia pada perangkat Anda.\n\nDengan opsi ini, lalu lintas internet semua aplikasi, termasuk peramban, akan dialihkan melalui terowongan Psiphon.\n\nAnda juga boleh hanya mengalihkan lalu lintas peramban Psiphon saja sehingga semua aplikasi lain akan tetap melalui sambungan internet normal.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Opsi pengalihan sambungan seluruh perangkat tersedia pada perangkat Anda.\n\nDengan opsi ini, lalu lintas internet semua aplikasi, termasuk peramban, akan dialihkan melalui Psiphon.\n\nAnda juga boleh hanya mengalihkan lalu lintas peramban Psiphon saja sehingga semua aplikasi lain akan tetap melalui sambungan internet normal.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Alihkan Sambungan Seluruh Perangkat</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Hanya Gunakan Peramban Psiphon Saja</string>
-  <string name="selected_region_currently_not_available">Regional yang dipilih saat ini tidak tersedia, silakan memilih regional lain,</string>
+  <string name="selected_region_currently_not_available">Regional yang dipilih saat ini tidak tersedia, silakan memilih regional lain.</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Kami peduli mengenai privasi dan keamanan data Anda. Kami menjaga aplikasi ini tetap gratis dengan menampilkan iklan.</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Dapatkah kita melanjutkan menggunakan data Anda untuk menyesuaikan iklan untuk Anda?</string>
+  <string name="you_can_change_your_choice_anytime">Anda bisa mengubah pilihan Anda kapan saja untuk Psiphon Pro di pilihan aplikasi. Penyedia iklan kami akan mengumpulkan data dan menggunakan pengidentifikasi unik di perangkat Anda untuk menunjukkan iklan.</string>
+  <string name="learn_more_about_our_ad_providers"><u>Pelajari lebih lanjut tentang penyedia iklan kami</u></string>
+  <string name="yes_continue_to_see_relevant_ads">Ya, lanjutkan untuk melihat iklan yang relevan</string>
+  <string name="no_see_ads_that_are_less_relevant">Tidak, lihat iklan yang kurang relevan</string>
+  <string name="pay_for_the_ad_free_version">Tingkatkan ke versi tanpa iklan</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">Klik nama penyedia iklan untuk melihat kebijakan privasi mereka</string>
+  <string name="ads_consent_preference_category_title">Personalisasi iklan</string>
+  <string name="ads_consent_preference_dialog_preference_message">Apakah Anda benar-benar ingin mengatur ulang pilihan personalisasi iklan Anda?</string>
+  <string name="ads_consent_preference_title">Atur ulang pilihan personalisasi iklan</string>
+  <string name="ads_consent_preference_dialog_title">Atur ulang</string>
+  <string name="ads_consent_preference_summary">Atur ulang pilihan Anda untuk mengizinkan jaringan iklan untuk menggunakan cookie dan data personal Anda</string>
 </resources>

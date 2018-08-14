@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Опцыя тунэлявання ўсёй прылады даступная на вашай прыладзе.\n\nПры падключэнні гэтай опцыі, увесь інтэрнэт-трафік для ўсіх праграм, уключаючы браўзеры, будзе тунэлявацца праз Psiphon.\n\nВы можаце ўключыць тунэляванне  толькі для пакету браўзера Psiphon, тады ўсе іншыя праграмы будуць па-ранейшаму ісці наўпрост праз стандартнае падключэнне да інтэрнэту.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тунэляваць усю прыладу</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Толькі браўзер Psiphon</string>
+  <string name="ads_consent_preference_dialog_title">Скід</string>
 </resources>

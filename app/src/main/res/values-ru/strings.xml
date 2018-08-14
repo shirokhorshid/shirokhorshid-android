@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Для вашего устройства доступна опция полного тунеллирования устройства.\n\nС этой опцией весь ваш интернет-трафик для всех приложений, включая все браузеры, будет тунеллирован через Psiphon.\n\nЛибо вы можете выбрать тунеллирование только встроенного браузера Psiphon, а все остальные приложения будут использовать ваше стандартное подключение к интернет напрямую.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Туннелировать все интернет-соединения</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Туннелировать только браузер Psiphon</string>
+  <string name="ads_consent_preference_dialog_title">Сброс</string>
 </resources>

@@ -20,4 +20,17 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tout l’appareil</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Navigateur Psiphon seulement</string>
   <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">La protection et la sécurité de vos données nous tiennent à cœur. Nous assurons la gratuité de cette appli en affichant des publicités.</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Pouvons-nous continuer à utiliser vos données pour adapter les publicités pour vous ?</string>
+  <string name="you_can_change_your_choice_anytime">Pour Psiphon Pro, vous pouvez changer votre choix n’importe quand dans les options de l’appli. Notre fournisseur de publicité recueillera des données et utilisera un identifiant unique sur votre appareil pour afficher vos publicités.</string>
+  <string name="learn_more_about_our_ad_providers"><u>En apprendre davantage sur nos fournisseurs de publicité</u></string>
+  <string name="yes_continue_to_see_relevant_ads">Oui, continuer à voir des publicités pertinentes</string>
+  <string name="no_see_ads_that_are_less_relevant">Non, voir des publicités moins pertinentes</string>
+  <string name="pay_for_the_ad_free_version">Passer à la version sans publicité</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">Cliquez sur le nom du fournisseur de publicité pour visualiser sa politique de confidentialité</string>
+  <string name="ads_consent_preference_category_title">Personnalisation de la publicité</string>
+  <string name="ads_consent_preference_dialog_preference_message">Souhaitez-vous vraiment réinitialiser vos préférences de personnalisation des publicités ?</string>
+  <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
+  <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
+  <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>
 </resources>

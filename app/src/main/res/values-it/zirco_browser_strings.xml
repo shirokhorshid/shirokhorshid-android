@@ -101,8 +101,11 @@
   <string name="Commons.Add">Aggiungi</string>
   <string name="Commons.Clear">Pulisci</string>
   <string name="Commons.Delete">Cancella</string>
+  <string name="Main.ShareChooserTitle">Condividi via</string>
   <string name="PreferencesActivity.UseWideViewPortPreferenceTitle">Usa viewport più grandi.</string>
   <string name="PreferencesActivity.SwitchTabBoth">Entrambe</string>
+  <string name="HistoryListActivity.Today">Oggi</string>
+  <string name="HistoryListActivity.Yesterday">Ieri</string>
   <string name="HistoryListActivity.LastMonth">Ultimo mese</string>
   <string name="QuickAction.Home">Pagina principale</string>
   <string name="QuickAction.Share">Condividi</string>

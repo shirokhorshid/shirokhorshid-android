@@ -10,7 +10,7 @@
   <string name="open_browser">បើកម្មវិធីរុករក</string>
   <string name="browser_task_label">កម្មវិធីរុករក សាយហ្វូន</string>
   <string name="FeedbackActivity.DefaultText">ប្រសិនបើអ្នកមានមតិយោបល់ ឬ ព័ត៌មានបន្ថែមពីគេហទំព័រដែលមិនដំណើរការ​ ឬប្រសិនបើ ទម្រង់នេះមិនដំណើរការចំពោះអ្នក, សូមផ្ញើអ៊ីម៉ែលមក &lt;ahref=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
-  <string name="FeedbackActivity.Success">អរគុណសម្រាប់មតិយោបល់របស់អ្នក</string>
+  <string name="FeedbackActivity.Success">អរគុណសម្រាប់ការបញ្ជូនមតិយោបល់របស់អ្នក</string>
   <string name="FeedbackActivity.Failure">ការបញ្ជូនបរាជ័យ។ សូមព្យាយាមម្តងទៀង។</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">បរាជ័យក្នុងការបញ្ជូនមតិយោបល់</string>
   <string name="FeedbackActivity.InvalidURLParameters">តំណយូអអិលមិនត្រឹមត្រូវ ក្នុងការបញ្ជូនទម្រង់មតិយោបល់</string>
@@ -18,6 +18,8 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">បើកច្រកលើឧបករណ៍ទាំងមូល?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ជម្រើសបើកច្រកលើឧបករណ៍ទាំងមូល គឺមានសម្រាប់ឧបករណ៍អ្នក.\n\nជាមួយជម្រើសនេះ រាល់ការតភ្ជាប់អ៊ីនធឺណែត សម្រាប់កម្មវិធីទាំងអស់ រួមបញ្ចូលទាំងកម្មវិធីរុករក នឹងត្រូវឆ្លងកាត់ច្រក Psiphon.\n\nជាជម្រើស អ្នកអាចជ្រើសរើសច្រកដែលភ្ជាប់ជាមួយកម្មវិធីរុករក Psiphon ដែលនេះនឹងទុកច្រកដទៃទៀត ឲ្យតភ្ជាប់ដោយផ្ទាល់ជាមួយអ៊ីនធឺណែតធម្មតា។</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">បើកច្រកលើឧបករណ៍ទាំងមូល</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ប្រើប្រាស់សម្រាប់តែកម្មវិធីរុករក Psiphon </string>
-  <string name="selected_region_currently_not_available">តំបន់ដែលជ្រើសរើសទាន់មិនមានទេនៅពេលនេះ សូមជ្រើសរើសតំបន់មួយផ្សេងទៀត។</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ប្រើប្រាស់តែកម្មវិធីរុករកសាយហ្វូន </string>
+  <string name="selected_region_currently_not_available">តំបន់ដែលបានជ្រើសរើសទាន់មិនមានទេនៅពេលនេះ សូមជ្រើសរើសតំបន់ផ្សេងទៀត។</string>
+  <string name="ads_consent_preference_category_title">ការផ្សព្វផ្សាយបុគ្គលិកលក្ខណៈផ្ទាល់ខ្លួន</string>
+  <string name="ads_consent_preference_dialog_title">កំណត់​ឡើង​វិញ</string>
 </resources>

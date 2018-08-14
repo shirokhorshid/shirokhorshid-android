@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La opción de derivar por el túnel el dispositivo al completo está disponible para su dispositivo.\n\nCon esta opción, todo su tráfico de Internet para todas las aplicaciones, incluyendo todos los navegadores, se derivará por el túnel a través de Psiphon.\n\nComo alternativa, puede elegir derivar por el túnel sólo el navegador Psiphon del paquete, lo cual dejará a todas las demás aplicaciones yendo directamente a través de su conexión a Internet estándar.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Derivar por el túnel el dispositivo al completo</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Usar solo el navegador Psiphon</string>
+  <string name="ads_consent_preference_dialog_title">Por defecto</string>
 </resources>

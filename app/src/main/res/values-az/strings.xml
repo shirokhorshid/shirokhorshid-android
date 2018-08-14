@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Sizin qurğuda bütöv qurğuya tunel opsiyası  var. \n\n Bu opsiya vasitəsilə bütün tətbiqetmələr, o cümlədən bütün səyyahlarla internet trafikiniz Psiphon.\n\n tunelindən keçəcək. Alternativ olaraq, yalnız Psiphon səyyahı ilə işləyən tuneli seçə bilərsiniz.  Bu tunel bütün digər tətbiqetmələrə aid olmayacaq, onlar sizin standart İnternet əlaqəniz vasitəsilə işləyəcək. </string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Bütün qurğuya tunel yarat</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Yalnız Psiphon səyyahından istifadə edin</string>
+  <string name="ads_consent_preference_dialog_title">Dəyiş</string>
 </resources>

@@ -18,8 +18,8 @@
   <string name="ServerInterface.FailedToCreateServerEntries">Gagal membuat entri server untuk disimpan.</string>
   <string name="ServerInterface.FailedToStoreServerEntries">Gagal menyimpan entri server.</string>
   <string name="ServerInterface.FailedToReadStoredServerEntries">Gagal membaca entri server tersimpan.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Gagal memarser entri server tersimpan.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Gagal memarser entri server terintegrasi.</string>
+  <string name="ServerInterface.FailedToParseStoredServerEntries">Gagal mengurai entri peladen tersimpan.</string>
+  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Gagal mengurai entri peladen yang tertanam.</string>
   <string name="ServerInterface.FailedToParseHandshake">Gagal memarser jabat-tangan.</string>
   <string name="ServerInterface.FailedToStoreLastConnected">Gagal menyimpan waktu tersambung terakhir.</string>
   <string name="ServerInterface.FailedToParseLastConnected">Gagal memarser respons waktu tersambung terakhir JSON.</string>
@@ -151,6 +151,7 @@
   <string name="network_proxy_connect_exception">Gagal menyambung ke Proksi HTTP jaringan: %s</string>
   <string name="network_proxy_connect_information">Menyambung lewat Proksi HTTP Anda: %s</string>
   <string name="network_proxy_connect_invalid_values">Setelan Proksi HTTP tak berlaku</string>
+  <string name="tunnel_whole_device_exception">Perangkat Anda tidak mendukung pengalihan sambungan seluruh perangkat dikarenakan hilangnya VpnService API.</string>
   <string name="run_polipo_failed">Gagal menjalankan Polipo: %s</string>
   <string name="wdm_force_iptables_toggle">Paksa pakai metode root Alihkan Sambungan Seluruh Perangkat</string>
   <string name="http_prefix_toggle">Samarkan sebagai HTTP</string>
@@ -158,6 +159,7 @@
   <string name="preference_routing_title">Rute</string>
   <string name="preference_routing_exclude_apps_title">Kecualikan Aplikasi</string>
   <string name="preference_routing_exclude_apps_summary">Cegah aplikasi terpilih digunakan terowongan</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">Set</string>
   <string name="individual_app_excluded">Aplikasi dikecualikan dari terowongan: %s</string>
   <string name="no_apps_excluded">Tidak ada aplikasi dikecualikan dalam saluran ini.</string>
   <string name="preference_notifications_with_sound_title">Suara</string>

@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Cihazınız için tüm cihaz tünelleme seçeneği kullanılabilir.\n\nBu seçenek ile tarayıcılar da dahil tüm uygulamaların İnternet trafiği Psiphon aracılığı ile tünellenecek.\n\nEk olarak, diğer uygulamaların İnternet\'e doğrudan standart bağlantı ile çıkabilmesi için sadece birlikte gelen Psiphon tarayıcıyı tünellemeyi seçebilirsiniz.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tüm Cihazı Tünelle</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Sadece Psiphon Tarayıcıyı Kullan</string>
+  <string name="ads_consent_preference_dialog_title">Sıfırla</string>
 </resources>

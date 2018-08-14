@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">您的设备可使用全局代理。\n\n启用该选项后，全部应用（包括浏览器）都将通过赛风连接互联网。\n\n另外，您也可以选择仅使用集成的赛风浏览器。该选项表示，除赛风浏览器之外，其他应用将正常连接。</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">仅赛风浏览器</string>
+  <string name="ads_consent_preference_dialog_title">重置</string>
 </resources>

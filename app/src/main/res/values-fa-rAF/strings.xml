@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">گذینه استفاده از تونل برای تمام دستگاه در اختیارتان قرار دارد.\n\nبا استفاده از این گذینه، تمام ترافیک انترنیت شما برای تمام برنامه‌ها از جمله تمام مرورگرها از تونل سایفون عبور میکنند.\n\nگذینه دیگر که میتوانید انتخاب کنید این است که تنها مرورگر همراه با سایفون را تونل کنید که این عمل باعث میشود تا همه برنامه‌های دیگر مستقیماً از طریق اتصال معمول به انترنیت استفاده کنند.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">استفاده از تونل برای تمام دستگاه</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">فقط استفاده از مرورگر سایفون</string>
+  <string name="ads_consent_preference_dialog_title">تنظیم دوباره</string>
 </resources>
