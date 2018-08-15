@@ -382,7 +382,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
             m_outgoingMessenger.send(msg);
         } catch (RemoteException e) {
-            MyLog.g(String.format("sendClientMessage failed: %s", e.getMessage()));
+            // The receiver is dead, do not try to send more messages
+            m_outgoingMessenger = null;
         }
     }
 
