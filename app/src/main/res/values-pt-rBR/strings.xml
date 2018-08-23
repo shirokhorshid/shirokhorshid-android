@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">O túnel para todo o dispositivo está disponível para o seu aparelho\n\nCom esta opção, todo o seu tráfego para a Internet, para todos os aplicativos, incluindo todos os navegadore, vai ser tunelado através do Psiphon.\n\nAlternativamente, você pode optar por tunelar apenas o tráfego do navegador Psiphon. Isso fará com que todas as suas outras aplicações saiam por sua conexão padrão de Internet.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunelar Todo o Dispositivo</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Usar Apenas o Navegador Psiphon</string>
+  <string name="ads_consent_preference_dialog_title">Resetar</string>
 </resources>

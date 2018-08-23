@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">L\'opzione \"intero dispositivo\" è disponibile.\n\nCon questa opzione tutto il traffico Internet per tutte le applicazioni sarà inviato tramite Psiphon.\n\n In alternativa, puoi scegliere di inviare tramite Psiphon solo il traffico del browser Psiphon lasciando che la altre app si connettano ad Internet direttamente tramite la connessione standard.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Utilizzare il Tunnel per tutto il dispositivo</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Utilizzare solo lo Psiphon Browser</string>
+  <string name="ads_consent_preference_dialog_title">Resetta</string>
 </resources>

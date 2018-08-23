@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Qurilmangizda butun qurilma ulanishini shifrlasa bo‘ladi.\n\nBu funksiya yordamida barcha ilovalar va brauzerlar trafigini Psiphon tuneli orqali shifrlash mumkin.\n\nBundan tashqari, faqatgina Psiphon brauzeri ulanishi shifrlanishi mumkin, qolgan ilovalar to‘g‘ridan-to‘g‘ri birlamchi internet ulanishi orqali ishlayveradi.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Butun qurilma ulanishini shifrlash</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Faqat Psiphon brauzeri ulanishini shifrlash</string>
+  <string name="ads_consent_preference_dialog_title">Сброс</string>
 </resources>

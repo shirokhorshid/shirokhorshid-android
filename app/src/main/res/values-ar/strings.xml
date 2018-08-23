@@ -20,4 +20,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage"> خيار تمرير كامل الجهاز عبر نفق متوفر لجهازك.\n\nهذا الخيار يتيح لك تمرير كل إتصالك بالإنترنت عبر نفق برنامج سايفون،  بما فيه التطبيقات والمتصفحات.\n\nيمكنك أيضا اختيار تمرير متصفح سايفون فقط عبر النفق وهذا يعني أن كل المتصفحات وألتطبيقات ألأخرى ستمر عبر إتصالك العادي بالإنترنت.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">خيار النفق</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">خيار المتصفح</string>
+  <string name="ads_consent_preference_dialog_title">‮صفّر</string>
 </resources>

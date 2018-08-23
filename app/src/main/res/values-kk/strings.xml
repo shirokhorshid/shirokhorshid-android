@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Құрылғыңызда толық туннельдеу мүмкіндігі бар.\n\nБұл мүмкіндіктің көмегімен барлық қолданбалар, соның ішінде барлық шолғыштар қолданатын интернет трафигі Psiphon арқылы туннельделеді.\n\nБолмаса, сіз тек құрамдас Psiphon шолғышын туннельдеуді таңдай аласыз, басқа қолданбалар сіздің интернетпен байланысыңыз арқылы тікелей өтеді.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Құрылғыны түгел туннельдеу</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Тек Psiphon шолғышын пайдалану </string>
+  <string name="ads_consent_preference_dialog_title">Қалпына келтіру</string>
 </resources>

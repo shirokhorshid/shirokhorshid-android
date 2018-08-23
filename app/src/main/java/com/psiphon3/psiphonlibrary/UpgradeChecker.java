@@ -189,8 +189,7 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
             // We don't know where to find an upgrade.
             return false;
         }
-        else if (!EmbeddedValues.hasEverBeenSideLoaded(appContext)) {
-            // If the app hasn't been side-loaded, then it's a Play Store build.
+        else if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
             // Play Store Build instances must not use custom auto-upgrade, as it's a ToS violation.
             return false;
         }

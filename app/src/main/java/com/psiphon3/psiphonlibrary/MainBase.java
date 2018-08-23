@@ -46,7 +46,6 @@ import android.os.RemoteException;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -497,7 +496,7 @@ public abstract class MainBase {
             setTunnelConfigWholeDevice(m_canWholeDevice && tunnelWholeDevicePreference);
 
             // Show download-wifi-only preference only in not Play Store build
-            if(EmbeddedValues.hasEverBeenSideLoaded(getContext())) {
+            if (!EmbeddedValues.IS_PLAY_STORE_BUILD) {
                 boolean downLoadWifiOnlyPreference = m_multiProcessPreferences.getBoolean(
                         getString(R.string.downloadWifiOnlyPreference),
                         PsiphonConstants.DOWNLOAD_WIFI_ONLY_PREFERENCE_DEFAULT);
