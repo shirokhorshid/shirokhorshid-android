@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Түзмөгүңүз бүткүл түзмөктү туннелдөө мүмкүнчүлүгүн колдойт. \n\nБул опция мененбардык браузерлерди кошум бардык колдонмолор үчүн интернет трафигиңиз Psiphon аркылуу туннелдөөдөн өтөт. \n\nЖе болбосо, сиз тутамдалган Psiphon  браузерин гана туннелдөөнү тандасаңыз болот, анда калган колдонмолордун баары стандарт интернет байланыш аркылуу түз жүргүзүлөт.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Бүткүл түзмөктүтуннелдөө</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Бир гана Psiphon Браузерин колдонуу</string>
+  <string name="ads_consent_preference_dialog_title">Баштапкы абалга кайтаруу</string>
 </resources>

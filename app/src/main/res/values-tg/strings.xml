@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Барои дастгоҳи шумо имкони тамоми трафикро тавассути нақб равона кардан дастрас аст.\n\nБо ин имкон, тамоми трафики интернети шумо барои ҳамаи барномаҳо (аз ҷумла, ҳамаи браузерҳо) бо истифодаи Psiphon тавассути нақб равона карда мешавад.\n\nВагарна, шумо метавонед танҳо трафики браузери ҳамроҳи Psiphon тавассути нақб равона кунед, ки дар ин маврид трафики ҳамаи барномаҳои дигар тавассути пайвасти стандартии шумо ба интернет равона карда мешавад.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тамоми трафики дастгоҳро тавассути нақб равона кардан</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Танҳо Psiphon Browser-ро истифода бурдан</string>
+  <string name="ads_consent_preference_dialog_title">Барқарор кардан</string>
 </resources>

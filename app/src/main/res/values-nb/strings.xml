@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Hele-fjøla-modus er tilgjengelig på din enhet. Dette valget sender all internett-trafikk for alle programmer, inkludert alle nettlesere i en tunnel gjennom Psiphon.\n\nAlternativt kan du velge å bare sende data fra den medfølgende Psiphon-nettlesen gjennom tunnelen, hvilket ikke vil ha noen innvirkning på andre programmer som måtte bruke din Internett-tilkobling på annen måte.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel over hele fjøla</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Bare bruk Psiphon-nettleser</string>
+  <string name="ads_consent_preference_dialog_title">Tilbakestill</string>
 </resources>

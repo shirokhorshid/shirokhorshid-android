@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Siziň ulanýan enjamyňyz üçin, bütin enjam tunel opsiýasy elýeterli.\n\nBu opsiýa, Internet akymy ähli programmalaryňa we brauzerleriňe Psiphon tuneli arkaly baglanar.\n\nGoşmaça, beýleki programmalaryňyza gönüden standart Internet bilen baglanyp bilersiňiz, jem şeklinde bolsa Psiphon brauwzeriniň gizlin geçelgesini saýlap bilersiňiz.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Bütin Enjamy Tunelle</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Diñe Psiphon Brauzery ulan</string>
+  <string name="ads_consent_preference_dialog_title">Täzele</string>
 </resources>

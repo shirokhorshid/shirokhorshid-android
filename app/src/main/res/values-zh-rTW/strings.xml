@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">全局代理模式在您的設備上可用。\n\n打開此選項後，賽風將代理所有程序的網路流量，包括所有瀏覽器。\n\n另外，您也可以選擇只代理附帶的賽風瀏覽器，讓其他程序通過平常的網路連接。</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理設備</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">只使用賽風瀏覽器</string>
+  <string name="ads_consent_preference_dialog_title">重設</string>
 </resources>

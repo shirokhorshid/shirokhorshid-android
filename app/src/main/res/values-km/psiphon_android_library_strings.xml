@@ -5,7 +5,7 @@
   <string name="ssh_connection_failed">ការតភ្ជាប់ SSH បរាជ័យ</string>
   <string name="ssh_authenticating">កំពុងផ្ទៀងផ្ទាត់ SSH...</string>
   <string name="ssh_authentication_failed">ការផ្ទៀងផ្ទាត់ SSH បរាជ័យ</string>
-  <string name="ssh_authenticated">ជំនួយ</string>
+  <string name="ssh_authenticated">SSH បានផ្ទៀងផ្ទាត់</string>
   <string name="socks_starting">កំពុងដំណើរការ SOCKS ...</string>
   <string name="socks_running">SOCKS កំពុងដំណើរការលើច្រក %d</string>
   <string name="socks_stopped">SOCKS បានបញ្ឈប់</string>

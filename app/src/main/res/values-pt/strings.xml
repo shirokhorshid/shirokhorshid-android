@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">A opção de criar uma passagem em todo o dispositivo está disponível para o seu dispositivo.\n\nCom esta opção, todo o seu tráfego da Internet para todas as suas apps, incluindo todos os navegadores, irá ser encaminhada pela passagem através do Psiphon.\n\nAlternativamente, pode escolher para encaminhar pela passagem o navegador Psiphon empacotado o que deixará que todas as outras apps sejam direcionadas através da ligação à Internet padrão.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Criar Passagem em Todo o Dispositivo</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Só utilizar o Navegador Psiphon</string>
+  <string name="ads_consent_preference_dialog_title">Reiniciar</string>
 </resources>

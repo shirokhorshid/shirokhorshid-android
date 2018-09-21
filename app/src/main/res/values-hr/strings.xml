@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Opcija \'Tuneliraj cijeli uređaj\' je dostupna za Vaš uređaj.\n\nS ovom opcijom sav Vaš Internet promet aplikacija, uključujući i preglednike, će biti tuneliran kroz Psiphon.\n\nAlternativno, možete odabrati tuneliranje samo Psiphon pregledničkog paketa što će ostaviti sve Vaše druge aplikacije da koriste Vašu standardnu Internet vezu.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tuneliraj cijeli uređaj</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Koristi samo Psiphon Preglednik</string>
+  <string name="ads_consent_preference_dialog_title"> Resetiraj</string>
 </resources>

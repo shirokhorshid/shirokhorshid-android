@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ለመሳሪያዎ ሙሉ በሙሉ መሳሪያውን የማስተላለፍ አማራጭ አለ። \n\nበዚህ አማራጭ ለሁሉም መተግበሪያዎች መዳሰሻዎችን ጨምሮ ሁሉም የእርስዎ የኢንተርኔት ትራፊክ በሳይፈን አማካኝነት ይተላለፋል።  \n\n በአማራጭነት የሳይፈን ቅርቅብ መዳሰሻን ብቻ መርጠው ማስተላለፍ ይችላሉ። ይህ ማለት የሌሎች መተግበሪያዎች ግንኝነት የሚያልፈው በቀጥታ በመደበኛው የኢንተርኔት ግንኙነት አማካኝነት ይሆናል። </string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">መሳሪያውን ሙሉ በሙሉ አስተላልፍ </string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">የሳይፈን መዳሰሻን ብቻ ተጠቀም </string>
+  <string name="ads_consent_preference_dialog_title">ዳግም አቀናብር</string>
 </resources>

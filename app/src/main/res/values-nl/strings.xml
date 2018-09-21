@@ -20,4 +20,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Gehele Apparaat</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Gebruik Alleen Psiphon Browser </string>
   <string name="selected_region_currently_not_available">Geselecteerde regio is momenteel niet beschikbaar. Selecteer een andere regio.</string>
+  <string name="ads_consent_preference_dialog_title">Wis</string>
 </resources>
