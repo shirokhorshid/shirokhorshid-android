@@ -27,6 +27,7 @@
   <string name="PreferencesActivity.SearchUrlGoogle">गूगल</string>
   <string name="PreferencesActivity.SearchUrlCustom">कस्टम</string>
   <string name="StartPage.Search">खोजें </string>
+  <string name="StartPage.SearchButton">आगे बढ़ो</string>
   <string name="PreferencesActivity.UserAgentCustom">कस्टम</string>
   <string name="Main.MenuExit">निकास</string>
   <string name="Commons.Continue">जारी रहना</string>
