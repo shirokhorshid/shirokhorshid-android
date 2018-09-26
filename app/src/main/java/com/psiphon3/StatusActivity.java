@@ -462,7 +462,7 @@ public class StatusActivity
     private void showVpnAlertDialog(int titleId, int messageId) {
         new AlertDialog.Builder(getContext())
                 .setCancelable(true)
-                .setIcon(android.R.drawable.ic_dialog_info)
+                .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle(titleId)
                 .setMessage(messageId)
                 .setPositiveButton(android.R.string.ok, null)
