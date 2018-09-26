@@ -83,6 +83,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     public static final String INTENT_ACTION_HANDSHAKE = "com.psiphon3.psiphonlibrary.TunnelManager.HANDSHAKE";
     public static final String INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE = "com.psiphon3.psiphonlibrary.TunnelManager.SELECTED_REGION_NOT_AVAILABLE";
+    public static final String INTENT_ACTION_VPN_REVOKED = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_VPN_REVOKED";
 
     // Service -> Client bundle parameter names
     public static final String DATA_TUNNEL_STATE_IS_CONNECTED = "isConnected";
@@ -106,6 +107,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final String DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT = "tunnelConfigNotificationPendingIntent";
     public static final String DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT = "tunnelConfigRegionNotAvailablePendingIntent";
     public static final String DATA_TUNNEL_CONFIG_WHOLE_DEVICE = "tunnelConfigWholeDevice";
+    public static final String DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT = "tunnelConfigVpnRevokedPendingIntent";
     public static final String DATA_TUNNEL_CONFIG_EGRESS_REGION = "tunnelConfigEgressRegion";
     public static final String DATA_TUNNEL_CONFIG_DISABLE_TIMEOUTS = "tunnelConfigDisableTimeouts";
     public static final String CLIENT_MESSENGER = "incomingClientMessenger";
@@ -115,6 +117,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         PendingIntent handshakePendingIntent = null;
         PendingIntent notificationPendingIntent = null;
         PendingIntent regionNotAvailablePendingIntent = null;
+        PendingIntent vpnRevokedPendingIntent = null;
         boolean wholeDevice = false;
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
@@ -207,6 +210,15 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         MyLog.w(R.string.vpn_service_revoked, MyLog.Sensitivity.NOT_SENSITIVE);
 
         stopAndWaitForTunnel();
+
+        // Foreground client activity with the vpnRevokedPendingIntent in order to notify user.
+        try {
+            m_tunnelConfig.vpnRevokedPendingIntent.send(
+                    m_parentService, 0, null);
+        } catch (PendingIntent.CanceledException e) {
+            MyLog.g(String.format("vpnRevokedPendingIntent failed: %s", e.getMessage()));
+        }
+
     }
 
     private void stopAndWaitForTunnel() {
@@ -248,6 +260,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         m_tunnelConfig.regionNotAvailablePendingIntent = intent.getParcelableExtra(
                 TunnelManager.DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT);
+
+        m_tunnelConfig.vpnRevokedPendingIntent = intent.getParcelableExtra(
+                TunnelManager.DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT);
 
         m_tunnelConfig.wholeDevice = intent.getBooleanExtra(
                 TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE, false);
