@@ -1060,8 +1060,12 @@ public abstract class MainBase {
 
         @Override
         protected void onActivityResult(int request, int result, Intent data) {
-            if (request == REQUEST_CODE_PREPARE_VPN && result == RESULT_OK) {
-                startAndBindTunnelService();
+            if (request == REQUEST_CODE_PREPARE_VPN) {
+                if(result == RESULT_OK) {
+                    startAndBindTunnelService();
+                } else if(result == RESULT_CANCELED) {
+                    onVpnPromptCancelled();
+                }
             } else if (request == REQUEST_CODE_PREFERENCE) {
 
                 // Verify if restart is required before saving new settings
@@ -1094,6 +1098,8 @@ public abstract class MainBase {
                 }
             }
         }
+
+        protected void onVpnPromptCancelled() {}
 
         // Tunnel config, sent to the service.
         private TunnelManager.Config m_tunnelConfig = new TunnelManager.Config();
@@ -1134,6 +1140,9 @@ public abstract class MainBase {
             return null;
         }
 
+        protected PendingIntent getVpnRevokedPendingIntent() {
+            return null;
+        }
         protected void configureServiceIntent(Intent intent) {
             intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_HANDSHAKE_PENDING_INTENT,
                     getHandshakePendingIntent());
@@ -1143,6 +1152,9 @@ public abstract class MainBase {
 
             intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT,
                     getRegionNotAvailablePendingIntent());
+
+            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT,
+                    getVpnRevokedPendingIntent());
 
             intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE,
                     getTunnelConfigWholeDevice());
