@@ -6,12 +6,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -35,20 +35,88 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
 
-public class WebViewProxySettings 
+public class WebViewProxySettings
 {
+    private static boolean mIsLocalProxySet = false;
+    private static boolean mIsInitialized = false;
+    private static Set mReceiversSet;
+
+    public static boolean isLocalProxySet() {return mIsLocalProxySet;}
+
+    // Must call once early in the application lifecycle, e.g. in Activity.onResume() or in
+    // Activity.onStart(), before dynamic module loader has a chance to load intent receivers that
+    // may cause the app to close if an unexpected intent is received when setWebkitProxyLollipop
+    // is called.
+    public static void initialize(Context ctx) {
+        if(mIsInitialized) {
+            return;
+        }
+
+        mIsInitialized = true;
+
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            return;
+        }
+
+        Context appContext = ctx.getApplicationContext();
+        try {
+            Class applicationClass = Class.forName("android.app.Application");
+            Field mLoadedApkField = applicationClass.getDeclaredField("mLoadedApk");
+            mLoadedApkField.setAccessible(true);
+            Object mloadedApk = mLoadedApkField.get(appContext);
+            Class loadedApkClass = Class.forName("android.app.LoadedApk");
+            Field mReceiversField = loadedApkClass.getDeclaredField("mReceivers");
+            mReceiversField.setAccessible(true);
+            ArrayMap receivers = (ArrayMap) mReceiversField.get(mloadedApk);
+            mReceiversSet = new HashSet();
+            for (Object receiverMap : receivers.values()) {
+                for (Object receiver : ((ArrayMap) receiverMap).keySet()) {
+                    if (receiver == null) {
+                        continue;
+                    }
+                    mReceiversSet.add(receiver);
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
+        } catch (NoSuchFieldException e) {
+            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
+        } catch (IllegalAccessException e) {
+            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
+        }
+    }
+
+    public static void resetLocalProxy(Context ctx)
+    {
+        UpstreamProxySettings.ProxySettings systemProxySettings = UpstreamProxySettings.getOriginalSystemProxySettings(ctx);
+        if (systemProxySettings == null) {
+            systemProxySettings = new UpstreamProxySettings.ProxySettings();
+        }
+        setProxy(ctx, systemProxySettings.proxyHost, systemProxySettings.proxyPort);
+        mIsLocalProxySet = false;
+    }
+
+    private static boolean proxySettingsAreEmpty(String host, int port)
+    {
+        return (host == null ||
+                host.length() == 0 ||
+                port <= 0);
+    }
 
     public static void setLocalProxy(Context ctx, int port)
     {
         setProxy(ctx, "localhost", port);
+        mIsLocalProxySet = true;
     }
-    
-    /* 
+
+    /*
     Proxy setting code taken directly from Orweb, with some modifications.
     (...And some of the Orweb code was taken from an earlier version of our code.)
     See: https://github.com/guardianproject/Orweb/blob/master/src/org/torproject/android/OrbotHelper.java#L39
-    Note that we tried and abandoned doing feature detection by trying the 
+    Note that we tried and abandoned doing feature detection by trying the
     newer (>= ICS) proxy setting, catching, and then failing over to the older
     approach. The problem was that on Android 3.0, an exception would be thrown
     *in another thread*, so we couldn't catch it and the whole app would force-close.
@@ -57,8 +125,12 @@ public class WebViewProxySettings
     */
     public static boolean setProxy (Context ctx, String host, int port)
     {
+        if (!mIsInitialized) {
+            throw new AssertionError("Assertion error: WebViewProxySettings is not initialized!");
+        }
+
         UpstreamProxySettings.saveSystemProxySettings(ctx);
-        
+
         boolean worked = false;
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -77,7 +149,7 @@ public class WebViewProxySettings
         {
             worked = setWebkitProxyLollipop(ctx.getApplicationContext(), host, port);
         }
-        
+
         return worked;
     }
 
@@ -88,9 +160,12 @@ public class WebViewProxySettings
             Object requestQueueObject = getRequestQueue(ctx);
             if (requestQueueObject != null) {
                 //Create Proxy config object and set it into request Q
-                HttpHost httpHost = new HttpHost(host, port, "http");   
+                HttpHost httpHost = null;
+                if (!proxySettingsAreEmpty(host, port)){
+                    httpHost = new HttpHost(host, port, "http");
+                }
                 setDeclaredField(requestQueueObject, "mProxyHost", httpHost);
-                
+
                 return true;
             }
         }
@@ -98,44 +173,58 @@ public class WebViewProxySettings
         {
             // Failed. Fall through to false return.
         }
-        
+
         return false;
     }
-    
+
     @SuppressWarnings("rawtypes")
     private static boolean setWebkitProxyICS(Context ctx, String host, int port)
     {
-        try 
+        try
         {
             Class webViewCoreClass = Class.forName("android.webkit.WebViewCore");
-           
+
             Class proxyPropertiesClass = Class.forName("android.net.ProxyProperties");
-            if (webViewCoreClass != null && proxyPropertiesClass != null) 
+            if (webViewCoreClass != null && proxyPropertiesClass != null)
             {
                 Method m = webViewCoreClass.getDeclaredMethod("sendStaticMessage", Integer.TYPE, Object.class);
-                Constructor c = proxyPropertiesClass.getConstructor(String.class, Integer.TYPE, String.class);
-                
-                if (m != null && c != null)
+                if (proxySettingsAreEmpty(host, port))
                 {
-                    m.setAccessible(true);
-                    c.setAccessible(true);
-                    Object properties = c.newInstance(host, port, null);
-                
-                    // android.webkit.WebViewCore.EventHub.PROXY_CHANGED = 193;
-                    m.invoke(null, 193, properties);
-                    return true;
+                    if (m != null)
+                    {
+                        m.setAccessible(true);
+
+                        // android.webkit.WebViewCore.EventHub.PROXY_CHANGED = 193;
+                        m.invoke(null, 193, null);
+                        return true;
+                    }
+                }
+                else
+                {
+                    Constructor c = proxyPropertiesClass.getConstructor(String.class, Integer.TYPE, String.class);
+
+                    if (m != null && c != null)
+                    {
+                        m.setAccessible(true);
+                        c.setAccessible(true);
+                        Object properties = c.newInstance(host, port, null);
+
+                        // android.webkit.WebViewCore.EventHub.PROXY_CHANGED = 193;
+                        m.invoke(null, 193, properties);
+                        return true;
+                    }
                 }
             }
         }
-        catch (Exception e) 
+        catch (Exception e)
         {
             MyLog.d("Exception setting WebKit proxy through android.webkit.Network: " + e.toString());
         }
-        catch (Error e) 
+        catch (Error e)
         {
             MyLog.d("Exception setting WebKit proxy through android.webkit.Network: " + e.toString());
         }
-        
+
         return false;
     }
 
@@ -145,51 +234,46 @@ public class WebViewProxySettings
     @SuppressWarnings("rawtypes")
     private static boolean setWebkitProxyKitKat(Context appContext, String host, int port)
     {
-        System.setProperty("http.proxyHost", host);
-        System.setProperty("http.proxyPort", port + "");
-        System.setProperty("https.proxyHost", host);
-        System.setProperty("https.proxyPort", port + "");
+        if (proxySettingsAreEmpty(host, port))
+        {
+            System.clearProperty("http.proxyHost");
+            System.clearProperty("http.proxyPort");
+            System.clearProperty("https.proxyHost");
+            System.clearProperty("https.proxyPort");
+        }
+        else
+        {
+            System.setProperty("http.proxyHost", host);
+            System.setProperty("http.proxyPort", port + "");
+            System.setProperty("https.proxyHost", host);
+            System.setProperty("https.proxyPort", port + "");
+        }
         try
         {
-            Class applicationClass = Class.forName("android.app.Application");
-            Field loadedApkField = applicationClass.getDeclaredField("mLoadedApk");
-            loadedApkField.setAccessible(true);
-            Object loadedApk = loadedApkField.get(appContext);
-            Class loadedApkClass = Class.forName("android.app.LoadedApk");
-            Field receiversField = loadedApkClass.getDeclaredField("mReceivers");
-            receiversField.setAccessible(true);
-            ArrayMap receivers = (ArrayMap) receiversField.get(loadedApk);
-            for (Object receiverMap : receivers.values())
+            for (Object receiver : mReceiversSet)
             {
-                for (Object receiver : ((ArrayMap) receiverMap).keySet())
+                if (receiver == null) {
+                    continue;
+                }
+                Class receiverClass = receiver.getClass();
+                if (receiverClass.getName().contains("ProxyChangeListener"))
                 {
-                    if (receiver == null) {
-                        continue;
-                    }
-                    Class receiverClass = receiver.getClass();
-                    if (receiverClass.getName().contains("ProxyChangeListener"))
-                    {
-                        Method onReceiveMethod = receiverClass.getDeclaredMethod("onReceive", Context.class, Intent.class);
-                        Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
+                    Method onReceiveMethod = receiverClass.getDeclaredMethod("onReceive", Context.class, Intent.class);
+                    Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
 
-                        final String CLASS_NAME = "android.net.ProxyProperties";
-                        Class proxyPropertiesClass = Class.forName(CLASS_NAME);
-                        Constructor constructor = proxyPropertiesClass.getConstructor(String.class, Integer.TYPE, String.class);
-                        constructor.setAccessible(true);
-                        Object proxyProperties = constructor.newInstance(host, port, null);
-                        intent.putExtra("proxy", (Parcelable) proxyProperties);
+                    final String CLASS_NAME = "android.net.ProxyProperties";
+                    Class proxyPropertiesClass = Class.forName(CLASS_NAME);
+                    Constructor constructor = proxyPropertiesClass.getConstructor(String.class, Integer.TYPE, String.class);
+                    constructor.setAccessible(true);
+                    Object proxyProperties = constructor.newInstance(host, port, null);
+                    intent.putExtra("proxy", (Parcelable) proxyProperties);
 
-                        onReceiveMethod.invoke(receiver, appContext, intent);
-                    }
+                    onReceiveMethod.invoke(receiver, appContext, intent);
                 }
             }
             return true;
         }
         catch (ClassNotFoundException e)
-        {
-            MyLog.d("Exception setting WebKit proxy on KitKat through ProxyChangeListener: " + e.toString());
-        }
-        catch (NoSuchFieldException e)
         {
             MyLog.d("Exception setting WebKit proxy on KitKat through ProxyChangeListener: " + e.toString());
         }
@@ -221,54 +305,49 @@ public class WebViewProxySettings
     @SuppressWarnings("rawtypes")
     private static boolean setWebkitProxyLollipop(Context appContext, String host, int port)
     {
-        System.setProperty("http.proxyHost", host);
-        System.setProperty("http.proxyPort", port + "");
-        System.setProperty("https.proxyHost", host);
-        System.setProperty("https.proxyPort", port + "");
+        if (proxySettingsAreEmpty(host, port))
+        {
+            System.clearProperty("http.proxyHost");
+            System.clearProperty("http.proxyPort");
+            System.clearProperty("https.proxyHost");
+            System.clearProperty("https.proxyPort");
+        }
+        else
+        {
+            System.setProperty("http.proxyHost", host);
+            System.setProperty("http.proxyPort", port + "");
+            System.setProperty("https.proxyHost", host);
+            System.setProperty("https.proxyPort", port + "");
+        }
         try {
-            Class applictionClass = Class.forName("android.app.Application");
-            Field mLoadedApkField = applictionClass.getDeclaredField("mLoadedApk");
-            mLoadedApkField.setAccessible(true);
-            Object mloadedApk = mLoadedApkField.get(appContext);
-            Class loadedApkClass = Class.forName("android.app.LoadedApk");
-            Field mReceiversField = loadedApkClass.getDeclaredField("mReceivers");
-            mReceiversField.setAccessible(true);
-            ArrayMap receivers = (ArrayMap) mReceiversField.get(mloadedApk);
-            for (Object receiverMap : receivers.values())
+            for (Object receiver : mReceiversSet)
             {
-                for (Object receiver : ((ArrayMap) receiverMap).keySet())
-                {
-                    if (receiver == null) {
-                        continue;
-                    }
-                    Class clazz = receiver.getClass();
-                    // NOTE: as of Chrome 67 the ProxyChangeListener now has an obfuscated name,
-                    // so we are unable to identify the receiver by name. Instead we'll send the
-                    // PROXY_CHANGE intent to all receivers.
-                    Method onReceiveMethod = clazz.getDeclaredMethod("onReceive", Context.class, Intent.class);
-                    Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
+                if (receiver == null) {
+                    continue;
+                }
+                Class clazz = receiver.getClass();
+                // NOTE: as of Chrome 67 the ProxyChangeListener now has an obfuscated name,
+                // so we are unable to identify the receiver by name. Instead we'll send the
+                // PROXY_CHANGE intent to all receivers.
+                Method onReceiveMethod = clazz.getDeclaredMethod("onReceive", Context.class, Intent.class);
+                Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
 
-                    final String CLASS_NAME = "android.net.ProxyInfo";
-                    Class proxyInfoClass = Class.forName(CLASS_NAME);
-                    Constructor constructor = proxyInfoClass.getConstructor(String.class, Integer.TYPE, String.class);
-                    constructor.setAccessible(true);
-                    Object proxyInfo = constructor.newInstance(host, port, null);
-                    intent.putExtra("android.intent.extra.PROXY_INFO", (Parcelable) proxyInfo);
+                final String CLASS_NAME = "android.net.ProxyInfo";
+                Class proxyInfoClass = Class.forName(CLASS_NAME);
+                Constructor constructor = proxyInfoClass.getConstructor(String.class, Integer.TYPE, String.class);
+                constructor.setAccessible(true);
+                Object proxyInfo = constructor.newInstance(host, port, null);
+                intent.putExtra("android.intent.extra.PROXY_INFO", (Parcelable) proxyInfo);
 
-                    try {
-                        onReceiveMethod.invoke(receiver, appContext, intent);
-                    } catch (InvocationTargetException e) {
-                        // This receiver may throw on an unexpected intent, continue to the next one
-                    }
+                try {
+                    onReceiveMethod.invoke(receiver, appContext, intent);
+                } catch (InvocationTargetException e) {
+                    // This receiver may throw on an unexpected intent, continue to the next one
                 }
             }
             return true;
         }
         catch (ClassNotFoundException e)
-        {
-            MyLog.d("Exception setting WebKit proxy on Lollipop through ProxyChangeListener: " + e.toString());
-        }
-        catch (NoSuchFieldException e)
         {
             MyLog.d("Exception setting WebKit proxy on Lollipop through ProxyChangeListener: " + e.toString());
         }
@@ -289,23 +368,23 @@ public class WebViewProxySettings
             MyLog.d("Exception setting WebKit proxy on Lollipop through ProxyChangeListener: " + e.toString());
         }
         return false;
-     }
-    
+    }
+
     @SuppressWarnings("rawtypes")
     private static Object GetNetworkInstance(Context ctx) throws ClassNotFoundException
     {
         Class networkClass = Class.forName("android.webkit.Network");
         return networkClass;
     }
-    
-    private static Object getRequestQueue(Context ctx) throws Exception 
+
+    private static Object getRequestQueue(Context ctx) throws Exception
     {
         Object ret = null;
         Object networkClass = GetNetworkInstance(ctx);
-        if (networkClass != null) 
+        if (networkClass != null)
         {
             Object networkObj = invokeMethod(networkClass, "getInstance", new Object[]{ctx}, Context.class);
-            if (networkObj != null) 
+            if (networkObj != null)
             {
                 ret = getDeclaredField(networkObj, "mRequestQueue");
             }
@@ -315,7 +394,7 @@ public class WebViewProxySettings
 
     private static Object getDeclaredField(Object obj, String name)
             throws SecurityException, NoSuchFieldException,
-            IllegalArgumentException, IllegalAccessException 
+            IllegalArgumentException, IllegalAccessException
     {
         Field f = obj.getClass().getDeclaredField(name);
         f.setAccessible(true);
@@ -325,7 +404,7 @@ public class WebViewProxySettings
 
     private static void setDeclaredField(Object obj, String name, Object value)
             throws SecurityException, NoSuchFieldException,
-            IllegalArgumentException, IllegalAccessException 
+            IllegalArgumentException, IllegalAccessException
     {
         Field f = obj.getClass().getDeclaredField(name);
         f.setAccessible(true);
@@ -333,17 +412,17 @@ public class WebViewProxySettings
     }
 
     @SuppressWarnings("rawtypes")
-    private static Object invokeMethod(Object object, String methodName, Object[] params, Class... types) throws Exception 
+    private static Object invokeMethod(Object object, String methodName, Object[] params, Class... types) throws Exception
     {
         Object out = null;
         Class c = object instanceof Class ? (Class) object : object.getClass();
-        
-        if (types != null) 
+
+        if (types != null)
         {
             Method method = c.getMethod(methodName, types);
             out = method.invoke(object, params);
-        } 
-        else 
+        }
+        else
         {
             Method method = c.getMethod(methodName);
             out = method.invoke(object);
