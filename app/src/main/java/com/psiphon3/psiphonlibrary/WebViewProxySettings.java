@@ -35,16 +35,54 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WebViewProxySettings
 {
     private static boolean mIsLocalProxySet = false;
     private static boolean mIsInitialized = false;
-    private static Set mReceiversSet;
+    private static List<String> mReceiversList;
 
     public static boolean isLocalProxySet() {return mIsLocalProxySet;}
+
+
+    private static List<Object> getCurrentReceiversSet(Context ctx) {
+        Context appContext = ctx.getApplicationContext();
+        List<Object> receiversList = new ArrayList();
+
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            return receiversList;
+        }
+
+        try {
+            Class applicationClass = Class.forName("android.app.Application");
+            Field mLoadedApkField = applicationClass.getDeclaredField("mLoadedApk");
+            mLoadedApkField.setAccessible(true);
+            Object mloadedApk = mLoadedApkField.get(appContext);
+            Class loadedApkClass = Class.forName("android.app.LoadedApk");
+            Field mReceiversField = loadedApkClass.getDeclaredField("mReceivers");
+            mReceiversField.setAccessible(true);
+            ArrayMap receivers = (ArrayMap) mReceiversField.get(mloadedApk);
+            for (Object receiverMap : receivers.values()) {
+                for (Object receiver : ((ArrayMap) receiverMap).keySet()) {
+                    if (receiver == null) {
+                        continue;
+                    }
+                    receiversList.add(receiver);
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
+        } catch (NoSuchFieldException e) {
+            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
+        } catch (IllegalAccessException e) {
+            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
+        }
+        finally {
+            return receiversList;
+        }
+    }
 
     // Must call once early in the application lifecycle, e.g. in Activity.onResume() or in
     // Activity.onStart(), before dynamic module loader has a chance to load intent receivers that
@@ -56,37 +94,12 @@ public class WebViewProxySettings
         }
 
         mIsInitialized = true;
+        mReceiversList = new ArrayList<>();
 
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            return;
+        for (Object receiver : getCurrentReceiversSet(ctx)) {
+            mReceiversList.add(receiver.getClass().getName());
         }
 
-        Context appContext = ctx.getApplicationContext();
-        try {
-            Class applicationClass = Class.forName("android.app.Application");
-            Field mLoadedApkField = applicationClass.getDeclaredField("mLoadedApk");
-            mLoadedApkField.setAccessible(true);
-            Object mloadedApk = mLoadedApkField.get(appContext);
-            Class loadedApkClass = Class.forName("android.app.LoadedApk");
-            Field mReceiversField = loadedApkClass.getDeclaredField("mReceivers");
-            mReceiversField.setAccessible(true);
-            ArrayMap receivers = (ArrayMap) mReceiversField.get(mloadedApk);
-            mReceiversSet = new HashSet();
-            for (Object receiverMap : receivers.values()) {
-                for (Object receiver : ((ArrayMap) receiverMap).keySet()) {
-                    if (receiver == null) {
-                        continue;
-                    }
-                    mReceiversSet.add(receiver);
-                }
-            }
-        } catch (ClassNotFoundException e) {
-            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
-        } catch (NoSuchFieldException e) {
-            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
-        } catch (IllegalAccessException e) {
-            MyLog.d("Exception initializing WebViewProxySettings: " + e.toString());
-        }
     }
 
     public static void resetLocalProxy(Context ctx)
@@ -250,11 +263,8 @@ public class WebViewProxySettings
         }
         try
         {
-            for (Object receiver : mReceiversSet)
+            for (Object receiver : getCurrentReceiversSet(appContext))
             {
-                if (receiver == null) {
-                    continue;
-                }
                 Class receiverClass = receiver.getClass();
                 if (receiverClass.getName().contains("ProxyChangeListener"))
                 {
@@ -320,12 +330,16 @@ public class WebViewProxySettings
             System.setProperty("https.proxyPort", port + "");
         }
         try {
-            for (Object receiver : mReceiversSet)
+            for (Object receiver : getCurrentReceiversSet(appContext))
             {
-                if (receiver == null) {
+                Class clazz = receiver.getClass();
+
+                // Check if receiver class name is in the list of
+                // receivers names we stored during initialization
+                if (!mReceiversList.contains(clazz.getName())) {
                     continue;
                 }
-                Class clazz = receiver.getClass();
+
                 // NOTE: as of Chrome 67 the ProxyChangeListener now has an obfuscated name,
                 // so we are unable to identify the receiver by name. Instead we'll send the
                 // PROXY_CHANGE intent to all receivers.
