@@ -15,6 +15,10 @@
     <string name="FeedbackActivity.SubmitFeedbackFailed">Failed to submit feedback</string>
     <string name="FeedbackActivity.InvalidURLParameters">Invalid URL Parameters in feedback form submission</string>
     <string name="FeedbackActivity.GetHTMLContentFailed">Failed to get feedback page content</string>
+    <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN has stopped</string>
+    <string name="StatusActivity.VpnRevokedMessage">Psiphon\'s VPN permission was revoked. Check if you have another VPN app running.</string>
+    <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN cannot start</string>
+    <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon cannot obtain permission to start the VPN. Check if you have a another VPN app set to Always On.</string>
     <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnel the whole device?</string>
     <string name="StatusActivity.WholeDeviceTunnelPromptMessage">The whole device tunnel option is available for your device.\n\nWith this option, all of your Internet traffic for all apps including all browsers will be tunneled through Psiphon.\n\nAlternatively, you can choose to tunnel only the bundled Psiphon browser which will leave all other apps going directly through your standard Internet connection.</string>
     <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Whole Device</string>

@@ -20,6 +20,7 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">បើកច្រកលើឧបករណ៍ទាំងមូល</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ប្រើប្រាស់តែកម្មវិធីរុករកសាយហ្វូន </string>
   <string name="selected_region_currently_not_available">តំបន់ដែលបានជ្រើសរើសទាន់មិនមានទេនៅពេលនេះ សូមជ្រើសរើសតំបន់ផ្សេងទៀត។</string>
+  <string name="learn_more_about_our_ad_providers"><u>ស្វែងយល់បន្ថែម​អំពី​អ្នកផ្សព្វផ្សាយពាណិជ្ជកម្មរបស់យើង</u></string>
   <string name="ads_consent_preference_category_title">ការផ្សព្វផ្សាយបុគ្គលិកលក្ខណៈផ្ទាល់ខ្លួន</string>
   <string name="ads_consent_preference_dialog_title">កំណត់​ឡើង​វិញ</string>
 </resources>
