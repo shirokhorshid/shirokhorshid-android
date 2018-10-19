@@ -378,49 +378,44 @@ public class StatusActivity
     }
 
     @Override
-    public void displayBrowser(Context context, Uri uri)
-    {
-        try
-        {
-            if (getTunnelConfigWholeDevice())
-            {
+    public void displayBrowser(Context context, Uri uri) {
+        if (uri == null) {
+            for (String homePage : getHomePages()) {
+                uri = Uri.parse(homePage);
+                break;
+            }
+        }
+
+        // No URI to display - do nothing
+        if (uri == null) {
+            return;
+        }
+
+        try {
+            if (getTunnelConfigWholeDevice()) {
                 // TODO: support multiple home pages in whole device mode. This is
                 // disabled due to the case where users haven't set a default browser
                 // and will get the prompt once per home page.
 
-                if (uri == null)
-                {
-                    for (String homePage : getHomePages())
-                    {
-                        uri = Uri.parse(homePage);
-                        break;
-                    }
-                }
-
-                if (uri != null)
-                {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
-                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    ResolveInfo resolveInfo = getPackageManager().resolveActivity(browserIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                    if (resolveInfo == null || resolveInfo.activityInfo == null ||
-                            resolveInfo.activityInfo.name == null || resolveInfo.activityInfo.name.toLowerCase().contains("resolver")) {
-                        // No default web browser is set, so try opening in Chrome
-                        browserIntent.setPackage("com.android.chrome");
-                        try {
-                            context.startActivity(browserIntent);
-                        } catch (ActivityNotFoundException ex) {
-                            // We tried to open Chrome and it is not installed,
-                            // so reinvoke with the default behaviour
-                            browserIntent.setPackage(null);
-                            context.startActivity(browserIntent);
-                        }
-                    } else {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                ResolveInfo resolveInfo = getPackageManager().resolveActivity(browserIntent, PackageManager.MATCH_DEFAULT_ONLY);
+                if (resolveInfo == null || resolveInfo.activityInfo == null ||
+                        resolveInfo.activityInfo.name == null || resolveInfo.activityInfo.name.toLowerCase().contains("resolver")) {
+                    // No default web browser is set, so try opening in Chrome
+                    browserIntent.setPackage("com.android.chrome");
+                    try {
+                        context.startActivity(browserIntent);
+                    } catch (ActivityNotFoundException ex) {
+                        // We tried to open Chrome and it is not installed,
+                        // so reinvoke with the default behaviour
+                        browserIntent.setPackage(null);
                         context.startActivity(browserIntent);
                     }
+                } else {
+                    context.startActivity(browserIntent);
                 }
-            }
-            else
-            {
+            } else {
                 Intent intent = new Intent(
                         "ACTION_VIEW",
                         uri,
@@ -447,9 +442,7 @@ public class StatusActivity
 
                 context.startActivity(intent);
             }
-        }
-        catch (ActivityNotFoundException e)
-        {
+        } catch (ActivityNotFoundException e) {
             // Thrown by startActivity; in this case, we ignore and the URI isn't opened
         }
     }
