@@ -20,6 +20,17 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">تمام دستگاه را پراکسی کن</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">فقط از مرورگر سایفون استفاده کن</string>
   <string name="selected_region_currently_not_available">ناحیه‌ی انتخاب شده در حال حاضر در دسترس نیست، لطفا ناحیه‌ی دیگری را انتخاب کنید.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">ما درباره حریم خصوصی و امنیت شما اهمیت قائل هستیم. ما این اپ را با نمایش تبلیغات رایگان نگه داشته‌ایم.</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">ما به حریم خصوصی و امنیت شما اهمیت می‌دهیم. ما این اپلیکیشن را با نمایش تبلیغات، رایگان نگه داشته‌ایم.</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">آیا می‌توانیم به استفاده از اطلاعات شما برای تعیین آگهی‌هایی که می‌بینید همچنان ادامه دهیم؟ </string>
+  <string name="you_can_change_your_choice_anytime">هر زمان که بخواهید، می‌توانید در تنظیمات اپلیکیشن اندوریدی سایفون انتخاب خود را برای سایفون پرو تغییر دهید. آگهی‌دهنده‌های ما اطلاعات را جمع می‌کنند و از یک شماره ویژه برای تشخیص دستگاه شما برای نشان دادن تبلیغات استفاده می‌کنند. </string>
+  <string name="learn_more_about_our_ad_providers"><u>درباره آگهی‌دهندگان ما بیشتر بدانید</u></string>
+  <string name="yes_continue_to_see_relevant_ads">بله، به دیدن آگهی‌های مرتبط ادامه دهید.</string>
+  <string name="no_see_ads_that_are_less_relevant">نه، آگهی‌هایی را ببیند که کمتر مرتبط است. </string>
+  <string name="pay_for_the_ad_free_version">به نسخه بدون آگهی ارتقا دهید. </string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">روی اسم آگهی‌دهنده کلیک کنید تا مقررات حفظ حریم‌ خصوصی آنها را ببینید. </string>
+  <string name="ads_consent_preference_category_title">شخصی کردن آگهی‌ها</string>
+  <string name="ads_consent_preference_dialog_preference_message">آیا تایید می‌کنید که می‌خواهید تنظیمات شخصی‌کردن آگهی‌ها را دوباره تنظیم کنید؟ </string>
+  <string name="ads_consent_preference_title">ترجیحات شخصی‌شده آگهی‌ها را دوباره تنظیم کنید. </string>
   <string name="ads_consent_preference_dialog_title">راه اندازی مجدد</string>
+  <string name="ads_consent_preference_summary">ترجیحات خود را دوباره تنظیم کنید تا شبکه‌های تبلیغاتی بتوانند از کوکی‌ها و اطلاعات شخصی‌تان استفاده کند. </string>
 </resources>

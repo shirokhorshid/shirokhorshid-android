@@ -143,6 +143,7 @@
   <string name="region_name_ro">Roumanie</string>
   <string name="region_name_se">Suède</string>
   <string name="region_name_pl">Pologne</string>
+  <string name="region_name_sk">Slovaquie</string>
   <string name="about">À propos de Psiphon</string>
   <string name="feedback">Rétroaction</string>
   <string name="tunnel_whole_device_toggle">Tunnelliser tout l’appareil (Android 4.0+ exigé)</string>

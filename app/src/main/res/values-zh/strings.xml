@@ -19,5 +19,18 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">您的设备可使用全局代理。\n\n启用该选项后，全部应用（包括浏览器）都将通过赛风连接互联网。\n\n另外，您也可以选择仅使用集成的赛风浏览器。该选项表示，除赛风浏览器之外，其他应用将正常连接。</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">仅赛风浏览器</string>
+  <string name="selected_region_currently_not_available">目前选定的地区无效，请选择其他地区。</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">我们关心您的隐私和数据安全。我们通过展示广告免费提供此应用。</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">我们可以继续使用您的数据为您量身定制广告吗？</string>
+  <string name="you_can_change_your_choice_anytime">您可以随时在应用程序选项中更改 Psiphon Pro 的选择。我们的广告提供商将收集数据并使用您设备上的唯一标识符向您展示广告。</string>
+  <string name="learn_more_about_our_ad_providers"><u>详细了解我们的广告提供商</u></string>
+  <string name="yes_continue_to_see_relevant_ads">是，继续看相关广告</string>
+  <string name="no_see_ads_that_are_less_relevant">否，看的广告不太相关</string>
+  <string name="pay_for_the_ad_free_version">升级到无广告版本</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">单击广告提供商名称以查看其隐私政策</string>
+  <string name="ads_consent_preference_category_title">广告个性化</string>
+  <string name="ads_consent_preference_dialog_preference_message">您真的想重置广告个性化设置吗？</string>
+  <string name="ads_consent_preference_title">重置广告个性化设置</string>
   <string name="ads_consent_preference_dialog_title">重置</string>
+  <string name="ads_consent_preference_summary">重置您的设置，以允许广告联盟使用 Cookie 和您的个人数据</string>
 </resources>

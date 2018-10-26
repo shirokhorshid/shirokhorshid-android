@@ -98,6 +98,7 @@
   <string name="disable_timeouts">Desativar \'expiração\' para redes lentas</string>
   <string name="region_selector">Selecione a região</string>
   <string name="preference_notifications_title">Notificações</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">Definir</string>
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Reproduzir um som quando o estado da ligação é alterado</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>

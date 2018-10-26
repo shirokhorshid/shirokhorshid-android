@@ -20,5 +20,17 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Gehele Apparaat</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Gebruik Alleen Psiphon Browser </string>
   <string name="selected_region_currently_not_available">Geselecteerde regio is momenteel niet beschikbaar. Selecteer een andere regio.</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Wij geven om uw privacy en gegevensbeveiliging. Wij houden deze app gratis door het tonen van advertenties.</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Kunnen we doorgaan met uw gegevens gebruiken om advertenties op maat voor u?</string>
+  <string name="you_can_change_your_choice_anytime">U kunt uw keuze altijd wijzigen voor Psiphon Pro in de app-opties. Onze advertentie providers zullen gegevens verzamelen en gebruiken een unieke identificatie op uw apparaat om advertenties weer te geven.</string>
+  <string name="learn_more_about_our_ad_providers"><u>Meer informatie over onze advertentie providers</u></string>
+  <string name="yes_continue_to_see_relevant_ads">Ja, blijf relevante advertenties zien</string>
+  <string name="no_see_ads_that_are_less_relevant">Nee, bekijk advertenties die minder relevant zijn</string>
+  <string name="pay_for_the_ad_free_version">Upgrade naar de ad-vrije versie</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">Klik op de naam van de adverteerder om zijn privacybeleid te bekijken</string>
+  <string name="ads_consent_preference_category_title">Advertentiepersonalisatie</string>
+  <string name="ads_consent_preference_dialog_preference_message">Wilt u echt de voorkeuren van uw advertenties aanpassen?</string>
+  <string name="ads_consent_preference_title">Reset advertenties personalisatie voorkeur</string>
   <string name="ads_consent_preference_dialog_title">Wis</string>
+  <string name="ads_consent_preference_summary">Reset uw voorkeur om advertentienetwerken om cookies te gebruiken en uw persoonlijke gegevens</string>
 </resources>

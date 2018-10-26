@@ -133,8 +133,10 @@
   <string name="region_name_ro">Rumänien</string>
   <string name="region_name_se">Schweden</string>
   <string name="region_name_pl">Polen</string>
+  <string name="region_name_sk">Slowakei</string>
   <string name="about">Über Psiphon</string>
   <string name="feedback">Rückmeldung</string>
+  <string name="tunnel_whole_device_toggle">Gesamtes Gerät tunneln (benötigt Android 4.0+)</string>
   <string name="disable_timeouts">Zeitüberschreitungen für langsame Netzwerke deaktivieren</string>
   <string name="region_selector">Region auswählen</string>
   <string name="network_proxy_connect_exception">Verbinden mit dem HTTP-Proxy des Netzwerks ist fehlgeschlagen: %s</string>
@@ -147,6 +149,7 @@
   <string name="preference_routing_exclude_apps_title">Apps ausschließen</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Festlegen</string>
   <string name="individual_app_excluded">App von Tunnel ausgeschlossen: %s</string>
+  <string name="no_apps_excluded">Keine Anwendungen werden vom Tunnel ausgeschlossen</string>
   <string name="preference_notifications_with_sound_title">Ton</string>
   <string name="preference_notifications_with_sound_summary">Ton abspielen, wenn sich der Verbindungsstatus ändert</string>
   <string name="preference_notifications_with_vibrate_title">Vibrieren</string>

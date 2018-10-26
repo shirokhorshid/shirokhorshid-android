@@ -15,10 +15,14 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Échec d’envoi de votre rétroaction</string>
   <string name="FeedbackActivity.InvalidURLParameters">Paramètres d’URL invalides dans l’envoi du formulaire de rétroaction</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Échec de récupération du contenu de la page de rétroaction</string>
+  <string name="StatusActivity.VpnRevokedTitle">Le RPV Psiphon s’est arrêté</string>
+  <string name="StatusActivity.VpnRevokedMessage">L’autorisation du RPV Psiphon a été révoquée. Vérifiez si une autre appli RPV est en cours d’exécution.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas obtenir l’autorisation de démarrer le RPV. Vérifiez si une autre appli RPV est définie comme permanente.</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnelliser tout l’appareil ?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La tunnellisation intégrale est possible pour votre appareil.\n\nAvec ette option, tout le trafic Internet de toutes vos applis, incluant tous les navigateurs, sera tunnellisé par Psiphon.\n\nVous pouvez autrement choisir de ne tunnelliser que le trafic du navigateur Psiphon, toutes les autres applis se connectant directement par votre connexion Internet habituelle.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tout l’appareil</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Navigateur Psiphon seulement</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">N’utiliser que le navigateur Psiphon</string>
   <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
   <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">La protection et la sécurité de vos données nous tiennent à cœur. Nous assurons la gratuité de cette appli en affichant des publicités.</string>
   <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Pouvons-nous continuer à utiliser vos données pour adapter les publicités pour vous ?</string>

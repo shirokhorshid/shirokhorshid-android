@@ -143,6 +143,7 @@
   <string name="region_name_ro">羅馬尼亞</string>
   <string name="region_name_se">瑞典</string>
   <string name="region_name_pl">波蘭</string>
+  <string name="region_name_sk">斯洛伐克</string>
   <string name="about">關於賽風</string>
   <string name="feedback">回饋</string>
   <string name="tunnel_whole_device_toggle">全局代理設備（適用於 Android 4.0+）</string>

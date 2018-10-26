@@ -129,6 +129,7 @@
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Hà Lan</string>
   <string name="region_name_pl">Ba Lan</string>
+  <string name="region_name_sk">Slovakia</string>
   <string name="about">Giới thiệu về Psiphon</string>
   <string name="feedback">Ý kiến phản hồi</string>
   <string name="tunnel_whole_device_toggle">Kết Nối Toàn Thiết Bị Xuyên Qua Psiphon (cần Android 4.0+)</string>
@@ -141,6 +142,7 @@
   <string name="wdm_force_iptables_toggle">Buộc dùng phương pháp Kết Nối Toàn Thiết Bị Xuyên qua Psiphon với root</string>
   <string name="http_prefix_toggle">Ngụy trang làm HTTP</string>
   <string name="preference_notifications_title">Thông báo</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">Chọn</string>
   <string name="preference_notifications_with_sound_title">Âm thanh</string>
   <string name="preference_notifications_with_sound_summary">Phát âm thanh khi tình trạng kết nối thay đổi</string>
   <string name="preference_notifications_with_vibrate_title">Rung</string>
