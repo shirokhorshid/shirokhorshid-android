@@ -17,9 +17,7 @@
   <string name="FeedbackActivity.InvalidURLParameters">باراميترات خاطئه في استمارة الرد.</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">فشل في الحصول على مضمون صفحة الرد.</string>
   <string name="StatusActivity.VpnRevokedTitle">سايفون VPN قد توقف</string>
-  <string name="StatusActivity.VpnRevokedMessage">تم إلغاء تصريح سايفون. تحقق مما إذا كان لديك تطبيق VPN آخر قيد التشغيل.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">لا يمكن بدء تشغيل سايفون</string>
-  <string name="StatusActivity.VpnPromptCancelledMessage">تعذر الترخيص لبدء VPN سايفون. تحقق مما إذا كان لديك تطبيق VPN آخر تم ضبطه مسبقاً لـ \"تشغيل دائم\".</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">نقل الجهاز بأكمله عبر النفق؟</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage"> خيار تمرير كامل الجهاز عبر نفق متوفر لجهازك.\n\nهذا الخيار يتيح لك تمرير كل إتصالك بالإنترنت عبر نفق برنامج سايفون،  بما فيه التطبيقات والمتصفحات.\n\nيمكنك أيضا اختيار تمرير متصفح سايفون فقط عبر النفق وهذا يعني أن كل المتصفحات وألتطبيقات ألأخرى ستمر عبر إتصالك العادي بالإنترنت.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">نقل الجهاز بأكمله عبر النفق</string>

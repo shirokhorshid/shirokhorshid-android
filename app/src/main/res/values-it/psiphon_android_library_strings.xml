@@ -64,6 +64,7 @@
   <string name="feedback">Commento</string>
   <string name="http_prefix_toggle">Mascherato come HTTP</string>
   <string name="preference_notifications_title">Notifiche</string>
+  <string name="preference_routing_title">Routing</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Imposta</string>
   <string name="preference_notifications_with_sound_title">Suono</string>
   <string name="preference_notifications_with_vibrate_title">Vibrazione</string>

@@ -15,6 +15,8 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Mislukt in te dienen feedback</string>
   <string name="FeedbackActivity.InvalidURLParameters">Ongeldige URL Parameters in feedback formulier bij indienen</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Mislukt te krijgen feedback pagina-inhoud</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN is gestopt</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN kan niet starten</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnel het gehele apparaat?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Het hele apparaat tunnel optie is beschikbaar voor uw device.\n\nMet deze optie al uw internetverkeer voor alle apps met inbegrip van alle browsers zullen worden tunnelverbinding via Psiphon.\n\nAlternatief, kunt u kiezen om te tunnelen alleen de meegeleverde browser Psiphon die laat alle andere apps gaan rechtstreeks via uw standaard Internet-verbinding.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Gehele Apparaat</string>

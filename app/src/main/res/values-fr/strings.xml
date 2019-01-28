@@ -16,9 +16,9 @@
   <string name="FeedbackActivity.InvalidURLParameters">Paramètres d’URL invalides dans l’envoi du formulaire de rétroaction</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Échec de récupération du contenu de la page de rétroaction</string>
   <string name="StatusActivity.VpnRevokedTitle">Le RPV Psiphon s’est arrêté</string>
-  <string name="StatusActivity.VpnRevokedMessage">L’autorisation du RPV Psiphon a été révoquée. Vérifiez si une autre appli RPV est en cours d’exécution.</string>
+  <string name="StatusActivity.VpnRevokedMessage">Le RPV de Psiphon a été déconnecté par vous ou par une autre appli. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et en cours d’exécution.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
-  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas obtenir l’autorisation de démarrer le RPV. Vérifiez si une autre appli RPV est définie comme permanente.</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas démarrer le RPV. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et réglée sur RPV permanent.</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnelliser tout l’appareil ?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La tunnellisation intégrale est possible pour votre appareil.\n\nAvec ette option, tout le trafic Internet de toutes vos applis, incluant tous les navigateurs, sera tunnellisé par Psiphon.\n\nVous pouvez autrement choisir de ne tunnelliser que le trafic du navigateur Psiphon, toutes les autres applis se connectant directement par votre connexion Internet habituelle.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tout l’appareil</string>

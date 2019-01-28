@@ -143,6 +143,7 @@
   <string name="region_name_ro">រូម៉ានី</string>
   <string name="region_name_se">ស៊ុយអែត</string>
   <string name="region_name_pl">ប៉ូឡូញ</string>
+  <string name="region_name_sk">ស្លូវ៉ាគី</string>
   <string name="about">អំពី Psiphon</string>
   <string name="feedback">មតិយោបល់</string>
   <string name="tunnel_whole_device_toggle">បើករូងលើឧបករណ៍ទាំងមូល (ទាមទារ Android 4.0+)</string>
