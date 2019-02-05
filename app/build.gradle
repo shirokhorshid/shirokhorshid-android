@@ -79,6 +79,7 @@ dependencies {
     implementation files('libs/jackson-core-2.2.0.jar')
     implementation files('libs/achartengine-1.0.0.jar')
     implementation files('libs/snakeyaml-1.10-android.jar')
+    implementation files('libs/android-color-thief-1.0.0.jar')
     implementation(name:'ca.psiphon', ext:'aar')
     implementation project(':tray')
 }
