@@ -98,6 +98,7 @@ public class StatusActivity
                 if (bitmap != null) {
                     FileOutputStream out = openFileOutput(BANNER_FILE_NAME, Context.MODE_PRIVATE);
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+                    m_banner.setImageBitmap(bitmap);
                     m_banner.setBackgroundColor(getDominantColour(bitmap));
                     out.close();
                 }
@@ -135,8 +136,40 @@ public class StatusActivity
         resetSponsorHomePage(freshConnect);
     }
 
+    private int averageColour(Bitmap bitmap, int l, int r)
+    {
+        long sumR = 0, sumG = 0, sumB = 0;
+        int height = bitmap.getHeight();
+        long total = 0;
+        for (int y = 0; y < height; ++y)
+        {
+            for (int x = l; x < r; ++x)
+            {
+                int pixel = bitmap.getPixel(x, y);
+                sumR += Color.red(pixel);
+                sumG += Color.green(pixel);
+                sumB += Color.blue(pixel);
+                ++total;
+            }
+        }
+
+        int avgR = (int) (sumR / total);
+        int avgG = (int) (sumG / total);
+        int avgB = (int) (sumB / total);
+        return Color.rgb(avgR, avgG, avgB);
+    }
+
     private int getDominantColour(Bitmap bitmap)
     {
+//        int averageL = averageColour(bitmap, 0, (int) (bitmap.getWidth() * 0.01));
+//        int averageR = averageColour(bitmap, (int) (bitmap.getWidth() * 0.99), bitmap.getWidth());
+//
+//        int avgR = (Color.red(averageL) + Color.red(averageR)) / 2;
+//        int avgG = (Color.green(averageL) + Color.green(averageR)) / 2;
+//        int avgB = (Color.blue(averageL) + Color.blue(averageR)) / 2;
+//
+//        return Color.rgb(avgR, avgG, avgB);
+
         List<int[]> result = new ArrayList<>();
         try {
             result = MMCQ.compute(bitmap, 5);

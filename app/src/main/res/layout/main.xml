@@ -33,13 +33,12 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFFFF" >
-            
+
             <ImageView
                 android:id="@+id/banner"
                 android:layout_width="fill_parent"
                 android:layout_height="48dp"
-                android:contentDescription="@string/banner_desc"
-                android:src="@drawable/banner" />
+                android:contentDescription="@string/banner_desc" />
     
         </LinearLayout>
     
