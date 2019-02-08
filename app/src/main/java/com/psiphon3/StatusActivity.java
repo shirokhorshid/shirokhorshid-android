@@ -29,7 +29,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -50,13 +49,14 @@ import com.psiphon3.psiphonlibrary.WebViewProxySettings;
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
-import de.androidpit.androidcolorthief.MMCQ;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class StatusActivity
@@ -91,7 +91,7 @@ public class StatusActivity
                 if (bannerImageFile.exists()) {
                     Bitmap bitmap = BitmapFactory.decodeFile(bannerImageFile.getAbsolutePath());
                     m_banner.setImageBitmap(bitmap);
-                    m_banner.setBackgroundColor(getDominantColour(bitmap));
+                    m_banner.setBackgroundColor(getMostCommonColor(bitmap));
                 }
             } else {
                 Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.banner);
@@ -99,7 +99,7 @@ public class StatusActivity
                     FileOutputStream out = openFileOutput(BANNER_FILE_NAME, Context.MODE_PRIVATE);
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
                     m_banner.setImageBitmap(bitmap);
-                    m_banner.setBackgroundColor(getDominantColour(bitmap));
+                    m_banner.setBackgroundColor(getMostCommonColor(bitmap));
                     out.close();
                 }
             }
@@ -136,51 +136,36 @@ public class StatusActivity
         resetSponsorHomePage(freshConnect);
     }
 
-    private int averageColour(Bitmap bitmap, int l, int r)
+    private int getMostCommonColor(Bitmap bitmap)
     {
-        long sumR = 0, sumG = 0, sumB = 0;
+        if (bitmap == null)
+            throw new NullPointerException();
+
+        int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        long total = 0;
-        for (int y = 0; y < height; ++y)
-        {
-            for (int x = l; x < r; ++x)
-            {
-                int pixel = bitmap.getPixel(x, y);
-                sumR += Color.red(pixel);
-                sumG += Color.green(pixel);
-                sumB += Color.blue(pixel);
-                ++total;
+        int size = width * height;
+        int pixels[] = new int[size];
+
+        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+
+        HashMap<Integer, Integer> colorMap = new HashMap<>();
+
+        for (int i = 0; i < pixels.length; i++) {
+            int color = pixels[i];
+            if (colorMap.containsKey(color))
+                colorMap.put(color, colorMap.get(color) + 1);
+            else
+                colorMap.put(color, 1);
+        }
+
+        ArrayList<Map.Entry<Integer, Integer>> entries = new ArrayList<>(colorMap.entrySet());
+        Collections.sort(entries, new Comparator<Map.Entry<Integer, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
             }
-        }
-
-        int avgR = (int) (sumR / total);
-        int avgG = (int) (sumG / total);
-        int avgB = (int) (sumB / total);
-        return Color.rgb(avgR, avgG, avgB);
-    }
-
-    private int getDominantColour(Bitmap bitmap)
-    {
-//        int averageL = averageColour(bitmap, 0, (int) (bitmap.getWidth() * 0.01));
-//        int averageR = averageColour(bitmap, (int) (bitmap.getWidth() * 0.99), bitmap.getWidth());
-//
-//        int avgR = (Color.red(averageL) + Color.red(averageR)) / 2;
-//        int avgG = (Color.green(averageL) + Color.green(averageR)) / 2;
-//        int avgB = (Color.blue(averageL) + Color.blue(averageR)) / 2;
-//
-//        return Color.rgb(avgR, avgG, avgB);
-
-        List<int[]> result = new ArrayList<>();
-        try {
-            result = MMCQ.compute(bitmap, 5);
-        } catch (IOException e) {
-            // In the case of an exception, insert white at the start of the list
-            // to ensure it's chosen for the background colour.
-            result.add(0, new int[] {255, 255, 255});
-        }
-
-        int[] dominantColor = result.get(0);
-        return Color.rgb(dominantColor[0], dominantColor[1], dominantColor[2]);
+        });
+        return entries.get(0).getKey();
     }
 
     @Override
