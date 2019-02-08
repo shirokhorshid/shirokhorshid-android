@@ -98,7 +98,6 @@ public class StatusActivity
                 if (bitmap != null) {
                     FileOutputStream out = openFileOutput(BANNER_FILE_NAME, Context.MODE_PRIVATE);
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
-                    m_banner.setImageBitmap(bitmap);
                     m_banner.setBackgroundColor(getMostCommonColor(bitmap));
                     out.close();
                 }
