@@ -145,9 +145,11 @@ public class StatusActivity
     }
 
     private Bitmap getBannerBitmap() {
-        File bannerImageFile = new File(getFilesDir(), BANNER_FILE_NAME);
-        if (bannerImageFile.exists()) {
-            return BitmapFactory.decodeFile(bannerImageFile.getAbsolutePath());
+        if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
+            File bannerImageFile = new File(getFilesDir(), BANNER_FILE_NAME);
+            if (bannerImageFile.exists()) {
+                return BitmapFactory.decodeFile(bannerImageFile.getAbsolutePath());
+            }
         }
 
         return BitmapFactory.decodeResource(getResources(), R.drawable.banner);
