@@ -162,6 +162,7 @@ public abstract class MainBase {
         private Toast m_invalidProxySettingsToast;
         private Button m_moreOptionsButton;
         private LoggingObserver m_loggingObserver;
+        private LocaleManager m_localeManager;
 
         public TabbedActivityBase() {
             Utils.initializeSecureRandom();
@@ -351,9 +352,6 @@ public abstract class MainBase {
             animation.setInterpolator(new AccelerateInterpolator());
             return animation;
         }
-
-        // for the sake of simplicity. use DI in real apps instead
-        public static LocaleManager localeManager;
 
         @Override
         protected void onDestroy() {
@@ -658,14 +656,14 @@ public abstract class MainBase {
 
         @Override
         protected void attachBaseContext(Context base) {
-            localeManager = new LocaleManager(base);
-            super.attachBaseContext(localeManager.setLocale(base));
+            m_localeManager = new LocaleManager(base);
+            super.attachBaseContext(m_localeManager.setLocale(base));
         }
 
         @Override
         public void onConfigurationChanged(Configuration newConfig) {
             super.onConfigurationChanged(newConfig);
-            localeManager.setLocale(this);
+            m_localeManager.setLocale(this);
         }
 
         public class StatusEntryAdded extends BroadcastReceiver {

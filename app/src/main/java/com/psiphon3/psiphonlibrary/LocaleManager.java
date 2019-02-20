@@ -12,50 +12,50 @@ import java.util.Locale;
 
 import static android.os.Build.VERSION_CODES.*;
 
+/**
+ * This class is based off YarikSOffice LanguageTest @ https://github.com/YarikSOffice/LanguageTest.
+ * Small changes made for Psiphon's use.
+ */
 public class LocaleManager {
     private static final String LANGUAGE_KEY = "language_key";
+    private final SharedPreferences preferences;
 
-    private final SharedPreferences prefs;
-    public Context context;
-
-    public LocaleManager(Context c) {
-        prefs = PreferenceManager.getDefaultSharedPreferences(c);
-        context = context;
+    public LocaleManager(Context context) {
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public Context setLocale(Context c) {
-        return updateResources(c, getLanguage());
+    public Context setLocale(Context context) {
+        return updateResources(context, getLanguage());
     }
 
-    public Context setNewLocale(Context c, String language) {
+    public Context setNewLocale(Context context, String language) {
         persistLanguage(language);
-        return updateResources(c, language);
+        return updateResources(context, language);
     }
 
     public String getLanguage() {
-        return prefs.getString(LANGUAGE_KEY, Locale.getDefault().getLanguage());
+        return preferences.getString(LANGUAGE_KEY, Locale.getDefault().getLanguage());
     }
 
     @SuppressLint("ApplySharedPref")
     private void persistLanguage(String language) {
-        // use commit() instead of apply(), because sometimes we kill the application process immediately
-        // which will prevent apply() to finish
-        prefs.edit().putString(LANGUAGE_KEY, language).commit();
+        preferences.edit().putString(LANGUAGE_KEY, language).apply();
     }
 
     private Context updateResources(Context context, String language) {
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
-        Resources res = context.getResources();
-        Configuration config = new Configuration(res.getConfiguration());
+        Resources resources = context.getResources();
+        Configuration config = new Configuration(resources.getConfiguration());
         if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
             config.setLocale(locale);
             context = context.createConfigurationContext(config);
         } else {
             config.locale = locale;
-            res.updateConfiguration(config, res.getDisplayMetrics());
+            resources.updateConfiguration(config, resources.getDisplayMetrics());
         }
+
         return context;
     }
 }

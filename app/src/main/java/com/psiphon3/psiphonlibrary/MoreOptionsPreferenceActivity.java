@@ -19,7 +19,6 @@
 
 package com.psiphon3.psiphonlibrary;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -38,11 +37,7 @@ import net.grandcentrix.tray.AppPreferences;
 
 import java.util.*;
 
-import static com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase.localeManager;
-
 public class MoreOptionsPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
-
-
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
         String getString(@NonNull final String key, final String defaultValue);
@@ -96,6 +91,7 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
     EditTextPreference mProxyDomain;
     Bundle mDefaultSummaryBundle;
     ListPreference mLanguageSelector;
+    LocaleManager mLocaleManager;
 
     @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState) {
@@ -133,36 +129,13 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
         mProxyDomain = (EditTextPreference) preferences
                 .findPreference(getString(R.string.useProxyDomainPreference));
 
-        mLanguageSelector = (ListPreference) preferences.findPreference(getString(R.string.preferenceLanguageSelection));
-        Locale[] locales = Locale.getAvailableLocales();
-        ArrayList<CharSequence> countries = new ArrayList<CharSequence>();
-        ArrayList<CharSequence> codes = new ArrayList<CharSequence>();
-        for (Locale l : locales) {
-            codes.add(l.getLanguage());
-            countries.add(l.getDisplayLanguage());
-        }
-        CharSequence[] countries2 = (CharSequence[]) countries.toArray(new CharSequence[countries.size()]);
-        CharSequence[] codes2 = (CharSequence[]) codes.toArray(new CharSequence[codes.size()]);
-        mLanguageSelector.setEntries(countries2);
-        mLanguageSelector.setEntryValues(codes2);
-        mLanguageSelector.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                localeManager.setNewLocale(MoreOptionsPreferenceActivity.this, (String) o);
-                Intent i = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
-                startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-
-                return true;
-            }
-        });
-
+        setupLanguageSelector(preferences);
 
         PreferenceGetter preferenceGetter;
 
         // Initialize with current shared preferences if restoring from configuration change,
         // otherwise initialize with tray preferences values.
-        if (savedInstanceState != null &&
-                savedInstanceState.getBoolean("onSaveInstanceState", false) == true) {
+        if (savedInstanceState != null && savedInstanceState.getBoolean("onSaveInstanceState", false)) {
             preferenceGetter = new SharedPreferencesWrapper(PreferenceManager.getDefaultSharedPreferences(this));
         } else {
             preferenceGetter = new AppPreferencesWrapper(new AppPreferences(this));
@@ -241,6 +214,46 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
         mDefaultSummaryBundle = new Bundle();
 
         updatePreferencesScreen();
+    }
+
+    private void setupLanguageSelector(PreferenceScreen preferences) {
+        // Get the preference view and create the locale manager with the app's context.
+        // Cannot use this activity as the context as we also need StatusActivity to pick up on it.
+        mLanguageSelector = (ListPreference) preferences.findPreference(getString(R.string.preferenceLanguageSelection));
+        mLocaleManager = new LocaleManager(getApplicationContext());
+
+        // Collect the string array of <language name>,<language code>
+        String[] locales = getResources().getStringArray(R.array.languages);
+        CharSequence[] languageNames = new CharSequence[locales.length];
+        CharSequence[] languageCodes = new CharSequence[locales.length];
+
+        for (int i = 0; i < locales.length; ++i) {
+            // Split the string on the comma
+            String[] localeArr = locales[i].split(",");
+            languageNames[i] = localeArr[0];
+            languageCodes[i] = localeArr[1];
+        }
+
+        // Entries are displayed to the user, codes are the value used in the backend
+        mLanguageSelector.setEntries(languageNames);
+        mLanguageSelector.setEntryValues(languageCodes);
+
+        // Set up the change listener
+        mLanguageSelector.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object o) {
+                // The passed object is the language code string
+                String languageCode = (String) o;
+                // The LocaleManager will correctly set the resource + store the language preference for the future
+                mLocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
+
+                // Create an intent to restart the main activity with the new language
+                Intent i = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
+                startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+
+                return true;
+            }
+        });
     }
 
     private void disableCustomProxySettings() {
