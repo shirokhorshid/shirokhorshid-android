@@ -19,18 +19,13 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.DialogPreference;
-import android.preference.EditTextPreference;
-import android.preference.Preference;
+import android.preference.*;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -38,14 +33,15 @@ import android.widget.Toast;
 
 import com.psiphon3.R;
 
+import com.psiphon3.StatusActivity;
 import net.grandcentrix.tray.AppPreferences;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
+import static com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase.localeManager;
 
 public class MoreOptionsPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
@@ -99,6 +95,7 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
     EditTextPreference mProxyPassword;
     EditTextPreference mProxyDomain;
     Bundle mDefaultSummaryBundle;
+    ListPreference mLanguageSelector;
 
     @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState) {
@@ -109,7 +106,7 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
         prefMgr.setSharedPreferencesName(getString(R.string.moreOptionsPreferencesName));
 
         addPreferencesFromResource(R.xml.preferences);
-        PreferenceScreen preferences = getPreferenceScreen();
+        final PreferenceScreen preferences = getPreferenceScreen();
 
         mNotificationSound = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithSound));
         mNotificationVibration = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithVibrate));
@@ -135,6 +132,29 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
                 .findPreference(getString(R.string.useProxyPasswordPreference));
         mProxyDomain = (EditTextPreference) preferences
                 .findPreference(getString(R.string.useProxyDomainPreference));
+
+        mLanguageSelector = (ListPreference) preferences.findPreference(getString(R.string.preferenceLanguageSelection));
+        Locale[] locales = Locale.getAvailableLocales();
+        ArrayList<CharSequence> countries = new ArrayList<CharSequence>();
+        ArrayList<CharSequence> codes = new ArrayList<CharSequence>();
+        for (Locale l : locales) {
+            codes.add(l.getLanguage());
+            countries.add(l.getDisplayLanguage());
+        }
+        CharSequence[] countries2 = (CharSequence[]) countries.toArray(new CharSequence[countries.size()]);
+        CharSequence[] codes2 = (CharSequence[]) codes.toArray(new CharSequence[codes.size()]);
+        mLanguageSelector.setEntries(countries2);
+        mLanguageSelector.setEntryValues(codes2);
+        mLanguageSelector.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object o) {
+                localeManager.setNewLocale(MoreOptionsPreferenceActivity.this, (String) o);
+                Intent i = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
+                startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+
+                return true;
+            }
+        });
 
 
         PreferenceGetter preferenceGetter;

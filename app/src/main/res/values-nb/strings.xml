@@ -20,4 +20,7 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel over hele fjøla</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Bare bruk Psiphon-nettleser</string>
   <string name="ads_consent_preference_dialog_title">Tilbakestill</string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>

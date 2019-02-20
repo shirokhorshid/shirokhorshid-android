@@ -32,6 +32,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.net.VpnService;
@@ -351,6 +352,133 @@ public abstract class MainBase {
             return animation;
         }
 
+        // for the sake of simplicity. use DI in real apps instead
+        public static LocaleManager localeManager;
+
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+
+            if (m_sponsorHomePage != null) {
+                m_sponsorHomePage.stop();
+                m_sponsorHomePage = null;
+            }
+        }
+
+        /**
+         * Show the sponsor home page, either in the embedded view web view or
+         * in the external browser.
+         *
+         * @param freshConnect If false, the home page will not be opened in an external
+         *                     browser. This is to prevent the page from opening every
+         *                     time the activity is created.
+         */
+        protected void resetSponsorHomePage(boolean freshConnect) {
+            String url;
+            List<String> homepages = getHomePages();
+            if (homepages.size() > 0) {
+                url = homepages.get(0);
+            } else {
+                return;
+            }
+
+            // Some URLs are excluded from being embedded as home pages.
+            for (String homeTabUrlExclusion : EmbeddedValues.HOME_TAB_URL_EXCLUSIONS) {
+                if (url.contains(homeTabUrlExclusion)) {
+                    if (freshConnect) {
+                        displayBrowser(getContext(), Uri.parse(url));
+                    }
+                    return;
+                }
+            }
+
+            // At this point we're showing the URL in the embedded webview.
+            m_sponsorHomePage = new SponsorHomePage((WebView) findViewById(R.id.sponsorWebView), (ProgressBar) findViewById(R.id.sponsorWebViewProgressBar));
+            m_sponsorHomePage.load(url);
+        }
+
+        @Override
+        protected void onResume() {
+            super.onResume();
+
+            // Load new logs from the logging provider now
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                m_loggingObserver.dispatchChange(false, LoggingProvider.INSERT_URI);
+            } else {
+                m_loggingObserver.dispatchChange(false);
+            }
+
+            // Load new logs from the logging provider when it changes
+            getContentResolver().registerContentObserver(LoggingProvider.INSERT_URI, true, m_loggingObserver);
+
+            // From: http://steve.odyfamily.com/?p=12
+            m_updateStatisticsUITimer = new Timer();
+            m_updateStatisticsUITimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateStatisticsUICallback();
+                        }
+                    });
+                }
+            }, 0, 1000);
+
+            m_updateServiceStateUITimer = new Timer();
+            m_updateServiceStateUITimer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateServiceStateUI();
+                            checkRestartTunnel();
+                        }
+                    });
+                }
+            }, 0, 250);
+
+            // Don't show the keyboard until edit selected
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+            // Set to foreground before binding to the service. Otherwise there would be a short
+            // period of time where we could miss a handshake intent after getting the
+            // tunnel state from registering with the service.
+            m_multiProcessPreferences.put(getString(R.string.status_activity_foreground), true);
+
+            if (isServiceRunning()) {
+                startAndBindTunnelService();
+            } else {
+                // reset the tunnel state
+                m_tunnelState = new TunnelManager.State();
+            }
+        }
+
+        @Override
+        protected void onPause() {
+            super.onPause();
+
+            getContentResolver().unregisterContentObserver(m_loggingObserver);
+
+            cancelInvalidProxySettingsToast();
+
+            m_updateStatisticsUITimer.cancel();
+            m_updateServiceStateUITimer.cancel();
+
+            unbindTunnelService();
+
+            m_multiProcessPreferences.put(getString(R.string.status_activity_foreground), false);
+        }
+
+        protected void doToggle() {
+            if (!isServiceRunning()) {
+                startUp();
+            } else {
+                stopTunnelService();
+            }
+        }
+
         @SuppressLint("SetJavaScriptEnabled")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -384,9 +512,7 @@ public abstract class MainBase {
                     new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsPortPreference), getString(R.string.useCustomProxySettingsPortPreference)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.useProxyAuthenticationPreference), getString(R.string.useProxyAuthenticationPreference)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.useProxyUsernamePreference), getString(R.string.useProxyUsernamePreference)),
-                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxyPasswordPreference), getString(R.string.useProxyPasswordPreference)),
-                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxyDomainPreference), getString(R.string.useProxyDomainPreference))
-            );
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxyPasswordPreference), getString(R.string.useProxyPasswordPreference)), new SharedPreferencesImport(this, prefName, getString(R.string.useProxyDomainPreference), getString(R.string.useProxyDomainPreference)), new SharedPreferencesImport(this, prefName, getString(R.string.preferenceLanguageSelection), getString(R.string.preferenceLanguageSelection)));
 
             if (m_firstRun) {
                 EmbeddedValues.initialize(this);
@@ -531,129 +657,15 @@ public abstract class MainBase {
         }
 
         @Override
-        protected void onDestroy() {
-            super.onDestroy();
-
-            if (m_sponsorHomePage != null) {
-                m_sponsorHomePage.stop();
-                m_sponsorHomePage = null;
-            }
-        }
-
-        /**
-         * Show the sponsor home page, either in the embedded view web view or
-         * in the external browser.
-         * 
-         * @param freshConnect
-         *            If false, the home page will not be opened in an external
-         *            browser. This is to prevent the page from opening every
-         *            time the activity is created.
-         */
-        protected void resetSponsorHomePage(boolean freshConnect) {
-            String url;
-            List<String> homepages = getHomePages();
-            if (homepages.size() > 0) {
-                url = homepages.get(0);
-            } else {
-                return;
-            }
-
-            // Some URLs are excluded from being embedded as home pages.
-            for (String homeTabUrlExclusion : EmbeddedValues.HOME_TAB_URL_EXCLUSIONS) {
-                if (url.contains(homeTabUrlExclusion)) {
-                    if (freshConnect) {
-                        displayBrowser(getContext(), Uri.parse(url));
-                    }
-                    return;
-                }
-            }
-
-            // At this point we're showing the URL in the embedded webview.
-            m_sponsorHomePage = new SponsorHomePage((WebView) findViewById(R.id.sponsorWebView), (ProgressBar) findViewById(R.id.sponsorWebViewProgressBar));
-            m_sponsorHomePage.load(url);
+        protected void attachBaseContext(Context base) {
+            localeManager = new LocaleManager(base);
+            super.attachBaseContext(localeManager.setLocale(base));
         }
 
         @Override
-        protected void onResume() {
-            super.onResume();
-
-            // Load new logs from the logging provider now
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                m_loggingObserver.dispatchChange(false, LoggingProvider.INSERT_URI);
-            } else {
-                m_loggingObserver.dispatchChange(false);
-            }
-
-            // Load new logs from the logging provider when it changes
-            getContentResolver().registerContentObserver(LoggingProvider.INSERT_URI, true, m_loggingObserver);
-
-            // From: http://steve.odyfamily.com/?p=12
-            m_updateStatisticsUITimer = new Timer();
-            m_updateStatisticsUITimer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateStatisticsUICallback();
-                        }
-                    });
-                }
-            }, 0, 1000);
-
-            m_updateServiceStateUITimer = new Timer();
-            m_updateServiceStateUITimer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            updateServiceStateUI();
-                            checkRestartTunnel();
-                        }
-                    });
-                }
-            }, 0, 250);
-
-            // Don't show the keyboard until edit selected
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
-            // Set to foreground before binding to the service. Otherwise there would be a short
-            // period of time where we could miss a handshake intent after getting the
-            // tunnel state from registering with the service.
-            m_multiProcessPreferences.put(getString(R.string.status_activity_foreground), true);
-
-            if (isServiceRunning()) {
-                startAndBindTunnelService();
-            }
-            else {
-                // reset the tunnel state
-                m_tunnelState = new TunnelManager.State();
-            }
-        }
-
-        @Override
-        protected void onPause() {
-            super.onPause();
-
-            getContentResolver().unregisterContentObserver(m_loggingObserver);
-
-            cancelInvalidProxySettingsToast();
-
-            m_updateStatisticsUITimer.cancel();
-            m_updateServiceStateUITimer.cancel();
-
-            unbindTunnelService();
-
-            m_multiProcessPreferences.put(getString(R.string.status_activity_foreground), false);
-        }
-
-        protected void doToggle() {
-            if (!isServiceRunning()) {
-                startUp();
-            } else {
-                stopTunnelService();
-            }
+        public void onConfigurationChanged(Configuration newConfig) {
+            super.onConfigurationChanged(newConfig);
+            localeManager.setLocale(this);
         }
 
         public class StatusEntryAdded extends BroadcastReceiver {

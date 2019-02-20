@@ -38,4 +38,7 @@
   <string name="ads_consent_preference_title">إعادة ضبط تفضيلات تخصيص الإعلانات</string>
   <string name="ads_consent_preference_dialog_title">إعادة ضبط</string>
   <string name="ads_consent_preference_summary">أعد ضبط تفضيلاتك للسماح لشبكات الإعلانات باستخدام ملفات تعريف الارتباط وبياناتك الشخصية</string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>

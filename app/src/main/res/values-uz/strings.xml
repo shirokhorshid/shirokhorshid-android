@@ -20,4 +20,7 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Butun qurilma ulanishini shifrlash</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Faqat Psiphon brauzeri ulanishini shifrlash</string>
   <string name="ads_consent_preference_dialog_title">Сброс</string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>

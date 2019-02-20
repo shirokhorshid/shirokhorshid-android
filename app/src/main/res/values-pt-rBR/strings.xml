@@ -20,4 +20,7 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunelar Todo o Dispositivo</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Usar Apenas o Navegador Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Resetar</string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>

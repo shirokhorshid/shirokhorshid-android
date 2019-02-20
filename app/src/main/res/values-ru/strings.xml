@@ -20,4 +20,7 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Туннелировать все интернет-соединения</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Туннелировать только браузер Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Сброс</string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>

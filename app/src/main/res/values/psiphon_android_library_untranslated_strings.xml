@@ -11,6 +11,8 @@
     <string name="preferencesNotifications">preferencesNotifications</string>
     <string name="preferenceNotificationsWithSound">preferenceNotificationsWithSoundDefaultOff</string>
     <string name="preferenceNotificationsWithVibrate">preferenceNotificationsWithVibrateDefaultOff</string>
+    <string name="preferencesLanguage">preferencesLanguage</string>
+    <string name="preferenceLanguageSelection">preferenceLanguageSelection</string>
     <string name="routingSettingsCategoryKey">routingSettingsCategoryKey</string>
     <string name="preferenceExcludeAppsFromVpn">useExcludedAppsPreference</string>
     <string name="preferenceExcludeAppsFromVpnString">preferenceExcludeAppsFromVpnString</string>

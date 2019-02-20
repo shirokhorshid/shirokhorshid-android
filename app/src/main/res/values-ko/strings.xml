@@ -20,4 +20,7 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">모든 브라우저에 적용</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Psiphon 브라우저만 사용</string>
   <string name="ads_consent_preference_dialog_title">초기화</string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>

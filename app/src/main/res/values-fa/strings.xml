@@ -33,4 +33,7 @@
   <string name="ads_consent_preference_title">ترجیحات شخصی‌شده آگهی‌ها را دوباره تنظیم کنید. </string>
   <string name="ads_consent_preference_dialog_title">راه اندازی مجدد</string>
   <string name="ads_consent_preference_summary">ترجیحات خود را دوباره تنظیم کنید تا شبکه‌های تبلیغاتی بتوانند از کوکی‌ها و اطلاعات شخصی‌تان استفاده کند. </string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>

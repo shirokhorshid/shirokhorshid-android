@@ -20,4 +20,7 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">सुरंग पूरे डिवाइस</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">केवल साइफ़ोन ब्राउज़र का उपयोग करें</string>
   <string name="ads_consent_preference_dialog_title">रीसेट करें</string>
+    <string name="preference_language_selection_summary">Select the language</string>
+    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_title">Language Selection</string>
 </resources>
