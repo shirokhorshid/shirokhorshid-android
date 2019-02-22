@@ -246,6 +246,10 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
                 // The LocaleManager will correctly set the resource + store the language preference for the future
                 LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
 
+                // Kill the browser instance.
+                // This is required as it's a singleTask activity and isn't recreated when it loses focus.
+                MainActivity.INSTANCE.finish();
+
                 // Create an intent to restart the main activity with the new language
                 Intent intent = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
