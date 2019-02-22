@@ -17,7 +17,6 @@ package org.zirco.ui.activities.preferences;
 
 import com.psiphon3.R;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -28,11 +27,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 
 /**
  * Base class for a dialog activity for a preference which can have several predefined values, and a customizable one.
  */
-public abstract class BaseSpinnerCustomPreferenceActivity extends Activity {
+public abstract class BaseSpinnerCustomPreferenceActivity extends LocalizedActivities.Activity {
 	
 	protected Spinner mSpinner;
 	protected EditText mCustomEditText;

@@ -19,7 +19,6 @@
 
 package com.psiphon3.psiphonlibrary;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -35,10 +34,11 @@ import com.psiphon3.R;
 
 import com.psiphon3.StatusActivity;
 import net.grandcentrix.tray.AppPreferences;
+import org.zirco.ui.activities.MainActivity;
 
 import java.util.*;
 
-public class MoreOptionsPreferenceActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
         String getString(@NonNull final String key, final String defaultValue);
@@ -92,11 +92,6 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
     EditTextPreference mProxyDomain;
     Bundle mDefaultSummaryBundle;
     ListPreference mLanguageSelector;
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocaleManager.setLocale(newBase));
-    }
 
     @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState) {

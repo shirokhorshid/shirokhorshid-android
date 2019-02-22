@@ -31,6 +31,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Locale;
 
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.MainBase;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,7 +51,7 @@ import com.psiphon3.psiphonlibrary.Diagnostics;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
-public class FeedbackActivity extends MainBase.Activity
+public class FeedbackActivity extends LocalizedActivities.Activity
 {
 
     private WebView webView;

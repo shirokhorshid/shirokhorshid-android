@@ -94,7 +94,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class MainBase {
-    public static abstract class Activity extends android.app.Activity implements MyLog.ILogger {
+    public static abstract class Activity extends LocalizedActivities.Activity implements MyLog.ILogger {
         public Activity() {
             Utils.initializeSecureRandom();
         }
@@ -120,12 +120,6 @@ public abstract class MainBase {
         @Override
         public Context getContext() {
             return this;
-        }
-
-        @Override
-        protected void attachBaseContext(Context newBase) {
-            // Activities that inherit from this will start with the correct locale
-            super.attachBaseContext(LocaleManager.setLocale(newBase));
         }
     }
 
