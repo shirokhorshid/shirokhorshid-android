@@ -1,47 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Psiphon</string>
-    <string-array name="languages">
-        <item>Amharic,am</item>
-        <item>Arabic,ar</item>
-        <item>Azerbaijani,az</item>
-        <item>Belarusian,be</item>
-        <item>Bengali,bn</item>
-        <item>Burmese,my</item>
-        <item>Chinese in Taiwan,zh-rTW</item>
-        <item>Chinese,zh</item>
-        <item>Croatian,hr</item>
-        <item>Dutch,nl</item>
-        <item>English,en</item>
-        <item>Finnish,fi</item>
-        <item>French,fr</item>
-        <item>German,de</item>
-        <item>Greek,el</item>
-        <item>Hindi,hi</item>
-        <item>Indonesian,id</item>
-        <item>Italian,it</item>
-        <item>Kazakh,kk</item>
-        <item>Khmer,km</item>
-        <item>Korean,ko</item>
-        <item>Kygryz,ky</item>
-        <item>Malay,ms</item>
-        <item>Norwegian Bokmål,nb</item>
-        <item>Ormo,om</item>
-        <item>Persian in Afghanistan,fa-rAF</item>
-        <item>Persian,fa</item>
-        <item>Portuguese in Brazil,pt-rBR</item>
-        <item>Portuguese,pt</item>
-        <item>Russian,ru</item>
-        <item>Shona,sn</item>
-        <item>Spanish,es</item>
-        <item>Tajik,tg</item>
-        <item>Thai,th</item>
-        <item>Tibetan,bo</item>
-        <item>Tigrinya,ti</item>
-        <item>Turkish,tr</item>
-        <item>Turkmen,tk</item>
-        <item>Ukrainian,uk</item>
-        <item>Uzbek,uz</item>
-        <item>Vietnamese,vi</item>
-    </string-array>
 </resources>
