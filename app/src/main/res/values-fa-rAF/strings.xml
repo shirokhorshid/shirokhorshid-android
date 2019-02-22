@@ -20,7 +20,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">استفاده از تونل برای تمام دستگاه</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">فقط استفاده از مرورگر سایفون</string>
   <string name="ads_consent_preference_dialog_title">تنظیم دوباره</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

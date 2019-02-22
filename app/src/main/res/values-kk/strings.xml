@@ -20,7 +20,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Құрылғыны түгел туннельдеу</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Тек Psiphon шолғышын пайдалану </string>
   <string name="ads_consent_preference_dialog_title">Қалпына келтіру</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

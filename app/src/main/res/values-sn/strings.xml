@@ -14,7 +14,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Unoda kuti mudziyo wako ishande padandemutande munzira yakahwanda here?</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Ita kuti mudziyo ushande padandemutande munzira yakahwanda </string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Shandisa Psiphon Browser Chete</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

@@ -20,7 +20,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理設備</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">只使用賽風瀏覽器</string>
   <string name="ads_consent_preference_dialog_title">重設</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

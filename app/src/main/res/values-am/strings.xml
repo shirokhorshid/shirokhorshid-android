@@ -20,7 +20,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">መሳሪያውን ሙሉ በሙሉ አስተላልፍ </string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">የሳይፈን መዳሰሻን ብቻ ተጠቀም </string>
   <string name="ads_consent_preference_dialog_title">ዳግም አቀናብር</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

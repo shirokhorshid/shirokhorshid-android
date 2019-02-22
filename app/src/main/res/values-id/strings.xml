@@ -33,7 +33,4 @@
   <string name="ads_consent_preference_title">Atur ulang pilihan personalisasi iklan</string>
   <string name="ads_consent_preference_dialog_title">Atur ulang</string>
   <string name="ads_consent_preference_summary">Atur ulang pilihan Anda untuk mengizinkan jaringan iklan untuk menggunakan cookie dan data personal Anda</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

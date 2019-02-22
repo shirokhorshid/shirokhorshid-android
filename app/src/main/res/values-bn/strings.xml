@@ -19,7 +19,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">আপনার ডিভাইসের জন্য পুরো ডিভাইসের টানেল বিকল্পটি উপলব্ধ।  এই বিকল্পের সাহায্যে, সমস্ত ব্রাউজার সহ সমস্ত অ্যাপ্লিকেশনের জন্য আপনার সমস্ত ইন্টারনেট ট্র্যাফিকটি সাইফনের মাধ্যমে টানেল করা হবে। বিকল্পভাবে, আপনি শুধুমাত্র বান্ডলড সাইফোন ব্রাউজার টানেল চয়ন করতে পারেন, যা আপনার স্ট্যান্ডার্ড ইন্টারনেট সংযোগের মাধ্যমে সরাসরি সমস্ত অন্যান্য অ্যাপ্লিকেশনগুলিকে সুযোগ দিবে। </string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">পুরো যন্ত্র সুড়ঙ্গ বা টানেল-এ রুপান্তর করা</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">শুধুমাত্র সাইফোন ব্রাউজার ব্যবহার করুন</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

@@ -20,7 +20,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tüm Cihazı Tünelle</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Sadece Psiphon Tarayıcıyı Kullan</string>
   <string name="ads_consent_preference_dialog_title">Sıfırla</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

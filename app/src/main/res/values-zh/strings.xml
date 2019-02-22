@@ -33,7 +33,4 @@
   <string name="ads_consent_preference_title">重置广告个性化设置</string>
   <string name="ads_consent_preference_dialog_title">重置</string>
   <string name="ads_consent_preference_summary">重置您的设置，以允许广告联盟使用 Cookie 和您的个人数据</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>

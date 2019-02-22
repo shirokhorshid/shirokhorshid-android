@@ -20,7 +20,4 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်ရန်</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Psiphon Browser တစ်မျိုးတည်းသာ အသုံးပြုမည်</string>
   <string name="ads_consent_preference_dialog_title">ပြန်ချိန်ရန်</string>
-    <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
-    <string name="preference_language_title">Language Selection</string>
 </resources>
