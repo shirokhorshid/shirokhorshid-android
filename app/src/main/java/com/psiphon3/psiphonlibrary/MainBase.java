@@ -121,6 +121,12 @@ public abstract class MainBase {
         public Context getContext() {
             return this;
         }
+
+        @Override
+        protected void attachBaseContext(Context newBase) {
+            // Activities that inherit from this will start with the correct locale
+            super.attachBaseContext(LocaleManager.setLocale(newBase));
+        }
     }
 
     public static abstract class TabbedActivityBase extends Activity implements OnTabChangeListener {
@@ -162,7 +168,6 @@ public abstract class MainBase {
         private Toast m_invalidProxySettingsToast;
         private Button m_moreOptionsButton;
         private LoggingObserver m_loggingObserver;
-        private LocaleManager m_localeManager;
 
         public TabbedActivityBase() {
             Utils.initializeSecureRandom();
@@ -655,18 +660,6 @@ public abstract class MainBase {
             } else {
                 stopTunnelService();
             }
-        }
-
-        @Override
-        protected void attachBaseContext(Context base) {
-            m_localeManager = new LocaleManager(base);
-            super.attachBaseContext(m_localeManager.setLocale(base));
-        }
-
-        @Override
-        public void onConfigurationChanged(Configuration newConfig) {
-            super.onConfigurationChanged(newConfig);
-            m_localeManager.setLocale(this);
         }
 
         public class StatusEntryAdded extends BroadcastReceiver {

@@ -19,6 +19,7 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -91,7 +92,11 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
     EditTextPreference mProxyDomain;
     Bundle mDefaultSummaryBundle;
     ListPreference mLanguageSelector;
-    LocaleManager mLocaleManager;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocaleManager.setLocale(newBase));
+    }
 
     @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState) {
@@ -220,7 +225,6 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
         // Get the preference view and create the locale manager with the app's context.
         // Cannot use this activity as the context as we also need StatusActivity to pick up on it.
         mLanguageSelector = (ListPreference) preferences.findPreference(getString(R.string.preferenceLanguageSelection));
-        mLocaleManager = new LocaleManager(getApplicationContext());
 
         // Collect the string array of <language name>,<language code>
         String[] locales = getResources().getStringArray(R.array.languages);
@@ -245,11 +249,11 @@ public class MoreOptionsPreferenceActivity extends PreferenceActivity implements
                 // The passed object is the language code string
                 String languageCode = (String) o;
                 // The LocaleManager will correctly set the resource + store the language preference for the future
-                mLocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
+                LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
 
                 // Create an intent to restart the main activity with the new language
-                Intent i = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
-                startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                Intent intent = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
+                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
 
                 return true;
             }

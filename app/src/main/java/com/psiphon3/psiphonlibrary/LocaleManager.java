@@ -41,31 +41,39 @@ import static android.os.Build.VERSION_CODES.*;
  */
 public class LocaleManager {
     private static final String LANGUAGE_KEY = "language_key";
-    private final SharedPreferences preferences;
+    private static SharedPreferences m_preferences;
+    private static boolean m_isInitialized;
 
-    public LocaleManager(Context context) {
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    public static void initialize(Context context) {
+        if (m_isInitialized) {
+            return;
+        }
+
+        m_isInitialized = true;
+        m_preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public Context setLocale(Context context) {
+    public static Context setLocale(Context context) {
+        initialize(context);
         return updateResources(context, getLanguage());
     }
 
-    public Context setNewLocale(Context context, String language) {
+    public static Context setNewLocale(Context context, String language) {
+        initialize(context);
         persistLanguage(language);
         return updateResources(context, language);
     }
 
-    public String getLanguage() {
-        return preferences.getString(LANGUAGE_KEY, Locale.getDefault().getLanguage());
+    public static String getLanguage() {
+        return m_preferences.getString(LANGUAGE_KEY, Locale.getDefault().getLanguage());
     }
 
     @SuppressLint("ApplySharedPref")
-    private void persistLanguage(String language) {
-        preferences.edit().putString(LANGUAGE_KEY, language).apply();
+    private static void persistLanguage(String language) {
+        m_preferences.edit().putString(LANGUAGE_KEY, language).apply();
     }
 
-    private Context updateResources(Context context, String language) {
+    private static Context updateResources(Context context, String language) {
         Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
