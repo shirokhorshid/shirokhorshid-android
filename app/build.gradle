@@ -27,6 +27,7 @@ android {
                 targetSdkVersion 23
                 versionCode verCode
                 versionName verName
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
             }
         } else {
             throw new GradleException('version.properties found but entries are missing')
@@ -81,4 +82,6 @@ dependencies {
     implementation files('libs/snakeyaml-1.10-android.jar')
     implementation(name:'ca.psiphon', ext:'aar')
     implementation project(':tray')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
 }
