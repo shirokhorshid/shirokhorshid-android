@@ -70,7 +70,7 @@ public class LocaleManager {
 
     @SuppressLint("ApplySharedPref")
     private static void persistLanguage(String language) {
-        m_preferences.edit().putString(LANGUAGE_KEY, language).apply();
+        m_preferences.edit().putString(LANGUAGE_KEY, language).commit();
     }
 
     private static Context updateResources(Context context, String language) {

@@ -22,6 +22,7 @@ package com.psiphon3.psiphonlibrary;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -39,6 +40,12 @@ import org.zirco.ui.activities.MainActivity;
 import java.util.*;
 
 public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+
+    /**
+     * This is a work around for SDK 9, 10 as they lack Intent.FLAG_ACTIVITY_CLEAR_TASK.
+     */
+    public static final String FORCE_ACTIVITY_RESTART = MoreOptionsPreferenceActivity.class.getName() + ":FORCE_ACTIVITY_RESTART";
+
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
         String getString(@NonNull final String key, final String defaultValue);
@@ -246,13 +253,21 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
                 // The LocaleManager will correctly set the resource + store the language preference for the future
                 LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
 
-                // Kill the browser instance.
+                // Kill the browser instance if it exists.
                 // This is required as it's a singleTask activity and isn't recreated when it loses focus.
-                MainActivity.INSTANCE.finish();
+                if (MainActivity.INSTANCE != null) {
+                    MainActivity.INSTANCE.finish();
+                }
 
                 // Create an intent to restart the main activity with the new language
                 Intent intent = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
-                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                } else {
+                    // This is a work around for SDK 9, 10 as they lack Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    intent.putExtra(FORCE_ACTIVITY_RESTART, true);
+                }
+                startActivity(intent);
 
                 return true;
             }
