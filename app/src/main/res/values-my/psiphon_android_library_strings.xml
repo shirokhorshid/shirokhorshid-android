@@ -143,6 +143,7 @@
   <string name="region_name_ro">ရိုမေးနီးယား</string>
   <string name="region_name_se">ဆွီဒင်</string>
   <string name="region_name_pl">ပိုလန်</string>
+  <string name="region_name_sk">ဆလိုဗာကီးယား</string>
   <string name="about">Psiphon အကြောင်း</string>
   <string name="feedback">အကြံပြုချက်</string>
   <string name="tunnel_whole_device_toggle">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်ရန် (Android 4.0+ လိုအပ်သည်)</string>

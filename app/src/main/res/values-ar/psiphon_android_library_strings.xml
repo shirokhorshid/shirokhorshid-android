@@ -146,6 +146,7 @@
   <string name="region_name_ro">رومانيا</string>
   <string name="region_name_se">السويد</string>
   <string name="region_name_pl">بولندا</string>
+  <string name="region_name_sk">سلوفاكيا</string>
   <string name="about">من نحن؟</string>
   <string name="feedback">رأيك </string>
   <string name="tunnel_whole_device_toggle">تمرير الجهاز بأكمله عبر النفق (يتطلب أندرويد 4.0+) </string>

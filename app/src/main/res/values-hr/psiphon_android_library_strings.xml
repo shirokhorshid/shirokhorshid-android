@@ -129,6 +129,7 @@
   <string name="region_name_sg">Singapur</string>
   <string name="region_name_nl">Nizozemska</string>
   <string name="region_name_pl">Poljska</string>
+  <string name="region_name_sk">Slovačka</string>
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
   <string name="tunnel_whole_device_toggle">Tuneliraj cjeli uređaj (zahtjeva Android 4.0+)</string>

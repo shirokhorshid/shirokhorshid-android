@@ -1503,7 +1503,16 @@ public abstract class MainBase {
             }
 
             public void load(String url) {
-                WebViewProxySettings.setLocalProxy(mWebView.getContext(), getListeningLocalHttpProxyPort());
+                // Set WebView proxy only if we are not running in WD mode.
+                if(!getTunnelConfigWholeDevice() || !Utils.hasVpnService()) {
+                    WebViewProxySettings.setLocalProxy(mWebView.getContext(), getListeningLocalHttpProxyPort());
+                } else {
+                    // We are running in WDM, reset WebView proxy if it has been previously set.
+                    if(WebViewProxySettings.isLocalProxySet()){
+                        WebViewProxySettings.resetLocalProxy(mWebView.getContext());
+                    }
+                }
+
                 mProgressBar.setVisibility(View.VISIBLE);
                 mWebView.loadUrl(url);
             }

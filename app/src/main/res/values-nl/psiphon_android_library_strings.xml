@@ -144,6 +144,7 @@
   <string name="region_name_ro">Roemenië</string>
   <string name="region_name_se">Zweden</string>
   <string name="region_name_pl">Polen</string>
+  <string name="region_name_sk">Slovakije</string>
   <string name="about">Over Psiphon</string>
   <string name="feedback">Feedback</string>
   <string name="tunnel_whole_device_toggle">Tunnel gehele apparaat (vereist Android 4.0+)</string>

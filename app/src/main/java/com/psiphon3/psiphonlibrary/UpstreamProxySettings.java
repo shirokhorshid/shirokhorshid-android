@@ -174,6 +174,18 @@ public class UpstreamProxySettings {
         return settings;
     }
 
+    public static ProxySettings getOriginalSystemProxySettings(Context context) {
+        ProxySettings settings;
+
+        if (m_isSystemProxySaved) {
+            settings = m_savedProxySettings;
+        } else {
+            settings = getSystemProxySettings(context);
+        }
+
+        return settings;
+    }
+
     // Returns a tunnel-core compatible proxy URL for the
     // current user configured proxy settings.
     // e.g., http://NTDOMAIN\NTUser:password@proxyhost:3375,

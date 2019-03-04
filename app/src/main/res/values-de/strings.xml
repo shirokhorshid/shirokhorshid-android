@@ -19,5 +19,18 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Die Funktion alle Informationen ihres Geräts zu tunneln ist auf Ihrem Gerät verfügbar.\n\nMit dieser Funktion können Sie Ihren gesamten Internet traffic einschließlich Apps und Browser mit Psiphon tunneln.\n\nAlternativ können Sie auswählen, dass Sie nur den Psiphon Browser tunneln und alle anderen Apps direkt durch die Standart Internet Verbindung fließen.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Gesamtes Gerät tunneln</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Nur den Psiphon Browser verwenden</string>
+  <string name="selected_region_currently_not_available">Ausgewählte Region ist derzeit nicht verfügbar, bitte wählen Sie eine andere Region aus.</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Wir kümmern uns um Ihre Privatsphäre und Datensicherheit. Wir halten diese App kostenlos, indem wir Anzeigen schalten.</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Können wir Ihre Daten weiterhin verwenden, um Werbung für Sie zu personalisieren?</string>
+  <string name="you_can_change_your_choice_anytime">Sie können Ihre Wahl für Psiphon Pro in den App-Optionen jederzeit ändern. Unsere Werbeanbieter sammeln Daten und verwenden eine eindeutige Kennung auf Ihrem Gerät, um Ihnen Werbung anzuzeigen.</string>
+  <string name="learn_more_about_our_ad_providers"><u>Erfahren Sie mehr über unsere Werbeanbieter</u></string>
+  <string name="yes_continue_to_see_relevant_ads">Ja, weiterhin relevante Werbung sehen.</string>
+  <string name="no_see_ads_that_are_less_relevant">Nein, weniger relevante Werbung sehen.</string>
+  <string name="pay_for_the_ad_free_version">Umstieg auf die werbefreie Version</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">Klicken Sie auf den Namen des Werbeanbieters, um dessen Datenschutzerklärung einzusehen</string>
+  <string name="ads_consent_preference_category_title">Personalisierung der Werbung</string>
+  <string name="ads_consent_preference_dialog_preference_message">Möchten Sie wirklich die Einstellungen für die Werbepersonalisierung zurücksetzen?</string>
+  <string name="ads_consent_preference_title">Einstellungen für die Werbepersonalisierung zurücksetzen</string>
   <string name="ads_consent_preference_dialog_title">Zu&amp;rücksetzen</string>
+  <string name="ads_consent_preference_summary">Setzen Sie Ihre Einstellung zurück, um den Werbenetzwerken die Verwendung von Cookies und Ihren persönlichen Daten zu erlauben</string>
 </resources>

@@ -15,56 +15,13 @@
 
 package org.zirco.ui.activities;
 
-import java.lang.reflect.Field;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
-import org.apache.http.HttpHost;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.client.methods.HttpRequestBase;
-import org.apache.http.conn.params.ConnRoutePNames;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.client.RedirectLocations;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
-import org.greendroid.QuickAction;
-import org.greendroid.QuickActionGrid;
-import org.greendroid.QuickActionWidget;
-import org.greendroid.QuickActionWidget.OnQuickActionClickListener;
-import org.json.JSONArray;
-import org.json.JSONException;
-import com.psiphon3.R;
-import org.zirco.controllers.Controller;
-import org.zirco.events.EventConstants;
-import org.zirco.events.EventController;
-import org.zirco.events.IDownloadEventsListener;
-import org.zirco.model.adapters.UrlSuggestionCursorAdapter;
-import org.zirco.model.items.DownloadItem;
-import org.zirco.providers.BookmarksProviderWrapper;
-import org.zirco.ui.activities.preferences.PreferencesActivity;
-import org.zirco.ui.components.CustomWebView;
-import org.zirco.ui.components.CustomWebViewClient;
-import org.zirco.ui.runnables.FaviconUpdaterRunnable;
-import org.zirco.ui.runnables.HideToolbarsRunnable;
-import org.zirco.ui.runnables.HistoryUpdater;
-import org.zirco.utils.AnimationManager;
-import org.zirco.utils.ApplicationUtils;
-import org.zirco.utils.Constants;
-import org.zirco.utils.UrlUtils;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.ActivityManager.RunningServiceInfo;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -87,6 +44,7 @@ import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -94,12 +52,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.DownloadListener;
 import android.webkit.JsPromptResult;
@@ -119,12 +76,59 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.SimpleCursorAdapter.CursorToStringConverter;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
-import android.widget.SimpleCursorAdapter.CursorToStringConverter;
+
+import com.psiphon3.FeedbackActivity;
+import com.psiphon3.R;
+import com.psiphon3.StatusActivity;
+import com.psiphon3.psiphonlibrary.TunnelService;
 
 import net.grandcentrix.tray.AppPreferences;
+
+import org.apache.http.HttpHost;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.conn.params.ConnRoutePNames;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.RedirectLocations;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
+import org.greendroid.QuickAction;
+import org.greendroid.QuickActionGrid;
+import org.greendroid.QuickActionWidget;
+import org.greendroid.QuickActionWidget.OnQuickActionClickListener;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.zirco.controllers.Controller;
+import org.zirco.events.EventConstants;
+import org.zirco.events.EventController;
+import org.zirco.events.IDownloadEventsListener;
+import org.zirco.model.adapters.UrlSuggestionCursorAdapter;
+import org.zirco.model.items.DownloadItem;
+import org.zirco.providers.BookmarksProviderWrapper;
+import org.zirco.ui.activities.preferences.PreferencesActivity;
+import org.zirco.ui.components.CustomWebView;
+import org.zirco.ui.components.CustomWebViewClient;
+import org.zirco.ui.runnables.FaviconUpdaterRunnable;
+import org.zirco.ui.runnables.HideToolbarsRunnable;
+import org.zirco.ui.runnables.HistoryUpdater;
+import org.zirco.utils.AnimationManager;
+import org.zirco.utils.ApplicationUtils;
+import org.zirco.utils.Constants;
+import org.zirco.utils.UrlUtils;
+
+import java.lang.reflect.Field;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * The application main activity.
@@ -232,11 +236,6 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 		BOTH
 	}
 	
-	// PSIPHON
-	private String mPsiphonServiceClassName;
-    private String mPsiphonStatusActivityClassName;
-    private String mPsiphonFeedbackActivityClassName;
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);              
@@ -276,12 +275,7 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
         
         updateSwitchTabsMethod();
 
-        // PSIPHON: Store the class names of the service and status activity.
-        // We'll use them to make sure the service is running.
-        mPsiphonServiceClassName = intent.getStringExtra("serviceClassName");
-        mPsiphonStatusActivityClassName = intent.getStringExtra("statusActivityClassName");
-        mPsiphonFeedbackActivityClassName = intent.getStringExtra("feedbackActivityClassName");
-        
+        // PSIPHON: make sure the service is running
         if (!ensurePsiphonRunning())
         {
             // Must return before trying to open tabs and whatnot.
@@ -435,37 +429,25 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
     {
         // See com.psiphon3.StatusActivity#isServiceRunning() for details.
         ActivityManager manager = (ActivityManager)getSystemService(ACTIVITY_SERVICE);
-        for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE))
-        {
+        for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (service.uid == android.os.Process.myUid() &&
-                    this.mPsiphonServiceClassName.equals(service.service.getClassName()))
-            {
+                    TunnelService.class.getName().equals(service.service.getClassName())) {
                 return true;
             }
         }
-        
-        Class psiphonStatusActivityClass;
-        try
-        {
-            psiphonStatusActivityClass = Class.forName(this.mPsiphonStatusActivityClassName);
-        } 
-        catch (ClassNotFoundException e)
-        {
-            // This shouldn't happen. 
-            return false;
-        }
-        
+
+
         // The Psiphon service isn't running. Punt back to the Psiphon status activity.
         Intent intent = new Intent(
                 "ACTION_VIEW",
                 null,
                 this,
-                psiphonStatusActivityClass);
+                StatusActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
-        
+
         this.finish();
-        
+
         return false;
     }
 
@@ -1900,24 +1882,13 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 	// feedback menu item
 	private void launchFeedback()
 	{	    
-        Class psiphonFeedbackActivityClass;
-        try
-        {
-            psiphonFeedbackActivityClass = Class.forName(this.mPsiphonFeedbackActivityClassName);
-        } 
-        catch (ClassNotFoundException e)
-        {
-            // This shouldn't happen. 
-            return;
-        }
-        
         Intent intent = new Intent(
                 "ACTION_VIEW",
                 null,
                 this,
-                psiphonFeedbackActivityClass);
+                FeedbackActivity.class);
         this.startActivity(intent);
-	}
+    }
 	
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
