@@ -18,14 +18,10 @@ package org.zirco.ui.activities.preferences;
 import java.util.List;
 
 import com.psiphon3.R;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import org.zirco.controllers.Controller;
 import org.zirco.providers.BookmarksProviderWrapper;
-import org.zirco.ui.activities.AboutActivity;
-import org.zirco.ui.activities.AdBlockerWhiteListActivity;
-import org.zirco.ui.activities.ChangelogActivity;
-import org.zirco.ui.activities.MobileViewListActivity;
-import org.zirco.ui.activities.DesktopViewListActivity;
-import org.zirco.ui.activities.MainActivity;
+import org.zirco.ui.activities.*;
 import org.zirco.ui.components.CustomWebView;
 import org.zirco.ui.runnables.XmlHistoryBookmarksExporter;
 import org.zirco.ui.runnables.XmlHistoryBookmarksImporter;
@@ -45,7 +41,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -54,7 +49,7 @@ import android.webkit.CookieManager;
 /**
  * Preferences activity.
  */
-public class PreferencesActivity extends PreferenceActivity {
+public class PreferencesActivity extends LocalizedActivities.PreferenceActivity {
 	
 	private ProgressDialog mProgressDialog;
 	

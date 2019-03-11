@@ -16,15 +16,15 @@
 package org.zirco.ui.activities.preferences;
 
 import com.psiphon3.R;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import org.zirco.utils.Constants;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceClickListener;
 
-public class WeavePreferencesActivity extends PreferenceActivity {
+public class WeavePreferencesActivity extends LocalizedActivities.PreferenceActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

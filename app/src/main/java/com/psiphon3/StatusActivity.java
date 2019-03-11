@@ -19,6 +19,7 @@
 
 package com.psiphon3;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
@@ -42,12 +43,10 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import com.psiphon3.psiphonlibrary.EmbeddedValues;
-import com.psiphon3.psiphonlibrary.PsiphonConstants;
-import com.psiphon3.psiphonlibrary.TunnelManager;
-import com.psiphon3.psiphonlibrary.WebViewProxySettings;
+import com.psiphon3.psiphonlibrary.*;
 
 import net.grandcentrix.tray.AppPreferences;
+import net.grandcentrix.tray.BuildConfig;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
 import java.io.File;
@@ -193,6 +192,12 @@ public class StatusActivity
     {
         super.onNewIntent(intent);
 
+        // This is a work around for SDK 9, 10 as they don't have the Intent.FLAG_ACTIVITY_CLEAR_TASK
+        // If we have this extra, restart the activity
+        if (intent.hasExtra(MoreOptionsPreferenceActivity.FORCE_ACTIVITY_RESTART)) {
+            restartActivity();
+        }
+
         // If the app is already foreground (so onNewIntent is being called),
         // the incoming intent is not automatically set as the activity's intent
         // (i.e., the intent returned by getIntent()). We want this behaviour,
@@ -201,6 +206,18 @@ public class StatusActivity
 
         // Handle explicit intent that is received when activity is already running
         HandleCurrentIntent();
+    }
+
+    private void restartActivity() {
+        // This should only be used to restart the activity in SDK 9 or 10 as Intent.FLAG_ACTIVITY_CLEAR_TASK is not available
+        Intent intent = new Intent(this, StatusActivity.class);
+        PendingIntent mPendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+        }
+
+        finish();
     }
 
     @Override

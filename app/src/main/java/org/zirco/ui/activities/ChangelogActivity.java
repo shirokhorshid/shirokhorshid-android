@@ -16,9 +16,9 @@
 package org.zirco.ui.activities;
 
 import com.psiphon3.R;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import org.zirco.utils.ApplicationUtils;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -28,7 +28,7 @@ import android.widget.TextView;
 /**
  * Changelog dialog activity.
  */
-public class ChangelogActivity extends Activity {
+public class ChangelogActivity extends LocalizedActivities.Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
