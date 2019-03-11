@@ -15,6 +15,8 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">បរាជ័យក្នុងការបញ្ជូនមតិយោបល់</string>
   <string name="FeedbackActivity.InvalidURLParameters">តំណយូអអិលមិនត្រឹមត្រូវ ក្នុងការបញ្ជូនទម្រង់មតិយោបល់</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">បរាជ័យក្នុងការទទួលមតិយោបល់</string>
+  <string name="StatusActivity.VpnRevokedTitle">VPN សាយហ្វូន ​បាន​ឈប់</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">VPN សាយហ្វូន មិនអាច​ចាប់ផ្តើម​បាន</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">បើកច្រកលើឧបករណ៍ទាំងមូល?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ជម្រើសបើកច្រកលើឧបករណ៍ទាំងមូល គឺមានសម្រាប់ឧបករណ៍អ្នក.\n\nជាមួយជម្រើសនេះ រាល់ការតភ្ជាប់អ៊ីនធឺណែត សម្រាប់កម្មវិធីទាំងអស់ រួមបញ្ចូលទាំងកម្មវិធីរុករក នឹងត្រូវឆ្លងកាត់ច្រក Psiphon.\n\nជាជម្រើស អ្នកអាចជ្រើសរើសច្រកដែលភ្ជាប់ជាមួយកម្មវិធីរុករក Psiphon ដែលនេះនឹងទុកច្រកដទៃទៀត ឲ្យតភ្ជាប់ដោយផ្ទាល់ជាមួយអ៊ីនធឺណែតធម្មតា។</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">បើកច្រកលើឧបករណ៍ទាំងមូល</string>

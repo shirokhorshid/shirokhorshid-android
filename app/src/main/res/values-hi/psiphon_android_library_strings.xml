@@ -8,6 +8,7 @@
   <string name="settings_tab_name">विकल्प</string>
   <string name="logs_tab_name">लॉग्स</string>
   <string name="share_proxies_prompt_negative">रद्द करना</string>
+  <string name="region_name_any">सबसे अच्छा प्रदर्शन</string>
   <string name="region_name_us">अमेरिका</string>
   <string name="region_name_gb">यूनाइटेड किंगडम</string>
   <string name="region_name_ca">कनाडा</string>
@@ -35,6 +36,7 @@
   <string name="feedback">प्रतिक्रिया</string>
   <string name="preference_notifications_title">सूचनाएं</string>
   <string name="preference_notifications_with_sound_title">ध्वनि</string>
+  <string name="preference_notifications_with_sound_summary">कनेक्शन स्थिति बदलते समय ध्वनि चलाएं</string>
   <string name="preference_notifications_with_vibrate_title">कांपना</string>
   <string name="preference_notifications_with_vibrate_summary">कनेक्शन की स्थिति बदलते समय कंपन करें</string>
   <string name="proxySettingsCategoryTitle">प्रोक्सी सेटिंग्स </string>

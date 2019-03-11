@@ -155,6 +155,7 @@
   <string name="wdm_force_iptables_toggle">강제 루트 완전한 기기 터널링 메서드</string>
   <string name="http_prefix_toggle">Masquerade를 HTTP로</string>
   <string name="preference_notifications_title">알림</string>
+  <string name="preference_routing_title">라우팅</string>
   <string name="preference_routing_exclude_apps_ok_button_text">셋</string>
   <string name="preference_notifications_with_sound_title">소리</string>
   <string name="preference_notifications_with_sound_summary">연결 상태가 변경될 때 사운드 재생</string>

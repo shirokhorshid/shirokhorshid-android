@@ -15,6 +15,8 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">ارسال نظر ناموفق بود</string>
   <string name="FeedbackActivity.InvalidURLParameters">پارامترهای نامعتبر در ارسال فرم</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">گرفتن صفحه ارسال نظر ناموفق بود</string>
+  <string name="StatusActivity.VpnRevokedTitle">VPN Psiphon متوقف شده است</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon نمی‌تواند شروع به کار کند</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">می‌خواهید تمام دستگاه را از پراکسی عبور دهید؟</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">گزینه قرار دادن کل ترافیک در تونل امن برای دستگاه شما در دسترس است.\n\nبا این امکان, با این کار کل ترافیک اینترنت شما از کل برنامه ها و همین طور جست و جوهای مرورگر از طریق تونل سایفون عبور داده می شوند.\n\nعلاوه بر این, شما می توانید انتخاب کنید که تنها ترافیک مرورگر بسته نرم افزاری سایفون از تونل عبور داده شود و بقیه ترافیک کامپیوتر شما از مسیر استاندارد اتصال اینترنت شما عبور داده شود..</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">تمام دستگاه را پراکسی کن</string>

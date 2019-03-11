@@ -101,6 +101,7 @@
   <string name="Commons.Add">Aggiungi</string>
   <string name="Commons.Clear">Pulisci</string>
   <string name="Commons.Delete">Cancella</string>
+  <string name="PreferencesActivity.VolumeKeysActionZoom">Zoom</string>
   <string name="Main.ShareChooserTitle">Condividi via</string>
   <string name="PreferencesActivity.UseWideViewPortPreferenceTitle">Usa viewport più grandi.</string>
   <string name="PreferencesActivity.SwitchTabBoth">Entrambe</string>

@@ -64,7 +64,7 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
     public static final String PROXIED_WEB_APP_HTTP_AUTH_PASSWORD = "";
 
     public static final boolean IS_PLAY_STORE_BUILD = false;
-    
+
     public static final String[] HOME_TAB_URL_EXCLUSIONS = {""};
 
     // These values are used when uploading diagnostic info
@@ -105,7 +105,7 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
     public static String GET_NEW_VERSION_EMAIL = "get@example.com";
     public static String FAQ_URL = "https://s3.amazonaws.com/invalid_bucket_name/en/faq.html";
     public static String DATA_COLLECTION_INFO_URL = "https://s3.amazonaws.com/invalid_bucket_name/en/faq.html#information-collected";
-    
+
 //[[[end]]]
 
     private static final String SPONSOR_ID_PREFERENCE = "sponsorIdPreference";

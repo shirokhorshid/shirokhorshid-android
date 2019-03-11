@@ -247,7 +247,7 @@
   <string name="WeaveBookmarksListActivity.WeaveRootFolder">Emplacements</string>
   <string name="WeaveBookmarksListActivity.EmptyText">Les signets Firefox ne sont pas synchronisés. Paramétrez vos informations de compte et lancez une synchro.</string>
   <string name="WeaveBookmarksListActivity.EmptyFolderText">Aucun signet dans ce répertoire.</string>
-  <string name="WeaveBookmarksListActivity.SetupButton">Paramétrage</string>
+  <string name="WeaveBookmarksListActivity.SetupButton">Configuration</string>
   <string name="WeaveBookmarksListActivity.SyncButton">Synchroniser</string>
   <string name="WeaveSync.SyncTitle">Synchronisation</string>
   <string name="WeaveSync.Connecting">Connexion au serveur…</string>
