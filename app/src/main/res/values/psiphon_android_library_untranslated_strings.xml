@@ -65,11 +65,11 @@
     <string name="status_activity_foreground">statusActivityForeground</string>
 
     <string-array name="languages">
-        <item>فارسی,fa</item>
         <item>English,en</item>
+        <item>فارسی,fa</item>
+        <item>العربية,ar</item>
         <item>简体中文,zh</item>
         <item>አማርኛ,am</item>
-        <item>العربية,ar</item>
         <item>azərbaycan dili,az</item>
         <item>Беларуская,be</item>
         <item>বাংলা,bn</item>
