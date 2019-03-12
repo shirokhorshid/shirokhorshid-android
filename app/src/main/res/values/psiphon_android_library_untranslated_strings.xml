@@ -65,6 +65,9 @@
     <string name="status_activity_foreground">statusActivityForeground</string>
 
     <string-array name="languages">
+        <item>فارسی,fa</item>
+        <item>English,en</item>
+        <item>简体中文,zh</item>
         <item>አማርኛ,am</item>
         <item>العربية,ar</item>
         <item>azərbaycan dili,az</item>
@@ -73,9 +76,7 @@
         <item>བོད་ཡིག,bo</item>
         <item>Deutsch,de</item>
         <item>Ελληνικά,el</item>
-        <item>English,en</item>
         <item>Español,es</item>
-        <item>فارسی,fa</item>
         <item>فارسی دری,fa-rAF</item>
         <item>Suomi,fi</item>
         <item>Français,fr</item>
@@ -104,7 +105,6 @@
         <item>Українська,uk</item>
         <item>Oʻzbekcha,uz</item>
         <item>Tiếng Việt,vi</item>
-        <item>简体中文,zh</item>
         <item>繁体中文,zh-rTW</item>
     </string-array>
 </resources>
