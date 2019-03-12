@@ -69,6 +69,7 @@
         <item>فارسی,fa</item>
         <item>العربية,ar</item>
         <item>简体中文,zh</item>
+        <item>繁体中文,zh-rTW</item>
         <item>አማርኛ,am</item>
         <item>azərbaycan dili,az</item>
         <item>Беларуская,be</item>
@@ -105,6 +106,5 @@
         <item>Українська,uk</item>
         <item>Oʻzbekcha,uz</item>
         <item>Tiếng Việt,vi</item>
-        <item>繁体中文,zh-rTW</item>
     </string-array>
 </resources>
