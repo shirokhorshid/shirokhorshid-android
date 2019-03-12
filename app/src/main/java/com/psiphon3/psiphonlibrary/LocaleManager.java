@@ -1,6 +1,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -62,6 +63,11 @@ public class LocaleManager {
         initialize(context);
         persistLanguage(language);
         return updateResources(context, language);
+    }
+
+    public static Context resetToDefaultLocale(Context context) {
+        Locale defaultLocale = Resources.getSystem().getConfiguration().locale;
+        return setNewLocale(context, defaultLocale.getLanguage());
     }
 
     public static String getLanguage() {

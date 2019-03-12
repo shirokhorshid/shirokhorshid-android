@@ -230,12 +230,16 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
 
         // Collect the string array of <language name>,<language code>
         String[] locales = getResources().getStringArray(R.array.languages);
-        CharSequence[] languageNames = new CharSequence[locales.length];
-        CharSequence[] languageCodes = new CharSequence[locales.length];
+        CharSequence[] languageNames = new CharSequence[locales.length + 1];
+        CharSequence[] languageCodes = new CharSequence[locales.length + 1];
 
-        for (int i = 0; i < locales.length; ++i) {
+        // Setup the "Default" locale
+        languageNames[0] = getString(R.string.preference_language_default_language);
+        languageCodes[0] = "";
+
+        for (int i = 1; i <= locales.length; ++i) {
             // Split the string on the comma
-            String[] localeArr = locales[i].split(",");
+            String[] localeArr = locales[i-1].split(",");
             languageNames[i] = localeArr[0];
             languageCodes[i] = localeArr[1];
         }
@@ -250,8 +254,13 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
             public boolean onPreferenceChange(Preference preference, Object o) {
                 // The passed object is the language code string
                 String languageCode = (String) o;
+
                 // The LocaleManager will correctly set the resource + store the language preference for the future
-                LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
+                if (languageCode.equals("")) {
+                    LocaleManager.resetToDefaultLocale(MoreOptionsPreferenceActivity.this);
+                } else {
+                    LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
+                }
 
                 // Kill the browser instance if it exists.
                 // This is required as it's a singleTask activity and isn't recreated when it loses focus.

@@ -55,4 +55,15 @@ public class LocaleManagerTest {
 
         assertEquals(mFrenchLanguage, LocaleManager.getLanguage());
     }
+
+    @Test
+    public void localeManager_ResetToDefaultLocale() {
+        LocaleManager.setNewLocale(mContext, mFrenchLanguage);
+
+        assertEquals(mFrenchLanguage, LocaleManager.getLanguage());
+
+        LocaleManager.resetToDefaultLocale(mContext);
+
+        assertEquals(mEnglishLanguage, LocaleManager.getLanguage());
+    }
 }

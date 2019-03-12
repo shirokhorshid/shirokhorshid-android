@@ -40,4 +40,5 @@
     <string name="preference_language_selection_summary">Select the language</string>
     <string name="preference_language_selection_title">Language</string>
     <string name="preference_language_title">Language Selection</string>
+    <string name="preference_language_default_language">Default language</string>
 </resources>
