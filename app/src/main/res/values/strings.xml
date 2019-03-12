@@ -38,6 +38,6 @@
     <string name="ads_consent_preference_dialog_title">Reset</string>
     <string name="ads_consent_preference_summary">Reset your preference to allow ad networks to use cookies and your personal data</string>
     <string name="preference_language_selection_summary">Select the language</string>
-    <string name="preference_language_selection_title">Language select</string>
+    <string name="preference_language_selection_title">Language</string>
     <string name="preference_language_title">Language Selection</string>
 </resources>
