@@ -20,4 +20,6 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Бүткүл түзмөктүтуннелдөө</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Бир гана Psiphon Браузерин колдонуу</string>
   <string name="ads_consent_preference_dialog_title">Баштапкы абалга кайтаруу</string>
+  <string name="preference_language_selection_title">Тил</string>
+  <string name="preference_language_default_language">Демейки тил</string>
 </resources>

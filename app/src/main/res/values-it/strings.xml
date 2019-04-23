@@ -20,4 +20,6 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Utilizzare il Tunnel per tutto il dispositivo</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Utilizzare solo lo Psiphon Browser</string>
   <string name="ads_consent_preference_dialog_title">Resetta</string>
+  <string name="preference_language_selection_title">Lingua</string>
+  <string name="preference_language_default_language">Lingua predefinita</string>
 </resources>

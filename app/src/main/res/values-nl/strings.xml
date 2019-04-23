@@ -16,7 +16,9 @@
   <string name="FeedbackActivity.InvalidURLParameters">Ongeldige URL Parameters in feedback formulier bij indienen</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Mislukt te krijgen feedback pagina-inhoud</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN is gestopt</string>
+  <string name="StatusActivity.VpnRevokedMessage">De VPN van Psiphon is door u of door een andere app verbroken. Meerdere VPN-apps kunnen niet tegelijkertijd worden uitgevoerd. Controleer of een andere VPN-app is geïnstalleerd en actief is.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN kan niet starten</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon kan niet starten de VPN. Meerdere VPN-apps kunnen niet tegelijkertijd worden uitgevoerd. Controleer of een andere VPN-app is geïnstalleerd en is ingesteld op Altijd-aan.</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnel het gehele apparaat?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Het hele apparaat tunnel optie is beschikbaar voor uw device.\n\nMet deze optie al uw internetverkeer voor alle apps met inbegrip van alle browsers zullen worden tunnelverbinding via Psiphon.\n\nAlternatief, kunt u kiezen om te tunnelen alleen de meegeleverde browser Psiphon die laat alle andere apps gaan rechtstreeks via uw standaard Internet-verbinding.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Gehele Apparaat</string>
@@ -35,4 +37,6 @@
   <string name="ads_consent_preference_title">Reset advertenties personalisatie voorkeur</string>
   <string name="ads_consent_preference_dialog_title">Wis</string>
   <string name="ads_consent_preference_summary">Reset uw voorkeur om advertentienetwerken om cookies te gebruiken en uw persoonlijke gegevens</string>
+  <string name="preference_language_selection_title">Taal</string>
+  <string name="preference_language_default_language">Standaard taal</string>
 </resources>

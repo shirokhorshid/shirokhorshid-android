@@ -37,4 +37,8 @@
   <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
   <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
   <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>
+  <string name="preference_language_selection_summary">Sélectionner la langue</string>
+  <string name="preference_language_selection_title">Langue</string>
+  <string name="preference_language_title">Sélection de la langue</string>
+  <string name="preference_language_default_language">Langue par défaut</string>
 </resources>

@@ -20,4 +20,6 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Criar Passagem em Todo o Dispositivo</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Só utilizar o Navegador Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Reiniciar</string>
+  <string name="preference_language_selection_title">Idioma</string>
+  <string name="preference_language_default_language">Idioma predefinido</string>
 </resources>

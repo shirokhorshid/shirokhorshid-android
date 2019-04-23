@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">sponsor başlığı; sponsor ana sayfasını açmak için tıklayın</string>
+  <string name="banner_desc">destekçi başlığı; destekçi ana sayfasını açmak için tıklayın</string>
   <string name="start_desc">Psiphon bağlantısı kur; bağlanmak için tıklayın</string>
   <string name="message_image_success_desc">tamamlanma iletisi simgesi</string>
   <string name="message_image_error_desc">hata iletisi simgesi</string>
@@ -8,33 +8,37 @@
   <string name="message_image_warning_desc">uyarı iletisi simgesi</string>
   <string name="exit">Çık</string>
   <string name="open_browser">Tarayıcıyı Aç</string>
-  <string name="browser_task_label">Psiphon Tarayıcı</string>
+  <string name="browser_task_label">Psiphon Browser</string>
   <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan web siteleri hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
   <string name="FeedbackActivity.Success">Geri bildiriminiz için teşekkür ederiz</string>
   <string name="FeedbackActivity.Failure">Form gönderilemedi. Lütfen yeniden deneyin.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Geribildirim gönderme başarısız</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Geribildirim formu gönderiminde geçersiz Adres Parametreleri</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Geribildirim sayfa içeriği alma başarısız</string>
-  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN çalışmayı durdurdu</string>
-  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kapatılmış. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
-  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlatılamıyor</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Geri bildirim gönderilemedi</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Geri bildirim formu gönderimi için adres parametreleri geçersiz</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Geri bildirim sayfasının içeriği alınamadı</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN durdu</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kesilmiş. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlatılamadı</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN bağlantısını başlatamadı. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tüm cihaz tünellensin mi?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Cihazınız için tüm cihaz tünelleme seçeneği kullanılabilir.\n\nBu seçenek ile tarayıcılar da dahil tüm uygulamaların İnternet trafiği Psiphon aracılığı ile tünellenecek.\n\nEk olarak, diğer uygulamaların İnternet\'e doğrudan standart bağlantı ile çıkabilmesi için sadece birlikte gelen Psiphon tarayıcıyı tünellemeyi seçebilirsiniz.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tüm Cihazı Tünelle</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Sadece Psiphon Tarayıcıyı Kullan</string>
-  <string name="selected_region_currently_not_available">Seçtiğiniz bölge şu an müsait değildir, lütfen başka bir bölge seçin.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Gizliliğinizi ve veri güvenliğinizi önemsiyoruz. Bu uygulamayı bedava tutmamız için reklam göstermemiz gerekiyor.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Verilerinizi kullanarak size en uygun reklamları göstermeye devam edelim mi?</string>
-  <string name="you_can_change_your_choice_anytime">Psiphon Pro ayarlarında bu seçeneği istediğiniz zaman değiştirebilirsiniz. Reklam sağlayıcılarımız veri toplayarak sizin cihazınıza özel bir isim oluşturacak ve size uygun reklamlar gösterecektir.</string>
-  <string name="learn_more_about_our_ad_providers"><u>Reklam sağlayıcılarımız hakkında daha fazla bilgi edinin</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Evet, bana uygun reklamlar gösterilmeye devam edilsi</string>
-  <string name="no_see_ads_that_are_less_relevant">Hayır, daha az alakalı reklamlar gösterilsin</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tüm aygıt tünel kullansın</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Aygıtınızda Tüm aygıt tünel kullansın seçeneği uygulanabilir.\n\nBu seçenek etkinleştirildiğinde, tüm tarayıcılar ile tüm uygulamaların İnternet trafiği Psiphon tüneli üzerinden aktarılır.\n\nAlternatif olarak, yalnız Psiphon tarayıcının trafiği tünel üzerinden geçerken diğer uygulamaların trafiğinin doğrudan standart İnternet bağlantısı üzerinden aktarılmasını seçebilirsiniz.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tüm Aygıt Tünel Kullansın </string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Tüneli Yalnız Psiphon Browser Kullansın</string>
+  <string name="selected_region_currently_not_available">Seçtiğiniz bölge şu anda kullanılamıyor, lütfen başka bir bölge seçin.</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Kişisel gizliliğiniz ve veri güvenliğinizi önemsiyoruz. Bu uygulamanın ücretsiz kalması için reklam görüntülememiz gerekiyor.</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Verilerinizi kullanarak size özel reklamları göstermeye devam edelim mi?</string>
+  <string name="you_can_change_your_choice_anytime">Bu durumu istediğiniz zaman Psiphon Pro ayarlarından değiştirebilirsiniz. Reklam yayıncılarımız veri toplayarak aygıtınıza özel bir kod oluşturur ve size özel reklamlar görüntüler.</string>
+  <string name="learn_more_about_our_ad_providers"><u>Reklam yayıncılarımız hakkında ayrıntılı bilgi alın</u></string>
+  <string name="yes_continue_to_see_relevant_ads">Evet, bana özel reklamlar görüntülensin</string>
+  <string name="no_see_ads_that_are_less_relevant">Hayır, ilgisiz reklamlar görüntülensin</string>
   <string name="pay_for_the_ad_free_version">Reklamsız sürüme yükseltin</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">Her bir reklam sağlayıcısının gizlilik politikalarını görmek için üzerilerine basın</string>
-  <string name="ads_consent_preference_category_title">Reklam Kişiselleştirmesi</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">Gizlilik ilkesini görmek istediğiniz reklam yayıncısına tıklayın</string>
+  <string name="ads_consent_preference_category_title">Reklamları Kişiselleştirme</string>
   <string name="ads_consent_preference_dialog_preference_message">Reklam kişiselleştirme ayarlarınızı sıfırlamak istediğinize emin misiniz?</string>
-  <string name="ads_consent_preference_title">Kişisel reklam ayarlarını sıfırla</string>
+  <string name="ads_consent_preference_title">Reklamları kişiselleştirme ayarlarını sıfırla</string>
   <string name="ads_consent_preference_dialog_title">Sıfırla</string>
-  <string name="ads_consent_preference_summary">Reklam sağlayıcılarının verilerinize ve çerezlerinize erişim seçeneğini sıfırlayın </string>
+  <string name="ads_consent_preference_summary">Reklam ağlarının çerez kullanmasına ve kişisel verilerinize erişmesine izin veren ayarları sıfırlayın</string>
+  <string name="preference_language_selection_summary">Dili seçin</string>
+  <string name="preference_language_selection_title">Dil</string>
+  <string name="preference_language_title">Dil Seçimi</string>
+  <string name="preference_language_default_language">Varsayılan dil</string>
 </resources>
