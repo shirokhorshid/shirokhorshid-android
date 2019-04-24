@@ -20,6 +20,14 @@
             android:title="@string/preference_notifications_with_vibrate_title" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:key="@string/preferencesLanguage"
+        android:title="@string/preference_language_title">
+        <ListPreference
+            android:key="@string/preferenceLanguageSelection"
+            android:summary="@string/preference_language_selection_summary"
+            android:title="@string/preference_language_selection_title" />
+    </PreferenceCategory>
+    <PreferenceCategory
         android:key="@string/routingSettingsCategoryKey"
         android:title="@string/preference_routing_title" >
         <com.psiphon3.psiphonlibrary.InstalledAppsMultiSelectListPreference

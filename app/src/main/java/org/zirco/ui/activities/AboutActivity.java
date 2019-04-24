@@ -17,7 +17,6 @@ package org.zirco.ui.activities;
 
 import com.psiphon3.R;
 
-import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -27,11 +26,12 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 
 /**
  * About dialog activity.
  */
-public class AboutActivity extends Activity {
+public class AboutActivity extends LocalizedActivities.Activity {
 	
 	 @Override
 	 protected void onCreate(Bundle savedInstanceState) {
