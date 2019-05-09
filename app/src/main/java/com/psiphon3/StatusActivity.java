@@ -43,7 +43,11 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import com.psiphon3.psiphonlibrary.*;
+import com.psiphon3.psiphonlibrary.EmbeddedValues;
+import com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity;
+import com.psiphon3.psiphonlibrary.PsiphonConstants;
+import com.psiphon3.psiphonlibrary.TunnelManager;
+import com.psiphon3.psiphonlibrary.WebViewProxySettings;
 
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
@@ -187,14 +191,12 @@ public class StatusActivity
     }
 
     @Override
-    protected void onNewIntent(Intent intent)
-    {
+    protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
         // This is a work around for SDK 9, 10 as they don't have the Intent.FLAG_ACTIVITY_CLEAR_TASK
         // If we have this extra, restart the application
-        if (intent.hasExtra(MoreOptionsPreferenceActivity.FORCE_APPLICATION_RESTART))
-        {
+        if (intent.hasExtra(MoreOptionsPreferenceActivity.FORCE_APPLICATION_RESTART)) {
             restartApplication();
             return;
         }
@@ -209,12 +211,9 @@ public class StatusActivity
         HandleCurrentIntent();
     }
 
-    private void restartApplication()
-    {
-        // This should only be used to restart the activity in SDK 9 or 10 as Intent.FLAG_ACTIVITY_CLEAR_TASK is not available
+    private void restartApplication() {
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        if (alarmManager != null)
-        {
+        if (alarmManager != null) {
             Intent intent = new Intent(this, StatusActivity.class);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, pendingIntent);

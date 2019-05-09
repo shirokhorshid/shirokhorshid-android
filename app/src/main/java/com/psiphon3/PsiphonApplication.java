@@ -21,14 +21,13 @@
 package com.psiphon3;
 
 import android.app.Application;
-
 import android.content.Context;
+
 import com.psiphon3.psiphonlibrary.LocaleManager;
 
 public class PsiphonApplication extends Application {
     @Override
-    protected void attachBaseContext(Context base)
-    {
+    protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleManager.setLocale(base));
     }
 }

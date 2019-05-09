@@ -39,17 +39,14 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-public class LocaleManager
-{
+public class LocaleManager {
     private static final String LANGUAGE_KEY = "language_key";
     private static final String USE_SYSTEM_LANGUAGE_VAL = "system";
     private static SharedPreferences m_preferences;
     private static boolean m_isInitialized;
 
-    public static void initialize(Context context)
-    {
-        if (m_isInitialized)
-        {
+    public static void initialize(Context context) {
+        if (m_isInitialized) {
             return;
         }
 
@@ -57,39 +54,32 @@ public class LocaleManager
         m_preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public static Context setLocale(Context context)
-    {
+    public static Context setLocale(Context context) {
         initialize(context);
         return updateResources(context, getLanguage());
     }
 
-    public static Context setNewLocale(Context context, String language)
-    {
+    public static Context setNewLocale(Context context, String language) {
         initialize(context);
         persistLanguage(language);
         return updateResources(context, language);
     }
 
-    public static Context resetToDefaultLocale(Context context)
-    {
+    public static Context resetToDefaultLocale(Context context) {
         return setNewLocale(context, USE_SYSTEM_LANGUAGE_VAL);
     }
 
-    public static String getLanguage()
-    {
+    public static String getLanguage() {
         return m_preferences.getString(LANGUAGE_KEY, Locale.getDefault().getLanguage());
     }
 
     @SuppressLint("ApplySharedPref")
-    private static void persistLanguage(String language)
-    {
+    private static void persistLanguage(String language) {
         m_preferences.edit().putString(LANGUAGE_KEY, language).commit();
     }
 
-    private static Context updateResources(Context context, String language)
-    {
-        if (language.equals(USE_SYSTEM_LANGUAGE_VAL))
-        {
+    private static Context updateResources(Context context, String language) {
+        if (language.equals(USE_SYSTEM_LANGUAGE_VAL)) {
             language = getSystemLanguage();
         }
 
@@ -98,13 +88,10 @@ public class LocaleManager
 
         Resources resources = context.getResources();
         Configuration config = new Configuration(resources.getConfiguration());
-        if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1)
-        {
+        if (Build.VERSION.SDK_INT >= JELLY_BEAN_MR1) {
             config.setLocale(locale);
             context = context.createConfigurationContext(config);
-        }
-        else
-        {
+        } else {
             config.locale = locale;
             resources.updateConfiguration(config, resources.getDisplayMetrics());
         }
@@ -112,8 +99,7 @@ public class LocaleManager
         return context;
     }
 
-    private static String getSystemLanguage()
-    {
+    private static String getSystemLanguage() {
         Locale defaultLocale = Resources.getSystem().getConfiguration().locale;
         return defaultLocale.getLanguage();
     }
