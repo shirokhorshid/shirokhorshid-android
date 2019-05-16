@@ -28,6 +28,14 @@ import com.psiphon3.psiphonlibrary.LocaleManager;
 public class PsiphonApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleManager.setLocale(base));
+        // Do not set locale in the base context if we detected system language should be used
+        // because it will prevent locale change when it is triggered via onConfigurationChanged
+        // callback when user changes locale in the OS settings.
+        LocaleManager.initialize(base);
+        if(LocaleManager.getLanguage().equals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL)) {
+            super.attachBaseContext(base);
+        } else {
+            super.attachBaseContext(LocaleManager.setLocale(base));
+        }
     }
 }
