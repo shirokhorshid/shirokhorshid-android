@@ -41,6 +41,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            pseudoLocalesEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

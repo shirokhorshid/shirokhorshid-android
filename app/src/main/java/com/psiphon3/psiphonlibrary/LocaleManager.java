@@ -41,7 +41,7 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  */
 public class LocaleManager {
     private static final String LANGUAGE_KEY = "language_key";
-    private static final String USE_SYSTEM_LANGUAGE_VAL = "system";
+    public static final String USE_SYSTEM_LANGUAGE_VAL = "system";
     private static SharedPreferences m_preferences;
     private static boolean m_isInitialized;
 
@@ -59,18 +59,18 @@ public class LocaleManager {
         return updateResources(context, getLanguage());
     }
 
-    public static Context setNewLocale(Context context, String language) {
+    static Context setNewLocale(Context context, String language) {
         initialize(context);
         persistLanguage(language);
         return updateResources(context, language);
     }
 
-    public static Context resetToDefaultLocale(Context context) {
+    static Context resetToDefaultLocale(Context context) {
         return setNewLocale(context, USE_SYSTEM_LANGUAGE_VAL);
     }
 
     public static String getLanguage() {
-        return m_preferences.getString(LANGUAGE_KEY, Locale.getDefault().getLanguage());
+        return m_preferences.getString(LANGUAGE_KEY, USE_SYSTEM_LANGUAGE_VAL);
     }
 
     @SuppressLint("ApplySharedPref")
@@ -79,11 +79,13 @@ public class LocaleManager {
     }
 
     private static Context updateResources(Context context, String language) {
+        Locale locale;
         if (language.equals(USE_SYSTEM_LANGUAGE_VAL)) {
-            language = getSystemLanguage();
+            locale = Locale.getDefault();
+        } else {
+            locale = new Locale(language);
         }
 
-        Locale locale = new Locale(language);
         Locale.setDefault(locale);
 
         Resources resources = context.getResources();
@@ -97,10 +99,5 @@ public class LocaleManager {
         }
 
         return context;
-    }
-
-    private static String getSystemLanguage() {
-        Locale defaultLocale = Resources.getSystem().getConfiguration().locale;
-        return defaultLocale.getLanguage();
     }
 }
