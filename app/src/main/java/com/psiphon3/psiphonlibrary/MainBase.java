@@ -432,6 +432,7 @@ public abstract class MainBase {
 
             m_tabHost.setOnTouchListener(onTouchListener);
             m_statusLayout = (LinearLayout) findViewById(R.id.statusLayout);
+            m_statusLayout.setOnTouchListener(onTouchListener);
             m_statusViewImage = (ImageButton) findViewById(R.id.statusViewImage);
             m_statusViewImage.setOnTouchListener(onTouchListener);
             findViewById(R.id.sponsorViewFlipper).setOnTouchListener(onTouchListener);
