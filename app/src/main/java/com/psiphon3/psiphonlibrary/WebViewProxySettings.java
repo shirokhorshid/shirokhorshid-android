@@ -41,8 +41,6 @@ import java.util.List;
 public class WebViewProxySettings
 {
     private static boolean mIsLocalProxySet = false;
-    private static boolean mIsInitialized = false;
-    private static List<String> mReceiversList;
 
     public static boolean isLocalProxySet() {return mIsLocalProxySet;}
 
@@ -84,24 +82,6 @@ public class WebViewProxySettings
         }
     }
 
-    // Must call once early in the application lifecycle, e.g. in Activity.onResume() or in
-    // Activity.onStart(), before dynamic module loader has a chance to load intent receivers that
-    // may cause the app to close if an unexpected intent is received when setWebkitProxyLollipop
-    // is called.
-    public static void initialize(Context ctx) {
-        if(mIsInitialized) {
-            return;
-        }
-
-        mIsInitialized = true;
-        mReceiversList = new ArrayList<>();
-
-        for (Object receiver : getCurrentReceiversSet(ctx)) {
-            mReceiversList.add(receiver.getClass().getName());
-        }
-
-    }
-
     public static void resetLocalProxy(Context ctx)
     {
         UpstreamProxySettings.ProxySettings systemProxySettings = UpstreamProxySettings.getOriginalSystemProxySettings(ctx);
@@ -138,10 +118,6 @@ public class WebViewProxySettings
     */
     public static boolean setProxy (Context ctx, String host, int port)
     {
-        if (!mIsInitialized) {
-            throw new AssertionError("Assertion error: WebViewProxySettings is not initialized!");
-        }
-
         UpstreamProxySettings.saveSystemProxySettings(ctx);
 
         boolean worked = false;
@@ -332,31 +308,25 @@ public class WebViewProxySettings
         try {
             for (Object receiver : getCurrentReceiversSet(appContext))
             {
-                Class clazz = receiver.getClass();
+                Class receiverClass = receiver.getClass();
+                String receiverName = receiverClass.getCanonicalName();
+                if (receiverName != null && receiverName.contains("ProxyChangeListener"))
+                {
+                    Method onReceiveMethod = receiverClass.getDeclaredMethod("onReceive", Context.class, Intent.class);
+                    Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
 
-                // Check if receiver class name is in the list of
-                // receivers names we stored during initialization
-                if (!mReceiversList.contains(clazz.getName())) {
-                    continue;
-                }
+                    final String CLASS_NAME = "android.net.ProxyInfo";
+                    Class proxyInfoClass = Class.forName(CLASS_NAME);
+                    Constructor constructor = proxyInfoClass.getConstructor(String.class, Integer.TYPE, String.class);
+                    constructor.setAccessible(true);
+                    Object proxyInfo = constructor.newInstance(host, port, null);
+                    intent.putExtra("android.intent.extra.PROXY_INFO", (Parcelable) proxyInfo);
 
-                // NOTE: as of Chrome 67 the ProxyChangeListener now has an obfuscated name,
-                // so we are unable to identify the receiver by name. Instead we'll send the
-                // PROXY_CHANGE intent to all receivers.
-                Method onReceiveMethod = clazz.getDeclaredMethod("onReceive", Context.class, Intent.class);
-                Intent intent = new Intent(Proxy.PROXY_CHANGE_ACTION);
-
-                final String CLASS_NAME = "android.net.ProxyInfo";
-                Class proxyInfoClass = Class.forName(CLASS_NAME);
-                Constructor constructor = proxyInfoClass.getConstructor(String.class, Integer.TYPE, String.class);
-                constructor.setAccessible(true);
-                Object proxyInfo = constructor.newInstance(host, port, null);
-                intent.putExtra("android.intent.extra.PROXY_INFO", (Parcelable) proxyInfo);
-
-                try {
-                    onReceiveMethod.invoke(receiver, appContext, intent);
-                } catch (InvocationTargetException e) {
-                    // This receiver may throw on an unexpected intent, continue to the next one
+                    try {
+                        onReceiveMethod.invoke(receiver, appContext, intent);
+                    } catch (InvocationTargetException e) {
+                        // This receiver may throw on an unexpected intent, continue to the next one
+                    }
                 }
             }
             return true;
