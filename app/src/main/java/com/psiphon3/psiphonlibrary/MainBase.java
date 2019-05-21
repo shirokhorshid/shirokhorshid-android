@@ -449,6 +449,7 @@ public abstract class MainBase {
             m_tabHost.setOnTabChangedListener(this);
 
             int currentTab = m_multiProcessPreferences.getInt(CURRENT_TAB, 0);
+            m_currentTab = currentTab;
             m_tabHost.setCurrentTab(currentTab);
 
             m_sponsorViewFlipper = (ViewFlipper) findViewById(R.id.sponsorViewFlipper);
