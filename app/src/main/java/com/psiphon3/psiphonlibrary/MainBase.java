@@ -566,7 +566,7 @@ public abstract class MainBase {
             for (String homeTabUrlExclusion : EmbeddedValues.HOME_TAB_URL_EXCLUSIONS) {
                 if (url.contains(homeTabUrlExclusion)) {
                     if (freshConnect) {
-                        displayBrowser(getContext(), Uri.parse(url));
+                        displayBrowser(getContext(), url);
                     }
                     return;
                 }
@@ -1456,7 +1456,7 @@ public abstract class MainBase {
                     }
 
                     if (mWebViewLoaded) {
-                        displayBrowser(getContext(), Uri.parse(url));
+                        displayBrowser(getContext(), url);
                     }
                     return mWebViewLoaded;
                 }
@@ -1524,7 +1524,7 @@ public abstract class MainBase {
             }
         }
 
-        protected void displayBrowser(Context context, Uri uri) {
+        protected void displayBrowser(Context context, String urlString) {
 
         }
 
