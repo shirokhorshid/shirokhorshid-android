@@ -32,7 +32,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.net.VpnService;
@@ -161,6 +160,7 @@ public abstract class MainBase {
         protected CheckBox m_disableTimeoutsToggle;
         private Toast m_invalidProxySettingsToast;
         private Button m_moreOptionsButton;
+        private Button m_openBrowserButton;
         private LoggingObserver m_loggingObserver;
 
         public TabbedActivityBase() {
@@ -466,6 +466,7 @@ public abstract class MainBase {
             m_disableTimeoutsToggle = (CheckBox) findViewById(R.id.disableTimeoutsToggle);
             m_downloadOnWifiOnlyToggle = (CheckBox) findViewById(R.id.downloadOnWifiOnlyToggle);
             m_moreOptionsButton = (Button) findViewById(R.id.moreOptionsButton);
+            m_openBrowserButton = (Button) findViewById(R.id.openBrowserButton);
 
             m_slowSentGraph = new DataTransferGraph(this, R.id.slowSentGraph);
             m_slowReceivedGraph = new DataTransferGraph(this, R.id.slowReceivedGraph);
@@ -865,6 +866,7 @@ public abstract class MainBase {
         private void updateServiceStateUI() {
             if (!m_boundToTunnelService) {
                 setStatusState(R.drawable.status_icon_disconnected);
+                m_openBrowserButton.setEnabled(false);
                 if (!isServiceRunning()) {
                     m_toggleButton.setText(getText(R.string.start));
                     enableToggleServiceUI();
@@ -875,8 +877,10 @@ public abstract class MainBase {
             } else {
                 if (isTunnelConnected()) {
                     setStatusState(R.drawable.status_icon_connected);
+                    m_openBrowserButton.setEnabled(true);
                 } else {
                     setStatusState(R.drawable.status_icon_connecting);
+                    m_openBrowserButton.setEnabled(false);
                 }
                 m_toggleButton.setText(getText(R.string.stop));
                 enableToggleServiceUI();
