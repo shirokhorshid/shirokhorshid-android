@@ -22,7 +22,10 @@ import android.app.ActivityManager.RunningServiceInfo;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.content.*;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
 import android.database.Cursor;
@@ -311,11 +314,19 @@ public class MainActivity extends LocalizedActivities.Activity implements IToolb
         // end Psiphon changes
         
         // PSIPHON: open home pages if they're not already open (or a blank tab if none)
-        ArrayList<String> homePages = intent.getStringArrayListExtra("homePages");
-        
-        if (intent.getData() != null)
-        {
-            homePages.add(intent.getDataString());
+        ArrayList<String> homePages;
+
+        if (intent.hasExtra("homePages")) {
+            homePages = intent.getStringArrayListExtra("homePages");
+        } else {
+            homePages = new ArrayList<>();
+        }
+
+        if (intent.getData() != null) {
+            String url = intent.getDataString();
+            if (!homePages.contains(url)) {
+                homePages.add(url);
+            }
         }
         
         for (String homePage : homePages)
