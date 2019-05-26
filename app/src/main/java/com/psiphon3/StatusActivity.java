@@ -199,66 +199,6 @@ public class StatusActivity
         HandleCurrentIntent();
     }
 
-    @Override
-    protected PendingIntent getHandshakePendingIntent() {
-        Intent intent = new Intent(
-                TunnelManager.INTENT_ACTION_HANDSHAKE,
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    @Override
-    protected PendingIntent getServiceNotificationPendingIntent() {
-        Intent intent = new Intent(
-                "ACTION_VIEW",
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    @Override
-    protected PendingIntent getRegionNotAvailablePendingIntent() {
-        Intent intent = new Intent(
-                TunnelManager.INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE,
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    @Override
-    protected PendingIntent getVpnRevokedPendingIntent() {
-        Intent intent = new Intent(
-                TunnelManager.INTENT_ACTION_VPN_REVOKED,
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
     protected void HandleCurrentIntent()
     {
         Intent intent = getIntent();

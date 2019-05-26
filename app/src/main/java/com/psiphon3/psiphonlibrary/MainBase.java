@@ -1134,34 +1134,7 @@ public abstract class MainBase {
             return m_tunnelConfig.disableTimeouts;
         }
 
-        protected PendingIntent getHandshakePendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getServiceNotificationPendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getRegionNotAvailablePendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getVpnRevokedPendingIntent() {
-            return null;
-        }
         protected void configureServiceIntent(Intent intent) {
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_HANDSHAKE_PENDING_INTENT,
-                    getHandshakePendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT,
-                    getServiceNotificationPendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT,
-                    getRegionNotAvailablePendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT,
-                    getVpnRevokedPendingIntent());
-
             intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE,
                     getTunnelConfigWholeDevice());
 
@@ -1365,14 +1338,6 @@ public abstract class MainBase {
         private void unbindTunnelService() {
             if (m_boundToTunnelService) {
                 m_boundToTunnelService = false;
-                sendServiceMessage(TunnelManager.MSG_UNREGISTER);
-                try {
-                    unbindService(m_tunnelServiceConnection);
-                }
-                catch (java.lang.IllegalArgumentException e) {
-                    // Ignore
-                    // "java.lang.IllegalArgumentException: Service not registered"
-                }
             }
             updateServiceStateUI();
         }
