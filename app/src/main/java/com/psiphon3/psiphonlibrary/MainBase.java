@@ -1338,6 +1338,14 @@ public abstract class MainBase {
         private void unbindTunnelService() {
             if (m_boundToTunnelService) {
                 m_boundToTunnelService = false;
+                sendServiceMessage(TunnelManager.MSG_UNREGISTER);
+                try {
+                    unbindService(m_tunnelServiceConnection);
+                }
+                catch (java.lang.IllegalArgumentException e) {
+                    // Ignore
+                    // "java.lang.IllegalArgumentException: Service not registered"
+                }
             }
             updateServiceStateUI();
         }
