@@ -215,6 +215,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             mNotificationBuilder = new NotificationCompat.Builder(m_parentService);
         }
 
+        // This service runs as a separate process, so it needs to initialize embedded values
+        EmbeddedValues.initialize(this.getContext());
         MyLog.setLogger(this);
     }
 
