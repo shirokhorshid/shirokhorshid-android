@@ -158,17 +158,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     // Implementation of android.app.Service.onStartCommand
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (mNotificationManager == null) {
-            mNotificationManager = (NotificationManager) m_parentService.getSystemService(Context.NOTIFICATION_SERVICE);
-        }
-
-        if (mNotificationBuilder == null) {
-            mNotificationBuilder = new NotificationCompat.Builder(m_parentService);
-        }
-
         if (m_firstStart && intent != null) {
             getTunnelConfig(intent);
-            m_parentService.startForeground(R.string.psiphon_service_notification_id, this.createNotification(false));
             MyLog.v(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
             m_firstStart = false;
             m_tunnelThreadStopSignal = new CountDownLatch(1);
@@ -214,6 +205,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         if (mNotificationBuilder == null) {
             mNotificationBuilder = new NotificationCompat.Builder(m_parentService);
         }
+        m_parentService.startForeground(R.string.psiphon_service_notification_id, this.createNotification(false));
 
         // This service runs as a separate process, so it needs to initialize embedded values
         EmbeddedValues.initialize(this.getContext());
