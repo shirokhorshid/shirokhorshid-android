@@ -37,7 +37,7 @@
   <string name="ads_consent_preference_title">Reklamları kişiselleştirme ayarlarını sıfırla</string>
   <string name="ads_consent_preference_dialog_title">Sıfırla</string>
   <string name="ads_consent_preference_summary">Reklam ağlarının çerez kullanmasına ve kişisel verilerinize erişmesine izin veren ayarları sıfırlayın</string>
-  <string name="preference_language_selection_summary">Dili seçin</string>
+  <string name="preference_language_selection_summary">Kullanılacak dili seçin</string>
   <string name="preference_language_selection_title">Dil</string>
   <string name="preference_language_title">Dil Seçimi</string>
   <string name="preference_language_default_language">Varsayılan dil</string>
