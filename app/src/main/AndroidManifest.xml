@@ -41,21 +41,10 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "https://www.psiphon3.com/android-feedback” -->
+                <!-- Accepts URIs that begin with "psiphon://feedback” -->
                 <data
-                    android:host="www.psiphon3.com"
-                    android:pathPrefix="/android-feedback"
-                    android:scheme="https" />
-                <!-- note that the leading "/" is required for pathPrefix-->
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs that begin with "feedback://psiphon” -->
-                <data
-                    android:host="psiphon"
-                    android:scheme="feedback" />
+                    android:scheme="psiphon"
+                    android:host="feedback" />
             </intent-filter>
         </activity>
         <activity

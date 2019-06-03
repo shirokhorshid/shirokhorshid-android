@@ -219,7 +219,7 @@ public class FeedbackActivity extends LocalizedActivities.Activity
         }
 
         String dataString = data.toString();
-        return dataString.equals("https://www.psiphon3.com/android-feedback") || dataString.equals("feedback://psiphon");
+        return dataString.equals("psiphon://feedback");
     }
 
     private String getHTMLContent()
