@@ -56,6 +56,12 @@
             android:permission="android.permission.BIND_VPN_SERVICE"
             android:exported="false"
             android:process=":TunnelService" >
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="true" />
         </service>
 
         <provider

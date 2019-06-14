@@ -1135,6 +1135,9 @@ public abstract class MainBase {
         }
 
         protected void configureServiceIntent(Intent intent) {
+            // Indicate that the user triggered this start request
+            intent.putExtra(TunnelVpnService.USER_STARTED_INTENT_FLAG, true);
+
             intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE,
                     getTunnelConfigWholeDevice());
 
