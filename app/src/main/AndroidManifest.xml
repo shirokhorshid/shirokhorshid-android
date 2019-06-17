@@ -25,6 +25,7 @@
         android:name=".PsiphonApplication"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
+        android:theme="@style/Theme.AppCompat"
         android:supportsRtl="true"
         android:label="@string/app_name">
         <activity
@@ -89,7 +90,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.psiphon3.provider"
+            android:authorities="com.psiphon3.UpgradeFileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
