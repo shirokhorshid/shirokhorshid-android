@@ -388,7 +388,7 @@ public interface UpgradeManager
 
             Intent upgradeIntent = new Intent(Intent.ACTION_VIEW);
 
-            Uri apkURI = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".provider", file.getFile());
+            Uri apkURI = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".UpgradeFileProvider", file.getFile());
             upgradeIntent.setDataAndType(apkURI, "application/vnd.android.package-archive");
             upgradeIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         
