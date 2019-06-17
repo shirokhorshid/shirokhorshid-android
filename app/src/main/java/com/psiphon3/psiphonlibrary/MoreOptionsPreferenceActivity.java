@@ -41,7 +41,7 @@ import org.zirco.ui.activities.MainActivity;
 
 import java.util.*;
 
-public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);

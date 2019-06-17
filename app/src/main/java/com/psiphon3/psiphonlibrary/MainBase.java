@@ -93,7 +93,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class MainBase {
-    public static abstract class Activity extends LocalizedActivities.Activity implements MyLog.ILogger {
+    public static abstract class Activity extends LocalizedActivities.AppCompatActivity implements MyLog.ILogger {
         public Activity() {
             Utils.initializeSecureRandom();
         }
