@@ -26,6 +26,7 @@ import org.zirco.model.items.BookmarkItem;
 import org.zirco.model.items.HistoryItem;
 import org.zirco.providers.BookmarksProviderWrapper;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,8 +35,10 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.text.ClipboardManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -285,6 +288,29 @@ public class ApplicationUtils {
         }
         
         return true;
+	}
+
+	/**
+	 * Checks if we can write to external storage, requesting permission to do so if we can't.
+	 *
+	 * @param activity The activity to request permissions for
+	 *
+	 * @return true iff we have the permission to write to external storage.
+	 */
+	public static boolean ensureWriteStoragePermissionGranted(Activity activity) {
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+			// Permission is automatically granted on sdk < 23 upon installation
+			return true;
+		}
+
+		// The permission has already been granted
+		if (activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+			return true;
+		}
+
+		// Request the permission. The request code doesn't matter because we aren't handling it.
+		ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+		return false;
 	}
 	
 	/**
