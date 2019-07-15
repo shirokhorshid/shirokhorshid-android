@@ -15,9 +15,15 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Пікір жіберу сәтсіз болды</string>
   <string name="FeedbackActivity.InvalidURLParameters">Кері байланыс пікірі пішінін жіберудегі URL параметрлері жарамсыз</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Кері байланыс беті мазмұнын алу сәтсіз болды</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN тоқтатылды</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN сіз немесе басқа қолданба тоқтатқан. Бірнеше VPN қолданбасы бір уақытта бірге жұмыс істей алмайды. Басқа VPN қолданбасы орнатылып, жұмыс істеп тұрғанын тексеріңіз.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN іске қосыла алмайды</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN іске қоса алмады. Бірнеше VPN қолданбасы бір уақытта бірге жұмыс істей алмайды. Басқа VPN қолданбасы орнатылып, әрқашан жұмыс істейтіндей етіп бапталғанын тексеріңіз.</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Құрылғыны түгел туннельдеу керек пе?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Құрылғыңызда толық туннельдеу мүмкіндігі бар.\n\nБұл мүмкіндіктің көмегімен барлық қолданбалар, соның ішінде барлық шолғыштар қолданатын интернет трафигі Psiphon арқылы туннельделеді.\n\nБолмаса, сіз тек құрамдас Psiphon шолғышын туннельдеуді таңдай аласыз, басқа қолданбалар сіздің интернетпен байланысыңыз арқылы тікелей өтеді.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Құрылғыны түгел туннельдеу</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Тек Psiphon шолғышын пайдалану </string>
   <string name="ads_consent_preference_dialog_title">Қалпына келтіру</string>
+  <string name="preference_language_selection_title">Тіл</string>
+  <string name="preference_language_default_language">әдепкі бойынша тіл</string>
 </resources>

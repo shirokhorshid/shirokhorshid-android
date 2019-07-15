@@ -20,4 +20,6 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тунэляваць усю прыладу</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Толькі браўзер Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Скід</string>
+  <string name="preference_language_selection_title">Мова</string>
+  <string name="preference_language_default_language">Мова па змаўчанні</string>
 </resources>

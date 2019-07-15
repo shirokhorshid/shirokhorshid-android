@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">賽風瀏覽器</string>
-  <string name="ApplicationNameUrl">賽風 - %s</string>
-  <string name="ApplicationDescription">賽風瀏覽器是一款用於安卓設備的開源瀏覽器，基於Zirco瀏覽器開發。</string>
+  <string name="ApplicationName">Psiphon 瀏覽器</string>
+  <string name="ApplicationNameUrl">Psiphon - %s</string>
+  <string name="ApplicationDescription">Psiphon 瀏覽器是一款用於安卓設備的開源瀏覽器，基於 Zirco 瀏覽器開發。</string>
   <string name="AboutActivity.Title">關於</string>
   <string name="AboutActivity.VersionText">版本：</string>
   <string name="AboutActivity.LicenseText">許可證：</string>
@@ -34,14 +34,14 @@
   <string name="EditBookmarkActivity.TitleAdd">添加書籤</string>
   <string name="EditBookmarkActivity.TitleLabel">名稱：</string>
   <string name="EditBookmarkActivity.UrlLabel">地址：</string>
-  <string name="HistoryListActivity.Title">賽風瀏覽器 - 歷史</string>
+  <string name="HistoryListActivity.Title">Psiphon 瀏覽器 - 歷史</string>
   <string name="HistoryListActivity.MenuOpenInTab">在新標籤頁中打開</string>
   <string name="HistoryListActivity.MenuDelete">刪除</string>
-  <string name="DownloadListActivity.Title">賽風瀏覽器 - 下載</string>
+  <string name="DownloadListActivity.Title">Psiphon 瀏覽器 - 下載</string>
   <string name="DownloadListActivity.Empty">無下載項</string>
   <string name="DownloadListActivity.Aborted">%s（取消）</string>
   <string name="DownloadListActivity.Finished">%s（完成）</string>
-  <string name="AdBlockerWhiteListActivity.Title">賽風瀏覽器 - 廣告攔截白名單</string>
+  <string name="AdBlockerWhiteListActivity.Title">Psiphon 瀏覽器 - 廣告攔截白名單</string>
   <string name="AdBlockerWhiteListActivity.Empty">白名單是空的。</string>
   <string name="AdBlockerWhiteListActivity.AddMessage">添加到白名單</string>
   <string name="AdBlockerWhiteListActivity.ClearMessage">清空白名單</string>

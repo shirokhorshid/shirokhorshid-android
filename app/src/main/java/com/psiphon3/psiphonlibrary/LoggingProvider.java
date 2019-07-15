@@ -28,13 +28,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
 import com.psiphon3.BuildConfig;
+import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -238,16 +237,16 @@ public class LoggingProvider extends ContentProvider {
          * Insert a new log. May execute asynchronously.
          */
         public static void insertLog(Context context, ContentValues values) {
+            // OLD COMMENT:
             // If this function is being called in the UI thread, then we need to do the work in an
             // async task. Otherwise we'll do the work directly.
             // For info about content provider thread use: http://stackoverflow.com/a/3571583
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                InsertLogTask task = new InsertLogTask(context);
-                task.execute(values);
-            }
-            else {
-                LogDatabaseHelper.insertLogHelper(context, values);
-            }
+            // NEW COMMENT:
+            // When running from a different process such as tunnel service we do not want to block
+            // binder thread either because it may indirectly block service startup process, so we
+            // will ALWAYS do work in async task.
+            InsertLogTask task = new InsertLogTask(context);
+            task.execute(values);
         }
 
         /**
@@ -297,17 +296,16 @@ public class LoggingProvider extends ContentProvider {
          * May execute asynchronously.
          */
         public static void truncateLogs(Context context, boolean full) {
+            // OLD COMMENT:
             // If this function is being called in the UI thread, then we need to do the work in an
             // async task. Otherwise we'll do the work directly.
             // For info about content provider thread use: http://stackoverflow.com/a/3571583
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                TruncateLogsTask task = new TruncateLogsTask(context, full);
-                task.execute();
-            }
-            else {
-                LogDatabaseHelper.truncateLogsHelper(context, full);
-            }
-
+            // NEW COMMENT:
+            // When running from a different process such as tunnel service we do not want to block
+            // binder thread either because it may indirectly block service startup process, so we
+            // will ALWAYS do work in async task.
+            TruncateLogsTask task = new TruncateLogsTask(context, full);
+            task.execute();
         }
 
         /**
@@ -359,17 +357,16 @@ public class LoggingProvider extends ContentProvider {
          * by the provider. May execute asynchronously.
          */
         public static void retrieveLogs(Context context) {
+            // OLD COMMENT:
             // If this function is being called in the UI thread, then we need to do the work in an
             // async task. Otherwise we'll do the work directly.
             // For info about content provider thread use: http://stackoverflow.com/a/3571583
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                RetrieveLogsTask task = new RetrieveLogsTask(context);
-                task.execute();
-            }
-            else {
-                LogDatabaseHelper.retrieveLogsHelper(context);
-            }
-
+            // NEW COMMENT:
+            // When running from a different process such as tunnel service we do not want to block
+            // binder thread either because it may indirectly block service startup process, so we
+            // will ALWAYS do work in async task.
+            RetrieveLogsTask task = new RetrieveLogsTask(context);
+            task.execute();
         }
 
         /**

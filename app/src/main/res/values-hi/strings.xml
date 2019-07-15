@@ -15,9 +15,27 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">फ़ीडबैक सबमिट करने में विफल</string>
   <string name="FeedbackActivity.InvalidURLParameters">फ़ीडबैक फ़ॉर्म सबमिशन में अमान्य यूआरएल पैरामीटर</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">अभिप्राय पृष्ठ सामग्री प्राप्त करने में विफल रहा</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN बंद हो गया है</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN को आपके द्वारा या किसी अन्य एप्लिकेशन द्वारा बंद दिया गया है। एक ही समय में कई VPN ऐप नहीं चल सकते हैं। जांचें कि क्या दूसरा VPN ऐप इंस्टॉल है और चल रहा है।</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN प्रारंभ नहीं हो सकता है</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN शुरू नहीं कर सकता। एक ही समय में कई VPN ऐप नहीं चल सकते हैं। जांचें कि क्या दूसरा VPN ऐप इंस्टॉल है और ऑलवेज-ऑन पर सेट है</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">पूरी डिवाइस को टनल करें?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">संपूर्ण डिवाइस सुरंग विकल्प आपके उपकरण के लिए उपलब्ध है। \ N \ n इस विकल्प के साथ, सभी ब्राउज़रों सहित सभी एप्लिकेशन के लिए आपके सभी इंटरनेट ट्रैफ़िक को साइफ़ोन के माध्यम से सुरंगित किया जाएगा। \ N \ n वैकल्पिक रूप से, आप केवल बंडल किए गए Psiphon ब्राउज़र को सुरंग चुन सकते हैं जो आपके मानक इंटरनेट कनेक्शन के माध्यम से सीधे जा रहे सभी अन्य ऐप्स को छोड़ देगा।</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">सुरंग पूरे डिवाइस</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">केवल साइफ़ोन ब्राउज़र का उपयोग करें</string>
+  <string name="selected_region_currently_not_available">वर्तमान में चयनित क्षेत्र उपलब्ध नहीं है, कृपया अन्य क्षेत्र चुनें।</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">हमें आपकी गोपनीयता और डेटा सुरक्षा की परवाह है। हम विज्ञापन दिखा कर इस ऐप को फ्री रखते हैं।</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">क्या हम आपके डेटा का उपयोग आपके लिए दर्जी विज्ञापनों तक जारी रख सकते हैं?</string>
+  <string name="you_can_change_your_choice_anytime">आप एप्लिकेशन विकल्प में Psiphon Pro के लिए कभी भी अपनी पसंद बदल सकते हैं। हमारे विज्ञापन प्रदाता डेटा एकत्र करेंगे और आपको विज्ञापन दिखाने के लिए आपके डिवाइस पर एक विशिष्ट पहचानकर्ता का उपयोग करेंगे।</string>
+  <string name="learn_more_about_our_ad_providers"><u>हमारे विज्ञापन प्रदाताओं के बारे में अधिक जानें</u></string>
+  <string name="yes_continue_to_see_relevant_ads">हां, संबंधित विज्ञापन देखना जारी रखें</string>
+  <string name="no_see_ads_that_are_less_relevant">नहीं, ऐसे विज्ञापन देखें जो कम प्रासंगिक हों</string>
+  <string name="pay_for_the_ad_free_version">विज्ञापन-मुक्त संस्करण में अपग्रेड करें</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">उनकी गोपनीयता नीति देखने के लिए विज्ञापन प्रदाता नाम पर क्लिक करें</string>
+  <string name="ads_consent_preference_category_title">विज्ञापन निजीकरण</string>
+  <string name="ads_consent_preference_dialog_preference_message">क्या आप वास्तव में अपने विज्ञापन वैयक्तिकरण वरीयता को रीसेट करना चाहते हैं</string>
+  <string name="ads_consent_preference_title">विज्ञापन वैयक्तिकरण वरीयता को रीसेट करें</string>
   <string name="ads_consent_preference_dialog_title">रीसेट करें</string>
+  <string name="ads_consent_preference_summary">कुकीज़ और अपने व्यक्तिगत डेटा का उपयोग करने के लिए विज्ञापन नेटवर्क की अनुमति देने के लिए अपनी प्राथमिकता को रीसेट करें</string>
+  <string name="preference_language_selection_title">भाषा</string>
 </resources>

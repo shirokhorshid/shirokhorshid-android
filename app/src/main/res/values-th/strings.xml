@@ -7,4 +7,6 @@
   <string name="browser_task_label">เบราเซอร์ของ Psiphon</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ใช้เฉพาะเบราเซอร์ของ Psiphon</string>
   <string name="ads_consent_preference_dialog_title">รีเซ็ต</string>
+  <string name="preference_language_selection_title">ภาษา</string>
+  <string name="preference_language_default_language">ภาษาเริ่มต้น</string>
 </resources>

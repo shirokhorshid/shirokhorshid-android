@@ -173,7 +173,7 @@
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
   <string name="preference_notifications_with_vibrate_title">إهتزاز </string>
   <string name="preference_notifications_with_vibrate_summary">الإهتزاز عند تغير حالة الإتصال </string>
-  <string name="preference_download_wifi_only_toggle">تحميل التحديثات على شبكة الواي فاي فقط </string>
+  <string name="preference_download_wifi_only_toggle">تحميل التحديثات فقط عند الاتصال بشبكة واي فاي</string>
   <string name="moreOptions">إعدادات أخرى </string>
   <string name="root_mode_not_supported">النمط الجذري  \"الروت مود\" غير مدعوم على هذا الإصدار من أندرويد </string>
   <string name="proxySettingsCategoryTitle">إعدادات البروكسي </string>

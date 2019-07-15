@@ -20,4 +20,6 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tuneliraj cijeli uređaj</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Koristi samo Psiphon Preglednik</string>
   <string name="ads_consent_preference_dialog_title"> Resetiraj</string>
+  <string name="preference_language_selection_title">Jezik</string>
+  <string name="preference_language_default_language">Zadani jezik</string>
 </resources>

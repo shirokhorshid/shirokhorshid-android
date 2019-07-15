@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Filannoon dabarsa hunda meeshichaa meeshaa keetiif ni jira.  \n\nFilannoo kana waliin, barbaadduuwwan hunda dabalatee dabarsi Interneetii kee martinuu appilikeeshinii hundaaf karaa Psiphon dabarsamuu ni danda\'a. \n\nAkka filmaataatti, barbaadduu psiphon dhiibame qofaa filattanii dabarsuu dandeessan kunis appilikeeshiniiwwan biroo hunda kanneen kallattiin qabiyyee Interneetii idilee fayyadaman kan gad-dhiisu.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Meeshaa guutuu dabarsi</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Barbaadduu Psiphon qofa gargaarami</string>
+  <string name="preference_language_default_language">Afaan duraan guutamee</string>
 </resources>

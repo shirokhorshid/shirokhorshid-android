@@ -32,7 +32,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.net.Uri;
 import android.net.VpnService;
@@ -161,6 +160,7 @@ public abstract class MainBase {
         protected CheckBox m_disableTimeoutsToggle;
         private Toast m_invalidProxySettingsToast;
         private Button m_moreOptionsButton;
+        private Button m_openBrowserButton;
         private LoggingObserver m_loggingObserver;
 
         public TabbedActivityBase() {
@@ -432,6 +432,7 @@ public abstract class MainBase {
 
             m_tabHost.setOnTouchListener(onTouchListener);
             m_statusLayout = (LinearLayout) findViewById(R.id.statusLayout);
+            m_statusLayout.setOnTouchListener(onTouchListener);
             m_statusViewImage = (ImageButton) findViewById(R.id.statusViewImage);
             m_statusViewImage.setOnTouchListener(onTouchListener);
             findViewById(R.id.sponsorViewFlipper).setOnTouchListener(onTouchListener);
@@ -448,6 +449,7 @@ public abstract class MainBase {
             m_tabHost.setOnTabChangedListener(this);
 
             int currentTab = m_multiProcessPreferences.getInt(CURRENT_TAB, 0);
+            m_currentTab = currentTab;
             m_tabHost.setCurrentTab(currentTab);
 
             m_sponsorViewFlipper = (ViewFlipper) findViewById(R.id.sponsorViewFlipper);
@@ -464,6 +466,7 @@ public abstract class MainBase {
             m_disableTimeoutsToggle = (CheckBox) findViewById(R.id.disableTimeoutsToggle);
             m_downloadOnWifiOnlyToggle = (CheckBox) findViewById(R.id.downloadOnWifiOnlyToggle);
             m_moreOptionsButton = (Button) findViewById(R.id.moreOptionsButton);
+            m_openBrowserButton = (Button) findViewById(R.id.openBrowserButton);
 
             m_slowSentGraph = new DataTransferGraph(this, R.id.slowSentGraph);
             m_slowReceivedGraph = new DataTransferGraph(this, R.id.slowReceivedGraph);
@@ -563,7 +566,7 @@ public abstract class MainBase {
             for (String homeTabUrlExclusion : EmbeddedValues.HOME_TAB_URL_EXCLUSIONS) {
                 if (url.contains(homeTabUrlExclusion)) {
                     if (freshConnect) {
-                        displayBrowser(getContext(), Uri.parse(url));
+                        displayBrowser(getContext(), url);
                     }
                     return;
                 }
@@ -863,6 +866,7 @@ public abstract class MainBase {
         private void updateServiceStateUI() {
             if (!m_boundToTunnelService) {
                 setStatusState(R.drawable.status_icon_disconnected);
+                m_openBrowserButton.setEnabled(false);
                 if (!isServiceRunning()) {
                     m_toggleButton.setText(getText(R.string.start));
                     enableToggleServiceUI();
@@ -873,8 +877,10 @@ public abstract class MainBase {
             } else {
                 if (isTunnelConnected()) {
                     setStatusState(R.drawable.status_icon_connected);
+                    m_openBrowserButton.setEnabled(true);
                 } else {
                     setStatusState(R.drawable.status_icon_connecting);
+                    m_openBrowserButton.setEnabled(false);
                 }
                 m_toggleButton.setText(getText(R.string.stop));
                 enableToggleServiceUI();
@@ -1128,34 +1134,7 @@ public abstract class MainBase {
             return m_tunnelConfig.disableTimeouts;
         }
 
-        protected PendingIntent getHandshakePendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getServiceNotificationPendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getRegionNotAvailablePendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getVpnRevokedPendingIntent() {
-            return null;
-        }
         protected void configureServiceIntent(Intent intent) {
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_HANDSHAKE_PENDING_INTENT,
-                    getHandshakePendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT,
-                    getServiceNotificationPendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT,
-                    getRegionNotAvailablePendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT,
-                    getVpnRevokedPendingIntent());
-
             intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE,
                     getTunnelConfigWholeDevice());
 
@@ -1450,7 +1429,7 @@ public abstract class MainBase {
                     }
 
                     if (mWebViewLoaded) {
-                        displayBrowser(getContext(), Uri.parse(url));
+                        displayBrowser(getContext(), url);
                     }
                     return mWebViewLoaded;
                 }
@@ -1518,7 +1497,7 @@ public abstract class MainBase {
             }
         }
 
-        protected void displayBrowser(Context context, Uri uri) {
+        protected void displayBrowser(Context context, String urlString) {
 
         }
 

@@ -17,7 +17,6 @@ public class ProxySettings
 	public static void setLocalProxy(Context ctx)
 	{
 		final AppPreferences multiProcessPreferences = new AppPreferences(ctx);
-		WebViewProxySettings.initialize(ctx);
 		WebViewProxySettings.setLocalProxy(ctx,
 				multiProcessPreferences.getInt(ctx.getString(R.string.current_local_http_proxy_port), 0));
 	}
