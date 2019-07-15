@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.net.VpnService;
 import android.os.Build;
@@ -29,6 +30,11 @@ import android.os.IBinder;
 public class TunnelVpnService extends VpnService
 {
     private TunnelManager m_Manager = new TunnelManager(this);
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleManager.setLocale(base));
+    }
 
     @Override
     public IBinder onBind(Intent intent)
@@ -48,8 +54,16 @@ public class TunnelVpnService extends VpnService
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
+        if (Intent.ACTION_LOCALE_CHANGED.equals(intent.getAction())) {
+            String language = intent.getStringExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_LOCALE_CHANGED_NEW_LANGUAGE_CODE);
+            Context context = LocaleManager.setNewLocale(this, language);
+            m_Manager.updateNotification(context);
+            return START_REDELIVER_INTENT;
+        }
+
         return m_Manager.onStartCommand(intent, flags, startId);
     }
+
 
     @Override
     public void onCreate()
