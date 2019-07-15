@@ -26,20 +26,31 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.*;
+import android.preference.CheckBoxPreference;
+import android.preference.DialogPreference;
+import android.preference.EditTextPreference;
+import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.psiphon3.R;
-
 import com.psiphon3.StatusActivity;
+
 import net.grandcentrix.tray.AppPreferences;
+
 import org.zirco.ui.activities.MainActivity;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
@@ -235,20 +246,20 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         languageCodes[0] = "";
 
         String currentLocaleLanguageCode = LocaleManager.getLanguage();
-        int currentLocaleLangugeIndex = -1;
+        int currentLocaleLanguageIndex = -1;
 
-        if(currentLocaleLanguageCode.equals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL)) {
-            currentLocaleLangugeIndex = 0;
+        if (currentLocaleLanguageCode.equals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL)) {
+            currentLocaleLanguageIndex = 0;
         }
 
         for (int i = 1; i <= locales.length; ++i) {
             // Split the string on the comma
-            String[] localeArr = locales[i-1].split(",");
+            String[] localeArr = locales[i - 1].split(",");
             languageNames[i] = localeArr[0];
             languageCodes[i] = localeArr[1];
 
-            if(localeArr[1] != null && localeArr[1].equals(currentLocaleLanguageCode)) {
-                currentLocaleLangugeIndex = i;
+            if (localeArr[1] != null && localeArr[1].equals(currentLocaleLanguageCode)) {
+                currentLocaleLanguageIndex = i;
             }
         }
 
@@ -257,8 +268,8 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         mLanguageSelector.setEntryValues(languageCodes);
 
         // If current locale is on the list set it selected
-        if (currentLocaleLangugeIndex >= 0) {
-            mLanguageSelector.setValueIndex(currentLocaleLangugeIndex);
+        if (currentLocaleLanguageIndex >= 0) {
+            mLanguageSelector.setValueIndex(currentLocaleLanguageIndex);
         }
     }
 
@@ -419,6 +430,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
         if (alarmManager != null) {
             Intent intent = new Intent(this, StatusActivity.class);
+            intent.putExtra(StatusActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, pendingIntent);
         }

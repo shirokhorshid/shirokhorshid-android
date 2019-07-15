@@ -64,6 +64,7 @@ public class StatusActivity
     extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase
 {
     public static final String BANNER_FILE_NAME = "bannerImage";
+    public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.StatusActivity.PREVENT_AUTO_START";
 
     private ImageView m_banner;
     private boolean m_tunnelWholeDevicePromptShown = false;
@@ -371,8 +372,9 @@ public class StatusActivity
         else
         {
             // No prompt, just start the tunnel (if not already running)
-
-            startTunnel();
+            if (!getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false)) {
+                startTunnel();
+            }
         }
     }
 
