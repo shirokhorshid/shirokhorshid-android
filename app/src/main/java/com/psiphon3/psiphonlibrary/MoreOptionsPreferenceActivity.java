@@ -54,9 +54,6 @@ import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
-    private static final String INTENT_ACTION_LOCALE_CHANGED = "com.psiphon3.action.LOCALE_CHANGED";
-    public static final String INTENT_EXTRA_LOCALE_CHANGED_NEW_LANGUAGE_CODE = "com.psiphon3.extra.NEW_LANGUAGE";
-
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
         String getString(@NonNull final String key, final String defaultValue);
@@ -435,12 +432,6 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
             Intent intent = new Intent(this, StatusActivity.class);
             intent.putExtra(StatusActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, pendingIntent);
-
-            // Broadcast the new language code as well
-            intent = new Intent(INTENT_ACTION_LOCALE_CHANGED);
-            intent.putExtra(INTENT_EXTRA_LOCALE_CHANGED_NEW_LANGUAGE_CODE, languageCode);
-            pendingIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, pendingIntent);
         }
 

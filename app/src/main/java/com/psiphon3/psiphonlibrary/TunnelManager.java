@@ -205,7 +205,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         if (mNotificationBuilder == null) {
             mNotificationBuilder = new NotificationCompat.Builder(m_parentService);
         }
-        m_parentService.startForeground(R.string.psiphon_service_notification_id, createNotification(false, m_parentService));
+        m_parentService.startForeground(R.string.psiphon_service_notification_id, this.createNotification(false));
 
         // This service runs as a separate process, so it needs to initialize embedded values
         EmbeddedValues.initialize(this.getContext());
@@ -291,7 +291,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 TunnelManager.DATA_TUNNEL_CONFIG_DISABLE_TIMEOUTS, false);
     }
 
-    private Notification createNotification(boolean alert, Context context) {
+    private Notification createNotification(boolean alert) {
         int contentTextID;
         int iconID;
         CharSequence ticker = null;
@@ -305,21 +305,21 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             iconID = R.drawable.notification_icon_connected;
         } else {
             contentTextID = R.string.psiphon_service_notification_message_connecting;
-            ticker = context.getText(R.string.psiphon_service_notification_message_connecting);
+            ticker = m_parentService.getText(R.string.psiphon_service_notification_message_connecting);
             iconID = R.drawable.notification_icon_connecting_animation;
         }
 
         mNotificationBuilder
                 .setSmallIcon(iconID)
-                .setContentTitle(context.getText(R.string.app_name))
-                .setContentText(context.getText(contentTextID))
+                .setContentTitle(m_parentService.getText(R.string.app_name))
+                .setContentText(m_parentService.getText(contentTextID))
                 .setTicker(ticker)
                 .setContentIntent(m_notificationPendingIntent);
 
         Notification notification = mNotificationBuilder.build();
 
         if (alert) {
-            final AppPreferences multiProcessPreferences = new AppPreferences(context);
+            final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
 
             if (multiProcessPreferences.getBoolean(
                     m_parentService.getString(R.string.preferenceNotificationsWithSound), false)) {
@@ -334,14 +334,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         return notification;
     }
 
-    public void updateNotification(Context context) {
-        if (mNotificationManager == null) {
-            return;
-        }
-
-        mNotificationManager.notify(R.string.psiphon_service_notification_id, createNotification(false, context));
-    }
-
     private void setIsConnected(boolean isConnected) {
         boolean alert = (isConnected != m_tunnelState.isConnected);
 
@@ -352,7 +344,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             if (mNotificationManager != null) {
                 mNotificationManager.notify(
                         R.string.psiphon_service_notification_id,
-                        createNotification(alert, m_parentService));
+                        createNotification(alert));
             }
         }
     }
