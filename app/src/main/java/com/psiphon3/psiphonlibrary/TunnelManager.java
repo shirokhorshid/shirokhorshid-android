@@ -109,6 +109,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final String DATA_TUNNEL_CONFIG_EGRESS_REGION = "tunnelConfigEgressRegion";
     public static final String DATA_TUNNEL_CONFIG_DISABLE_TIMEOUTS = "tunnelConfigDisableTimeouts";
     public static final String CLIENT_MESSENGER = "incomingClientMessenger";
+    public static final String EXTRA_LANGUAGE_CODE = "languageCode";
 
     // Tunnel config, received from the client.
     public static class Config {
@@ -134,6 +135,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotificationBuilder = null;
     private Service m_parentService = null;
+    private Context m_context;
     private boolean m_serviceDestroyed = false;
     private boolean m_firstStart = true;
     private CountDownLatch m_tunnelThreadStopSignal;
@@ -151,6 +153,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     public TunnelManager(Service parentService) {
         m_parentService = parentService;
+        m_context = parentService;
         m_isReconnect = new AtomicBoolean(false);
         m_isStopping = new AtomicBoolean(false);
         m_tunnel = PsiphonTunnel.newPsiphonTunnel(this);
@@ -172,9 +175,19 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             m_tunnelThread.start();
         }
 
-        if(intent != null) {
+        if (intent != null) {
             m_outgoingMessenger = (Messenger) intent.getParcelableExtra(CLIENT_MESSENGER);
             sendClientMessage(MSG_REGISTER_RESPONSE, getTunnelStateBundle());
+
+
+            if (intent.hasExtra(TunnelManager.EXTRA_LANGUAGE_CODE)) {
+                String languageCode = intent.getStringExtra(TunnelManager.EXTRA_LANGUAGE_CODE);
+                if (languageCode == null || languageCode.equals("")) {
+                    languageCode = LocaleManager.USE_SYSTEM_LANGUAGE_VAL;
+                }
+                m_context = LocaleManager.setNewLocale(m_parentService, languageCode);
+                updateNotifications();
+            }
         }
 
         return Service.START_REDELIVER_INTENT;
@@ -199,16 +212,16 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 INTENT_ACTION_VPN_REVOKED);
 
         if (mNotificationManager == null) {
-            mNotificationManager = (NotificationManager) m_parentService.getSystemService(Context.NOTIFICATION_SERVICE);
+            mNotificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
         }
 
         if (mNotificationBuilder == null) {
-            mNotificationBuilder = new NotificationCompat.Builder(m_parentService);
+            mNotificationBuilder = new NotificationCompat.Builder(getContext());
         }
-        m_parentService.startForeground(R.string.psiphon_service_notification_id, this.createNotification(false));
+        m_parentService.startForeground(R.string.psiphon_service_notification_id, createNotification(false));
 
         // This service runs as a separate process, so it needs to initialize embedded values
-        EmbeddedValues.initialize(this.getContext());
+        EmbeddedValues.initialize(getContext());
         MyLog.setLogger(this);
     }
 
@@ -295,6 +308,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         int contentTextID;
         int iconID;
         CharSequence ticker = null;
+        int defaults = 0;
 
         if (m_tunnelState.isConnected) {
             if (m_tunnelConfig.wholeDevice) {
@@ -305,33 +319,42 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             iconID = R.drawable.notification_icon_connected;
         } else {
             contentTextID = R.string.psiphon_service_notification_message_connecting;
-            ticker = m_parentService.getText(R.string.psiphon_service_notification_message_connecting);
+            ticker = getContext().getText(R.string.psiphon_service_notification_message_connecting);
             iconID = R.drawable.notification_icon_connecting_animation;
         }
-
-        mNotificationBuilder
-                .setSmallIcon(iconID)
-                .setContentTitle(m_parentService.getText(R.string.app_name))
-                .setContentText(m_parentService.getText(contentTextID))
-                .setTicker(ticker)
-                .setContentIntent(m_notificationPendingIntent);
-
-        Notification notification = mNotificationBuilder.build();
 
         if (alert) {
             final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
 
             if (multiProcessPreferences.getBoolean(
-                    m_parentService.getString(R.string.preferenceNotificationsWithSound), false)) {
-                notification.defaults |= Notification.DEFAULT_SOUND;
+                    getContext().getString(R.string.preferenceNotificationsWithSound), false)) {
+                defaults |= Notification.DEFAULT_SOUND;
             }
             if (multiProcessPreferences.getBoolean(
-                    m_parentService.getString(R.string.preferenceNotificationsWithVibrate), false)) {
-                notification.defaults |= Notification.DEFAULT_VIBRATE;
+                    getContext().getString(R.string.preferenceNotificationsWithVibrate), false)) {
+                defaults |= Notification.DEFAULT_VIBRATE;
             }
         }
 
-        return notification;
+        mNotificationBuilder
+                .setSmallIcon(iconID)
+                .setContentTitle(getContext().getText(R.string.app_name))
+                .setContentText(getContext().getText(contentTextID))
+                .setTicker(ticker)
+                .setDefaults(defaults)
+                .setContentIntent(m_notificationPendingIntent);
+
+        return mNotificationBuilder.build();
+    }
+
+    private void updateNotifications() {
+        m_Handler.post(new Runnable() {
+            @Override
+            public void run() {
+                mNotificationManager.notify(R.string.psiphon_service_notification_id, createNotification(false));
+                UpgradeManager.UpgradeInstaller.updateNotification(getContext());
+            }
+        });
     }
 
     private void setIsConnected(boolean isConnected) {
@@ -535,7 +558,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_isReconnect.set(false);
 
         // Notify if an upgrade has already been downloaded and is waiting for install
-        UpgradeManager.UpgradeInstaller.notifyUpgrade(m_parentService);
+        UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext());
 
         sendClientMessage(MSG_TUNNEL_STARTING, null);
 
@@ -607,7 +630,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public Context getContext() {
-        return m_parentService;
+        return m_context;
     }
 
     @Override
@@ -778,7 +801,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public String getPsiphonConfig() {
-        String config = buildTunnelCoreConfig(m_parentService, m_tunnel, m_tunnelConfig, null, null);
+        String config = buildTunnelCoreConfig(getContext(), m_tunnel, m_tunnelConfig, null, null);
         return config == null ? "" : config;
     }
 
@@ -956,7 +979,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                UpgradeManager.UpgradeInstaller.notifyUpgrade(m_parentService);
+                UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext());
             }
         });
     }

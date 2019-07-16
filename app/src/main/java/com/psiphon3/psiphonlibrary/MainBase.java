@@ -1145,6 +1145,8 @@ public abstract class MainBase {
                     getTunnelConfigDisableTimeouts());
 
             intent.putExtra(TunnelManager.CLIENT_MESSENGER, m_incomingMessenger);
+
+            intent.putExtra(TunnelManager.EXTRA_LANGUAGE_CODE, LocaleManager.getLanguage());
         }
 
         protected void startAndBindTunnelService() {

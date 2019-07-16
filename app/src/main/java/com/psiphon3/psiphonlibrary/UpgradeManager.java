@@ -365,6 +365,23 @@ public interface UpgradeManager
         public static boolean upgradeFileAvailable(Context context) {
             return getAvailableCompleteUpgradeFile(context) != null;
         }
+
+        /**
+         * Updates the context based portions of the upgrade notification if possible.
+         * Doesn't create the notification if none exists.
+         * @param context the context to use when pulling the text
+         */
+        public static void updateNotification(Context context) {
+            if (mNotificationBuilder == null || mNotificationManager == null) {
+                return;
+            }
+
+            mNotificationBuilder
+                    .setContentTitle(context.getString(R.string.UpgradeManager_UpgradePromptTitle))
+                    .setContentText(context.getString(R.string.UpgradeManager_UpgradePromptMessage));
+
+            postNotification(context);
+        }
         
         /**
          * Create an Android notification to launch the upgrade, if available
@@ -374,8 +391,7 @@ public interface UpgradeManager
         public static boolean notifyUpgrade(Context context)
         {
             VerifiedUpgradeFile file = getAvailableCompleteUpgradeFile(context);
-            if (file == null)
-            {
+            if (file == null) {
                 return false;
             }
             
@@ -393,8 +409,7 @@ public interface UpgradeManager
                             upgradeIntent,
                             PendingIntent.FLAG_UPDATE_CURRENT);
         
-            if (mNotificationBuilder == null)
-            {
+            if (mNotificationBuilder == null) {
                 mNotificationBuilder = new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.notification_icon_upgrade_available)
                         .setContentTitle(context.getString(R.string.UpgradeManager_UpgradePromptTitle))
@@ -402,17 +417,17 @@ public interface UpgradeManager
                         .setContentIntent(invokeUpgradeIntent);
             }
 
-            if (mNotificationManager == null)
-            {
+            postNotification(context);
+
+            return true;
+        }
+
+        private static void postNotification(Context context) {
+            if (mNotificationManager == null) {
                 mNotificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
             }
 
-            if (mNotificationManager != null)
-            {
-                mNotificationManager.notify(R.string.UpgradeManager_UpgradeAvailableNotificationId, mNotificationBuilder.build());
-            }
-
-            return true;
+            mNotificationManager.notify(R.string.UpgradeManager_UpgradeAvailableNotificationId, mNotificationBuilder.build());
         }
     }
 }
