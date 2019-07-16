@@ -373,7 +373,7 @@ public class ApplicationUtils {
 			return true;
 		}
 
-        // The permission has already been denied at least once, so we explain why we need it
+		// The permission has already been denied at least once, so we explain why we need it
 		if (activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 			showOkDialog(activity,
 					android.R.drawable.ic_dialog_info,
