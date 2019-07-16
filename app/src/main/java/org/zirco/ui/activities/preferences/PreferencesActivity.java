@@ -518,8 +518,8 @@ public class PreferencesActivity extends LocalizedActivities.PreferenceActivity 
 	 * Ask the user the file to import to bookmarks and history, and launch the import. 
 	 */
 	private void importHistoryBookmarks() {
-		if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this)) {
-			Toast.makeText(this, R.string.need_write_permission, Toast.LENGTH_LONG).show();
+		if (!ApplicationUtils.ensureReadStoragePermissionGranted(this, getString(R.string.PreferencesActivity_ImportHistoryBookmarksPermissionRequestReason))) {
+			Toast.makeText(this, R.string.Commons_NeedReadPermissions, Toast.LENGTH_LONG).show();
 			return;
 		}
 
@@ -554,25 +554,23 @@ public class PreferencesActivity extends LocalizedActivities.PreferenceActivity 
 	 * Export the bookmarks and history.
 	 */
 	private void doExportHistoryBookmarks() {
-		if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this)) {
-			Toast.makeText(this, R.string.need_write_permission, Toast.LENGTH_LONG).show();
+		if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this, getString(R.string.PreferencesActivity_ImportHistoryBookmarksPermissionRequestReason))) {
+			Toast.makeText(this, R.string.Commons_NeedWritePermissions, Toast.LENGTH_LONG).show();
 			return;
 		}
 
-		if (!ApplicationUtils.checkCardState(this, true)) {
-			return;
+		if (ApplicationUtils.checkCardState(this, true)) {
+			mProgressDialog = ProgressDialog.show(this,
+					this.getResources().getString(R.string.Commons_PleaseWait),
+					this.getResources().getString(R.string.Commons_ExportingHistoryBookmarks));
+
+			XmlHistoryBookmarksExporter exporter = new XmlHistoryBookmarksExporter(this,
+					DateUtils.getNowForFileName() + ".xml",
+					BookmarksProviderWrapper.getAllStockRecords(this.getContentResolver()),
+					mProgressDialog);
+
+			new Thread(exporter).start();
 		}
-
-		mProgressDialog = ProgressDialog.show(this,
-				this.getResources().getString(R.string.Commons_PleaseWait),
-				this.getResources().getString(R.string.Commons_ExportingHistoryBookmarks));
-
-		XmlHistoryBookmarksExporter exporter = new XmlHistoryBookmarksExporter(this,
-				DateUtils.getNowForFileName() + ".xml",
-				BookmarksProviderWrapper.getAllStockRecords(this.getContentResolver()),
-				mProgressDialog);
-
-		new Thread(exporter).start();
 	}
 	
 	/**
