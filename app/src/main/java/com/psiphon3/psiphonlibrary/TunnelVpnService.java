@@ -21,6 +21,7 @@ package com.psiphon3.psiphonlibrary;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.VpnService;
 import android.os.Build;
 import android.os.IBinder;
@@ -29,6 +30,13 @@ import android.os.IBinder;
 public class TunnelVpnService extends VpnService
 {
     private TunnelManager m_Manager = new TunnelManager(this);
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        m_Manager.updateContext(this);
+        m_Manager.updateNotifications();
+    }
 
     @Override
     public IBinder onBind(Intent intent)

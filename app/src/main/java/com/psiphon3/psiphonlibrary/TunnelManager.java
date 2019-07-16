@@ -347,7 +347,18 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         return mNotificationBuilder.build();
     }
 
-    private void updateNotifications() {
+    /**
+     * Update the context used to get resources with the passed context
+     * @param context the new context to use for resources
+     */
+    public void updateContext(Context context) {
+        m_context = context;
+    }
+
+    /**
+     * Updates the notifications with the current context
+     */
+    public void updateNotifications() {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
