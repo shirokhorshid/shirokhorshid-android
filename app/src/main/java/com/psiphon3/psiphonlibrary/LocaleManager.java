@@ -81,7 +81,7 @@ public class LocaleManager {
     private static Context updateResources(Context context, String language) {
         Locale locale;
         if (language.equals(USE_SYSTEM_LANGUAGE_VAL)) {
-            locale = Locale.getDefault();
+            locale = Resources.getSystem().getConfiguration().locale;
         } else {
             locale = new Locale(language);
         }
