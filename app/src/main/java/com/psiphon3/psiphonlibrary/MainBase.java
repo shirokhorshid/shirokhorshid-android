@@ -925,7 +925,7 @@ public abstract class MainBase {
             // If the WDM preference has changed we will message the service to stop self, wait for it to
             // stop and then start a brand new service via checkRestartTunnel on a timer.
             if ((getTunnelConfigWholeDevice() && Utils.hasVpnService() && isVpnService(runningService))
-                    || (getTunnelConfigWholeDevice() && Utils.hasVpnService() && isVpnService(runningService))) {
+                    || (!getTunnelConfigWholeDevice() && runningService.equals(TunnelService.class.getName()))) {
                 // A dummy intent just used to pass new tunnel config with the service restart command
                 Intent tunnelConfigIntent = new Intent();
                 configureServiceIntent(tunnelConfigIntent);
