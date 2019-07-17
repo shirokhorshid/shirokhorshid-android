@@ -23,7 +23,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
-import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -913,7 +912,25 @@ public abstract class MainBase {
         }
 
         private void scheduleRunningTunnelServiceRestart() {
-            if (isServiceRunning()) {
+            String runningService = getRunningService();
+
+            if (runningService == null) {
+                // There is no running service, do nothing.
+                return;
+            }
+
+            // If the running service doesn't need to be changed from WDM to BOM or vice versa we will
+            // just message the service a restart command and have it restart Psiphon tunnel (and VPN
+            // if in WDM mode) internally via TunnelManager.onRestartCommand without stopping the service.
+            // If the WDM preference has changed we will message the service to stop self, wait for it to
+            // stop and then start a brand new service via checkRestartTunnel on a timer.
+            if ((getTunnelConfigWholeDevice() && Utils.hasVpnService() && isVpnService(runningService))
+                    || (getTunnelConfigWholeDevice() && Utils.hasVpnService() && isVpnService(runningService))) {
+                // A dummy intent just used to pass new tunnel config with the service restart command
+                Intent tunnelConfigIntent = new Intent();
+                configureServiceIntent(tunnelConfigIntent);
+                sendServiceMessage(TunnelManager.MSG_RESTART_SERVICE, tunnelConfigIntent);
+            } else {
                 m_restartTunnel = true;
                 stopTunnelService();
                 // The tunnel will get restarted in m_updateServiceStateTimer
@@ -1286,8 +1303,15 @@ public abstract class MainBase {
         }
 
         private void sendServiceMessage(int what) {
+            sendServiceMessage(what, null);
+        }
+
+        private void sendServiceMessage(int what, Object object) {
             try {
                 Message msg = Message.obtain(null, what);
+                if(object != null) {
+                    msg.obj = object;
+                }
                 if (m_outgoingMessenger == null) {
                     synchronized (m_queue) {
                         m_queue.add(msg);
@@ -1359,15 +1383,19 @@ public abstract class MainBase {
          * @return True if the service is already running, false otherwise.
          */
         protected boolean isServiceRunning() {
+            return getRunningService() != null;
+        }
+
+        private String getRunningService() {
             ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
             for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
                 if (service.uid == android.os.Process.myUid() &&
                         (TunnelService.class.getName().equals(service.service.getClassName())
-                        || (Utils.hasVpnService() && isVpnService(service.service.getClassName())))) {
-                    return true;
+                                || (Utils.hasVpnService() && isVpnService(service.service.getClassName())))) {
+                    return service.service.getClassName();
                 }
             }
-            return false;
+            return null;
         }
 
         private boolean isVpnService(String className) {

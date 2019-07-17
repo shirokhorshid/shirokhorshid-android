@@ -60,6 +60,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -73,6 +74,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Client -> Service
     public static final int MSG_UNREGISTER = 1;
     public static final int MSG_STOP_SERVICE = 2;
+    public static final int MSG_RESTART_SERVICE = 9;
+
 
     // Service -> Client
     public static final int MSG_REGISTER_RESPONSE = 3;
@@ -397,6 +400,21 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     }
                     break;
 
+                case TunnelManager.MSG_RESTART_SERVICE:
+                    if (manager != null) {
+                        if (msg.obj != null) {
+                            try {
+                                Intent tunnelConfigIntent = (Intent) msg.obj;
+                                manager.getTunnelConfig(tunnelConfigIntent);
+                                manager.onRestartCommand();
+                            } catch (ClassCastException e) {
+                                MyLog.g("TunnelManager::handleMessage TunnelManager.MSG_RESTART_SERVICE error: " + e);
+                                // It is probably best to stop too.
+                                manager.signalStopService();
+                            }
+                        }
+                    }
+                    break;
                 default:
                     super.handleMessage(msg);
             }
@@ -598,6 +616,35 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             m_parentService.stopForeground(true);
             m_parentService.stopSelf();
         }
+    }
+
+    private void onRestartCommand() {
+        m_Handler.post(new Runnable() {
+            @Override
+            public void run() {
+                m_isReconnect.set(false);
+                try {
+                    if(Utils.hasVpnService()
+                            && m_parentService instanceof TunnelVpnService
+                            && m_tunnelConfig.wholeDevice) {
+                        Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
+                        m_tunnel.seamlessVpnRestart(vpnBuilder);
+                    } else if (m_parentService instanceof TunnelService
+                            && !m_tunnelConfig.wholeDevice) {
+                        m_tunnel.restartPsiphon();
+                    } else {
+                        // There is a conflict in the restart call, we probably shouldn't keep running.
+                        signalStopService();
+                        MyLog.g(String.format(Locale.US,
+                                "The %s received a restart command when the WDM flag was %s",
+                                m_parentService.getClass().getSimpleName(),
+                                m_tunnelConfig.wholeDevice ? "on" : "off"));
+                    }
+                } catch (PsiphonTunnel.Exception e) {
+                    MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
+                }
+            }
+        });
     }
 
     @Override
