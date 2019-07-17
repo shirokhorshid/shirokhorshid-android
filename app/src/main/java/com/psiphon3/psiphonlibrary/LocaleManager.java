@@ -55,12 +55,10 @@ public class LocaleManager {
     }
 
     public static Context setLocale(Context context) {
-        initialize(context);
         return updateResources(context, getLanguage());
     }
 
     static Context setNewLocale(Context context, String language) {
-        initialize(context);
         persistLanguage(language);
         return updateResources(context, language);
     }
