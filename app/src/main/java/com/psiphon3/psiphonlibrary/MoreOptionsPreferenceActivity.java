@@ -19,9 +19,6 @@
 
 package com.psiphon3.psiphonlibrary;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -41,7 +38,6 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.psiphon3.R;
-import com.psiphon3.StatusActivity;
 
 import net.grandcentrix.tray.AppPreferences;
 

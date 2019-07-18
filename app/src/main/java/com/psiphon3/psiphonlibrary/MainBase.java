@@ -1108,6 +1108,7 @@ public abstract class MainBase {
                     // This is a bit of a weird hack to cause a restart, but it works
                     // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
                     // before the activity would relaunch. This *seems* to provide the best functionality across phones.
+                    finish();
                     Intent intent = new Intent(this, StatusActivity.class);
                     intent.putExtra(INTENT_EXTRA_PREVENT_AUTO_START, true);
                     startActivity(intent);
