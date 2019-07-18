@@ -23,7 +23,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
-import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -74,6 +73,7 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.psiphon3.R;
+import com.psiphon3.StatusActivity;
 import com.psiphon3.psiphonlibrary.StatusList.StatusListViewManager;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
@@ -124,6 +124,7 @@ public abstract class MainBase {
 
     public static abstract class TabbedActivityBase extends Activity implements OnTabChangeListener {
         public static final String STATUS_ENTRY_AVAILABLE = "com.psiphon3.MainBase.TabbedActivityBase.STATUS_ENTRY_AVAILABLE";
+        public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainBase.TabbedActivityBase.PREVENT_AUTO_START";
         protected static final String EGRESS_REGION_PREFERENCE = "egressRegionPreference";
         protected static final String TUNNEL_WHOLE_DEVICE_PREFERENCE = "tunnelWholeDevicePreference";
         protected static final String CURRENT_TAB = "currentTab";
@@ -1101,6 +1102,16 @@ public abstract class MainBase {
                         startAndBindTunnelService();
                     }
                     scheduleRunningTunnelServiceRestart();
+                }
+
+                if (data.getBooleanExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
+                    // This is a bit of a weird hack to cause a restart, but it works
+                    // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
+                    // before the activity would relaunch. This *seems* to provide the best functionality across phones.
+                    Intent intent = new Intent(this, StatusActivity.class);
+                    intent.putExtra(INTENT_EXTRA_PREVENT_AUTO_START, true);
+                    startActivity(intent);
+                    System.exit(1);
                 }
             }
         }

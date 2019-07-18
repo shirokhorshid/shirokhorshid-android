@@ -54,6 +54,8 @@ import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
+    public static final String INTENT_EXTRA_LANGUAGE_CHANGED = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.LANGUAGE_CHANGED";
+
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
         String getString(@NonNull final String key, final String defaultValue);
@@ -415,7 +417,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
     private void setLanguageAndRestartApp(String languageCode) {
         // The LocaleManager will correctly set the resource + store the language preference for the future
         if (languageCode.equals("")) {
-            LocaleManager.resetToDefaultLocale(MoreOptionsPreferenceActivity.this);
+            LocaleManager.resetToSystemLocale(MoreOptionsPreferenceActivity.this);
         } else {
             LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
         }
@@ -426,16 +428,11 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
             MainActivity.INSTANCE.finish();
         }
 
-        // Schedule app restart and kill the process
-        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        if (alarmManager != null) {
-            Intent intent = new Intent(this, StatusActivity.class);
-            intent.putExtra(StatusActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, pendingIntent);
-        }
-
-        System.exit(0);
+        // Finish back to the StatusActivity and inform the language has changed
+        Intent data = new Intent();
+        data.putExtra(INTENT_EXTRA_LANGUAGE_CHANGED, true);
+        setResult(RESULT_OK, data);
+        finish();
     }
 
     @Override
