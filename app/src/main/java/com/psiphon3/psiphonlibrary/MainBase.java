@@ -929,7 +929,7 @@ public abstract class MainBase {
                 // A dummy intent just used to pass new tunnel config with the service restart command
                 Intent tunnelConfigIntent = new Intent();
                 configureServiceIntent(tunnelConfigIntent);
-                sendServiceMessage(TunnelManager.MSG_RESTART_SERVICE, tunnelConfigIntent);
+                sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), tunnelConfigIntent);
             } else {
                 m_restartTunnel = true;
                 stopTunnelService();
@@ -1256,11 +1256,12 @@ public abstract class MainBase {
         private final List<Message> m_queue = new ArrayList<>();
 
         private class IncomingMessageHandler extends Handler {
+            private final TunnelManager.ServiceToClientMessage[] scm = TunnelManager.ServiceToClientMessage.values();
             @Override
             public void handleMessage(Message msg) {
                 Bundle data = msg.getData();
-                switch (msg.what) {
-                    case TunnelManager.MSG_REGISTER_RESPONSE:
+                switch (scm[msg.what]) {
+                    case REGISTER_RESPONSE:
                         getTunnelStateFromBundle(data);
                         // An activity created while the service is already running will learn
                         // the sponsor home page at this point, so now load it.
@@ -1268,18 +1269,18 @@ public abstract class MainBase {
                         updateServiceStateUI();
                         break;
 
-                    case TunnelManager.MSG_KNOWN_SERVER_REGIONS:
+                    case KNOWN_SERVER_REGIONS:
                         m_regionAdapter.updateRegionsFromPreferences();
                         // Make sure we preserve the selection in case the dataset has changed
                         m_regionSelector.setSelectionByValue(m_tunnelConfig.egressRegion);
                         break;
 
-                    case TunnelManager.MSG_TUNNEL_STARTING:
+                    case TUNNEL_STARTING:
                         m_tunnelState.isConnected = false;
                         updateServiceStateUI();
                         break;
 
-                    case TunnelManager.MSG_TUNNEL_STOPPING:
+                    case TUNNEL_STOPPING:
                         m_tunnelState.isConnected = false;
 
                         // When the tunnel self-stops, we also need to unbind to ensure
@@ -1287,12 +1288,12 @@ public abstract class MainBase {
                         unbindTunnelService();
                         break;
 
-                    case TunnelManager.MSG_TUNNEL_CONNECTION_STATE:
+                    case TUNNEL_CONNECTION_STATE:
                         m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
                         updateServiceStateUI();
                         break;
 
-                    case TunnelManager.MSG_DATA_TRANSFER_STATS:
+                    case DATA_TRANSFER_STATS:
                         getDataTransferStatsFromBundle(data);
                         break;
 
@@ -1351,18 +1352,18 @@ public abstract class MainBase {
         };
 
         private void stopTunnelService() {
-            sendServiceMessage(TunnelManager.MSG_STOP_SERVICE);
-            // MSG_STOP_SERVICE will cause the Service to stop itself,
+            sendServiceMessage(TunnelManager.ClientToServiceMessage.STOP_SERVICE.ordinal());
+            // STOP_SERVICE will cause the Service to stop itself,
             // which will then cause an unbind to occur. Don't call
             // unbindTunnelService() here, as its unnecessary and either
-            // the MSG_UNREGISTER or unbindService causes
+            // the UNREGISTER or unbindService causes
             // "Exception when unbinding service com.psiphon3/.psiphonlibrary.TunnelVpnService"
         }
 
         private void unbindTunnelService() {
             if (m_boundToTunnelService) {
                 m_boundToTunnelService = false;
-                sendServiceMessage(TunnelManager.MSG_UNREGISTER);
+                sendServiceMessage(TunnelManager.ClientToServiceMessage.UNREGISTER.ordinal());
                 try {
                     unbindService(m_tunnelServiceConnection);
                 }

@@ -70,20 +70,22 @@ import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Android IPC messages
-
     // Client -> Service
-    public static final int MSG_UNREGISTER = 1;
-    public static final int MSG_STOP_SERVICE = 2;
-    public static final int MSG_RESTART_SERVICE = 9;
-
+    enum ClientToServiceMessage {
+        UNREGISTER,
+        STOP_SERVICE,
+        RESTART_SERVICE,
+    }
 
     // Service -> Client
-    public static final int MSG_REGISTER_RESPONSE = 3;
-    public static final int MSG_KNOWN_SERVER_REGIONS = 4;
-    public static final int MSG_TUNNEL_STARTING = 5;
-    public static final int MSG_TUNNEL_STOPPING = 6;
-    public static final int MSG_TUNNEL_CONNECTION_STATE = 7;
-    public static final int MSG_DATA_TRANSFER_STATS = 8;
+    enum ServiceToClientMessage {
+        REGISTER_RESPONSE,
+        KNOWN_SERVER_REGIONS,
+        TUNNEL_STARTING,
+        TUNNEL_STOPPING,
+        TUNNEL_CONNECTION_STATE,
+        DATA_TRANSFER_STATS,
+    }
 
     public static final String INTENT_ACTION_VIEW = "ACTION_VIEW";
     public static final String INTENT_ACTION_HANDSHAKE = "com.psiphon3.psiphonlibrary.TunnelManager.HANDSHAKE";
@@ -177,7 +179,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         if(intent != null) {
             m_outgoingMessenger = (Messenger) intent.getParcelableExtra(CLIENT_MESSENGER);
-            sendClientMessage(MSG_REGISTER_RESPONSE, getTunnelStateBundle());
+            sendClientMessage(ServiceToClientMessage.REGISTER_RESPONSE.ordinal(), getTunnelStateBundle());
         }
 
         return Service.START_REDELIVER_INTENT;
@@ -377,6 +379,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private static class IncomingMessageHandler extends Handler {
         private final WeakReference<TunnelManager> mTunnelManager;
+        private final ClientToServiceMessage[] csm = ClientToServiceMessage.values();
 
         IncomingMessageHandler(TunnelManager manager) {
             mTunnelManager = new WeakReference<>(manager);
@@ -386,21 +389,21 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         public void handleMessage(Message msg)
         {
             TunnelManager manager = mTunnelManager.get();
-            switch (msg.what)
+            switch (csm[msg.what])
             {
-                case TunnelManager.MSG_UNREGISTER:
+                case UNREGISTER:
                     if (manager != null) {
                         manager.m_outgoingMessenger = null;
                     }
                     break;
 
-                case TunnelManager.MSG_STOP_SERVICE:
+                case STOP_SERVICE:
                     if (manager != null) {
                         manager.signalStopService();
                     }
                     break;
 
-                case TunnelManager.MSG_RESTART_SERVICE:
+                case RESTART_SERVICE:
                     if (manager != null) {
                         if (msg.obj != null) {
                             try {
@@ -408,7 +411,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                                 manager.getTunnelConfig(tunnelConfigIntent);
                                 manager.onRestartCommand();
                             } catch (ClassCastException e) {
-                                MyLog.g("TunnelManager::handleMessage TunnelManager.MSG_RESTART_SERVICE error: " + e);
+                                MyLog.g("TunnelManager::handleMessage TunnelManager.RESTART_SERVICE error: " + e);
                                 // It is probably best to stop too.
                                 manager.signalStopService();
                             }
@@ -530,7 +533,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private Runnable sendDataTransferStats = new Runnable() {
         @Override
         public void run() {
-            sendClientMessage(MSG_DATA_TRANSFER_STATS, getDataTransferStatsBundle());
+            sendClientMessage(ServiceToClientMessage.DATA_TRANSFER_STATS.ordinal(), getDataTransferStatsBundle());
             sendDataTransferStatsHandler.postDelayed(this, sendDataTransferStatsIntervalMs);
         }
     };
@@ -555,7 +558,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         // Notify if an upgrade has already been downloaded and is waiting for install
         UpgradeManager.UpgradeInstaller.notifyUpgrade(m_parentService);
 
-        sendClientMessage(MSG_TUNNEL_STARTING, null);
+        sendClientMessage(ServiceToClientMessage.TUNNEL_STARTING.ordinal(), null);
 
         MyLog.v(R.string.current_network_type, MyLog.Sensitivity.NOT_SENSITIVE, Utils.getNetworkTypeName(m_parentService));
 
@@ -597,11 +600,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             MyLog.v(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
-            sendClientMessage(MSG_TUNNEL_STOPPING, null);
+            sendClientMessage(ServiceToClientMessage.TUNNEL_STOPPING.ordinal(), null);
 
             // If a client registers with the service at this point, it should be given a tunnel
             // state bundle (specifically DATA_TUNNEL_STATE_IS_CONNECTED) that is consistent with
-            // the MSG_TUNNEL_STOPPING message it just received
+            // the TUNNEL_STOPPING message it just received
             setIsConnected(false);
 
             m_tunnel.stop();
@@ -863,7 +866,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 }
                 // Notify activity so it has a chance to update region selector values
-                sendClientMessage(MSG_KNOWN_SERVER_REGIONS, null);
+                sendClientMessage(ServiceToClientMessage.KNOWN_SERVER_REGIONS.ordinal(), null);
             }
         });
     }
@@ -947,7 +950,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 m_tunnelState.homePages.clear();
                 Bundle data = new Bundle();
                 data.putBoolean(DATA_TUNNEL_STATE_IS_CONNECTED, false);
-                sendClientMessage(MSG_TUNNEL_CONNECTION_STATE, data);
+                sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), data);
             }
         });
     }
@@ -968,7 +971,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 setIsConnected(true);
                 Bundle data = new Bundle();
                 data.putBoolean(DATA_TUNNEL_STATE_IS_CONNECTED, true);
-                sendClientMessage(MSG_TUNNEL_CONNECTION_STATE, data);
+                sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), data);
             }
         });
     }
