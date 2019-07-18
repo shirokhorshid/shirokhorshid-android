@@ -31,8 +31,15 @@ public class TunnelService extends Service
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+
+        // Note that this will be called no matter what the current LocaleManager locale is, be it system or not.
+        // So we want to always have the TunnelManager update their context to have the new configuration.
+        // We don't need to update the notifications though if the language is not set to default.
         m_Manager.updateContext(this);
-        m_Manager.updateNotifications();
+
+        if (LocaleManager.isSetToSystemLocale()) {
+            m_Manager.updateNotifications();
+        }
     }
 
     @Override

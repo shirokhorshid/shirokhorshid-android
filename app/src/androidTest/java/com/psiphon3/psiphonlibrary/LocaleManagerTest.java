@@ -62,7 +62,7 @@ public class LocaleManagerTest {
 
         assertEquals(mFrenchLanguage, LocaleManager.getLanguage());
 
-        LocaleManager.resetToDefaultLocale(mContext);
+        LocaleManager.resetToSystemLocale(mContext);
 
         assertEquals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL, LocaleManager.getLanguage());
     }

@@ -40,17 +40,12 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  * SOFTWARE.
  */
 public class LocaleManager {
-    private static final String LANGUAGE_KEY = "language_key";
     public static final String USE_SYSTEM_LANGUAGE_VAL = "system";
+
+    private static final String LANGUAGE_KEY = "language_key";
     private static SharedPreferences m_preferences;
-    private static boolean m_isInitialized;
 
     public static void initialize(Context context) {
-        if (m_isInitialized) {
-            return;
-        }
-
-        m_isInitialized = true;
         m_preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
@@ -63,12 +58,16 @@ public class LocaleManager {
         return updateResources(context, language);
     }
 
-    static Context resetToDefaultLocale(Context context) {
+    static Context resetToSystemLocale(Context context) {
         return setNewLocale(context, USE_SYSTEM_LANGUAGE_VAL);
     }
 
     public static String getLanguage() {
         return m_preferences.getString(LANGUAGE_KEY, USE_SYSTEM_LANGUAGE_VAL);
+    }
+
+    public static boolean isSetToSystemLocale() {
+        return USE_SYSTEM_LANGUAGE_VAL.equals(getLanguage());
     }
 
     @SuppressLint("ApplySharedPref")
