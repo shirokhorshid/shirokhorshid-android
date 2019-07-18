@@ -929,7 +929,7 @@ public abstract class MainBase {
                 // A dummy intent just used to pass new tunnel config with the service restart command
                 Intent tunnelConfigIntent = new Intent();
                 configureServiceIntent(tunnelConfigIntent);
-                sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), tunnelConfigIntent);
+                sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), tunnelConfigIntent.getExtras());
             } else {
                 m_restartTunnel = true;
                 stopTunnelService();
@@ -1307,11 +1307,11 @@ public abstract class MainBase {
             sendServiceMessage(what, null);
         }
 
-        private void sendServiceMessage(int what, Object object) {
+        private void sendServiceMessage(int what, Bundle data) {
             try {
                 Message msg = Message.obtain(null, what);
-                if(object != null) {
-                    msg.obj = object;
+                if(data != null) {
+                    msg.setData(data);
                 }
                 if (m_outgoingMessenger == null) {
                     synchronized (m_queue) {

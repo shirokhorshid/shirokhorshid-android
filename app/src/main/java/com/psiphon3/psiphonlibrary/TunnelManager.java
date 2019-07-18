@@ -405,16 +405,14 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 case RESTART_SERVICE:
                     if (manager != null) {
-                        if (msg.obj != null) {
-                            try {
-                                Intent tunnelConfigIntent = (Intent) msg.obj;
-                                manager.getTunnelConfig(tunnelConfigIntent);
-                                manager.onRestartCommand();
-                            } catch (ClassCastException e) {
-                                MyLog.g("TunnelManager::handleMessage TunnelManager.RESTART_SERVICE error: " + e);
-                                // It is probably best to stop too.
-                                manager.signalStopService();
-                            }
+                        Bundle configBundle = msg.getData();
+                        if (configBundle != null) {
+                            manager.getTunnelConfig(new Intent().putExtras(configBundle));
+                            manager.onRestartCommand();
+                        } else {
+                            MyLog.g("TunnelManager::handleMessage TunnelManager.RESTART_SERVICE config bundle is null");
+                            // It is probably best to stop too.
+                            manager.signalStopService();
                         }
                     }
                     break;
