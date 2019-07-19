@@ -1238,15 +1238,19 @@ public class MainActivity extends LocalizedActivities.Activity implements IToolb
      * @param contentLength The content length.
      */
     private void doDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-    	    
-        if (ApplicationUtils.checkCardState(this, true)) {
-        	DownloadItem item = new DownloadItem(this, url);
-        	Controller.getInstance().addToDownload(item);
-        	item.startDownload();
+		if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this, getString(R.string.Main_DownloadPermissionRequestReason))) {
+			Toast.makeText(this, R.string.Commons_NeedWritePermissions, Toast.LENGTH_LONG).show();
+			return;
+		}
 
-        	Toast.makeText(this, getString(R.string.Main_DownloadStartedMsg), Toast.LENGTH_SHORT).show();
-        }
-    }
+		if (ApplicationUtils.checkCardState(this, true)) {
+			DownloadItem item = new DownloadItem(this, url);
+			Controller.getInstance().addToDownload(item);
+			item.startDownload();
+
+			Toast.makeText(this, getString(R.string.Main_DownloadStartedMsg), Toast.LENGTH_SHORT).show();
+		}
+	}
     
     /**
      * Add a new tab.
