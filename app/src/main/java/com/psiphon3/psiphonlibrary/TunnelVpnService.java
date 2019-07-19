@@ -68,6 +68,7 @@ public class TunnelVpnService extends VpnService
     private void startStatusActivity()
     {
         Intent intent = new Intent(this, StatusActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
