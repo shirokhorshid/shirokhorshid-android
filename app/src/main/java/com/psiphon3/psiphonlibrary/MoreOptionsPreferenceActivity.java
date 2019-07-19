@@ -41,7 +41,11 @@ import org.zirco.ui.activities.MainActivity;
 
 import java.util.*;
 
-public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+
+    // This is taken from https://developer.android.com/reference/android/provider/Settings#ACTION_VPN_SETTINGS
+    // As we target to low of an SDK we cannot reference this constant directly
+    private static final String ACTION_VPN_SETTINGS = "android.settings.VPN_SETTINGS";
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
@@ -133,6 +137,10 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         mProxyDomain = (EditTextPreference) preferences
                 .findPreference(getString(R.string.useProxyDomainPreference));
 
+        if (Utils.supportsAlwaysOnVPN()) {
+            setupNavigateToVPNSettings(preferences);
+        }
+
         setupLanguageSelector(preferences);
 
         PreferenceGetter preferenceGetter;
@@ -218,6 +226,17 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         mDefaultSummaryBundle = new Bundle();
 
         updatePreferencesScreen();
+    }
+
+    private void setupNavigateToVPNSettings(PreferenceScreen preferences) {
+        Preference preference = preferences.findPreference(getString(R.string.preferenceNavigateToVPNSetting));
+        preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(ACTION_VPN_SETTINGS));
+                return true;
+            }
+        });
     }
 
     private void setupLanguageSelector(PreferenceScreen preferences) {
