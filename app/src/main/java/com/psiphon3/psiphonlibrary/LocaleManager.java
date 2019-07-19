@@ -78,6 +78,7 @@ public class LocaleManager {
     private static Context updateResources(Context context, String language) {
         Locale locale;
         if (language.equals(USE_SYSTEM_LANGUAGE_VAL)) {
+            // TODO: On API 24+ use Resources.getSystem().getConfiguration().getLocales().get(0) instead
             locale = Resources.getSystem().getConfiguration().locale;
         } else {
             locale = new Locale(language);
