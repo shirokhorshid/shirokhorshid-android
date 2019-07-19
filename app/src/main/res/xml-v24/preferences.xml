@@ -28,16 +28,12 @@
             android:title="@string/preference_language_selection_title" />
     </PreferenceCategory>
     <PreferenceCategory
-        android:key="@string/preferenceCategoryOther"
-        android:title="@string/preference_category_other_title">
+        android:key="@string/vpnSettingsCategoryKey"
+        android:title="@string/preference_vpn_title" >
         <Preference
             android:key="@string/preferenceNavigateToVPNSetting"
             android:title="@string/preference_navigate_to_vpn_setting_title"
             android:summary="@string/preference_navigate_to_vpn_setting_summary" />
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:key="@string/routingSettingsCategoryKey"
-        android:title="@string/preference_routing_title" >
         <com.psiphon3.psiphonlibrary.InstalledAppsMultiSelectListPreference
             android:defaultValue="@array/empty_array"
             android:entries="@array/empty_array"
