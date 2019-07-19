@@ -9,7 +9,7 @@
   <string name="exit">Quitter</string>
   <string name="open_browser">Ouvrir le navigateur</string>
   <string name="browser_task_label">Navigateur Psiphon</string>
-  <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des informations complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, veuillez envoyer un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des renseignements complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, veuillez envoyer un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Merci pour votre rétroaction</string>
   <string name="FeedbackActivity.Failure">L’envoi a échoué. Veuillez ressayer.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Échec d’envoi de votre rétroaction</string>
@@ -20,7 +20,7 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas démarrer le RPV. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et réglée sur RPV permanent.</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnelliser tout l’appareil ?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La tunnellisation intégrale est possible pour votre appareil.\n\nAvec ette option, tout le trafic Internet de toutes vos applis, incluant tous les navigateurs, sera tunnellisé par Psiphon.\n\nVous pouvez autrement choisir de ne tunnelliser que le trafic du Navigateur Psiphon, toutes les autres applis se connectant directement par votre connexion Internet habituelle.</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La tunnellisation intégrale est possible pour votre appareil.\n\nAvec ette option, tout le trafic Internet de toutes vos applis, dont tous les navigateurs, sera tunnellisé par Psiphon.\n\nVous pouvez autrement choisir de ne tunnelliser que le trafic du Navigateur Psiphon, toutes les autres applis se connectant directement par votre connexion Internet habituelle.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tout l’appareil</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">N’utiliser que le Navigateur Psiphon</string>
   <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>

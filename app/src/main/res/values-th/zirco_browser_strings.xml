@@ -48,12 +48,18 @@
   <string name="PreferencesActivity.WeaveServerPreferenceTitle">เซิร์ฟเวอร์</string>
   <string name="PreferencesActivity.WeavePasswordTitle">รหัสผ่าน</string>
   <string name="PreferencesActivity.WeaveKeyTitle">รหัสกุญแจ</string>
+  <string name="WeaveBookmarksListActivity.MenuSync">เชื่อมข้อมูล
+</string>
   <string name="WeaveBookmarksListActivity.MenuClear">ล้างทิ้ง</string>
+  <string name="WeaveBookmarksListActivity.SetupButton">ติดตั้ง</string>
+  <string name="WeaveBookmarksListActivity.SyncButton">เชื่อมข้อมูล
+</string>
   <string name="WeaveServerPreferenceActivity.Prompt">เซิร์ฟเวอร์</string>
   <string name="WeaveServerPreferenceActivity.Title">เซิร์ฟเวอร์</string>
   <string name="WeaveServerPreferenceActivity.CustomServer">กำหนดเซิร์ฟเวอร์เอง</string>
   <string name="Commons.Bookmarks">บุ๊คมาร์ค</string>
   <string name="Commons.History">ประวัติ</string>
+  <string name="Commons.All">ทั้งหมด</string>
   <string name="PreferencesActivity.AdvancedCategoryTitle">ขั้นสูง</string>
   <string name="HttpAuthenticationDialog.UserName">ชื่อเอกสาร</string>
   <string name="HttpAuthenticationDialog.Password">รหัสผ่าน</string>

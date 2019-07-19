@@ -109,7 +109,7 @@
   <string name="Commons.Close">Fermer</string>
   <string name="PreferencesActivity.AboutCategoryTitle">À propos</string>
   <string name="PreferencesActivity.AboutPreferenceTitle">À propos</string>
-  <string name="PreferencesActivity.AboutPreferenceSummary">Informations sur cette application.</string>
+  <string name="PreferencesActivity.AboutPreferenceSummary">Renseignements sur cette application.</string>
   <string name="BookmarksListActivity.MostUsedSortMode">Plus utilisé</string>
   <string name="PreferencesActivity.DefaultZoomPreferenceTitle">Niveau de zoom par défaut</string>
   <string name="PreferencesActivity.DefaultZoomPreferenceSummary">Définir le niveau de zoom par défaut.</string>
@@ -228,7 +228,7 @@
   <string name="QuickAction.Share">Partager</string>
   <string name="QuickAction.SelectText">Sélectionner le texte</string>
   <string name="QuickAction.MobileView">Vue mobile</string>
-  <string name="AboutActivity.OtherLicenseText">Cette application inclut du code provenant du projet Navigateur Zirco (https://code.google.com/p/zirco-browser/), sous licence LGPv3. Elle inclut également du code provenant du projet GreenDroid (https://github.com/cyrilmottier/GreenDroid), et du projet Shaman (https://github.com/emergentdotorg/shaman), tous deux sous licence Apache, version 2.</string>
+  <string name="AboutActivity.OtherLicenseText">Cette application comprend du code provenant du projet Navigateur Zirco (https://code.google.com/p/zirco-browser/), sous licence LGPv3. Elle comprend également du code qui provient du projet GreenDroid (https://github.com/cyrilmottier/GreenDroid) et du projet Shaman (https://github.com/emergentdotorg/shaman), tous deux sous licence Apache, version 2.</string>
   <string name="PreferencesActivity.WeavePreferenceTitle">Synchronisation des marque-pages Firefox</string>
   <string name="PreferencesActivity.WeavePreferenceSummary">Gérer les paramètres de synchronisation des marque-pages avec Firefox Sync.</string>
   <string name="PreferencesActivity.UseWeavePreferenceTitle">Utiliser Firefox Sync</string>
@@ -245,7 +245,7 @@
   <string name="WeaveBookmarksListActivity.MenuSync">Synchroniser</string>
   <string name="WeaveBookmarksListActivity.MenuClear">Effacer</string>
   <string name="WeaveBookmarksListActivity.WeaveRootFolder">Emplacements</string>
-  <string name="WeaveBookmarksListActivity.EmptyText">Les marque-pages Firefox ne sont pas synchronisés. Paramétrez vos informations de compte et lancez une synchro.</string>
+  <string name="WeaveBookmarksListActivity.EmptyText">Les marque-pages de Firefox ne sont pas synchronisés. Paramétrez vos renseignements de compte et lancez une synchro.</string>
   <string name="WeaveBookmarksListActivity.EmptyFolderText">Aucun marque-page dans ce répertoire.</string>
   <string name="WeaveBookmarksListActivity.SetupButton">Configuration</string>
   <string name="WeaveBookmarksListActivity.SyncButton">Synchroniser</string>
