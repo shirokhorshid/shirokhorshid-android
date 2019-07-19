@@ -425,7 +425,9 @@ public interface UpgradeManager
                 mNotificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
             }
 
-            mNotificationManager.notify(R.string.UpgradeManager_UpgradeAvailableNotificationId, mNotificationBuilder.build());
+            if (mNotificationManager != null) {
+                mNotificationManager.notify(R.string.UpgradeManager_UpgradeAvailableNotificationId, mNotificationBuilder.build());
+            }
         }
     }
 }
