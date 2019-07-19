@@ -51,7 +51,7 @@ import com.psiphon3.psiphonlibrary.Diagnostics;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
-public class FeedbackActivity extends LocalizedActivities.Activity
+public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
 {
 
     private WebView webView;
