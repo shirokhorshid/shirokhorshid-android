@@ -58,6 +58,12 @@ public class TunnelVpnService extends VpnService
             // The user didn't trigger this so start up the StatusActivity and let them handle this
             startStatusActivity();
 
+            // Call stopSelf after starting the activity
+            // This is because a lot of the logic around whether to auto-start the vpn or not is based off
+            // if the service is running. So we want to make sure the service is in a stopped state rather
+            // than adding extra logic around if this is a "always-on" start or not.
+            stopSelf();
+
             // Indicate we don't want the caller to try calling again
             return Service.START_NOT_STICKY;
         }
