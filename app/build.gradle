@@ -45,6 +45,11 @@ android {
             pseudoLocalesEnabled true
         }
         release {
+            ndk {
+                // TODO: should GA be armeabi-v7a only for size considerations?
+                // ABI configurations of native libraries Gradle should package with the APK.
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
