@@ -763,6 +763,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             json.put("EmitDiagnosticNotices", true);
 
+            json.put("EmitDiagnosticNetworkParameters", true);
+
             // If this is a temporary tunnel (like for UpgradeChecker) we need to override some of
             // the implicit config values.
             if (temporaryTunnel) {
