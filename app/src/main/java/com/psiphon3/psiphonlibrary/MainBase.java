@@ -132,7 +132,7 @@ public abstract class MainBase {
         protected static final int REQUEST_CODE_PREPARE_VPN = 100;
         protected static final int REQUEST_CODE_PREFERENCE = 101;
 
-        protected static boolean m_firstRun = true;
+        private static boolean m_firstRun = true;
         private boolean m_canWholeDevice = false;
 
         protected Button m_toggleButton;
@@ -393,6 +393,7 @@ public abstract class MainBase {
 
             if (m_firstRun) {
                 EmbeddedValues.initialize(this);
+                m_firstRun = false;
             }
 
             // Set up tabs

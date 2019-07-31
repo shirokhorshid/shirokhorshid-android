@@ -67,6 +67,7 @@ public class StatusActivity
     private ImageView m_banner;
     private boolean m_tunnelWholeDevicePromptShown = false;
     private boolean m_loadedSponsorTab = false;
+    private boolean m_firstRun = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +86,8 @@ public class StatusActivity
         setUpBanner();
 
         // Auto-start on app first run
-        if (m_firstRun) {
-            m_firstRun = false;
+        if (shouldAutoStart()) {
+            preventAutoStart();
             startUp();
         }
 
@@ -94,6 +95,14 @@ public class StatusActivity
         HandleCurrentIntent();
 
         restoreSponsorTab();
+    }
+
+    private void preventAutoStart() {
+        m_firstRun = false;
+    }
+
+    private boolean shouldAutoStart() {
+        return m_firstRun && !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
     }
 
     @Override
@@ -370,9 +379,7 @@ public class StatusActivity
         else
         {
             // No prompt, just start the tunnel (if not already running)
-            if (!getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false)) {
-                startTunnel();
-            }
+            startTunnel();
         }
     }
 
