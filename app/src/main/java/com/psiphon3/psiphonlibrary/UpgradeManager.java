@@ -115,25 +115,18 @@ public interface UpgradeManager
             return new File(getFullPath());
         }
 
-        public abstract boolean isWorldReadable();
-        
-        @SuppressLint("WorldReadableFiles")
         public FileOutputStream createForWriting() throws FileNotFoundException
         {
             int mode = 0;
-            if (isWorldReadable()) mode |= Context.MODE_WORLD_READABLE;
-
             return this.context.openFileOutput(getFilename(), mode);             
         }
 
-        @SuppressLint("WorldReadableFiles")
         public boolean write(byte[] data, int length, boolean append)
         {
             FileOutputStream fos = null;
             try
             {
                 int mode = 0;
-                if (isWorldReadable()) mode |= Context.MODE_WORLD_READABLE;
                 if (append) mode |= Context.MODE_APPEND;
 
                 fos = this.context.openFileOutput(getFilename(), mode); 
@@ -177,12 +170,6 @@ public interface UpgradeManager
         {
             return "PsiphonAndroid.apk";
         }
-        
-        public boolean isWorldReadable()
-        {
-            // Making the APK world readable so Installer component can access it
-            return true;
-        }
     }    
 
     class UnverifiedUpgradeFile extends UpgradeFile
@@ -195,12 +182,6 @@ public interface UpgradeManager
         public String getFilename()
         {
             return "PsiphonAndroid.apk.unverified";
-        }
-        
-        public boolean isWorldReadable()
-        {
-            // Making the APK world readable so Installer component can access it
-            return true;
         }
     }    
 
@@ -216,11 +197,6 @@ public interface UpgradeManager
             return "PsiphonAndroid.upgrade_package";
         }
         
-        public boolean isWorldReadable()
-        {
-            return false;
-        }
-
         private InputStream openUnzipStream() throws IOException, FileNotFoundException
         {
             return new GZIPInputStream(new BufferedInputStream(super.context.openFileInput(getFilename())));
