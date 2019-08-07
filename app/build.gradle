@@ -45,6 +45,10 @@ android {
             pseudoLocalesEnabled true
         }
         release {
+            ndk {
+                // ABI configurations of native libraries Gradle should package with the APK.
+                abiFilters 'armeabi-v7a'
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
