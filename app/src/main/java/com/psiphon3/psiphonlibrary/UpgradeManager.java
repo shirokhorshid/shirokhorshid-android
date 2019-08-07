@@ -28,6 +28,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.FileProvider;
 
@@ -115,18 +116,25 @@ public interface UpgradeManager
             return new File(getFullPath());
         }
 
+        public abstract boolean isWorldReadable();
+        
+        @SuppressLint("WorldReadableFiles")
         public FileOutputStream createForWriting() throws FileNotFoundException
         {
             int mode = 0;
+            if (isWorldReadable() && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) mode |= Context.MODE_WORLD_READABLE;
+
             return this.context.openFileOutput(getFilename(), mode);             
         }
 
+        @SuppressLint("WorldReadableFiles")
         public boolean write(byte[] data, int length, boolean append)
         {
             FileOutputStream fos = null;
             try
             {
                 int mode = 0;
+                if (isWorldReadable() && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) mode |= Context.MODE_WORLD_READABLE;
                 if (append) mode |= Context.MODE_APPEND;
 
                 fos = this.context.openFileOutput(getFilename(), mode); 
@@ -170,6 +178,12 @@ public interface UpgradeManager
         {
             return "PsiphonAndroid.apk";
         }
+        
+        public boolean isWorldReadable()
+        {
+            // Making the APK world readable so Installer component can access it
+            return true;
+        }
     }    
 
     class UnverifiedUpgradeFile extends UpgradeFile
@@ -182,6 +196,12 @@ public interface UpgradeManager
         public String getFilename()
         {
             return "PsiphonAndroid.apk.unverified";
+        }
+        
+        public boolean isWorldReadable()
+        {
+            // Making the APK world readable so Installer component can access it
+            return true;
         }
     }    
 
@@ -197,6 +217,11 @@ public interface UpgradeManager
             return "PsiphonAndroid.upgrade_package";
         }
         
+        public boolean isWorldReadable()
+        {
+            return false;
+        }
+
         private InputStream openUnzipStream() throws IOException, FileNotFoundException
         {
             return new GZIPInputStream(new BufferedInputStream(super.context.openFileInput(getFilename())));
@@ -363,8 +388,9 @@ public interface UpgradeManager
             // This intent triggers the upgrade. It's launched if the user clicks the notification.
 
             Intent upgradeIntent = new Intent(Intent.ACTION_VIEW);
-
-            Uri apkURI = FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".UpgradeFileProvider", file.getFile());
+            Uri apkURI = Build.VERSION.SDK_INT < Build.VERSION_CODES.N ?
+                    file.getUri() :
+                    FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".UpgradeFileProvider", file.getFile());
             upgradeIntent.setDataAndType(apkURI, "application/vnd.android.package-archive");
             upgradeIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         
