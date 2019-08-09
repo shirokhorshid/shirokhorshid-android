@@ -18,14 +18,10 @@ package org.zirco.ui.activities.preferences;
 import java.util.List;
 
 import com.psiphon3.R;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import org.zirco.controllers.Controller;
 import org.zirco.providers.BookmarksProviderWrapper;
-import org.zirco.ui.activities.AboutActivity;
-import org.zirco.ui.activities.AdBlockerWhiteListActivity;
-import org.zirco.ui.activities.ChangelogActivity;
-import org.zirco.ui.activities.MobileViewListActivity;
-import org.zirco.ui.activities.DesktopViewListActivity;
-import org.zirco.ui.activities.MainActivity;
+import org.zirco.ui.activities.*;
 import org.zirco.ui.components.CustomWebView;
 import org.zirco.ui.runnables.XmlHistoryBookmarksExporter;
 import org.zirco.ui.runnables.XmlHistoryBookmarksImporter;
@@ -45,16 +41,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.webkit.CookieManager;
+import android.widget.Toast;
 
 /**
  * Preferences activity.
  */
-public class PreferencesActivity extends PreferenceActivity {
+public class PreferencesActivity extends LocalizedActivities.PreferenceActivity {
 	
 	private ProgressDialog mProgressDialog;
 	
@@ -522,6 +518,11 @@ public class PreferencesActivity extends PreferenceActivity {
 	 * Ask the user the file to import to bookmarks and history, and launch the import. 
 	 */
 	private void importHistoryBookmarks() {
+		if (!ApplicationUtils.ensureReadStoragePermissionGranted(this, getString(R.string.PreferencesActivity_ImportHistoryBookmarksPermissionRequestReason))) {
+			Toast.makeText(this, R.string.Commons_NeedReadPermissions, Toast.LENGTH_LONG).show();
+			return;
+		}
+
 		List<String> exportedFiles = IOUtils.getExportedBookmarksFileList();    	
     	
     	final String[] choices = exportedFiles.toArray(new String[exportedFiles.size()]);
@@ -553,16 +554,21 @@ public class PreferencesActivity extends PreferenceActivity {
 	 * Export the bookmarks and history.
 	 */
 	private void doExportHistoryBookmarks() {
+		if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this, getString(R.string.PreferencesActivity_ImportHistoryBookmarksPermissionRequestReason))) {
+			Toast.makeText(this, R.string.Commons_NeedWritePermissions, Toast.LENGTH_LONG).show();
+			return;
+		}
+
 		if (ApplicationUtils.checkCardState(this, true)) {
 			mProgressDialog = ProgressDialog.show(this,
-	    			this.getResources().getString(R.string.Commons_PleaseWait),
-	    			this.getResources().getString(R.string.Commons_ExportingHistoryBookmarks));
-			
+					this.getResources().getString(R.string.Commons_PleaseWait),
+					this.getResources().getString(R.string.Commons_ExportingHistoryBookmarks));
+
 			XmlHistoryBookmarksExporter exporter = new XmlHistoryBookmarksExporter(this,
 					DateUtils.getNowForFileName() + ".xml",
 					BookmarksProviderWrapper.getAllStockRecords(this.getContentResolver()),
 					mProgressDialog);
-			
+
 			new Thread(exporter).start();
 		}
 	}

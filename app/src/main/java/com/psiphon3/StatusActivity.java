@@ -29,9 +29,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -44,7 +46,6 @@ import android.widget.Toast;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
-import com.psiphon3.psiphonlibrary.WebViewProxySettings;
 
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
@@ -52,6 +53,11 @@ import net.grandcentrix.tray.core.ItemNotFoundException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class StatusActivity
@@ -77,36 +83,13 @@ public class StatusActivity
 
         // EmbeddedValues.initialize(this); is called in MainBase.OnCreate
 
-        // Play Store Build instances should use existing banner from previously installed APK
-        // (if present). To enable this, non-Play Store Build instances write their banner to
-        // a private file.
-        try {
-            if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
-                File bannerImageFile = new File(getFilesDir(), BANNER_FILE_NAME);
-                if (bannerImageFile.exists()) {
-                    Bitmap bitmap = BitmapFactory.decodeFile(bannerImageFile.getAbsolutePath());
-                    m_banner.setImageBitmap(bitmap);
-                }
-            } else {
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.banner);
-                if (bitmap != null) {
-                    FileOutputStream out = openFileOutput(BANNER_FILE_NAME, Context.MODE_PRIVATE);
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
-                    out.close();
-                }
-            }
-        } catch (IOException e) {
-            // Ignore failure
-        }
+        setUpBanner();
 
         // Auto-start on app first run
         if (m_firstRun) {
             m_firstRun = false;
             startUp();
         }
-
-        // Initialize WebView proxy settings before attempting to load any URLs
-        WebViewProxySettings.initialize(this);
 
         m_loadedSponsorTab = false;
         HandleCurrentIntent();
@@ -128,9 +111,82 @@ public class StatusActivity
         resetSponsorHomePage(freshConnect);
     }
 
+    private void setUpBanner() {
+        // Play Store Build instances should use existing banner from previously installed APK
+        // (if present). To enable this, non-Play Store Build instances write their banner to
+        // a private file.
+        try {
+            Bitmap bitmap = getBannerBitmap();
+            if (!EmbeddedValues.IS_PLAY_STORE_BUILD) {
+                saveBanner(bitmap);
+            }
+
+            // If we successfully got the banner image set it and it's background
+            if (bitmap != null) {
+                m_banner.setImageBitmap(bitmap);
+                m_banner.setBackgroundColor(getMostCommonColor(bitmap));
+            }
+        } catch (IOException e) {
+            // Ignore failure
+        }
+    }
+
+    private void saveBanner(Bitmap bitmap) throws IOException {
+        if (bitmap == null) {
+            return;
+        }
+
+        FileOutputStream out = openFileOutput(BANNER_FILE_NAME, Context.MODE_PRIVATE);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+        out.close();
+    }
+
+    private Bitmap getBannerBitmap() {
+        if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
+            File bannerImageFile = new File(getFilesDir(), BANNER_FILE_NAME);
+            if (bannerImageFile.exists()) {
+                return BitmapFactory.decodeFile(bannerImageFile.getAbsolutePath());
+            }
+        }
+
+        return BitmapFactory.decodeResource(getResources(), R.drawable.banner);
+    }
+
+    private int getMostCommonColor(Bitmap bitmap) {
+        if (bitmap == null) {
+            return Color.WHITE;
+        }
+
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int size = width * height;
+        int pixels[] = new int[size];
+
+        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+
+        HashMap<Integer, Integer> colorMap = new HashMap<>();
+
+        for (int i = 0; i < pixels.length; i++) {
+            int color = pixels[i];
+            if (colorMap.containsKey(color)) {
+                colorMap.put(color, colorMap.get(color) + 1);
+            } else {
+                colorMap.put(color, 1);
+            }
+        }
+
+        ArrayList<Map.Entry<Integer, Integer>> entries = new ArrayList<>(colorMap.entrySet());
+        Collections.sort(entries, new Comparator<Map.Entry<Integer, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+        return entries.get(0).getKey();
+    }
+
     @Override
-    protected void onNewIntent(Intent intent)
-    {
+    protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
         // If the app is already foreground (so onNewIntent is being called),
@@ -141,66 +197,6 @@ public class StatusActivity
 
         // Handle explicit intent that is received when activity is already running
         HandleCurrentIntent();
-    }
-
-    @Override
-    protected PendingIntent getHandshakePendingIntent() {
-        Intent intent = new Intent(
-                TunnelManager.INTENT_ACTION_HANDSHAKE,
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    @Override
-    protected PendingIntent getServiceNotificationPendingIntent() {
-        Intent intent = new Intent(
-                "ACTION_VIEW",
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    @Override
-    protected PendingIntent getRegionNotAvailablePendingIntent() {
-        Intent intent = new Intent(
-                TunnelManager.INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE,
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-    }
-
-    @Override
-    protected PendingIntent getVpnRevokedPendingIntent() {
-        Intent intent = new Intent(
-                TunnelManager.INTENT_ACTION_VPN_REVOKED,
-                null,
-                this,
-                com.psiphon3.StatusActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        return PendingIntent.getActivity(
-                this,
-                0,
-                intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     protected void HandleCurrentIntent()
@@ -381,17 +377,12 @@ public class StatusActivity
     }
 
     @Override
-    public void displayBrowser(Context context, Uri uri) {
-        if (uri == null) {
-            for (String homePage : getHomePages()) {
-                uri = Uri.parse(homePage);
-                break;
+    public void displayBrowser(Context context, String urlString) {
+        if (urlString == null) {
+            ArrayList<String> homePages = getHomePages();
+            if (homePages.size() > 0) {
+                urlString = homePages.get(0);
             }
-        }
-
-        // No URI to display - do nothing
-        if (uri == null) {
-            return;
         }
 
         try {
@@ -400,12 +391,38 @@ public class StatusActivity
                 // disabled due to the case where users haven't set a default browser
                 // and will get the prompt once per home page.
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                // If URL is not empty we will try to load in an external browser, otherwise we will
+                // try our best to open an external browser instance without specifying URL to load
+                // or will load "about:blank" URL if that fails.
+
+                // Prepare browser starting intent.
+                Intent browserIntent;
+                if (TextUtils.isEmpty(urlString)) {
+                    // If URL is empty, just start the app.
+                    browserIntent = new Intent(Intent.ACTION_MAIN);
+                } else {
+                    // If URL is not empty, start the app with URL load intent.
+                    browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+                }
                 browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                ResolveInfo resolveInfo = getPackageManager().resolveActivity(browserIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                if (resolveInfo == null || resolveInfo.activityInfo == null ||
-                        resolveInfo.activityInfo.name == null || resolveInfo.activityInfo.name.toLowerCase().contains("resolver")) {
-                    // No default web browser is set, so try opening in Chrome
+
+                // query default 'URL open' intent handler.
+                Intent queryIntent;
+                if (TextUtils.isEmpty(urlString)) {
+                    queryIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.org"));
+                } else {
+                    queryIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+                }
+                ResolveInfo resolveInfo = getPackageManager().resolveActivity(queryIntent, PackageManager.MATCH_DEFAULT_ONLY);
+
+                // Try and start default intent handler application if there is one
+                if (resolveInfo != null &&
+                        resolveInfo.activityInfo != null &&
+                        resolveInfo.activityInfo.name != null &&
+                        !resolveInfo.activityInfo.name.toLowerCase().contains("resolver")) {
+                    browserIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
+                    context.startActivity(browserIntent);
+                } else { // There is no default handler, try chrome
                     browserIntent.setPackage("com.android.chrome");
                     try {
                         context.startActivity(browserIntent);
@@ -413,12 +430,19 @@ public class StatusActivity
                         // We tried to open Chrome and it is not installed,
                         // so reinvoke with the default behaviour
                         browserIntent.setPackage(null);
+                        // If URL is empty try loading a special URL 'about:blank'
+                        if (TextUtils.isEmpty(urlString)) {
+                            browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
+                        }
                         context.startActivity(browserIntent);
                     }
-                } else {
-                    context.startActivity(browserIntent);
                 }
             } else {
+                Uri uri = null;
+                if (!TextUtils.isEmpty(urlString)) {
+                    uri = Uri.parse(urlString);
+                }
+
                 Intent intent = new Intent(
                         "ACTION_VIEW",
                         uri,
@@ -437,7 +461,6 @@ public class StatusActivity
                 // Note: Zirco now directly accesses PsiphonData to get the current
                 // local HTTP proxy port for WebView tunneling.
 
-                intent.putExtra("localProxyPort", getListeningLocalHttpProxyPort());
                 intent.putExtra("homePages", getHomePages());
 
                 context.startActivity(intent);

@@ -15,9 +15,16 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">ግብረመልስ ማስገባት ከሽፏል። </string>
   <string name="FeedbackActivity.InvalidURLParameters">በግብረመልስ  ማስገቢያ ቅጽ ላይ የማይሰሩ የurl መለኪያዎች አሉ</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">የግብረመልስ ይዘት ገጽን ማግኘት ከሽፏል </string>
+  <string name="StatusActivity.VpnRevokedTitle">ሳይፈን - Psiphon VPN ቆሟል።</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon (ሳይፈን) VPNን ማስጀመር አልቻለም።</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">መሳሪያውን ሙሉ በሙሉ ማስተላለፍ ይፈልጋሉ?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ለመሳሪያዎ ሙሉ በሙሉ መሳሪያውን የማስተላለፍ አማራጭ አለ። \n\nበዚህ አማራጭ ለሁሉም መተግበሪያዎች መዳሰሻዎችን ጨምሮ ሁሉም የእርስዎ የኢንተርኔት ትራፊክ በሳይፈን አማካኝነት ይተላለፋል።  \n\n በአማራጭነት የሳይፈን ቅርቅብ መዳሰሻን ብቻ መርጠው ማስተላለፍ ይችላሉ። ይህ ማለት የሌሎች መተግበሪያዎች ግንኝነት የሚያልፈው በቀጥታ በመደበኛው የኢንተርኔት ግንኙነት አማካኝነት ይሆናል። </string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">መሳሪያውን ሙሉ በሙሉ አስተላልፍ </string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">የሳይፈን መዳሰሻን ብቻ ተጠቀም </string>
+  <string name="selected_region_currently_not_available">የተመረጠው ክልል ለጊዜው </string>
   <string name="ads_consent_preference_dialog_title">ዳግም አቀናብር</string>
+  <string name="preference_language_selection_summary">ቋንቋ ይምረጡ</string>
+  <string name="preference_language_selection_title">ቋንቋ </string>
+  <string name="preference_language_title">የቋንቋ መረጣ</string>
+  <string name="preference_language_default_language">ነባሪ ቋንቋ </string>
 </resources>

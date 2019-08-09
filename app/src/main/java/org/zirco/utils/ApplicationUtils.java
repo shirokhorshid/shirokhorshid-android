@@ -26,6 +26,8 @@ import org.zirco.model.items.BookmarkItem;
 import org.zirco.model.items.HistoryItem;
 import org.zirco.providers.BookmarksProviderWrapper;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,8 +36,10 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.text.ClipboardManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -229,6 +233,27 @@ public class ApplicationUtils {
     	AlertDialog alert = builder.create();
     	alert.show();
 	}
+
+	/**
+     * Display a standard Ok dialog.
+     * @param context The current context.
+     * @param icon The dialog icon.
+     * @param title The dialog title.
+     * @param message The dialog message.
+     * @param onOk The dialog listener for the ok button.
+     */
+    public static void showOkDialog(Context context, int icon, String title, String message, DialogInterface.OnClickListener onOk) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setCancelable(false);
+        builder.setIcon(icon);
+        builder.setTitle(title);
+        builder.setMessage(message);
+
+        builder.setInverseBackgroundForced(true);
+        builder.setPositiveButton(context.getResources().getString(R.string.Commons_Ok), onOk);
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 	
 	/**
 	 * Display a standard Ok / Cancel dialog.
@@ -285,6 +310,90 @@ public class ApplicationUtils {
         }
         
         return true;
+	}
+
+	/**
+	 * Checks if we can read from external storage, requesting permission to do so if we can't.
+	 *
+	 * @param activity The activity to request permissions for
+	 * @param requestReason The reason we are requesting permissions
+	 *
+	 * @return true iff we have the permission to read from external storage.
+	 */
+	public static boolean ensureReadStoragePermissionGranted(final Activity activity, String requestReason) {
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+			// Permission is automatically granted on sdk < 23 upon installation
+			return true;
+		}
+
+		// The permission has already been granted
+		if (activity.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+			return true;
+		}
+
+		// The permission has already been denied at least once, so we explain why we need it
+		if (activity.shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+			showOkDialog(activity,
+					android.R.drawable.ic_dialog_info,
+					activity.getString(R.string.Commons_PermissionRequestReasonTitle),
+					requestReason,
+					new DialogInterface.OnClickListener() {
+						@SuppressLint("InlinedApi")
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+							ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+						}
+					});
+
+			return false;
+		}
+
+		// Request the permission. The request code doesn't matter because we aren't handling it.
+		ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.READ_EXTERNAL_STORAGE }, 0);
+		return false;
+	}
+
+	/**
+	 * Checks if we can write to external storage, requesting permission to do so if we can't.
+	 *
+	 * @param activity The activity to request permissions for
+	 * @param requestReason The reason we are requesting permissions
+	 *
+	 * @return true iff we have the permission to write to external storage.
+	 */
+	public static boolean ensureWriteStoragePermissionGranted(final Activity activity, final String requestReason) {
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+			// Permission is automatically granted on sdk < 23 upon installation
+			return true;
+		}
+
+		// The permission has already been granted
+		if (activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+			return true;
+		}
+
+		// The permission has already been denied at least once, so we explain why we need it
+		if (activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+			showOkDialog(activity,
+					android.R.drawable.ic_dialog_info,
+					activity.getString(R.string.Commons_PermissionRequestReasonTitle),
+					requestReason,
+					new DialogInterface.OnClickListener() {
+						@SuppressLint("InlinedApi")
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+							ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+						}
+					});
+
+			return false;
+		}
+
+		// Request the permission. The request code doesn't matter because we aren't handling it.
+		ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+		return false;
 	}
 	
 	/**
@@ -537,5 +646,4 @@ public class ApplicationUtils {
     		Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show();
     	}
     }
-
 }

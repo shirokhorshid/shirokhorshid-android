@@ -20,4 +20,6 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Kết nối toàn bộ thiết bị xuyên qua hầm</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Chỉ dùng trình duyệt Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Đặt lại</string>
+  <string name="preference_language_selection_title">Ngôn ngữ</string>
+  <string name="preference_language_default_language">Ngôn ngữ mặc định</string>
 </resources>

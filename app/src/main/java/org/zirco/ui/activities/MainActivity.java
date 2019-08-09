@@ -84,6 +84,7 @@ import android.widget.ViewFlipper;
 import com.psiphon3.FeedbackActivity;
 import com.psiphon3.R;
 import com.psiphon3.StatusActivity;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.TunnelService;
 
 import net.grandcentrix.tray.AppPreferences;
@@ -133,7 +134,7 @@ import java.util.Set;
 /**
  * The application main activity.
  */
-public class MainActivity extends Activity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener {
+public class MainActivity extends LocalizedActivities.Activity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener {
 	
 	public static MainActivity INSTANCE = null;
 	
@@ -313,11 +314,19 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
         // end Psiphon changes
         
         // PSIPHON: open home pages if they're not already open (or a blank tab if none)
-        ArrayList<String> homePages = intent.getStringArrayListExtra("homePages");
-        
-        if (intent.getData() != null)
-        {
-            homePages.add(intent.getDataString());
+        ArrayList<String> homePages;
+
+        if (intent.hasExtra("homePages")) {
+            homePages = intent.getStringArrayListExtra("homePages");
+        } else {
+            homePages = new ArrayList<>();
+        }
+
+        if (intent.getData() != null) {
+            String url = intent.getDataString();
+            if (!homePages.contains(url)) {
+                homePages.add(url);
+            }
         }
         
         for (String homePage : homePages)
@@ -1229,15 +1238,19 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
      * @param contentLength The content length.
      */
     private void doDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
-    	    
-        if (ApplicationUtils.checkCardState(this, true)) {
-        	DownloadItem item = new DownloadItem(this, url);
-        	Controller.getInstance().addToDownload(item);
-        	item.startDownload();
+		if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this, getString(R.string.Main_DownloadPermissionRequestReason))) {
+			Toast.makeText(this, R.string.Commons_NeedWritePermissions, Toast.LENGTH_LONG).show();
+			return;
+		}
 
-        	Toast.makeText(this, getString(R.string.Main_DownloadStartedMsg), Toast.LENGTH_SHORT).show();
-        }
-    }
+		if (ApplicationUtils.checkCardState(this, true)) {
+			DownloadItem item = new DownloadItem(this, url);
+			Controller.getInstance().addToDownload(item);
+			item.startDownload();
+
+			Toast.makeText(this, getString(R.string.Main_DownloadStartedMsg), Toast.LENGTH_SHORT).show();
+		}
+	}
     
     /**
      * Add a new tab.

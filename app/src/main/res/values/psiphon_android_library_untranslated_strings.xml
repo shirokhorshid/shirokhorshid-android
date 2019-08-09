@@ -11,7 +11,10 @@
     <string name="preferencesNotifications">preferencesNotifications</string>
     <string name="preferenceNotificationsWithSound">preferenceNotificationsWithSoundDefaultOff</string>
     <string name="preferenceNotificationsWithVibrate">preferenceNotificationsWithVibrateDefaultOff</string>
-    <string name="routingSettingsCategoryKey">routingSettingsCategoryKey</string>
+    <string name="preferencesLanguage">preferencesLanguage</string>
+    <string name="preferenceLanguageSelection">preferenceLanguageSelection</string>
+    <string name="preferenceNavigateToVPNSetting">preferenceNavigateToVPNSetting</string>
+    <string name="vpnSettingsCategoryKey">vpnSettingsCategoryKey</string>
     <string name="preferenceExcludeAppsFromVpn">useExcludedAppsPreference</string>
     <string name="preferenceExcludeAppsFromVpnString">preferenceExcludeAppsFromVpnString</string>
     <string name="make_request_close_http_client">makeRequest error closing HTTP client: %s</string>
@@ -61,4 +64,48 @@
 
     <string name="current_local_http_proxy_port">currentLocalHttpProxyPort</string>
     <string name="status_activity_foreground">statusActivityForeground</string>
+
+    <string-array name="languages">
+        <item>English,en</item>
+        <item>فارسی,fa</item>
+        <item>العربية,ar</item>
+        <item>简体中文,zh</item>
+        <item>繁体中文,zh-rTW</item>
+        <item>አማርኛ,am</item>
+        <item>azərbaycan dili,az</item>
+        <item>Беларуская,be</item>
+        <item>বাংলা,bn</item>
+        <item>བོད་ཡིག,bo</item>
+        <item>Deutsch,de</item>
+        <item>Ελληνικά,el</item>
+        <item>Español,es</item>
+        <item>فارسی دری,fa-rAF</item>
+        <item>Suomi,fi</item>
+        <item>Français,fr</item>
+        <item>हिन्दी,hi</item>
+        <item>Hrvatski,hr</item>
+        <item>Bahasa Indonesia,id</item>
+        <item>Italiano,it</item>
+        <item>қазақ тілі,kk</item>
+        <item>ភាសាខ្មែរ,km</item>
+        <item>한국어,ko</item>
+        <item>Кыргызча,ky</item>
+        <item>Bahasa Melayu,ms</item>
+        <item>မြန်မာဘာသာ,my</item>
+        <item>Norsk bokmål,nb</item>
+        <item>Nederlands,nl</item>
+        <item>Afaan Oromo,om</item>
+        <item>Português (Portugal),pt</item>
+        <item>Português (Brasil),pt-rBR</item>
+        <item>Русский,ru</item>
+        <item>chiShona,sn</item>
+        <item>Тоҷикӣ,tg</item>
+        <item>ภาษาไทย,th</item>
+        <item>ትግርኛ,ti</item>
+        <item>Türkmençe,tk</item>
+        <item>Türkçe,tr</item>
+        <item>Українська,uk</item>
+        <item>Oʻzbekcha,uz</item>
+        <item>Tiếng Việt,vi</item>
+    </string-array>
 </resources>

@@ -20,14 +20,19 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.TargetApi;
+import android.app.Service;
 import android.content.Intent;
 import android.net.VpnService;
 import android.os.Build;
 import android.os.IBinder;
 
+import com.psiphon3.StatusActivity;
+
 @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class TunnelVpnService extends VpnService
 {
+    public static final String USER_STARTED_INTENT_FLAG = "userStarted";
+
     private TunnelManager m_Manager = new TunnelManager(this);
 
     @Override
@@ -48,7 +53,29 @@ public class TunnelVpnService extends VpnService
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
+        if (!intent.getBooleanExtra(TunnelVpnService.USER_STARTED_INTENT_FLAG, false))
+        {
+            // The user didn't trigger this so start up the StatusActivity and let them handle this
+            startStatusActivity();
+
+            // Call stopSelf after starting the activity
+            // This is because a lot of the logic around whether to auto-start the vpn or not is based off
+            // if the service is running. So we want to make sure the service is in a stopped state rather
+            // than adding extra logic around if this is a "always-on" start or not.
+            stopSelf();
+
+            // Indicate we don't want the caller to try calling again
+            return Service.START_NOT_STICKY;
+        }
+
         return m_Manager.onStartCommand(intent, flags, startId);
+    }
+
+    private void startStatusActivity()
+    {
+        Intent intent = new Intent(this, StatusActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override

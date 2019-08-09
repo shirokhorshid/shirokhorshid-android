@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import org.emergent.android.weave.client.WeaveAccountInfo;
 import com.psiphon3.R;
 import org.zirco.model.DbAdapter;
@@ -33,7 +34,6 @@ import org.zirco.ui.activities.preferences.WeavePreferencesActivity;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -68,7 +68,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class WeaveBookmarksListActivity extends Activity implements ISyncListener {
+public class WeaveBookmarksListActivity extends LocalizedActivities.Activity implements ISyncListener {
 	
 	private static final int MENU_SYNC = Menu.FIRST;
 	private static final int MENU_CLEAR = Menu.FIRST + 1;

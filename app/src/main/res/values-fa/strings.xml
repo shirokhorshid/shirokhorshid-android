@@ -15,6 +15,10 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">ارسال نظر ناموفق بود</string>
   <string name="FeedbackActivity.InvalidURLParameters">پارامترهای نامعتبر در ارسال فرم</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">گرفتن صفحه ارسال نظر ناموفق بود</string>
+  <string name="StatusActivity.VpnRevokedTitle">VPN Psiphon متوقف شده است</string>
+  <string name="StatusActivity.VpnRevokedMessage">وی‌پی‌ان Psiphon توسط شما یا یک اپ دیگر قطع شد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و در حال اجرا است.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon نمی‌تواند شروع به کار کند</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">امکان اجرای وی‌پی‌ان توسط Psiphon وجود ندارد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و تنظیم شده تا همیشه در حال اجراء باشد.</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">می‌خواهید تمام دستگاه را از پراکسی عبور دهید؟</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">گزینه قرار دادن کل ترافیک در تونل امن برای دستگاه شما در دسترس است.\n\nبا این امکان, با این کار کل ترافیک اینترنت شما از کل برنامه ها و همین طور جست و جوهای مرورگر از طریق تونل سایفون عبور داده می شوند.\n\nعلاوه بر این, شما می توانید انتخاب کنید که تنها ترافیک مرورگر بسته نرم افزاری سایفون از تونل عبور داده شود و بقیه ترافیک کامپیوتر شما از مسیر استاندارد اتصال اینترنت شما عبور داده شود..</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">تمام دستگاه را پراکسی کن</string>
@@ -33,4 +37,8 @@
   <string name="ads_consent_preference_title">ترجیحات شخصی‌شده آگهی‌ها را دوباره تنظیم کنید. </string>
   <string name="ads_consent_preference_dialog_title">راه اندازی مجدد</string>
   <string name="ads_consent_preference_summary">ترجیحات خود را دوباره تنظیم کنید تا شبکه‌های تبلیغاتی بتوانند از کوکی‌ها و اطلاعات شخصی‌تان استفاده کند. </string>
+  <string name="preference_language_selection_summary">زبان را انتخاب کنید</string>
+  <string name="preference_language_selection_title">زبان</string>
+  <string name="preference_language_title">انتخاب زبان</string>
+  <string name="preference_language_default_language">زبان پیش‌فرض</string>
 </resources>

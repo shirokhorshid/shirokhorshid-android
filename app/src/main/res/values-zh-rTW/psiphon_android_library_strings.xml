@@ -57,7 +57,7 @@
   <string name="waiting_for_network_connectivity">等待網絡連接...</string>
   <string name="checking_for_root_access">檢查 root 權限...</string>
   <string name="psiphon_service_notification_message_connecting">連接中…</string>
-  <string name="psiphon_service_notification_id">賽風服務通知</string>
+  <string name="psiphon_service_notification_id">Psiphon 服務通知</string>
   <string name="preferred_servers">首選伺服器：%d</string>
   <string name="selecting_server">選擇伺服器…</string>
   <string name="fetch_remote_server_list">正在獲取遠程伺服器列表…</string>
@@ -92,7 +92,7 @@
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">更新失敗。無法從更新文件提取軟件包資訊。</string>
   <string name="UpgradeManager.UpgradeFileNotFound">未找到更新文件</string>
   <string name="UpgradeManager.UpgradePromptTitle">賽風更新</string>
-  <string name="UpgradeManager.UpgradePromptMessage">賽風的更新已經准備好安裝。</string>
+  <string name="UpgradeManager.UpgradePromptMessage">更新的 Psiphon 已經准備要安裝。</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">讀取更新文件失敗</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">驗證更新文件失敗</string>
   <string name="connected_elapsed_time">連接：%s</string>

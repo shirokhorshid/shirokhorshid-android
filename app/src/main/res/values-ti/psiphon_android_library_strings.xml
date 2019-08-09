@@ -143,6 +143,7 @@
   <string name="region_name_ro">ሮማንያ</string>
   <string name="region_name_se">ሽወደን</string>
   <string name="region_name_pl">ፖላንድ</string>
+  <string name="region_name_sk">ስሎቫክያ</string>
   <string name="about">ብዛዕባ ሳይፎን (Psiphon)</string>
   <string name="feedback">ግብረ-መልሲ</string>
   <string name="tunnel_whole_device_toggle">ምሉእ መሳርሒ ንምትሕልላፍ (Android 4.0+ የድሊ) </string>

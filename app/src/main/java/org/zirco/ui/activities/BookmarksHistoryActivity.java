@@ -16,16 +16,15 @@
 package org.zirco.ui.activities;
 
 import com.psiphon3.R;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import org.zirco.controllers.Controller;
 import org.zirco.utils.Constants;
 
-import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
@@ -33,7 +32,7 @@ import android.widget.TabHost.OnTabChangeListener;
 /**
  * Combined bookmarks and history activity.
  */
-public class BookmarksHistoryActivity extends TabActivity {
+public class BookmarksHistoryActivity extends LocalizedActivities.TabActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     useLibrary 'org.apache.http.legacy'
 
     repositories{
@@ -24,9 +24,10 @@ android {
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
                 minSdkVersion 9
-                targetSdkVersion 23
+                targetSdkVersion 24
                 versionCode verCode
                 versionName verName
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
             }
         } else {
             throw new GradleException('version.properties found but entries are missing')
@@ -40,12 +41,20 @@ android {
     }
 
     buildTypes {
+        debug {
+            pseudoLocalesEnabled true
+        }
         release {
+            ndk {
+                // ABI configurations of native libraries Gradle should package with the APK.
+                abiFilters 'armeabi-v7a'
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
+
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
@@ -79,6 +88,8 @@ dependencies {
     implementation files('libs/jackson-core-2.2.0.jar')
     implementation files('libs/achartengine-1.0.0.jar')
     implementation files('libs/snakeyaml-1.10-android.jar')
-    implementation(name:'ca.psiphon', ext:'aar')
+    implementation(name: 'ca.psiphon', ext: 'aar')
     implementation project(':tray')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
 }

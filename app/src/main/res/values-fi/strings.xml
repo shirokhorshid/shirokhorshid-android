@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Koko laitteen tunnelointi on laitteellesi saatavilla oleva vaihtoehto.\n\nTällä valitsimella, kaikki Internet-liikenne kaikille sovelluksille mukaan lukien kaikki selaimet tunneloidaan Psiphon-sovelluksen kautta.\n\nVaihtoehtoisesti, voi valita vain Psiphon-selainryhmän tunneloinnin, mikä sallii muiden sovellusten liikennöidä suoraan vakion Internet-liittymän kautta.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunneloi koko laite</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Käytä vain Psiphon-selainta</string>
+  <string name="preference_language_selection_title">Kieli</string>
 </resources>
