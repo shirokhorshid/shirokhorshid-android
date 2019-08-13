@@ -1,7 +1,6 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -11,27 +10,27 @@ import android.preference.PreferenceManager;
 
 import java.util.Locale;
 
-import static android.os.Build.VERSION_CODES.*;
+import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
 
 /**
  * This class is based off YarikSOffice LanguageTest @ https://github.com/YarikSOffice/LanguageTest.
  * Small changes made for Psiphon's use.
- *
+ * <p>
  * YarikSOffice's Copyright:
  * MIT License
- *
+ * <p>
  * Copyright (c) 2017 Yaroslav Berezanskyi
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -42,6 +41,7 @@ import static android.os.Build.VERSION_CODES.*;
  */
 public class LocaleManager {
     private static final String LANGUAGE_KEY = "language_key";
+    public static final String USE_SYSTEM_LANGUAGE_VAL = "system";
     private static SharedPreferences m_preferences;
     private static boolean m_isInitialized;
 
@@ -59,19 +59,18 @@ public class LocaleManager {
         return updateResources(context, getLanguage());
     }
 
-    public static Context setNewLocale(Context context, String language) {
+    static Context setNewLocale(Context context, String language) {
         initialize(context);
         persistLanguage(language);
         return updateResources(context, language);
     }
 
-    public static Context resetToDefaultLocale(Context context) {
-        Locale defaultLocale = Resources.getSystem().getConfiguration().locale;
-        return setNewLocale(context, defaultLocale.getLanguage());
+    static Context resetToDefaultLocale(Context context) {
+        return setNewLocale(context, USE_SYSTEM_LANGUAGE_VAL);
     }
 
     public static String getLanguage() {
-        return m_preferences.getString(LANGUAGE_KEY, Locale.getDefault().getLanguage());
+        return m_preferences.getString(LANGUAGE_KEY, USE_SYSTEM_LANGUAGE_VAL);
     }
 
     @SuppressLint("ApplySharedPref")
@@ -80,7 +79,13 @@ public class LocaleManager {
     }
 
     private static Context updateResources(Context context, String language) {
-        Locale locale = new Locale(language);
+        Locale locale;
+        if (language.equals(USE_SYSTEM_LANGUAGE_VAL)) {
+            locale = Locale.getDefault();
+        } else {
+            locale = new Locale(language);
+        }
+
         Locale.setDefault(locale);
 
         Resources resources = context.getResources();

@@ -15,9 +15,20 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Пешниҳоди изҳори назар барор наёфт</string>
   <string name="FeedbackActivity.InvalidURLParameters">Параметрҳои URL дар пешниҳоди варақаи изҳори назар нодуруст мебошанд</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Дарёфти муҳтавои саҳифаи изҳори назар барор наёфт</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon  VPN бозистод</string>
+  <string name="StatusActivity.VpnRevokedMessage">VPNи Psiphon аз тарафи шумо ё дигар замима чудо шуд. Якчанд замимахои VPN дар як вакт фаъол буда наметавонанд. Санчед ки дигар VPN фаъол аст ё не.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN наметавонад фаъол шавад</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Тамоми трафики дастгоҳро тавассути нақб равона кунем?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Барои дастгоҳи шумо имкони тамоми трафикро тавассути нақб равона кардан дастрас аст.\n\nБо ин имкон, тамоми трафики интернети шумо барои ҳамаи барномаҳо (аз ҷумла, ҳамаи браузерҳо) бо истифодаи Psiphon тавассути нақб равона карда мешавад.\n\nВагарна, шумо метавонед танҳо трафики браузери ҳамроҳи Psiphon тавассути нақб равона кунед, ки дар ин маврид трафики ҳамаи барномаҳои дигар тавассути пайвасти стандартии шумо ба интернет равона карда мешавад.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тамоми трафики дастгоҳро тавассути нақб равона кардан</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Танҳо Psiphon Browser-ро истифода бурдан</string>
+  <string name="selected_region_currently_not_available">Минтақаи интихобшуда айни ҳол дастнорас аст, лутфан дигар минтақаро интихоб намоед.</string>
+  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Мо нисбати махфият ва амнияти иттилоотии шумо масъул ҳастем. Мо бо нишон додани рекламаҳо нармафзори мазкурро ройгон нигоҳ медорем.</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Оё мо метавонем истифодабарии маълумотхои шуморо барои нишон додани рекламаи мувофик идома дихем?</string>
+  <string name="you_can_change_your_choice_anytime">Шумо дар вақти дилхоҳ метавонед интихоби худро нисбати Psiphon Pro дар функсияҳои нармафзор тағйир диҳед. Дар мо таъминкунандагони реклама маълумотро ҷамъ намуда, муайянсози махсусро дар дастгоҳи шумо ба хотири нишон додани реклама истифода мебаранд.</string>
+  <string name="learn_more_about_our_ad_providers"><u>Дар бораи таъминкунандагони реклама маълумоти бештар гиред</u></string>
+  <string name="ads_consent_preference_category_title">Шахсигардонии реклама</string>
   <string name="ads_consent_preference_dialog_title">Барқарор кардан</string>
+  <string name="preference_language_selection_title">Забон</string>
+  <string name="preference_language_default_language">Забони пешфарз</string>
 </resources>

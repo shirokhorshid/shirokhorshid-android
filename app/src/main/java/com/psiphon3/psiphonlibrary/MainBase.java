@@ -32,7 +32,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.net.VpnService;
@@ -94,7 +94,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public abstract class MainBase {
-    public static abstract class Activity extends LocalizedActivities.Activity implements MyLog.ILogger {
+    public static abstract class Activity extends LocalizedActivities.AppCompatActivity implements MyLog.ILogger {
         public Activity() {
             Utils.initializeSecureRandom();
         }
@@ -161,6 +161,7 @@ public abstract class MainBase {
         protected CheckBox m_disableTimeoutsToggle;
         private Toast m_invalidProxySettingsToast;
         private Button m_moreOptionsButton;
+        private Button m_openBrowserButton;
         private LoggingObserver m_loggingObserver;
 
         public TabbedActivityBase() {
@@ -432,6 +433,7 @@ public abstract class MainBase {
 
             m_tabHost.setOnTouchListener(onTouchListener);
             m_statusLayout = (LinearLayout) findViewById(R.id.statusLayout);
+            m_statusLayout.setOnTouchListener(onTouchListener);
             m_statusViewImage = (ImageButton) findViewById(R.id.statusViewImage);
             m_statusViewImage.setOnTouchListener(onTouchListener);
             findViewById(R.id.sponsorViewFlipper).setOnTouchListener(onTouchListener);
@@ -448,6 +450,7 @@ public abstract class MainBase {
             m_tabHost.setOnTabChangedListener(this);
 
             int currentTab = m_multiProcessPreferences.getInt(CURRENT_TAB, 0);
+            m_currentTab = currentTab;
             m_tabHost.setCurrentTab(currentTab);
 
             m_sponsorViewFlipper = (ViewFlipper) findViewById(R.id.sponsorViewFlipper);
@@ -464,6 +467,7 @@ public abstract class MainBase {
             m_disableTimeoutsToggle = (CheckBox) findViewById(R.id.disableTimeoutsToggle);
             m_downloadOnWifiOnlyToggle = (CheckBox) findViewById(R.id.downloadOnWifiOnlyToggle);
             m_moreOptionsButton = (Button) findViewById(R.id.moreOptionsButton);
+            m_openBrowserButton = (Button) findViewById(R.id.openBrowserButton);
 
             m_slowSentGraph = new DataTransferGraph(this, R.id.slowSentGraph);
             m_slowReceivedGraph = new DataTransferGraph(this, R.id.slowReceivedGraph);
@@ -563,7 +567,7 @@ public abstract class MainBase {
             for (String homeTabUrlExclusion : EmbeddedValues.HOME_TAB_URL_EXCLUSIONS) {
                 if (url.contains(homeTabUrlExclusion)) {
                     if (freshConnect) {
-                        displayBrowser(getContext(), Uri.parse(url));
+                        displayBrowser(getContext(), url);
                     }
                     return;
                 }
@@ -758,6 +762,15 @@ public abstract class MainBase {
             // required to).
             m_multiProcessPreferences.put(TUNNEL_WHOLE_DEVICE_PREFERENCE, tunnelWholeDevicePreference);
 
+            // When enabling BOM, we don't use the TunnelVpnService, so we can disable it
+            // which prevents the user having Always On turned on.
+
+            PackageManager packageManager = getPackageManager();
+            ComponentName componentName = new ComponentName(getPackageName(), TunnelVpnService.class.getName());
+            packageManager.setComponentEnabledSetting(componentName,
+                    tunnelWholeDevicePreference ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP);
+
             setTunnelConfigWholeDevice(tunnelWholeDevicePreference);
         }
 
@@ -863,6 +876,7 @@ public abstract class MainBase {
         private void updateServiceStateUI() {
             if (!m_boundToTunnelService) {
                 setStatusState(R.drawable.status_icon_disconnected);
+                m_openBrowserButton.setEnabled(false);
                 if (!isServiceRunning()) {
                     m_toggleButton.setText(getText(R.string.start));
                     enableToggleServiceUI();
@@ -873,8 +887,10 @@ public abstract class MainBase {
             } else {
                 if (isTunnelConnected()) {
                     setStatusState(R.drawable.status_icon_connected);
+                    m_openBrowserButton.setEnabled(true);
                 } else {
                     setStatusState(R.drawable.status_icon_connecting);
+                    m_openBrowserButton.setEnabled(false);
                 }
                 m_toggleButton.setText(getText(R.string.stop));
                 enableToggleServiceUI();
@@ -1128,33 +1144,9 @@ public abstract class MainBase {
             return m_tunnelConfig.disableTimeouts;
         }
 
-        protected PendingIntent getHandshakePendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getServiceNotificationPendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getRegionNotAvailablePendingIntent() {
-            return null;
-        }
-
-        protected PendingIntent getVpnRevokedPendingIntent() {
-            return null;
-        }
         protected void configureServiceIntent(Intent intent) {
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_HANDSHAKE_PENDING_INTENT,
-                    getHandshakePendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT,
-                    getServiceNotificationPendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT,
-                    getRegionNotAvailablePendingIntent());
-
-            intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT,
-                    getVpnRevokedPendingIntent());
+            // Indicate that the user triggered this start request
+            intent.putExtra(TunnelVpnService.USER_STARTED_INTENT_FLAG, true);
 
             intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE,
                     getTunnelConfigWholeDevice());
@@ -1450,7 +1442,7 @@ public abstract class MainBase {
                     }
 
                     if (mWebViewLoaded) {
-                        displayBrowser(getContext(), Uri.parse(url));
+                        displayBrowser(getContext(), url);
                     }
                     return mWebViewLoaded;
                 }
@@ -1518,7 +1510,7 @@ public abstract class MainBase {
             }
         }
 
-        protected void displayBrowser(Context context, Uri uri) {
+        protected void displayBrowser(Context context, String urlString) {
 
         }
 

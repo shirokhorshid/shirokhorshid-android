@@ -40,6 +40,7 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
 import com.psiphon3.R;
+import com.psiphon3.StatusActivity;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
 import net.grandcentrix.tray.AppPreferences;
@@ -81,6 +82,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final int MSG_TUNNEL_CONNECTION_STATE = 7;
     public static final int MSG_DATA_TRANSFER_STATS = 8;
 
+    public static final String INTENT_ACTION_VIEW = "ACTION_VIEW";
     public static final String INTENT_ACTION_HANDSHAKE = "com.psiphon3.psiphonlibrary.TunnelManager.HANDSHAKE";
     public static final String INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE = "com.psiphon3.psiphonlibrary.TunnelManager.SELECTED_REGION_NOT_AVAILABLE";
     public static final String INTENT_ACTION_VPN_REVOKED = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_VPN_REVOKED";
@@ -103,21 +105,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final String DATA_HANDSHAKE_IS_RECONNECT = "isReconnect";
 
     // Extras in start service intent (Client -> Service)
-    public static final String DATA_TUNNEL_CONFIG_HANDSHAKE_PENDING_INTENT = "tunnelConfigHandshakePendingIntent";
-    public static final String DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT = "tunnelConfigNotificationPendingIntent";
-    public static final String DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT = "tunnelConfigRegionNotAvailablePendingIntent";
     public static final String DATA_TUNNEL_CONFIG_WHOLE_DEVICE = "tunnelConfigWholeDevice";
-    public static final String DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT = "tunnelConfigVpnRevokedPendingIntent";
     public static final String DATA_TUNNEL_CONFIG_EGRESS_REGION = "tunnelConfigEgressRegion";
     public static final String DATA_TUNNEL_CONFIG_DISABLE_TIMEOUTS = "tunnelConfigDisableTimeouts";
     public static final String CLIENT_MESSENGER = "incomingClientMessenger";
 
     // Tunnel config, received from the client.
     public static class Config {
-        PendingIntent handshakePendingIntent = null;
-        PendingIntent notificationPendingIntent = null;
-        PendingIntent regionNotAvailablePendingIntent = null;
-        PendingIntent vpnRevokedPendingIntent = null;
         boolean wholeDevice = false;
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
@@ -150,6 +144,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private String m_lastUpstreamProxyErrorMessage;
     private Handler m_Handler = new Handler();
 
+    private PendingIntent m_handshakePendingIntent;
+    private PendingIntent m_notificationPendingIntent;
+    private PendingIntent m_regionNotAvailablePendingIntent;
+    private PendingIntent m_vpnRevokedPendingIntent;
+
     public TunnelManager(Service parentService) {
         m_parentService = parentService;
         m_isReconnect = new AtomicBoolean(false);
@@ -159,17 +158,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     // Implementation of android.app.Service.onStartCommand
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (mNotificationManager == null) {
-            mNotificationManager = (NotificationManager) m_parentService.getSystemService(Context.NOTIFICATION_SERVICE);
-        }
-
-        if (mNotificationBuilder == null) {
-            mNotificationBuilder = new NotificationCompat.Builder(m_parentService);
-        }
-
         if (m_firstStart && intent != null) {
             getTunnelConfig(intent);
-            m_parentService.startForeground(R.string.psiphon_service_notification_id, this.createNotification(false));
             MyLog.v(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
             m_firstStart = false;
             m_tunnelThreadStopSignal = new CountDownLatch(1);
@@ -191,9 +181,34 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     public void onCreate() {
+        // At this point we've got application context, now we can initialize pending intents.
+        m_handshakePendingIntent = getPendingIntent(m_parentService,
+                StatusActivity.class,
+                INTENT_ACTION_HANDSHAKE);
+
+        m_notificationPendingIntent = getPendingIntent(m_parentService,
+                StatusActivity.class,
+                INTENT_ACTION_VIEW);
+
+        m_regionNotAvailablePendingIntent = getPendingIntent(m_parentService,
+                StatusActivity.class,
+                INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE);
+
+        m_vpnRevokedPendingIntent = getPendingIntent(m_parentService,
+                StatusActivity.class,
+                INTENT_ACTION_VPN_REVOKED);
+
+        if (mNotificationManager == null) {
+            mNotificationManager = (NotificationManager) m_parentService.getSystemService(Context.NOTIFICATION_SERVICE);
+        }
+
+        if (mNotificationBuilder == null) {
+            mNotificationBuilder = new NotificationCompat.Builder(m_parentService);
+        }
+        m_parentService.startForeground(R.string.psiphon_service_notification_id, this.createNotification(false));
+
         // This service runs as a separate process, so it needs to initialize embedded values
         EmbeddedValues.initialize(this.getContext());
-
         MyLog.setLogger(this);
     }
 
@@ -213,7 +228,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         // Foreground client activity with the vpnRevokedPendingIntent in order to notify user.
         try {
-            m_tunnelConfig.vpnRevokedPendingIntent.send(
+            m_vpnRevokedPendingIntent.send(
                     m_parentService, 0, null);
         } catch (PendingIntent.CanceledException e) {
             MyLog.g(String.format("vpnRevokedPendingIntent failed: %s", e.getMessage()));
@@ -251,19 +266,21 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
     }
 
+    private PendingIntent getPendingIntent(Context ctx, Class activityClass, final String actionString) {
+        Intent intent = new Intent(
+                actionString,
+                null,
+                ctx,
+                activityClass);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        return PendingIntent.getActivity(
+                ctx,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
     private void getTunnelConfig(Intent intent) {
-        m_tunnelConfig.handshakePendingIntent = intent.getParcelableExtra(
-                TunnelManager.DATA_TUNNEL_CONFIG_HANDSHAKE_PENDING_INTENT);
-
-        m_tunnelConfig.notificationPendingIntent = intent.getParcelableExtra(
-                TunnelManager.DATA_TUNNEL_CONFIG_NOTIFICATION_PENDING_INTENT);
-
-        m_tunnelConfig.regionNotAvailablePendingIntent = intent.getParcelableExtra(
-                TunnelManager.DATA_TUNNEL_CONFIG_REGION_NOT_AVAILABLE_PENDING_INTENT);
-
-        m_tunnelConfig.vpnRevokedPendingIntent = intent.getParcelableExtra(
-                TunnelManager.DATA_TUNNEL_CONFIG_VPN_REVOKED_PENDING_INTENT);
-
         m_tunnelConfig.wholeDevice = intent.getBooleanExtra(
                 TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE, false);
 
@@ -297,7 +314,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 .setContentTitle(m_parentService.getText(R.string.app_name))
                 .setContentText(m_parentService.getText(contentTextID))
                 .setTicker(ticker)
-                .setContentIntent(m_tunnelConfig.notificationPendingIntent);
+                .setContentIntent(m_notificationPendingIntent);
 
         Notification notification = mNotificationBuilder.build();
 
@@ -418,7 +435,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             fillInExtras.putExtra(DATA_HANDSHAKE_IS_RECONNECT, isReconnect);
             fillInExtras.putExtras(getTunnelStateBundle());
             try {
-                m_tunnelConfig.handshakePendingIntent.send(
+                m_handshakePendingIntent.send(
                         m_parentService, 0, fillInExtras);
             } catch (PendingIntent.CanceledException e) {
                 MyLog.g(String.format("sendHandshakeIntent failed: %s", e.getMessage()));
@@ -791,7 +808,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     // Activity intent handler will show "Region not available" toast and populate
                     // the region selector with new available regions
                     try {
-                        m_tunnelConfig.regionNotAvailablePendingIntent.send(
+                        m_regionNotAvailablePendingIntent.send(
                                 m_parentService, 0, null);
                     } catch (PendingIntent.CanceledException e) {
                         MyLog.g(String.format("regionNotAvailablePendingIntent failed: %s", e.getMessage()));

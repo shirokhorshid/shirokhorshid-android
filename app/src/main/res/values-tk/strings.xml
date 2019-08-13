@@ -20,4 +20,6 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Bütin Enjamy Tunelle</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Diñe Psiphon Brauzery ulan</string>
   <string name="ads_consent_preference_dialog_title">Täzele</string>
+  <string name="preference_language_selection_title">Dil</string>
+  <string name="preference_language_default_language">Asyl dili</string>
 </resources>

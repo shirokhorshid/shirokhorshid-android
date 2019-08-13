@@ -37,4 +37,8 @@
   <string name="ads_consent_preference_title">Restablecer preferencia de personalización de publicidades</string>
   <string name="ads_consent_preference_dialog_title">Por defecto</string>
   <string name="ads_consent_preference_summary">Restablezca su preferencia para permitir a las redes publicitarias usar cookies y sus datos personales</string>
+  <string name="preference_language_selection_summary">Seleccionar el lenguaje</string>
+  <string name="preference_language_selection_title">Idioma</string>
+  <string name="preference_language_title">Selección del lenguaje</string>
+  <string name="preference_language_default_language">Idioma predeterminado</string>
 </resources>

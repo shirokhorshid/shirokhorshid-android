@@ -19,4 +19,5 @@
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Pilihan tunnel keseluruhan peranti tersedia untuk peranti anda. \n\nDengan pilihan ini, kesemua trafik internet untuk semua aplikasi termasuk semua pelayar akan ditunnel melalui Psiphon.\n\nAlternatifnya, anda boleh memilih untuk tunnel hanya melalui pelayar Psiphon dimana akan membuatkan semua aplikasi melalui sambungan internet biasa anda.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Seluruh Peranti</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Guna Pelayar Psiphon sahaja</string>
+  <string name="preference_language_selection_title">Bahasa</string>
 </resources>

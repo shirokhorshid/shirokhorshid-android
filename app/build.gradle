@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     useLibrary 'org.apache.http.legacy'
 
     repositories{
@@ -24,7 +24,7 @@ android {
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
                 minSdkVersion 9
-                targetSdkVersion 23
+                targetSdkVersion 24
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -41,7 +41,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            pseudoLocalesEnabled true
+        }
         release {
+            ndk {
+                // ABI configurations of native libraries Gradle should package with the APK.
+                abiFilters 'armeabi-v7a'
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release

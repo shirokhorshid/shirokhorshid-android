@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">የሳይፈን መዳሰሻ </string>
-  <string name="ApplicationNameUrl">ሳይፈን - %s</string>
-  <string name="ApplicationDescription">የሳይፈን መዳሰሻ በZirco መዳዘሻ ላይ የተመሰረተ የAndroid ክፍተ ምንጭ መዳሰሻ ነው።  </string>
-  <string name="AboutActivity.Title">ስለ </string>
-  <string name="AboutActivity.VersionText">ስሪት፡-</string>
+  <string name="ApplicationName">የሳይፈን - Psiphon ማሰሺያ</string>
+  <string name="ApplicationNameUrl">Psiphon (ሳይፈን) - %s</string>
+  <string name="ApplicationDescription">የሳይፈን (Psiphon) ማሰሺያ በZirco ማሰሺያ ላይ የተመሰረተ የAndroid ክፍተ ምንጭ ማሰሺያ ነው።  </string>
+  <string name="AboutActivity.Title">ስለ</string>
+  <string name="AboutActivity.VersionText">ስሪት:</string>
   <string name="AboutActivity.LicenseText">ፍቃድ፡-</string>
   <string name="Main.MenuAddBookmark">እልባት አክል</string>
   <string name="Main.MenuShowBookmarks">እልባቶች </string>
@@ -21,7 +21,7 @@
   <string name="Main.ToastTabSwitchFullMessage">ትር %1$s：%2$s</string>
   <string name="Main.VndErrorTitle">URLሉን መክፈት አልተቻለም</string>
   <string name="Main.VndErrorMessage">ይህንን url ለመክፈት የሚያስችል መተግበሪያ ላይኖሮት ይችላል: %s። </string>
-  <string name="BookmarksListActivity.Title">የሳይፈን መዳሰሻ - እልባቶች </string>
+  <string name="BookmarksListActivity.Title">የሳይፈን ማሰሺያ - እልባቶች </string>
   <string name="BookmarksListActivity.MenuSortMode">ለይ በ </string>
   <string name="BookmarksListActivity.MenuAddBookmark">እልባት አክል</string>
   <string name="BookmarksListActivity.Empty">እልባቶች  የሉም </string>
@@ -34,29 +34,29 @@
   <string name="EditBookmarkActivity.TitleAdd">እልባት አክል</string>
   <string name="EditBookmarkActivity.TitleLabel">ስም፡-</string>
   <string name="EditBookmarkActivity.UrlLabel">ቦታ፡-</string>
-  <string name="HistoryListActivity.Title">የሳይፈን መዳሰሻ - ታሪክ </string>
+  <string name="HistoryListActivity.Title">የሳይፈን ማሰሺያ - ታሪክ </string>
   <string name="HistoryListActivity.MenuOpenInTab">በአዲስ ትር ክፈት </string>
   <string name="HistoryListActivity.MenuDelete">ሰርዝ</string>
-  <string name="DownloadListActivity.Title">የሳይፈን መዳሰሻ - የማውረጃ ስፍራ </string>
+  <string name="DownloadListActivity.Title">የሳይፈን - Psiphon ማሰሺያ - የማውረጃ ስፍራ </string>
   <string name="DownloadListActivity.Empty">ምንም የወረደ የለም </string>
   <string name="DownloadListActivity.Aborted">%s (የተሰረዘ)</string>
   <string name="DownloadListActivity.Finished">%s (ያለቀ)</string>
-  <string name="AdBlockerWhiteListActivity.Title">የሳይፈን መዳሰሻ - ማስታወቂያ አጋጅ ዝርዝር </string>
+  <string name="AdBlockerWhiteListActivity.Title">የሳይፈን ማሰሺያ - ማስታወቂያ አጋጅ ዝርዝር </string>
   <string name="AdBlockerWhiteListActivity.Empty">ዝርዝሩ ባዶ ነው። </string>
   <string name="AdBlockerWhiteListActivity.AddMessage">ዝርዝር ውስጥ ጨምር </string>
   <string name="AdBlockerWhiteListActivity.ClearMessage">ዝርዝሩን አጽዳ</string>
   <string name="PreferencesActivity.GeneralSettingsCategoryTitle">አጠቃላይ ቅንብሮች </string>
   <string name="PreferencesActivity.HomePagePreferenceTitle">ቅድመ ገጽ</string>
-  <string name="PreferencesActivity.HomePagePreferenceSummary">ነባሪ ቀዳሚ ገጽዎን የበይኑ።</string>
+  <string name="PreferencesActivity.HomePagePreferenceSummary">ነባሪ ቀዳሚ ገጽዎን ይበይኑ።</string>
   <string name="PreferencesActivity.FullScreenPreferenceTitle">ሙሉ እስክሪን </string>
-  <string name="PreferencesActivity.FullScreenPreferenceSummary">መዳሰሻውን በሙሉ ስክሪን ሁነታ አሳይ  (መተግበሪያውን እንደገና ማስጀመር ያስፈልጋል)።</string>
+  <string name="PreferencesActivity.FullScreenPreferenceSummary">ማሰሺያውን በሙሉ ስክሪን አሳይ  (መተግበሪያውን እንደገና ማስጀመር ያስፈልጋል)።</string>
   <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceTitle">የትር ለውጥ ሲመጣ ማስጠንቀቂያ አሳይ</string>
-  <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceSummary">ከተመረጠ ትር በሚለውጡበት ወቅት ትንሽ ማስጠንቀቂያ ለአፍታያሳያል። </string>
-  <string name="PreferencesActivity.BrowserSettingsCategoryTitle">የመዳሰሻ ቅንብር </string>
+  <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceSummary">የተመረጠ ትር በሚለውጡበት ወቅት ትንሽ ማስጠንቀቂያ ለአፍታያሳያል። </string>
+  <string name="PreferencesActivity.BrowserSettingsCategoryTitle">የማሰሺያ ቅንብር </string>
   <string name="PreferencesActivity.HistorySizePreferenceTitle">የታሪክ መጠን</string>
   <string name="PreferencesActivity.HistorySizePreferenceSummary">የታሪክ መጠን በቀናት። </string>
-  <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">ጃቫስክሪፕትን አንቃ </string>
-  <string name="PreferencesActivity.EnableJavascriptPreferenceSummary">ጃቫስክሪፕትን አንቃ ወይም አቦዝን  </string>
+  <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">ጃቫ-ስክሪፕትን አንቃ </string>
+  <string name="PreferencesActivity.EnableJavascriptPreferenceSummary">ጃቫ-ስክሪፕትን አንቃ ወይም አቦዝን  </string>
   <string name="PreferencesActivity.LoadImagesPreferenceTitle">ምስሎችን ጫን </string>
   <string name="PreferencesActivity.LoadImagesPreferenceSummary">ምስል መጫንን አንቃ ወይም አቦዝን  </string>
   <string name="PreferencesActivity.PrivacyPreferenceTitle">የግላዊነት ቅንብሮች</string>
@@ -71,7 +71,7 @@
   <string name="PreferencesActivity.PrivacyClearFormDataTitle">የፎርም ዳታን አጽዳ </string>
   <string name="PreferencesActivity.PrivacyClearCacheTitle">መሸጎጫ አጽዳ</string>
   <string name="PreferencesActivity.PrivacyClearCookiesTitle">ኩኪዎች አጽዳ</string>
-  <string name="PreferencesActivity.BarDurationPreferenceTitle">የመስኮች የማሳያ ቆይታ </string>
+  <string name="PreferencesActivity.BarDurationPreferenceTitle">መስኮችን የማሳያ ቆይታ </string>
   <string name="PreferencesActivity.BarDurationPreferenceSummary">የመሳሪያ መስኮች የማሳያ ቆይታ። </string>
   <string name="PreferencesActivity.BarDuration1sec">1 ሰከንድ </string>
   <string name="PreferencesActivity.BarDuration2sec">2 ሰከንድ </string>
@@ -85,7 +85,7 @@
   <string name="PreferencesActivity.BubbleBoth">ሁለቱም </string>
   <string name="PreferencesActivity.AdBlockerSettingsCategoryTitle">ማስታወቂያ አጋጅ ቅንብሮች </string>
   <string name="PreferencesActivity.EnableAdBlockerPreferenceTitle">ማስታወቂያ አጋጅን አንቃ</string>
-  <string name="PreferencesActivity.EnableAdBlockerPreferenceSummary">የጃቫስክሪፕቱን ካላነቁት ማስታወቂያ አጋጁ አይሰራም። </string>
+  <string name="PreferencesActivity.EnableAdBlockerPreferenceSummary">የጃቫ-ስክሪፕቱን ካላነቁት ማስታወቂያ አጋጁ አይሰራም። </string>
   <string name="PreferencesActivity.AdBlockerWhiteListPreferenceTitle">ዝርዝር </string>
   <string name="PreferencesActivity.AdBlockerWhiteListPreferenceSummary">ማስታወቂያ አጋጅ ዝርዝሩን ያስተዳድሩ። </string>
   <string name="Commons.Ok">እሺ </string>
@@ -94,7 +94,7 @@
   <string name="Commons.Yes">አዎ</string>
   <string name="Commons.No">አይ </string>
   <string name="Commons.NoUndoMessage">ይህ ተግባር ሊቀለበስ አይችልም። መቀጠል ይፈልጋሉ？ </string>
-  <string name="Commons.JavaScriptDialog">የጃቫስክሪፕት ውይይት </string>
+  <string name="Commons.JavaScriptDialog">የጃቫ-ስክሪፕት ውይይት </string>
   <string name="Commons.ClearHistory">ታሪክን አጽዳ </string>
   <string name="Commons.ClearingHistory">ታሪክ በማጽዳት ላይ…</string>
   <string name="Commons.ClearFormData">የፎርም ዳታን አጽዳ </string>
@@ -117,7 +117,7 @@
   <string name="PreferencesActivity.DefaultZoomMedium">መገናኛ </string>
   <string name="PreferencesActivity.DefaultZoomFar">ሩቅ </string>
   <string name="StartPage.Welcome">እንኳን ደህና መጡ！</string>
-  <string name="StartPage.Bookmarks">በጣም በጥቅም ላይ የዋሉ እልባቶች  </string>
+  <string name="StartPage.Bookmarks">በብዛት ጥቅም ላይ የዋሉ እልባቶች  </string>
   <string name="StartPage.History">የቅርብ ጊዜ ታሪክ </string>
   <string name="ChangelogActivity.Title">የለውጥ መዝገብ </string>
   <string name="PreferencesActivity.ChangelogPreferenceTitle">የለውጥ መዝገብ  </string>
@@ -129,7 +129,7 @@
   <string name="PreferencesActivity.HomepageCustom">ብጁ ገጽ </string>
   <string name="Constants.SearchUrlGoogle">http://www.google.com/m?hl=en&amp;gl=us&amp;client=ms-null&amp;source=android-browser-key&amp;q=%s</string>
   <string name="Constants.SearchUrlWikipedia">http://en.wikipedia.org/w/index.php?search=%s&amp;go=Go</string>
-  <string name="PreferencesActivity.SearchUrlPreferenceTitle">የፍለጋ url</string>
+  <string name="PreferencesActivity.SearchUrlPreferenceTitle">የማሰሺያ url</string>
   <string name="PreferencesActivity.SearchUrlPreferenceSummary">የፍለጋ urlሉን በይን። </string>
   <string name="SearchUrlPreferenceActivity.Title">የፍለጋ url </string>
   <string name="SearchUrlPreferenceActivity.Prompt">የፍለጋ url </string>
@@ -142,12 +142,12 @@
   <string name="PreferencesActivity.StartPageCustomizationPreferenceSummary">የመጀመሪያውን ገጽ አበጅ።</string>
   <string name="PreferencesActivity.StartPageEnableSearchPreferenceTitle">የመፈለጊያ ሳጥን አሳይ </string>
   <string name="PreferencesActivity.StartPageEnableSearchPreferenceSummary">ከተመረጠ የመፈለጊያ ሳጥን ይታያል። </string>
-  <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceTitle">በጣም በጥቅም ላይ የዋሉ እልባቶች  አሳይ </string>
-  <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceSummary">ከተመረጠ በጣም በጥቅም ላይ የዋሉ እልባቶችች ይታያሉ። </string>
+  <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceTitle">በብዛት ጥቅም ላይ የዋሉ እልባቶችን  አሳይ </string>
+  <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceSummary">ከተመረጠ በብዛት ጥቅም ላይ የዋሉ እልባቶችችን ይታያሉ። </string>
   <string name="PreferencesActivity.StartPageEnableHistoryPreferenceTitle">የቅርብ ጊዜ ታሪክ  አሳይ</string>
   <string name="PreferencesActivity.StartPageEnableHistoryPreferenceSummary">ከተመረጠ የቅርብ ግዜ ታሪክ ይታያል። </string>
-  <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceTitle">በጣም በጥቅም ላይ የዋሉ እልባቶች ቁጥር </string>
-  <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceSummary">የሚታዩ በጣም በጥቅም ላይ የዋሉ እልባቶች ቁጥር። </string>
+  <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceTitle">በብዛት ጥቅም ላይ የዋሉ እልባቶች ቁጥር </string>
+  <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceSummary">የሚታዩ በብዛት ጥቅም ላይ የዋሉ እልባቶች ቁጥር። </string>
   <string name="PreferencesActivity.StartPageHistoryLimitPreferenceTitle">የቅርብ ጊዜ ታሪክ  አይነቶች ቁጥር </string>
   <string name="PreferencesActivity.StartPageHistoryLimitPreferenceSummary">የሚታዩ የቅርብ ጊዜ ታሪክ አይነቶች ቁጥር። </string>
   <string name="PreferencesActivity.UserAgentPreferenceTitle">የተጠቃሚ ወኪል</string>
@@ -187,7 +187,7 @@
   <string name="Commons.SslIDMismatch">የድረገጹ ስም በማረጋገጫው ላይ ካለው ስም ጋር አይመሳሰልም። </string>
   <string name="Commons.SslExpired">ይህ ማረጋገጫ የአገልግሎት ጊዜው አብቅቷል። </string>
   <string name="Commons.SslNotYetValid">ይህ ማረጋገጫ ገና ትክክል አይደለም። </string>
-  <string name="MobileViewListActivity.Title">የሳይፈን መዳሰሻ - ለተንቀሳቃሽ ስልክ እይታ የድረገጾች ዝርዝር </string>
+  <string name="MobileViewListActivity.Title">የሳይፈን - Psiphon ማሰሺያ - ለተንቀሳቃሽ ስልክ እይታ የድረገጾች ዝርዝር </string>
   <string name="MobileViewListActivity.ListEmpty">ዝርዝሩ ባዶ ነው። </string>
   <string name="MobileViewListActivity.AddMessage">ድረ ገጽ አክል</string>
   <string name="MobileViewListActivity.ClearMessage">ሁሉንም ድረ ገጾች አጽዳ</string>
@@ -211,7 +211,7 @@
   <string name="PreferencesActivity.HideTitleBarPreferenceTitle">የርእስ አሞሌዎቹን ደብቅ </string>
   <string name="PreferencesActivity.HideTitleBarPreferenceSummary">ከተመረጠ ዊንዶውስ ርእስ አሞሌዎች አይታዩም  (መተግበሪያውን እንደገና ማስጀመር ያስፈልጋል)።</string>
   <string name="PreferencesActivity.UseWideViewPortPreferenceTitle">ሰፊ የማያ መደቦችን ተጠቀም </string>
-  <string name="PreferencesActivity.UseWideViewPortPreferenceSummary">ከተመረጠ መዳሰሻው ልክ እንደ ዴስክቶፕ መዳሰሻዎች ዓይነት የማሳያ መደብን ይጠቀማል። </string>
+  <string name="PreferencesActivity.UseWideViewPortPreferenceSummary">ከተመረጠ ማሰሺያው ልክ እንደ ዴስክቶፕ ማሰሺያዎች ዓይነት የማሳያ መደብን ይጠቀማል። </string>
   <string name="PreferencesActivity.LoadWithOverviewPreferenceTitle">ከቅድመ እይታ ጋር ገጾችን ጫን  </string>
   <string name="PreferencesActivity.LoadWithOverviewPreferenceSummary">ከተመረጠ የገጾችን ቅድመ እይታ ለማሳየት ገጾቹ ርቀው ይጫናሉ። </string>
   <string name="PreferencesActivity.SwitchTabsMethodPreferenceTitle">የትሮች ለውጥ ዘዴ </string>
@@ -228,10 +228,10 @@
   <string name="QuickAction.Share">አጋራ </string>
   <string name="QuickAction.SelectText">ጽሁፍ ምረጥ </string>
   <string name="QuickAction.MobileView">የተንቀሳቃሽ ስልክ ዕይታ </string>
-  <string name="AboutActivity.OtherLicenseText">ይህ መተግብሪያ ከZirco የመዳሰሻ ፕሮጀክት ኮዶችን ይዟል (https://code.google.com/p/zirco-browser/)። ይህም በGPLv3 ፍቃድ ስር ያለ ነው። በተጨማሪም ከGreenDroid ፕሮጀችት (https://github.com/cyrilmottier/GreenDroid) እና ከShaman ፕሮጀክት  (https://github.com/emergentdotorg/shaman) ኮዶች ተካተዋል። ሁለቱም በApache ስሪት 2 ፍቃድ ስር ያሉ ናቸው። </string>
-  <string name="PreferencesActivity.WeavePreferenceTitle">የFirefox እልባቶች ማመሳሰያ </string>
-  <string name="PreferencesActivity.WeavePreferenceSummary">የእልባቶች ቅንብርን ማመሳሰያን ከFirefox ማመሳሰያ ጋር አስተዳድር። </string>
-  <string name="PreferencesActivity.UseWeavePreferenceTitle">የFirefox ማመሳሰያ ተጠቀም </string>
+  <string name="AboutActivity.OtherLicenseText">ይህ መተግብሪያ ከZirco የማሰሻ ፕሮጀክት ኮዶችን ይዟል (https://code.google.com/p/zirco-browser/)። ይህም በGPLv3 ፍቃድ ስር ያለ ነው። በተጨማሪም ከGreenDroid ፕሮጀችት (https://github.com/cyrilmottier/GreenDroid) እና ከShaman ፕሮጀክት  (https://github.com/emergentdotorg/shaman) ኮዶች ተካተዋል። ሁለቱም በApache ስሪት 2 ፍቃድ ስር ያሉ ናቸው። </string>
+  <string name="PreferencesActivity.WeavePreferenceTitle">የFirefox እልባቶች ማሥምሪያ </string>
+  <string name="PreferencesActivity.WeavePreferenceSummary">የእልባቶች ቅንብርን አሳምርያን ከFirefox ሥምሪያ ጋር አስተዳድር። </string>
+  <string name="PreferencesActivity.UseWeavePreferenceTitle">የFirefox ሥምሪያ ተጠቀም </string>
   <string name="PreferencesActivity.UseWeavePreferenceSummary">ከተመረጠ እልባቶችዎን  ከFirefox ማመሳሰያ ማምጣት ይችላሉ።</string>
   <string name="PreferencesActivity.WeaveServerPreferenceTitle">አገልጋይ </string>
   <string name="PreferencesActivity.WeaveServerPreferenceSummary">የFirefox ማመሳሰያ አገልጋይን አቀናብር። </string>
@@ -314,7 +314,7 @@
   <string name="PreferencesActivity.DesktopViewCategoryTitle">የዲስክቶፕ ማሳያ ቅንብሮች </string>
   <string name="PreferencesActivity.DesktopViewListPreferenceTitle">የዲስክቶፕ ሁነታ ዝርዝሮች </string>
   <string name="PreferencesActivity.DesktopViewListPreferenceSummary">በዚህ ዝርዝር ውስጥ ያሉ ድረ ገጾች የሚጫኑት የዴስክቶፕ ተጠቃሚ ወኪልን በመጠቀም ነው። </string>
-  <string name="DesktopViewListActivity.Title">የሳይፈን መዳሰሻ - ለዴስክቶፕ ማሳያ የድረገጾች ዝርዝር </string>
+  <string name="DesktopViewListActivity.Title">የሳይፈን ማሰሺያ - ለዴስክቶፕ ማሳያ የድረገጾች ዝርዝር </string>
   <string name="DesktopViewListActivity.ListEmpty">ዝርዝሩ ባዶ ነው። </string>
   <string name="DesktopViewListActivity.AddMessage">ድረ ገጽ አክል</string>
   <string name="DesktopViewListActivity.ClearMessage">ሁሉንም ድረ ገጾች አጽዳ</string>

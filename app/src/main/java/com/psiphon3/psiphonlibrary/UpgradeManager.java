@@ -19,18 +19,6 @@
 
 package com.psiphon3.psiphonlibrary;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-
-import com.psiphon3.psiphonlibrary.AuthenticatedDataPackage.AuthenticatedDataPackageException;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
-
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -40,9 +28,22 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.FileProvider;
 
 import com.psiphon3.R;
+import com.psiphon3.psiphonlibrary.AuthenticatedDataPackage.AuthenticatedDataPackageException;
+import com.psiphon3.psiphonlibrary.Utils.MyLog;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
 
 /**
  * Contains logic relating to downloading and applying upgrades.
@@ -94,20 +95,25 @@ public interface UpgradeManager
         
         public boolean rename(String newFilename)
         {
-            File file = new File(getFullPath());
+            File file = getFile();
             return file.renameTo(new File(getFullPath(newFilename)));
         }
         
         public Uri getUri()
         {
-            File file = new File(getFullPath());
+            File file = getFile();
             return Uri.fromFile(file);
         }
         
         public long getSize()
         {
-            File file = new File(getFullPath());
+            File file = getFile();
             return file.length();
+        }
+
+        public File getFile()
+        {
+            return new File(getFullPath());
         }
 
         public abstract boolean isWorldReadable();
@@ -116,7 +122,7 @@ public interface UpgradeManager
         public FileOutputStream createForWriting() throws FileNotFoundException
         {
             int mode = 0;
-            if (isWorldReadable()) mode |= Context.MODE_WORLD_READABLE;
+            if (isWorldReadable() && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) mode |= Context.MODE_WORLD_READABLE;
 
             return this.context.openFileOutput(getFilename(), mode);             
         }
@@ -128,7 +134,7 @@ public interface UpgradeManager
             try
             {
                 int mode = 0;
-                if (isWorldReadable()) mode |= Context.MODE_WORLD_READABLE;
+                if (isWorldReadable() && Build.VERSION.SDK_INT < Build.VERSION_CODES.N) mode |= Context.MODE_WORLD_READABLE;
                 if (append) mode |= Context.MODE_APPEND;
 
                 fos = this.context.openFileOutput(getFilename(), mode); 
@@ -382,9 +388,11 @@ public interface UpgradeManager
             // This intent triggers the upgrade. It's launched if the user clicks the notification.
 
             Intent upgradeIntent = new Intent(Intent.ACTION_VIEW);
-            
-            upgradeIntent.setDataAndType(file.getUri(), "application/vnd.android.package-archive");
-            upgradeIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Uri apkURI = Build.VERSION.SDK_INT < Build.VERSION_CODES.N ?
+                    file.getUri() :
+                    FileProvider.getUriForFile(context, context.getApplicationContext().getPackageName() + ".UpgradeFileProvider", file.getFile());
+            upgradeIntent.setDataAndType(apkURI, "application/vnd.android.package-archive");
+            upgradeIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         
             PendingIntent invokeUpgradeIntent = 
                     PendingIntent.getActivity(

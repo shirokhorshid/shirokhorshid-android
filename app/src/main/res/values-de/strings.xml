@@ -33,4 +33,7 @@
   <string name="ads_consent_preference_title">Einstellungen für die Werbepersonalisierung zurücksetzen</string>
   <string name="ads_consent_preference_dialog_title">Zu&amp;rücksetzen</string>
   <string name="ads_consent_preference_summary">Setzen Sie Ihre Einstellung zurück, um den Werbenetzwerken die Verwendung von Cookies und Ihren persönlichen Daten zu erlauben</string>
+  <string name="preference_language_selection_title">Sprache</string>
+  <string name="preference_language_title">Sprachauswahl</string>
+  <string name="preference_language_default_language">Standardsprache</string>
 </resources>

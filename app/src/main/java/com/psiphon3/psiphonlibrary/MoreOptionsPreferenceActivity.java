@@ -19,10 +19,12 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.*;
 import android.preference.Preference.OnPreferenceClickListener;
@@ -39,12 +41,11 @@ import org.zirco.ui.activities.MainActivity;
 
 import java.util.*;
 
-public class MoreOptionsPreferenceActivity extends LocalizedActivities.PreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
+public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
-    /**
-     * This is a work around for SDK 9, 10 as they lack Intent.FLAG_ACTIVITY_CLEAR_TASK.
-     */
-    public static final String FORCE_ACTIVITY_RESTART = MoreOptionsPreferenceActivity.class.getName() + ":FORCE_ACTIVITY_RESTART";
+    // This is taken from https://developer.android.com/reference/android/provider/Settings#ACTION_VPN_SETTINGS
+    // As we target to low of an SDK we cannot reference this constant directly
+    private static final String ACTION_VPN_SETTINGS = "android.settings.VPN_SETTINGS";
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
@@ -136,6 +137,10 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         mProxyDomain = (EditTextPreference) preferences
                 .findPreference(getString(R.string.useProxyDomainPreference));
 
+        if (Utils.supportsAlwaysOnVPN()) {
+            setupNavigateToVPNSettings(preferences);
+        }
+
         setupLanguageSelector(preferences);
 
         PreferenceGetter preferenceGetter;
@@ -223,6 +228,17 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         updatePreferencesScreen();
     }
 
+    private void setupNavigateToVPNSettings(PreferenceScreen preferences) {
+        Preference preference = preferences.findPreference(getString(R.string.preferenceNavigateToVPNSetting));
+        preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(ACTION_VPN_SETTINGS));
+                return true;
+            }
+        });
+    }
+
     private void setupLanguageSelector(PreferenceScreen preferences) {
         // Get the preference view and create the locale manager with the app's context.
         // Cannot use this activity as the context as we also need StatusActivity to pick up on it.
@@ -237,50 +253,32 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         languageNames[0] = getString(R.string.preference_language_default_language);
         languageCodes[0] = "";
 
+        String currentLocaleLanguageCode = LocaleManager.getLanguage();
+        int currentLocaleLangugeIndex = -1;
+
+        if(currentLocaleLanguageCode.equals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL)) {
+            currentLocaleLangugeIndex = 0;
+        }
+
         for (int i = 1; i <= locales.length; ++i) {
             // Split the string on the comma
             String[] localeArr = locales[i-1].split(",");
             languageNames[i] = localeArr[0];
             languageCodes[i] = localeArr[1];
+
+            if(localeArr[1] != null && localeArr[1].equals(currentLocaleLanguageCode)) {
+                currentLocaleLangugeIndex = i;
+            }
         }
 
         // Entries are displayed to the user, codes are the value used in the backend
         mLanguageSelector.setEntries(languageNames);
         mLanguageSelector.setEntryValues(languageCodes);
 
-        // Set up the change listener
-        mLanguageSelector.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object o) {
-                // The passed object is the language code string
-                String languageCode = (String) o;
-
-                // The LocaleManager will correctly set the resource + store the language preference for the future
-                if (languageCode.equals("")) {
-                    LocaleManager.resetToDefaultLocale(MoreOptionsPreferenceActivity.this);
-                } else {
-                    LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
-                }
-
-                // Kill the browser instance if it exists.
-                // This is required as it's a singleTask activity and isn't recreated when it loses focus.
-                if (MainActivity.INSTANCE != null) {
-                    MainActivity.INSTANCE.finish();
-                }
-
-                // Create an intent to restart the main activity with the new language
-                Intent intent = new Intent(MoreOptionsPreferenceActivity.this, StatusActivity.class);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                } else {
-                    // This is a work around for SDK 9, 10 as they lack Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    intent.putExtra(FORCE_ACTIVITY_RESTART, true);
-                }
-                startActivity(intent);
-
-                return true;
-            }
-        });
+        // If current locale is on the list set it selected
+        if (currentLocaleLangugeIndex >= 0) {
+            mLanguageSelector.setValueIndex(currentLocaleLangugeIndex);
+        }
     }
 
     private void disableCustomProxySettings() {
@@ -413,6 +411,38 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.Preferenc
         Preference curPref = findPreference(key);
         updatePrefsSummary(sharedPreferences, curPref);
         updatePreferencesScreen();
+
+        // If language preference has changed we need to set new locale based on the current
+        // preference value and restart the app.
+        if (key.equals(getString(R.string.preferenceLanguageSelection))) {
+            String languageCode = mLanguageSelector.getValue();
+            setLanguageAndRestartApp(languageCode);
+        }
+    }
+
+    private void setLanguageAndRestartApp(String languageCode) {
+        // The LocaleManager will correctly set the resource + store the language preference for the future
+        if (languageCode.equals("")) {
+            LocaleManager.resetToDefaultLocale(MoreOptionsPreferenceActivity.this);
+        } else {
+            LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
+        }
+
+        // Kill the browser instance if it exists.
+        // This is required as it's a singleTask activity and isn't recreated when it loses focus.
+        if (MainActivity.INSTANCE != null) {
+            MainActivity.INSTANCE.finish();
+        }
+
+        // Schedule app restart and kill the process
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        if (alarmManager != null) {
+            Intent intent = new Intent(this, StatusActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, pendingIntent);
+        }
+
+        System.exit(0);
     }
 
     @Override
