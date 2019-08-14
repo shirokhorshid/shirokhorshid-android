@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 import java.util.Locale;
 
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
-import com.psiphon3.psiphonlibrary.MainBase;
+import com.psiphon3.psiphonlibrary.LoggingProvider;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,9 +51,8 @@ import com.psiphon3.psiphonlibrary.Diagnostics;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
-public class FeedbackActivity extends LocalizedActivities.Activity
+public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
 {
-
     private WebView webView;
 
     @Override
@@ -63,6 +62,11 @@ public class FeedbackActivity extends LocalizedActivities.Activity
         final Activity activity = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
+
+        Intent intent = getIntent();
+        if (isDeepLinkIntent(intent)) {
+            LoggingProvider.LogDatabaseHelper.retrieveLogs(this);
+        }
 
         webView = (WebView)findViewById(R.id.feedbackWebView);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -206,6 +210,16 @@ public class FeedbackActivity extends LocalizedActivities.Activity
         urlBuilder.append("#").append(language);
 
         webView.loadDataWithBaseURL(urlBuilder.toString(), html, "text/html", "utf-8", null);
+    }
+
+    private boolean isDeepLinkIntent(Intent intent) {
+        Uri data = intent.getData();
+        if (data == null) {
+            return false;
+        }
+
+        String dataString = data.toString();
+        return dataString.equals("psiphon://feedback");
     }
 
     private String getHTMLContent()

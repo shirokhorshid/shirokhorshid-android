@@ -41,4 +41,6 @@
     <string name="preference_language_selection_title">Language</string>
     <string name="preference_language_title">Language Selection</string>
     <string name="preference_language_default_language">Default language</string>
+    <string name="preference_navigate_to_vpn_setting_title">Always-on VPN</string>
+    <string name="preference_navigate_to_vpn_setting_summary">Go to system settings to enable Always-on VPN</string>
 </resources>

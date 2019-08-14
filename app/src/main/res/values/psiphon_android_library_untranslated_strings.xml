@@ -13,7 +13,8 @@
     <string name="preferenceNotificationsWithVibrate">preferenceNotificationsWithVibrateDefaultOff</string>
     <string name="preferencesLanguage">preferencesLanguage</string>
     <string name="preferenceLanguageSelection">preferenceLanguageSelection</string>
-    <string name="routingSettingsCategoryKey">routingSettingsCategoryKey</string>
+    <string name="preferenceNavigateToVPNSetting">preferenceNavigateToVPNSetting</string>
+    <string name="vpnSettingsCategoryKey">vpnSettingsCategoryKey</string>
     <string name="preferenceExcludeAppsFromVpn">useExcludedAppsPreference</string>
     <string name="preferenceExcludeAppsFromVpnString">preferenceExcludeAppsFromVpnString</string>
     <string name="make_request_close_http_client">makeRequest error closing HTTP client: %s</string>

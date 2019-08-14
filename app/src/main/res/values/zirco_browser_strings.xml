@@ -35,6 +35,7 @@
     <string name="Main.DownloadStartedMsg">Download start.</string>
     <string name="Main.DownloadFinishedMsg">Download complete.</string>
     <string name="Main.DownloadErrorMsg">Download error: %s</string>
+    <string name="Main.DownloadPermissionRequestReason">Write permissions are required to download items as they will be stored in external storage.</string>
     <string name="Main.ToastTabSwitchMessage">Tab %s</string>
     <string name="Main.ToastTabSwitchFullMessage">Tab %1$s: %2$s</string>
     <string name="Main.VndErrorTitle">Unable to open url</string>
@@ -352,6 +353,9 @@
     <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Export failed</string>
     <string name="Commons.HistoryBookmarksFailedMessage">Error message: %s.</string>
     <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Import failed</string>
+    <string name="Commons.PermissionRequestReasonTitle">Permission request reason</string>
+    <string name="Commons.NeedWritePermissions">Please grant write permissions and try again</string>
+    <string name="Commons.NeedReadPermissions">Please grant read permissions and try again</string>
 
     <string name="Commons.OperationCanBeLongMessage">This operation can take some times. Do you wish to proceed?</string>
 
@@ -359,8 +363,10 @@
     <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Import, export, clear history and bookmarks.</string>
     <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Export bookmarks and history</string>
     <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Export bookmarks and history to the SD card.</string>
+    <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Write permissions are required to export bookmarks as they will be stored in external storage.</string>
     <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Import bookmarks and history</string>
     <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Import bookmarks and history from the SD card.</string>
+    <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Read permissions are required to import bookmarks as they are stored in external storage.</string>
     <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Clear history and/or bookmarks</string>
     <string name="PreferencesActivity.SummaryCannotBeUndone">Use with caution, this operation cannot be undone.</string>
 
