@@ -11,6 +11,13 @@ public abstract class LocalizedActivities {
         }
     }
 
+    public static abstract class AppCompatActivity extends android.support.v7.app.AppCompatActivity {
+        @Override
+        protected void attachBaseContext(Context newBase) {
+            super.attachBaseContext(LocaleManager.setLocale(newBase));
+        }
+    }
+
     public static abstract class ListActivity extends android.app.ListActivity {
         @Override
         protected void attachBaseContext(Context newBase) {
