@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">İndirme başladı.</string>
   <string name="Main.DownloadFinishedMsg">İndirme tamamlandı.</string>
   <string name="Main.DownloadErrorMsg">İndirme hatası: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Harici depolama üzerine kaydedileceğinden ögeleri indirebilmek için yazma izni gereklidir.</string>
   <string name="Main.ToastTabSwitchMessage">Sekme %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Sekme %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">Adres açılamadı</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Dışa aktarma tamamlanamadı</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Hata iletisi: %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">İçe aktarma tamamlanamadı</string>
+  <string name="Commons.PermissionRequestReasonTitle">İzin isteğinin nedeni</string>
+  <string name="Commons.NeedWritePermissions">Lütfen yazma izni vererek yeniden deneyin</string>
+  <string name="Commons.NeedReadPermissions">Lütfen okuma izni vererek yeniden deneyin</string>
   <string name="Commons.OperationCanBeLongMessage">Bu işlem biraz zaman alabilir. Devam etmek ister misiniz?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Yer imleri ve geçmiş yönetimi</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Geçmiş ve yer imlerini içe/dışa aktarma ve temizleme işlemleri.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Yer imleri ve geçmişi dışa aktar</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Yer imleri ve geçmişi SD karta dışa aktarır.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Dışa aktarılan yer imleri harici depolama üzerine kaydedileceğinden yazma izni gereklidir.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Yer imleri ve geçmişi içe aktar</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Yer imleri ve geçmişi SD kartından içe aktarır.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">İçe aktarılan yer imleri harici depolama üzerine kaydedileceğinden okuma izni gereklidir.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Geçmiş ve/veya yer imlerini temizle</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Dikkatli kullanın, bu işlem geri alınamaz.</string>
   <string name="Commons.ClearingHistoryBookmarks">Geçmiş ve/veya yer imleri temizleniyor…</string>

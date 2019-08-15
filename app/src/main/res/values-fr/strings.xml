@@ -37,8 +37,36 @@
   <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
   <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
   <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>
-  <string name="preference_language_selection_summary">Sélectionner la langue</string>
+  <!--The section title shown in the preference screen for language related settings-->
   <string name="preference_language_selection_title">Langue</string>
+  <!--The title shown in the preference screen for selecting an in app language-->
   <string name="preference_language_title">Sélection de la langue</string>
+  <!--The description shown in the preference screen for selecting an in app language-->
+  <string name="preference_language_selection_summary">Sélectionner la langue</string>
+  <!--The name displayed to follow the system language setting in app-->
   <string name="preference_language_default_language">Langue par défaut</string>
+  <!--The title shown in the preference screen for adjusting the always on VPN settings-->
+  <string name="preference_navigate_to_vpn_setting_title">RPV permanent</string>
+  <!--The message shown in the preference screen for adjusting the always on VPN settings-->
+  <string name="preference_navigate_to_vpn_setting_summary">Rendez-vous dans les paramètres du système pour régler les paramètres du RPV permanent</string>
+  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
+  <string name="nfc_connection_info_import_success">Les renseignements de connexion ont été importés avec succès.</string>
+  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
+  <string name="nfc_connection_info_import_failure">Échec d’importation des renseignements de connexion.</string>
+  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
+  <string name="need_help_connecting">Avez-vous besoin d’aide pour vous connecter ?</string>
+  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">Problème de connexion</string>
+  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_message">Cliquez pour voir les correctifs possibles</string>
+  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
+  <string name="get_help_connecting_text">Pour obtenir de l’aide afin de vous connecter, trouvez un autre utilisateur de Psiphon qui est connecté, puis, alors que vous essayez de vous connecter et qu’il est connecté, placez vos téléphones dos à dos pour lancer un transfert de renseignements de connexion.</string>
+  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
+  <string name="get_help_connecting_image_description">Des  téléphones qui se rencontrent pour la CCP</string>
+  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
+  <string name="how_to_help">Aider un ami à se connecter</string>
+  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
+  <string name="how_to_help_connect_text">Vous pouvez aider un ami à se connecter en plaçant vos téléphones dos à dos alors que vous êtes connecté et qu’il essaie de se connecter.</string>
+  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="how_to_help_connect_image_description">Des  téléphones qui se rencontrent pour la CCP</string>
 </resources>

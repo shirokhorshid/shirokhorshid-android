@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">ফোর্স মূল টানেল সমগ্র ডিভাইস পদ্ধতি</string>
   <string name="http_prefix_toggle">HTTP হিসাবে মুখোমুখি</string>
   <string name="preference_notifications_title">প্রজ্ঞাপন</string>
-  <string name="preference_routing_title">রাউটিং</string>
+  <string name="preference_vpn_title">ভিপিএন</string>
   <string name="preference_routing_exclude_apps_title">অ্যাপ্লিকেশনগুলি বাদ দিন</string>
   <string name="preference_routing_exclude_apps_summary">নির্বাচিত অ্যাপগুলিকে টানেল করা থেকে আটকান</string>
   <string name="preference_routing_exclude_apps_ok_button_text">সেট</string>

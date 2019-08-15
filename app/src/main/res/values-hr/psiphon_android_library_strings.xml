@@ -156,6 +156,7 @@
   <string name="wdm_force_iptables_toggle">Prisili root metodu  tuneliranja cijelog uređaja</string>
   <string name="http_prefix_toggle">Ponašaj se kao HTTP</string>
   <string name="preference_notifications_title">Obavijesti</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_notifications_with_sound_title">Zvuk</string>
   <string name="preference_notifications_with_sound_summary">Sviraj zvuk kad se status veze promjeni</string>
   <string name="preference_notifications_with_vibrate_title">Vibriraj</string>

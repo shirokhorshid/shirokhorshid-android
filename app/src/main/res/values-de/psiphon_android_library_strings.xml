@@ -145,7 +145,7 @@
   <string name="run_polipo_failed">Ausführen von Polipo ist fehlgeschlagen: %s</string>
   <string name="http_prefix_toggle">Maskieren als HTTP</string>
   <string name="preference_notifications_title">Benachrichtigungen</string>
-  <string name="preference_routing_title">Routing</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Apps ausschließen</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Festlegen</string>
   <string name="individual_app_excluded">App von Tunnel ausgeschlossen: %s</string>

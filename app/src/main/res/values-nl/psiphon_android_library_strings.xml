@@ -158,7 +158,7 @@
   <string name="wdm_force_iptables_toggle">Functie Dwingen root Tunnel Gehele Apparaat </string>
   <string name="http_prefix_toggle">Voordoen als HTTP</string>
   <string name="preference_notifications_title">Notificatie</string>
-  <string name="preference_routing_title">Route</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Uitsluiten Apps</string>
   <string name="preference_routing_exclude_apps_summary">Voorkomen dat gekozen apps worden getunneld</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Ingesteld</string>

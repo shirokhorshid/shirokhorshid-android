@@ -157,7 +157,6 @@
   <string name="wdm_force_iptables_toggle">វិធីបង្ខំ root លើច្រកឧបករណ៍ទាំងមូល</string>
   <string name="http_prefix_toggle">ក្លែងជា HTTP</string>
   <string name="preference_notifications_title">ការជូនដំណឹង</string>
-  <string name="preference_routing_title">រុករក</string>
   <string name="preference_routing_exclude_apps_title">លើកលែងកម្មវិធី</string>
   <string name="preference_routing_exclude_apps_summary">ចៀសវាងជ្រើសរើសកម្មវិធីពីការណ៍កំពុងចូលច្រក</string>
   <string name="preference_routing_exclude_apps_ok_button_text">កំណត់</string>

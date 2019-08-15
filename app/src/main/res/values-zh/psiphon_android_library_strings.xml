@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">强制 root 全局代理模式</string>
   <string name="http_prefix_toggle">伪装成 HTTP</string>
   <string name="preference_notifications_title">通知</string>
-  <string name="preference_routing_title">代理</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">排除应用</string>
   <string name="preference_routing_exclude_apps_summary">选中的应用不使用赛风代理</string>
   <string name="preference_routing_exclude_apps_ok_button_text">设置</string>

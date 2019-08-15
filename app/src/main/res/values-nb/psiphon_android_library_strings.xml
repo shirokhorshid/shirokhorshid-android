@@ -156,7 +156,7 @@
   <string name="wdm_force_iptables_toggle">Påtving tunnel-over-hele-fjøla -modus ved bruk av superbrukerrettigheter.</string>
   <string name="http_prefix_toggle">Masker som HTTP</string>
   <string name="preference_notifications_title">Kunngjøringer</string>
-  <string name="preference_routing_title">Ruting</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Ekskluder programmer</string>
   <string name="preference_routing_exclude_apps_summary">Forhindre valgte programmer fra å tunneleres </string>
   <string name="preference_routing_exclude_apps_ok_button_text">Sett</string>

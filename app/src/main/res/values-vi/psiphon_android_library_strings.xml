@@ -156,6 +156,7 @@
   <string name="wdm_force_iptables_toggle">Buộc dùng phương pháp Kết Nối Toàn Thiết Bị Xuyên qua Psiphon với root</string>
   <string name="http_prefix_toggle">Ngụy trang làm HTTP</string>
   <string name="preference_notifications_title">Thông báo</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Chọn</string>
   <string name="preference_notifications_with_sound_title">Âm thanh</string>
   <string name="preference_notifications_with_sound_summary">Phát âm thanh khi tình trạng kết nối thay đổi</string>

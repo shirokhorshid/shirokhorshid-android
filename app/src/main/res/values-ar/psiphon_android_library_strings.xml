@@ -163,7 +163,7 @@
   <string name="wdm_force_iptables_toggle">فرض جذر وضعية \"نقل الجهاز بأكمله عبر نفق\" </string>
   <string name="http_prefix_toggle">التنكر بصورة بروتوكول HTTP </string>
   <string name="preference_notifications_title">الإعلامات </string>
-  <string name="preference_routing_title">توجيه</string>
+  <string name="preference_vpn_title">الشبكة الخاصة الإفتراضية</string>
   <string name="preference_routing_exclude_apps_title">التطبيقات المستبعدة</string>
   <string name="preference_routing_exclude_apps_summary">منع التطبيقات المحددة من تمريرها بالنفق</string>
   <string name="preference_routing_exclude_apps_ok_button_text">ضبط</string>

@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">Paksa pakai metode root Alihkan Sambungan Seluruh Perangkat</string>
   <string name="http_prefix_toggle">Samarkan sebagai HTTP</string>
   <string name="preference_notifications_title">Notifikasi</string>
-  <string name="preference_routing_title">Rute</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Kecualikan Aplikasi</string>
   <string name="preference_routing_exclude_apps_summary">Cegah aplikasi terpilih digunakan terowongan</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Set</string>

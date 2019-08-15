@@ -95,6 +95,7 @@
   <string name="network_proxy_connect_invalid_values">Virheelliset HTTP-välityspalvelinasetukset</string>
   <string name="run_polipo_failed">Polipo-sovelluksen suorittaminen epäonnistui: %s</string>
   <string name="preference_notifications_title">Ilmoitukset</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_notifications_with_sound_title">Ääni</string>
   <string name="preference_notifications_with_sound_summary">Soita ääntä, kun yhteystila muuttuu</string>
   <string name="preference_notifications_with_vibrate_title">Värähtele</string>

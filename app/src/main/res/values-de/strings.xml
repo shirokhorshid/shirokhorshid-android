@@ -15,6 +15,7 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Fehler beim Einsenden der Rückmeldung</string>
   <string name="FeedbackActivity.InvalidURLParameters">Ungültige URL-Parameter in der Einreichung des Rückmeldungsformulars</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Das Abrufen des Inhalts der Rückmeldungsseite ist fehlgeschlagen</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN wurde gestoppt</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Das ganze Gerät tunneln?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Die Funktion alle Informationen ihres Geräts zu tunneln ist auf Ihrem Gerät verfügbar.\n\nMit dieser Funktion können Sie Ihren gesamten Internet traffic einschließlich Apps und Browser mit Psiphon tunneln.\n\nAlternativ können Sie auswählen, dass Sie nur den Psiphon Browser tunneln und alle anderen Apps direkt durch die Standart Internet Verbindung fließen.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Gesamtes Gerät tunneln</string>
@@ -33,7 +34,27 @@
   <string name="ads_consent_preference_title">Einstellungen für die Werbepersonalisierung zurücksetzen</string>
   <string name="ads_consent_preference_dialog_title">Zu&amp;rücksetzen</string>
   <string name="ads_consent_preference_summary">Setzen Sie Ihre Einstellung zurück, um den Werbenetzwerken die Verwendung von Cookies und Ihren persönlichen Daten zu erlauben</string>
+  <!--The section title shown in the preference screen for language related settings-->
   <string name="preference_language_selection_title">Sprache</string>
+  <!--The title shown in the preference screen for selecting an in app language-->
   <string name="preference_language_title">Sprachauswahl</string>
+  <!--The description shown in the preference screen for selecting an in app language-->
+  <string name="preference_language_selection_summary">Wählen Sie die Sprache aus</string>
+  <!--The name displayed to follow the system language setting in app-->
   <string name="preference_language_default_language">Standardsprache</string>
+  <!--The title shown in the preference screen for adjusting the always on VPN settings-->
+  <string name="preference_navigate_to_vpn_setting_title">VPN immer anlassen</string>
+  <!--The message shown in the preference screen for adjusting the always on VPN settings-->
+  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
+  <string name="nfc_connection_info_import_success">Verbindungsinformationen erfolgreich importiert!</string>
+  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
+  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
+  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">Verbindungsproblem</string>
+  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
+  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
+  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
+  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
+  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
 </resources>

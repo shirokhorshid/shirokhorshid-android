@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">Forza Root per il metodo Tunnel Whole Device</string>
   <string name="http_prefix_toggle">Mascherato come HTTP</string>
   <string name="preference_notifications_title">Notifiche</string>
-  <string name="preference_routing_title">Routing</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Escludi App</string>
   <string name="preference_routing_exclude_apps_summary">Impedisci che le app selezionate vengano sottoposte a tunnelling</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Imposta</string>

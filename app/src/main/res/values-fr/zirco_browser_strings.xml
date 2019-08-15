@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Début du téléchargement.</string>
   <string name="Main.DownloadFinishedMsg">Téléchargement terminé.</string>
   <string name="Main.DownloadErrorMsg">Erreur de téléchargement : %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Les autorisations d’écriture sont exigées pour télécharger des éléments, car ils seront stockés dans la mémoire externe.</string>
   <string name="Main.ToastTabSwitchMessage">Onglet %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Onglet %1$s : %2$s</string>
   <string name="Main.VndErrorTitle">Impossible d’ouvrir l’URL</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Échec lors de l’exportation</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Message d’erreur : %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Échec lors de l’importation</string>
+  <string name="Commons.PermissionRequestReasonTitle">Raison de la demande d’autorisation</string>
+  <string name="Commons.NeedWritePermissions">Veuillez accorder les autorisations d’écriture et ressayer</string>
+  <string name="Commons.NeedReadPermissions">Veuillez accorder les autorisations de lecture et ressayer</string>
   <string name="Commons.OperationCanBeLongMessage">Cette opération peut prendre du temps. Voulez-vous continuer ?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Gérer les marque-pages et l’historique</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Importer, exporter, effacer l’historique et les marque-pages.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Exporter les marque-pages et l’historique</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Exporter les marque-pages et l’historique vers la carte SD.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Les autorisations d’écriture sont exigées pour exporter des marque-pages, car ils seront stockés dans la mémoire externe.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Importer les marque-pages et l’historique</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importer les marque-pages et l’historique de la carte SD.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Les autorisations de lecture sont exigées pour importer des marque-pages, car ils seront stockés dans la mémoire externe.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Effacer l’historique ou les marque-pages</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Utiliser avec prudence, cette opération est irréversible.</string>
   <string name="Commons.ClearingHistoryBookmarks">Effacement de l’historique ou des marque-pages…</string>
