@@ -80,7 +80,7 @@ public class LocaleManager {
         return isSystemLocale(getLanguage());
     }
 
-    public static boolean isSystemLocale(String languageCode) {
+    public boolean isSystemLocale(String languageCode) {
         return USE_SYSTEM_LANGUAGE_VAL.equals(languageCode);
     }
 

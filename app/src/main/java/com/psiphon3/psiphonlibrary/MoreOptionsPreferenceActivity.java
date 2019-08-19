@@ -266,7 +266,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         String currentLocaleLanguageCode = localeManager.getLanguage();
         int currentLocaleLanguageIndex = -1;
 
-        if (LocaleManager.isSystemLocale(currentLocaleLanguageCode)) {
+        if (localeManager.isSystemLocale(currentLocaleLanguageCode)) {
             currentLocaleLanguageIndex = 0;
         }
 
