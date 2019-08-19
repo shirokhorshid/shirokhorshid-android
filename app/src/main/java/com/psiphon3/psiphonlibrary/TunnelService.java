@@ -40,7 +40,8 @@ public class TunnelService extends Service
         // adding a broadcast receiver for locale changes but ATM it feels not worth the effort.
         m_Manager.updateContext(this);
 
-        if (LocaleManager.isSetToSystemLocale()) {
+        LocaleManager localeManager = LocaleManager.getInstance(this);
+        if (localeManager.isSetToSystemLocale()) {
             m_Manager.updateNotifications();
         }
     }

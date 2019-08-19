@@ -20,17 +20,19 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class LocaleManagerTest {
 
+    private final String mSystemLanguageVal = "system";
     private final String mLanguagePreferenceKey = "language_key";
     private final String mFrenchLanguage = "fr";
     private final String mEnglishLanguage = "en";
 
     private Context mContext;
     private SharedPreferences mPreferences;
+    private LocaleManager mLocaleManager;
 
     @Before
     public void initialize() {
         mContext = InstrumentationRegistry.getTargetContext();
-        LocaleManager.initialize(mContext);
+        mLocaleManager = LocaleManager.getInstance(mContext);
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         mPreferences.edit().putString(mLanguagePreferenceKey, mEnglishLanguage).commit();
@@ -38,32 +40,32 @@ public class LocaleManagerTest {
 
     @Test
     public void localeManager_GetLanguage() {
-        assertEquals(mEnglishLanguage, LocaleManager.getLanguage());
+        assertEquals(mEnglishLanguage, mLocaleManager.getLanguage());
     }
 
     @Test
     public void localeManager_SetLocale() {
         mPreferences.edit().putString(mLanguagePreferenceKey, mFrenchLanguage).commit();
-        LocaleManager.setLocale(mContext);
+        mLocaleManager.setLocale(mContext);
 
-        assertEquals(mFrenchLanguage, LocaleManager.getLanguage());
+        assertEquals(mFrenchLanguage, mLocaleManager.getLanguage());
     }
 
     @Test
     public void localeManager_SetNewLocale() {
-        LocaleManager.setNewLocale(mContext, mFrenchLanguage);
+        mLocaleManager.setNewLocale(mContext, mFrenchLanguage);
 
-        assertEquals(mFrenchLanguage, LocaleManager.getLanguage());
+        assertEquals(mFrenchLanguage, mLocaleManager.getLanguage());
     }
 
     @Test
     public void localeManager_ResetToDefaultLocale() {
-        LocaleManager.setNewLocale(mContext, mFrenchLanguage);
+        mLocaleManager.setNewLocale(mContext, mFrenchLanguage);
 
-        assertEquals(mFrenchLanguage, LocaleManager.getLanguage());
+        assertEquals(mFrenchLanguage, mLocaleManager.getLanguage());
 
-        LocaleManager.resetToSystemLocale(mContext);
+        mLocaleManager.resetToSystemLocale(mContext);
 
-        assertEquals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL, LocaleManager.getLanguage());
+        assertEquals(mSystemLanguageVal, mLocaleManager.getLanguage());
     }
 }
