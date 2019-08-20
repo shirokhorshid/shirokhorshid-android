@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">強制獲取最高權限進行全局代理</string>
   <string name="http_prefix_toggle">偽裝成HTTP</string>
   <string name="preference_notifications_title">通知</string>
-  <string name="preference_routing_title">路由</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">排除的應用</string>
   <string name="preference_routing_exclude_apps_summary">防止所選的應用被隧道化</string>
   <string name="preference_routing_exclude_apps_ok_button_text">設置</string>

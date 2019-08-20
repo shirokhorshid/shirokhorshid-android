@@ -75,6 +75,7 @@
   <string name="network_proxy_connect_information">Σύνδεση μέσω του HTTP διαμεσολαβητή σας: %s</string>
   <string name="network_proxy_connect_invalid_values">Μη έγκυρες ρυθμίσεις του HTTP διαμεσολαβητή</string>
   <string name="preference_notifications_title">Ειδοποιήσεις</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_notifications_with_sound_title">Ήχος</string>
   <string name="preference_notifications_with_vibrate_title">Δόνηση</string>
   <string name="moreOptions">Περισσότερες επιλογές</string>

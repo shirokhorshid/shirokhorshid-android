@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">Forcer la méthode racine Tunnelliser tout l’appareil</string>
   <string name="http_prefix_toggle">Se déguiser en HTTP</string>
   <string name="preference_notifications_title">Notifications</string>
-  <string name="preference_routing_title">Routage</string>
+  <string name="preference_vpn_title">RPV</string>
   <string name="preference_routing_exclude_apps_title">Exclure des applis</string>
   <string name="preference_routing_exclude_apps_summary">Empêcher les applis choisies d’être tunnellisées</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Définir</string>

@@ -158,7 +158,7 @@
   <string name="wdm_force_iptables_toggle">اجباری کردن استفاده از تونل در تمام گوشی</string>
   <string name="http_prefix_toggle">ترافیک را مثل http نشان بده</string>
   <string name="preference_notifications_title">اطلاعیه ها</string>
-  <string name="preference_routing_title">در حال مسیریابی</string>
+  <string name="preference_vpn_title">وی پی ان</string>
   <string name="preference_routing_exclude_apps_title">حذف برنامه‌ها</string>
   <string name="preference_routing_exclude_apps_summary">برنامه‌های انتخاب شده را از استفاده از سایفون منع کنید.</string>
   <string name="preference_routing_exclude_apps_ok_button_text">تنظیم</string>

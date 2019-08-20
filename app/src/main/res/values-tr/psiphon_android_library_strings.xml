@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">Root ile Tüm Aygıt Tüneli yöntemi dayatılsın</string>
   <string name="http_prefix_toggle">HTTP olarak saklansın</string>
   <string name="preference_notifications_title">Bildirimler</string>
-  <string name="preference_routing_title">Yöneltme</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Katılmayacak Uygulamalar</string>
   <string name="preference_routing_exclude_apps_summary">Belirtilen uygulamalar için tünel kullanılmaz</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Ayarla</string>

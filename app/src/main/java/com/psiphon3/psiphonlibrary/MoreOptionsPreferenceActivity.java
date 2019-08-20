@@ -262,10 +262,11 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         languageNames[0] = getString(R.string.preference_language_default_language);
         languageCodes[0] = "";
 
-        String currentLocaleLanguageCode = LocaleManager.getLanguage();
+        LocaleManager localeManager = LocaleManager.getInstance(this);
+        String currentLocaleLanguageCode = localeManager.getLanguage();
         int currentLocaleLanguageIndex = -1;
 
-        if (currentLocaleLanguageCode.equals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL)) {
+        if (localeManager.isSystemLocale(currentLocaleLanguageCode)) {
             currentLocaleLanguageIndex = 0;
         }
 
@@ -431,10 +432,11 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
     private void setLanguageAndRestartApp(String languageCode) {
         // The LocaleManager will correctly set the resource + store the language preference for the future
+        LocaleManager localeManager = LocaleManager.getInstance(MoreOptionsPreferenceActivity.this);
         if (languageCode.equals("")) {
-            LocaleManager.resetToSystemLocale(MoreOptionsPreferenceActivity.this);
+            localeManager.resetToSystemLocale(MoreOptionsPreferenceActivity.this);
         } else {
-            LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
+            localeManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
         }
 
         // Kill the browser instance if it exists.

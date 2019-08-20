@@ -193,10 +193,14 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             if (intent.hasExtra(TunnelManager.EXTRA_LANGUAGE_CODE)) {
                 String languageCode = intent.getStringExtra(TunnelManager.EXTRA_LANGUAGE_CODE);
+
+                LocaleManager localeManager = LocaleManager.getInstance(m_parentService);
                 if (languageCode == null || languageCode.equals("")) {
-                    languageCode = LocaleManager.USE_SYSTEM_LANGUAGE_VAL;
+                    m_context = localeManager.resetToSystemLocale(m_parentService);
+                } else {
+                    m_context = localeManager.setNewLocale(m_parentService, languageCode);
                 }
-                m_context = LocaleManager.setNewLocale(m_parentService, languageCode);
+
                 updateNotifications();
             }
         }

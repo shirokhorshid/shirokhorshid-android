@@ -157,7 +157,6 @@
   <string name="wdm_force_iptables_toggle">အင်အားသုံး root လုပ်၍ စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့် ချိတ်ဆက်ရန်နည်းလမ်း</string>
   <string name="http_prefix_toggle">HTTP ကဲ့သို့ သရုပ်သဏ္ဍန်လုပ်ရန်</string>
   <string name="preference_notifications_title">အသိပေးချက်များ</string>
-  <string name="preference_routing_title">ပို့သည်</string>
   <string name="preference_routing_exclude_apps_title">ချန်ထားသော အပ်ပလီကေးရှင်းများ</string>
   <string name="individual_app_excluded">Tunnel မှ ချန်ထားသော အပ်ပလီကေးရှင်း %s</string>
   <string name="no_apps_excluded">Tunnel သည် မည်သည့် အပ်ပလီကေးရှင်းကိုမှ မချန်ထားပါ။</string>

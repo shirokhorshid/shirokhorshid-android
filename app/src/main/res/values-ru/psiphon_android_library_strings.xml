@@ -156,6 +156,7 @@
   <string name="wdm_force_iptables_toggle">Туннелировать все интернет-соединения методом root</string>
   <string name="http_prefix_toggle">Симулировать HTTP </string>
   <string name="preference_notifications_title">Уведомления</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Установить</string>
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Оповестить звуковым сигналом при изменении статуса подключения</string>

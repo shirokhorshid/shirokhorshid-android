@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">Примусово метод тунелювання всього пристрою з правами адміністратора</string>
   <string name="http_prefix_toggle">Маскуватися як HTTP</string>
   <string name="preference_notifications_title">Сповіщення</string>
-  <string name="preference_routing_title">Маршрутизація</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Виключені програми</string>
   <string name="preference_routing_exclude_apps_summary">Уникати тунелювання для вибраних програм</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Задати</string>

@@ -156,7 +156,7 @@
   <string name="wdm_force_iptables_toggle">Método de Forçar o Tunelamento de Todo o Dispositivo como Administrador</string>
   <string name="http_prefix_toggle">Mascarar como HTTP</string>
   <string name="preference_notifications_title">Notificações</string>
-  <string name="preference_routing_title">Roteando</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Definida</string>
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Toque um som ao mudar o estado da conexão</string>

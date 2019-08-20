@@ -5,6 +5,7 @@
   <string name="home_tab_name">Rumah</string>
   <string name="share_proxies_prompt_negative">Batal</string>
   <string name="preference_notifications_title">Notifications</string>
+  <string name="preference_vpn_title">Apps</string>
   <string name="preference_notifications_with_sound_title">Bunyi</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
   <string name="proxySettingsCategoryTitle">Tetapan proxy</string>

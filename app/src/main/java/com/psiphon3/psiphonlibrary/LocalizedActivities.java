@@ -20,14 +20,23 @@ public abstract class LocalizedActivities {
 
         @Override
         protected void attachBaseContext(Context newBase) {
-            super.attachBaseContext(LocaleManager.setLocale(newBase));
+            LocaleManager localeManager = LocaleManager.getInstance(newBase);
+            super.attachBaseContext(localeManager.setLocale(newBase));
         }
     }
 
     public static abstract class AppCompatActivity extends android.support.v7.app.AppCompatActivity {
         @Override
+        protected void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            Utils.resetActivityTitle(this);
+        }
+
+        @Override
         protected void attachBaseContext(Context newBase) {
-            super.attachBaseContext(LocaleManager.setLocale(newBase));
+            LocaleManager localeManager = LocaleManager.getInstance(newBase);
+            super.attachBaseContext(localeManager.setLocale(newBase));
         }
     }
 
@@ -41,7 +50,8 @@ public abstract class LocalizedActivities {
 
         @Override
         protected void attachBaseContext(Context newBase) {
-            super.attachBaseContext(LocaleManager.setLocale(newBase));
+            LocaleManager localeManager = LocaleManager.getInstance(newBase);
+            super.attachBaseContext(localeManager.setLocale(newBase));
         }
     }
 
@@ -55,7 +65,8 @@ public abstract class LocalizedActivities {
 
         @Override
         protected void attachBaseContext(Context newBase) {
-            super.attachBaseContext(LocaleManager.setLocale(newBase));
+            LocaleManager localeManager = LocaleManager.getInstance(newBase);
+            super.attachBaseContext(localeManager.setLocale(newBase));
         }
     }
 
@@ -69,7 +80,8 @@ public abstract class LocalizedActivities {
 
         @Override
         protected void attachBaseContext(Context newBase) {
-            super.attachBaseContext(LocaleManager.setLocale(newBase));
+            LocaleManager localeManager = LocaleManager.getInstance(newBase);
+            super.attachBaseContext(localeManager.setLocale(newBase));
         }
     }
 
@@ -83,7 +95,8 @@ public abstract class LocalizedActivities {
 
         @Override
         protected void attachBaseContext(Context newBase) {
-            super.attachBaseContext(LocaleManager.setLocale(newBase));
+            LocaleManager localeManager = LocaleManager.getInstance(newBase);
+            super.attachBaseContext(localeManager.setLocale(newBase));
         }
     }
 

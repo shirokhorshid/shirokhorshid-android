@@ -157,7 +157,7 @@
   <string name="wdm_force_iptables_toggle">Forzar el método \'Derivar por el túnel el dispositivo al completo\' de dispositivo rooteado</string>
   <string name="http_prefix_toggle">Enmascarar como HTTP</string>
   <string name="preference_notifications_title">Notificaciones</string>
-  <string name="preference_routing_title">Enrutamiento</string>
+  <string name="preference_vpn_title">VPN</string>
   <string name="preference_routing_exclude_apps_title">Excluir apps</string>
   <string name="preference_routing_exclude_apps_summary">Evita que las apps seleccionadas sean tunelizadas</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Establecer</string>

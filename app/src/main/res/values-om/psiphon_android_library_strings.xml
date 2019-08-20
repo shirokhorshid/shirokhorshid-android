@@ -156,7 +156,6 @@
   <string name="wdm_force_iptables_toggle">Mala hundee dabarsa meeshaa guutuu dirqisiisi</string>
   <string name="http_prefix_toggle">HTTP fakkeessi</string>
   <string name="preference_notifications_title">Yaadachiisawwan</string>
-  <string name="preference_routing_title">Dabarsaa jira</string>
   <string name="preference_routing_exclude_apps_title">Appilikeeshiniiwwan moggaatti qoodi</string>
   <string name="preference_routing_exclude_apps_summary">Appilikeeshiniiwwan filataman akka hin dabarfamne ittisi</string>
   <string name="preference_routing_exclude_apps_ok_button_text">Tolchi</string>

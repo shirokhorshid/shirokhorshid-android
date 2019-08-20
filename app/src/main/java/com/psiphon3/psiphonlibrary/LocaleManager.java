@@ -40,38 +40,52 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  * SOFTWARE.
  */
 public class LocaleManager {
-    public static final String USE_SYSTEM_LANGUAGE_VAL = "system";
-
+    private static final String USE_SYSTEM_LANGUAGE_VAL = "system";
     private static final String LANGUAGE_KEY = "language_key";
-    private static SharedPreferences m_preferences;
 
-    public static void initialize(Context context) {
+    private static LocaleManager m_instance = null;
+
+    private final SharedPreferences m_preferences;
+
+    private LocaleManager(Context context) {
         m_preferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public static Context setLocale(Context context) {
+    public static LocaleManager getInstance(Context context) {
+        if (m_instance == null) {
+            m_instance = new LocaleManager(context);
+        }
+
+        return m_instance;
+    }
+
+    public Context setLocale(Context context) {
         return updateResources(context, getLanguage());
     }
 
-    static Context setNewLocale(Context context, String language) {
+    Context setNewLocale(Context context, String language) {
         persistLanguage(language);
         return updateResources(context, language);
     }
 
-    static Context resetToSystemLocale(Context context) {
+    Context resetToSystemLocale(Context context) {
         return setNewLocale(context, USE_SYSTEM_LANGUAGE_VAL);
     }
 
-    public static String getLanguage() {
+    public String getLanguage() {
         return m_preferences.getString(LANGUAGE_KEY, USE_SYSTEM_LANGUAGE_VAL);
     }
 
-    public static boolean isSetToSystemLocale() {
-        return USE_SYSTEM_LANGUAGE_VAL.equals(getLanguage());
+    public boolean isSetToSystemLocale() {
+        return isSystemLocale(getLanguage());
+    }
+
+    public boolean isSystemLocale(String languageCode) {
+        return USE_SYSTEM_LANGUAGE_VAL.equals(languageCode);
     }
 
     @SuppressLint("ApplySharedPref")
-    private static void persistLanguage(String language) {
+    private void persistLanguage(String language) {
         m_preferences.edit().putString(LANGUAGE_KEY, language).commit();
     }
 

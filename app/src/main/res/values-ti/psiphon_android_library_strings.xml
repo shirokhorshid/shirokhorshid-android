@@ -157,7 +157,6 @@
   <string name="wdm_force_iptables_toggle">ዋና መተሓላለፊ ሜላ ምሉእ መሳርሒ ኣገድድ</string>
   <string name="http_prefix_toggle"> ከም HTTP ኣምስል</string>
   <string name="preference_notifications_title">መዘኻኸርታት</string>
-  <string name="preference_routing_title">ይኾልል ኣሎ</string>
   <string name="preference_routing_exclude_apps_title">ኣፓት ኣውጽእ</string>
   <string name="preference_routing_exclude_apps_summary">ዝተመርጸ ኣፕ ካብ ምትሕልላፍ ኣግድ</string>
   <string name="preference_routing_exclude_apps_ok_button_text">ኣርትዕ</string>

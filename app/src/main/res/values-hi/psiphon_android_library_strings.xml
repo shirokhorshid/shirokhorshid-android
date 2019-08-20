@@ -35,6 +35,7 @@
   <string name="region_name_sk">स्लोवाकिया</string>
   <string name="feedback">प्रतिक्रिया</string>
   <string name="preference_notifications_title">सूचनाएं</string>
+  <string name="preference_vpn_title">वीपीएन</string>
   <string name="preference_notifications_with_sound_title">ध्वनि</string>
   <string name="preference_notifications_with_sound_summary">कनेक्शन स्थिति बदलते समय ध्वनि चलाएं</string>
   <string name="preference_notifications_with_vibrate_title">कांपना</string>
