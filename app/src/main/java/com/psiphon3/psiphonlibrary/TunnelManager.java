@@ -88,10 +88,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final String INTENT_ACTION_VPN_REVOKED = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_VPN_REVOKED";
 
     // Service -> Client bundle parameter names
+    static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
+    static final String DATA_TUNNEL_STATE_IS_VPN = "isVpn";
     public static final String DATA_TUNNEL_STATE_IS_CONNECTED = "isConnected";
     public static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT = "listeningLocalSocksProxyPort";
     public static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT = "listeningLocalHttpProxyPort";
     public static final String DATA_TUNNEL_STATE_CLIENT_REGION = "clientRegion";
+    static final String DATA_TUNNEL_STATE_SPONSOR_ID = "sponsorId";
     public static final String DATA_TUNNEL_STATE_HOME_PAGES = "homePages";
     public static final String DATA_TRANSFER_STATS_CONNECTED_TIME = "dataTransferStatsConnectedTime";
     public static final String DATA_TRANSFER_STATS_TOTAL_BYTES_SENT = "dataTransferStatsTotalBytesSent";
@@ -122,10 +125,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Shared tunnel state, sent to the client in the HANDSHAKE
     // intent and various state-related Messages.
     public static class State {
-        boolean isConnected = false;
+        public boolean isRunning = false;
+        public boolean isConnected = false;
+        public boolean isVPN = false;
         int listeningLocalSocksProxyPort = 0;
-        int listeningLocalHttpProxyPort = 0;
-        String clientRegion;
+        public int listeningLocalHttpProxyPort = 0;
+        public String clientRegion = "";
+        public String sponsorId = "";
         ArrayList<String> homePages = new ArrayList<>();
     }
 
