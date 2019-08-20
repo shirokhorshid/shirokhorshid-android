@@ -19,15 +19,19 @@
 
 package com.psiphon3.psiphonlibrary;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.*;
+import android.preference.CheckBoxPreference;
+import android.preference.DialogPreference;
+import android.preference.EditTextPreference;
+import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -35,17 +39,22 @@ import android.widget.Toast;
 
 import com.psiphon3.R;
 
-import com.psiphon3.StatusActivity;
 import net.grandcentrix.tray.AppPreferences;
+
 import org.zirco.ui.activities.MainActivity;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
     // This is taken from https://developer.android.com/reference/android/provider/Settings#ACTION_VPN_SETTINGS
     // As we target to low of an SDK we cannot reference this constant directly
     private static final String ACTION_VPN_SETTINGS = "android.settings.VPN_SETTINGS";
+
+    public static final String INTENT_EXTRA_LANGUAGE_CHANGED = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.LANGUAGE_CHANGED";
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
@@ -254,20 +263,20 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         languageCodes[0] = "";
 
         String currentLocaleLanguageCode = LocaleManager.getLanguage();
-        int currentLocaleLangugeIndex = -1;
+        int currentLocaleLanguageIndex = -1;
 
-        if(currentLocaleLanguageCode.equals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL)) {
-            currentLocaleLangugeIndex = 0;
+        if (currentLocaleLanguageCode.equals(LocaleManager.USE_SYSTEM_LANGUAGE_VAL)) {
+            currentLocaleLanguageIndex = 0;
         }
 
         for (int i = 1; i <= locales.length; ++i) {
             // Split the string on the comma
-            String[] localeArr = locales[i-1].split(",");
+            String[] localeArr = locales[i - 1].split(",");
             languageNames[i] = localeArr[0];
             languageCodes[i] = localeArr[1];
 
-            if(localeArr[1] != null && localeArr[1].equals(currentLocaleLanguageCode)) {
-                currentLocaleLangugeIndex = i;
+            if (localeArr[1] != null && localeArr[1].equals(currentLocaleLanguageCode)) {
+                currentLocaleLanguageIndex = i;
             }
         }
 
@@ -276,8 +285,8 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mLanguageSelector.setEntryValues(languageCodes);
 
         // If current locale is on the list set it selected
-        if (currentLocaleLangugeIndex >= 0) {
-            mLanguageSelector.setValueIndex(currentLocaleLangugeIndex);
+        if (currentLocaleLanguageIndex >= 0) {
+            mLanguageSelector.setValueIndex(currentLocaleLanguageIndex);
         }
     }
 
@@ -423,7 +432,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     private void setLanguageAndRestartApp(String languageCode) {
         // The LocaleManager will correctly set the resource + store the language preference for the future
         if (languageCode.equals("")) {
-            LocaleManager.resetToDefaultLocale(MoreOptionsPreferenceActivity.this);
+            LocaleManager.resetToSystemLocale(MoreOptionsPreferenceActivity.this);
         } else {
             LocaleManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
         }
@@ -434,15 +443,11 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             MainActivity.INSTANCE.finish();
         }
 
-        // Schedule app restart and kill the process
-        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        if (alarmManager != null) {
-            Intent intent = new Intent(this, StatusActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis() + 100, pendingIntent);
-        }
-
-        System.exit(0);
+        // Finish back to the StatusActivity and inform the language has changed
+        Intent data = new Intent();
+        data.putExtra(INTENT_EXTRA_LANGUAGE_CHANGED, true);
+        setResult(RESULT_OK, data);
+        finish();
     }
 
     @Override

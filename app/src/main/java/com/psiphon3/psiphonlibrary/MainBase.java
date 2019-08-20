@@ -23,7 +23,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
-import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -75,6 +74,7 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.psiphon3.R;
+import com.psiphon3.StatusActivity;
 import com.psiphon3.psiphonlibrary.StatusList.StatusListViewManager;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
@@ -125,6 +125,7 @@ public abstract class MainBase {
 
     public static abstract class TabbedActivityBase extends Activity implements OnTabChangeListener {
         public static final String STATUS_ENTRY_AVAILABLE = "com.psiphon3.MainBase.TabbedActivityBase.STATUS_ENTRY_AVAILABLE";
+        public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainBase.TabbedActivityBase.PREVENT_AUTO_START";
         protected static final String EGRESS_REGION_PREFERENCE = "egressRegionPreference";
         protected static final String TUNNEL_WHOLE_DEVICE_PREFERENCE = "tunnelWholeDevicePreference";
         protected static final String CURRENT_TAB = "currentTab";
@@ -132,7 +133,6 @@ public abstract class MainBase {
         protected static final int REQUEST_CODE_PREPARE_VPN = 100;
         protected static final int REQUEST_CODE_PREFERENCE = 101;
 
-        protected static boolean m_firstRun = true;
         private boolean m_canWholeDevice = false;
 
         protected Button m_toggleButton;
@@ -391,9 +391,7 @@ public abstract class MainBase {
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceLanguageSelection), getString(R.string.preferenceLanguageSelection))
             );
 
-            if (m_firstRun) {
-                EmbeddedValues.initialize(this);
-            }
+            EmbeddedValues.initialize(this);
 
             // Set up tabs
             m_tabHost.setup();
@@ -923,7 +921,25 @@ public abstract class MainBase {
         }
 
         private void scheduleRunningTunnelServiceRestart() {
-            if (isServiceRunning()) {
+            String runningService = getRunningService();
+
+            if (runningService == null) {
+                // There is no running service, do nothing.
+                return;
+            }
+
+            // If the running service doesn't need to be changed from WDM to BOM or vice versa we will
+            // just message the service a restart command and have it restart Psiphon tunnel (and VPN
+            // if in WDM mode) internally via TunnelManager.onRestartCommand without stopping the service.
+            // If the WDM preference has changed we will message the service to stop self, wait for it to
+            // stop and then start a brand new service via checkRestartTunnel on a timer.
+            if ((getTunnelConfigWholeDevice() && Utils.hasVpnService() && isVpnService(runningService))
+                    || (!getTunnelConfigWholeDevice() && runningService.equals(TunnelService.class.getName()))) {
+                // A dummy intent just used to pass new tunnel config with the service restart command
+                Intent tunnelConfigIntent = new Intent();
+                configureServiceIntent(tunnelConfigIntent);
+                sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), tunnelConfigIntent.getExtras());
+            } else {
                 m_restartTunnel = true;
                 stopTunnelService();
                 // The tunnel will get restarted in m_updateServiceStateTimer
@@ -1112,6 +1128,17 @@ public abstract class MainBase {
                     }
                     scheduleRunningTunnelServiceRestart();
                 }
+
+                if (data != null && data.getBooleanExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
+                    // This is a bit of a weird hack to cause a restart, but it works
+                    // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
+                    // before the activity would relaunch. This *seems* to provide the best functionality across phones.
+                    finish();
+                    Intent intent = new Intent(this, StatusActivity.class);
+                    intent.putExtra(INTENT_EXTRA_PREVENT_AUTO_START, true);
+                    startActivity(intent);
+                    System.exit(1);
+                }
             }
         }
 
@@ -1158,6 +1185,8 @@ public abstract class MainBase {
                     getTunnelConfigDisableTimeouts());
 
             intent.putExtra(TunnelManager.CLIENT_MESSENGER, m_incomingMessenger);
+
+            intent.putExtra(TunnelManager.EXTRA_LANGUAGE_CODE, LocaleManager.getLanguage());
         }
 
         protected void startAndBindTunnelService() {
@@ -1252,11 +1281,12 @@ public abstract class MainBase {
         private final List<Message> m_queue = new ArrayList<>();
 
         private class IncomingMessageHandler extends Handler {
+            private final TunnelManager.ServiceToClientMessage[] scm = TunnelManager.ServiceToClientMessage.values();
             @Override
             public void handleMessage(Message msg) {
                 Bundle data = msg.getData();
-                switch (msg.what) {
-                    case TunnelManager.MSG_REGISTER_RESPONSE:
+                switch (scm[msg.what]) {
+                    case REGISTER_RESPONSE:
                         getTunnelStateFromBundle(data);
                         // An activity created while the service is already running will learn
                         // the sponsor home page at this point, so now load it.
@@ -1264,18 +1294,18 @@ public abstract class MainBase {
                         updateServiceStateUI();
                         break;
 
-                    case TunnelManager.MSG_KNOWN_SERVER_REGIONS:
+                    case KNOWN_SERVER_REGIONS:
                         m_regionAdapter.updateRegionsFromPreferences();
                         // Make sure we preserve the selection in case the dataset has changed
                         m_regionSelector.setSelectionByValue(m_tunnelConfig.egressRegion);
                         break;
 
-                    case TunnelManager.MSG_TUNNEL_STARTING:
+                    case TUNNEL_STARTING:
                         m_tunnelState.isConnected = false;
                         updateServiceStateUI();
                         break;
 
-                    case TunnelManager.MSG_TUNNEL_STOPPING:
+                    case TUNNEL_STOPPING:
                         m_tunnelState.isConnected = false;
 
                         // When the tunnel self-stops, we also need to unbind to ensure
@@ -1283,12 +1313,12 @@ public abstract class MainBase {
                         unbindTunnelService();
                         break;
 
-                    case TunnelManager.MSG_TUNNEL_CONNECTION_STATE:
+                    case TUNNEL_CONNECTION_STATE:
                         m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
                         updateServiceStateUI();
                         break;
 
-                    case TunnelManager.MSG_DATA_TRANSFER_STATS:
+                    case DATA_TRANSFER_STATS:
                         getDataTransferStatsFromBundle(data);
                         break;
 
@@ -1299,8 +1329,15 @@ public abstract class MainBase {
         }
 
         private void sendServiceMessage(int what) {
+            sendServiceMessage(what, null);
+        }
+
+        private void sendServiceMessage(int what, Bundle data) {
             try {
                 Message msg = Message.obtain(null, what);
+                if(data != null) {
+                    msg.setData(data);
+                }
                 if (m_outgoingMessenger == null) {
                     synchronized (m_queue) {
                         m_queue.add(msg);
@@ -1340,18 +1377,18 @@ public abstract class MainBase {
         };
 
         private void stopTunnelService() {
-            sendServiceMessage(TunnelManager.MSG_STOP_SERVICE);
-            // MSG_STOP_SERVICE will cause the Service to stop itself,
+            sendServiceMessage(TunnelManager.ClientToServiceMessage.STOP_SERVICE.ordinal());
+            // STOP_SERVICE will cause the Service to stop itself,
             // which will then cause an unbind to occur. Don't call
             // unbindTunnelService() here, as its unnecessary and either
-            // the MSG_UNREGISTER or unbindService causes
+            // the UNREGISTER or unbindService causes
             // "Exception when unbinding service com.psiphon3/.psiphonlibrary.TunnelVpnService"
         }
 
         private void unbindTunnelService() {
             if (m_boundToTunnelService) {
                 m_boundToTunnelService = false;
-                sendServiceMessage(TunnelManager.MSG_UNREGISTER);
+                sendServiceMessage(TunnelManager.ClientToServiceMessage.UNREGISTER.ordinal());
                 try {
                     unbindService(m_tunnelServiceConnection);
                 }
@@ -1372,15 +1409,19 @@ public abstract class MainBase {
          * @return True if the service is already running, false otherwise.
          */
         protected boolean isServiceRunning() {
+            return getRunningService() != null;
+        }
+
+        private String getRunningService() {
             ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
             for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
                 if (service.uid == android.os.Process.myUid() &&
                         (TunnelService.class.getName().equals(service.service.getClassName())
-                        || (Utils.hasVpnService() && isVpnService(service.service.getClassName())))) {
-                    return true;
+                                || (Utils.hasVpnService() && isVpnService(service.service.getClassName())))) {
+                    return service.service.getClassName();
                 }
             }
-            return false;
+            return null;
         }
 
         private boolean isVpnService(String className) {

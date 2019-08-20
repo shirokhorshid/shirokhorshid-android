@@ -22,6 +22,7 @@ package com.psiphon3.psiphonlibrary;
 import android.annotation.TargetApi;
 import android.app.Service;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.VpnService;
 import android.os.Build;
 import android.os.IBinder;
@@ -34,6 +35,23 @@ public class TunnelVpnService extends VpnService
     public static final String USER_STARTED_INTENT_FLAG = "userStarted";
 
     private TunnelManager m_Manager = new TunnelManager(this);
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Note that this will be called no matter what the current LocaleManager locale is, be it system or not.
+        // So we want to always have the TunnelManager update their context to have the new configuration.
+        // We don't need to update the notifications though if the language is not set to default.
+        // Also note that if this service is stopped when the system language is changed, notifications like the
+        // upgrade one will not be updated until something else triggers them to be updated. This could be fixed by
+        // adding a broadcast receiver for locale changes but ATM it feels not worth the effort.
+        m_Manager.updateContext(this);
+
+        if (LocaleManager.isSetToSystemLocale()) {
+            m_Manager.updateNotifications();
+        }
+    }
 
     @Override
     public IBinder onBind(Intent intent)
