@@ -24,11 +24,14 @@ import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
+import java.util.ArrayList;
+
 @AutoValue
 public abstract class TunnelState {
     public enum Status {
         RUNNING,
         STOPPED,
+        UNKNOWN,
     }
 
     @AutoValue
@@ -47,6 +50,9 @@ public abstract class TunnelState {
 
         public abstract int httpPort();
 
+        @Nullable
+        public abstract ArrayList<String> homePages();
+
         public static Builder builder() {
             return new AutoValue_TunnelState_ConnectionData.Builder()
                     .setIsConnected(false)
@@ -55,7 +61,8 @@ public abstract class TunnelState {
                     .setPropagationChannelId("")
                     .setSponsorId("")
                     .setVpnMode(false)
-                    .setHttpPort(0);
+                    .setHttpPort(0)
+                    .setHomePages(null);
         }
 
         @AutoValue.Builder
@@ -74,6 +81,8 @@ public abstract class TunnelState {
 
             public abstract Builder setHttpPort(int port);
 
+            public abstract Builder setHomePages(@Nullable ArrayList<String> homePages);
+
             public abstract ConnectionData build();
         }
     }
@@ -82,6 +91,10 @@ public abstract class TunnelState {
 
     @Nullable
     public abstract ConnectionData connectionData();
+
+    public static TunnelState unknown() {
+        return new AutoValue_TunnelState(Status.UNKNOWN, null);
+    }
 
     public static TunnelState stopped() {
         return new AutoValue_TunnelState(Status.STOPPED, null);
@@ -93,5 +106,9 @@ public abstract class TunnelState {
 
     public boolean isRunning() {
         return status() == Status.RUNNING;
+    }
+
+    public boolean isUnknown() {
+        return status() == Status.UNKNOWN;
     }
 }
