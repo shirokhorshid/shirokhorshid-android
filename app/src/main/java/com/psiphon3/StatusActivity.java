@@ -66,7 +66,6 @@ public class StatusActivity
 
     private ImageView m_banner;
     private boolean m_tunnelWholeDevicePromptShown = false;
-    private boolean m_loadedSponsorTab = false;
     private boolean m_firstRun = true;
 
     @Override
@@ -91,10 +90,7 @@ public class StatusActivity
             startUp();
         }
 
-        m_loadedSponsorTab = false;
         HandleCurrentIntent();
-
-        restoreSponsorTab();
     }
 
     private void preventAutoStart() {
@@ -103,20 +99,6 @@ public class StatusActivity
 
     private boolean shouldAutoStart() {
         return m_firstRun && !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
-    }
-
-    @Override
-    protected void restoreSponsorTab() {
-        // HandleCurrentIntent() may have already loaded the sponsor tab
-        if (isTunnelConnected() && !m_loadedSponsorTab)
-        {
-            loadSponsorTab(false);
-        }
-    }
-
-    private void loadSponsorTab(boolean freshConnect)
-    {
-        resetSponsorHomePage(freshConnect);
     }
 
     private void setUpBanner() {
@@ -207,35 +189,29 @@ public class StatusActivity
         HandleCurrentIntent();
     }
 
-    protected void HandleCurrentIntent()
-    {
+    protected void HandleCurrentIntent() {
         Intent intent = getIntent();
 
-        if (intent == null || intent.getAction() == null)
-        {
+        if (intent == null || intent.getAction() == null) {
             return;
         }
 
-        if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_HANDSHAKE))
-        {
-            getTunnelStateFromHandshakeIntent(intent);
-
-            // OLD COMMENT:
-            // Show the home page. Always do this in browser-only mode, even
-            // after an automated reconnect -- since the status activity was
-            // brought to the front after an unexpected disconnect. In whole
-            // device mode, after an automated reconnect, we don't re-invoke
-            // the browser.
-            // UPDATED:
-            // We don't bring the status activity to the front after an
-            // unexpected disconnect in browser-only mode any more.
-            // Show the home page, unless this was an automatic reconnect,
-            // since the homepage should already be showing.
-            if (!intent.getBooleanExtra(TunnelManager.DATA_HANDSHAKE_IS_RECONNECT, false))
-            {
-                m_tabHost.setCurrentTabByTag("home");
-                loadSponsorTab(true);
-                m_loadedSponsorTab = true;
+        if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_HANDSHAKE)) {
+            Bundle data = intent.getExtras();
+            if(data != null) {
+                ArrayList<String> homePages = data.getStringArrayList(TunnelManager.DATA_TUNNEL_STATE_HOME_PAGES);
+                if (homePages != null && homePages.size() > 0) {
+                    String url = homePages.get(0);
+                    // At this point we're showing the URL in either the embedded webview or in a browser.
+                    // Some URLs are excluded from being embedded as home pages.
+                    if(shouldLoadInEmbeddedWebView(url)) {
+                        // Just switch to the home tab.
+                        // The embedded web view will get loaded by the updateServiceStateUI
+                        m_tabHost.setCurrentTabByTag("home");
+                    } else {
+                        displayBrowser(this, homePages);
+                    }
+                }
             }
 
             // We only want to respond to the HANDSHAKE_SUCCESS action once,
@@ -277,11 +253,6 @@ public class StatusActivity
         doToggle();
     }
 
-    public void onOpenBrowserClick(View v)
-    {
-        displayBrowser(this, null);
-    }
-
     @Override
     public void onFeedbackClick(View v)
     {
@@ -304,10 +275,7 @@ public class StatusActivity
             hasPreference = false;
         }
 
-        if (m_tunnelWholeDeviceToggle.isEnabled() &&
-            !hasPreference &&
-            !isServiceRunning())
-        {
+        if (m_tunnelWholeDeviceToggle.isEnabled() && !hasPreference) {
             if (!m_tunnelWholeDevicePromptShown && !this.isFinishing())
             {
                 final Context context = this;
@@ -384,12 +352,10 @@ public class StatusActivity
     }
 
     @Override
-    public void displayBrowser(Context context, String urlString) {
-        if (urlString == null) {
-            ArrayList<String> homePages = getHomePages();
-            if (homePages.size() > 0) {
-                urlString = homePages.get(0);
-            }
+    public void displayBrowser(Context context, ArrayList<String> homePages) {
+        String urlString = null;
+        if (homePages != null && homePages.size() > 0) {
+            urlString = homePages.get(0);
         }
 
         try {
@@ -468,7 +434,7 @@ public class StatusActivity
                 // Note: Zirco now directly accesses PsiphonData to get the current
                 // local HTTP proxy port for WebView tunneling.
 
-                intent.putExtra("homePages", getHomePages());
+                intent.putExtra("homePages", homePages);
 
                 context.startActivity(intent);
             }
