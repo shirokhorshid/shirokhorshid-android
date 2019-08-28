@@ -209,7 +209,7 @@ public class StatusActivity
                         // The embedded web view will get loaded by the updateServiceStateUI
                         m_tabHost.setCurrentTabByTag("home");
                     } else {
-                        displayBrowser(this, homePages);
+                        displayBrowser(this, url);
                     }
                 }
             }
@@ -352,12 +352,7 @@ public class StatusActivity
     }
 
     @Override
-    public void displayBrowser(Context context, ArrayList<String> homePages) {
-        String urlString = null;
-        if (homePages != null && homePages.size() > 0) {
-            urlString = homePages.get(0);
-        }
-
+    public void displayBrowser(Context context, String urlString) {
         try {
             if (getTunnelConfigWholeDevice()) {
                 // TODO: support multiple home pages in whole device mode. This is
@@ -434,7 +429,9 @@ public class StatusActivity
                 // Note: Zirco now directly accesses PsiphonData to get the current
                 // local HTTP proxy port for WebView tunneling.
 
-                intent.putExtra("homePages", homePages);
+                if (urlString != null) {
+                    intent.putExtra("homePages", new ArrayList<>(Collections.singletonList(urlString)));
+                }
 
                 context.startActivity(intent);
             }

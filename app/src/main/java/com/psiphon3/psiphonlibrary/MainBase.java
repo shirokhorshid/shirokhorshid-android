@@ -83,7 +83,6 @@ import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -804,7 +803,13 @@ public abstract class MainBase {
                     m_openBrowserButton.setEnabled(true);
 
                     ArrayList<String> homePages = tunnelState.connectionData().homePages();
-                    m_openBrowserButton.setOnClickListener(view -> displayBrowser(this, homePages));
+                    final String urlString;
+                    if(homePages != null && homePages.size() > 0) {
+                        urlString = homePages.get(0);
+                    } else {
+                        urlString = null;
+                    }
+                    m_openBrowserButton.setOnClickListener(view -> displayBrowser(this, urlString));
 
                     // Show the sponsor web view, but only if there's a home page to
                     // show and it's isn't excluded from being embedded.
@@ -1140,7 +1145,7 @@ public abstract class MainBase {
                     }
 
                     if (mWebViewLoaded) {
-                        displayBrowser(getContext(), new ArrayList<>(Collections.singletonList(url)));
+                        displayBrowser(getContext(), url);
                     }
                     return mWebViewLoaded;
                 }
@@ -1208,7 +1213,7 @@ public abstract class MainBase {
             }
         }
 
-        protected void displayBrowser(Context context, ArrayList<String>homePages) {
+        protected void displayBrowser(Context context, String urlString) {
 
         }
 
