@@ -11,7 +11,6 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import android.util.Log;
 
 import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
@@ -31,7 +30,6 @@ import io.reactivex.disposables.Disposable;
 import static android.content.Context.ACTIVITY_SERVICE;
 
 public class TunnelServiceInteractor {
-    private static final String TAG = "HACK";
     private Relay<TunnelState> tunnelStateRelay = BehaviorRelay.<TunnelState>create().toSerialized();
     private Relay<Boolean> dataStatsRelay = PublishRelay.<Boolean>create().toSerialized();
     private Relay<Boolean> knownRegionsRelay = PublishRelay.<Boolean>create().toSerialized();
@@ -184,7 +182,6 @@ public class TunnelServiceInteractor {
         serviceBindingFactory.getMessengerObservable()
                 .take(1)
                 .doOnNext(messenger -> {
-                    Log.d(TAG, "sendServiceMessage: " + what);
                     try {
                         Message msg = Message.obtain(null, what);
                         msg.replyTo = m_incomingMessenger;
@@ -275,7 +272,6 @@ public class TunnelServiceInteractor {
                     } else {
                         tunnelState = TunnelState.stopped();
                     }
-                    Log.d(TAG, "TUNNEL_CONNECTION_STATE: " + tunnelState);
                     tunnelServiceInteractor.tunnelStateRelay.accept(tunnelState);
                     break;
                 case DATA_TRANSFER_STATS:
@@ -289,7 +285,6 @@ public class TunnelServiceInteractor {
     }
 
     private static class Rx2ServiceBindingFactory {
-        private static final String TAG = "HACK";
         private final Observable<Messenger> messengerObservable;
         private ServiceConnection serviceConnection;
 
@@ -306,9 +301,7 @@ public class TunnelServiceInteractor {
         }
 
         Observable<Messenger> getMessengerObservable() {
-            return messengerObservable
-                    .doOnComplete(() -> Log.d(TAG, "getMessengerObservable: onComplete"))
-                    .doOnNext(m -> Log.d(TAG, "getMessengerObservable: Next: " + m));
+            return messengerObservable;
         }
 
         void unbind(Context context) {
@@ -328,7 +321,6 @@ public class TunnelServiceInteractor {
 
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                Log.d(TAG, "onServiceConnected: ");
                 if (subscriber != null && !subscriber.isDisposed() && service != null) {
                     //noinspection unchecked - we trust this one
                     subscriber.onNext((B) new Messenger(service));
@@ -337,7 +329,6 @@ public class TunnelServiceInteractor {
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-                Log.d(TAG, "onServiceDisconnected: ");
                 if (subscriber != null && !subscriber.isDisposed()) {
                     subscriber.onComplete();
                 }

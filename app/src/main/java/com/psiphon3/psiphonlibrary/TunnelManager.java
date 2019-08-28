@@ -39,7 +39,6 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.psiphon3.R;
 import com.psiphon3.StatusActivity;
@@ -254,7 +253,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         postServiceNotification(true, isConnected);
                     }
                 })
-                .doOnNext(s -> Log.d("HACK", "connectionStatusUpdaterDisposable: isConnected:" + s))
                 .subscribe();
     }
 
