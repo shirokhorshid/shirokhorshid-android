@@ -420,7 +420,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private final Messenger m_incomingMessenger = new Messenger(
             new IncomingMessageHandler(this));
-    private Messenger m_outgoingMessenger = null;
+    private ArrayList<Messenger> mClients = new ArrayList<>();
+
 
     private static class IncomingMessageHandler extends Handler {
         private final WeakReference<TunnelManager> mTunnelManager;
@@ -449,19 +450,30 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         }
                         manager.updateNotifications();
                     }
+                    break;
                 case REGISTER:
                     if(manager != null) {
-                        manager.m_outgoingMessenger = msg.replyTo;
-                        // respond immediately with current connection state
+                        Messenger client = msg.replyTo;
+                        if(client == null) {
+                            MyLog.d("Error registering a client: client's messenger is null.");
+                            return;
+                        }
+                        // respond immediately to the new client with current connection state,
                         // all following distinct tunnel connection updates will be provided
-                        // by an Rx connectionStatusUpdaterDisposable() subscription
-                        manager.sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), manager.getTunnelStateBundle());
+                        // by an Rx connectionStatusUpdaterDisposable() subscription to all clients.
+                        Message clientMessage = manager.composeClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), manager.getTunnelStateBundle());
+                        try {
+                            client.send(clientMessage);
+                        } catch (RemoteException e) {
+                            // Client is dead, do not add it to the clients list
+                            return;
+                        }
+                        manager.mClients.add(client);
                     }
                     break;
                 case UNREGISTER:
                     if(manager != null) {
-                        // Do not send any more messages after client unregistered.
-                        manager.m_outgoingMessenger = null;
+                        manager.mClients.remove(msg.replyTo);
                     }
                     break;
                 case STOP_SERVICE:
@@ -469,11 +481,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         // Do not send any more messages after a stop was commanded.
                         // Client side will receive a ServiceConnection.onServiceDisconnected callback
                         // when the service finally stops.
-                        manager.m_outgoingMessenger = null;
+                        manager.mClients.clear();
                         manager.signalStopService();
                     }
                     break;
-
                 case RESTART_SERVICE:
                     if (manager != null) {
                         Bundle configBundle = msg.getData();
@@ -494,19 +505,25 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
     }
 
-    private void sendClientMessage(int what, Bundle data) {
-        if (m_outgoingMessenger == null) {
-            return;
+    private Message composeClientMessage(int what, Bundle data) {
+        Message msg = Message.obtain(null, what);
+        if (data != null) {
+            msg.setData(data);
         }
-        try {
-            Message msg = Message.obtain(null, what);
-            if (data != null) {
-                msg.setData(data);
+        return msg;
+    }
+
+    private void sendClientMessage(int what, Bundle data) {
+        Message msg = composeClientMessage(what, data);
+        for (int i = mClients.size() - 1; i >= 0; i--) {
+            try {
+                mClients.get(i).send(msg);
+            } catch (RemoteException e) {
+                // The client is dead.  Remove it from the list;
+                // we are going through the list from back to front
+                // so this is safe to do inside the loop.
+                mClients.remove(i);
             }
-            m_outgoingMessenger.send(msg);
-        } catch (RemoteException e) {
-            // The receiver is dead, do not try to send more messages
-            m_outgoingMessenger = null;
         }
     }
 
