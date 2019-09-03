@@ -266,7 +266,7 @@ public class TunnelServiceInteractor {
                                 .setSponsorId(state.sponsorId)
                                 .setHttpPort(state.listeningLocalHttpProxyPort)
                                 .setVpnMode(state.isVPN)
-//                                .setHomePages(state.homePages)
+                                .setHomePages(state.homePages)
                                 .build();
                         tunnelState = TunnelState.running(connectionData);
                     } else {
