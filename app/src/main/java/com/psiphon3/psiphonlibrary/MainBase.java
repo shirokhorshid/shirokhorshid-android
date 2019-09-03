@@ -803,28 +803,27 @@ public abstract class MainBase {
                     m_openBrowserButton.setEnabled(true);
 
                     ArrayList<String> homePages = tunnelState.connectionData().homePages();
-                    final String urlString;
+                    final String url;
                     if(homePages != null && homePages.size() > 0) {
-                        urlString = homePages.get(0);
+                        url = homePages.get(0);
                     } else {
-                        urlString = null;
+                        url = null;
                     }
-                    m_openBrowserButton.setOnClickListener(view -> displayBrowser(this, urlString));
+                    m_openBrowserButton.setOnClickListener(view -> displayBrowser(this, url));
+                    // Show the sponsor web view only if it is not loaded yet, there's a home page to
+                    // show, and it is isn't excluded from being embedded.
+                    if (!m_loadedSponsorTab
+                            && url != null
+                            && shouldLoadInEmbeddedWebView(url)) {
+                        m_sponsorHomePage = new SponsorHomePage((WebView) findViewById(R.id.sponsorWebView),
+                                (ProgressBar) findViewById(R.id.sponsorWebViewProgressBar));
+                        m_sponsorHomePage.load(url, tunnelState.connectionData().httpPort());
+                        m_loadedSponsorTab = true;
 
-                    // Show the sponsor web view, but only if there's a home page to
-                    // show and it's isn't excluded from being embedded.
-                    if (homePages != null && homePages.size() > 0) {
-                        String url = homePages.get(0);
-                        if(shouldLoadInEmbeddedWebView(url)) {
-                            if(!m_loadedSponsorTab) {
-                                m_sponsorHomePage = new SponsorHomePage((WebView) findViewById(R.id.sponsorWebView), (ProgressBar) findViewById(R.id.sponsorWebViewProgressBar));
-                                m_sponsorHomePage.load(url, tunnelState.connectionData().httpPort());
-                                m_loadedSponsorTab = true;
-                            }
-                            boolean statusShowing = m_sponsorViewFlipper.getCurrentView() == m_statusLayout;
-                            if(statusShowing) {
-                                m_sponsorViewFlipper.showNext();
-                            }
+                        // Flip to embedded webview if it is not showing
+                        boolean statusShowing = m_sponsorViewFlipper.getCurrentView() == m_statusLayout;
+                        if (statusShowing) {
+                            m_sponsorViewFlipper.showNext();
                         }
                     }
                 } else {
