@@ -85,7 +85,7 @@ public class TunnelServiceInteractor {
         // if in WDM mode) internally via TunnelManager.onRestartCommand without stopping the service.
         // If the WDM preference has changed we will message the service to stop self, wait for it to
         // stop and then start a brand new service via checkRestartTunnel on a timer.
-        if ((tunnelConfig.wholeDevice && Utils.hasVpnService() && isVpnService(runningService))
+        if ((tunnelConfig.wholeDevice && isVpnService(runningService))
                 || (!tunnelConfig.wholeDevice && runningService.equals(TunnelService.class.getName()))) {
             commandTunnelRestart(getServiceIntent(context, tunnelConfig).getExtras());
         } else {
@@ -124,7 +124,7 @@ public class TunnelServiceInteractor {
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (service.uid == android.os.Process.myUid() &&
                     (TunnelService.class.getName().equals(service.service.getClassName())
-                            || (Utils.hasVpnService() && isVpnService(service.service.getClassName())))) {
+                            || isVpnService(service.service.getClassName()))) {
                 return service.service.getClassName();
             }
         }
@@ -132,7 +132,7 @@ public class TunnelServiceInteractor {
     }
 
     private boolean isVpnService(String className) {
-        return TunnelVpnService.class.getName().equals(className);
+        return Utils.hasVpnService() && TunnelVpnService.class.getName().equals(className);
     }
 
     private void commandTunnelRestart(Bundle data) {
