@@ -50,7 +50,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
@@ -1325,11 +1324,17 @@ public abstract class MainBase {
             if (data == null) {
                 return;
             }
+
             m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
             if (m_tunnelState.isConnected) {
                 setStatusState(R.drawable.status_icon_connected);
+
+                // Set the state to sender always when connection is achieved
+                setNfcState(NfcState.SENDER);
+                showHelpConnectUI();
             } else {
                 setStatusState(R.drawable.status_icon_connecting);
+                hideHelpConnectUI();
             }
             m_tunnelState.listeningLocalSocksProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT);
             m_tunnelState.listeningLocalHttpProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT);
@@ -1337,6 +1342,32 @@ public abstract class MainBase {
             ArrayList<String> homePages = data.getStringArrayList(TunnelManager.DATA_TUNNEL_STATE_HOME_PAGES);
             if (homePages != null) {
                 m_tunnelState.homePages = homePages;
+            }
+
+            setNeedsHelpConnecting(data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING));
+        }
+
+        private void setNeedsHelpConnecting(boolean needsHelpConnecting) {
+            if (m_tunnelState.needsHelpConnecting == needsHelpConnecting) {
+                return;
+            }
+
+            m_tunnelState.needsHelpConnecting = needsHelpConnecting;
+
+            onNeedsHelpConnectingChanged();
+        }
+
+        private void onNeedsHelpConnectingChanged() {
+            if (m_tunnelState.needsHelpConnecting) {
+                setNfcState(NfcState.RECEIVER);
+                showGetHelpConnectingUI();
+            } else {
+                if (m_tunnelState.isConnected) {
+                    setNfcState(NfcState.SENDER);
+                } else {
+                    setNfcState(NfcState.DISABLED);
+                }
+                hideGetHelpConnectingUI();
             }
         }
 
@@ -1384,7 +1415,6 @@ public abstract class MainBase {
                     case TUNNEL_STARTING:
                         m_tunnelState.isConnected = false;
                         updateServiceStateUI();
-                        setNfcState(NfcState.RECEIVER);
                         break;
 
                     case TUNNEL_STOPPING:
@@ -1393,20 +1423,11 @@ public abstract class MainBase {
                         // When the tunnel self-stops, we also need to unbind to ensure
                         // the service is destroyed
                         unbindTunnelService();
-                        // TODO: Should we set NFC State to disabled?
-                        hideHelpConnectUI();
                         break;
 
                     case TUNNEL_CONNECTION_STATE:
-                        m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
+                        getTunnelStateFromBundle(data);
                         updateServiceStateUI();
-                        setNfcState(isTunnelConnected() ?  NfcState.SENDER : NfcState.DISABLED);
-                        if (isTunnelConnected()) {
-                            showHelpConnectUI();
-                        } else {
-                            hideHelpConnectUI();
-                        }
-                        hideGetHelpConnectingUI();
                         break;
 
                     case DATA_TRANSFER_STATS:
@@ -1419,10 +1440,6 @@ public abstract class MainBase {
 
                     case NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT:
                         handleNfcConnectionInfoExchangeResponseImport(data);
-                        break;
-
-                    case SHOW_GET_HELP_CONNECTING:
-                        showGetHelpConnectingUI();
                         break;
 
                     default:
@@ -1520,18 +1537,38 @@ public abstract class MainBase {
         }
 
         private void showGetHelpConnectingUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
             mGetHelpConnectingButton.setVisibility(View.VISIBLE);
         }
 
         private void hideGetHelpConnectingUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
             mGetHelpConnectingButton.setVisibility(View.GONE);
         }
 
         private void showHelpConnectUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
             mHelpConnectButton.setVisibility(View.VISIBLE);
         }
 
         private void hideHelpConnectUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
             mHelpConnectButton.setVisibility(View.GONE);
         }
 

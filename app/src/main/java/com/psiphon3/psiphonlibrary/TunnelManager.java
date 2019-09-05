@@ -90,7 +90,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         DATA_TRANSFER_STATS,
         NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT,
         NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT,
-        SHOW_GET_HELP_CONNECTING,
     }
 
     public static final String INTENT_ACTION_VIEW = "ACTION_VIEW";
@@ -103,6 +102,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     // Service -> Client bundle parameter names
     public static final String DATA_TUNNEL_STATE_IS_CONNECTED = "isConnected";
+    public static final String DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING = "needsHelpConnecting";
     public static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT = "listeningLocalSocksProxyPort";
     public static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT = "listeningLocalHttpProxyPort";
     public static final String DATA_TUNNEL_STATE_CLIENT_REGION = "clientRegion";
@@ -140,6 +140,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // intent and various state-related Messages.
     public static class State {
         boolean isConnected = false;
+        boolean needsHelpConnecting = false;
         int listeningLocalSocksProxyPort = 0;
         int listeningLocalHttpProxyPort = 0;
         String clientRegion;
@@ -178,7 +179,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 mNotificationManager.notify(R.id.notification_id_get_help_connecting, notification);
             }
 
-            sendClientMessage(ServiceToClientMessage.SHOW_GET_HELP_CONNECTING.ordinal(), null);
+            m_tunnelState.needsHelpConnecting = true;
+            sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
             mGetHelpConnectingRunnablePosted = false;
         }
     };
@@ -330,6 +332,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         if (m_tunnelThreadStopSignal != null) {
             m_tunnelThreadStopSignal.countDown();
         }
+
+        // Cancel the get help connecting
+        cancelGetHelpConnecting();
     }
 
     private PendingIntent getPendingIntent(Context ctx, Class activityClass, final String actionString) {
@@ -536,6 +541,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private void scheduleGetHelpConnecting() {
+        // Ensure that they have NFC
+        if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+            return;
+        }
+
         // Already posted the event to run
         if (mGetHelpConnectingRunnablePosted) {
             return;
@@ -551,10 +561,18 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private void cancelGetHelpConnecting() {
+        // Ensure that they have NFC
+        if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+            return;
+        }
+
         // Cancel the "Get help notification"
         if (mNotificationManager != null) {
             mNotificationManager.cancel(R.id.notification_id_get_help_connecting);
         }
+
+        // We don't need help anymore
+        m_tunnelState.needsHelpConnecting = false;
 
         // Remove any pending shows we might have and make sure the button is hidden
         mGetHelpConnectingHandler.removeCallbacks(mGetHelpConnectingRunnable);
@@ -606,6 +624,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private Bundle getTunnelStateBundle() {
         Bundle data = new Bundle();
         data.putBoolean(DATA_TUNNEL_STATE_IS_CONNECTED, m_tunnelState.isConnected);
+        data.putBoolean(DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING, m_tunnelState.needsHelpConnecting);
         data.putInt(DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT, m_tunnelState.listeningLocalSocksProxyPort);
         data.putInt(DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT, m_tunnelState.listeningLocalHttpProxyPort);
         data.putString(DATA_TUNNEL_STATE_CLIENT_REGION, m_tunnelState.clientRegion);
@@ -1200,6 +1219,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             @Override
             public void run() {
                 MyLog.v(R.string.waiting_for_network_connectivity, MyLog.Sensitivity.NOT_SENSITIVE);
+
+                // If we're waiting for a network cancel any countdown for getting help and let the activity know
+                cancelGetHelpConnecting();
+                m_tunnelState.needsHelpConnecting = false;
+                sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
             }
         });
     }
