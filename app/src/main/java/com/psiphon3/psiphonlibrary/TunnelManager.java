@@ -1222,7 +1222,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 // If we're waiting for a network cancel any countdown for getting help and let the activity know
                 cancelGetHelpConnecting();
-                m_tunnelState.needsHelpConnecting = false;
                 sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
             }
         });
