@@ -723,6 +723,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         MyLog.v(R.string.starting_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
         // Start the get help countdown
+        // TODO: Currently being called also in onConnecting as a small work
+        //  around onConnecting not being called if not able to connect. When fixed
+        //  one of these should be removed
         scheduleGetHelpConnecting();
 
         m_tunnelState.homePages.clear();
@@ -1107,6 +1110,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 if (!m_isStopping.get()) {
                     MyLog.v(R.string.tunnel_connecting, MyLog.Sensitivity.NOT_SENSITIVE);
+                    // TODO: Currently being called also in runTunnel as a small work
+                    //  around this not being called if not able to connect. When fixed
+                    //  one of these should be removed
+                    scheduleGetHelpConnecting();
                 }
 
                 setIsConnected(false);
