@@ -45,6 +45,10 @@ public class ConnectionInfoExchangeUtils {
      * @return true if the intents action is for NFC discovered; otherwise false
      */
     public static boolean isNfcDiscoveredIntent(Intent intent) {
+        if (intent == null) {
+            return false;
+        }
+
         // ACTION_NDEF_DISCOVERED wasn't added until SDK 10
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD_MR1) {
             return NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction());
@@ -94,6 +98,10 @@ public class ConnectionInfoExchangeUtils {
      * @return the connection info string encoded in the intent; "" if unable to retrieve properly
      */
     public static String getConnectionInfoPayloadFromNfcIntent(Intent intent) {
+        if (intent == null) {
+            return "";
+        }
+
         Parcelable[] messages = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
 
         // Only one message should have been sent during NFC beam so retrieve that

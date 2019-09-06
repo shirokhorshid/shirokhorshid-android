@@ -588,11 +588,6 @@ public abstract class MainBase {
             mGetHelpConnectingButton = findViewById(R.id.getHelpConnectingButton);
             mHelpConnectButton = findViewById(R.id.howToHelpButton);
 
-            // And set their state based off of the current tunnel state
-            if (isTunnelConnected()) {
-                showHelpConnectUI();
-            }
-
             // Only handle NFC if the version is sufficient
             if (ConnectionInfoExchangeUtils.isNfcSupported()) {
                 // Check for available NFC Adapter
@@ -699,9 +694,10 @@ public abstract class MainBase {
             m_multiProcessPreferences.put(getString(R.string.status_activity_foreground), true);
 
             if (ConnectionInfoExchangeUtils.isNfcSupported()) {
+                Intent intent = getIntent();
                 // Check to see that the Activity started due to an Android Beam
-                if (ConnectionInfoExchangeUtils.isNfcDiscoveredIntent(getIntent())) {
-                    handleNfcIntent(getIntent());
+                if (ConnectionInfoExchangeUtils.isNfcDiscoveredIntent(intent)) {
+                    handleNfcIntent(intent);
                 }
             }
 
@@ -1329,12 +1325,15 @@ public abstract class MainBase {
             if (m_tunnelState.isConnected) {
                 setStatusState(R.drawable.status_icon_connected);
 
-                // Set the state to sender always when connection is achieved
+                // Set the state to sender when connection is achieved
                 setNfcState(NfcState.SENDER);
                 showHelpConnectUI();
             } else {
                 setStatusState(R.drawable.status_icon_connecting);
                 hideHelpConnectUI();
+
+                // Disable NFC when stopped
+                setNfcState(NfcState.DISABLED);
             }
             m_tunnelState.listeningLocalSocksProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT);
             m_tunnelState.listeningLocalHttpProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT);
