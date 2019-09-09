@@ -595,10 +595,11 @@ public abstract class MainBase {
                 if (mNfcAdapter != null) {
                     // Register callback
                     mNfcAdapterCallback = new NfcAdapterCallback();
-
-                    setNfcState(NfcState.DISABLED);
                 }
             }
+
+            // Always start disabled
+            setConnectionHelpState(ConnectionHelpState.DISABLED);
         }
 
         @Override
@@ -1325,15 +1326,13 @@ public abstract class MainBase {
             if (m_tunnelState.isConnected) {
                 setStatusState(R.drawable.status_icon_connected);
 
-                // Set the state to sender when connection is achieved
-                setNfcState(NfcState.SENDER);
-                showHelpConnectUI();
+                // Set the state to can help when connection is achieved
+                setConnectionHelpState(ConnectionHelpState.CAN_HELP);
             } else {
                 setStatusState(R.drawable.status_icon_connecting);
-                hideHelpConnectUI();
 
-                // Disable NFC when stopped
-                setNfcState(NfcState.DISABLED);
+                // Disable help when stopped
+                setConnectionHelpState(ConnectionHelpState.DISABLED);
             }
             m_tunnelState.listeningLocalSocksProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT);
             m_tunnelState.listeningLocalHttpProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT);
@@ -1358,15 +1357,11 @@ public abstract class MainBase {
 
         private void onNeedsHelpConnectingChanged() {
             if (m_tunnelState.needsHelpConnecting) {
-                setNfcState(NfcState.RECEIVER);
-                showGetHelpConnectingUI();
+                setConnectionHelpState(ConnectionHelpState.NEEDS_HELP);
+            } else if (m_tunnelState.isConnected) {
+                setConnectionHelpState(ConnectionHelpState.CAN_HELP);
             } else {
-                if (m_tunnelState.isConnected) {
-                    setNfcState(NfcState.SENDER);
-                } else {
-                    setNfcState(NfcState.DISABLED);
-                }
-                hideGetHelpConnectingUI();
+                setConnectionHelpState(ConnectionHelpState.DISABLED);
             }
         }
 
@@ -1482,37 +1477,43 @@ public abstract class MainBase {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
 
-        private enum NfcState {
-            UNKNOWN, // This should only be used as the initial state of NFC
+        private enum ConnectionHelpState {
+            UNKNOWN, // This should only be used as the initial state of ConnectionHelp
             DISABLED,
-            RECEIVER,
-            SENDER,
+            NEEDS_HELP,
+            CAN_HELP,
         }
 
-        private NfcState mNfcState = NfcState.UNKNOWN;
+        private ConnectionHelpState mConnectionHelpState = ConnectionHelpState.UNKNOWN;
 
         @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-        private void setNfcState(NfcState state) {
+        private void setConnectionHelpState(ConnectionHelpState state) {
             // Make sure we aren't calling this before everything is set up
-            if (mNfcAdapter == null || mNfcState == state) {
+            if (mNfcAdapter == null || mConnectionHelpState == state) {
                 return;
             }
 
-            mNfcState = state;
+            mConnectionHelpState = state;
 
             PackageManager packageManager = getPackageManager();
             ComponentName componentName = new ComponentName(getPackageName(), NfcActivity.class.getName());
 
             switch (state) {
                 case DISABLED:
+                    hideGetHelpConnectingUI();
+                    hideHelpConnectUI();
                     packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
                     mNfcAdapter.setNdefPushMessageCallback(null, this);
                     break;
-                case RECEIVER:
+                case NEEDS_HELP:
+                    showGetHelpConnectingUI();
+                    hideHelpConnectUI();
                     packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
                     mNfcAdapter.setNdefPushMessageCallback(null, this);
                     break;
-                case SENDER:
+                case CAN_HELP:
+                    hideGetHelpConnectingUI();
+                    showHelpConnectUI();
                     packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
                     mNfcAdapter.setNdefPushMessageCallback(mNfcAdapterCallback, this);
                     break;
