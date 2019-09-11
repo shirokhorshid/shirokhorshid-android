@@ -694,19 +694,24 @@ public abstract class MainBase {
             // tunnel state from registering with the service.
             m_multiProcessPreferences.put(getString(R.string.status_activity_foreground), true);
 
+            if (isServiceRunning()) {
+                startAndBindTunnelService();
+            } else {
+                // reset the tunnel state
+                m_tunnelState = new TunnelManager.State();
+            }
+
+            // Note that handling the NFC Intent will attempt to send a message to the running Tunnel service
+            // so call this after binding to the service.
+            // Note that there may still be a race condition between the bind, which recreates the outgoing messenger,
+            // and the following sendServiceMessage called by handleNfcIntent but in testing it seems that the service
+            // binding is fast enough.
             if (ConnectionInfoExchangeUtils.isNfcSupported()) {
                 Intent intent = getIntent();
                 // Check to see that the Activity started due to an Android Beam
                 if (ConnectionInfoExchangeUtils.isNfcDiscoveredIntent(intent)) {
                     handleNfcIntent(intent);
                 }
-            }
-
-            if (isServiceRunning()) {
-                startAndBindTunnelService();
-            } else {
-                // reset the tunnel state
-                m_tunnelState = new TunnelManager.State();
             }
         }
 
@@ -1325,14 +1330,8 @@ public abstract class MainBase {
             m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
             if (m_tunnelState.isConnected) {
                 setStatusState(R.drawable.status_icon_connected);
-
-                // Set the state to can help when connection is achieved
-                setConnectionHelpState(ConnectionHelpState.CAN_HELP);
             } else {
                 setStatusState(R.drawable.status_icon_connecting);
-
-                // Disable help when stopped
-                setConnectionHelpState(ConnectionHelpState.DISABLED);
             }
             m_tunnelState.listeningLocalSocksProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT);
             m_tunnelState.listeningLocalHttpProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT);
@@ -1342,20 +1341,7 @@ public abstract class MainBase {
                 m_tunnelState.homePages = homePages;
             }
 
-            setNeedsHelpConnecting(data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING));
-        }
-
-        private void setNeedsHelpConnecting(boolean needsHelpConnecting) {
-            if (m_tunnelState.needsHelpConnecting == needsHelpConnecting) {
-                return;
-            }
-
-            m_tunnelState.needsHelpConnecting = needsHelpConnecting;
-
-            onNeedsHelpConnectingChanged();
-        }
-
-        private void onNeedsHelpConnectingChanged() {
+            m_tunnelState.needsHelpConnecting = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING);
             if (m_tunnelState.needsHelpConnecting) {
                 setConnectionHelpState(ConnectionHelpState.NEEDS_HELP);
             } else if (m_tunnelState.isConnected) {
@@ -1414,6 +1400,9 @@ public abstract class MainBase {
                     case TUNNEL_STOPPING:
                         m_tunnelState.isConnected = false;
 
+                        // Disable help when stopped
+                        setConnectionHelpState(ConnectionHelpState.DISABLED);
+
                         // When the tunnel self-stops, we also need to unbind to ensure
                         // the service is destroyed
                         unbindTunnelService();
@@ -1443,6 +1432,11 @@ public abstract class MainBase {
         }
 
         private void handleNfcIntent(Intent intent) {
+            if (!isServiceRunning()) {
+                Toast.makeText(this, getString(R.string.nfc_connection_info_press_start), Toast.LENGTH_LONG).show();
+                return;
+            }
+
             String connectionInfoPayload = ConnectionInfoExchangeUtils.getConnectionInfoPayloadFromNfcIntent(intent);
 
             // If the payload is empty don't try to import just let the user know it failed
@@ -1502,7 +1496,9 @@ public abstract class MainBase {
                 case DISABLED:
                     hideGetHelpConnectingUI();
                     hideHelpConnectUI();
-                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+                    // In this state, we still want to receive an NFC tag, and determine what to do with it when we receive it based on the service state.
+                    // For example, in the Stopped state, we can receive a tag, and instruct the user to start the tunnel service and try again.
+                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
                     mNfcAdapter.setNdefPushMessageCallback(null, this);
                     break;
                 case NEEDS_HELP:
