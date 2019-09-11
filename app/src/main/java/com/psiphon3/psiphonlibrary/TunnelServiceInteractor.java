@@ -33,27 +33,27 @@ import io.reactivex.disposables.Disposable;
 import static android.content.Context.ACTIVITY_SERVICE;
 
 public class TunnelServiceInteractor {
-    private static final String TUNNEL_STARING_BROADCAST_INTENT = "TUNNEL_STARING_BROADCAST_INTENT";
+    private static final String SERVICE_STARTING_BROADCAST_INTENT = "SERVICE_STARTING_BROADCAST_INTENT";
     private Relay<TunnelState> tunnelStateRelay = BehaviorRelay.<TunnelState>create().toSerialized();
     private Relay<Boolean> dataStatsRelay = PublishRelay.<Boolean>create().toSerialized();
     private Relay<Boolean> knownRegionsRelay = PublishRelay.<Boolean>create().toSerialized();
 
-    private final Messenger m_incomingMessenger = new Messenger(new IncomingMessageHandler(this));
+    private final Messenger incomingMessenger = new Messenger(new IncomingMessageHandler(this));
     private Disposable restartServiceDisposable = null;
 
     private Rx2ServiceBindingFactory serviceBindingFactory;
 
 
     public TunnelServiceInteractor(Context context) {
-        // Listen to TUNNEL_STARING_BROADCAST_INTENT broadcast that may be sent by another instance
+        // Listen to SERVICE_STARTING_BROADCAST_INTENT broadcast that may be sent by another instance
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(TUNNEL_STARING_BROADCAST_INTENT);
+        intentFilter.addAction(SERVICE_STARTING_BROADCAST_INTENT);
         BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
                 if (action != null) {
-                    if (action.equals(TUNNEL_STARING_BROADCAST_INTENT)) {
+                    if (action.equals(SERVICE_STARTING_BROADCAST_INTENT)) {
                         bindTunnelService(context, intent);
                     }
                 }
@@ -91,7 +91,7 @@ public class TunnelServiceInteractor {
         Intent intent = getServiceIntent(context, tunnelConfig);
         context.startService(intent);
         // Send tunnel starting service broadcast to all instances so they all bind
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(TUNNEL_STARING_BROADCAST_INTENT));
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(SERVICE_STARTING_BROADCAST_INTENT));
     }
 
     public void stopTunnelService() {
@@ -210,7 +210,7 @@ public class TunnelServiceInteractor {
                 .doOnNext(messenger -> {
                     try {
                         Message msg = Message.obtain(null, what);
-                        msg.replyTo = m_incomingMessenger;
+                        msg.replyTo = incomingMessenger;
                         if (data != null) {
                             msg.setData(data);
                         }
