@@ -491,7 +491,7 @@ public abstract class MainBase {
             // Force the UI to display logs already loaded into the StatusList message history
             LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(STATUS_ENTRY_AVAILABLE));
 
-            tunnelServiceInteractor = new TunnelServiceInteractor();
+            tunnelServiceInteractor = new TunnelServiceInteractor(getApplicationContext());
 
             // remove logs from previous sessions
             if (!tunnelServiceInteractor.isServiceRunning(getApplicationContext())) {
