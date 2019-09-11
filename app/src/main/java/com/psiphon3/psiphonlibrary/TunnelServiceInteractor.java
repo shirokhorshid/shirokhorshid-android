@@ -54,10 +54,7 @@ public class TunnelServiceInteractor {
                 String action = intent.getAction();
                 if (action != null) {
                     if (action.equals(TUNNEL_STARING_BROADCAST_INTENT)) {
-                        final Intent bindingIntent = getBindingIntent(context);
-                        if (bindingIntent != null) {
-                            bindTunnelService(context, bindingIntent);
-                        }
+                        bindTunnelService(context, intent);
                     }
                 }
             }
@@ -65,22 +62,16 @@ public class TunnelServiceInteractor {
         LocalBroadcastManager.getInstance(context).registerReceiver(broadcastReceiver, intentFilter);
     }
 
-    private Intent getBindingIntent(Context context) {
-        String serviceName = getRunningService(context);
-        if (serviceName != null) {
-            if (isVpnService(serviceName)) {
-                return getVpnServiceIntent(context);
-            } else {
-                return new Intent(context, TunnelService.class);
-            }
-        }
-        return null;
-    }
-
     public void resume(Context context) {
         tunnelStateRelay.accept(TunnelState.unknown());
-        final Intent bindingIntent = getBindingIntent(context);
-        if(bindingIntent != null) {
+        String serviceName = getRunningService(context);
+        if (serviceName != null) {
+            final Intent bindingIntent;
+            if (isVpnService(serviceName)) {
+                bindingIntent = getVpnServiceIntent(context);
+            } else {
+                bindingIntent = new Intent(context, TunnelService.class);
+            }
             bindTunnelService(context, bindingIntent);
         } else {
             tunnelStateRelay.accept(TunnelState.stopped());
@@ -100,8 +91,7 @@ public class TunnelServiceInteractor {
         Intent intent = getServiceIntent(context, tunnelConfig);
         context.startService(intent);
         // Send tunnel starting service broadcast to all instances so they all bind
-        android.content.Intent tunnelStartingBroadcastIntent = new android.content.Intent(TUNNEL_STARING_BROADCAST_INTENT);
-        LocalBroadcastManager.getInstance(context).sendBroadcast(tunnelStartingBroadcastIntent);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(TUNNEL_STARING_BROADCAST_INTENT));
     }
 
     public void stopTunnelService() {
