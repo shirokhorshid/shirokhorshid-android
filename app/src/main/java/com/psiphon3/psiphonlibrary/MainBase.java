@@ -717,6 +717,14 @@ public abstract class MainBase {
                 // Check to see that the Activity started due to an Android Beam
                 if (ConnectionInfoExchangeUtils.isNfcDiscoveredIntent(intent)) {
                     handleNfcIntent(intent);
+
+                    // We only want to respond to the NFC Intent once,
+                    // so we need to clear it (by setting it to a non-special intent).
+                    setIntent(new Intent(
+                            "ACTION_VIEW",
+                            null,
+                            this,
+                            this.getClass()));
                 }
             }
         }
