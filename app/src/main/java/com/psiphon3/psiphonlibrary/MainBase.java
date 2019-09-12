@@ -23,10 +23,12 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -35,6 +37,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.net.VpnService;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
+import android.nfc.NfcEvent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -46,6 +52,7 @@ import android.os.RemoteException;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -92,6 +99,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import static android.nfc.NdefRecord.createMime;
 
 public abstract class MainBase {
     public static abstract class Activity extends LocalizedActivities.AppCompatActivity implements MyLog.ILogger {
@@ -172,6 +183,46 @@ public abstract class MainBase {
         // when it is set to the connected image
         private ImageButton m_statusViewImage;
         private boolean m_statusIconSetToConnected = false;
+
+        private View mGetHelpConnectingButton;
+        private View mHelpConnectButton;
+
+        private NfcAdapter mNfcAdapter;
+        private NfcAdapterCallback mNfcAdapterCallback;
+        private String mConnectionInfoPayload = "";
+
+        private CountDownLatch mNfcConnectionInfoExportLatch;
+
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+        private class NfcAdapterCallback implements NfcAdapter.CreateNdefMessageCallback {
+            @Override
+            public NdefMessage createNdefMessage(NfcEvent event) {
+                // Request the connection info get updated
+                sendServiceMessage(TunnelManager.ClientToServiceMessage.NFC_CONNECTION_INFO_EXCHANGE_EXPORT.ordinal());
+
+                // Wait for the service to respond
+                try {
+                    mNfcConnectionInfoExportLatch = new CountDownLatch(1);
+                    if (!mNfcConnectionInfoExportLatch.await(2, TimeUnit.SECONDS)) {
+                        // We didn't get a response within two seconds so
+                        // set the payload to something invalid so nothing happens to the receiver
+                        mConnectionInfoPayload = "";
+                    }
+                } catch (InterruptedException e) {
+                    // Set the payload to something invalid so nothing happens to the receiver
+                    mConnectionInfoPayload = "";
+                }
+
+                // Decode the payload then clear it so we don't try to import an old payload
+                byte[] payload = ConnectionInfoExchangeUtils.decodeConnectionInfo(mConnectionInfoPayload);
+                mConnectionInfoPayload = "";
+
+                return new NdefMessage(
+                        new NdefRecord[] { createMime(
+                                ConnectionInfoExchangeUtils.NFC_MIME_TYPE, payload)
+                        });
+            }
+        }
 
         private void setStatusState(int resId) {
             boolean statusShowing = m_sponsorViewFlipper.getCurrentView() == m_statusLayout;
@@ -532,6 +583,23 @@ public abstract class MainBase {
 
             // Force the UI to display logs already loaded into the StatusList message history
             LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(STATUS_ENTRY_AVAILABLE));
+
+            // Get the connection help buttons
+            mGetHelpConnectingButton = findViewById(R.id.getHelpConnectingButton);
+            mHelpConnectButton = findViewById(R.id.howToHelpButton);
+
+            // Only handle NFC if the version is sufficient
+            if (ConnectionInfoExchangeUtils.isNfcSupported()) {
+                // Check for available NFC Adapter
+                mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+                if (mNfcAdapter != null) {
+                    // Register callback
+                    mNfcAdapterCallback = new NfcAdapterCallback();
+                }
+            }
+
+            // Always start disabled
+            setConnectionHelpState(ConnectionHelpState.DISABLED);
         }
 
         @Override
@@ -631,6 +699,19 @@ public abstract class MainBase {
             } else {
                 // reset the tunnel state
                 m_tunnelState = new TunnelManager.State();
+            }
+
+            // Note that handling the NFC Intent will attempt to send a message to the running Tunnel service
+            // so call this after binding to the service.
+            // Note that there may still be a race condition between the bind, which recreates the outgoing messenger,
+            // and the following sendServiceMessage called by handleNfcIntent but in testing it seems that the service
+            // binding is fast enough.
+            if (ConnectionInfoExchangeUtils.isNfcSupported()) {
+                Intent intent = getIntent();
+                // Check to see that the Activity started due to an Android Beam
+                if (ConnectionInfoExchangeUtils.isNfcDiscoveredIntent(intent)) {
+                    handleNfcIntent(intent);
+                }
             }
         }
 
@@ -1245,6 +1326,7 @@ public abstract class MainBase {
             if (data == null) {
                 return;
             }
+
             m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
             if (m_tunnelState.isConnected) {
                 setStatusState(R.drawable.status_icon_connected);
@@ -1257,6 +1339,15 @@ public abstract class MainBase {
             ArrayList<String> homePages = data.getStringArrayList(TunnelManager.DATA_TUNNEL_STATE_HOME_PAGES);
             if (homePages != null) {
                 m_tunnelState.homePages = homePages;
+            }
+
+            m_tunnelState.needsHelpConnecting = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING);
+            if (m_tunnelState.needsHelpConnecting) {
+                setConnectionHelpState(ConnectionHelpState.NEEDS_HELP);
+            } else if (m_tunnelState.isConnected) {
+                setConnectionHelpState(ConnectionHelpState.CAN_HELP);
+            } else {
+                setConnectionHelpState(ConnectionHelpState.DISABLED);
             }
         }
 
@@ -1309,13 +1400,16 @@ public abstract class MainBase {
                     case TUNNEL_STOPPING:
                         m_tunnelState.isConnected = false;
 
+                        // Disable help when stopped
+                        setConnectionHelpState(ConnectionHelpState.DISABLED);
+
                         // When the tunnel self-stops, we also need to unbind to ensure
                         // the service is destroyed
                         unbindTunnelService();
                         break;
 
                     case TUNNEL_CONNECTION_STATE:
-                        m_tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
+                        getTunnelStateFromBundle(data);
                         updateServiceStateUI();
                         break;
 
@@ -1323,10 +1417,155 @@ public abstract class MainBase {
                         getDataTransferStatsFromBundle(data);
                         break;
 
+                    case NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT:
+                        handleNfcConnectionInfoExchangeResponseExport(data);
+                        break;
+
+                    case NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT:
+                        handleNfcConnectionInfoExchangeResponseImport(data);
+                        break;
+
                     default:
                         super.handleMessage(msg);
                 }
             }
+        }
+
+        private void handleNfcIntent(Intent intent) {
+            if (!isServiceRunning()) {
+                Toast.makeText(this, getString(R.string.nfc_connection_info_press_start), Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            String connectionInfoPayload = ConnectionInfoExchangeUtils.getConnectionInfoPayloadFromNfcIntent(intent);
+
+            // If the payload is empty don't try to import just let the user know it failed
+            if ("".equals(connectionInfoPayload)) {
+                Toast.makeText(this, getString(R.string.nfc_connection_info_import_failure), Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            // Otherwise, send the received message to the TunnelManager to be imported
+            importConnectionInfo(connectionInfoPayload);
+        }
+
+        private void importConnectionInfo(String connectionInfoPayload) {
+            Bundle data = new Bundle();
+            data.putString(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_IMPORT, connectionInfoPayload);
+            sendServiceMessage(TunnelManager.ClientToServiceMessage.NFC_CONNECTION_INFO_EXCHANGE_IMPORT.ordinal(), data);
+        }
+
+        protected void handleNfcConnectionInfoExchangeResponseExport(Bundle data) {
+            // Store the data to be sent on an NFC exchange so we don't have to wait when beaming
+            mConnectionInfoPayload = data.getString(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT);
+
+            // If the latch exists, let it wake up
+            if (mNfcConnectionInfoExportLatch != null) {
+                mNfcConnectionInfoExportLatch.countDown();
+            }
+        }
+
+        protected void handleNfcConnectionInfoExchangeResponseImport(Bundle data) {
+            boolean success = data.getBoolean(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT, false);
+            String message = success ? getString(R.string.nfc_connection_info_import_success) : getString(R.string.nfc_connection_info_import_failure);
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        }
+
+        private enum ConnectionHelpState {
+            UNKNOWN, // This should only be used as the initial state of ConnectionHelp
+            DISABLED,
+            NEEDS_HELP,
+            CAN_HELP,
+        }
+
+        private ConnectionHelpState mConnectionHelpState = ConnectionHelpState.UNKNOWN;
+
+        @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+        private void setConnectionHelpState(ConnectionHelpState state) {
+            // Make sure we aren't calling this before everything is set up
+            if (mNfcAdapter == null || mConnectionHelpState == state) {
+                return;
+            }
+
+            mConnectionHelpState = state;
+
+            PackageManager packageManager = getPackageManager();
+            ComponentName componentName = new ComponentName(getPackageName(), NfcActivity.class.getName());
+
+            switch (state) {
+                case DISABLED:
+                    hideGetHelpConnectingUI();
+                    hideHelpConnectUI();
+                    // In this state, we still want to receive an NFC tag, and determine what to do with it when we receive it based on the service state.
+                    // For example, in the Stopped state, we can receive a tag, and instruct the user to start the tunnel service and try again.
+                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+                    mNfcAdapter.setNdefPushMessageCallback(null, this);
+                    break;
+                case NEEDS_HELP:
+                    showGetHelpConnectingUI();
+                    hideHelpConnectUI();
+                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+                    mNfcAdapter.setNdefPushMessageCallback(null, this);
+                    break;
+                case CAN_HELP:
+                    hideGetHelpConnectingUI();
+                    showHelpConnectUI();
+                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+                    mNfcAdapter.setNdefPushMessageCallback(mNfcAdapterCallback, this);
+                    break;
+            }
+        }
+
+        protected void showConnectionHelpDialog(Context context, int id) {
+            LayoutInflater layoutInflater = LayoutInflater.from(context);
+            // TODO: Determine what the root inflation should be.
+            View dialogView = layoutInflater.inflate(id, null);
+            new AlertDialog.Builder(context)
+                    .setView(dialogView)
+                    .setPositiveButton(R.string.label_ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create()
+                    .show();
+        }
+
+        private void showGetHelpConnectingUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
+            mGetHelpConnectingButton.setVisibility(View.VISIBLE);
+        }
+
+        private void hideGetHelpConnectingUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
+            mGetHelpConnectingButton.setVisibility(View.GONE);
+        }
+
+        private void showHelpConnectUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
+            mHelpConnectButton.setVisibility(View.VISIBLE);
+        }
+
+        private void hideHelpConnectUI() {
+            // Ensure that they have NFC
+            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+                return;
+            }
+
+            mHelpConnectButton.setVisibility(View.GONE);
         }
 
         private void sendServiceMessage(int what) {

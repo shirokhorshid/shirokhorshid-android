@@ -46,6 +46,8 @@ cog.outl('public static final String OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON = "%s
 cog.outl('public static final String REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY = "%s";' % utils.get_embedded_value(buildname, 'REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY'))
 cog.outl('public static final String UPGRADE_URLS_JSON = "%s";' % utils.get_embedded_value(buildname, 'UPGRADE_URLS_JSON'))
 cog.outl('public static final String UPGRADE_SIGNATURE_PUBLIC_KEY = "%s";' % utils.get_embedded_value(buildname, 'UPGRADE_SIGNATURE_PUBLIC_KEY'))
+cog.outl('public static final String SERVER_ENTRY_SIGNATURE_PUBLIC_KEY = "%s";' % utils.get_embedded_value(buildname, 'SERVER_ENTRY_SIGNATURE_PUBLIC_KEY'))
+cog.outl('public static final String SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY = "%s";' % utils.get_embedded_value(buildname, 'SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY'))
 cog.outl('public static String SPONSOR_ID = "%s";' % utils.get_embedded_value(buildname, 'SPONSOR_ID'))
 cog.outl('public static String INFO_LINK_URL = "%s";' % utils.get_embedded_value(buildname, 'INFO_LINK_URL'))
 cog.outl('public static String GET_NEW_VERSION_URL = "%s";' % utils.get_embedded_value(buildname, 'GET_NEW_VERSION_URL'))
@@ -81,6 +83,9 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
 
     public static final String UPGRADE_URLS_JSON = "[]";
     public static final String UPGRADE_SIGNATURE_PUBLIC_KEY = "";
+
+    public static final String SERVER_ENTRY_SIGNATURE_PUBLIC_KEY = "";
+    public static final String SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY = "";
 
     // Following embedded values may be overridden with values from Preferences. This is to prevent
     // Play Store Build instances from overriding embedded values from previously installed APKS.
