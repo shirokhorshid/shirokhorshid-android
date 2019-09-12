@@ -43,6 +43,7 @@ public class TunnelServiceInteractor {
 
     private Rx2ServiceBindingFactory serviceBindingFactory;
 
+    private boolean isPaused = true;
 
     public TunnelServiceInteractor(Context context) {
         // Listen to SERVICE_STARTING_BROADCAST_INTENT broadcast that may be sent by another instance
@@ -53,7 +54,7 @@ public class TunnelServiceInteractor {
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
                 if (action != null) {
-                    if (action.equals(SERVICE_STARTING_BROADCAST_INTENT)) {
+                    if (action.equals(SERVICE_STARTING_BROADCAST_INTENT) && !isPaused) {
                         bindTunnelService(context, intent);
                     }
                 }
@@ -63,6 +64,7 @@ public class TunnelServiceInteractor {
     }
 
     public void resume(Context context) {
+        isPaused = false;
         tunnelStateRelay.accept(TunnelState.unknown());
         String serviceName = getRunningService(context);
         if (serviceName != null) {
@@ -79,6 +81,7 @@ public class TunnelServiceInteractor {
     }
 
     public void pause(Context context) {
+        isPaused = true;
         tunnelStateRelay.accept(TunnelState.unknown());
         if (serviceBindingFactory != null) {
             sendServiceMessage(TunnelManager.ClientToServiceMessage.UNREGISTER.ordinal(), null);
