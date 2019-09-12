@@ -523,6 +523,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private void handleNfcConnectionInfoExchangeImport(Bundle data) {
+        // Don't import if the tunnel is already connected
+        if (m_tunnelState.isConnected) {
+            return;
+        }
+
         String connectionInfo = data.getString(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_IMPORT);
         boolean success = m_tunnel.importExchangePayload(connectionInfo);
 
