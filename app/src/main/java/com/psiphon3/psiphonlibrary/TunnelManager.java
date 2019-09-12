@@ -523,6 +523,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private void handleNfcConnectionInfoExchangeImport(Bundle data) {
+        // Don't import if the tunnel is stopping or hasn't started yet
+        if (m_isStopping.get() || m_tunnelThreadStopSignal == null || m_tunnelThreadStopSignal.getCount() == 0) {
+            return;
+        }
+
         // Don't import if the tunnel is already connected
         if (m_tunnelState.isConnected) {
             return;
