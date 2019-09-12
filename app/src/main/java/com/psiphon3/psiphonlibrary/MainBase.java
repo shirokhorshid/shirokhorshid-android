@@ -1479,6 +1479,12 @@ public abstract class MainBase {
         protected void handleNfcConnectionInfoExchangeResponseImport(Bundle data) {
             boolean success = data.getBoolean(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT, false);
             String message = success ? getString(R.string.nfc_connection_info_import_success) : getString(R.string.nfc_connection_info_import_failure);
+            if (success) {
+                // Dismiss the get help dialog if it is showing
+                if (mConnectionHelpDialog != null && mConnectionHelpDialog.isShowing()) {
+                    mConnectionHelpDialog.dismiss();
+                }
+            }
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
 
@@ -1519,11 +1525,13 @@ public abstract class MainBase {
             }
         }
 
+        private AlertDialog mConnectionHelpDialog;
+
         protected void showConnectionHelpDialog(Context context, int id) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             // TODO: Determine what the root inflation should be.
             View dialogView = layoutInflater.inflate(id, null);
-            new AlertDialog.Builder(context)
+            mConnectionHelpDialog = new AlertDialog.Builder(context)
                     .setView(dialogView)
                     .setPositiveButton(R.string.label_ok, new DialogInterface.OnClickListener() {
                         @Override
@@ -1531,8 +1539,8 @@ public abstract class MainBase {
                             dialog.dismiss();
                         }
                     })
-                    .create()
-                    .show();
+                    .create();
+            mConnectionHelpDialog.show();
         }
 
         private void showGetHelpConnectingUI() {
