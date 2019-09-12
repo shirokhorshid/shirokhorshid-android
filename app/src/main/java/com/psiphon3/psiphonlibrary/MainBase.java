@@ -595,6 +595,12 @@ public abstract class MainBase {
                 if (mNfcAdapter != null) {
                     // Register callback
                     mNfcAdapterCallback = new NfcAdapterCallback();
+
+                    // Always enable receiving an NFC tag, and determine what to do with it when we receive it based on the service state.
+                    // For example, in the Stopped state, we can receive a tag, and instruct the user to start the tunnel service and try again.
+                    PackageManager packageManager = getPackageManager();
+                    ComponentName componentName = new ComponentName(getPackageName(), NfcActivity.class.getName());
+                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
                 }
             }
 
@@ -1437,6 +1443,11 @@ public abstract class MainBase {
                 return;
             }
 
+            if (isTunnelConnected()) {
+                // Discard the NFC tag, we don't need to import anything.
+                return;
+            }
+
             String connectionInfoPayload = ConnectionInfoExchangeUtils.getConnectionInfoPayloadFromNfcIntent(intent);
 
             // If the payload is empty don't try to import just let the user know it failed
@@ -1489,28 +1500,20 @@ public abstract class MainBase {
 
             mConnectionHelpState = state;
 
-            PackageManager packageManager = getPackageManager();
-            ComponentName componentName = new ComponentName(getPackageName(), NfcActivity.class.getName());
-
             switch (state) {
                 case DISABLED:
                     hideGetHelpConnectingUI();
                     hideHelpConnectUI();
-                    // In this state, we still want to receive an NFC tag, and determine what to do with it when we receive it based on the service state.
-                    // For example, in the Stopped state, we can receive a tag, and instruct the user to start the tunnel service and try again.
-                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
                     mNfcAdapter.setNdefPushMessageCallback(null, this);
                     break;
                 case NEEDS_HELP:
                     showGetHelpConnectingUI();
                     hideHelpConnectUI();
-                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
                     mNfcAdapter.setNdefPushMessageCallback(null, this);
                     break;
                 case CAN_HELP:
                     hideGetHelpConnectingUI();
                     showHelpConnectUI();
-                    packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
                     mNfcAdapter.setNdefPushMessageCallback(mNfcAdapterCallback, this);
                     break;
             }
