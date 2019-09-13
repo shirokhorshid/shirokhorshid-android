@@ -191,6 +191,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private boolean m_firstStart = true;
     private CountDownLatch m_tunnelThreadStopSignal;
     private Thread m_tunnelThread;
+    private AtomicBoolean m_startedTunneling;
     private AtomicBoolean m_isReconnect;
     private AtomicBoolean m_isStopping;
     private PsiphonTunnel m_tunnel = null;
@@ -205,6 +206,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public TunnelManager(Service parentService) {
         m_parentService = parentService;
         m_context = parentService;
+        m_startedTunneling = new AtomicBoolean(false);
         m_isReconnect = new AtomicBoolean(false);
         m_isStopping = new AtomicBoolean(false);
         m_tunnel = PsiphonTunnel.newPsiphonTunnel(this);
@@ -524,7 +526,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private void handleNfcConnectionInfoExchangeImport(Bundle data) {
         // Don't import if the tunnel is stopping or hasn't started yet
-        if (m_isStopping.get() || m_tunnelThreadStopSignal == null || m_tunnelThreadStopSignal.getCount() == 0) {
+        if (m_isStopping.get() || !m_startedTunneling.get()) {
             return;
         }
 
@@ -722,6 +724,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         m_isStopping.set(false);
         m_isReconnect.set(false);
+        m_startedTunneling.set(false);
 
         // Notify if an upgrade has already been downloaded and is waiting for install
         UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext());
@@ -759,6 +762,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
 
             m_tunnel.startTunneling(getServerEntries(m_parentService));
+            m_startedTunneling.set(true);
 
             try {
                 m_tunnelThreadStopSignal.await();
