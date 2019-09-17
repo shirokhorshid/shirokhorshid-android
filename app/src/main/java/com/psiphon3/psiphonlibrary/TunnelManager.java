@@ -458,15 +458,21 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                             MyLog.d("Error registering a client: client's messenger is null.");
                             return;
                         }
-                        // respond immediately to the new client with current connection state,
-                        // all following distinct tunnel connection updates will be provided
+                        // Respond immediately to the new client with current connection state and
+                        // data stats. All following distinct tunnel connection updates will be provided
                         // by an Rx connectionStatusUpdaterDisposable() subscription to all clients.
-                        Message clientMessage = manager.composeClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), manager.getTunnelStateBundle());
-                        try {
-                            client.send(clientMessage);
-                        } catch (RemoteException e) {
-                            // Client is dead, do not add it to the clients list
-                            return;
+                        List<Message> messageList = new ArrayList<>();
+                        messageList.add(manager.composeClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(),
+                                manager.getTunnelStateBundle()));
+                        messageList.add(manager.composeClientMessage(ServiceToClientMessage.DATA_TRANSFER_STATS.ordinal(),
+                                manager.getDataTransferStatsBundle()));
+                        for(Message message : messageList) {
+                            try {
+                                client.send(message);
+                            } catch (RemoteException e) {
+                                // Client is dead, do not add it to the clients list
+                                return;
+                            }
                         }
                         manager.mClients.add(client);
                     }
