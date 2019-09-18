@@ -8,8 +8,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_weight="1.0"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/tablayout"
@@ -70,6 +71,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="" />
+
+                <Button
+                    android:id="@+id/getHelpConnectingButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onGetHelpConnectingClick"
+                    android:text="@string/need_help_connecting"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
             </LinearLayout>
 
             <RelativeLayout
@@ -198,6 +208,18 @@
                         android:text="@string/about"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/howToHelpButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:onClick="onHowToHelpClick"
+                    android:text="@string/how_to_help"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
             </LinearLayout>
         </ScrollView>
 
