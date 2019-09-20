@@ -114,6 +114,7 @@ public class ConnectionInfoExchangeUtils {
      * @return true if NFC is supported by the android version
      */
     public static Boolean isNfcSupported() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
+        // Android Beam has been removed in Android 10 (Q/29)
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && Build.VERSION.SDK_INT < 29;
     }
 }
