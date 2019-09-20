@@ -76,6 +76,7 @@
                     android:id="@+id/getHelpConnectingButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:onClick="onGetHelpConnectingClick"
                     android:text="@string/need_help_connecting"
                     android:visibility="gone"
