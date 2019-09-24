@@ -554,7 +554,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private void scheduleGetHelpConnecting() {
         // Ensure that they have NFC
-        if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+        if (!ConnectionInfoExchangeUtils.isNfcSupported(m_context)) {
             return;
         }
 
@@ -574,7 +574,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private void cancelGetHelpConnecting() {
         // Ensure that they have NFC
-        if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+        if (!ConnectionInfoExchangeUtils.isNfcSupported(m_context)) {
             return;
         }
 

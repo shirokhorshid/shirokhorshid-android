@@ -19,7 +19,9 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Build;
@@ -113,8 +115,10 @@ public class ConnectionInfoExchangeUtils {
     /**
      * @return true if NFC is supported by the android version
      */
-    public static Boolean isNfcSupported() {
+    public static Boolean isNfcSupported(Context context) {
         // Android Beam has been removed in Android 10 (Q/29)
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && Build.VERSION.SDK_INT < 29;
+        return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC) &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN &&
+                Build.VERSION.SDK_INT < 29;
     }
 }

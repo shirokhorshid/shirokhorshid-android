@@ -589,7 +589,7 @@ public abstract class MainBase {
             mHelpConnectButton = findViewById(R.id.howToHelpButton);
 
             // Only handle NFC if the version is sufficient
-            if (ConnectionInfoExchangeUtils.isNfcSupported()) {
+            if (ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 // Check for available NFC Adapter
                 mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
                 if (mNfcAdapter != null) {
@@ -712,7 +712,7 @@ public abstract class MainBase {
             // Note that there may still be a race condition between the bind, which recreates the outgoing messenger,
             // and the following sendServiceMessage called by handleNfcIntent but in testing it seems that the service
             // binding is fast enough.
-            if (ConnectionInfoExchangeUtils.isNfcSupported()) {
+            if (ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 Intent intent = getIntent();
                 // Check to see that the Activity started due to an Android Beam
                 if (ConnectionInfoExchangeUtils.isNfcDiscoveredIntent(intent)) {
@@ -1512,6 +1512,11 @@ public abstract class MainBase {
                 return;
             }
 
+            // Make sure the activity isn't destroyed (setNdefPushMessageCallback will throw IllegalStateException)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && this.isDestroyed()) {
+                return;
+            }
+
             mConnectionHelpState = state;
 
             switch (state) {
@@ -1553,7 +1558,7 @@ public abstract class MainBase {
 
         private void showGetHelpConnectingUI() {
             // Ensure that they have NFC
-            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+            if (!ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 return;
             }
 
@@ -1562,7 +1567,7 @@ public abstract class MainBase {
 
         private void hideGetHelpConnectingUI() {
             // Ensure that they have NFC
-            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+            if (!ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 return;
             }
 
@@ -1571,7 +1576,7 @@ public abstract class MainBase {
 
         private void showHelpConnectUI() {
             // Ensure that they have NFC
-            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+            if (!ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 return;
             }
 
@@ -1580,7 +1585,7 @@ public abstract class MainBase {
 
         private void hideHelpConnectUI() {
             // Ensure that they have NFC
-            if (!ConnectionInfoExchangeUtils.isNfcSupported()) {
+            if (!ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 return;
             }
 
