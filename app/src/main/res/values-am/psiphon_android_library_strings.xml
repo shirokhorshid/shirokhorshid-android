@@ -156,7 +156,9 @@
   <string name="wdm_force_iptables_toggle">የሩት ሙሉ በሙሉ የመሳሪያ ማስተላለፊያ መንገድን አስገድድ </string>
   <string name="http_prefix_toggle">እንደ HTTP አስመስል </string>
   <string name="preference_notifications_title">ማስታወቂያዎች </string>
+  <string name="preference_vpn_title">ምናባዊ የግል አውታረ መረብ (ቪፒኤን)</string>
   <string name="preference_routing_exclude_apps_title">መተግበሪያዎችን አታካትት</string>
+  <string name="preference_routing_exclude_apps_ok_button_text">አቀናብር</string>
   <string name="preference_notifications_with_sound_title">ድምጽ</string>
   <string name="preference_notifications_with_sound_summary">የግንኝነት ደረጃ ለውጥ ሲኖር ድምጽ አሰማ </string>
   <string name="preference_notifications_with_vibrate_title">ንዘር </string>

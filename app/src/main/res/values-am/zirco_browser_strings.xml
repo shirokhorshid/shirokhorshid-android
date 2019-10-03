@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">ማውረድ ጀምሯል።</string>
   <string name="Main.DownloadFinishedMsg">ማውረድ ተጠናቋል። </string>
   <string name="Main.DownloadErrorMsg">የማውረድ ስህተት፡- %s</string>
+  <string name="Main.DownloadPermissionRequestReason">የወረዱ ንጥሎች በውጫዊ ማከማቻ የሚቀመጡ ስለሆነ የመጻፍ ፈቃዶች ያስፈልጋሉ።</string>
   <string name="Main.ToastTabSwitchMessage">ትር %s</string>
   <string name="Main.ToastTabSwitchFullMessage">ትር %1$s：%2$s</string>
   <string name="Main.VndErrorTitle">URLሉን መክፈት አልተቻለም</string>
@@ -269,13 +270,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">ኤክስፖርቱ አልተሳካም </string>
   <string name="Commons.HistoryBookmarksFailedMessage">የስህተት መልእክት፡-%s። </string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">ኢምፖርቱ አልተሳካም </string>
+  <string name="Commons.PermissionRequestReasonTitle">የፈቃድ ጥየቃ ምክንያት</string>
+  <string name="Commons.NeedWritePermissions">እባክዎን የመጻፍ ፈቃዶች ይስጡ እና በድጋሜ ይሞክሩ</string>
+  <string name="Commons.NeedReadPermissions">እባክዎን የማንበብ ፈቃዶች ይስጡ እና በድጋሜ ይሞክሩ </string>
   <string name="Commons.OperationCanBeLongMessage">ይህ ተግባር ትንሽ ጊዜ ሊወስድ ይችላል። መቀጠል ይፈልጋሉ？ </string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">እልባቶችን እና ታሪክን አስተዳድር </string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">ኢምፖርት፣ ኤክስፖርት፣ ታሪክን እና እልባቶችን አጥራ</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">እልባቶችን እና ታሪክን ኤክስፖርት አድርግ </string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">እልባቶችን እና ታሪክን ወደ SD ካርድ ኤክስፖርት አድርግ።  </string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">የመጻፍ ፈቃዶች፣ እልባቶች በውጫዊ ማከማቻ ስለሚቀመጡ ወደ ውጭ ለመላክ ያስፈልጋሉ።</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">እልባቶችን እና ታሪክን ኢምፖርት አድርግ </string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">እልባቶችን እና ታሪክን ከ SD ካርድ ኢምፖርት አድርግ።  </string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">የማንበብ ፈቃዶች፣ እልባቶች በውጫዊ ማከማቻ ስለሚቀመጡ ከውጭ ለማምጣት ያስፈልጋሉ። </string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">ታሪክን እና/ወይም እልባቶችን አጽዳ </string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">በጥንቃቄ ይጠቀሙ፣ ይህ ድርጊት ሊቀለበስ አይችልም። </string>
   <string name="Commons.ClearingHistoryBookmarks">ታሪክን እና/ወይም እልባቶችን በማጽዳት ላይ...</string>

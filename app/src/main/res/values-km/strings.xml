@@ -37,15 +37,21 @@
   <!--The name displayed to follow the system language setting in app-->
   <string name="preference_language_default_language">ភាសាដើម</string>
   <!--The title shown in the preference screen for adjusting the always on VPN settings-->
+  <string name="preference_navigate_to_vpn_setting_title">តែងតែបើក VPN</string>
   <!--The message shown in the preference screen for adjusting the always on VPN settings-->
   <!--A toast message which appears upon successful NFC bump & connection info transfer-->
   <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
   <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
+  <string name="need_help_connecting">ត្រូវការជំនួយការតភ្ជាប់?</string>
   <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">បញ្ហាការតភ្ជាប់</string>
   <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
   <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
+  <string name="get_help_connecting_image_description">ទូរស័ព្ទដែលត្រូវបានគេប្រើសម្រាប់ប្រព័ន្ធ NFC </string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
+  <string name="how_to_help">ជួយមិត្តម្នាក់តភ្ជាប់</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="how_to_help_connect_image_description">ទូរស័ព្ទដែលត្រូវបានគេប្រើសម្រាប់ប្រព័ន្ធ NFC </string>
 </resources>
