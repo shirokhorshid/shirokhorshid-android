@@ -26,6 +26,7 @@
     <application
         android:name=".PsiphonApplication"
         android:hardwareAccelerated="true"
+        android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/Theme.AppCompat"
         android:supportsRtl="true"

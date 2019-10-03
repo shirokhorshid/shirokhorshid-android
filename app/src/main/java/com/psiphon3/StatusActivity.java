@@ -45,6 +45,7 @@ import android.widget.Toast;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
+import com.psiphon3.psiphonlibrary.Utils;
 
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
@@ -315,7 +316,7 @@ public class StatusActivity
             hasPreference = false;
         }
 
-        if (m_tunnelWholeDeviceToggle.isEnabled() &&
+        if (Utils.hasVpnService() &&
             !hasPreference &&
             !isServiceRunning())
         {
