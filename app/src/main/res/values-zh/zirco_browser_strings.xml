@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">下载开始。</string>
   <string name="Main.DownloadFinishedMsg">下载结束。</string>
   <string name="Main.DownloadErrorMsg">下载错误：%s</string>
+  <string name="Main.DownloadPermissionRequestReason">下载内容时需要写入权限，因为要存在外部存储器上。</string>
   <string name="Main.ToastTabSwitchMessage">标签页 %s</string>
   <string name="Main.ToastTabSwitchFullMessage">标签页 %1$s：%2$s</string>
   <string name="Main.VndErrorTitle">不能打开网址</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">导出失败</string>
   <string name="Commons.HistoryBookmarksFailedMessage">错误消息：%s。</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">导入失败</string>
+  <string name="Commons.PermissionRequestReasonTitle">权限请求原因</string>
+  <string name="Commons.NeedWritePermissions">请授予写入权限，再试</string>
+  <string name="Commons.NeedReadPermissions">请授予读入权限，再试</string>
   <string name="Commons.OperationCanBeLongMessage">此操作可能需要一些时间。是否继续？</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">管理书签和历史</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">导入，导出或清空历史和书签。</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">导出书签和历史</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">导出书签和历史至 SD 卡。</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">导出书签时需要写入权限，因为要存在外部存储器上。</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">导入书签和历史</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">从 SD 卡导入书签和历史。</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">导入书签时需要读入权限，因为书签是存放在外部存储器上。</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">清空历史和书签</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">请谨慎使用，此操作无法撤消。</string>
   <string name="Commons.ClearingHistoryBookmarks">正在清空历史和书签…</string>

@@ -45,6 +45,7 @@ import android.widget.Toast;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
+import com.psiphon3.psiphonlibrary.Utils;
 
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
@@ -58,11 +59,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class StatusActivity
     extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase
 {
     public static final String BANNER_FILE_NAME = "bannerImage";
+    public static final String ACTION_SHOW_GET_HELP_DIALOG = "com.psiphon3.StatusActivity.SHOW_GET_HELP_CONNECTING_DIALOG";
 
     private ImageView m_banner;
     private boolean m_tunnelWholeDevicePromptShown = false;
@@ -269,6 +270,9 @@ public class StatusActivity
                     this.getClass()));
         } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_VPN_REVOKED)) {
             showVpnAlertDialog(R.string.StatusActivity_VpnRevokedTitle, R.string.StatusActivity_VpnRevokedMessage);
+        } else if (0 == intent.getAction().compareTo(ACTION_SHOW_GET_HELP_DIALOG)) {
+            // OK to be null because we don't use it
+            onGetHelpConnectingClick(null);
         }
     }
 
@@ -280,6 +284,14 @@ public class StatusActivity
     public void onOpenBrowserClick(View v)
     {
         displayBrowser(this, null);
+    }
+
+    public void onGetHelpConnectingClick(View v) {
+        showConnectionHelpDialog(this, R.layout.dialog_get_help_connecting);
+    }
+
+    public void onHowToHelpClick(View view) {
+        showConnectionHelpDialog(this, R.layout.dialog_how_to_help_connect);
     }
 
     @Override
@@ -304,7 +316,7 @@ public class StatusActivity
             hasPreference = false;
         }
 
-        if (m_tunnelWholeDeviceToggle.isEnabled() &&
+        if (Utils.hasVpnService() &&
             !hasPreference &&
             !isServiceRunning())
         {

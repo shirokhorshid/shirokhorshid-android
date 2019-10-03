@@ -167,7 +167,7 @@
   <string name="preference_notifications_with_sound_summary">当连接状态改变时发出声音</string>
   <string name="preference_notifications_with_vibrate_title">震动</string>
   <string name="preference_notifications_with_vibrate_summary">当连接状态改变时震动</string>
-  <string name="preference_download_wifi_only_toggle">仅通过 WiFi 下载更新</string>
+  <string name="preference_download_wifi_only_toggle">仅通过 Wi-Fi 下载更新</string>
   <string name="moreOptions">更多选项</string>
   <string name="root_mode_not_supported">您的安卓版本不支持 root 模式</string>
   <string name="proxySettingsCategoryTitle">代理设置</string>

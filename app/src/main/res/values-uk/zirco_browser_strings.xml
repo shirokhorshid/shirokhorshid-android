@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Початок завантаження.</string>
   <string name="Main.DownloadFinishedMsg">Завантаження завершене.</string>
   <string name="Main.DownloadErrorMsg">Помилка завантаження:%s</string>
+  <string name="Main.DownloadPermissionRequestReason">Для завантаження елементів необхідний дозвіл на запис, оскільки вони будуть завантажуватись у зовнішнє сховище.</string>
   <string name="Main.ToastTabSwitchMessage">Вкладка %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Вкладка %1$s:%2$s</string>
   <string name="Main.VndErrorTitle">Неможливо відкрити адресу URL</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Експортування не вдалось</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Повідомлення про помилку:%s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Імпортування не вдалось</string>
+  <string name="Commons.PermissionRequestReasonTitle">Причина запиту дозволу</string>
+  <string name="Commons.NeedWritePermissions">Надайте дозвіл на запис і спробуйте ще раз</string>
+  <string name="Commons.NeedReadPermissions">Надайте дозвіл на читання і спробуйте ще раз</string>
   <string name="Commons.OperationCanBeLongMessage">Ця операція може зайняти деякий час. Хочете продовжити?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Керування закладками та історією</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Імпорт, експорт, очищення історії та закладок.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Експортувати закладки та історію</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Експорт закладок та історії на карту SD.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Дозвіл на запис необхідний для експортування закладок, оскільки вони будуть збережені у зовнішнє сховище.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Імпорт закладок та історії</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Імпортуйте закладки та історію з карти SD.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Дозвіл на читання необхідний для імпортування закладок, оскільки вони збережені у зовнішньому сховищі.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Очистити історію та/або закладки </string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Використовуйте з обережністю, цю операцію не можна скасувати.</string>
   <string name="Commons.ClearingHistoryBookmarks">Очищення історії та/або закладок ...</string>

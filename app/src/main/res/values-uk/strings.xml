@@ -46,15 +46,27 @@
   <!--The name displayed to follow the system language setting in app-->
   <string name="preference_language_default_language">Типова мова</string>
   <!--The title shown in the preference screen for adjusting the always on VPN settings-->
+  <string name="preference_navigate_to_vpn_setting_title">Завжди-VPN</string>
   <!--The message shown in the preference screen for adjusting the always on VPN settings-->
+  <string name="preference_navigate_to_vpn_setting_summary">Перейдіть до налаштувань системи для тонкого налаштування Завжди-VPN</string>
   <!--A toast message which appears upon successful NFC bump & connection info transfer-->
+  <string name="nfc_connection_info_import_success">Інформація про з\'єднання успішно імпортована!</string>
   <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
+  <string name="nfc_connection_info_import_failure">Не вдалося імпортувати інформацію про з\'єднання.</string>
   <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
+  <string name="need_help_connecting">Потрібна допомога з під\'єднанням?</string>
   <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">Проблема зі з\'єднанням</string>
   <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_message">Натисніть для отримання рекомендацій з виправлення</string>
   <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
+  <string name="get_help_connecting_text">Щоб отримати допомогу з під\'єднання, знайдіть іншого під\'єднаного користувача Psiphon, а потім, коли ви намагаєтесь під\'єднатися, а він вже під\'єднаний, розташуйте ваші телефони задніми гранями один до одного, щоб ініціювати передачу інформації про з\'єднання.</string>
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
+  <string name="get_help_connecting_image_description">Телефони \"стикаються\" для NFC</string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
+  <string name="how_to_help">Допомогти другу під\'єднатися</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
+  <string name="how_to_help_connect_text">Ви можете допомогти другу під\'єднатися до Psiphon, розташувавши ваші телефони задніми гранями один до одного, коли ви під\'єднані, а він намагається під\'єднатися.</string>
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="how_to_help_connect_image_description">Телефони \"стикаються\" для NFC</string>
 </resources>
