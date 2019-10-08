@@ -24,6 +24,8 @@ import android.app.Application;
 import android.content.Context;
 
 import com.psiphon3.psiphonlibrary.LocaleManager;
+import com.psiphon3.psiphonlibrary.PsiphonConstants;
+import com.psiphon3.psiphonlibrary.Utils;
 
 public class PsiphonApplication extends Application {
     @Override
@@ -37,5 +39,11 @@ public class PsiphonApplication extends Application {
         } else {
             super.attachBaseContext(localeManager.setLocale(base));
         }
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        PsiphonConstants.DEBUG = Utils.isDebugMode(this);
     }
 }
