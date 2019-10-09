@@ -23,7 +23,6 @@ import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -47,6 +46,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+
+import io.reactivex.Single;
+import io.reactivex.SingleEmitter;
+import io.reactivex.SingleOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
     private Context mContext;
@@ -91,7 +97,14 @@ class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
             final TextView appName = (TextView) row.findViewById(R.id.app_list_row_name);
             final CheckBox isExcluded = (CheckBox) row.findViewById(R.id.app_list_row_checkbox);
 
-            appIcon.setImageDrawable(app.getIcon());
+            app.getIconLoader()
+                    .doOnSuccess(new Consumer<Drawable>() {
+                        @Override
+                        public void accept(Drawable icon) {
+                            appIcon.setImageDrawable(icon);
+                        }
+                    })
+                    .subscribe();
             appName.setText(app.getName());
             isExcluded.setChecked(excludedApps.contains(app.getPackageId()));
 
@@ -145,7 +158,6 @@ class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class InstalledAppsMultiSelectListPreference extends MultiSelectListPreference {
-    private List<AppEntry> appList;
 
     public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -155,23 +167,22 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
    @Override
    protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
        List<AppEntry> installedApps = getInstalledApps();
-       this.appList = installedApps;
 
        LinkedHashMap<String, String> installedPackagesMap = new LinkedHashMap<>();
        for (AppEntry app : installedApps) {
            installedPackagesMap.put(app.getPackageId(), app.getName());
        }
 
-       setEntries(installedPackagesMap.values().toArray(new String[installedPackagesMap.size()]));
-       setEntryValues(installedPackagesMap.keySet().toArray(new String[installedPackagesMap.size()]));
-       
+       setEntries(installedPackagesMap.values().toArray(new String[0]));
+       setEntryValues(installedPackagesMap.keySet().toArray(new String[0]));
+
        final InstalledAppsMultiSelectListPreferenceAdapter adapter = new InstalledAppsMultiSelectListPreferenceAdapter(
                getContext(),
                R.layout.preference_widget_applist_row,
-               appList,
+               installedApps,
                getValues());
 
-       builder.setPositiveButton(R.string.abc_action_mode_done, null);
+       builder.setPositiveButton(R.string.label_done, null);
 
        builder.setAdapter(adapter, null);
    }
@@ -187,10 +198,12 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
             // The returned app list excludes:
             //  - Apps that don't require internet access
             if (isInternetPermissionGranted(p)) {
+                // This takes a bit of time, but since we want the apps sorted by displayed name
+                // its best to do synchronously
                 String appName = p.applicationInfo.loadLabel(pm).toString();
                 String packageId = p.packageName;
-                Drawable icon = p.applicationInfo.loadIcon(pm);
-                apps.add(new AppEntry(appName, packageId, icon));
+                Single<Drawable> iconLoader = getIconLoader(p.applicationInfo, pm);
+                apps.add(new AppEntry(appName, packageId, iconLoader));
             }
         }
 
@@ -211,5 +224,30 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
             }
         }
         return false;
+    }
+
+    private Single<Drawable> getIconLoader(final ApplicationInfo applicationInfo, final PackageManager packageManager) {
+        Single<Drawable> single = Single.create(new SingleOnSubscribe<Drawable>() {
+            @Override
+            public void subscribe(SingleEmitter<Drawable> emitter) {
+                Drawable icon = applicationInfo.loadIcon(packageManager);
+                emitter.onSuccess(icon);
+            }
+        });
+
+        return single
+                // shouldn't ever get an error but handle it just in case
+                .doOnError(new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable e) {
+                        Utils.MyLog.g("failed to load icon for " + applicationInfo.packageName + " " + e);
+                    }
+                })
+                // run on io
+                .subscribeOn(Schedulers.io())
+                // observe on ui
+                .observeOn(AndroidSchedulers.mainThread())
+                // cache so we can subscribe off the bat to start the op + subscribe when drawing
+                .cache();
     }
 }

@@ -90,6 +90,10 @@ dependencies {
     implementation files('libs/snakeyaml-1.10-android.jar')
     implementation(name: 'ca.psiphon', ext: 'aar')
     implementation project(':tray')
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
 }

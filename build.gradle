@@ -19,3 +19,9 @@ allprojects {
         jcenter()
     }
 }
+
+// define all dependencies versions here
+ext {
+    rxjavaVersion = '2.2.5'
+    rxandroidVersion = '2.1.0'
+}

@@ -67,4 +67,6 @@
     <string name="label_ok">OK</string>
     <string name="preference_navigate_to_vpn_setting_title">Always-on VPN</string>
     <string name="preference_navigate_to_vpn_setting_summary">Go to system settings to enable Always-on VPN</string>
+    <!-- Generic string to say Done -->
+    <string name="label_done">Done</string>
 </resources>
