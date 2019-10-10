@@ -175,6 +175,8 @@ public abstract class MainBase {
         private Button m_openBrowserButton;
         private LoggingObserver m_loggingObserver;
 
+        private String mExcludedApps = "";
+
         public TabbedActivityBase() {
             Utils.initializeSecureRandom();
         }
@@ -441,6 +443,9 @@ public abstract class MainBase {
                     new SharedPreferencesImport(this, prefName, getString(R.string.useProxyDomainPreference), getString(R.string.useProxyDomainPreference)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceLanguageSelection), getString(R.string.preferenceLanguageSelection))
             );
+
+            // Store the value of the excluded apps so we can check if it changed
+            mExcludedApps = m_multiProcessPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
 
             EmbeddedValues.initialize(this);
 
@@ -1120,8 +1125,10 @@ public abstract class MainBase {
             SharedPreferences prefs = getSharedPreferences(getString(R.string.moreOptionsPreferencesName), MODE_PRIVATE);
 
             // check if "excluded apps" list has changed
-            String spExcludedAppsString = prefs.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
-            if (!spExcludedAppsString.equals(m_multiProcessPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), ""))) {
+            String newExcludedApps = m_multiProcessPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+            if (!mExcludedApps.equals(newExcludedApps)) {
+                // store the updated value
+                mExcludedApps = newExcludedApps;
                 return true;
             }
 
