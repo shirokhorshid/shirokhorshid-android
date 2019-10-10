@@ -105,12 +105,16 @@ public class InstalledAppsMultiSelectListPreference extends DialogPreference {
         List<AppEntry> apps = new ArrayList<>();
         List<PackageInfo> packages = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
 
+        String selfPackageName = getContext().getPackageName();
+
         for (int i = 0; i < packages.size(); i++) {
             PackageInfo p = packages.get(i);
 
             // The returned app list excludes:
             //  - Apps that don't require internet access
-            if (isInternetPermissionGranted(p)) {
+            // TODO: add Psiphon back to the list when we are able to send all Kin traffic via proxy.
+            // That requires a change in Kin SDK.
+            if (isInternetPermissionGranted(p) && !p.packageName.equals(selfPackageName)) {
                 // This takes a bit of time, but since we want the apps sorted by displayed name
                 // its best to do synchronously
                 String appName = p.applicationInfo.loadLabel(pm).toString();
