@@ -43,11 +43,6 @@ import net.grandcentrix.tray.AppPreferences;
 
 import org.zirco.ui.activities.MainActivity;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
     // This is taken from https://developer.android.com/reference/android/provider/Settings#ACTION_VPN_SETTINGS
@@ -164,19 +159,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
         mNotificationSound.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithSound), false));
         mNotificationVibration.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithVibrate), false));
-
-        // R.xml.preferences is conditionally loaded at API version 11 and higher from the xml-v11 folder
-        // If it isn't null here, we can reasonably assume it can be cast to our MultiSelectListPreference
-        if (mVpnAppExclusions != null) {
-            // TODO: Determine why this is needed for preferences to be persisted across restarts
-            String excludedValuesFromPreference = preferenceGetter.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
-
-            SharedPreferences.Editor e = preferences.getEditor();
-            e.putString(getString(R.string.preferenceExcludeAppsFromVpnString), excludedValuesFromPreference);
-            // Use commit (sync) instead of apply (async) to prevent possible race with restarting
-            // the tunnel happening before the value is fully persisted to shared preferences
-            e.commit();
-        }
 
         mUseProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useProxySettingsPreference), false));
         // set use system proxy preference by default

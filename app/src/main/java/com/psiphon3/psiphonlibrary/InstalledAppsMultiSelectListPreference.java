@@ -22,9 +22,7 @@ package com.psiphon3.psiphonlibrary;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -37,6 +35,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.psiphon3.R;
+
+import net.grandcentrix.tray.AppPreferences;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,57 +52,53 @@ import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class InstalledAppsMultiSelectListPreference extends DialogPreference {
-
     public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setNegativeButtonText(null);
+        setDialogLayoutResource(R.layout.dialog_exclude_apps);
+        setPositiveButtonText(R.string.label_done);
     }
 
-   @Override
-   protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
-       Context context = getContext();
-       View view = View.inflate(context, R.layout.dialog_exclude_apps,null);
-       builder.setView(view);
+    @Override
+    protected View onCreateDialogView() {
+        View view = super.onCreateDialogView();
+        Context context = getContext();
 
-       List<AppEntry> installedApps = getInstalledApps();
+        List<AppEntry> installedApps = getInstalledApps();
 
-       final SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.moreOptionsPreferencesName), Context.MODE_PRIVATE);
-       final String sharedPreferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
-       final Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(sharedPreferences.getString(sharedPreferenceKey, ""));
+        final AppPreferences appPreferences = new AppPreferences(context);
+        final String preferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
+        final Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(appPreferences.getString(preferenceKey, ""));
 
-       final InstalledAppsRecyclerViewAdapter adapter = new InstalledAppsRecyclerViewAdapter(
-               context,
-               installedApps,
-               excludedApps);
+        final InstalledAppsRecyclerViewAdapter adapter = new InstalledAppsRecyclerViewAdapter(
+                context,
+                installedApps,
+                excludedApps);
 
-       adapter.setClickListener(new InstalledAppsRecyclerViewAdapter.ItemClickListener() {
-           @SuppressLint("ApplySharedPref")
-           @Override
-           public void onItemClick(View view, int position) {
+        adapter.setClickListener(new InstalledAppsRecyclerViewAdapter.ItemClickListener() {
+            @SuppressLint("ApplySharedPref")
+            @Override
+            public void onItemClick(View view, int position) {
                 AppEntry appEntry = adapter.getItem(position);
 
-               if (excludedApps.contains(appEntry.getPackageId())) {
-                   excludedApps.remove(appEntry.getPackageId());
-               } else {
-                   excludedApps.add(appEntry.getPackageId());
-               }
+                if (excludedApps.contains(appEntry.getPackageId())) {
+                    excludedApps.remove(appEntry.getPackageId());
+                } else {
+                    excludedApps.add(appEntry.getPackageId());
+                }
 
-               // Store the selection immediately in shared preferences
-               SharedPreferences.Editor editor = sharedPreferences.edit();
-               editor.putString(sharedPreferenceKey, SharedPreferenceUtils.serializeSet(excludedApps));
+                // Store the selection immediately in shared app preferences
+                appPreferences.put(preferenceKey, SharedPreferenceUtils.serializeSet(excludedApps));
+            }
+        });
 
-               // Use commit (sync) instead of apply (async) to prevent possible race with restarting
-               // the tunnel happening before the value is fully persisted to shared preferences
-               editor.commit();
-           }
-       });
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_exclude_apps);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        recyclerView.setAdapter(adapter);
 
-       RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_exclude_apps);
-       recyclerView.setLayoutManager(new LinearLayoutManager(context));
-       recyclerView.setAdapter(adapter);
+        return view;
+    }
 
-       builder.setPositiveButton(R.string.label_done, null);
-   }
     private List<AppEntry> getInstalledApps() {
         PackageManager pm = getContext().getPackageManager();
 
