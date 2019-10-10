@@ -57,10 +57,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -850,26 +849,20 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
             Resources res = getContext().getResources();
 
-
             // Check for individual apps to exclude
             String excludedAppsFromPreference = multiProcessPreferences.getString(res.getString(R.string.preferenceExcludeAppsFromVpnString), "");
-            List<String> excludedApps;
-            if (excludedAppsFromPreference.isEmpty()) {
-                excludedApps = Collections.emptyList();
+            Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(excludedAppsFromPreference);
+            if (excludedApps.size() == 0) {
                 MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
-            } else {
-                excludedApps = Arrays.asList(excludedAppsFromPreference.split(","));
-            };
+            }
 
-            if (excludedApps.size() > 0) {
-                for (String packageId : excludedApps) {
-                    try {
-                        vpnBuilder.addDisallowedApplication(packageId);
-                        MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
-                    } catch (PackageManager.NameNotFoundException e) {
-                        // Because the list that is passed in to this builder was created by
-                        // a PackageManager instance, this exception should never be thrown
-                    }
+            for (String packageId : excludedApps) {
+                try {
+                    vpnBuilder.addDisallowedApplication(packageId);
+                    MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Because the list that is passed in to this builder was created by
+                    // a PackageManager instance, this exception should never be thrown
                 }
             }
         }
