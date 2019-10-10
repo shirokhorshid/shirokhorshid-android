@@ -35,9 +35,6 @@
             android:title="@string/preference_navigate_to_vpn_setting_title"
             android:summary="@string/preference_navigate_to_vpn_setting_summary" />
         <com.psiphon3.psiphonlibrary.InstalledAppsMultiSelectListPreference
-            android:defaultValue="@array/empty_array"
-            android:entries="@array/empty_array"
-            android:entryValues="@array/empty_array"
             android:key="@string/preferenceExcludeAppsFromVpn"
             android:summary="@string/preference_routing_exclude_apps_summary"
             android:title="@string/preference_routing_exclude_apps_title" />

@@ -69,4 +69,6 @@
     <string name="preference_navigate_to_vpn_setting_summary">Go to system settings to enable Always-on VPN</string>
     <!-- Generic string to say Done -->
     <string name="label_done">Done</string>
+    <!-- Description for an app icon image -->
+    <string name="description_app_icon">App Icon</string>
 </resources>

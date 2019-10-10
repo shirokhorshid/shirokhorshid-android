@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -29,21 +30,16 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.preference.MultiSelectListPreference;
+import android.preference.DialogPreference;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.psiphon3.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -54,110 +50,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-class InstalledAppsMultiSelectListPreferenceAdapter extends BaseAdapter {
-    private Context mContext;
-    private int resLayout;
-    private List<AppEntry> appList;
-    private Set<String> excludedApps;
-
-    InstalledAppsMultiSelectListPreferenceAdapter(Context context, int textViewResourceId, List<AppEntry> appList, Set<String> excludedApps) {
-        this.mContext = context;
-        this.appList = appList;
-        this.excludedApps = excludedApps;
-        resLayout = textViewResourceId;
-    }
-
-    @Override
-    public int getCount() {
-        return appList.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return appList.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, final View convertView, ViewGroup parent) {
-        View row = convertView;
-        if (row == null) {
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(resLayout, parent, false);
-        }
-
-        final AppEntry app = appList.get(position);
-
-        if (app != null) {
-            final ImageView appIcon = (ImageView) row.findViewById(R.id.app_list_row_icon);
-            final TextView appName = (TextView) row.findViewById(R.id.app_list_row_name);
-            final CheckBox isExcluded = (CheckBox) row.findViewById(R.id.app_list_row_checkbox);
-
-            app.getIconLoader()
-                    .doOnSuccess(new Consumer<Drawable>() {
-                        @Override
-                        public void accept(Drawable icon) {
-                            appIcon.setImageDrawable(icon);
-                        }
-                    })
-                    .subscribe();
-            appName.setText(app.getName());
-            isExcluded.setChecked(excludedApps.contains(app.getPackageId()));
-
-            isExcluded.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (excludedApps.contains(app.getPackageId())) {
-                        excludedApps.remove(app.getPackageId());
-                        isExcluded.setChecked(false);
-                    } else {
-                        excludedApps.add(app.getPackageId());
-                        isExcluded.setChecked(true);
-                    }
-                    // Store the selection immediately in shared preferences
-                    SharedPreferences.Editor e = mContext.getSharedPreferences(mContext.getString(R.string.moreOptionsPreferencesName),Context.MODE_PRIVATE).edit();
-                    e.putString(mContext.getResources().getString(R.string.preferenceExcludeAppsFromVpnString), getValuesAsString());
-
-                    // Use commit (sync) instead of apply (async) to prevent possible race with restarting
-                    // the tunnel happening before the value is fully persisted to shared preferences
-                    e.commit();
-                }
-            });
-
-            row.setClickable(true);
-            row.setId(position);
-            row.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    isExcluded.callOnClick();
-                }
-            });
-        }
-
-        return row;
-    }
-
-    private String getValuesAsString() {
-        StringBuilder excludedAppsString = new StringBuilder();
-        int i = 0;
-        for (String app : excludedApps) {
-            excludedAppsString.append(app);
-            if (i != excludedApps.size() - 1) {
-                excludedAppsString.append(",");
-            }
-            i++;
-        }
-
-        return excludedAppsString.toString();
-    }
-}
-
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class InstalledAppsMultiSelectListPreference extends MultiSelectListPreference {
+public class InstalledAppsMultiSelectListPreference extends DialogPreference {
 
     public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -166,25 +60,48 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
 
    @Override
    protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
+       Context context = getContext();
+       View view = View.inflate(context, R.layout.dialog_exclude_apps,null);
+       builder.setView(view);
+
        List<AppEntry> installedApps = getInstalledApps();
 
-       LinkedHashMap<String, String> installedPackagesMap = new LinkedHashMap<>();
-       for (AppEntry app : installedApps) {
-           installedPackagesMap.put(app.getPackageId(), app.getName());
-       }
+       final SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.moreOptionsPreferencesName), Context.MODE_PRIVATE);
+       final String sharedPreferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
+       final Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(sharedPreferences.getString(sharedPreferenceKey, ""));
 
-       setEntries(installedPackagesMap.values().toArray(new String[0]));
-       setEntryValues(installedPackagesMap.keySet().toArray(new String[0]));
-
-       final InstalledAppsMultiSelectListPreferenceAdapter adapter = new InstalledAppsMultiSelectListPreferenceAdapter(
-               getContext(),
-               R.layout.preference_widget_applist_row,
+       final InstalledAppsRecyclerViewAdapter adapter = new InstalledAppsRecyclerViewAdapter(
+               context,
                installedApps,
-               getValues());
+               excludedApps);
+
+       adapter.setClickListener(new InstalledAppsRecyclerViewAdapter.ItemClickListener() {
+           @SuppressLint("ApplySharedPref")
+           @Override
+           public void onItemClick(View view, int position) {
+                AppEntry appEntry = adapter.getItem(position);
+
+               if (excludedApps.contains(appEntry.getPackageId())) {
+                   excludedApps.remove(appEntry.getPackageId());
+               } else {
+                   excludedApps.add(appEntry.getPackageId());
+               }
+
+               // Store the selection immediately in shared preferences
+               SharedPreferences.Editor editor = sharedPreferences.edit();
+               editor.putString(sharedPreferenceKey, SharedPreferenceUtils.serializeSet(excludedApps));
+
+               // Use commit (sync) instead of apply (async) to prevent possible race with restarting
+               // the tunnel happening before the value is fully persisted to shared preferences
+               editor.commit();
+           }
+       });
+
+       RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_exclude_apps);
+       recyclerView.setLayoutManager(new LinearLayoutManager(context));
+       recyclerView.setAdapter(adapter);
 
        builder.setPositiveButton(R.string.label_done, null);
-
-       builder.setAdapter(adapter, null);
    }
     private List<AppEntry> getInstalledApps() {
         PackageManager pm = getContext().getPackageManager();
@@ -231,7 +148,9 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
             @Override
             public void subscribe(SingleEmitter<Drawable> emitter) {
                 Drawable icon = applicationInfo.loadIcon(packageManager);
-                emitter.onSuccess(icon);
+                if (!emitter.isDisposed()) {
+                    emitter.onSuccess(icon);
+                }
             }
         });
 
@@ -243,7 +162,7 @@ public class InstalledAppsMultiSelectListPreference extends MultiSelectListPrefe
                         Utils.MyLog.g("failed to load icon for " + applicationInfo.packageName + " " + e);
                     }
                 })
-                // run on io
+                // run on io as we're reading off disk
                 .subscribeOn(Schedulers.io())
                 // observe on ui
                 .observeOn(AndroidSchedulers.mainThread())

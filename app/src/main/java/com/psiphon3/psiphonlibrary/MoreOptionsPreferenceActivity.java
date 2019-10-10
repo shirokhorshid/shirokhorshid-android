@@ -168,6 +168,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         // R.xml.preferences is conditionally loaded at API version 11 and higher from the xml-v11 folder
         // If it isn't null here, we can reasonably assume it can be cast to our MultiSelectListPreference
         if (mVpnAppExclusions != null) {
+            // TODO: Determine why this is needed for preferences to be persisted across restarts
             String excludedValuesFromPreference = preferenceGetter.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
 
             SharedPreferences.Editor e = preferences.getEditor();
@@ -175,14 +176,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             // Use commit (sync) instead of apply (async) to prevent possible race with restarting
             // the tunnel happening before the value is fully persisted to shared preferences
             e.commit();
-
-            if (!excludedValuesFromPreference.isEmpty()) {
-                Set<String> excludedValuesSet = new HashSet<>(Arrays.asList(excludedValuesFromPreference.split(",")));
-                ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(excludedValuesSet);
-            } else {
-                Set<String> noneExcluded = Collections.emptySet();
-                ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(noneExcluded);
-            }
         }
 
         mUseProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useProxySettingsPreference), false));
