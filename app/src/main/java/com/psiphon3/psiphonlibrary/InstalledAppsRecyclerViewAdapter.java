@@ -20,14 +20,14 @@ import io.reactivex.functions.Consumer;
 public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<InstalledAppsRecyclerViewAdapter.ViewHolder> {
     private final LayoutInflater inflater;
     private final List<AppEntry> data;
-    private final Set<String> selectedApps;
+    private final Set<String> excludedApps;
 
     private ItemClickListener clickListener;
 
-    InstalledAppsRecyclerViewAdapter(Context context, List<AppEntry> installedApps, Set<String> selectedApps) {
+    InstalledAppsRecyclerViewAdapter(Context context, List<AppEntry> data, Set<String> excludedApps) {
         this.inflater = LayoutInflater.from(context);
-        this.data = installedApps;
-        this.selectedApps = selectedApps;
+        this.data = data;
+        this.excludedApps = excludedApps;
     }
 
     @Override
@@ -40,7 +40,6 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final AppEntry appEntry = data.get(position);
 
-        // load the icon async, may have already completed
         appEntry.getIconLoader()
                 .doOnSuccess(new Consumer<Drawable>() {
                     @Override
@@ -54,7 +53,7 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
                 })
                 .subscribe();
         holder.appName.setText(appEntry.getName());
-        holder.selected.setChecked(selectedApps.contains(appEntry.getPackageId()));
+        holder.isExcluded.setChecked(excludedApps.contains(appEntry.getPackageId()));
     }
 
     @Override
@@ -77,19 +76,19 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final ImageView appIcon;
         final TextView appName;
-        final CheckBox selected;
+        final CheckBox isExcluded;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             appIcon = (ImageView) itemView.findViewById(R.id.app_list_row_icon);
             appName = (TextView) itemView.findViewById(R.id.app_list_row_name);
-            selected = (CheckBox) itemView.findViewById(R.id.app_list_row_checkbox);
+            isExcluded = (CheckBox) itemView.findViewById(R.id.app_list_row_checkbox);
 
             itemView.setOnClickListener(this);
             appIcon.setOnClickListener(this);
             appName.setOnClickListener(this);
-            selected.setOnClickListener(this);
+            isExcluded.setOnClickListener(this);
         }
 
         @Override
@@ -98,9 +97,9 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
                 clickListener.onItemClick(view, getAdapterPosition());
             }
 
-            // toggle selected whenever something other than the checkbox is clicked
+            // toggle is excluded whenever something other than isExcluded is clicked
             if (view.getId() != R.id.app_list_row_checkbox) {
-                selected.setChecked(!selected.isChecked());
+                isExcluded.setChecked(!isExcluded.isChecked());
             }
         }
     }

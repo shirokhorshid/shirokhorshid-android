@@ -33,8 +33,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
 import com.psiphon3.R;
 
@@ -42,7 +40,6 @@ import net.grandcentrix.tray.AppPreferences;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -55,80 +52,43 @@ import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class InstalledAppsMultiSelectListPreference extends DialogPreference {
-    private final List<AppEntry> installedAppEntries;
-    private final Set<String> installedApps;
-
-    private Set<String> selectedApps = new HashSet<>();
-    private boolean excludeSelectedApps;
-
     public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setNegativeButtonText(null);
         setDialogLayoutResource(R.layout.dialog_exclude_apps);
         setPositiveButtonText(R.string.label_done);
-
-        installedAppEntries = getInstalledAppEntries();
-        // get a set of the package ids for improved speed later
-        installedApps = new HashSet<>(installedAppEntries.size());
-        for (AppEntry appEntry : installedAppEntries) {
-            String packageId = appEntry.getPackageId();
-            if (!selectedApps.contains(packageId)) {
-                installedApps.add(packageId);
-            }
-        }
-    }
-
-    @Override
-    protected void onDialogClosed(boolean positiveResult) {
-        super.onDialogClosed(positiveResult);
-
-        Context context = getContext();
-        final AppPreferences appPreferences = new AppPreferences(context);
-        final String excludedAppsPreferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
-        final String excludeSelectedAppsPreferenceKey = context.getString(R.string.preferenceShouldExcludeAppsFromVpn);
-
-        // if we don't exclude the selected apps, get the un-excluded apps as selected apps
-        if (!excludeSelectedApps) {
-            selectedApps = getComplement(installedApps, selectedApps);
-        }
-
-        // store the excluded apps and if they're whitelisted or not
-        appPreferences.put(excludedAppsPreferenceKey, SharedPreferenceUtils.serializeSet(selectedApps));
-        appPreferences.put(excludeSelectedAppsPreferenceKey, excludeSelectedApps);
     }
 
     @Override
     protected View onCreateDialogView() {
         View view = super.onCreateDialogView();
         Context context = getContext();
+
+        List<AppEntry> installedApps = getInstalledApps();
+
         final AppPreferences appPreferences = new AppPreferences(context);
-        final String excludedAppsPreferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
-        selectedApps = SharedPreferenceUtils.deserializeSet(appPreferences.getString(excludedAppsPreferenceKey, ""));
-
-        final String excludeSelectedAppsPreferenceKey = context.getString(R.string.preferenceShouldExcludeAppsFromVpn);
-        excludeSelectedApps = appPreferences.getBoolean(excludeSelectedAppsPreferenceKey, true);
-
-        // if we don't exclude the selected apps, get the un-excluded apps as selected apps
-        if (!excludeSelectedApps) {
-            selectedApps = getComplement(installedApps, selectedApps);
-        }
+        final String preferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
+        final Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(appPreferences.getString(preferenceKey, ""));
 
         final InstalledAppsRecyclerViewAdapter adapter = new InstalledAppsRecyclerViewAdapter(
                 context,
-                installedAppEntries,
-                selectedApps);
+                installedApps,
+                excludedApps);
 
         adapter.setClickListener(new InstalledAppsRecyclerViewAdapter.ItemClickListener() {
             @SuppressLint("ApplySharedPref")
             @Override
             public void onItemClick(View view, int position) {
-                String packageId = adapter.getItem(position).getPackageId();
+                AppEntry appEntry = adapter.getItem(position);
 
-                // attempt to remove the package ID, if not successful, i.e. it's not in the set
-                // add it instead
-                if (!selectedApps.remove(packageId)) {
-                    selectedApps.add(packageId);
+                if (excludedApps.contains(appEntry.getPackageId())) {
+                    excludedApps.remove(appEntry.getPackageId());
+                } else {
+                    excludedApps.add(appEntry.getPackageId());
                 }
+
+                // Store the selection immediately in shared app preferences
+                appPreferences.put(preferenceKey, SharedPreferenceUtils.serializeSet(excludedApps));
             }
         });
 
@@ -136,19 +96,10 @@ public class InstalledAppsMultiSelectListPreference extends DialogPreference {
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
 
-        CheckBox checkbox = (CheckBox) view.findViewById(R.id.checkbox_exclude_apps);
-        checkbox.setChecked(excludeSelectedApps);
-        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                excludeSelectedApps = isChecked;
-            }
-        });
-
         return view;
     }
 
-    private List<AppEntry> getInstalledAppEntries() {
+    private List<AppEntry> getInstalledApps() {
         PackageManager pm = getContext().getPackageManager();
 
         List<AppEntry> apps = new ArrayList<>();
@@ -217,14 +168,5 @@ public class InstalledAppsMultiSelectListPreference extends DialogPreference {
                 .observeOn(AndroidSchedulers.mainThread())
                 // cache so we can subscribe off the bat to start the op + subscribe when drawing
                 .cache();
-    }
-
-    private Set<String> getComplement(Set<String> a, Set<String> b) {
-        // otherwise copy a into a new set
-        Set<String> c = new HashSet<>(a);
-        // remove everything from b
-        c.removeAll(b);
-        // return the copy of a
-        return c;
     }
 }
