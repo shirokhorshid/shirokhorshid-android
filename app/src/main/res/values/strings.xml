@@ -71,4 +71,6 @@
     <string name="label_done">Done</string>
     <!-- Description for an app icon image -->
     <string name="description_app_icon">App Icon</string>
+    <!-- Label for excluding or including selected apps from VPN tunnel -->
+    <string name="label_blacklist_apps">Prevent selected apps from being tunneled</string>
 </resources>
