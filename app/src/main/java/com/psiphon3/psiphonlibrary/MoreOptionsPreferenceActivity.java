@@ -94,6 +94,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     RadioButtonPreference mTunnelAllApps;
     RadioButtonPreference mTunnelSelectedApps;
     RadioButtonPreference mTunnelNotSelectedApps;
+    Preference mSelectApps;
     CheckBoxPreference mUseProxy;
     RadioButtonPreference mUseSystemProxy;
     RadioButtonPreference mUseCustomProxy;
@@ -126,6 +127,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                 .findPreference(getString(R.string.preferenceIncludeAppsInVpn));
         mTunnelNotSelectedApps = (RadioButtonPreference) preferences
                 .findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
+        mSelectApps = preferences.findPreference(getString(R.string.preferenceSelectApps));
 
         mUseProxy = (CheckBoxPreference) preferences.findPreference(getString(R.string.useProxySettingsPreference));
         mUseSystemProxy = (RadioButtonPreference) preferences
@@ -169,6 +171,14 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelAllApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false));
         mTunnelSelectedApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false));
         mTunnelNotSelectedApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceExcludeAppsFromVpn), true));
+
+        // set the select apps state
+        if (mTunnelAllApps.isChecked()) {
+            mSelectApps.setEnabled(false);
+        } else {
+            mSelectApps.setSummary(mTunnelSelectedApps.isChecked() ? R.string.preference_routing_select_apps_to_include_summary : R.string.preference_routing_select_apps_to_exclude_summary);
+        }
+
         mUseProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useProxySettingsPreference), false));
         // set use system proxy preference by default
         mUseSystemProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useSystemProxySettingsPreference), true));
@@ -186,6 +196,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             mTunnelAllApps.setOnPreferenceClickListener(this);
             mTunnelSelectedApps.setOnPreferenceClickListener(this);
             mTunnelNotSelectedApps.setOnPreferenceClickListener(this);
+            mSelectApps.setOnPreferenceClickListener(this);
         }
 
         mUseSystemProxy.setOnPreferenceClickListener(this);
@@ -448,16 +459,22 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             mTunnelAllApps.setChecked(true);
             mTunnelSelectedApps.setChecked(false);
             mTunnelNotSelectedApps.setChecked(false);
+            mSelectApps.setEnabled(false);
+            mSelectApps.setSummary(null);
         } else if (preference == mTunnelSelectedApps) {
-            new InstalledAppsMultiSelectListPreference(this, getLayoutInflater(), true).show();
             mTunnelAllApps.setChecked(false);
             mTunnelSelectedApps.setChecked(true);
             mTunnelNotSelectedApps.setChecked(false);
+            mSelectApps.setEnabled(true);
+            mSelectApps.setSummary(R.string.preference_routing_select_apps_to_include_summary);
         } else if (preference == mTunnelNotSelectedApps) {
-            new InstalledAppsMultiSelectListPreference(this, getLayoutInflater(), false).show();
             mTunnelAllApps.setChecked(false);
             mTunnelSelectedApps.setChecked(false);
             mTunnelNotSelectedApps.setChecked(true);
+            mSelectApps.setEnabled(true);
+            mSelectApps.setSummary(R.string.preference_routing_select_apps_to_exclude_summary);
+        } else if (preference == mSelectApps) {
+            new InstalledAppsMultiSelectListPreference(this, getLayoutInflater(), mTunnelSelectedApps.isChecked()).show();
         } else if (preference == mUseSystemProxy) {
             mUseSystemProxy.setChecked(true);
             mUseCustomProxy.setChecked(false);

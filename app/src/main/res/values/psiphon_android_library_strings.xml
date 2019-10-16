@@ -179,6 +179,12 @@
     <string name="no_apps_included">No applications were tunnelled</string>
     <!-- Log line for when all apps will be tunneled -->
     <string name="no_apps_excluded">No applications were excluded from the tunnel</string>
+    <!-- Title for option to select apps for routing changes -->
+    <string name="preference_routing_select_apps_title">Select apps</string>
+    <!-- Description of option to select apps to exclusively tunnel -->
+    <string name="preference_routing_select_apps_to_include_summary">Select apps to tunnel</string>
+    <!-- Description of option to select apps to not tunnel -->
+    <string name="preference_routing_select_apps_to_exclude_summary">Select apps to exclude from tunnel</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>
     <string name="preference_notifications_with_vibrate_title">Vibrate</string>

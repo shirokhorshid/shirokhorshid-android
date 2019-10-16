@@ -52,6 +52,9 @@
             android:key="@string/preferenceExcludeAppsFromVpn"
             android:selectable="true"
             android:title="@string/preference_routing_exclude_apps_summary" />
+        <Preference
+            android:key="@string/preferenceSelectApps"
+            android:title="@string/preference_routing_select_apps_title" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/proxySettingsCategoryKey"
