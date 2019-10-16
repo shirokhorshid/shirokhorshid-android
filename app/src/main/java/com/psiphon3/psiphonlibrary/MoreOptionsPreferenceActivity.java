@@ -24,7 +24,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.DialogPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -92,7 +91,9 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
     CheckBoxPreference mNotificationSound;
     CheckBoxPreference mNotificationVibration;
-    DialogPreference mVpnAppExclusions;
+    RadioButtonPreference mTunnelAllApps;
+    RadioButtonPreference mTunnelSelectedApps;
+    RadioButtonPreference mTunnelNotSelectedApps;
     CheckBoxPreference mUseProxy;
     RadioButtonPreference mUseSystemProxy;
     RadioButtonPreference mUseCustomProxy;
@@ -119,7 +120,12 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mNotificationSound = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithSound));
         mNotificationVibration = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithVibrate));
 
-        mVpnAppExclusions = (DialogPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
+        mTunnelAllApps = (RadioButtonPreference) preferences
+                .findPreference(getString(R.string.preferenceIncludeAllAppsInVpn));
+        mTunnelSelectedApps = (RadioButtonPreference) preferences
+                .findPreference(getString(R.string.preferenceIncludeAppsInVpn));
+        mTunnelNotSelectedApps = (RadioButtonPreference) preferences
+                .findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
 
         mUseProxy = (CheckBoxPreference) preferences.findPreference(getString(R.string.useProxySettingsPreference));
         mUseSystemProxy = (RadioButtonPreference) preferences
@@ -160,6 +166,9 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mNotificationSound.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithSound), false));
         mNotificationVibration.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithVibrate), false));
 
+        mTunnelAllApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false));
+        mTunnelSelectedApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false));
+        mTunnelNotSelectedApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceExcludeAppsFromVpn), true));
         mUseProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useProxySettingsPreference), false));
         // set use system proxy preference by default
         mUseSystemProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useSystemProxySettingsPreference), true));
@@ -171,8 +180,14 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mProxyPassword.setText(preferenceGetter.getString(getString(R.string.useProxyPasswordPreference), ""));
         mProxyDomain.setText(preferenceGetter.getString(getString(R.string.useProxyDomainPreference), ""));
 
-
         // Set listeners
+        if (mTunnelAllApps != null) {
+            // only need to check one, if it exists the rest will
+            mTunnelAllApps.setOnPreferenceClickListener(this);
+            mTunnelSelectedApps.setOnPreferenceClickListener(this);
+            mTunnelNotSelectedApps.setOnPreferenceClickListener(this);
+        }
+
         mUseSystemProxy.setOnPreferenceClickListener(this);
         mUseCustomProxy.setOnPreferenceClickListener(this);
 
@@ -429,11 +444,24 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        if (preference == mUseSystemProxy) {
+        if (preference == mTunnelAllApps) {
+            mTunnelAllApps.setChecked(true);
+            mTunnelSelectedApps.setChecked(false);
+            mTunnelNotSelectedApps.setChecked(false);
+        } else if (preference == mTunnelSelectedApps) {
+            new InstalledAppsMultiSelectListPreference(this, getLayoutInflater(), true).show();
+            mTunnelAllApps.setChecked(false);
+            mTunnelSelectedApps.setChecked(true);
+            mTunnelNotSelectedApps.setChecked(false);
+        } else if (preference == mTunnelNotSelectedApps) {
+            new InstalledAppsMultiSelectListPreference(this, getLayoutInflater(), false).show();
+            mTunnelAllApps.setChecked(false);
+            mTunnelSelectedApps.setChecked(false);
+            mTunnelNotSelectedApps.setChecked(true);
+        } else if (preference == mUseSystemProxy) {
             mUseSystemProxy.setChecked(true);
             mUseCustomProxy.setChecked(false);
-        }
-        if (preference == mUseCustomProxy) {
+        } else if (preference == mUseCustomProxy) {
             mUseSystemProxy.setChecked(false);
             mUseCustomProxy.setChecked(true);
         }

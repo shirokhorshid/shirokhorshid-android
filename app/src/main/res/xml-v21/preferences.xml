@@ -30,10 +30,24 @@
     <PreferenceCategory
         android:key="@string/vpnSettingsCategoryKey"
         android:title="@string/preference_vpn_title" >
-        <com.psiphon3.psiphonlibrary.InstalledAppsMultiSelectListPreference
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:defaultValue="true"
+            android:enabled="true"
+            android:key="@string/preferenceIncludeAllAppsInVpn"
+            android:selectable="true"
+            android:title="@string/preference_routing_include_all_apps_summary" />
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:defaultValue="true"
+            android:enabled="true"
+            android:key="@string/preferenceIncludeAppsInVpn"
+            android:selectable="true"
+            android:title="@string/preference_routing_include_apps_summary" />
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:defaultValue="true"
+            android:enabled="true"
             android:key="@string/preferenceExcludeAppsFromVpn"
-            android:summary="@string/preference_routing_exclude_apps_summary"
-            android:title="@string/preference_routing_exclude_apps_title" />
+            android:selectable="true"
+            android:title="@string/preference_routing_exclude_apps_summary" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/proxySettingsCategoryKey"

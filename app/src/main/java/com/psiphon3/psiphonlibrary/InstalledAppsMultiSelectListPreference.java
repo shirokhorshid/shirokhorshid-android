@@ -28,10 +28,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.preference.DialogPreference;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.psiphon3.R;
@@ -51,61 +51,66 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class InstalledAppsMultiSelectListPreference extends DialogPreference {
-    public InstalledAppsMultiSelectListPreference(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        setNegativeButtonText(null);
-        setDialogLayoutResource(R.layout.dialog_exclude_apps);
-        setPositiveButtonText(R.string.label_done);
+class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
+    InstalledAppsMultiSelectListPreference(Context context, LayoutInflater layoutInflater, boolean whitelist) {
+        super(context);
+        setTitle(getTitle(whitelist));
+        setView(getView(context, layoutInflater, whitelist));
+        setPositiveButton(R.string.preference_routing_exclude_apps_ok_button_text, null);
     }
 
-    @Override
-    protected View onCreateDialogView() {
-        View view = super.onCreateDialogView();
-        Context context = getContext();
+    private int getTitle(boolean whitelist) {
+        return whitelist ? R.string.preference_routing_include_apps_title : R.string.preference_routing_exclude_apps_title;
+    }
 
-        List<AppEntry> installedApps = getInstalledApps();
+    private String getPreferenceKey(Context context, boolean whitelist) {
+        return context.getString(whitelist ? R.string.preferenceIncludeAppsInVpnString : R.string.preferenceExcludeAppsFromVpnString);
+    }
+
+    private View getView(Context context, LayoutInflater layoutInflater, boolean whitelist) {
+        View view = layoutInflater.inflate(R.layout.dialog_select_installed_apps, null);
+
+        List<AppEntry> installedApps = getInstalledApps(context);
 
         final AppPreferences appPreferences = new AppPreferences(context);
-        final String preferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
-        final Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(appPreferences.getString(preferenceKey, ""));
+        final String preferenceKey = getPreferenceKey(context, whitelist);
+        final Set<String> selectedApps = SharedPreferenceUtils.deserializeSet(appPreferences.getString(preferenceKey, ""));
 
         final InstalledAppsRecyclerViewAdapter adapter = new InstalledAppsRecyclerViewAdapter(
                 context,
                 installedApps,
-                excludedApps);
+                selectedApps);
 
         adapter.setClickListener(new InstalledAppsRecyclerViewAdapter.ItemClickListener() {
             @SuppressLint("ApplySharedPref")
             @Override
             public void onItemClick(View view, int position) {
-                AppEntry appEntry = adapter.getItem(position);
+                String app = adapter.getItem(position).getPackageId();
 
-                if (excludedApps.contains(appEntry.getPackageId())) {
-                    excludedApps.remove(appEntry.getPackageId());
-                } else {
-                    excludedApps.add(appEntry.getPackageId());
+                // try to remove the app, if not able, i.e. it wasn't in the set, add it
+                if (!selectedApps.remove(app)) {
+                    selectedApps.add(app);
                 }
 
-                // Store the selection immediately in shared app preferences
-                appPreferences.put(preferenceKey, SharedPreferenceUtils.serializeSet(excludedApps));
+                // store the selection immediately in shared app preferences
+                appPreferences.put(preferenceKey, SharedPreferenceUtils.serializeSet(selectedApps));
             }
         });
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_exclude_apps);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_select_apps);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
 
         return view;
     }
 
-    private List<AppEntry> getInstalledApps() {
-        PackageManager pm = getContext().getPackageManager();
+    private List<AppEntry> getInstalledApps(Context context) {
+        PackageManager pm = context.getPackageManager();
 
         List<AppEntry> apps = new ArrayList<>();
         List<PackageInfo> packages = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
 
-        String selfPackageName = getContext().getPackageName();
+        String selfPackageName = context.getPackageName();
 
         for (int i = 0; i < packages.size(); i++) {
             PackageInfo p = packages.get(i);

@@ -175,8 +175,6 @@ public abstract class MainBase {
         private Button m_openBrowserButton;
         private LoggingObserver m_loggingObserver;
 
-        private String mExcludedApps = "";
-
         public TabbedActivityBase() {
             Utils.initializeSecureRandom();
         }
@@ -431,6 +429,10 @@ public abstract class MainBase {
                     // More Options preferences
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithSound), getString(R.string.preferenceNotificationsWithSound)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithVibrate), getString(R.string.preferenceNotificationsWithVibrate)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAllAppsInVpn), getString(R.string.preferenceIncludeAllAppsInVpn)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpn), getString(R.string.preferenceIncludeAppsInVpn)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpnString), getString(R.string.preferenceIncludeAppsInVpnString)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpn), getString(R.string.preferenceExcludeAppsFromVpn)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpnString), getString(R.string.preferenceExcludeAppsFromVpnString)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.useProxySettingsPreference), getString(R.string.useProxySettingsPreference)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.useSystemProxySettingsPreference), getString(R.string.useSystemProxySettingsPreference)),
@@ -443,9 +445,6 @@ public abstract class MainBase {
                     new SharedPreferencesImport(this, prefName, getString(R.string.useProxyDomainPreference), getString(R.string.useProxyDomainPreference)),
                     new SharedPreferencesImport(this, prefName, getString(R.string.preferenceLanguageSelection), getString(R.string.preferenceLanguageSelection))
             );
-
-            // Store the value of the excluded apps so we can check if it changed
-            mExcludedApps = m_multiProcessPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
 
             EmbeddedValues.initialize(this);
 
@@ -1124,14 +1123,42 @@ public abstract class MainBase {
         private boolean isSettingsRestartRequired() {
             SharedPreferences prefs = getSharedPreferences(getString(R.string.moreOptionsPreferencesName), MODE_PRIVATE);
 
-            // check if "excluded apps" list has changed
-            String newExcludedApps = m_multiProcessPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
-            if (!mExcludedApps.equals(newExcludedApps)) {
-                // store the updated value
-                mExcludedApps = newExcludedApps;
+            // check if selected routing preference has changed
+            boolean tunnelAll = prefs.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), true);
+            boolean tunnelAllNew = m_multiProcessPreferences.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), true);
+            if (tunnelAll != tunnelAllNew) {
                 return true;
             }
 
+            boolean tunnelSelected = prefs.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false);
+            boolean tunnelSelectedNew = m_multiProcessPreferences.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false);
+            if (tunnelSelected != tunnelSelectedNew) {
+                return true;
+            }
+
+            // check if the selected apps changed
+            if (tunnelSelected) {
+                String tunnelSelectedString = prefs.getString(getString(R.string.preferenceIncludeAppsInVpnString), "");
+                String tunnelSelectedStringNew = m_multiProcessPreferences.getString(getString(R.string.preferenceIncludeAppsInVpnString), "");
+                if (!tunnelSelectedString.equals(tunnelSelectedStringNew)) {
+                    return true;
+                }
+            }
+
+            boolean tunnelNotSelected = prefs.getBoolean(getString(R.string.preferenceExcludeAppsFromVpn), false);
+            boolean tunnelNotSelectedNew = m_multiProcessPreferences.getBoolean(getString(R.string.preferenceExcludeAppsFromVpn), false);
+            if (tunnelNotSelected != tunnelNotSelectedNew) {
+                return true;
+            }
+
+            // check if the selected apps changed
+            if (tunnelNotSelected) {
+                String tunnelNotSelectedString = prefs.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+                String tunnelNotSelectedStringNew = m_multiProcessPreferences.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+                if (!tunnelNotSelectedString.equals(tunnelNotSelectedStringNew)) {
+                    return true;
+                }
+            }
 
             // check if "use proxy" has changed
             boolean useHTTPProxyPreference = prefs.getBoolean(getString(R.string.useProxySettingsPreference),
@@ -1165,7 +1192,7 @@ public abstract class MainBase {
             if (!prefs.getString(getString(R.string.useCustomProxySettingsHostPreference), "")
                     .equals(UpstreamProxySettings.getCustomProxyHost(this))
                     || !prefs.getString(getString(R.string.useCustomProxySettingsPortPreference), "")
-                            .equals(UpstreamProxySettings.getCustomProxyPort(this))) {
+                    .equals(UpstreamProxySettings.getCustomProxyPort(this))) {
                 return true;
             }
 
@@ -1210,6 +1237,10 @@ public abstract class MainBase {
                 m_multiProcessPreferences.migrate(
                         new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithSound), getString(R.string.preferenceNotificationsWithSound)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithVibrate), getString(R.string.preferenceNotificationsWithVibrate)),
+                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAllAppsInVpn), getString(R.string.preferenceIncludeAllAppsInVpn)),
+                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpn), getString(R.string.preferenceIncludeAppsInVpn)),
+                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpnString), getString(R.string.preferenceIncludeAppsInVpnString)),
+                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpn), getString(R.string.preferenceExcludeAppsFromVpn)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpnString), getString(R.string.preferenceExcludeAppsFromVpnString)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.downloadWifiOnlyPreference), getString(R.string.downloadWifiOnlyPreference)),
                         new SharedPreferencesImport(this, prefName, getString(R.string.disableTimeoutsPreference), getString(R.string.disableTimeoutsPreference)),

@@ -159,10 +159,25 @@
     <string name="http_prefix_toggle">Masquerade as HTTP</string>
     <string name="preference_notifications_title">Notifications</string>
     <string name="preference_vpn_title">VPN</string>
+    <!-- Description of option to tunnel everything -->
+    <string name="preference_routing_include_all_apps_summary">Tunnel all apps</string>
+    <!-- Title for selecting apps to be tunneled -->
+    <string name="preference_routing_include_apps_title">Include Apps</string>
+    <!-- Description of option to tunnel only selected apps -->
+    <string name="preference_routing_include_apps_summary">Only tunnel selected apps</string>
+    <!-- Title for selecting apps to be excluded -->
     <string name="preference_routing_exclude_apps_title">Exclude Apps</string>
-    <string name="preference_routing_exclude_apps_summary">Prevent chosen apps from being tunnelled</string>
+    <!-- Description of option to tunnel everything but selected apps -->
+    <string name="preference_routing_exclude_apps_summary">Don\'t tunnel selected apps</string>
+    <!-- Confirm selection of apps, used for including and excluding apps from tunnel -->
     <string name="preference_routing_exclude_apps_ok_button_text">Set</string>
+    <!-- Log line for when an app is tunneled -->
+    <string name="individual_app_included">Tunneling app: %s</string>
+    <!-- Log line for when an app is excluded from being tunneled -->
     <string name="individual_app_excluded">App excluded from tunnel: %s</string>
+    <!-- Log line for when no apps will be tunneled -->
+    <string name="no_apps_included">No applications were tunnelled</string>
+    <!-- Log line for when all apps will be tunneled -->
     <string name="no_apps_excluded">No applications were excluded from the tunnel</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>

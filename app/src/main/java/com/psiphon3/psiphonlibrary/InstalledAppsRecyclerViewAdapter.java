@@ -1,3 +1,22 @@
+/*
+ * Copyright (c) 2019, Psiphon Inc.
+ * All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
@@ -20,14 +39,14 @@ import io.reactivex.functions.Consumer;
 public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<InstalledAppsRecyclerViewAdapter.ViewHolder> {
     private final LayoutInflater inflater;
     private final List<AppEntry> data;
-    private final Set<String> excludedApps;
+    private final Set<String> selectedApps;
 
     private ItemClickListener clickListener;
 
-    InstalledAppsRecyclerViewAdapter(Context context, List<AppEntry> data, Set<String> excludedApps) {
+    InstalledAppsRecyclerViewAdapter(Context context, List<AppEntry> data, Set<String> selectedApps) {
         this.inflater = LayoutInflater.from(context);
         this.data = data;
-        this.excludedApps = excludedApps;
+        this.selectedApps = selectedApps;
     }
 
     @Override
@@ -53,7 +72,7 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
                 })
                 .subscribe();
         holder.appName.setText(appEntry.getName());
-        holder.isExcluded.setChecked(excludedApps.contains(appEntry.getPackageId()));
+        holder.isSelected.setChecked(selectedApps.contains(appEntry.getPackageId()));
     }
 
     @Override
@@ -76,19 +95,19 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final ImageView appIcon;
         final TextView appName;
-        final CheckBox isExcluded;
+        final CheckBox isSelected;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             appIcon = (ImageView) itemView.findViewById(R.id.app_list_row_icon);
             appName = (TextView) itemView.findViewById(R.id.app_list_row_name);
-            isExcluded = (CheckBox) itemView.findViewById(R.id.app_list_row_checkbox);
+            isSelected = (CheckBox) itemView.findViewById(R.id.app_list_row_checkbox);
 
             itemView.setOnClickListener(this);
             appIcon.setOnClickListener(this);
             appName.setOnClickListener(this);
-            isExcluded.setOnClickListener(this);
+            isSelected.setOnClickListener(this);
         }
 
         @Override
@@ -97,9 +116,9 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
                 clickListener.onItemClick(view, getAdapterPosition());
             }
 
-            // toggle is excluded whenever something other than isExcluded is clicked
-            if (view.getId() != R.id.app_list_row_checkbox) {
-                isExcluded.setChecked(!isExcluded.isChecked());
+            // toggle isSelected whenever something other than isSelected is clicked
+            if (view.getId() != isSelected.getId()) {
+                isSelected.setChecked(!isSelected.isChecked());
             }
         }
     }
