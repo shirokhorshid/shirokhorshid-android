@@ -1192,7 +1192,7 @@ public abstract class MainBase {
             if (!prefs.getString(getString(R.string.useCustomProxySettingsHostPreference), "")
                     .equals(UpstreamProxySettings.getCustomProxyHost(this))
                     || !prefs.getString(getString(R.string.useCustomProxySettingsPortPreference), "")
-                    .equals(UpstreamProxySettings.getCustomProxyPort(this))) {
+                        .equals(UpstreamProxySettings.getCustomProxyPort(this))) {
                 return true;
             }
 
