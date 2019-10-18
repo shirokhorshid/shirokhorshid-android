@@ -37,36 +37,47 @@
   <string name="ads_consent_preference_title">Скинути налаштування персоналізації реклами</string>
   <string name="ads_consent_preference_dialog_title">Відновити</string>
   <string name="ads_consent_preference_summary">Скиньте ваші налаштування, щоб дозволити рекламним мережам використовувати куки та ваші персональні дані</string>
-  <!--The section title shown in the preference screen for language related settings-->
-  <string name="preference_language_selection_title">Мова</string>
-  <!--The title shown in the preference screen for selecting an in app language-->
-  <string name="preference_language_title">Вибір мови</string>
-  <!--The description shown in the preference screen for selecting an in app language-->
   <string name="preference_language_selection_summary">Обрати мову</string>
-  <!--The name displayed to follow the system language setting in app-->
+  <string name="preference_language_selection_title">Мова</string>
+  <string name="preference_language_title">Вибір мови</string>
   <string name="preference_language_default_language">Типова мова</string>
-  <!--The title shown in the preference screen for adjusting the always on VPN settings-->
-  <string name="preference_navigate_to_vpn_setting_title">Завжди-VPN</string>
-  <!--The message shown in the preference screen for adjusting the always on VPN settings-->
-  <string name="preference_navigate_to_vpn_setting_summary">Перейдіть до налаштувань системи для тонкого налаштування Завжди-VPN</string>
   <!--A toast message which appears upon successful NFC bump & connection info transfer-->
   <string name="nfc_connection_info_import_success">Інформація про з\'єднання успішно імпортована!</string>
   <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
   <string name="nfc_connection_info_import_failure">Не вдалося імпортувати інформацію про з\'єднання.</string>
+  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
   <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
   <string name="need_help_connecting">Потрібна допомога з під\'єднанням?</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Проблема зі з\'єднанням</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">Натисніть для отримання рекомендацій з виправлення</string>
   <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
   <string name="get_help_connecting_text">Щоб отримати допомогу з під\'єднання, знайдіть іншого під\'єднаного користувача Psiphon, а потім, коли ви намагаєтесь під\'єднатися, а він вже під\'єднаний, розташуйте ваші телефони задніми гранями один до одного, щоб ініціювати передачу інформації про з\'єднання.</string>
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
   <string name="get_help_connecting_image_description">Телефони \"стикаються\" для NFC</string>
+  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">Проблема зі з\'єднанням</string>
+  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_message">Натисніть для отримання рекомендацій з виправлення</string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
   <string name="how_to_help">Допомогти другу під\'єднатися</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
   <string name="how_to_help_connect_text">Ви можете допомогти другу під\'єднатися до Psiphon, розташувавши ваші телефони задніми гранями один до одного, коли ви під\'єднані, а він намагається під\'єднатися.</string>
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
   <string name="how_to_help_connect_image_description">Телефони \"стикаються\" для NFC</string>
+  <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">Гаразд</string>
+  <string name="preference_navigate_to_vpn_setting_title">Завжди-VPN</string>
+  <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
+    since it gets converted to a hyperlink automatically.-->
+  <!--Kin onboarding prompt positive button label.-->
+  <!--Kin onboarding prompt negative button label.-->
+  <string name="lbl_help_psiphon_no_thanks">Ні дякую</string>
+  <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
+  <!--Kin opt-out prompt negative button label.-->
+  <string name="lbl_no">Ні</string>
+  <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
+  <string name="lbl_yes">Так</string>
+  <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
+     Kin is a cryptocurrency name and should not be translated.-->
+  <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
+  <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
+  <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
 </resources>
