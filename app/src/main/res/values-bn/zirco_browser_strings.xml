@@ -268,6 +268,9 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">বুকমার্ক পাঠানো ব্যর্থ হয়েছে</string>
   <string name="Commons.HistoryBookmarksFailedMessage">ভুল বার্তা:%s</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">বুকমার্ক আনা ব্যর্থ হয়েছে</string>
+  <string name="Commons.PermissionRequestReasonTitle">অনুমতিসমূহ অনুরোধের কারন</string>
+  <string name="Commons.NeedWritePermissions">লেখার অনুমতি প্রদান করে আবার চেষ্টা করুন</string>
+  <string name="Commons.NeedReadPermissions">পড়ার অনুমতি প্রদান করে আবার চেষ্টা করুন</string>
   <string name="Commons.OperationCanBeLongMessage">এই অপারেশন কিছু সময় লাগতে পারে। আপনি কি এগিয়ে যেতে চান?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">বুকমার্ক এবং ইতিহাস পরিচালনা করুন</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">আমদানি, রপ্তানি, ইতিহাস পরিষ্কার এবং বুকমার্ক করুন</string>
