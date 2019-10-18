@@ -50,7 +50,7 @@
   <string name="dns_proxy_stopped">Le mandataire DNS est arrêté</string>
   <string name="dns_proxy_failed">Échec de démarrage du mandataire DNS</string>
   <string name="iptables_binary_not_found">Impossible de trouver la version « iptables » exigée pour le mandataire transparent</string>
-  <string name="root_access_denied">Accès racine refusé</string>
+  <string name="root_access_denied">L’accès racine est refusé</string>
   <string name="psiphon_stopped">Arrêté</string>
   <string name="psiphon_running_whole_device">Exécution en mode Tout l’appareil</string>
   <string name="psiphon_running_browser_only">Exécution en mode navigateur seulement</string>
