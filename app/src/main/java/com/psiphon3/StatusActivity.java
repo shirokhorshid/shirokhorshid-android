@@ -21,6 +21,7 @@ package com.psiphon3;
 
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -208,17 +209,22 @@ public class StatusActivity
         HandleCurrentIntent();
     }
 
-    protected void HandleCurrentIntent()
-    {
+    protected void HandleCurrentIntent() {
         Intent intent = getIntent();
-
-        if (intent == null || intent.getAction() == null)
-        {
+        if (intent == null || intent.getAction() == null) {
+            return;
+        }
+        // StatusActivity is exposed to other apps because it is declared as an entry point activity of the app in the manifest.
+        // For the purpose of handling internal intents, such as handshake, etc., from the tunnel service we have declared a not
+        // exported activity alias 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler' that should act as a proxy for StatusActivity.
+        // We expect our own intents have a component set to 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler', all other intents
+        // should be ignored.
+        ComponentName tunnelIntentsActivityComponentName = new ComponentName(this, "com.psiphon3.psiphonlibrary.TunnelIntentsHandler");
+        if (!tunnelIntentsActivityComponentName.equals(intent.getComponent())) {
             return;
         }
 
-        if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_HANDSHAKE))
-        {
+        if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_HANDSHAKE)) {
             getTunnelStateFromHandshakeIntent(intent);
 
             // OLD COMMENT:
@@ -232,8 +238,7 @@ public class StatusActivity
             // unexpected disconnect in browser-only mode any more.
             // Show the home page, unless this was an automatic reconnect,
             // since the homepage should already be showing.
-            if (!intent.getBooleanExtra(TunnelManager.DATA_HANDSHAKE_IS_RECONNECT, false))
-            {
+            if (!intent.getBooleanExtra(TunnelManager.DATA_HANDSHAKE_IS_RECONNECT, false)) {
                 m_tabHost.setCurrentTabByTag("home");
                 loadSponsorTab(true);
                 m_loadedSponsorTab = true;
@@ -242,10 +247,10 @@ public class StatusActivity
             // We only want to respond to the HANDSHAKE_SUCCESS action once,
             // so we need to clear it (by setting it to a non-special intent).
             setIntent(new Intent(
-                            "ACTION_VIEW",
-                            null,
-                            this,
-                            this.getClass()));
+                    "ACTION_VIEW",
+                    null,
+                    this,
+                    this.getClass()));
         } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE)) {
             // Switch to settings tab
             m_tabHost.setCurrentTabByTag("settings");
