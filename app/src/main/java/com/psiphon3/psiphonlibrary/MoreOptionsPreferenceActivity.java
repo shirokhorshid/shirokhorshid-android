@@ -22,6 +22,7 @@ package com.psiphon3.psiphonlibrary;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
@@ -41,6 +42,8 @@ import com.psiphon3.R;
 import net.grandcentrix.tray.AppPreferences;
 
 import org.zirco.ui.activities.MainActivity;
+
+import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
@@ -95,6 +98,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     RadioButtonPreference mTunnelSelectedApps;
     RadioButtonPreference mTunnelNotSelectedApps;
     Preference mSelectApps;
+    ListPreference mTunnelPresets;
     CheckBoxPreference mUseProxy;
     RadioButtonPreference mUseSystemProxy;
     RadioButtonPreference mUseCustomProxy;
@@ -121,14 +125,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mNotificationSound = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithSound));
         mNotificationVibration = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithVibrate));
 
-        mTunnelAllApps = (RadioButtonPreference) preferences
-                .findPreference(getString(R.string.preferenceIncludeAllAppsInVpn));
-        mTunnelSelectedApps = (RadioButtonPreference) preferences
-                .findPreference(getString(R.string.preferenceIncludeAppsInVpn));
-        mTunnelNotSelectedApps = (RadioButtonPreference) preferences
-                .findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
-        mSelectApps = preferences.findPreference(getString(R.string.preferenceSelectApps));
-
         mUseProxy = (CheckBoxPreference) preferences.findPreference(getString(R.string.useProxySettingsPreference));
         mUseSystemProxy = (RadioButtonPreference) preferences
                 .findPreference(getString(R.string.useSystemProxySettingsPreference));
@@ -149,12 +145,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mProxyDomain = (EditTextPreference) preferences
                 .findPreference(getString(R.string.useProxyDomainPreference));
 
-        if (Utils.supportsAlwaysOnVPN()) {
-            setupNavigateToVPNSettings(preferences);
-        }
-
-        setupLanguageSelector(preferences);
-
         PreferenceGetter preferenceGetter;
 
         // Initialize with current shared preferences if restoring from configuration change,
@@ -165,19 +155,18 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             preferenceGetter = new AppPreferencesWrapper(new AppPreferences(this));
         }
 
+        if (Utils.supportsAlwaysOnVPN()) {
+            setupNavigateToVPNSettings(preferences);
+        }
+
+        if (supportsRoutingConfiguration()) {
+            setupTunnelConfiguration(preferences, preferenceGetter);
+        }
+
+        setupLanguageSelector(preferences);
+
         mNotificationSound.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithSound), false));
         mNotificationVibration.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithVibrate), false));
-
-        mTunnelAllApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false));
-        mTunnelSelectedApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false));
-        mTunnelNotSelectedApps.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceExcludeAppsFromVpn), true));
-
-        // set the select apps state
-        if (mTunnelAllApps.isChecked()) {
-            mSelectApps.setEnabled(false);
-        } else {
-            mSelectApps.setSummary(mTunnelSelectedApps.isChecked() ? R.string.preference_routing_select_apps_to_include_summary : R.string.preference_routing_select_apps_to_exclude_summary);
-        }
 
         mUseProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useProxySettingsPreference), false));
         // set use system proxy preference by default
@@ -191,14 +180,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mProxyDomain.setText(preferenceGetter.getString(getString(R.string.useProxyDomainPreference), ""));
 
         // Set listeners
-        if (mTunnelAllApps != null) {
-            // only need to check one, if it exists the rest will
-            mTunnelAllApps.setOnPreferenceClickListener(this);
-            mTunnelSelectedApps.setOnPreferenceClickListener(this);
-            mTunnelNotSelectedApps.setOnPreferenceClickListener(this);
-            mSelectApps.setOnPreferenceClickListener(this);
-        }
-
         mUseSystemProxy.setOnPreferenceClickListener(this);
         mUseCustomProxy.setOnPreferenceClickListener(this);
 
@@ -249,6 +230,93 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         });
     }
 
+    private void setupTunnelConfiguration(PreferenceScreen preferences, PreferenceGetter preferenceGetter) {
+        mTunnelAllApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceIncludeAllAppsInVpn));
+        mTunnelSelectedApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceIncludeAppsInVpn));
+        mTunnelNotSelectedApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
+        mSelectApps = preferences.findPreference(getString(R.string.preferenceSelectApps));
+        mTunnelPresets = (ListPreference) preferences.findPreference(getString(R.string.preferenceTunnelPresets));
+
+        if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false)) {
+            tunnelAllApps();
+        } else if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false)) {
+            tunnelSelectedApps();
+        } else {
+            tunnelNotSelectedApps();
+        }
+
+        mTunnelAllApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                tunnelAllApps();
+                return true;
+            }
+        });
+
+        mTunnelSelectedApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                tunnelSelectedApps();
+                return true;
+            }
+        });
+
+        mTunnelNotSelectedApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                tunnelNotSelectedApps();
+                return true;
+            }
+        });
+
+        mSelectApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                new InstalledAppsMultiSelectListPreference(MoreOptionsPreferenceActivity.this, getLayoutInflater(), mTunnelSelectedApps.isChecked()).show();
+                return true;
+            }
+        });
+
+        final AppExclusionsManager appExclusionsManager = new AppExclusionsManager(this);
+        mTunnelPresets.setEntries(R.array.preference_routing_presets_entries);
+        mTunnelPresets.setEntryValues(AppExclusionsManager.ROUTING_PRESETS);
+        mTunnelPresets.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                String preset = (String) newValue;
+                Set<String> presetsPackageIds = appExclusionsManager.getPresetsPackageIds(getPackageManager(), preset);
+                // appExclusionsManager.allowSelectedAppsThroughVpn();
+                appExclusionsManager.setAppsToIncludeInVpn(presetsPackageIds);
+                tunnelSelectedApps();
+                return true;
+            }
+        });
+    }
+
+    private void tunnelAllApps() {
+        mTunnelAllApps.setChecked(true);
+        mTunnelSelectedApps.setChecked(false);
+        mTunnelNotSelectedApps.setChecked(false);
+        mSelectApps.setEnabled(false);
+        mSelectApps.setSummary(null);
+    }
+
+    private void tunnelSelectedApps() {
+        mTunnelAllApps.setChecked(false);
+        mTunnelSelectedApps.setChecked(true);
+        mTunnelNotSelectedApps.setChecked(false);
+        mSelectApps.setEnabled(true);
+        mSelectApps.setSummary(R.string.preference_routing_select_apps_to_include_summary);
+    }
+
+    private void tunnelNotSelectedApps() {
+        mTunnelAllApps.setChecked(false);
+        mTunnelSelectedApps.setChecked(false);
+        mTunnelNotSelectedApps.setChecked(true);
+        mSelectApps.setEnabled(true);
+        mSelectApps.setSummary(R.string.preference_routing_select_apps_to_exclude_summary);
+    }
+
     private void setupLanguageSelector(PreferenceScreen preferences) {
         // Get the preference view and create the locale manager with the app's context.
         // Cannot use this activity as the context as we also need StatusActivity to pick up on it.
@@ -290,6 +358,11 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         if (currentLocaleLanguageIndex >= 0) {
             mLanguageSelector.setValueIndex(currentLocaleLanguageIndex);
         }
+    }
+
+    private boolean supportsRoutingConfiguration() {
+        // technically supported after v14 but the earliest preference file with it is v21
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
     private void disableCustomProxySettings() {
@@ -455,27 +528,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        if (preference == mTunnelAllApps) {
-            mTunnelAllApps.setChecked(true);
-            mTunnelSelectedApps.setChecked(false);
-            mTunnelNotSelectedApps.setChecked(false);
-            mSelectApps.setEnabled(false);
-            mSelectApps.setSummary(null);
-        } else if (preference == mTunnelSelectedApps) {
-            mTunnelAllApps.setChecked(false);
-            mTunnelSelectedApps.setChecked(true);
-            mTunnelNotSelectedApps.setChecked(false);
-            mSelectApps.setEnabled(true);
-            mSelectApps.setSummary(R.string.preference_routing_select_apps_to_include_summary);
-        } else if (preference == mTunnelNotSelectedApps) {
-            mTunnelAllApps.setChecked(false);
-            mTunnelSelectedApps.setChecked(false);
-            mTunnelNotSelectedApps.setChecked(true);
-            mSelectApps.setEnabled(true);
-            mSelectApps.setSummary(R.string.preference_routing_select_apps_to_exclude_summary);
-        } else if (preference == mSelectApps) {
-            new InstalledAppsMultiSelectListPreference(this, getLayoutInflater(), mTunnelSelectedApps.isChecked()).show();
-        } else if (preference == mUseSystemProxy) {
+        if (preference == mUseSystemProxy) {
             mUseSystemProxy.setChecked(true);
             mUseCustomProxy.setChecked(false);
         } else if (preference == mUseCustomProxy) {

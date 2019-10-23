@@ -36,8 +36,6 @@ import android.view.View;
 
 import com.psiphon3.R;
 
-import net.grandcentrix.tray.AppPreferences;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -52,8 +50,13 @@ import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
+    private final AppExclusionsManager appExclusionsManager;
+
     InstalledAppsMultiSelectListPreference(Context context, LayoutInflater layoutInflater, boolean whitelist) {
         super(context);
+
+        appExclusionsManager = new AppExclusionsManager(context);
+
         setTitle(getTitle(whitelist));
         setView(getView(context, layoutInflater, whitelist));
         setPositiveButton(R.string.preference_routing_exclude_apps_ok_button_text, null);
@@ -63,18 +66,12 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
         return whitelist ? R.string.preference_routing_include_apps_title : R.string.preference_routing_exclude_apps_title;
     }
 
-    private String getPreferenceKey(Context context, boolean whitelist) {
-        return context.getString(whitelist ? R.string.preferenceIncludeAppsInVpnString : R.string.preferenceExcludeAppsFromVpnString);
-    }
-
-    private View getView(Context context, LayoutInflater layoutInflater, boolean whitelist) {
-        View view = layoutInflater.inflate(R.layout.dialog_select_installed_apps, null);
+    private View getView(Context context, LayoutInflater layoutInflater, final boolean whitelist) {
+        View view = layoutInflater.inflate(R.layout.dialog_list_preference, null);
 
         List<AppEntry> installedApps = getInstalledApps(context);
 
-        final AppPreferences appPreferences = new AppPreferences(context);
-        final String preferenceKey = getPreferenceKey(context, whitelist);
-        final Set<String> selectedApps = SharedPreferenceUtils.deserializeSet(appPreferences.getString(preferenceKey, ""));
+        final Set<String> selectedApps = whitelist ? appExclusionsManager.getAppsIncludedInVpn() : appExclusionsManager.getAppsExcludedFromVpn();
 
         final InstalledAppsRecyclerViewAdapter adapter = new InstalledAppsRecyclerViewAdapter(
                 context,
@@ -92,12 +89,16 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
                     selectedApps.add(app);
                 }
 
-                // store the selection immediately in shared app preferences
-                appPreferences.put(preferenceKey, SharedPreferenceUtils.serializeSet(selectedApps));
+                // store the selection immediately
+                if (whitelist) {
+                    appExclusionsManager.setAppsToIncludeInVpn(selectedApps);
+                } else {
+                    appExclusionsManager.setAppsToExcludeFromVpn(selectedApps);
+                }
             }
         });
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_select_apps);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
 
