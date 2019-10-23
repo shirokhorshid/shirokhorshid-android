@@ -1001,7 +1001,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             if (tunnelConfig.disableTimeouts) {
                 //disable timeouts
                 MyLog.g("DisableTimeouts", "disableTimeouts", true);
-                json.put("NetworkLatencyMultiplier", 3.0);
+                json.put("NetworkLatencyMultiplierLambda", 0.1);
             }
 
             return json.toString();
