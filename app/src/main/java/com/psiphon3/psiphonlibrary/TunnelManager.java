@@ -95,6 +95,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         DATA_TRANSFER_STATS,
         NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT,
         NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT,
+        PING,
     }
 
     public static final String INTENT_ACTION_VIEW = "ACTION_VIEW";
@@ -655,7 +656,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         mGetHelpConnectingRunnablePosted = false;
     }
 
-    private void sendClientMessage(int what, Bundle data) {
+    private boolean sendClientMessage(int what, Bundle data) {
         Message msg = composeClientMessage(what, data);
         for (int i = mClients.size() - 1; i >= 0; i--) {
             try {
@@ -667,6 +668,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 mClients.remove(i);
             }
         }
+        return mClients.size() > 0;
     }
 
     private void sendHandshakeIntent() {

@@ -566,20 +566,16 @@ public abstract class MainBase {
                 }
             }
 
-            // Subscribe to service updates
+            tunnelServiceInteractor.startReceivingUpdates(getApplicationContext());
+        }
+
+        private void subscribeToTunnelServiceUpdates() {
             compositeDisposable.addAll(
                     tunnelServiceInteractor.tunnelStateFlowable()
+                            // Show "unknown" state when this subscription is disposed, which happens when activity is paused
+                            .doOnCancel(() -> runOnUiThread(() -> updateServiceStateUI(TunnelState.unknown())))
                             // Update app UI state
                             .doOnNext(state -> runOnUiThread(() -> updateServiceStateUI(state)))
-                            // Stop loading embedded webview when tunnel disconnects
-                            .doOnNext(state -> runOnUiThread(() -> {
-                                if (!state.isRunning() || !state.connectionData().isConnected()) {
-                                    if (m_sponsorHomePage != null && m_loadedSponsorTab) {
-                                        m_sponsorHomePage.stop();
-                                        m_loadedSponsorTab = false;
-                                    }
-                                }
-                            }))
                             .map(state -> {
                                 if (state.isRunning()) {
                                     if (state.connectionData().isConnected()) {
@@ -591,7 +587,7 @@ public abstract class MainBase {
                                 return ConnectionHelpState.DISABLED;
                             })
                             .distinctUntilChanged()
-                            .doOnNext(connectionHelpState -> setConnectionHelpState(connectionHelpState))
+                            .doOnNext(this::setConnectionHelpState)
                             .subscribe(),
 
                     tunnelServiceInteractor.dataStatsFlowable()
@@ -616,6 +612,10 @@ public abstract class MainBase {
                     })
                     .subscribe()
             );
+        }
+
+        private void unsubscribeFromTunnelServiceUpdates() {
+            compositeDisposable.clear();
         }
 
         private enum ConnectionHelpState {
@@ -734,6 +734,7 @@ public abstract class MainBase {
         @Override
         protected void onDestroy() {
             super.onDestroy();
+            tunnelServiceInteractor.stopReceivingUpdates(getApplicationContext());
 
             if (m_sponsorHomePage != null) {
                 m_sponsorHomePage.stop();
@@ -755,7 +756,8 @@ public abstract class MainBase {
             // Load new logs from the logging provider when it changes
             getContentResolver().registerContentObserver(LoggingProvider.INSERT_URI, true, m_loggingObserver);
 
-            tunnelServiceInteractor.resume(getApplicationContext());
+            // Start updating UI from tunnel service updates
+            subscribeToTunnelServiceUpdates();
 
             // Don't show the keyboard until edit selected
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -815,7 +817,7 @@ public abstract class MainBase {
             super.onPause();
             getContentResolver().unregisterContentObserver(m_loggingObserver);
             cancelInvalidProxySettingsToast();
-            tunnelServiceInteractor.pause(getApplicationContext());
+            unsubscribeFromTunnelServiceUpdates();
         }
 
         protected void doToggle() {
@@ -1091,6 +1093,14 @@ public abstract class MainBase {
                 setStatusState(R.drawable.status_icon_disconnected);
                 m_toggleButton.setText(getText(R.string.start));
                 m_openBrowserButton.setEnabled(false);
+            }
+
+            // Also stop loading embedded webview if the tunnel is not connected
+            if (!tunnelState.isRunning() || !tunnelState.connectionData().isConnected()) {
+                if (m_sponsorHomePage != null && m_loadedSponsorTab) {
+                    m_sponsorHomePage.stop();
+                    m_loadedSponsorTab = false;
+                }
             }
         }
         
