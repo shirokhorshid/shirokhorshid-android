@@ -207,6 +207,10 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
         {
             urlBuilder.append("?").append(args);
         }
+        // Java uses "in" for Indonesian language, rather than the more standard "id"
+        if (language.compareToIgnoreCase("in") == 0) {
+            language = "id";
+        }
         urlBuilder.append("#").append(language);
 
         webView.loadDataWithBaseURL(urlBuilder.toString(), html, "text/html", "utf-8", null);

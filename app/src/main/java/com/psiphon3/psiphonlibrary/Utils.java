@@ -20,7 +20,6 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -537,14 +536,14 @@ public class Utils
     See the License for the specific language governing permissions and
     limitations under the License.
     */
-    public static boolean isDebugMode(Activity context)
+    public static boolean isDebugMode(Context context)
     {
         boolean debug = false;
         PackageInfo packageInfo = null;
         try
         {
             packageInfo = context.getPackageManager().getPackageInfo(
-                    context.getApplication().getPackageName(),
+                    context.getApplicationContext().getPackageName(),
                     PackageManager.GET_CONFIGURATIONS);
         } 
         catch (NameNotFoundException e)

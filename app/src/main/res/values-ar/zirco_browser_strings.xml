@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">بدء التنزيل.</string>
   <string name="Main.DownloadFinishedMsg">اكتمال التنزيل.</string>
   <string name="Main.DownloadErrorMsg">خطأ في التنزيل: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">تحتاج إلى ترخيص الكتابة لتحميل المواد لأنها ستخزن فى الذاكرة الخارجية.</string>
   <string name="Main.ToastTabSwitchMessage">صفحة %s</string>
   <string name="Main.ToastTabSwitchFullMessage"> صفحات %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">تعذر فتح عنوان الرابط </string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">فشل التصدير</string>
   <string name="Commons.HistoryBookmarksFailedMessage">رسالة خطأ: %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">فشل الاستيراد</string>
+  <string name="Commons.PermissionRequestReasonTitle">سبب طلب الترخيص</string>
+  <string name="Commons.NeedWritePermissions">من فضلك اسمح بترخيص الكتابة ثم حاول ثانية</string>
+  <string name="Commons.NeedReadPermissions">من فضلك اسمح بترخيص القراءة ثم حاول ثانية</string>
   <string name="Commons.OperationCanBeLongMessage">قد تستغرق هذه العملية بعض الوقت. هل ترغب في المتابعة؟</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">إدارة الإشارات المرجعية والمحفوظات</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">قم باستيراد وتصدير ومسح الإشارات المرجعية والمحفوظات.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">تصدير الإشارات المرجعية والمحفوظات</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">قم بتصدير الإشارات المرجعية والمحفوظات إلى بطاقة SD.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">تحتاج إلى ترخيص الكتابة لتصدير قانمة المفضلات لأنها ستخزن فى الذاكرة الخارجية.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">استيراد الإشارات المرجعية والمحفوظات</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">قم باستيراد الإشارات المرجعية والمحفوظات من بطاقة SD.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">تحتاج إلى ترخيص القراءة لاستيراد قائمة المفضلات لانها مخزنة فى الذاكرة الخارجية.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">مسح الإشارات المرجعية و/أو المحفوظات</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">استخدم بحذر، لا يمكن التراجع عن هذه العملية.</string>
   <string name="Commons.ClearingHistoryBookmarks">جاري مسح الإشارات المرجعية و/أو المحفوظات...</string>

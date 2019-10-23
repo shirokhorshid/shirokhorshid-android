@@ -42,9 +42,11 @@ android {
 
     buildTypes {
         debug {
+            debuggable true
             pseudoLocalesEnabled true
         }
         release {
+            debuggable false
             ndk {
                 // ABI configurations of native libraries Gradle should package with the APK.
                 abiFilters 'armeabi-v7a'

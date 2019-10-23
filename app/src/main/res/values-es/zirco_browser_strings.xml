@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Iniciar descarga.</string>
   <string name="Main.DownloadFinishedMsg">Descarga completa.</string>
   <string name="Main.DownloadErrorMsg">Error de descarga: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Se requieren permisos de modificación para descargar artículos porque se guardarán en almacenamiento externo.</string>
   <string name="Main.ToastTabSwitchMessage">Pestaña %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Pestaña %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">No se ha podido abrir el enlace</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Fallo al exportar</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Mensaje de error: %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Fallo al importar</string>
+  <string name="Commons.PermissionRequestReasonTitle">Motivo para solicitar permisos </string>
+  <string name="Commons.NeedWritePermissions">Favor de conceder permisos de modificación y volver a intentar </string>
+  <string name="Commons.NeedReadPermissions">Favor de conceder permisos de lectura y volver a intentar </string>
   <string name="Commons.OperationCanBeLongMessage">Esta operación puede tardar algún tiempo. ¿Quiere proceder?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Administrar marcadores e historial</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Importar, exportar, Limpiar historial y marcadores.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Exportar marcadores e historial</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Exporta marcadores e historial a la tarjeta SD.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Se requieren permisos de modificación para exportar marcadores porque se guardarán en almacenamiento externo.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Importar marcadores e historial</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importa marcadores e historial desde la tarjeta SD.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Se requieren permisos de lectura para subir marcadores porque se guardarán en almacenamiento externo.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Limpiar historial y/o marcadores</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Úselo con precaución, esta acción no se puede deshacer.</string>
   <string name="Commons.ClearingHistoryBookmarks">Limpiando historial y/o marcadores...</string>

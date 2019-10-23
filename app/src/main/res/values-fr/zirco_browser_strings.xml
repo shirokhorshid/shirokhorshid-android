@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">Navigateur Psiphon</string>
+  <string name="ApplicationName">Navigateur Psiphon </string>
   <string name="ApplicationNameUrl">Psiphon — %s</string>
   <string name="ApplicationDescription">Le Navigateur Psiphon est un navigateur libre pour Android basé sur le navigateur Zirco.</string>
   <string name="AboutActivity.Title">À propos</string>
@@ -70,7 +70,7 @@
   <string name="PreferencesActivity.EnableCookiesPreferenceSummary">Activer ou désactiver les témoins.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryTitle">Effacer l’historique</string>
   <string name="PreferencesActivity.PrivacyClearFormDataTitle">Effacer les données de formulaire</string>
-  <string name="PreferencesActivity.PrivacyClearCacheTitle">Effacer le cache</string>
+  <string name="PreferencesActivity.PrivacyClearCacheTitle">Vider le cache</string>
   <string name="PreferencesActivity.PrivacyClearCookiesTitle">Effacer les témoins</string>
   <string name="PreferencesActivity.BarDurationPreferenceTitle">Durée d’affichage des barres</string>
   <string name="PreferencesActivity.BarDurationPreferenceSummary">Durée d’affichage des barres d’outils.</string>
@@ -100,8 +100,8 @@
   <string name="Commons.ClearingHistory">Effacement de l’historique…</string>
   <string name="Commons.ClearFormData">Effacer les donnés de formulaire</string>
   <string name="Commons.ClearingFormData">Effacement des données de formulaire…</string>
-  <string name="Commons.ClearCache">Effacer le cache</string>
-  <string name="Commons.ClearingCache">Effacement du cache…</string>
+  <string name="Commons.ClearCache">Vider le cache</string>
+  <string name="Commons.ClearingCache">Vidage du cache…</string>
   <string name="Commons.ClearCookies">Effacer les témoins</string>
   <string name="Commons.ClearingCookies">Effacement des témoins…</string>
   <string name="Commons.SDCardErrorTitle">Carte SD non disponible</string>
@@ -171,7 +171,7 @@
   <string name="DownloadNotification.DownloadCanceled">Téléchargement annulé</string>
   <string name="BookmarksHistoryActivity.MenuCopyLinkUrl">Copier l’URL</string>
   <string name="PreferencesActivity.ClearCacheOnExitPreferenceTitle">Vider le cache à la fermeture</string>
-  <string name="PreferencesActivity.ClearCacheOnExitPreferenceSummary">Si cochée, le cache du navigateur sera vidé lors de la fermeture de l’application.</string>
+  <string name="PreferencesActivity.ClearCacheOnExitPreferenceSummary">Si cette option est cochée, le cache du navigateur sera vidé lors de la fermeture de l’application.</string>
   <string name="PreferencesActivity.UIPreferenceTitle">Paramètres de l’interface utilisateur</string>
   <string name="PreferencesActivity.UIPreferenceSummary">Personnaliser l’interface utilisateur</string>
   <string name="Main.MenuExit">Quitter</string>
