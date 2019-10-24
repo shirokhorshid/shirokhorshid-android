@@ -89,6 +89,15 @@ public class LocaleManager {
         m_preferences.edit().putString(LANGUAGE_KEY, language).commit();
     }
 
+    private static Locale fromLanguageCode(String languageCode) {
+        // Handle language codes of the form "xx-rYY"
+        if (languageCode.length() == 6 &&
+                languageCode.substring(2,4).equalsIgnoreCase("-r")) {
+            return new Locale(languageCode.substring(0,2), languageCode.substring(4,6));
+        }
+        return new Locale(languageCode);
+    }
+
     private static Context updateResources(Context context, String language) {
         Locale locale;
         if (language.equals(USE_SYSTEM_LANGUAGE_VAL)) {
@@ -98,7 +107,7 @@ public class LocaleManager {
                 locale = context.getResources().getConfiguration().locale;
             }
         } else {
-            locale = new Locale(language);
+            locale = fromLanguageCode(language);
         }
 
         Locale.setDefault(locale);
