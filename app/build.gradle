@@ -65,6 +65,10 @@ android {
     }
 
     def propFile = new File('signing.properties')
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
     if (propFile.canRead()) {
         def Properties props = new Properties()
         props.load(new FileInputStream(propFile))
@@ -85,13 +89,23 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:23.4.0'
     implementation files('libs/jackson-core-2.2.0.jar')
     implementation files('libs/achartengine-1.0.0.jar')
     implementation files('libs/snakeyaml-1.10-android.jar')
     implementation(name: 'ca.psiphon', ext: 'aar')
+
     implementation project(':tray')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:0.5'
+
+//    implementation "com.android.support:multidex:$rootProject.ext.multidexVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.androidSupportLibraryVersion"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+    implementation "com.jakewharton.rxrelay2:rxrelay:$rootProject.ext.rxrelayVersion"
+
+    compileOnly "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
+    annotationProcessor "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
+
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.testRunnerVersion"
 }

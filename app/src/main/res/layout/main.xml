@@ -73,7 +73,6 @@
     
             <Button
                 android:id="@+id/openBrowserButton"
-                android:onClick="onOpenBrowserClick"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:text="@string/open_browser"
