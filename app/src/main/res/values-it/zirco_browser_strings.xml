@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Download avviato.</string>
   <string name="Main.DownloadFinishedMsg">Download completato.</string>
   <string name="Main.DownloadErrorMsg">Errore download: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Per scaricare gli elementi sono necessari permessi di scrittura, poiché saranno memorizzati in un archivio esterno.</string>
   <string name="Main.ToastTabSwitchMessage">Scheda %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Scheda %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">Impossibile aprire l\'url</string>
@@ -273,13 +274,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Esportazione fallita</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Messaggio di errore: %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Importazione fallita</string>
+  <string name="Commons.PermissionRequestReasonTitle">Motivo richiesta di autorizzazione</string>
+  <string name="Commons.NeedWritePermissions">Concedere le autorizzazioni di scrittura e riprovare</string>
+  <string name="Commons.NeedReadPermissions">Concedere le autorizzazioni di scrittura e riprovare</string>
   <string name="Commons.OperationCanBeLongMessage">Questa operazione potrebbe richiedere del tempo. Desideri procedere?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Gestisci segnalibri e cronologia</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Importa, esporta, cancella cronologia e segnalibri.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Esporta cronologia e segnalibri</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Esporta segnalibri e cronologia nella scheda SD</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">I permessi di scrittura sono necessari per esportare i segnalibri in quanto saranno memorizzati in un archivio esterno.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Importa segnalibri e cronologia</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importa segnalibri e cronologia dalla scheda SD</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Le autorizzazioni di lettura sono necessarie per importare i segnalibri poiché memorizzati in un archivio esterno.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Elimina cronologia e/o segnalibri</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Usare con cautela, questa operazione non potrà essere annullata.</string>
   <string name="Commons.ClearingHistoryBookmarks">Pulizia cronologia e/o segnalibri in corso...</string>

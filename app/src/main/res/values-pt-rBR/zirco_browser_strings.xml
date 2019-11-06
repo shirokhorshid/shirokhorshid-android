@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Iniciar download.</string>
   <string name="Main.DownloadFinishedMsg">Download completo.</string>
   <string name="Main.DownloadErrorMsg">Erro no download: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Permissões de escrita são necessárias para baixar itens, já que estarão em armazenamento externo</string>
   <string name="Main.ToastTabSwitchMessage">Aba %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Aba %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">Não foi possível abrir endereço</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Falha ao exportar</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Mensagem de erro: %s</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Falha na importação</string>
+  <string name="Commons.PermissionRequestReasonTitle">Motivo para solicitação da permissão</string>
+  <string name="Commons.NeedWritePermissions">Por favor conceda permissões de escrita e tente novamente</string>
+  <string name="Commons.NeedReadPermissions">Por favor conceda permissões de leitura e tente novamente</string>
   <string name="Commons.OperationCanBeLongMessage">Esta operação pode demorar um pouco. Você deseja prosseguir?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Gerenciar favoritos e histórico</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Importar, exportar, limpar histórico e favoritos.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Exportar favoritos e histórico</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Exportar favoritos e histórico</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Permissão de escrita é necessária para exportar favoritos, já que estarão em armazenamento externo.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Exportar favoritos e histórico para o cartão SD</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importar favoritos e histórico</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Permissão de leitura é necessária para importar favoritos, já que estão em armazenamento externo.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Limpar histórico e/ou favoritos</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Use com cautela, esta operação não pode ser desfeita.</string>
   <string name="Commons.ClearingHistoryBookmarks">Limpando histórico e favoritos...</string>

@@ -23,6 +23,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -252,21 +253,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     public void onCreate() {
         // At this point we've got application context, now we can initialize pending intents.
-        m_handshakePendingIntent = getPendingIntent(m_parentService,
-                StatusActivity.class,
-                INTENT_ACTION_HANDSHAKE);
+        m_handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE);
 
-        m_notificationPendingIntent = getPendingIntent(m_parentService,
-                StatusActivity.class,
-                INTENT_ACTION_VIEW);
+        m_notificationPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VIEW);
 
-        m_regionNotAvailablePendingIntent = getPendingIntent(m_parentService,
-                StatusActivity.class,
-                INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE);
+        m_regionNotAvailablePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE);
 
-        m_vpnRevokedPendingIntent = getPendingIntent(m_parentService,
-                StatusActivity.class,
-                INTENT_ACTION_VPN_REVOKED);
+        m_vpnRevokedPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VPN_REVOKED);
 
         if (mNotificationManager == null) {
             mNotificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
@@ -339,13 +332,20 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         cancelGetHelpConnecting();
     }
 
-    private PendingIntent getPendingIntent(Context ctx, Class activityClass, final String actionString) {
-        Intent intent = new Intent(
-                actionString,
-                null,
-                ctx,
-                activityClass);
+    private PendingIntent getPendingIntent(Context ctx, final String actionString) {
+        // This comment is copied from StatusActivity::HandleCurrentIntent
+        //
+        // StatusActivity is exposed to other apps because it is declared as an entry point activity of the app in the manifest.
+        // For the purpose of handling internal intents, such as handshake, etc., from the tunnel service we have declared a not
+        // exported activity alias 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler' that should act as a proxy for StatusActivity.
+        // We expect our own intents have a component set to 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler', all other intents
+        // should be ignored.
+        Intent intent = new Intent();
+        ComponentName intentComponentName = new ComponentName(m_parentService, "com.psiphon3.psiphonlibrary.TunnelIntentsHandler");
+        intent.setComponent(intentComponentName);
+        intent.setAction(actionString);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         return PendingIntent.getActivity(
                 ctx,
                 0,
@@ -1001,7 +1001,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             if (tunnelConfig.disableTimeouts) {
                 //disable timeouts
                 MyLog.g("DisableTimeouts", "disableTimeouts", true);
-                json.put("NetworkLatencyMultiplier", 3.0);
+                json.put("NetworkLatencyMultiplierLambda", 0.1);
             }
 
             return json.toString();

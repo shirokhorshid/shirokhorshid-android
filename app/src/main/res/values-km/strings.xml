@@ -22,10 +22,14 @@
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">បើកច្រកលើឧបករណ៍ទាំងមូល</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ប្រើប្រាស់តែកម្មវិធីរុករកសាយហ្វូន </string>
   <string name="selected_region_currently_not_available">តំបន់ដែលបានជ្រើសរើសទាន់មិនមានទេនៅពេលនេះ សូមជ្រើសរើសតំបន់ផ្សេងទៀត។</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">តើយើងអាចបន្តប្រើប្រាស់ទិន្នន័យរបស់អ្នក ដើម្បីតម្រូវពាណិជ្ជកម្មសម្រាប់អ្នក?</string>
   <string name="learn_more_about_our_ad_providers"><u>ស្វែងយល់បន្ថែម​អំពី​អ្នកផ្សព្វផ្សាយពាណិជ្ជកម្មរបស់យើង</u></string>
   <string name="yes_continue_to_see_relevant_ads">មែន​ បន្តដើម្បីមើលពាណិជ្ជកម្មដែលពាក់ព័ន្ធ</string>
+  <string name="no_see_ads_that_are_less_relevant">ទេ មើលពាណិជ្ជកម្មដែលមិនសូវទាក់ទង</string>
   <string name="pay_for_the_ad_free_version">ដំឡើង​ ទៅកាន់ជំនាន់គ្មានពាណិជ្ជកម្ម</string>
+  <string name="click_ad_provider_name_to_see_privacy_policy">ចុចឈ្មោះអ្នកផ្គត់ផ្គង់ពាណិជ្ជកម្ម ដើម្បីមើលពីគោលការណ៍ឯកជនភាពរបស់ពួកគេ</string>
   <string name="ads_consent_preference_category_title">ការផ្សព្វផ្សាយបុគ្គលិកលក្ខណៈផ្ទាល់ខ្លួន</string>
+  <string name="ads_consent_preference_dialog_preference_message">តើអ្នកពិតជាចង់កំណត់ចំណង់ចំណូលចិត្តពាណិជ្ជកម្មសារឡើងវិញ?</string>
   <string name="ads_consent_preference_title">កំណត់​សារជាថ្មី ចំណង់ចំណូលចិត្ត ពាណិជ្ជកម្ម</string>
   <string name="ads_consent_preference_dialog_title">កំណត់​ឡើង​វិញ</string>
   <string name="preference_language_selection_summary">ជ្រើសរើស​ភាសា</string>
@@ -51,6 +55,7 @@
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">យល់ព្រម</string>
   <string name="preference_navigate_to_vpn_setting_title">តែងតែបើក VPN</string>
+  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
   <!--Kin onboarding prompt positive button label.-->

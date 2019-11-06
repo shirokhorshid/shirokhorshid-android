@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">ডাউনলোড শুরু</string>
   <string name="Main.DownloadFinishedMsg">ডাউনলোড শেষ.</string>
   <string name="Main.DownloadErrorMsg">ডাউনলোড ত্রুটি: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">আইটেমগুলি ডাউনলোড করার জন্য লেখার অনুমতি প্রয়োজনীয় কারণ সেগুলি বাহ্যিক স্টোরেজে সংরক্ষণ করা হবে।</string>
   <string name="Main.ToastTabSwitchMessage">Tab %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Tab %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">URL খোলা যায়নি</string>
@@ -276,8 +277,10 @@
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">আমদানি, রপ্তানি, ইতিহাস পরিষ্কার এবং বুকমার্ক করুন</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">ইতিহাস এবং বুকমার্কগুলি পাঠান</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">এসডি কার্ডে বুকমার্ক এবং ইতিহাস পাঠান</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">বুকমার্কগুলি রফতানি করার জন্য লেখার অনুমতি প্রয়োজনীয় কারণ সেগুলি বাহ্যিক স্টোরেজে সংরক্ষণ করা হবে।</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">বুকমার্ক এবং ইতিহাস আনুন</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">SD কার্ড থেকে বুকমার্ক এবং ইতিহাস আনুন</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">বুকমার্কগুলি বহিরাগত স্টোরেজে সঞ্চিত হওয়ায় সেগুলি আমদানি করার জন্য পড়ার অনুমতি প্রয়োজন।</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">ইতিহাস এবং / বা বুকমার্ক সাফ করুন</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">সাবধানতার সাথে ব্যবহার করুন, এই অপারেশন পূর্বাবস্থায় ফেরাতে পারবেন না।</string>
   <string name="Commons.ClearingHistoryBookmarks">ইতিহাস এবং / অথবা বুকমার্ক সাফ করা হচ্ছে ...</string>
