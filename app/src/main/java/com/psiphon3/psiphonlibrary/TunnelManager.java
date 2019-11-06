@@ -41,6 +41,7 @@ import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
+import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.psiphon3.R;
 import com.psiphon3.StatusActivity;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
@@ -72,7 +73,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subjects.ReplaySubject;
 
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static com.psiphon3.StatusActivity.ACTION_SHOW_GET_HELP_DIALOG;
@@ -219,7 +219,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private PendingIntent m_regionNotAvailablePendingIntent;
     private PendingIntent m_vpnRevokedPendingIntent;
 
-    private ReplaySubject<Boolean> m_tunnelConnectedSubject;
+    private BehaviorRelay<Boolean> m_tunnelConnectedBehaviorRelay;
     private CompositeDisposable m_compositeDisposable;
 
     TunnelManager(Service parentService) {
@@ -229,7 +229,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_isReconnect = new AtomicBoolean(false);
         m_isStopping = new AtomicBoolean(false);
         m_tunnel = PsiphonTunnel.newPsiphonTunnel(this);
-        m_tunnelConnectedSubject = ReplaySubject.createWithSize(1);
+        m_tunnelConnectedBehaviorRelay = BehaviorRelay.createDefault(Boolean.FALSE);
         m_compositeDisposable = new CompositeDisposable();
     }
 
@@ -1052,7 +1052,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // value. The result is additionally filtered to output only distinct consecutive values.
     // Emits its current value to every new subscriber.
     private Observable<Boolean> connectionObservable() {
-        return m_tunnelConnectedSubject
+        return m_tunnelConnectedBehaviorRelay
                 .hide()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -1173,7 +1173,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_tunnelConnectedSubject.onNext(Boolean.FALSE);
+                m_tunnelConnectedBehaviorRelay.accept(Boolean.FALSE);
                 DataTransferStats.getDataTransferStatsForService().stop();
                 m_tunnelState.homePages.clear();
 
@@ -1198,7 +1198,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 MyLog.v(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
 
-                m_tunnelConnectedSubject.onNext(Boolean.TRUE);
+                m_tunnelConnectedBehaviorRelay.accept(Boolean.TRUE);
                 // Stop the runnable for get help connecting once connected
                 cancelGetHelpConnecting();
             }
