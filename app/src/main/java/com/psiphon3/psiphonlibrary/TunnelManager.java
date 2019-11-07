@@ -324,7 +324,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         } catch (PendingIntent.CanceledException e) {
             MyLog.g(String.format("vpnRevokedPendingIntent failed: %s", e.getMessage()));
         }
-
     }
 
     private void stopAndWaitForTunnel() {

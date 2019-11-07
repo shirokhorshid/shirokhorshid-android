@@ -566,14 +566,8 @@ public abstract class MainBase {
                 }
             }
 
-            tunnelServiceInteractor.startReceivingUpdates(getApplicationContext());
-        }
-
-        private void subscribeToTunnelServiceUpdates() {
             compositeDisposable.addAll(
                     tunnelServiceInteractor.tunnelStateFlowable()
-                            // Show "unknown" state when this subscription is disposed, which happens when activity is paused
-                            .doOnCancel(() -> runOnUiThread(() -> updateServiceStateUI(TunnelState.unknown())))
                             // Update app UI state
                             .doOnNext(state -> runOnUiThread(() -> updateServiceStateUI(state)))
                             .map(state -> {
@@ -612,10 +606,6 @@ public abstract class MainBase {
                     })
                     .subscribe()
             );
-        }
-
-        private void unsubscribeFromTunnelServiceUpdates() {
-            compositeDisposable.clear();
         }
 
         private enum ConnectionHelpState {
@@ -734,7 +724,6 @@ public abstract class MainBase {
         @Override
         protected void onDestroy() {
             super.onDestroy();
-            tunnelServiceInteractor.stopReceivingUpdates(getApplicationContext());
 
             if (m_sponsorHomePage != null) {
                 m_sponsorHomePage.stop();
@@ -756,10 +745,9 @@ public abstract class MainBase {
             // Load new logs from the logging provider when it changes
             getContentResolver().registerContentObserver(LoggingProvider.INSERT_URI, true, m_loggingObserver);
 
-            // Start updating UI from tunnel service updates
-            subscribeToTunnelServiceUpdates();
+            tunnelServiceInteractor.resume(getApplicationContext());
 
-            // Don't show the keyboard until edit selected
+        // Don't show the keyboard until edit selected
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
             if (ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
@@ -817,7 +805,7 @@ public abstract class MainBase {
             super.onPause();
             getContentResolver().unregisterContentObserver(m_loggingObserver);
             cancelInvalidProxySettingsToast();
-            unsubscribeFromTunnelServiceUpdates();
+            tunnelServiceInteractor.pause(getApplicationContext());
         }
 
         protected void doToggle() {
