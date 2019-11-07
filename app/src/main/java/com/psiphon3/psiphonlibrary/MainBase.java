@@ -747,7 +747,7 @@ public abstract class MainBase {
 
             tunnelServiceInteractor.resume(getApplicationContext());
 
-        // Don't show the keyboard until edit selected
+            // Don't show the keyboard until edit selected
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
             if (ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
