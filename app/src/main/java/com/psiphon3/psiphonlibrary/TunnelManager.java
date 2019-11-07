@@ -42,6 +42,7 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
 import com.jakewharton.rxrelay2.BehaviorRelay;
+import com.jakewharton.rxrelay2.PublishRelay;
 import com.psiphon3.R;
 import com.psiphon3.StatusActivity;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
@@ -69,6 +70,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import ca.psiphon.PsiphonTunnel;
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -126,9 +128,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     static final String DATA_TRANSFER_STATS_FAST_BUCKETS_LAST_START_TIME = "dataTransferStatsFastBucketsLastStartTime";
     public static final String DATA_NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT = "dataNfcConnectionInfoExchangeResponseExport";
     public static final String DATA_NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT = "dataNfcConnectionInfoExchangeResponseImport";
-
-    // Extras in handshake intent
-    public static final String DATA_HANDSHAKE_IS_RECONNECT = "isReconnect";
 
     // Extras in start service intent (Client -> Service)
     static final String DATA_TUNNEL_CONFIG_WHOLE_DEVICE = "tunnelConfigWholeDevice";
@@ -219,8 +218,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private PendingIntent m_regionNotAvailablePendingIntent;
     private PendingIntent m_vpnRevokedPendingIntent;
 
-    private BehaviorRelay<Boolean> m_tunnelConnectedBehaviorRelay;
-    private CompositeDisposable m_compositeDisposable;
+    private BehaviorRelay<Boolean> m_tunnelConnectedBehaviorRelay = BehaviorRelay.create();
+    private PublishRelay<Object> m_newClientPublishRelay = PublishRelay.create();
+    private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
 
     TunnelManager(Service parentService) {
         m_parentService = parentService;
@@ -228,9 +228,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_startedTunneling = new AtomicBoolean(false);
         m_isReconnect = new AtomicBoolean(false);
         m_isStopping = new AtomicBoolean(false);
-        m_tunnel = PsiphonTunnel.newPsiphonTunnel(this);
-        m_tunnelConnectedBehaviorRelay = BehaviorRelay.createDefault(Boolean.FALSE);
-        m_compositeDisposable = new CompositeDisposable();
+        // Note that we are requesting manual control over PsiphonTunnel.routeThroughTunnel() functionality.
+        m_tunnel = PsiphonTunnel.newPsiphonTunnel(this, false);
     }
 
     void onCreate() {
@@ -280,15 +279,52 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         return m_incomingMessenger.getBinder();
     }
 
-    // Sends handshake intent and tunnel state updates to the client Activity
-    // also updates service notification
+    // Sends handshake intent and tunnel state updates to the client Activity,
+    // also updates service notification.
     private Disposable connectionStatusUpdaterDisposable() {
         return connectionObservable()
+                .switchMapSingle(isConnected -> {
+                    // If tunnel is not connected return immediately
+                    if (!isConnected) {
+                        return Single.just(isConnected);
+                    }
+                    // If this is a reconnect return immediately
+                    if(m_isReconnect.get()) {
+                        return Single.just(isConnected);
+                    }
+                    // If there are no home pages to show return immediately
+                    if (m_tunnelState.homePages == null || m_tunnelState.homePages.size() == 0) {
+                        return Single.just(isConnected);
+                    }
+                    // If OS is less than Android 10 return immediately
+                    if (Build.VERSION.SDK_INT < 29) {
+                        return Single.just(isConnected);
+                    }
+                    // If there is at least one live client, which means there is at least one
+                    // activity in foreground bound to the service - return immediately
+                    if (sendClientMessage(ServiceToClientMessage.PING.ordinal(), null)) {
+                        return Single.just(isConnected);
+                    }
+                    // If there are no live client wait for new ones to bind
+                    return m_newClientPublishRelay
+                            // Test the client(s) again by pinging, block until there's at least one live client
+                            .filter(__ -> sendClientMessage(ServiceToClientMessage.PING.ordinal(), null))
+                            // We have a live client, complete this inner subscription and send down original isConnected value
+                            .map(__ -> isConnected)
+                            .firstOrError()
+                            // Show "Open Psiphon" notification when subscribed to
+                            .doOnSubscribe(__-> showOpenAppToKeepConnectingNotification())
+                            // Cancel "Open Psiphon to keep connecting" when completed or disposed
+                            .doFinally(() -> cancelOpenAppToKeepConnectingNotification());
+                })
                 .doOnNext(isConnected -> {
                     m_tunnelState.isConnected = isConnected;
                     // Any subsequent onConnected after this first one will be a reconnect.
                     if(isConnected && m_isReconnect.compareAndSet(false,true)) {
-                        sendHandshakeIntent();
+                        m_tunnel.routeThroughTunnel();
+                        if(m_tunnelState.homePages != null && m_tunnelState.homePages.size() > 0) {
+                            sendHandshakeIntent();
+                        }
                     }
                     sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
                     // Don't update notification to CONNECTING, etc., when a stop was commanded.
@@ -299,6 +335,28 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     }
                 })
                 .subscribe();
+    }
+
+    private void cancelOpenAppToKeepConnectingNotification() {
+        if (mNotificationManager != null) {
+            mNotificationManager.cancel(R.id.notification_id_open_app_to_keep_connecting);
+        }
+    }
+
+    private void showOpenAppToKeepConnectingNotification() {
+        if (mNotificationBuilder == null || mNotificationManager == null) {
+            return;
+        }
+        mNotificationBuilder
+                .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                .setContentTitle(getContext().getString(R.string.notification_title_action_required))
+                .setContentText(getContext().getString(R.string.notification_text_open_psiphon_to_finish_connecting))
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(getContext().getString(R.string.notification_text_open_psiphon_to_finish_connecting)))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(m_notificationPendingIntent);
+
+        mNotificationManager.notify(R.id.notification_id_open_app_to_keep_connecting, mNotificationBuilder.build());
     }
 
     // Implementation of android.app.Service.onDestroy
@@ -529,6 +587,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                             }
                         }
                         manager.mClients.add(client);
+                        manager.m_newClientPublishRelay.accept(new Object());
                     }
                     break;
                 case UNREGISTER:
@@ -778,6 +837,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_isReconnect.set(false);
         m_isStopping.set(false);
         m_startedTunneling.set(false);
+        m_tunnelConnectedBehaviorRelay.accept(false);
 
         // Notify if an upgrade has already been downloaded and is waiting for install
         UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext());
@@ -826,6 +886,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             MyLog.v(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_isStopping.set(true);
+            m_tunnelConnectedBehaviorRelay.accept(false);
             m_tunnel.stop();
 
             periodicMaintenanceHandler.removeCallbacks(periodicMaintenance);
