@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Download start.</string>
   <string name="Main.DownloadFinishedMsg">Download voltooid</string>
   <string name="Main.DownloadErrorMsg">Download fout: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Schrijfrechten zijn vereist om items te downloaden, omdat ze worden opgeslagen in externe opslag.</string>
   <string name="Main.ToastTabSwitchMessage">Tabblad %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Tabblad %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">Kan niet openen url</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Export mislukt</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Fout bericht: %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Import mislukt</string>
+  <string name="Commons.PermissionRequestReasonTitle">Toestemming verzoek</string>
+  <string name="Commons.NeedWritePermissions">Geef schrijfrechten en probeer het opnieuw</string>
+  <string name="Commons.NeedReadPermissions">Geef leesrechten en probeer het opnieuw</string>
   <string name="Commons.OperationCanBeLongMessage">Deze bewerking kan enige tijd duren. Wil je verder gaan?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Beheren bladwijzers en geschiedenis</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Import, export, wis geschiedenis en bladwijzers.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Exporteer bladwijzers en geschiedenis</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Exporteer bladwijzers en geschiedenis naar de SD kaart.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Schrijfrechten zijn vereist om bladwijzers te exporteren, omdat deze worden opgeslagen in externe opslag.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Importeer bladwijzers en geschiedenis</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importeer bladwijzers en geschiedenis van de SD kaart.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Leesrechten zijn vereist om bladwijzers te importeren omdat ze worden opgeslagen in externe opslag.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Wis geschiedenis en/ of bladwijzers</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Gebruik met de nodige voorzichtigheid, kan deze handeling niet ongedaan worden gemaakt.</string>
   <string name="Commons.ClearingHistoryBookmarks">Wissen geschiedenis en /of bladwijzers...</string>

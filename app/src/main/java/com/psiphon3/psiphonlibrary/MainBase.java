@@ -567,12 +567,6 @@ public abstract class MainBase {
             m_disableTimeoutsToggle.setChecked(disableTimeoutsPreference);
             setTunnelConfigDisableTimeouts(disableTimeoutsPreference);
 
-            // Note that this must come after the above lines, or else the
-            // activity
-            // will not be sufficiently initialized for isDebugMode to succeed.
-            // (Voodoo.)
-            PsiphonConstants.DEBUG = Utils.isDebugMode(this);
-
             String msg = getContext().getString(R.string.client_version, EmbeddedValues.CLIENT_VERSION);
             m_statusTabVersionLine.setText(msg);
 

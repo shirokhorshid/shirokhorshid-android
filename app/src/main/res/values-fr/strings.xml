@@ -37,36 +37,58 @@
   <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
   <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
   <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>
-  <!--The section title shown in the preference screen for language related settings-->
-  <string name="preference_language_selection_title">Langue</string>
-  <!--The title shown in the preference screen for selecting an in app language-->
-  <string name="preference_language_title">Sélection de la langue</string>
-  <!--The description shown in the preference screen for selecting an in app language-->
   <string name="preference_language_selection_summary">Sélectionner la langue</string>
-  <!--The name displayed to follow the system language setting in app-->
+  <string name="preference_language_selection_title">Langue</string>
+  <string name="preference_language_title">Sélection de la langue</string>
   <string name="preference_language_default_language">Langue par défaut</string>
-  <!--The title shown in the preference screen for adjusting the always on VPN settings-->
-  <string name="preference_navigate_to_vpn_setting_title">RPV permanent</string>
-  <!--The message shown in the preference screen for adjusting the always on VPN settings-->
-  <string name="preference_navigate_to_vpn_setting_summary">Rendez-vous dans les paramètres du système pour régler les paramètres du RPV permanent</string>
   <!--A toast message which appears upon successful NFC bump & connection info transfer-->
   <string name="nfc_connection_info_import_success">Les renseignements de connexion ont été importés avec succès.</string>
   <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
   <string name="nfc_connection_info_import_failure">Échec d’importation des renseignements de connexion.</string>
+  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
+  <string name="nfc_connection_info_press_start">Veuillez appuyer sur Démarrer et ressayer l’échange par CCP</string>
   <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
   <string name="need_help_connecting">Avez-vous besoin d’aide pour vous connecter ?</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Problème de connexion</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">Cliquez pour voir les correctifs possibles</string>
   <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
   <string name="get_help_connecting_text">Pour obtenir de l’aide afin de vous connecter, trouvez un autre utilisateur de Psiphon qui est connecté, puis, alors que vous essayez de vous connecter et qu’il est connecté, placez vos téléphones dos à dos pour lancer un transfert de renseignements de connexion.</string>
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
   <string name="get_help_connecting_image_description">Des  téléphones qui se rencontrent pour la CCP</string>
+  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">Problème de connexion</string>
+  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_message">Cliquez pour voir les correctifs possibles</string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
   <string name="how_to_help">Aider un ami à se connecter</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
   <string name="how_to_help_connect_text">Vous pouvez aider un ami à se connecter en plaçant vos téléphones dos à dos alors que vous êtes connecté et qu’il essaie de se connecter.</string>
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
   <string name="how_to_help_connect_image_description">Des  téléphones qui se rencontrent pour la CCP</string>
+  <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">Valider</string>
+  <string name="preference_navigate_to_vpn_setting_title">RPV permanent</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Rendez-vous dans les paramètres du système pour activer RPV permanent</string>
+  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
+  <string name="title_kin_and_psiphon">Kin et Psiphon</string>
+  <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
+    since it gets converted to a hyperlink automatically.-->
+  <string name="lbl_kin_onboard_explanation">Kin est une nouvelle façon d’aider à soutenir Psiphon.\n\nSi vous acceptez, un porte-monnaie Kin sera créé pour vous et chaque fois que vous vous connecterez, il fera un petit don à Psiphon.\n\nPourquoi participer ? Quand les utilisateurs dépensent des kins en utilisant Psiphon, cela nous aide à financer nos serveurs.\n\nPour en apprendre davantage sur Kin, visitez kin.org</string>
+  <!--Kin onboarding prompt positive button label.-->
+  <string name="lbl_help_psiphon">Aidez Psiphon !</string>
+  <!--Kin onboarding prompt negative button label.-->
+  <string name="lbl_help_psiphon_no_thanks">Non merci</string>
+  <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_opt_out">Voulez-vous vraiment ne pas participer à Kin ?\n\nVous pourrez toujours vous joindre au programme à nouveau à l’avenir, mais en attendant, vous n’aiderez pas Psiphon.</string>
+  <!--Kin opt-out prompt negative button label.-->
+  <string name="lbl_no">Non</string>
+  <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
+  <string name="lbl_yes">Oui</string>
+  <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
+     Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_opt_in_to_kin">Adhérer à Kin</string>
+  <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="title_donate_kin">Faire un don en Kin</string>
+  <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_pay">Nous vous remercions d’avoir adhéré à Kin. Souhaitez-vous continuer à donner 1 Kin à Psiphon quand vous vous connectez ?</string>
+  <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
+  <string name="lbl_opt_out">Ne pas participer</string>
 </resources>
