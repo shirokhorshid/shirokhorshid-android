@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="notification_id_get_help_connecting" type="id"></item>
+    <item name="notification_id_open_app_to_keep_connecting" type="id"></item>
 </resources>
