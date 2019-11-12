@@ -29,6 +29,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+import android.net.NetworkRequest;
 import android.net.VpnService;
 import android.net.VpnService.Builder;
 import android.os.Build;
@@ -221,6 +225,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private BehaviorRelay<Boolean> m_tunnelConnectedBehaviorRelay = BehaviorRelay.create();
     private PublishRelay<Object> m_newClientPublishRelay = PublishRelay.create();
     private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
+    private ConnectivityManager.NetworkCallback networkCallback;
+    private AtomicBoolean m_waitingForConnectivity = new AtomicBoolean(false);
 
     TunnelManager(Service parentService) {
         m_parentService = parentService;
@@ -874,7 +880,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
             m_tunnel.startTunneling(getServerEntries(m_parentService));
             m_startedTunneling.set(true);
-
+            startNetworkStateMonitoring();
             try {
                 m_tunnelThreadStopSignal.await();
             } catch (InterruptedException e) {
@@ -885,6 +891,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         } finally {
             MyLog.v(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
+            stopNetworkStateMonitoring();
             m_isStopping.set(true);
             m_tunnelConnectedBehaviorRelay.accept(false);
             m_tunnel.stop();
@@ -929,6 +936,56 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
         });
     }
+
+    private void startNetworkStateMonitoring() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ConnectivityManager connectivityManager =
+                    (ConnectivityManager) m_parentService.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (connectivityManager == null) {
+                return;
+            }
+            networkCallback = new ConnectivityManager.NetworkCallback() {
+                @Override
+                public void onLost(Network network) {
+                    if (m_waitingForConnectivity.get()) {
+                        // Already waiting for connectivity, do not restart
+                        return;
+                    }
+                    NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                    boolean needRestart = networkInfo == null || !networkInfo.isConnected();
+                    if (needRestart) {
+                        m_Handler.post(() -> {
+                            try {
+                                m_tunnel.restartPsiphon();
+                            } catch (PsiphonTunnel.Exception e) {
+                                MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
+                            }
+                        });
+                    }
+                }
+            };
+            NetworkRequest networkRequest = new NetworkRequest.Builder()
+                    .addTransportType(android.net.NetworkCapabilities.TRANSPORT_CELLULAR)
+                    .addTransportType(android.net.NetworkCapabilities.TRANSPORT_WIFI)
+                    .build();
+            connectivityManager.registerNetworkCallback(networkRequest, networkCallback);
+        }
+    }
+
+    private void stopNetworkStateMonitoring() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (networkCallback == null) {
+                return;
+            }
+            ConnectivityManager connectivityManager =
+                    (ConnectivityManager) m_parentService.getSystemService(Context.CONNECTIVITY_SERVICE);
+            if (connectivityManager == null) {
+                return;
+            }
+            connectivityManager.unregisterNetworkCallback(networkCallback);
+        }
+    }
+
 
     @Override
     public String getAppName() {
@@ -1340,6 +1397,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 // If we're waiting for a network cancel any countdown for getting help and let the activity know
                 cancelGetHelpConnecting();
                 sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
+                m_waitingForConnectivity.set(true);
             }
         });
     }
@@ -1350,4 +1408,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public void onActiveAuthorizationIDs(List<String> authorizations) {}
+
+    @Override
+    public void onStoppedWaitingForNetworkConnectivity() {
+        m_waitingForConnectivity.set(false);
+    }
 }
