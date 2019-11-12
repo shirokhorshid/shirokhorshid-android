@@ -319,9 +319,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                             .map(__ -> isConnected)
                             .firstOrError()
                             // Show "Open Psiphon" notification when subscribed to
-                            .doOnSubscribe(__-> showOpenAppToKeepConnectingNotification())
+                            .doOnSubscribe(__-> showOpenAppToFinishConnectingNotification())
                             // Cancel "Open Psiphon to keep connecting" when completed or disposed
-                            .doFinally(() -> cancelOpenAppToKeepConnectingNotification());
+                            .doFinally(() -> cancelOpenAppToFinishConnectingNotification());
                 })
                 .doOnNext(isConnected -> {
                     m_tunnelState.isConnected = isConnected;
@@ -343,13 +343,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 .subscribe();
     }
 
-    private void cancelOpenAppToKeepConnectingNotification() {
+    private void cancelOpenAppToFinishConnectingNotification() {
         if (mNotificationManager != null) {
             mNotificationManager.cancel(R.id.notification_id_open_app_to_keep_connecting);
         }
     }
 
-    private void showOpenAppToKeepConnectingNotification() {
+    private void showOpenAppToFinishConnectingNotification() {
         if (mNotificationBuilder == null || mNotificationManager == null) {
             return;
         }
@@ -368,9 +368,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Implementation of android.app.Service.onDestroy
     void onDestroy() {
         if (mNotificationManager != null) {
-            // Only cancel our own service notification, do not cancel _all_ notifications.
+            // Only cancel our own service notifications, do not cancel _all_ notifications.
             mNotificationManager.cancel(R.string.psiphon_service_notification_id);
         }
+        // Cancel "get help" and "open app to finish connecting" notifications too.
+        cancelGetHelpConnecting();
+        cancelOpenAppToFinishConnectingNotification();
+
         stopAndWaitForTunnel();
         MyLog.unsetLogger();
         m_compositeDisposable.dispose();
