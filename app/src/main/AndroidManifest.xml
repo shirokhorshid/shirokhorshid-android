@@ -41,6 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity-alias
+            android:name="com.psiphon3.psiphonlibrary.TunnelIntentsHandler"
+            android:exported="false"
+            android:targetActivity="com.psiphon3.StatusActivity" />
 
         <activity android:name=".psiphonlibrary.NfcActivity" />
         <activity-alias

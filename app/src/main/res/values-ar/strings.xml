@@ -68,6 +68,7 @@
   <string name="label_ok">يعمل</string>
   <string name="preference_navigate_to_vpn_setting_title">اتصال دائم بالشبكة الافتراضية الخاصة</string>
   <string name="preference_navigate_to_vpn_setting_summary">اذهب الى اعدادات النظام للسماح بوضعية تشغيل دائم لتفنية VPN.</string>
+  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
   <!--Kin onboarding prompt positive button label.-->
