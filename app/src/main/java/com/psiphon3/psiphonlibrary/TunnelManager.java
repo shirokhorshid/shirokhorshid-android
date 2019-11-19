@@ -1309,7 +1309,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_tunnelConnectedBehaviorRelay.accept(Boolean.FALSE);
+                m_tunnelConnectedBehaviorRelay.accept(false);
                 DataTransferStats.getDataTransferStatsForService().stop();
                 m_tunnelState.homePages.clear();
 
@@ -1334,7 +1334,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
                 MyLog.v(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
 
-                m_tunnelConnectedBehaviorRelay.accept(Boolean.TRUE);
+                m_tunnelConnectedBehaviorRelay.accept(true);
                 // Stop the runnable for get help connecting once connected
                 cancelGetHelpConnecting();
             }
