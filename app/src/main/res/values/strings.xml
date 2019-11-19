@@ -71,4 +71,12 @@
     <string name="notification_title_action_required">Action required!</string>
     <!-- Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app. -->
     <string name="notification_text_open_psiphon_to_finish_connecting">Please open Psiphon to finish connecting.</string>
+    <!-- "Selected region is not available" notification title -->
+    <string name="notification_title_region_not_available">Selected region is not available</string>
+    <!-- Message shown in notification informing the user that selected region is not currently available -->
+    <string name="notification_text_region_not_available">Please open Psiphon and select another region.</string>
+    <!-- "VPN stopped" notification title -->
+    <string name="notification_title_vpn_revoked">Psiphon VPN has stopped</string>
+    <!-- Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user -->
+    <string name="notification_text_vpn_revoked">Psiphon VPN has been disconnected by you or by another app.</string>
 </resources>

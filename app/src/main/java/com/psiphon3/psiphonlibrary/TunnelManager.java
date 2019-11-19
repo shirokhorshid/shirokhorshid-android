@@ -207,10 +207,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private String m_lastUpstreamProxyErrorMessage;
     private Handler m_Handler = new Handler();
 
-    private PendingIntent m_handshakePendingIntent;
     private PendingIntent m_notificationPendingIntent;
-    private PendingIntent m_regionNotAvailablePendingIntent;
-    private PendingIntent m_vpnRevokedPendingIntent;
 
     private BehaviorRelay<Boolean> m_tunnelConnectedBehaviorRelay = BehaviorRelay.create();
     private PublishRelay<Object> m_newClientPublishRelay = PublishRelay.create();
@@ -229,14 +226,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     void onCreate() {
-        // At this point we've got application context, now we can initialize pending intents.
-        m_handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE);
-
         m_notificationPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VIEW);
-
-        m_regionNotAvailablePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE);
-
-        m_vpnRevokedPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VPN_REVOKED);
 
         if (mNotificationManager == null) {
             mNotificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
@@ -374,13 +364,30 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         MyLog.w(R.string.vpn_service_revoked, MyLog.Sensitivity.NOT_SENSITIVE);
 
         stopAndWaitForTunnel();
-
-        // Foreground client activity with the vpnRevokedPendingIntent in order to notify user.
-        try {
-            m_vpnRevokedPendingIntent.send(
-                    m_parentService, 0, null);
-        } catch (PendingIntent.CanceledException e) {
-            MyLog.g(String.format("vpnRevokedPendingIntent failed: %s", e.getMessage()));
+        PendingIntent vpnRevokedPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VPN_REVOKED);
+        // Try and foreground client activity with the vpnRevokedPendingIntent in order to notify user.
+        // If Android < 10 or there is a live client then send the intent right away,
+        // otherwise show a notification.
+        if (Build.VERSION.SDK_INT < 29 || sendClientMessage(ServiceToClientMessage.PING.ordinal(), null)) {
+            try {
+                vpnRevokedPendingIntent.send(m_parentService, 0, null);
+            } catch (PendingIntent.CanceledException e) {
+                MyLog.g(String.format("vpnRevokedPendingIntent failed: %s", e.getMessage()));
+            }
+        } else {
+            if (mNotificationBuilder == null || mNotificationManager == null) {
+                return;
+            }
+            mNotificationBuilder
+                    .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                    .setContentTitle(getContext().getString(R.string.notification_title_vpn_revoked))
+                    .setContentText(getContext().getString(R.string.notification_text_vpn_revoked))
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(getContext().getString(R.string.notification_text_vpn_revoked)))
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel(true)
+                    .setContentIntent(vpnRevokedPendingIntent);
+            mNotificationManager.notify(R.id.notification_id_vpn_revoked, mNotificationBuilder.build());
         }
     }
 
@@ -732,9 +739,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private void sendHandshakeIntent() {
         Intent fillInExtras = new Intent();
         fillInExtras.putExtras(getTunnelStateBundle());
+        PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE);
         try {
-            m_handshakePendingIntent.send(
-                    m_parentService, 0, fillInExtras);
+            handshakePendingIntent.send(m_parentService, 0, fillInExtras);
         } catch (PendingIntent.CanceledException e) {
             MyLog.g(String.format("sendHandshakeIntent failed: %s", e.getMessage()));
         }
@@ -1201,13 +1208,31 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     // Send REGION_NOT_AVAILABLE intent,
                     // Activity intent handler will show "Region not available" toast and populate
                     // the region selector with new available regions
-                    try {
-                        m_regionNotAvailablePendingIntent.send(
-                                m_parentService, 0, null);
-                    } catch (PendingIntent.CanceledException e) {
-                        MyLog.g(String.format("regionNotAvailablePendingIntent failed: %s", e.getMessage()));
-                    }
+                    PendingIntent regionNotAvailablePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE);
 
+                    // If Android < 10 or there is a live client then send the intent right away,
+                    // otherwise show a notification.
+                    if (Build.VERSION.SDK_INT < 29 || sendClientMessage(ServiceToClientMessage.PING.ordinal(), null)) {
+                        try {
+                            regionNotAvailablePendingIntent.send(m_parentService, 0, null);
+                        } catch (PendingIntent.CanceledException e) {
+                            MyLog.g(String.format("regionNotAvailablePendingIntent failed: %s", e.getMessage()));
+                        }
+                    } else {
+                        if (mNotificationBuilder == null || mNotificationManager == null) {
+                            return;
+                        }
+                        mNotificationBuilder
+                                .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setContentTitle(getContext().getString(R.string.notification_title_region_not_available))
+                                .setContentText(getContext().getString(R.string.notification_text_region_not_available))
+                                .setStyle(new NotificationCompat.BigTextStyle()
+                                        .bigText(getContext().getString(R.string.notification_text_region_not_available)))
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setAutoCancel(true)
+                                .setContentIntent(regionNotAvailablePendingIntent);
+                        mNotificationManager.notify(R.id.notification_id_region_not_available, mNotificationBuilder.build());
+                    }
                 }
                 // Notify activity so it has a chance to update region selector values
                 sendClientMessage(ServiceToClientMessage.KNOWN_SERVER_REGIONS.ordinal(), null);
