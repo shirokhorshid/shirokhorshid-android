@@ -180,9 +180,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             final Context context = getContext();
             PendingIntent pendingIntent = getPendingIntent(context, ACTION_SHOW_GET_HELP_DIALOG);
             Notification notification = new NotificationCompat.Builder(context)
-                    .setSmallIcon(R.drawable.notification_icon_connecting_01)
+                    .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                     .setContentTitle(context.getString(R.string.get_help_connecting_notification_title))
                     .setContentText(context.getString(R.string.get_help_connecting_notification_message))
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(getContext().getString(R.string.get_help_connecting_notification_message)))
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setContentIntent(pendingIntent)
                     .build();
 
