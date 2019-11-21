@@ -1368,6 +1368,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     @Override
     public void onClientUpgradeDownloaded(String filename) {
+        m_Handler.post(new Runnable() {
+            @Override
+            public void run() {
+                UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext());
+            }
+        });
     }
 
     @Override
