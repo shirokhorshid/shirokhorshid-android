@@ -1,3 +1,22 @@
+/*
+ * Copyright (c) 2019, Psiphon Inc.
+ * All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package com.psiphon3.psiphonlibrary;
 
 import android.app.ActivityManager;
@@ -90,9 +109,9 @@ public class TunnelServiceInteractor {
         }
     }
 
-    public void startTunnelService(Context context, TunnelManager.Config tunnelConfig) {
+    public void startTunnelService(Context context, boolean wantVPN) {
         tunnelStateRelay.accept(TunnelState.unknown());
-        Intent intent = getServiceIntent(context, tunnelConfig);
+        Intent intent = getServiceIntent(context, wantVPN);
         context.startService(intent);
         // Send tunnel starting service broadcast to all instances so they all bind
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(SERVICE_STARTING_BROADCAST_INTENT));
@@ -103,7 +122,7 @@ public class TunnelServiceInteractor {
         sendServiceMessage(TunnelManager.ClientToServiceMessage.STOP_SERVICE.ordinal(), null);
     }
 
-    public void scheduleRunningTunnelServiceRestart(Context context, TunnelManager.Config tunnelConfig) {
+    public void scheduleRunningTunnelServiceRestart(Context context, boolean wantVPN) {
         String runningService = getRunningService(context);
         if (runningService == null) {
             // There is no running service, do nothing.
@@ -114,11 +133,11 @@ public class TunnelServiceInteractor {
         // if in WDM mode) internally via TunnelManager.onRestartCommand without stopping the service.
         // If the WDM preference has changed we will message the service to stop self, wait for it to
         // stop and then start a brand new service via checkRestartTunnel on a timer.
-        if ((tunnelConfig.wholeDevice && isVpnService(runningService))
-                || (!tunnelConfig.wholeDevice && runningService.equals(TunnelService.class.getName()))) {
-            commandTunnelRestart(getServiceIntent(context, tunnelConfig).getExtras());
+        if ((wantVPN && isVpnService(runningService))
+                || (!wantVPN && runningService.equals(TunnelService.class.getName()))) {
+            commandTunnelRestart();
         } else {
-            scheduleCompleteServiceRestart(context, tunnelConfig);
+            scheduleCompleteServiceRestart(context, wantVPN);
         }
     }
 
@@ -171,18 +190,18 @@ public class TunnelServiceInteractor {
         return Utils.hasVpnService() && TunnelVpnService.class.getName().equals(className);
     }
 
-    private void commandTunnelRestart(Bundle data) {
-        sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), data);
+    private void commandTunnelRestart() {
+        sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), null);
     }
 
-    private void scheduleCompleteServiceRestart(Context context, TunnelManager.Config tunnelConfig) {
+    private void scheduleCompleteServiceRestart(Context context, boolean wantVPN) {
         if (restartServiceDisposable != null && !restartServiceDisposable.isDisposed()) {
             // call in progress, do nothing
             return;
         }
         // Start observing service connection for disconnected message then command service stop.
         restartServiceDisposable = serviceBindingFactory.getMessengerObservable()
-                .doOnComplete(() -> startTunnelService(context, tunnelConfig))
+                .doOnComplete(() -> startTunnelService(context, wantVPN))
                 .subscribe();
         stopTunnelService();
     }
@@ -200,14 +219,9 @@ public class TunnelServiceInteractor {
         sendServiceMessage(TunnelManager.ClientToServiceMessage.SET_LANGUAGE.ordinal(), data);
     }
 
-    private Intent getServiceIntent(Context context, TunnelManager.Config tunnelConfig) {
-        Intent intent = tunnelConfig.wholeDevice && Utils.hasVpnService() ?
+    private Intent getServiceIntent(Context context, boolean wantVPN) {
+        Intent intent = wantVPN && Utils.hasVpnService() ?
                 getVpnServiceIntent(context) : new Intent(context, TunnelService.class);
-        // Indicate that the user triggered this start request
-        intent.putExtra(TunnelVpnService.USER_STARTED_INTENT_FLAG, true);
-        intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_WHOLE_DEVICE, tunnelConfig.wholeDevice);
-        intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_EGRESS_REGION, tunnelConfig.egressRegion);
-        intent.putExtra(TunnelManager.DATA_TUNNEL_CONFIG_DISABLE_TIMEOUTS, tunnelConfig.disableTimeouts);
         return intent;
     }
 
