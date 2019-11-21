@@ -1377,10 +1377,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     @Override
-    public void onClientIsLatestVersion() {
-    }
-
-    @Override
     public void onSplitTunnelRegion(final String region) {
         m_Handler.post(new Runnable() {
             @Override
@@ -1426,13 +1422,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
         });
     }
-
-    @Override
-    public void onExiting() {
-    }
-
-    @Override
-    public void onActiveAuthorizationIDs(List<String> authorizations) {}
 
     @Override
     public void onStoppedWaitingForNetworkConnectivity() {
