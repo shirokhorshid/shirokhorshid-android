@@ -257,13 +257,14 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             MyLog.v(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
             m_firstStart = false;
             m_tunnelThreadStopSignal = new CountDownLatch(1);
-            getTunnelConfigSingle()
-                    .doOnSuccess(config -> {
-                        setTunnelConfig(config);
-                        m_tunnelThread = new Thread(this::runTunnel);
-                        m_tunnelThread.start();
-                    })
-                    .subscribe();
+            m_compositeDisposable.add(
+                    getTunnelConfigSingle()
+                            .doOnSuccess(config -> {
+                                setTunnelConfig(config);
+                                m_tunnelThread = new Thread(this::runTunnel);
+                                m_tunnelThread.start();
+                            })
+                            .subscribe());
         }
         return Service.START_REDELIVER_INTENT;
     }
@@ -586,6 +587,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         manager.updateNotifications();
                     }
                     break;
+
                 case REGISTER:
                     if(manager != null) {
                         Messenger client = msg.replyTo;
@@ -613,11 +615,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         manager.m_newClientPublishRelay.accept(new Object());
                     }
                     break;
+
                 case UNREGISTER:
                     if(manager != null) {
                         manager.mClients.remove(msg.replyTo);
                     }
                     break;
+
                 case STOP_SERVICE:
                     if (manager != null) {
                         // Do not send any more messages after a stop was commanded.
@@ -627,17 +631,18 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         manager.signalStopService();
                     }
                     break;
+
                 case RESTART_SERVICE:
                     if (manager != null) {
-                            manager.getTunnelConfigSingle()
-                                    .doOnSuccess(config -> {
-                                        manager.setTunnelConfig(config);
-                                        manager.onRestartCommand();
-                                    })
-                                    .subscribe();
+                        manager.m_compositeDisposable.add(
+                                manager.getTunnelConfigSingle()
+                                        .doOnSuccess(config -> {
+                                            manager.setTunnelConfig(config);
+                                            manager.onRestartCommand();
+                                        })
+                                        .subscribe());
                     }
                     break;
-
 
                 case NFC_CONNECTION_INFO_EXCHANGE_IMPORT:
                     if (manager != null) {
