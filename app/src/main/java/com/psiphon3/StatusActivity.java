@@ -48,7 +48,6 @@ import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
 import com.psiphon3.psiphonlibrary.Utils;
 
-import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
 import java.io.File;
@@ -287,9 +286,8 @@ public class StatusActivity
         // If the user hasn't set a whole-device-tunnel preference, show a prompt
         // (and delay starting the tunnel service until the prompt is completed)
         boolean hasPreference;
-        AppPreferences mpPreferences = new AppPreferences(this);
         try {
-            mpPreferences.getBoolean(getString(R.string.tunnelWholeDevicePreference));
+            m_multiProcessPreferences.getBoolean(getString(R.string.tunnelWholeDevicePreference));
             hasPreference = true;
         } catch (ItemNotFoundException e) {
             hasPreference = false;
@@ -364,7 +362,11 @@ public class StatusActivity
     @Override
     public void displayBrowser(Context context, String urlString) {
         try {
-            if (getTunnelConfigWholeDevice()) {
+            boolean wantVPN = m_multiProcessPreferences
+                    .getBoolean(getString(R.string.tunnelWholeDevicePreference),
+                            false);
+
+            if (wantVPN && Utils.hasVpnService()) {
                 // TODO: support multiple home pages in whole device mode. This is
                 // disabled due to the case where users haven't set a default browser
                 // and will get the prompt once per home page.
