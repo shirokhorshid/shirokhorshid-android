@@ -146,7 +146,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         String sponsorId = EmbeddedValues.SPONSOR_ID;
     }
 
-    private Config m_tunnelConfig = new Config();
+    private Config m_tunnelConfig;
+
+    private void setTunnelConfig(Config config) {
+        m_tunnelConfig = config;
+    }
 
     // Shared tunnel state, sent to the client in the HANDSHAKE
     // intent and in the MSG_TUNNEL_CONNECTION_STATE service message.
@@ -250,12 +254,16 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Implementation of android.app.Service.onStartCommand
     int onStartCommand(Intent intent, int flags, int startId) {
         if (m_firstStart) {
-            getTunnelConfig();
             MyLog.v(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
             m_firstStart = false;
             m_tunnelThreadStopSignal = new CountDownLatch(1);
-            m_tunnelThread = new Thread(this::runTunnel);
-            m_tunnelThread.start();
+            getTunnelConfigSingle()
+                    .doOnSuccess(config -> {
+                        setTunnelConfig(config);
+                        m_tunnelThread = new Thread(this::runTunnel);
+                        m_tunnelThread.start();
+                    })
+                    .subscribe();
         }
         return Service.START_REDELIVER_INTENT;
     }
@@ -444,21 +452,24 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    private void getTunnelConfig() {
-        final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
+    private Single<Config> getTunnelConfigSingle() {
+        Single<Config> configSingle = Single.fromCallable(() -> {
+            final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
+            Config tunnelConfig = new Config();
+            tunnelConfig.wholeDevice = Utils.hasVpnService() &&
+                    multiProcessPreferences
+                            .getBoolean(getContext().getString(R.string.tunnelWholeDevicePreference),
+                                    false);
+            tunnelConfig.egressRegion = multiProcessPreferences
+                    .getString(getContext().getString(R.string.egressRegionPreference),
+                            PsiphonConstants.REGION_CODE_ANY);
+            tunnelConfig.disableTimeouts = multiProcessPreferences
+                    .getBoolean(getContext().getString(R.string.disableTimeoutsPreference),
+                            false);
+            return tunnelConfig;
+        });
 
-        m_tunnelConfig.wholeDevice = Utils.hasVpnService() &&
-                multiProcessPreferences
-                        .getBoolean(getContext().getString(R.string.tunnelWholeDevicePreference),
-                                false);
-
-        m_tunnelConfig.egressRegion = multiProcessPreferences
-                .getString(getContext().getString(R.string.egressRegionPreference),
-                        PsiphonConstants.REGION_CODE_ANY);
-
-        m_tunnelConfig.disableTimeouts = multiProcessPreferences
-                .getBoolean(getContext().getString(R.string.disableTimeoutsPreference),
-                        false);
+        return configSingle;
     }
 
     private Notification createNotification(boolean alert, boolean isConnected, boolean isVPN) {
@@ -618,8 +629,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     break;
                 case RESTART_SERVICE:
                     if (manager != null) {
-                            manager.getTunnelConfig();
-                            manager.onRestartCommand();
+                            manager.getTunnelConfigSingle()
+                                    .doOnSuccess(config -> {
+                                        manager.setTunnelConfig(config);
+                                        manager.onRestartCommand();
+                                    })
+                                    .subscribe();
                     }
                     break;
 
