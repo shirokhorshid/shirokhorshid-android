@@ -878,7 +878,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_tunnelConnectedBehaviorRelay.accept(false);
 
         // Notify if an upgrade has already been downloaded and is waiting for install
-        UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext());
+        UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext(), PsiphonTunnel.getDefaultUpgradeDownloadFilePath(getContext()));
 
         MyLog.v(R.string.current_network_type, MyLog.Sensitivity.NOT_SENSITIVE, Utils.getNetworkTypeName(m_parentService));
 
@@ -1116,10 +1116,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 json.put("UpgradeDownloadURLs", new JSONArray(EmbeddedValues.UPGRADE_URLS_JSON));
 
                 json.put("UpgradeDownloadClientVersionHeader", "x-amz-meta-psiphon-client-version");
-
-                json.put("UpgradeDownloadFilename",
-                        new UpgradeManager.DownloadedUpgradeFile(context).getFullPath());
             }
+
+            json.put("MigrateUpgradeDownloadFilename",
+                    new UpgradeManager.OldDownloadedUpgradeFile(context).getFullPath());
 
             json.put("PropagationChannelId", EmbeddedValues.PROPAGATION_CHANNEL_ID);
 
@@ -1154,19 +1154,17 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 // On Android, these directories must be set to the app private storage area.
                 // The Psiphon library won't be able to use its current working directory
                 // and the standard temporary directories do not exist.
-                json.put("DataStoreDirectory", tempTunnelDir.getAbsolutePath());
+                json.put("DataRootDirectory", tempTunnelDir.getAbsolutePath());
+
+                json.put("MigrateDataStoreDirectory", tempTunnelDir.getAbsolutePath());
 
                 File remoteServerListDownload = new File(tempTunnelDir, "remote_server_list");
-                json.put("RemoteServerListDownloadFilename", remoteServerListDownload.getAbsolutePath());
+                json.put("MigrateRemoteServerListDownloadFilename", remoteServerListDownload.getAbsolutePath());
 
                 File oslDownloadDir = new File(tempTunnelDir, "osl");
-                if (!oslDownloadDir.exists()
-                        && !oslDownloadDir.mkdirs()) {
-                    // Failed to create osl directory
-                    // TODO: proceed anyway?
-                    return null;
+                if (oslDownloadDir.exists()) {
+                    json.put("MigrateObfuscatedServerListDownloadDirectory", oslDownloadDir.getAbsolutePath());
                 }
-                json.put("ObfuscatedServerListDownloadDirectory", oslDownloadDir.getAbsolutePath());
 
                 // This number is an arbitrary guess at what might be the "best" balance between
                 // wake-lock-battery-burning and successful upgrade downloading.
@@ -1401,7 +1399,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext());
+                UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext(), filename);
             }
         });
     }
