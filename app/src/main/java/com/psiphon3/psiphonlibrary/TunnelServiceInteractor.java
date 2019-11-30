@@ -213,10 +213,6 @@ public class TunnelServiceInteractor {
                 .doOnComplete(() -> dataStatsRelay.accept(Boolean.FALSE))
                 .subscribe();
         sendServiceMessage(TunnelManager.ClientToServiceMessage.REGISTER.ordinal(), null);
-        LocaleManager localeManager = LocaleManager.getInstance(context);
-        Bundle data = new Bundle();
-        data.putString(TunnelManager.EXTRA_LANGUAGE_CODE, localeManager.getLanguage());
-        sendServiceMessage(TunnelManager.ClientToServiceMessage.SET_LANGUAGE.ordinal(), data);
     }
 
     private Intent getServiceIntent(Context context, boolean wantVPN) {
