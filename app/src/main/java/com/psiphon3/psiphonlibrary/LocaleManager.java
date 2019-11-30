@@ -146,7 +146,7 @@ public class LocaleManager {
         @Override
         public Context getApplicationContext() {
             Context appCtx = super.getApplicationContext();
-            return appCtx != null ? appCtx : new ApplicationContextWrapper(super.getBaseContext());
+            return appCtx != null ? appCtx : this;
         }
     }
 }
