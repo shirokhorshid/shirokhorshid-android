@@ -112,9 +112,14 @@ public class TunnelServiceInteractor {
     public void startTunnelService(Context context, boolean wantVPN) {
         tunnelStateRelay.accept(TunnelState.unknown());
         Intent intent = getServiceIntent(context, wantVPN);
-        context.startService(intent);
-        // Send tunnel starting service broadcast to all instances so they all bind
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(SERVICE_STARTING_BROADCAST_INTENT));
+        try {
+            context.startService(intent);
+            // Send tunnel starting service broadcast to all instances so they all bind
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(SERVICE_STARTING_BROADCAST_INTENT));
+        } catch (SecurityException | IllegalStateException e) {
+            Utils.MyLog.g("startTunnelService failed with error: " + e);
+            tunnelStateRelay.accept(TunnelState.stopped());
+        }
     }
 
     public void stopTunnelService() {
