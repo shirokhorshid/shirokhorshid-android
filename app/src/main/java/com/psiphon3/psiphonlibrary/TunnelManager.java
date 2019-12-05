@@ -764,7 +764,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private Bundle getTunnelStateBundle() {
         // Update with the latest sponsorId from the tunnel config
-        m_tunnelState.sponsorId = m_tunnelConfig.sponsorId;
+        m_tunnelState.sponsorId = m_tunnelConfig != null ? m_tunnelConfig.sponsorId : "";
 
         Bundle data = new Bundle();
         data.putBoolean(DATA_TUNNEL_STATE_IS_RUNNING, m_tunnelState.isRunning);
