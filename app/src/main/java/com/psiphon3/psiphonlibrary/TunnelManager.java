@@ -92,6 +92,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         NFC_CONNECTION_INFO_EXCHANGE_EXPORT,
         NFC_CONNECTION_INFO_EXCHANGE_IMPORT,
     }
+
     // Service -> Client
     enum ServiceToClientMessage {
         KNOWN_SERVER_REGIONS,
@@ -281,7 +282,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         return Single.just(isConnected);
                     }
                     // If this is a reconnect return immediately
-                    if(m_isReconnect.get()) {
+                    if (m_isReconnect.get()) {
                         return Single.just(isConnected);
                     }
                     // If there are no home pages to show return immediately
@@ -305,22 +306,22 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                             .map(__ -> isConnected)
                             .firstOrError()
                             // Show "Open Psiphon" notification when subscribed to
-                            .doOnSubscribe(__-> showOpenAppToFinishConnectingNotification())
+                            .doOnSubscribe(__ -> showOpenAppToFinishConnectingNotification())
                             // Cancel "Open Psiphon to keep connecting" when completed or disposed
                             .doFinally(() -> cancelOpenAppToFinishConnectingNotification());
                 })
                 .doOnNext(isConnected -> {
                     m_tunnelState.isConnected = isConnected;
                     // Any subsequent onConnected after this first one will be a reconnect.
-                    if(isConnected && m_isReconnect.compareAndSet(false,true)) {
+                    if (isConnected && m_isReconnect.compareAndSet(false, true)) {
                         m_tunnel.routeThroughTunnel();
-                        if(m_tunnelState.homePages != null && m_tunnelState.homePages.size() > 0) {
+                        if (m_tunnelState.homePages != null && m_tunnelState.homePages.size() > 0) {
                             sendHandshakeIntent();
                         }
                     }
                     sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
                     // Don't update notification to CONNECTING, etc., when a stop was commanded.
-                    if(!m_isStopping.get()) {
+                    if (!m_isStopping.get()) {
                         // We expect only distinct connection status from connectionObservable
                         // which means we always add a sound / vibration alert to the notification
                         postServiceNotification(true, isConnected);
@@ -517,6 +518,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     /**
      * Update the context used to get resources with the passed context
+     *
      * @param context the new context to use for resources
      */
     void updateContext(Context context) {
@@ -570,9 +572,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             TunnelManager manager = mTunnelManager.get();
             switch (csm[msg.what]) {
                 case REGISTER:
-                    if(manager != null) {
+                    if (manager != null) {
                         Messenger client = msg.replyTo;
-                        if(client == null) {
+                        if (client == null) {
                             MyLog.d("Error registering a client: client's messenger is null.");
                             return;
                         }
@@ -584,7 +586,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                                 manager.getTunnelStateBundle()));
                         messageList.add(manager.composeClientMessage(ServiceToClientMessage.DATA_TRANSFER_STATS.ordinal(),
                                 manager.getDataTransferStatsBundle()));
-                        for(Message message : messageList) {
+                        for (Message message : messageList) {
                             try {
                                 client.send(message);
                             } catch (RemoteException e) {
@@ -601,7 +603,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     break;
 
                 case UNREGISTER:
-                    if(manager != null) {
+                    if (manager != null) {
                         manager.mClients.remove(msg.replyTo);
                     }
                     break;
@@ -928,7 +930,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             public void run() {
                 m_isReconnect.set(false);
                 try {
-                    if(Utils.hasVpnService()
+                    if (Utils.hasVpnService()
                             && m_parentService instanceof TunnelVpnService
                             && m_tunnelConfig.wholeDevice) {
                         Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
