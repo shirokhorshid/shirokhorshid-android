@@ -75,6 +75,7 @@ public class RegionAdapter extends ArrayAdapter<String>
         regions.put("NO", new Region("NO", R.string.region_name_no, R.drawable.flag_no));
         regions.put("PL", new Region("PL", R.string.region_name_pl, R.drawable.flag_pl));
         regions.put("RO", new Region("RO", R.string.region_name_ro, R.drawable.flag_ro));
+        regions.put("RS", new Region("RS", R.string.region_name_rs, R.drawable.flag_rs));
         regions.put("SE", new Region("SE", R.string.region_name_se, R.drawable.flag_se));
         regions.put("SG", new Region("SG", R.string.region_name_sg, R.drawable.flag_sg));
         regions.put("SK", new Region("SK", R.string.region_name_sk, R.drawable.flag_sk));
