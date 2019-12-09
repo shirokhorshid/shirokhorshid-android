@@ -99,7 +99,9 @@ public class StatusActivity
     }
 
     private boolean shouldAutoStart() {
-        return m_firstRun && !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
+        return m_firstRun &&
+                !tunnelServiceInteractor.isServiceRunning(getApplicationContext()) &&
+                !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
     }
 
     private void setUpBanner() {

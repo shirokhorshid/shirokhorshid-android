@@ -167,7 +167,7 @@ public abstract class MainBase {
         private Button m_openBrowserButton;
         private LoggingObserver m_loggingObserver;
         private CompositeDisposable compositeDisposable = new CompositeDisposable();
-        private TunnelServiceInteractor tunnelServiceInteractor;
+        protected TunnelServiceInteractor tunnelServiceInteractor;
         private Disposable handleNfcIntentDisposable;
 
         public TabbedActivityBase() {
