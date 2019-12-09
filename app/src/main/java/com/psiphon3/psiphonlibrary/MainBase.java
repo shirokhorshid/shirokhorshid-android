@@ -565,6 +565,8 @@ public abstract class MainBase {
                     tunnelServiceInteractor.tunnelStateFlowable()
                             // Update app UI state
                             .doOnNext(state -> runOnUiThread(() -> updateServiceStateUI(state)))
+                            // update WebView proxy settings
+                            .doOnNext(this::updateWebViewProxySettings)
                             .map(state -> {
                                 if (state.isRunning()) {
                                     if (state.connectionData().isConnected()) {
@@ -601,6 +603,32 @@ public abstract class MainBase {
                     })
                     .subscribe()
             );
+        }
+
+        private void updateWebViewProxySettings(TunnelState state) {
+            if(state.isUnknown()) {
+                // do nothing
+                return;
+            }
+            if(state.isRunning()) {
+                if (state.connectionData().vpnMode()) {
+                    // We're running in WDM
+                    if(WebViewProxySettings.isLocalProxySet()){
+                        WebViewProxySettings.resetLocalProxy(getContext());
+                    }
+                } else {
+                    // We're running in BOM
+                    int httpPort = state.connectionData().httpPort();
+                    if(httpPort > 0) {
+                        WebViewProxySettings.setLocalProxy(getContext(), state.connectionData().httpPort());
+                    }
+                }
+            } else {
+                // Not running, reset
+                if(WebViewProxySettings.isLocalProxySet()){
+                    WebViewProxySettings.resetLocalProxy(getContext());
+                }
+            }
         }
 
         private enum ConnectionHelpState {
@@ -724,6 +752,7 @@ public abstract class MainBase {
                 m_sponsorHomePage.stop();
                 m_sponsorHomePage = null;
             }
+            compositeDisposable.dispose();
         }
 
         @Override
