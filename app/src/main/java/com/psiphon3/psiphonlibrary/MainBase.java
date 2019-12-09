@@ -606,26 +606,26 @@ public abstract class MainBase {
         }
 
         private void updateWebViewProxySettings(TunnelState state) {
-            if(state.isUnknown()) {
+            if (state.isUnknown()) {
                 // do nothing
                 return;
             }
-            if(state.isRunning()) {
+            if (state.isRunning()) {
                 if (state.connectionData().vpnMode()) {
                     // We're running in WDM
-                    if(WebViewProxySettings.isLocalProxySet()){
+                    if (WebViewProxySettings.isLocalProxySet()) {
                         WebViewProxySettings.resetLocalProxy(getContext());
                     }
                 } else {
                     // We're running in BOM
                     int httpPort = state.connectionData().httpPort();
-                    if(httpPort > 0) {
+                    if (httpPort > 0) {
                         WebViewProxySettings.setLocalProxy(getContext(), state.connectionData().httpPort());
                     }
                 }
             } else {
                 // Not running, reset
-                if(WebViewProxySettings.isLocalProxySet()){
+                if (WebViewProxySettings.isLocalProxySet()) {
                     WebViewProxySettings.resetLocalProxy(getContext());
                 }
             }
