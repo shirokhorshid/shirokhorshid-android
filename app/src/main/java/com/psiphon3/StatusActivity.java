@@ -60,8 +60,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StatusActivity
-    extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase
-{
+        extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase {
     public static final String BANNER_FILE_NAME = "bannerImage";
     public static final String ACTION_SHOW_GET_HELP_DIALOG = "com.psiphon3.StatusActivity.SHOW_GET_HELP_CONNECTING_DIALOG";
 
@@ -85,13 +84,19 @@ public class StatusActivity
 
         setUpBanner();
 
-        // Auto-start on app first run
-        if (shouldAutoStart()) {
-            preventAutoStart();
-            startUp();
-        }
-
         HandleCurrentIntent();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isFirstRun", m_firstRun);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        m_firstRun = savedInstanceState.getBoolean("isFirstRun");
     }
 
     private void preventAutoStart() {
@@ -102,6 +107,16 @@ public class StatusActivity
         return m_firstRun &&
                 !tunnelServiceInteractor.isServiceRunning(getApplicationContext()) &&
                 !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Auto-start on app first run
+        if (shouldAutoStart()) {
+            preventAutoStart();
+            startUp();
+        }
     }
 
     private void setUpBanner() {
