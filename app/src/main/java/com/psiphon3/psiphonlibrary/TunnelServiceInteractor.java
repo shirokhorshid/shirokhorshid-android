@@ -37,7 +37,10 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
 import com.jakewharton.rxrelay2.Relay;
+import com.psiphon3.R;
 import com.psiphon3.TunnelState;
+
+import net.grandcentrix.tray.AppPreferences;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -127,7 +130,7 @@ public class TunnelServiceInteractor {
         sendServiceMessage(TunnelManager.ClientToServiceMessage.STOP_SERVICE.ordinal(), null);
     }
 
-    public void scheduleRunningTunnelServiceRestart(Context context, boolean wantVPN) {
+    public void scheduleRunningTunnelServiceRestart(Context context, Runnable startServiceRunnable) {
         String runningService = getRunningService(context);
         if (runningService == null) {
             // There is no running service, do nothing.
@@ -138,11 +141,13 @@ public class TunnelServiceInteractor {
         // if in WDM mode) internally via TunnelManager.onRestartCommand without stopping the service.
         // If the WDM preference has changed we will message the service to stop self, wait for it to
         // stop and then start a brand new service via checkRestartTunnel on a timer.
+        AppPreferences appPreferences = new AppPreferences(context);
+        boolean wantVPN = appPreferences.getBoolean(context.getString(R.string.tunnelWholeDevicePreference), false);
         if ((wantVPN && isVpnService(runningService))
                 || (!wantVPN && runningService.equals(TunnelService.class.getName()))) {
             commandTunnelRestart();
         } else {
-            scheduleCompleteServiceRestart(context, wantVPN);
+            scheduleCompleteServiceRestart(startServiceRunnable);
         }
     }
 
@@ -199,14 +204,14 @@ public class TunnelServiceInteractor {
         sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), null);
     }
 
-    private void scheduleCompleteServiceRestart(Context context, boolean wantVPN) {
+    private void scheduleCompleteServiceRestart(Runnable startServiceRunnable) {
         if (restartServiceDisposable != null && !restartServiceDisposable.isDisposed()) {
             // call in progress, do nothing
             return;
         }
         // Start observing service connection for disconnected message then command service stop.
         restartServiceDisposable = serviceBindingFactory.getMessengerObservable()
-                .doOnComplete(() -> startTunnelService(context, wantVPN))
+                .doOnComplete(startServiceRunnable::run)
                 .subscribe();
         stopTunnelService();
     }
