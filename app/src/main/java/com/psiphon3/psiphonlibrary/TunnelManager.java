@@ -107,6 +107,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final String INTENT_ACTION_HANDSHAKE = "com.psiphon3.psiphonlibrary.TunnelManager.HANDSHAKE";
     public static final String INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE = "com.psiphon3.psiphonlibrary.TunnelManager.SELECTED_REGION_NOT_AVAILABLE";
     public static final String INTENT_ACTION_VPN_REVOKED = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_VPN_REVOKED";
+    public static final String INTENT_ACTION_STOP_TUNNEL = "com.psiphon3.psiphonlibrary.TunnelManager.ACTION_STOP_TUNNEL";
 
     // Client -> Service bundle parameter names
     public static final String DATA_NFC_CONNECTION_INFO_EXCHANGE_IMPORT = "dataNfcConnectionInfoExchangeImport";
@@ -250,6 +251,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     // Implementation of android.app.Service.onStartCommand
     int onStartCommand(Intent intent, int flags, int startId) {
+        if (intent != null && INTENT_ACTION_STOP_TUNNEL.equals(intent.getAction())) {
+            signalStopService();
+            return Service.START_NOT_STICKY;
+        }
+
         if (m_firstStart) {
             MyLog.v(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
             m_firstStart = false;
@@ -504,6 +510,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
         }
 
+        Intent stopTunnelIntent = new Intent(getContext(), m_parentService.getClass());
+        stopTunnelIntent.setAction(INTENT_ACTION_STOP_TUNNEL);
+        PendingIntent stopTunnelPendingIntent = PendingIntent.getService(getContext(), 0, stopTunnelIntent, 0);
+
         mNotificationBuilder
                 .setSmallIcon(iconID)
                 .setContentTitle(getContext().getText(R.string.app_name))
@@ -511,7 +521,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(getContext().getText(contentTextID)))
                 .setTicker(ticker)
                 .setDefaults(defaults)
-                .setContentIntent(m_notificationPendingIntent);
+                .setContentIntent(m_notificationPendingIntent)
+                .addAction(R.drawable.status_icon_disconnected, getContext().getString(R.string.stop), stopTunnelPendingIntent);
 
         return mNotificationBuilder.build();
     }
