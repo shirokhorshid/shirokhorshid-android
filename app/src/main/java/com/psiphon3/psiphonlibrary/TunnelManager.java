@@ -167,7 +167,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private State m_tunnelState = new State();
 
     private NotificationManager mNotificationManager = null;
-    private NotificationCompat.Builder mNotificationBuilder = null;
     private Service m_parentService;
 
     private boolean mGetHelpConnectingRunnablePosted = false;
@@ -231,10 +230,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         if (mNotificationManager == null) {
             mNotificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        }
-
-        if (mNotificationBuilder == null) {
-            mNotificationBuilder = new NotificationCompat.Builder(getContext());
         }
 
         m_tunnelState.isVPN = m_parentService instanceof TunnelVpnService;
@@ -343,10 +338,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private void showOpenAppToFinishConnectingNotification() {
-        if (mNotificationBuilder == null || mNotificationManager == null) {
+        if (mNotificationManager == null) {
             return;
         }
-        mNotificationBuilder
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+        notificationBuilder
                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                 .setContentTitle(getContext().getString(R.string.notification_title_action_required))
                 .setContentText(getContext().getString(R.string.notification_text_open_psiphon_to_finish_connecting))
@@ -355,7 +352,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(m_notificationPendingIntent);
 
-        mNotificationManager.notify(R.id.notification_id_open_app_to_keep_connecting, mNotificationBuilder.build());
+        mNotificationManager.notify(R.id.notification_id_open_app_to_keep_connecting, notificationBuilder.build());
     }
 
     // Implementation of android.app.Service.onDestroy
@@ -388,10 +385,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 MyLog.g(String.format("vpnRevokedPendingIntent failed: %s", e.getMessage()));
             }
         } else {
-            if (mNotificationBuilder == null || mNotificationManager == null) {
+            if (mNotificationManager == null) {
                 return;
             }
-            mNotificationBuilder
+
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+            notificationBuilder
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                     .setContentTitle(getContext().getString(R.string.notification_title_vpn_revoked))
                     .setContentText(getContext().getString(R.string.notification_text_vpn_revoked))
@@ -400,7 +399,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setAutoCancel(true)
                     .setContentIntent(vpnRevokedPendingIntent);
-            mNotificationManager.notify(R.id.notification_id_vpn_revoked, mNotificationBuilder.build());
+            mNotificationManager.notify(R.id.notification_id_vpn_revoked, notificationBuilder.build());
         }
     }
 
@@ -514,7 +513,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         stopTunnelIntent.setAction(INTENT_ACTION_STOP_TUNNEL);
         PendingIntent stopTunnelPendingIntent = PendingIntent.getService(getContext(), 0, stopTunnelIntent, 0);
 
-        mNotificationBuilder
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+        return notificationBuilder
                 .setSmallIcon(iconID)
                 .setContentTitle(getContext().getText(R.string.app_name))
                 .setContentText(getContext().getText(contentTextID))
@@ -522,9 +522,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 .setTicker(ticker)
                 .setDefaults(defaults)
                 .setContentIntent(m_notificationPendingIntent)
-                .addAction(R.drawable.status_icon_disconnected, getContext().getString(R.string.stop), stopTunnelPendingIntent);
-
-        return mNotificationBuilder.build();
+                .addAction(R.drawable.status_icon_disconnected, getContext().getString(R.string.stop), stopTunnelPendingIntent)
+                .build();
     }
 
     /**
@@ -1242,10 +1241,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                             MyLog.g(String.format("regionNotAvailablePendingIntent failed: %s", e.getMessage()));
                         }
                     } else {
-                        if (mNotificationBuilder == null || mNotificationManager == null) {
+                        if (mNotificationManager == null) {
                             return;
                         }
-                        mNotificationBuilder
+
+                        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+                        notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                                 .setContentTitle(getContext().getString(R.string.notification_title_region_not_available))
                                 .setContentText(getContext().getString(R.string.notification_text_region_not_available))
@@ -1254,7 +1255,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                 .setAutoCancel(true)
                                 .setContentIntent(regionNotAvailablePendingIntent);
-                        mNotificationManager.notify(R.id.notification_id_region_not_available, mNotificationBuilder.build());
+                        mNotificationManager.notify(R.id.notification_id_region_not_available, notificationBuilder.build());
                     }
                 }
                 // Notify activity so it has a chance to update region selector values
