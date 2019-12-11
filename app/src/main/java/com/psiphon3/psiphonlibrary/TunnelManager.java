@@ -512,6 +512,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         Intent stopTunnelIntent = new Intent(getContext(), m_parentService.getClass());
         stopTunnelIntent.setAction(INTENT_ACTION_STOP_TUNNEL);
         PendingIntent stopTunnelPendingIntent = PendingIntent.getService(getContext(), 0, stopTunnelIntent, 0);
+        NotificationCompat.Action notificationAction = new NotificationCompat.Action.Builder(
+                        R.drawable.ic_btn_stop,
+                        getContext().getString(R.string.stop),
+                        stopTunnelPendingIntent)
+                .build();
+
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
         return notificationBuilder
@@ -522,7 +528,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 .setTicker(ticker)
                 .setDefaults(defaults)
                 .setContentIntent(m_notificationPendingIntent)
-                .addAction(R.drawable.status_icon_disconnected, getContext().getString(R.string.stop), stopTunnelPendingIntent)
+                .addAction(notificationAction)
                 .build();
     }
 
