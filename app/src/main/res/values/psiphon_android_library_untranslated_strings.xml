@@ -34,6 +34,8 @@
     <string name="preferencesDownloading">preferencesDownloading</string>
     <string name="downloadWifiOnlyPreference">downloadWifiOnlyPreference</string>
     <string name="disableTimeoutsPreference">disableTimeoutsPreference</string>
+    <string name="egressRegionPreference">egressRegionPreference</string>
+    <string name="tunnelWholeDevicePreference">tunnelWholeDevicePreference</string>
     <string name="moreOptionsPreferencesName">moreOptionsPreferencesName</string>
 
     <!-- When Psiphon disconnects it sends a one last ("final") status request. This message is shown if that request fails. -->
@@ -63,7 +65,6 @@
     <string name="upgrade_checker_tunnel_diagnostic_message">UpgradeCheckerService: tunnel diagnostic: %s</string>
 
     <string name="current_local_http_proxy_port">currentLocalHttpProxyPort</string>
-    <string name="status_activity_foreground">statusActivityForeground</string>
 
     <string-array name="languages">
         <item>English,en</item>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Psiphon Inc.
+ * Copyright (c) 2019, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -48,7 +48,6 @@ import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
 import com.psiphon3.psiphonlibrary.Utils;
 
-import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
 import java.io.File;
@@ -61,14 +60,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StatusActivity
-    extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase
-{
+        extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase {
     public static final String BANNER_FILE_NAME = "bannerImage";
     public static final String ACTION_SHOW_GET_HELP_DIALOG = "com.psiphon3.StatusActivity.SHOW_GET_HELP_CONNECTING_DIALOG";
 
     private ImageView m_banner;
     private boolean m_tunnelWholeDevicePromptShown = false;
-    private boolean m_loadedSponsorTab = false;
     private boolean m_firstRun = true;
 
     @Override
@@ -87,16 +84,19 @@ public class StatusActivity
 
         setUpBanner();
 
-        // Auto-start on app first run
-        if (shouldAutoStart()) {
-            preventAutoStart();
-            startUp();
-        }
-
-        m_loadedSponsorTab = false;
         HandleCurrentIntent();
+    }
 
-        restoreSponsorTab();
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isFirstRun", m_firstRun);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        m_firstRun = savedInstanceState.getBoolean("isFirstRun");
     }
 
     private void preventAutoStart() {
@@ -104,21 +104,19 @@ public class StatusActivity
     }
 
     private boolean shouldAutoStart() {
-        return m_firstRun && !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
+        return m_firstRun &&
+                !tunnelServiceInteractor.isServiceRunning(getApplicationContext()) &&
+                !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
     }
 
     @Override
-    protected void restoreSponsorTab() {
-        // HandleCurrentIntent() may have already loaded the sponsor tab
-        if (isTunnelConnected() && !m_loadedSponsorTab)
-        {
-            loadSponsorTab(false);
+    protected void onResume() {
+        super.onResume();
+        // Auto-start on app first run
+        if (shouldAutoStart()) {
+            preventAutoStart();
+            startUp();
         }
-    }
-
-    private void loadSponsorTab(boolean freshConnect)
-    {
-        resetSponsorHomePage(freshConnect);
     }
 
     private void setUpBanner() {
@@ -225,23 +223,22 @@ public class StatusActivity
         }
 
         if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_HANDSHAKE)) {
-            getTunnelStateFromHandshakeIntent(intent);
-
-            // OLD COMMENT:
-            // Show the home page. Always do this in browser-only mode, even
-            // after an automated reconnect -- since the status activity was
-            // brought to the front after an unexpected disconnect. In whole
-            // device mode, after an automated reconnect, we don't re-invoke
-            // the browser.
-            // UPDATED:
-            // We don't bring the status activity to the front after an
-            // unexpected disconnect in browser-only mode any more.
-            // Show the home page, unless this was an automatic reconnect,
-            // since the homepage should already be showing.
-            if (!intent.getBooleanExtra(TunnelManager.DATA_HANDSHAKE_IS_RECONNECT, false)) {
-                m_tabHost.setCurrentTabByTag("home");
-                loadSponsorTab(true);
-                m_loadedSponsorTab = true;
+            Bundle data = intent.getExtras();
+            if(data != null) {
+                ArrayList<String> homePages = data.getStringArrayList(TunnelManager.DATA_TUNNEL_STATE_HOME_PAGES);
+                if (homePages != null && homePages.size() > 0) {
+                    String url = homePages.get(0);
+                    // At this point we're showing the URL in either the embedded webview or in a browser.
+                    // Some URLs are excluded from being embedded as home pages.
+                    if(shouldLoadInEmbeddedWebView(url)) {
+                        // Reset m_loadedSponsorTab and switch to the home tab.
+                        // The embedded web view will get loaded by the updateServiceStateUI.
+                        m_loadedSponsorTab = false;
+                        m_tabHost.setCurrentTabByTag("home");
+                    } else {
+                        displayBrowser(this, url);
+                    }
+                }
             }
 
             // We only want to respond to the HANDSHAKE_SUCCESS action once,
@@ -286,11 +283,6 @@ public class StatusActivity
         doToggle();
     }
 
-    public void onOpenBrowserClick(View v)
-    {
-        displayBrowser(this, null);
-    }
-
     public void onGetHelpConnectingClick(View v) {
         showConnectionHelpDialog(this, R.layout.dialog_get_help_connecting);
     }
@@ -307,26 +299,18 @@ public class StatusActivity
     }
 
     @Override
-    protected void startUp()
-    {
+    protected void startUp() {
         // If the user hasn't set a whole-device-tunnel preference, show a prompt
         // (and delay starting the tunnel service until the prompt is completed)
-
         boolean hasPreference;
-        AppPreferences mpPreferences = new AppPreferences(this);
         try {
-            mpPreferences.getBoolean(TUNNEL_WHOLE_DEVICE_PREFERENCE);
+            m_multiProcessPreferences.getBoolean(getString(R.string.tunnelWholeDevicePreference));
             hasPreference = true;
         } catch (ItemNotFoundException e) {
             hasPreference = false;
         }
-
-        if (Utils.hasVpnService() &&
-            !hasPreference &&
-            !isServiceRunning())
-        {
-            if (!m_tunnelWholeDevicePromptShown && !this.isFinishing())
-            {
+        if (Utils.hasVpnService() && !hasPreference) {
+            if (!m_tunnelWholeDevicePromptShown && !this.isFinishing()) {
                 final Context context = this;
                 runOnUiThread(new Runnable() {
                     @Override
@@ -371,30 +355,22 @@ public class StatusActivity
                                             }
                                         })
                                 .show();
-
                         // Our text no longer fits in the AlertDialog buttons on Lollipop, so force the
                         // font size (on older versions, the text seemed to be scaled down to fit).
                         // TODO: custom layout
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                        {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
                             dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
                         }
                     }
                 });
-                
                 m_tunnelWholeDevicePromptShown = true;
-            }
-            else
-            {
+            } else {
                 // ...there's a prompt already showing (e.g., user hit Home with the
                 // prompt up, then resumed Psiphon)
             }
-
             // ...wait and let onClick handlers will start tunnel
-        }
-        else
-        {
+        } else {
             // No prompt, just start the tunnel (if not already running)
             startTunnel();
         }
@@ -402,15 +378,12 @@ public class StatusActivity
 
     @Override
     public void displayBrowser(Context context, String urlString) {
-        if (urlString == null) {
-            ArrayList<String> homePages = getHomePages();
-            if (homePages.size() > 0) {
-                urlString = homePages.get(0);
-            }
-        }
-
         try {
-            if (getTunnelConfigWholeDevice()) {
+            boolean wantVPN = m_multiProcessPreferences
+                    .getBoolean(getString(R.string.tunnelWholeDevicePreference),
+                            false);
+
+            if (wantVPN && Utils.hasVpnService()) {
                 // TODO: support multiple home pages in whole device mode. This is
                 // disabled due to the case where users haven't set a default browser
                 // and will get the prompt once per home page.
@@ -485,7 +458,9 @@ public class StatusActivity
                 // Note: Zirco now directly accesses PsiphonData to get the current
                 // local HTTP proxy port for WebView tunneling.
 
-                intent.putExtra("homePages", getHomePages());
+                if (urlString != null) {
+                    intent.putExtra("homePages", new ArrayList<>(Collections.singletonList(urlString)));
+                }
 
                 context.startActivity(intent);
             }
