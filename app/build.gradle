@@ -51,7 +51,7 @@ android {
                 // ABI configurations of native libraries Gradle should package with the APK.
                 abiFilters 'armeabi-v7a'
             }
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
