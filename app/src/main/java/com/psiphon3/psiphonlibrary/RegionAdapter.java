@@ -107,9 +107,11 @@ public class RegionAdapter extends ArrayAdapter<String>
         // Add 'Best Performance' first
         add(PsiphonConstants.REGION_CODE_ANY);
 
-        if(knownRegions.length() > 0) {
+        if (knownRegions.length() > 0) {
             for (String regionCode : m_lastKnownRegionsPreference.split(",")) {
-                add(regionCode);
+                if (regions.containsKey(regionCode)) {
+                    add(regionCode);
+                }
             }
         }
 
