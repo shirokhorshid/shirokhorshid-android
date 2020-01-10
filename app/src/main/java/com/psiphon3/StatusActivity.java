@@ -114,9 +114,9 @@ public class StatusActivity
         super.onResume();
         // Auto-start on app first run
         if (shouldAutoStart()) {
-            preventAutoStart();
             startUp();
         }
+        preventAutoStart();
     }
 
     private void setUpBanner() {
