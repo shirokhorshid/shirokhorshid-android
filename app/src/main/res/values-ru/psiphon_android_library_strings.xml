@@ -106,6 +106,7 @@
   <string name="home_tab_name">Домой</string>
   <string name="settings_tab_name">Настройки</string>
   <string name="statistics_tab_name">Статистика</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журналы</string>
   <string name="socks_proxy_address">Локальный прокси-сервер SOCKS работает на %s</string>
   <string name="http_proxy_address">Локальный прокси-сервер HTTP работает на %s</string>
@@ -144,6 +145,8 @@
   <string name="region_name_se">Швеция</string>
   <string name="region_name_pl">Польша</string>
   <string name="region_name_sk">Словакия</string>
+  <string name="region_name_rs">Сербия</string>
+  <string name="region_name_au">Австралия</string>
   <string name="about">Что такое Psiphon</string>
   <string name="feedback">Отзыв</string>
   <string name="tunnel_whole_device_toggle">Туннелировать все интернет-соединения (требует Android 4.0+)</string>
@@ -186,6 +189,11 @@
   <string name="tunnel_connecting">Идет соединение туннеля…</string>
   <string name="tunnel_connected">Соединение туннеля установлено</string>
   <string name="waiting">Ожидание…</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

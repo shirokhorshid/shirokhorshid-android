@@ -84,6 +84,7 @@
   <string name="home_tab_name">Início</string>
   <string name="settings_tab_name">Opções</string>
   <string name="statistics_tab_name">Estados</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Registo de Eventos</string>
   <string name="share_proxies_prompt_title">É necessário reiniciar a aplicação</string>
   <string name="share_proxies_prompt_message">A aplicação precisa de ser reiniciada para aplicar esta definição.</string>
@@ -140,6 +141,11 @@
   <string name="tunnel_connecting">A ligar o túnel...</string>
   <string name="tunnel_connected">Túnel ligado</string>
   <string name="waiting">A aguardar...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

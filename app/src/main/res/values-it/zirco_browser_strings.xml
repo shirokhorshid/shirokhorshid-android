@@ -123,14 +123,14 @@
   <string name="ChangelogActivity.Title">Changelog</string>
   <string name="PreferencesActivity.ChangelogPreferenceTitle">Changelog</string>
   <string name="PreferencesActivity.ChangelogPreferenceSummary">Modifiche apportate a questa applicazione.</string>
-  <string name="HomepagePreferenceActivity.Title">Pagina principale</string>
-  <string name="HomepagePreferenceActivity.Prompt">Pagina principale</string>
+  <string name="HomepagePreferenceActivity.Title">Home Page</string>
+  <string name="HomepagePreferenceActivity.Prompt">Home Page</string>
   <string name="PreferencesActivity.HomepageStart">Pagina iniziale</string>
   <string name="PreferencesActivity.HomepageBlank">Pagina vuota</string>
   <string name="PreferencesActivity.HomepageCustom">Pagina personalizzata</string>
-  <string name="Constants.SearchUrlGoogle">https://www.google.com/m?hl=it&amp;gl=us&amp;client=ms-null&amp;source=android-browser-key&amp;q=%s</string>
-  <string name="Constants.SearchUrlWikipedia">http://it.wikipedia.org/w/index.php?search=%s&amp;go=Go</string>
-  <string name="PreferencesActivity.SearchUrlPreferenceTitle">Url di ricerca</string>
+  <string name="Constants.SearchUrlGoogle">http://www.google.com/m?hl=en&amp;gl=us&amp;client=ms-null&amp;source=android-browser-key&amp;q=%s</string>
+  <string name="Constants.SearchUrlWikipedia">http://en.wikipedia.org/w/index.php?search=%s&amp;go=Go</string>
+  <string name="PreferencesActivity.SearchUrlPreferenceTitle">Cerca url</string>
   <string name="PreferencesActivity.SearchUrlPreferenceSummary">Definisce l\'url di ricerca da utilizzare.</string>
   <string name="SearchUrlPreferenceActivity.Title">Cerca url</string>
   <string name="SearchUrlPreferenceActivity.Prompt">Cerca url</string>

@@ -6,6 +6,7 @@
   <string name="stop">หยุด</string>
   <string name="home_tab_name">หน้าหลัก</string>
   <string name="settings_tab_name">ตัวเลือก</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">ปูม</string>
   <string name="share_proxies_prompt_positive">เริ่มต้นใหม่เดี๋ยวนี้</string>
   <string name="share_proxies_prompt_negative">ยกเลิก</string>
@@ -29,11 +30,18 @@
   <string name="region_name_ro">โรมาเนีย</string>
   <string name="region_name_se">สวีเดน</string>
   <string name="region_name_pl">โปแลนด์</string>
+  <string name="region_name_rs">เซอร์เบีย</string>
+  <string name="region_name_au">ออสเตรเลีย</string>
   <string name="preference_notifications_title">การแจ้งเตือน</string>
   <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ตกลง</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

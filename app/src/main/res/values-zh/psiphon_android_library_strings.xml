@@ -106,6 +106,7 @@
   <string name="home_tab_name">主页</string>
   <string name="settings_tab_name">选项</string>
   <string name="statistics_tab_name">统计</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">日志</string>
   <string name="socks_proxy_address">本地 SOCKS 代理端口 %s</string>
   <string name="http_proxy_address">本地 HTTP 代理端口 %s</string>
@@ -144,6 +145,7 @@
   <string name="region_name_se">瑞典</string>
   <string name="region_name_pl">波兰</string>
   <string name="region_name_sk">斯洛伐克</string>
+  <string name="region_name_rs">塞尔维亚</string>
   <string name="about">关于赛风</string>
   <string name="feedback">反馈</string>
   <string name="tunnel_whole_device_toggle">全局代理设备（适用于 Android 4.0+）</string>
@@ -192,6 +194,12 @@
   <string name="tunnel_connecting">代理连接中…</string>
   <string name="tunnel_connected">代理已连接</string>
   <string name="waiting">等待中…</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">确定</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">下次再说</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

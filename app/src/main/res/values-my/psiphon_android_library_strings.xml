@@ -106,6 +106,7 @@
   <string name="home_tab_name">ပင်မစာမျက်နှာ</string>
   <string name="settings_tab_name">ရွေးချယ်စရာများ</string>
   <string name="statistics_tab_name">အသုံးပြုမှုဆိုင်ရာအချက်အလက်များ</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">မှတ်တမ်းများ</string>
   <string name="socks_proxy_address">ဒေသခံ SOCKS ကြားခံသည် %s တွင်လည်ပတ်နေပါသည်</string>
   <string name="http_proxy_address">ဒေသခံ HTTP ကြားခံသည် %s တွင်လည်ပတ်နေပါသည်</string>
@@ -144,6 +145,8 @@
   <string name="region_name_se">ဆွီဒင်</string>
   <string name="region_name_pl">ပိုလန်</string>
   <string name="region_name_sk">ဆလိုဗာကီးယား</string>
+  <string name="region_name_rs">ဆားဘီးယား</string>
+  <string name="region_name_au">သြစတြေးလျ</string>
   <string name="about">Psiphon အကြောင်း</string>
   <string name="feedback">အကြံပြုချက်</string>
   <string name="tunnel_whole_device_toggle">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်ရန် (Android 4.0+ လိုအပ်သည်)</string>
@@ -189,6 +192,10 @@
   <string name="tunnel_connecting">ဝင်ရောက်ချိတ်ဆက်နေပါသည်...</string>
   <string name="tunnel_connected">ဝင်ရောက်ချိတ်ဆက်ပြီးပါပြီ</string>
   <string name="waiting">စောင့်နေပါသည်...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

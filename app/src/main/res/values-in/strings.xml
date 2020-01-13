@@ -37,34 +37,65 @@
   <string name="ads_consent_preference_title">Atur ulang pilihan personalisasi iklan</string>
   <string name="ads_consent_preference_dialog_title">Atur ulang</string>
   <string name="ads_consent_preference_summary">Atur ulang pilihan Anda untuk mengizinkan jaringan iklan untuk menggunakan cookie dan data personal Anda</string>
+  <string name="preference_language_selection_summary">Pilih bahasa</string>
   <string name="preference_language_selection_title">Language</string>
+  <string name="preference_language_title">Pilihan bahasa</string>
   <string name="preference_language_default_language">Bahasa Default</string>
   <!--A toast message which appears upon successful NFC bump & connection info transfer-->
+  <string name="nfc_connection_info_import_success">Berhasil mengimpor informasi koneksi!</string>
   <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
+  <string name="nfc_connection_info_import_failure">Gagal mengimpor informasi koneksi.</string>
   <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
+  <string name="nfc_connection_info_press_start">Mohon tekan Mulai dan coba lagi menukar NFC.</string>
   <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
+  <string name="need_help_connecting">Perlu bantuan untuk koneksi?</string>
   <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
+  <string name="get_help_connecting_text">Untuk bantuan koneksi, temukan pengguna Psiphon lain yang terkoneksi kemudian, sembari anda berusaha menjalin koneksi sementara pengguna lain terkoneksi, letakkan kedua ponsel bersebelahan untuk mengulang koneksi transfer informasi.</string>
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
+  <string name="get_help_connecting_image_description">Ponsel pernah ditolak ber-NFC</string>
   <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">Koneksi bermasalah</string>
   <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_message">Klik untuk perbaikan potensial</string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
+  <string name="how_to_help">Bantu teman terkoneksi</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
+  <string name="how_to_help_connect_text">Anda dapat membantu teman terkoneksi ke Psiphon dengan cara meletakkan kedua ponsel Anda berdampingan sembari yang satu terkoneksi dan yang lain berusaha melakukan koneksi</string>
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="how_to_help_connect_image_description">Ponsel pernah ditolak ber-NFC</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Setuju</string>
+  <string name="preference_navigate_to_vpn_setting_title">VPN selalu menyala</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Pergi ke pengaturan sistem untuk selalu menyalakan VPN</string>
   <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
+  <string name="title_kin_and_psiphon">Kin dan Psiphon</string>
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
+  <string name="lbl_kin_onboard_explanation">Kin adalah metode baru untuk membantu pendukung Psiphon.\n\nlf kalau anda setuju, dompet Kin akan diciptakan untuk anda sehingga setiap anda terkoneksi Kin akan memberi sedikit donasi kepada Psiphon.\n\nMengapa partisipasi? Ketika seseorang menggunakan Kin melalui Psiphon, ia akan membantu mendanai server kami.\n\nUntuk mengetahui lebih lanjut mengenai Kin kunjungilah: kin.org</string>
   <!--Kin onboarding prompt positive button label.-->
+  <string name="lbl_help_psiphon">Bantu Psiphon!</string>
   <!--Kin onboarding prompt negative button label.-->
+  <string name="lbl_help_psiphon_no_thanks">Tidak makasih</string>
   <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_opt_out">Apakah anda tidak mau menambah Kin? \n\nAnda dapat kembali mengikuti program ini di kemudian hari tapi untuk sementara waktu anda tidak membantu menyelesaikan masalah Psiphon.</string>
   <!--Kin opt-out prompt negative button label.-->
   <string name="lbl_no">Tidak</string>
   <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
   <string name="lbl_yes">Ya</string>
   <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
      Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_opt_in_to_kin">Ikut Kin</string>
   <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="title_donate_kin">Donasi Kin</string>
   <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_pay">Terima kasih telah mengikuti Kin. Apakah anda ingin terus memberi donasi 1 Kin ke Psiphon ketika anda terkoneksi?</string>
   <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
+  <string name="lbl_opt_out">Tidak ikut Kin</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <!--"Selected region is not available" notification title-->
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN telah berhenti</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
 </resources>

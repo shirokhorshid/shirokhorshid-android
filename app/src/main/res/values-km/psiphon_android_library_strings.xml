@@ -106,6 +106,8 @@
   <string name="home_tab_name">ទំព័រដើម</string>
   <string name="settings_tab_name">ជម្រើស</string>
   <string name="statistics_tab_name">ស្ថិតិ</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
+  <string name="psicash_tab_name">PsiCash</string>
   <string name="logs_tab_name">កំណត់ត្រា</string>
   <string name="socks_proxy_address">ប្រូកស៊ី SOCKS ខាងក្នុងកំពុងដំណើរការនៅ %s</string>
   <string name="http_proxy_address">ប្រូកស៊ី HTTP ខាងក្នុងកំពុងដំណើរការនៅ %s</string>
@@ -192,6 +194,11 @@
   <string name="tunnel_connecting">កំពុងតភ្ជាប់ច្រក...</string>
   <string name="tunnel_connected">ច្រកបានតភ្ជាប់</string>
   <string name="waiting">កំពុងរង់ចាំ...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">យល់ព្រម</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

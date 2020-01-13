@@ -109,6 +109,7 @@
   <string name="home_tab_name">الرئيسية </string>
   <string name="settings_tab_name">الإعدادات </string>
   <string name="statistics_tab_name">البيانات </string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">السجلات </string>
   <string name="socks_proxy_address">وكيل بروتوكول SOCKS المحلي يعمل بنسبة  %s</string>
   <string name="http_proxy_address">بروكسي HTTP المحلي يشتغل بنسبة %s</string>
@@ -147,6 +148,8 @@
   <string name="region_name_se">السويد</string>
   <string name="region_name_pl">بولندا</string>
   <string name="region_name_sk">سلوفاكيا</string>
+  <string name="region_name_rs">صربيا</string>
+  <string name="region_name_au">أستراليا</string>
   <string name="about">من نحن؟</string>
   <string name="feedback">رأيك </string>
   <string name="tunnel_whole_device_toggle">تمرير الجهاز بأكمله عبر النفق (يتطلب أندرويد 4.0+) </string>
@@ -198,6 +201,12 @@
   <string name="tunnel_connecting">النفق يحاول الإتصال... </string>
   <string name="tunnel_connected">النفق متصل </string>
   <string name="waiting">جاري الإنتظار ...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">موافق</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">لا شكراً</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

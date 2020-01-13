@@ -106,6 +106,7 @@
   <string name="home_tab_name">Додому</string>
   <string name="settings_tab_name">Параметри</string>
   <string name="statistics_tab_name">Статистика</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журнали</string>
   <string name="socks_proxy_address">Локальний проксі SOCKS працює на %s</string>
   <string name="http_proxy_address">Локальний проксі HTTP працює на %s</string>
@@ -144,6 +145,7 @@
   <string name="region_name_se">Швеція</string>
   <string name="region_name_pl">Польща</string>
   <string name="region_name_sk">Словаччина</string>
+  <string name="region_name_au">Австралія</string>
   <string name="about">Про Psiphon</string>
   <string name="feedback">Відгуки</string>
   <string name="tunnel_whole_device_toggle">Тунелювання всього пристрою (вимагається Android 4.0+)</string>
@@ -192,6 +194,12 @@
   <string name="tunnel_connecting">Тунель з\'єднується...</string>
   <string name="tunnel_connected">Тунель з\'єднаний</string>
   <string name="waiting">Очікування...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Ні дякую</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

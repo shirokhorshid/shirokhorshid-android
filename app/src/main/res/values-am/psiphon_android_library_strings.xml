@@ -106,6 +106,7 @@
   <string name="home_tab_name">ቅድመ ገጽ </string>
   <string name="settings_tab_name">አማራጮች </string>
   <string name="statistics_tab_name">ስታትስቲክስ</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">መዝገቦች </string>
   <string name="socks_proxy_address">የአካባቢ SOCKS ተኪ በ %s ላይ እየሰራ ነው</string>
   <string name="http_proxy_address">የአካባቢ HTTP ተኪ በ %s ላይ እየሰራ ነው</string>
@@ -188,6 +189,11 @@
   <string name="tunnel_connecting">ማስተላለፊያ በመገናኘት ላይ....</string>
   <string name="tunnel_connected">ማስተላለፊያው ተገናኝቷል</string>
   <string name="waiting">በመጠበቅ ላይ...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">እቪ</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

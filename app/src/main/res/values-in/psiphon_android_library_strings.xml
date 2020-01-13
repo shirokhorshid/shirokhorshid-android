@@ -106,6 +106,7 @@
   <string name="home_tab_name">Beranda</string>
   <string name="settings_tab_name">Opsi</string>
   <string name="statistics_tab_name">Statistik</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Catatan</string>
   <string name="socks_proxy_address">Proksi SOCKS lokal beroperasi di %s</string>
   <string name="http_proxy_address">Proksi HTTP lokal beroperasi di %s</string>
@@ -144,6 +145,8 @@
   <string name="region_name_se">Swedia</string>
   <string name="region_name_pl">Polandia</string>
   <string name="region_name_sk">Slowakia</string>
+  <string name="region_name_rs">Serbia</string>
+  <string name="region_name_au">Australia</string>
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
   <string name="tunnel_whole_device_toggle">Alihkan Sambungan Seluruh Perangkat (perlu Android 4.0+)</string>
@@ -192,6 +195,12 @@
   <string name="tunnel_connecting">Menyambung ke terowongan...</string>
   <string name="tunnel_connected">Terowongan tersambung</string>
   <string name="waiting">Menunggu...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Oke</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Tidak makasih</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

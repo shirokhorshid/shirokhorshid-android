@@ -58,6 +58,7 @@
   <string name="checking_for_root_access">Root erişimi denetleniyor…</string>
   <string name="psiphon_service_notification_message_connecting">Bağlantı kuruluyor…</string>
   <string name="psiphon_service_notification_id">Psiphon Hizmet Bildirimi</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon Durum Değişiklikleri</string>
   <string name="preferred_servers">Yeğlenen sunucular: %d</string>
   <string name="selecting_server">Sunucu seçiliyor…</string>
   <string name="fetch_remote_server_list">Uzak sunucu listesi alınıyor…</string>
@@ -106,6 +107,8 @@
   <string name="home_tab_name">Ana Sayfa</string>
   <string name="settings_tab_name">Ayarlar</string>
   <string name="statistics_tab_name">İstatistikler</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
+  <string name="psicash_tab_name">PsiCash</string>
   <string name="logs_tab_name">Günlükler</string>
   <string name="socks_proxy_address">Yerel SOCKS vekil sunucusu %s adresinde çalışıyor</string>
   <string name="http_proxy_address">Yerel HTTP vekil sunucusu %s adresinde çalışıyor</string>
@@ -144,6 +147,8 @@
   <string name="region_name_se">İsveç</string>
   <string name="region_name_pl">Polonya</string>
   <string name="region_name_sk">Slovakya</string>
+  <string name="region_name_rs">Sırbistan</string>
+  <string name="region_name_au">Avustralya</string>
   <string name="about">Psiphon Hakkında</string>
   <string name="feedback">Geri Bildirim</string>
   <string name="tunnel_whole_device_toggle">Aygıtın tamamı tünellensin (Android 4.0+ gerekir)</string>
@@ -192,6 +197,14 @@
   <string name="tunnel_connecting">Tünel bağlantısı kuruluyor…</string>
   <string name="tunnel_connected">Tünel bağlantısı kuruldu</string>
   <string name="waiting">Bekleniyor…</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">İzin İsteği</string>
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Konum bilgisine erişme izni verdiğinizde, Psiphon bulunduğunuz ağda nasıl çalışması gerektiği hakkında daha iyi karar verebilir.\n\nKonum bilgisi yalnız aygıtınızda kalır ve yerel olarak kullanılır. Sunucularımıza ya da üçüncü taraflara aktarılmaz.</string>
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Tamam</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Hayır, teşekkürler</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>
