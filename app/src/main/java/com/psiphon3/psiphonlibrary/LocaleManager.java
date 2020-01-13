@@ -1,12 +1,15 @@
 package com.psiphon3.psiphonlibrary;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
+
+import net.grandcentrix.tray.AppPreferences;
 
 import java.util.Locale;
 
@@ -45,10 +48,21 @@ public class LocaleManager {
 
     private static LocaleManager m_instance = null;
 
-    private final SharedPreferences m_preferences;
+    private final AppPreferences m_preferences;
 
     private LocaleManager(Context context) {
-        m_preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        Context wrappedCtx = new ApplicationContextWrapper(context);
+        m_preferences = new AppPreferences(wrappedCtx);
+
+        // Migrate old shared preference language pref to multi-process preferences
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        if(sharedPrefs.contains(LANGUAGE_KEY)) {
+            String oldLanguagePref = sharedPrefs.getString(LANGUAGE_KEY, null);
+            if (oldLanguagePref != null && !oldLanguagePref.equals("")) {
+                m_preferences.put(LANGUAGE_KEY, oldLanguagePref);
+                sharedPrefs.edit().remove(LANGUAGE_KEY).apply();
+            }
+        }
     }
 
     public static LocaleManager getInstance(Context context) {
@@ -84,9 +98,8 @@ public class LocaleManager {
         return USE_SYSTEM_LANGUAGE_VAL.equals(languageCode);
     }
 
-    @SuppressLint("ApplySharedPref")
     private void persistLanguage(String language) {
-        m_preferences.edit().putString(LANGUAGE_KEY, language).commit();
+        m_preferences.put(LANGUAGE_KEY, language);
     }
 
     private static Locale fromLanguageCode(String languageCode) {
@@ -123,5 +136,17 @@ public class LocaleManager {
         }
 
         return context;
+    }
+
+    private class ApplicationContextWrapper extends ContextWrapper {
+        public ApplicationContextWrapper(Context base) {
+            super(base);
+        }
+
+        @Override
+        public Context getApplicationContext() {
+            Context appCtx = super.getApplicationContext();
+            return appCtx != null ? appCtx : this;
+        }
     }
 }

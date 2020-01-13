@@ -22,6 +22,9 @@ package com.psiphon3;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.pm.ApplicationInfo;
+import android.support.multidex.MultiDex;
 
 import com.psiphon3.psiphonlibrary.LocaleManager;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
@@ -30,6 +33,40 @@ import com.psiphon3.psiphonlibrary.Utils;
 public class PsiphonApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
+        // We need to make all classes available prior to calling LocaleManager by installing all
+        // dexes first. There's a bit of a chicken-egg problem with calling MiltiDex.install() before
+        // super.attachBaseContext() since MiltiDex.install() calls the following piece of code:
+        /*
+        try {
+            ApplicationInfo applicationInfo = getApplicationInfo(context);
+            if (applicationInfo == null) {
+                Log.i("MultiDex", "No ApplicationInfo available, i.e. running on a test Context: MultiDex support library is disabled.");
+                return;
+            }
+        */
+        // but calling getApplicationInfo() on the current Context object prior to calling
+        // super.attachBaseContext() produces an NPE because super.mBase is not initialized yet, see
+        // corresponding methods in ContextWrapper:
+        /*
+        protected void attachBaseContext(Context base) {
+            if (mBase != null) {
+                throw new IllegalStateException("Base context already set");
+            }
+            mBase = base;
+        }
+        ...
+        @Override
+        public ApplicationInfo getApplicationInfo() {
+            return mBase.getApplicationInfo();
+        }
+        */
+        // We are going to wrap the current Context object with a ContextWrapper to make sure that proper
+        // ApplicationInfo is returned upon calling getApplicationInfo() on this object and then use it
+        // as MultiDex.install() argument.
+
+        ContextWrapper wrappedContext = new ContextWrapper(base);
+        MultiDex.install(wrappedContext);
+
         // Do not set locale in the base context if we detected system language should be used
         // because it will prevent locale change when it is triggered via onConfigurationChanged
         // callback when user changes locale in the OS settings.
