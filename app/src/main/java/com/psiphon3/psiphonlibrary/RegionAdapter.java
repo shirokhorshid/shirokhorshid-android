@@ -56,6 +56,7 @@ public class RegionAdapter extends ArrayAdapter<String>
         regions = new HashMap<>();
         regions.put(PsiphonConstants.REGION_CODE_ANY, new Region(PsiphonConstants.REGION_CODE_ANY, R.string.region_name_any, R.drawable.flag_unknown));
         regions.put("AT", new Region("AT", R.string.region_name_at, R.drawable.flag_at));
+        regions.put("AU", new Region("AU", R.string.region_name_au, R.drawable.flag_au));
         regions.put("BE", new Region("BE", R.string.region_name_be, R.drawable.flag_be));
         regions.put("BG", new Region("BG", R.string.region_name_bg, R.drawable.flag_bg));
         regions.put("CA", new Region("CA", R.string.region_name_ca, R.drawable.flag_ca));
