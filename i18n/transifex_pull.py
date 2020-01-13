@@ -56,7 +56,7 @@ APP_LANGS = {
     'fr': 'fr',         # French
     'hi': 'hi',         # Hindi
     'hr': 'hr',         # Croation
-    'id': 'id',         # Indonesian
+    'id': 'in',         # Indonesian is "in" on Android
     'it': 'it',         # Italian
     'kk': 'kk',         # Kazak
     'km': 'km',         # Khmer
