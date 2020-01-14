@@ -24,7 +24,7 @@ Run with
 # If you don't already have pipenv:
 $ pip install pipenv
 
-$ pipenv install --ignore-pipfile --three
+$ pipenv install --three --ignore-pipfile
 $ pipenv run python transifex_pull.py
 
 # To reset your pipenv state (e.g., after a Python upgrade):
@@ -156,6 +156,15 @@ def pull_app_translations():
         lambda lang: f'../app/src/main/res/values-{lang}/zirco_browser_strings.xml',
         None) # no mutator
     print(f'android-app-browser-strings: DONE')
+
+    transifexlib.process_resource(
+        'psiphon-pro-android-strings',
+        APP_LANGS,
+        '../app/src/main/res/values/pro-strings.xml',
+        lambda lang: f'../app/src/main/res/values-{lang}/pro-strings.xml',
+        None, # no mutator
+        project='psiphon-pro')
+    print(f'psiphon-pro-android-strings: DONE')
 
 
 FEEDBACK_DIR = './feedback'

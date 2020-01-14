@@ -35,7 +35,7 @@
         },
         "transifexlib": {
             "git": "https://github.com/Psiphon-Inc/transifexlib.git",
-            "ref": "200e2ed89f48e0e597e63aa036de251f690991c1"
+            "ref": "7ad4ce5e2de548485f49dc0339db2852176c46be"
         }
     },
     "develop": {
