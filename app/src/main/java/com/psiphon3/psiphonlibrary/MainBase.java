@@ -743,11 +743,22 @@ public abstract class MainBase {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
 
+        @Override
+        protected void onStart() {
+            super.onStart();
+            tunnelServiceInteractor.onStart(getApplicationContext());
+        }
+
+        @Override
+        protected void onStop() {
+            super.onStop();
+            tunnelServiceInteractor.onStop(getApplicationContext());
+        }
 
         @Override
         protected void onDestroy() {
             super.onDestroy();
-
+            tunnelServiceInteractor.onDestroy(getApplicationContext());
             if (m_sponsorHomePage != null) {
                 m_sponsorHomePage.stop();
                 m_sponsorHomePage = null;
@@ -768,8 +779,6 @@ public abstract class MainBase {
 
             // Load new logs from the logging provider when it changes
             getContentResolver().registerContentObserver(LoggingProvider.INSERT_URI, true, m_loggingObserver);
-
-            tunnelServiceInteractor.resume(getApplicationContext());
 
             // Don't show the keyboard until edit selected
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
@@ -829,7 +838,6 @@ public abstract class MainBase {
             super.onPause();
             getContentResolver().unregisterContentObserver(m_loggingObserver);
             cancelInvalidProxySettingsToast();
-            tunnelServiceInteractor.pause(getApplicationContext());
         }
 
         protected void doToggle() {
