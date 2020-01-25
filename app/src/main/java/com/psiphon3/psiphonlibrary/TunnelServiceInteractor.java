@@ -56,6 +56,7 @@ import static android.content.Context.ACTIVITY_SERVICE;
 
 public class TunnelServiceInteractor {
     private static final String SERVICE_STARTING_BROADCAST_INTENT = "SERVICE_STARTING_BROADCAST_INTENT";
+    private final BroadcastReceiver broadcastReceiver;
     private Relay<TunnelState> tunnelStateRelay = BehaviorRelay.<TunnelState>create().toSerialized();
     private Relay<Boolean> dataStatsRelay = PublishRelay.<Boolean>create().toSerialized();
     private Relay<Boolean> knownRegionsRelay = PublishRelay.<Boolean>create().toSerialized();
@@ -65,19 +66,19 @@ public class TunnelServiceInteractor {
     private Disposable restartServiceDisposable = null;
 
     private Rx2ServiceBindingFactory serviceBindingFactory;
-
-    private boolean isPaused = true;
+    private boolean isStopped = true;
+    private Disposable serviceMessengerDisposable;
 
     public TunnelServiceInteractor(Context context) {
         // Listen to SERVICE_STARTING_BROADCAST_INTENT broadcast that may be sent by another instance
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(SERVICE_STARTING_BROADCAST_INTENT);
-        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        this.broadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
                 if (action != null) {
-                    if (action.equals(SERVICE_STARTING_BROADCAST_INTENT) && !isPaused) {
+                    if (action.equals(SERVICE_STARTING_BROADCAST_INTENT) && !isStopped) {
                         bindTunnelService(context, intent);
                     }
                 }
@@ -86,8 +87,8 @@ public class TunnelServiceInteractor {
         LocalBroadcastManager.getInstance(context).registerReceiver(broadcastReceiver, intentFilter);
     }
 
-    public void resume(Context context) {
-        isPaused = false;
+    public void onStart(Context context) {
+        isStopped = false;
         tunnelStateRelay.accept(TunnelState.unknown());
         String serviceName = getRunningService(context);
         if (serviceName != null) {
@@ -103,13 +104,17 @@ public class TunnelServiceInteractor {
         }
     }
 
-    public void pause(Context context) {
-        isPaused = true;
+    public void onStop(Context context) {
+        isStopped = true;
         tunnelStateRelay.accept(TunnelState.unknown());
         if (serviceBindingFactory != null) {
             sendServiceMessage(TunnelManager.ClientToServiceMessage.UNREGISTER.ordinal(), null);
             serviceBindingFactory.unbind(context);
         }
+    }
+
+    public void onDestroy(Context context) {
+        LocalBroadcastManager.getInstance(context).unregisterReceiver(broadcastReceiver);
     }
 
     public void startTunnelService(Context context, boolean wantVPN) {
@@ -218,7 +223,7 @@ public class TunnelServiceInteractor {
 
     private void bindTunnelService(Context context, Intent intent) {
         serviceBindingFactory = new Rx2ServiceBindingFactory(context, intent);
-        serviceBindingFactory.getMessengerObservable()
+        serviceMessengerDisposable = serviceBindingFactory.getMessengerObservable()
                 .doOnComplete(() -> tunnelStateRelay.accept(TunnelState.stopped()))
                 .doOnComplete(() -> dataStatsRelay.accept(Boolean.FALSE))
                 .subscribe();
@@ -232,12 +237,12 @@ public class TunnelServiceInteractor {
     }
 
     private void sendServiceMessage(int what, Bundle data) {
-        if (serviceBindingFactory == null) {
+        if (serviceMessengerDisposable == null || serviceMessengerDisposable.isDisposed()) {
             return;
         }
         serviceBindingFactory.getMessengerObservable()
-                .take(1)
-                .doOnNext(messenger -> {
+                .firstOrError()
+                .doOnSuccess(messenger -> {
                     try {
                         Message msg = Message.obtain(null, what);
                         msg.replyTo = incomingMessenger;
