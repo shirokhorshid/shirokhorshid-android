@@ -798,6 +798,14 @@ public abstract class MainBase {
                             this.getClass()));
                 }
             }
+
+            // Update the state of UI when resuming the activity with latest tunnel state.
+            // This will ensure proper state of the VPN toggle button if user clicked Cancel Request
+            // on the VPN permission prompt, for example.
+            compositeDisposable.add(tunnelServiceInteractor.tunnelStateFlowable()
+                    .firstOrError()
+                    .doOnSuccess(this::updateServiceStateUI)
+                    .subscribe());
         }
 
         private void handleNfcIntent(Intent intent) {
