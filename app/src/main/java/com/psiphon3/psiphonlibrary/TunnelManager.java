@@ -247,7 +247,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     // Implementation of android.app.Service.onStartCommand
     int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && INTENT_ACTION_STOP_TUNNEL.equals(intent.getAction())) {
-            signalStopService();
+            if(m_tunnelThreadStopSignal == null || m_tunnelThreadStopSignal.getCount() == 0) {
+                m_parentService.stopForeground(true);
+                m_parentService.stopSelf();
+            } else {
+                signalStopService();
+            }
             return Service.START_NOT_STICKY;
         }
 
