@@ -106,6 +106,7 @@
   <string name="home_tab_name">Boshiga</string>
   <string name="settings_tab_name">Sozlamalar</string>
   <string name="statistics_tab_name">Statistika</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Jurnal</string>
   <string name="socks_proxy_address">Mahalliy SOCKS proksi-serveri %s manzilida ishlamoqda</string>
   <string name="http_proxy_address">Mahalliy HTTP proksi-serveri %s manzilida ishlamoqda</string>
@@ -182,6 +183,10 @@
   <string name="tunnel_connecting">Shifrlash tunneli ulanmoqda…</string>
   <string name="tunnel_connected">Shifrlash tunneli ulandi</string>
   <string name="waiting">Kutilmoqda…</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

@@ -65,6 +65,7 @@
   <string name="stop">Mira</string>
   <string name="home_tab_name">Pekutangira</string>
   <string name="settings_tab_name">Sarudzo</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Matarwa emakare</string>
   <string name="share_proxies_prompt_title">Kutangidza app kurikudiwa</string>
   <string name="share_proxies_prompt_message">App irikufanirwa kutangidza kuti gadziro iyi ishandisike.</string>
@@ -101,6 +102,10 @@
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="waiting">Kumirira...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

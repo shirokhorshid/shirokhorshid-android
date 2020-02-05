@@ -106,6 +106,7 @@
   <string name="home_tab_name">ቤት</string>
   <string name="settings_tab_name">ኣማራጽታት</string>
   <string name="statistics_tab_name">ስታትስቲክስ</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">መዝገባት</string>
   <string name="socks_proxy_address">ከባቢያዊ SOCKS ተካኢ ኣብ %s ይሰርሕ ኣሎ</string>
   <string name="http_proxy_address">ከባቢያዊ  HTTP ተካኢ ኣብ %s ይሰርሕ ኣሎ</string>
@@ -191,6 +192,10 @@
   <string name="tunnel_connecting">መተሓላለፊ ኣብ ምርኻብ...</string>
   <string name="tunnel_connected">መተሓላለፊ ተራኺቡ`ሎ</string>
   <string name="waiting">ኣብ ምጽባይ ኣሎ...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

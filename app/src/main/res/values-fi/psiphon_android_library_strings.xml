@@ -68,6 +68,7 @@
   <string name="home_tab_name">Koti</string>
   <string name="settings_tab_name">Valitsimet</string>
   <string name="statistics_tab_name">Tilastot</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Logitiedostot</string>
   <string name="http_proxy_address">Paikallinen HTTP-välityspalvelin käynnissä osoitteessa %s</string>
   <string name="share_proxies_toggle">Salli muiden verkkolaitteiden käyttää paikallisia välityspalvelimia</string>
@@ -111,6 +112,10 @@
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

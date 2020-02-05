@@ -106,6 +106,7 @@
   <string name="home_tab_name">མདུན་ངོས།</string>
   <string name="settings_tab_name">གདམ་ཀ།</string>
   <string name="statistics_tab_name">གྲངས་ཐོ།</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">ཉིན་ཐོ།</string>
   <string name="socks_proxy_address">socks བསྟི་གནས་ངོ་ཚབ་འདི་འཁོར་སྐྱོད་བྱེད་ས།%s</string>
   <string name="http_proxy_address">HTTPབསྟི་གནས་ངོ་ཚབ་འདི་འཁོར་སྐྱོད་བྱེད་ས།%s </string>
@@ -182,6 +183,10 @@
   <string name="tunnel_connecting">ཡུར་བ་ལ་མཐུད་བཞིན་པ།...</string>
   <string name="tunnel_connected">ཡུར་བར་མཐུད་ཚར་སོང་།</string>
   <string name="waiting">སྒུག་བཞིན་པ།</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

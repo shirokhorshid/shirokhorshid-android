@@ -68,6 +68,7 @@
   <string name="preference_navigate_to_vpn_setting_title">Her zaman açık VPN</string>
   <string name="preference_navigate_to_vpn_setting_summary">Her zaman VPN kullanılması için sistem ayarlarına gidin</string>
   <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
+  <string name="title_kin_and_psiphon">Kin ve Psiphon</string>
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
   <string name="lbl_kin_onboard_explanation">Kin Psiphon projesini desteklemenin yeni bir yoludur.\nOnay verirseniz, sizin için bir Kin cüzdanı oluşturulur ve her bağlantı kurduğunuzda Psiphoın için küçük bir bağış yapılır\n\nNeden destek olmalıyım? Psiphon üzerinden bağışlanan Kin kredileri sunucularımızın maliyetini karşılamamıza yardımcı olur.\n\nKin hakkında ayrıntılı bilgi almak için kin.org adresine bakabilirsiniz.</string>
@@ -90,4 +91,16 @@
   <string name="lbl_kin_pay">Kin uygulamasına katıldığınız için teşekkürler. Bağlantı kurduğunuzda Psiphon projesine bir Kin bağışlamak ister misiniz?</string>
   <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
   <string name="lbl_opt_out">Ayrıl</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">İşlem yapılması gerekiyor!</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Lütfen bağlantıyı tamamlamak için Psiphon uygulamasını açın.</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Seçilmiş bölge kullanılamıyor</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Lütfen Psiphon uygulamasını açıp başka bir bölge seçin.</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN durdu</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kesildi.</string>
 </resources>

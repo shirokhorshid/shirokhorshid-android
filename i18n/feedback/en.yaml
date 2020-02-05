@@ -1,0 +1,32 @@
+en:
+    title: Psiphon Feedback
+
+    top_content_title:  Give Us Your Feedback
+
+    top_para_1: |
+            Your feedback makes Psiphon better!
+    top_para_2: |
+            Many problems can be fixed by downloading the latest version. You can
+            <a class="newVersionURL" href="#">download the latest version by clicking here</a>,
+            or you can send an email to <span id="newVersionEmail"></span>.
+    top_para_3: |
+            You can find solutions to many common problems in our
+            <a class="faqURL" href="#">Frequently Asked Questions</a>.
+    diagnostic_check: |
+            Upload diagnostic data. Please note that this diagnostic data does not
+            identify you, and it will help us to keep Psiphon running smoothly.
+            <a class="dataCollectionInfoURL" href="#">Click here to see what data we collect.</a>
+    smiley_title:  Overall satisfaction
+
+    smiley_happy:  Psiphon connects and performs the way I want it to.
+
+    smiley_sad:  Psiphon often fails to connect or doesn't perform well enough.
+
+    submit_button: Submit
+
+    text_feedback_prompt: |
+            Please enter your comments here:
+    text_feedback_email_prompt: |
+            If you would like us to respond to you, please enter your email address:
+    text_feedback_bottom_para: |
+            If the above form is not working, or you would like to send screenshots, please email us at <a id="emailAddress" href="mailto:feedback@psiphon.ca">feedback@psiphon.ca</a>

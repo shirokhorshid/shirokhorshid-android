@@ -106,6 +106,7 @@
   <string name="home_tab_name">خانه</string>
   <string name="settings_tab_name">گذینه‌ها</string>
   <string name="statistics_tab_name">آمار</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">گزارش ثبت</string>
   <string name="socks_proxy_address">پراکسی SOCKS محلی در حال اجرا در %s است</string>
   <string name="http_proxy_address">پراکسی HTTP محلی در حال اجرا در %s است</string>
@@ -182,6 +183,10 @@
   <string name="tunnel_connecting">تونل در حال اتصال...</string>
   <string name="tunnel_connected">تونل متصل شد</string>
   <string name="waiting">در حال انتظار…</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

@@ -15,3 +15,6 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# Only strip these
+-keep class !com.google.android.gms.**,!android.support.** { *; }

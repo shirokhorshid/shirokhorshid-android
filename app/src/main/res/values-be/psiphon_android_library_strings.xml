@@ -106,6 +106,7 @@
   <string name="home_tab_name">Галоўная</string>
   <string name="settings_tab_name">Параметры</string>
   <string name="statistics_tab_name">Статыстыка</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журналы</string>
   <string name="socks_proxy_address">Лакальны проксі-сервер SOCKS задзейнічаны на %s</string>
   <string name="http_proxy_address">Лакальны проксі-сервер HTTP задзейнічаны на %s</string>
@@ -185,6 +186,11 @@
   <string name="tunnel_connecting">Ідзе злучэнне з тунэлем...</string>
   <string name="tunnel_connected">Тунэль падлучаны</string>
   <string name="waiting">Чаканне...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

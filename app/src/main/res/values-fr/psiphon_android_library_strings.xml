@@ -58,6 +58,7 @@
   <string name="checking_for_root_access">Vérification de l’accès racine…</string>
   <string name="psiphon_service_notification_message_connecting">Connexion…</string>
   <string name="psiphon_service_notification_id">Notification du service Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Changements d’état de Psiphon</string>
   <string name="preferred_servers">Serveurs préférés : %d</string>
   <string name="selecting_server">Choix du serveur…</string>
   <string name="fetch_remote_server_list">Obtention de la liste de serveurs distants…</string>
@@ -106,6 +107,8 @@
   <string name="home_tab_name">Accueil</string>
   <string name="settings_tab_name">Options</string>
   <string name="statistics_tab_name">Statistiques</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
+  <string name="psicash_tab_name">PsiCash</string>
   <string name="logs_tab_name">Journaux</string>
   <string name="socks_proxy_address">Le mandataire local SOCKS est en fonction sur %s</string>
   <string name="http_proxy_address">Le mandataire local HTTP est en fonction sur %s</string>
@@ -144,6 +147,8 @@
   <string name="region_name_se">Suède</string>
   <string name="region_name_pl">Pologne</string>
   <string name="region_name_sk">Slovaquie</string>
+  <string name="region_name_rs">Serbie</string>
+  <string name="region_name_au">Australie</string>
   <string name="about">À propos de Psiphon</string>
   <string name="feedback">Rétroaction</string>
   <string name="tunnel_whole_device_toggle">Tunnelliser tout l’appareil (Android 4.0+ exigé)</string>
@@ -192,6 +197,14 @@
   <string name="tunnel_connecting">Connexion du tunnel…</string>
   <string name="tunnel_connected">Tunnel connecté</string>
   <string name="waiting">En attente..</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Demande d’autorisation</string>
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Permettez à Psiphon de prendre de meilleures décisions sur son fonctionnement sur votre réseau en lui accordant l’accès à votre position géographique.\n\nNotez que ce renseignement n’est utilisé que localement sur votre appareil et n’est transmis ni à nos serveurs ni à des tiers.</string>
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Valider</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Non merci</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

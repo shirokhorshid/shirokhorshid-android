@@ -106,6 +106,7 @@
   <string name="home_tab_name">Početak</string>
   <string name="settings_tab_name">Opcije</string>
   <string name="statistics_tab_name">Statistika</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Dnevnici</string>
   <string name="socks_proxy_address">Lokalni SOCKS proxy je pokrenut na %s</string>
   <string name="http_proxy_address">Lokalni HTTP proxy je pokrenut na %s</string>
@@ -144,6 +145,8 @@
   <string name="region_name_se">Švedska</string>
   <string name="region_name_pl">Poljska</string>
   <string name="region_name_sk">Slovačka</string>
+  <string name="region_name_rs">Srbija</string>
+  <string name="region_name_au">Australija</string>
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
   <string name="tunnel_whole_device_toggle">Tuneliraj cjeli uređaj (zahtjeva Android 4.0+)</string>
@@ -185,6 +188,12 @@
   <string name="tunnel_connecting">Tunel se spaja...</string>
   <string name="tunnel_connected">Tunel spojen</string>
   <string name="waiting">Čekam...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">U redu</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Ne, hvala.</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

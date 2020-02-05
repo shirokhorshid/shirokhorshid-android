@@ -50,39 +50,39 @@
   <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
   <string name="need_help_connecting">آیا برای اتصال به کمک نیاز دارید؟</string>
   <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">برای دریافت اتصال، یک کاربر سایفون که متصل است را پیدا کنید. سپس درحالی که شما برای اتصال تلاش می‌کنید و آن کاربر متصل است، گوشی‌های تلفن همراه‌تان را پشت به پشت قرار دهید تا اطلاعات اتصال منتقل شود. </string>
+  <string name="get_help_connecting_text">برای دریافت اتصال، یک کاربر که به سایفون وصل هست را پیدا کنید. سپس درحالی که شما برای اتصال تلاش می‌کنید و آن کاربر متصل است، گوشی‌های تلفن همراه‌تان را پشت به پشت قرار دهید تا اطلاعات اتصال منتقل شود. </string>
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">تلفن‌ها برای ارتباط میدان‌نزدیک به هم خوردند. </string>
+  <string name="get_help_connecting_image_description">تلفن‌ها برای برقراری ارتباط میدان‌نزدیک به هم خوردند. </string>
   <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">مشکل اتصال </string>
+  <string name="get_help_connecting_notification_title">مشکل در برقراری اتصال </string>
   <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">برای حل مشکل احتمالی کلیک کنید</string>
+  <string name="get_help_connecting_notification_message">برای پیداکردن راه‌حل کلیک کنید.</string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
   <string name="how_to_help">کمک کنید دوست‌ شما متصل شود</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">می‌توانید به یک دوست کمک کنید تا به سایفون متصل شود. در حالی که شما متصل هستید و آنها برای اتصال تلاش می‌کنند تلفن‌تان را پشت به پشت تلفن آنها قرار دهید. </string>
+  <string name="how_to_help_connect_text">می‌توانید به یک دوست کمک کنید تا به سایفون متصل شود. در حالی که شما وصل هستید و آنها برای اتصال تلاش می‌کنند تلفن‌تان را پشت به پشت تلفن آنها قرار دهید. </string>
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">تلفن‌ها برای ارتباطات میدان‌نزدیک به هم خوردند. </string>
+  <string name="how_to_help_connect_image_description">تلفن‌ها برای برقراری ارتباط میدان‌نزدیک به هم خوردند. </string>
   <!--Generic string to say OK or acknowledge-->
-  <string name="label_ok">باشه</string>
+  <string name="label_ok">تایید</string>
   <string name="preference_navigate_to_vpn_setting_title">وی‌پی‌ان همیشه روشن</string>
   <string name="preference_navigate_to_vpn_setting_summary">به تنظیمات سیستم بروید تا وی‌پی‌ان همیشه روشن را فعال کنید</string>
   <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
-  <string name="title_kin_and_psiphon">کین و سایفون</string>
+  <string name="title_kin_and_psiphon">کین (Kin) و سایفون</string>
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
-  <string name="lbl_kin_onboard_explanation">کین یک روش جدید برای کمک به سایفون است.
-در صورت موافقت شما یک کیف پول مجازی کین برای شما ساخته خواهد شد، و هر باری که متصل می‌شوید، یک کمک کوچکی به سایفون می‌کند. 
+  <string name="lbl_kin_onboard_explanation">کین یک روش جدید برای حمایت از سایفون است.
+اگر موافق باشید یک کیف پول مجازی کین برای‌تان ساخته می‌شود که با هر بار اتصال، کمک مالی کوچکی به سایفون می‌کند. 
 چرا مشارکت کنم؟ 
-خرج کردن کین از طریق سایفون به ما کمک می‌کند هزینه‌های سرورهای سایفون را پرداخت کنیم.
-بیشتر درباره کین بدانید: kin.org</string>
+با استفاده از کین از طریق سایفون به ما کمک می‌کنید هزینه‌ سرورهای سایفون را تامین کنیم.
+درباره کین بیشتر بدانید: kin.org</string>
   <!--Kin onboarding prompt positive button label.-->
   <string name="lbl_help_psiphon">به سایفون کمک کنید!‌</string>
   <!--Kin onboarding prompt negative button label.-->
-  <string name="lbl_help_psiphon_no_thanks">نه ممنون</string>
+  <string name="lbl_help_psiphon_no_thanks">نه، ممنون</string>
   <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_opt_out">آیا مطمئن هستید که نمی‌خواهید در کین مشارکت کنید؟ 
-در آینده می‌توانید به برنامه بپوندید اما تا آن زمان به سایفون کمک نمی‌کنید. 
+  <string name="lbl_kin_opt_out">مطمئنید که نمی‌خواهید در کین مشارکت کنید؟ 
+در آینده می‌توانید دوباره به برنامه بپوندید اما تا آن زمان به سایفون کمک نمی‌کنید. 
 </string>
   <!--Kin opt-out prompt negative button label.-->
   <string name="lbl_no">خیر</string>
@@ -90,11 +90,23 @@
   <string name="lbl_yes">بله</string>
   <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
      Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_opt_in_to_kin">پیوستن به کین</string>
+  <string name="lbl_opt_in_to_kin">پیوستن به کین </string>
   <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
   <string name="title_donate_kin">کمک از طریق کین</string>
   <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_pay">ممنون از این که به کین پیوسته‌اید، آیا می‌خواهید همچنان هر موقع که متصل می‌شوید یک کین به سایفون کمک کنید؟</string>
+  <string name="lbl_kin_pay">ممنون از این که به کین پیوستید. آیا مایلید هر موقع که وصل می‌شوید یک کین به سایفون کمک کنید؟</string>
   <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
-  <string name="lbl_opt_out">خارج شدن </string>
+  <string name="lbl_opt_out">خارج شدن از کین </string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">اقدامی لازم است!</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">لطفا برای کامل کردن اتصال، سایفون را باز کنید.</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">منطقه انتخاب‌شده در دسترس نمی‌باشد</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">لطفا سایفون را باز کرده و منطقه دیگری را انتخاب کنید.</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">VPN Psiphon متوقف شده است</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">اتصال VPN سایفون توسط شما یا برنامه دیگری قطع شد.</string>
 </resources>

@@ -106,6 +106,7 @@
   <string name="home_tab_name">Início</string>
   <string name="settings_tab_name">Opções</string>
   <string name="statistics_tab_name">Estatísticas</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Logs</string>
   <string name="socks_proxy_address">Proxy SOCKS local rodando em %s</string>
   <string name="http_proxy_address">Proxy HTTP local rodando em %s</string>
@@ -144,6 +145,8 @@
   <string name="region_name_se">Suécia</string>
   <string name="region_name_pl">Polônia</string>
   <string name="region_name_sk">Eslováquia</string>
+  <string name="region_name_rs">Sérvia</string>
+  <string name="region_name_au">Austrália</string>
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentários</string>
   <string name="tunnel_whole_device_toggle">Tunelar todo o dispositivo (requer Android 4.0+)</string>
@@ -186,6 +189,12 @@
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
   <string name="waiting">Aguarde...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Não, obrigado!</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

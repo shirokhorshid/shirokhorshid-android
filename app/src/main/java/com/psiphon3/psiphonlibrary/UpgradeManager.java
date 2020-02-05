@@ -38,6 +38,7 @@ import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -205,9 +206,12 @@ public interface UpgradeManager
         }
     }
 
-    class DownloadedUpgradeFile extends UpgradeFile
+    /**
+     * Used for migrating old downloaded upgrade files from legacy location.
+     */
+    class OldDownloadedUpgradeFile extends UpgradeFile
     {
-        public DownloadedUpgradeFile(Context context)
+        public OldDownloadedUpgradeFile(Context context)
         {
             super(context);
         }
@@ -221,10 +225,36 @@ public interface UpgradeManager
         {
             return false;
         }
+    }
+
+    class DownloadedUpgradeFile
+    {
+        private File file;
+        private Context context;
+
+        public DownloadedUpgradeFile(Context context, File file)
+        {
+            this.context = context;
+            this.file = file;
+        }
+
+        public String getFullPath() {
+            return this.file.getAbsolutePath();
+        }
+
+        public boolean exists()
+        {
+            return this.file.exists();
+        }
+
+        public boolean delete()
+        {
+            return this.file.delete();
+        }
 
         private InputStream openUnzipStream() throws IOException, FileNotFoundException
         {
-            return new GZIPInputStream(new BufferedInputStream(super.context.openFileInput(getFilename())));
+            return new GZIPInputStream(new BufferedInputStream(new FileInputStream(this.file)));
         }
 
         public boolean extractAndVerify()
@@ -240,7 +270,7 @@ public interface UpgradeManager
 
                 unzipStream = openUnzipStream();
 
-                UnverifiedUpgradeFile unverifiedFile = new UnverifiedUpgradeFile(super.context);
+                UnverifiedUpgradeFile unverifiedFile = new UnverifiedUpgradeFile(this.context);
                 OutputStream dataDestination = unverifiedFile.createForWriting();
 
                 AuthenticatedDataPackage.extractAndVerifyData(
@@ -249,7 +279,7 @@ public interface UpgradeManager
                         true, // "data" is Base64 (and is a large value to be streamed)
                         dataDestination);
 
-                return unverifiedFile.rename(new VerifiedUpgradeFile(super.context).getFilename());
+                return unverifiedFile.rename(new VerifiedUpgradeFile(this.context).getFilename());
             }
             catch (FileNotFoundException e)
             {
@@ -290,13 +320,13 @@ public interface UpgradeManager
          * Side-effect: May delete existing upgrade file if it's invalid or an old version.
          * @return true if upgrade file is available to be applied.
          */
-        protected static VerifiedUpgradeFile getAvailableCompleteUpgradeFile(Context context)
+        protected static VerifiedUpgradeFile getAvailableCompleteUpgradeFile(Context context, File downloadedUpgradeFile)
         {
-            DownloadedUpgradeFile downloadedFile = new DownloadedUpgradeFile(context);
+            DownloadedUpgradeFile downloadedFile = new DownloadedUpgradeFile(context, downloadedUpgradeFile);
 
             if (downloadedFile.exists())
             {
-                boolean success  = downloadedFile.extractAndVerify();
+                boolean success = downloadedFile.extractAndVerify();
 
                 // If the extract and verify succeeds, delete it since it's no longer
                 // required and we don't want to re-install it.
@@ -368,8 +398,8 @@ public interface UpgradeManager
          * @param context
          * @return true if an upgrade file is available
          */
-        public static boolean upgradeFileAvailable(Context context) {
-            return getAvailableCompleteUpgradeFile(context) != null;
+        public static boolean upgradeFileAvailable(Context context, File file) {
+            return getAvailableCompleteUpgradeFile(context, file) != null;
         }
 
         /**
@@ -394,8 +424,8 @@ public interface UpgradeManager
          * @param context
          * @return true if an upgrade is available and the notification was shown
          */
-        public static boolean notifyUpgrade(Context context) {
-            VerifiedUpgradeFile file = getAvailableCompleteUpgradeFile(context);
+        public static boolean notifyUpgrade(Context context, String filename) {
+            VerifiedUpgradeFile file = getAvailableCompleteUpgradeFile(context, new File(filename));
             if (file == null) {
                 return false;
             }

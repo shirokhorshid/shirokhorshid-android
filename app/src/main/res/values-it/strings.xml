@@ -6,10 +6,10 @@
   <string name="message_image_error_desc">icona indicante messaggio di errore</string>
   <string name="message_image_debug_desc">icona indicante messaggio di debug</string>
   <string name="message_image_warning_desc">icona indicante messaggio di avviso</string>
-  <string name="exit">Abbandona</string>
+  <string name="exit">Esci</string>
   <string name="open_browser">Apri Browser</string>
   <string name="browser_task_label">Psiphon Browser</string>
-  <string name="FeedbackActivity.DefaultText">Se hai commenti specifici, ulteriori informazioni sui siti Web che non funzionano o se questo modulo non funziona per te, invia un\'email a &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Se hai commenti specifici, informazioni su siti Web non funzionanti o se a te non funziona questo modulo, invia un\'email a &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Grazie per averci inviato il tuo feedback</string>
   <string name="FeedbackActivity.Failure">Invio fallito. Si prega di riprovare.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Invio commenti fallito</string>
@@ -68,19 +68,34 @@
   <string name="preference_navigate_to_vpn_setting_title">VPN Permanente</string>
   <string name="preference_navigate_to_vpn_setting_summary">Vai alle impostazioni di sistema per abilitare la VPN Permanente.</string>
   <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
+  <string name="title_kin_and_psiphon">Kin e Psiphon</string>
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
+  <string name="lbl_kin_onboard_explanation">Kin è un nuovo modo per aiutare a supportare Psiphon.\n\nSe sei d\'accordo, verrà creato un portafoglio Kin per te e ogni volta che ti collegherai, questo farà una piccola donazione a Psiphon.\n\nPerché partecipare? Quando si spendono Kin attraverso Psiphon, vengono finanziati i nostri server.\n\nPer saperne di più su Kin vai a: kin.org</string>
   <!--Kin onboarding prompt positive button label.-->
+  <string name="lbl_help_psiphon">Aiuta Psiphon!</string>
   <!--Kin onboarding prompt negative button label.-->
   <string name="lbl_help_psiphon_no_thanks">No grazie</string>
   <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_opt_out">Sicuro di voler rinunciare a Kin?\n\nPotrai sempre rientrare nel programma in futuro, ma fino ad allora non aiuterai Psiphon.</string>
   <!--Kin opt-out prompt negative button label.-->
   <string name="lbl_no">No</string>
   <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
   <string name="lbl_yes">Sì</string>
   <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
      Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_opt_in_to_kin">Accedi a Kin</string>
   <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="title_donate_kin">Dona Kin</string>
   <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_pay">Grazie per aver scelto Kin; vorresti continuare a donare 1 Kin a Psiphon quando ti colleghi?</string>
   <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
+  <string name="lbl_opt_out">Esci</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <!--"Selected region is not available" notification title-->
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN è stato arrestato</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
 </resources>

@@ -91,4 +91,16 @@
   <string name="lbl_kin_pay">Nous vous remercions d’avoir adhéré à Kin. Souhaitez-vous continuer à donner 1 Kin à Psiphon quand vous vous connectez ?</string>
   <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
   <string name="lbl_opt_out">Ne pas participer</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Une action est nécessaire</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Veuillez ouvrir Psiphon pour finir de vous connecter.</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">La région sélectionnée n’est pas disponible</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Veuillez ouvrir Psiphon et sélectionner une autre région.</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Le RPV Psiphon s’est arrêté</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Le RPV Psiphon a été déconnecté par vous ou par une autre appli.</string>
 </resources>

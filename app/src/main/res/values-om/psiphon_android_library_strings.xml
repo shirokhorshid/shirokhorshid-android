@@ -106,6 +106,7 @@
   <string name="home_tab_name">Fuula duraa</string>
   <string name="settings_tab_name">Filmaatawwan</string>
   <string name="statistics_tab_name">Istaatistiksii</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Galmeelee</string>
   <string name="socks_proxy_address">Bakka bu\'aa SOCKS naannoo jiruu hojjetaa jira %s</string>
   <string name="http_proxy_address">Bkka bu\'aan HTTP naannoo jiru hojjetaa jira %s</string>
@@ -190,6 +191,10 @@
   <string name="tunnel_connecting">Dabarsa wal qabsiisuutti jira...</string>
   <string name="tunnel_connected">Dabarsituun wal qabateera</string>
   <string name="waiting">Eegaa jira...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

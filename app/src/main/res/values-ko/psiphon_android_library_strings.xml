@@ -106,6 +106,7 @@
   <string name="home_tab_name">홈</string>
   <string name="settings_tab_name">옵션</string>
   <string name="statistics_tab_name">정보</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">로그</string>
   <string name="socks_proxy_address">Local SOCKS 프록시가 %s에서 작동하는 중</string>
   <string name="http_proxy_address">Local HTTP 프록시가 %s에서 작동하는 중</string>
@@ -144,6 +145,8 @@
   <string name="region_name_se">스웨덴</string>
   <string name="region_name_pl">폴란드</string>
   <string name="region_name_sk">슬로바키아</string>
+  <string name="region_name_rs">세르비아</string>
+  <string name="region_name_au">오스트레일리아</string>
   <string name="about">Psiphon에 대하여</string>
   <string name="feedback">피드백</string>
   <string name="tunnel_whole_device_toggle">완전한 기기 터널링 (Android 4.0+ 필요)</string>
@@ -185,6 +188,11 @@
   <string name="tunnel_connecting">터널 연결중...</string>
   <string name="tunnel_connected">터널 연결됨</string>
   <string name="waiting">기다려 주세요...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">확인</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

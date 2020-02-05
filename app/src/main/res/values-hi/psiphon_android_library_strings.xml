@@ -6,6 +6,7 @@
   <string name="stop">रुकें</string>
   <string name="home_tab_name">होम </string>
   <string name="settings_tab_name">विकल्प</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">लॉग्स</string>
   <string name="share_proxies_prompt_negative">रद्द करना</string>
   <string name="region_name_any">सबसे अच्छा प्रदर्शन</string>
@@ -33,6 +34,8 @@
   <string name="region_name_se">स्वीडन</string>
   <string name="region_name_pl">पोलैंड</string>
   <string name="region_name_sk">स्लोवाकिया</string>
+  <string name="region_name_rs">सर्बिआ</string>
+  <string name="region_name_au">ऑस्ट्रेलिया</string>
   <string name="feedback">प्रतिक्रिया</string>
   <string name="preference_notifications_title">सूचनाएं</string>
   <string name="preference_vpn_title">वीपीएन</string>
@@ -44,6 +47,11 @@
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ठीक है</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

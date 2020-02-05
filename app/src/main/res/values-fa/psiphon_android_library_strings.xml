@@ -58,6 +58,7 @@
   <string name="checking_for_root_access">درحال بررسی دسترسی به روت...</string>
   <string name="psiphon_service_notification_message_connecting">در حال اتصال...</string>
   <string name="psiphon_service_notification_id">اعلانات سرویس سایفون </string>
+  <string name="psiphon_service_notification_channel_name">وضعیت سایفون تغییر می‌کند</string>
   <string name="preferred_servers">سرورهای مورد ترجیح:  %d</string>
   <string name="selecting_server">انتخاب سرور...</string>
   <string name="fetch_remote_server_list">گرفتن لیست سرورهای ریموت... </string>
@@ -107,6 +108,8 @@
   <string name="home_tab_name">خانه</string>
   <string name="settings_tab_name">گزینه‌ها </string>
   <string name="statistics_tab_name">آمارها</string>
+  <!--Do not transliterate or translate the word PsiCash, leave as is-->
+  <string name="psicash_tab_name">PsiCash</string>
   <string name="logs_tab_name">لاگ</string>
   <string name="socks_proxy_address">ساکس محلی فعال است s%</string>
   <string name="http_proxy_address">پراکسی اچ تی تی پی فعال است در s%</string>
@@ -145,6 +148,8 @@
   <string name="region_name_se">سوئد</string>
   <string name="region_name_pl">لهستان</string>
   <string name="region_name_sk">اسلواکی</string>
+  <string name="region_name_rs">صربستان</string>
+  <string name="region_name_au">استرالیا</string>
   <string name="about">درباره سایفون</string>
   <string name="feedback">بازخوردها</string>
   <string name="tunnel_whole_device_toggle">تونل تمام دستگاه «نیاز به اندروید ۴.۰ به بالا دارد»</string>
@@ -193,6 +198,14 @@
   <string name="tunnel_connecting">در حال اتصال به تونل...</string>
   <string name="tunnel_connected">متصل شد</string>
   <string name="waiting">منتظر...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">درخواست مجوز</string>
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">با اعطای دسترسی به مکان خودتان، به سایفون اجازه دهید تصمیمات بهتری در مورد چگونگی عملکرد روی شبکه شما بگیرد.\n\nبه یاد داشته باشید که این اطلاعات تنها به صورت محلی در دستگاه خود شما مورد استفاده قرار می‌گیرد، و به سرورهای ما یا هیچ شخص ثالثی انتقال نمی‌یابد.</string>
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">قبول</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">نه، ممنون</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

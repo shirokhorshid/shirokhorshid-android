@@ -71,24 +71,31 @@
   <string name="title_kin_and_psiphon">Kin与赛风</string>
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
-  <string name="lbl_kin_onboard_explanation">Kin是一种新的支持赛风方式。\n\n如果您同意参与，一个Kin钱包将会自动为您创建。每次您链接赛风的时候，它将会被用来资助赛风。\n\n为什么参与？当您通过赛风使用Kin时，赛风将会得到资金用来维护和更新赛风的服务。\n\n更多信息请查看Kin官网: kin.org</string>
+  <string name="lbl_kin_onboard_explanation">Kin项目是一种全新支持赛风方式。\n\n如果您同意参与，一个Kin钱包将会自动为您创建。每次您链接赛风的时候，它将会被用来资助赛风。\n\n为什么参与？当您通过赛风使用Kin时，赛风将会得到资金用来维护和更新赛风的服务。\n\n更多信息请查看Kin官网: kin.org</string>
   <!--Kin onboarding prompt positive button label.-->
-  <string name="lbl_help_psiphon">帮助赛风</string>
+  <string name="lbl_help_psiphon">帮助赛风！</string>
   <!--Kin onboarding prompt negative button label.-->
   <string name="lbl_help_psiphon_no_thanks">下次再说</string>
   <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_opt_out">您确定要退出Kin吗?\n\n 如果您希望，您将可以重新参与到这个项目中来。但是您将无法帮助赛风为您提供更好的服务，直到您重新参与这个项目。</string>
+  <string name="lbl_kin_opt_out">您确定要退出Kin项目吗?\n\n 如果您希望，您将可以重新参与到这个项目中来。但是您将无法帮助赛风为您提供更好的服务，直到您重新参与这个项目。</string>
   <!--Kin opt-out prompt negative button label.-->
   <string name="lbl_no">否</string>
   <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
   <string name="lbl_yes">是</string>
   <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
      Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_opt_in_to_kin">加入Kin</string>
+  <string name="lbl_opt_in_to_kin">加入Kin项目</string>
   <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
   <string name="title_donate_kin">捐赠Kin</string>
   <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_pay">谢谢您选择加入Kin。您是否愿意在您链接赛风时捐赠1 Kin给赛风？</string>
+  <string name="lbl_kin_pay">谢谢您选择加入Kin项目。您是否愿意在您链接赛风时捐赠1 Kin给赛风？</string>
   <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
-  <string name="lbl_opt_out">退出Kin</string>
+  <string name="lbl_opt_out">退出Kin项目</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <!--"Selected region is not available" notification title-->
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">赛风 VPN 已停止</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
 </resources>

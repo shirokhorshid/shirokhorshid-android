@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Unduhan dimulai.</string>
   <string name="Main.DownloadFinishedMsg">Unduhan selesai.</string>
   <string name="Main.DownloadErrorMsg">Gagal mengunduh: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Izin tertulis diperlukan untuk mengunduh item-item yang akan disimpan di penyimpanan luar.</string>
   <string name="Main.ToastTabSwitchMessage">Tab %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Tab %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">Tidak dapat membuka URL</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Ekspor gagal</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Pesan kesalahan: %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Impor gagal</string>
+  <string name="Commons.PermissionRequestReasonTitle">Alasan permintaan izin</string>
+  <string name="Commons.NeedWritePermissions">Mohon berikan izin tertulis dan coba lagi</string>
+  <string name="Commons.NeedReadPermissions">Mohon berikan izin yang sudah terbaca dan coba lagi</string>
   <string name="Commons.OperationCanBeLongMessage">Tindakan ini mungkin memerlukan waktu cukup lama. Apa Anda ingin melanjutkan?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Kelola markah dan riwayat</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Mengimpor, mengekspor, serta menghapus riwayat dan markah.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Ekspor markah dan riwayat</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Mengekspor markah dan riwayat ke kartu SD.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Tuliskan izin-izin yang diperlukan untuk mengekspor penanda-penanda yang akan disimpan di penyimpanan luar.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Impor markah dan riwayat</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Mengimpor markah dan riwayat dari kartu SD.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Bacalah izin-izin yang diperlukan untuk mengimpor penanda-penanda yang akan disimpan di penyimpanan luar.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Hapus riwayat dan/atau markah</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Awas, tindakan ini tidak dapat dibatalkan.</string>
   <string name="Commons.ClearingHistoryBookmarks">Menghapus riwayat dan/atau markah...</string>

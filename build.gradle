@@ -19,3 +19,28 @@ allprojects {
         jcenter()
     }
 }
+
+// define all dependencies versions here
+ext {
+    androidSupportLibraryVersion = '24.2.1'
+    rxjavaVersion = '2.2.5'
+    rxandroidVersion = '2.1.0'
+    rxrelayVersion = '2.1.0'
+    autoValueVersion = '1.5.2'
+    multidexVersion = '1.0.3'
+    junitVersion = '4.12'
+    testRunnerVersion = '0.5'
+}
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            // resolve all android support library conflicts to the same version
+            // except for multidex modules
+            if (details.requested.group == 'com.android.support' && !details.requested.name.startsWith('multidex')) {
+                details.useVersion rootProject.ext.androidSupportLibraryVersion
+            }
+        }
+    }
+}
+

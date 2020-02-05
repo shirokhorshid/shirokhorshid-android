@@ -17,24 +17,24 @@
   <string name="FeedbackActivity.InvalidURLParameters">باراميترات خاطئه في استمارة الرد.</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">فشل في الحصول على مضمون صفحة الرد.</string>
   <string name="StatusActivity.VpnRevokedTitle">سايفون VPN قد توقف</string>
-  <string name="StatusActivity.VpnRevokedMessage">انقطع اتصال VPN الخاص بسايفون عن طريقك أو عن طريق تطبيق آخر. لا يمكن تشغيل أكثر من تطبيق VPN فى نفس الوقت. تحقق ما اذا كان هناك تطبيق VPN آخر مثيت و قيد التشغيل.</string>
+  <string name="StatusActivity.VpnRevokedMessage">انقطع اتصال VPN الخاص بسايفون عن طريقك أو عن طريق تطبيق آخر. لا يمكن تشغيل أكثر من تطبيق VPN فى الوقت عينه. تحقق ما إذا كان هناك تطبيق VPN آخر مثبت و قيد التشغيل.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">تعذّر تشغيل سايفون</string>
-  <string name="StatusActivity.VpnPromptCancelledMessage">سايفون لا يستطيع تشغيل ال VPN. لا يمكن تشغيل أكثر من تطبيق VPN فى نفس الوقت. تحقق ما اذا كان هناك تطبيق VPN آخر مثيت و تم ضبطه مسبقاً لـ \"تشغيل دائم\".</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">سايفون لا يستطيع تشغيل ال VPN. لا يمكن تشغيل أكثر من تطبيق VPN في الوقت عيته. تحقق ما اذا كان هناك تطبيق VPN آخر مثبت و تم ضبطه مسبقاً لـ \"تشغيل دائم\".</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">نقل الجهاز بأكمله عبر النفق؟</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage"> خيار تمرير كامل الجهاز عبر نفق متوفر لجهازك.\n\nهذا الخيار يتيح لك تمرير كل إتصالك بالإنترنت عبر نفق برنامج سايفون،  بما فيه التطبيقات والمتصفحات.\n\nيمكنك أيضا اختيار تمرير متصفح سايفون فقط عبر النفق وهذا يعني أن كل المتصفحات وألتطبيقات ألأخرى ستمر عبر إتصالك العادي بالإنترنت.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">نقل الجهاز بأكمله عبر النفق</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">استخدم متصفح سايفون فقط</string>
-  <string name="selected_region_currently_not_available">المنطقة المختارة غير متوفرة حاليًا ، يرجى تحديد منطقة أخرى.</string>
+  <string name="selected_region_currently_not_available">المنطقة المختارة غير متوفرة حاليا ، يرجى تحديد منطقة أخرى.</string>
   <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">نهتم بخصوصية وأمان البيانات الخاصة بك. نحافظ على هذا التطبيق مجاناً من خلال عرض الإعلانات.</string>
   <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">هل يمكننا الاستمرار في استخدام بياناتك لتخصيص إعلانات ملائمة لك؟</string>
   <string name="you_can_change_your_choice_anytime">يمكنك تغيير اختيارك لـ سايفون برو في خيارات التطبيق في أي وقت. سيجمع مزودي الإعلانات لدينا البيانات ويستخدموا معرفًا خاصاً على جهازك لعرض الإعلانات.</string>
   <string name="learn_more_about_our_ad_providers">تعرف اكثر حول مزودي الإعلانات لدينا</string>
-  <string name="yes_continue_to_see_relevant_ads">نعم، استمر في رؤية الإعلانات ذات الصلة</string>
-  <string name="no_see_ads_that_are_less_relevant">كلا، رؤية اعلانات اقل ملائمة</string>
+  <string name="yes_continue_to_see_relevant_ads">نعم، استمر في عرض الإعلانات ذات الصلة</string>
+  <string name="no_see_ads_that_are_less_relevant">كلا، عرض إعلانات اقل ملائمة</string>
   <string name="pay_for_the_ad_free_version">تحديث لنسخة خالية من الإعلانات  </string>
   <string name="click_ad_provider_name_to_see_privacy_policy">انقر على اسم مزود الإعلان للاطلاع على سياسة الخصوصية الخاصة به</string>
   <string name="ads_consent_preference_category_title">تخصيص الإعلانات</string>
-  <string name="ads_consent_preference_dialog_preference_message">هل تريد حقًا إعادة ضبط تفضيلات تخصيص الإعلانات؟</string>
+  <string name="ads_consent_preference_dialog_preference_message">هل تريد إعادة ضبط تفضيلات تخصيص الإعلانات؟</string>
   <string name="ads_consent_preference_title">إعادة ضبط تفضيلات تخصيص الإعلانات</string>
   <string name="ads_consent_preference_dialog_title">إعادة ضبط</string>
   <string name="ads_consent_preference_summary">أعد ضبط تفضيلاتك للسماح لشبكات الإعلانات باستخدام ملفات تعريف الارتباط وبياناتك الشخصية</string>
@@ -49,39 +49,58 @@
   <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
   <string name="nfc_connection_info_press_start">من فضلك اضغط على تشغيل و حاول التبادل مرة أخرى عن طربق تقنية NFC.</string>
   <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">هل تحتاج مساعدة فى الاتصال؟</string>
+  <string name="need_help_connecting">هل تحتاج مساعدة في الاتصال؟</string>
   <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">للحصول على المساعدة فى الاتصال ابحث عن مستخدم سايفون آخر متصل، ثم أثناء محاولتك للاتصال وهو متصل قم بوضع هاتفيكم معا بحيث يكون ظهر الهاتفين متقابلين للقيام بنقل معلومات الاتصال.</string>
+  <string name="get_help_connecting_text">للحصول على المساعدة في الاتصال ابحث عن مستخدم آخر متصل بسايفون ، ثم أثناء محاولتك للاتصال وهو متصل قم بوضع هاتفيكم معا بحيث يكون ظهر الهاتفين متقابلين للقيام بنقل معلومات الاتصال.</string>
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
   <string name="get_help_connecting_image_description">الهواتف يتم تصادمها بتقنية NFC.</string>
   <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
   <string name="get_help_connecting_notification_title">مشكلة فى الاتصال</string>
   <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">اضغط لمحاولة الاصلاح</string>
+  <string name="get_help_connecting_notification_message">اضغط لمحاولة المعالجة</string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">ساعد صديقا فى الاتصال</string>
+  <string name="how_to_help">ساعد صديقا في الاتصال</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">بامكانك أن تساعد صديقا فى الاتصال بسايفون عن طريق وضع الهاتفين بحيث يكون الظهرين متقابلين عندما تكون متصلا و هو يحاول الاتصال.</string>
+  <string name="how_to_help_connect_text">بامكانك أن تساعد صديقا في الاتصال بسايفون عن طريق وضع الهاتفين بحيث يكون الظهرين متقابلين عندما تكون متصلا و هو يحاول الاتصال.</string>
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
   <string name="how_to_help_connect_image_description">الهواتف يتم تصادمها بتقنية NFC.</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">يعمل</string>
-  <string name="preference_navigate_to_vpn_setting_title">اتصال دائم بالشبكة الافتراضية الخاصة</string>
-  <string name="preference_navigate_to_vpn_setting_summary">اذهب الى اعدادات النظام للسماح بوضعية تشغيل دائم لتفنية VPN.</string>
+  <string name="preference_navigate_to_vpn_setting_title">اتصال دائم بـ VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">اذهب الى إعدادات النظام للسماح بوضعية تشغيل دائم للـ VPN.</string>
   <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
+  <string name="title_kin_and_psiphon">كين وسايفون</string>
   <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
     since it gets converted to a hyperlink automatically.-->
+  <string name="lbl_kin_onboard_explanation">كين هي طريقة جديدة لدعم سايفون
+في حال الموافقة، سيتم إنشاء محفظة خاصة لك على كين، وفي كل مرة تقوم فيها بالاتصال سيتم التبرع بقيمة صغيرة لسايفون.
+لما المشاركة؟ استخدام كين عبر سايفون يدعم تمويل خوادمنا.
+لمعرفة المزيد حول كين تفقد الموقع التالي: kin.org</string>
   <!--Kin onboarding prompt positive button label.-->
+  <string name="lbl_help_psiphon">ساعد سايفون!</string>
   <!--Kin onboarding prompt negative button label.-->
   <string name="lbl_help_psiphon_no_thanks">لا شكراً</string>
   <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_opt_out">هل أنت متأكد من إلغاء خدمة كين؟
+يمكنك دائما تفعيل الخدمة في المستقبل ، لكن حتى ذلك الحين سايفون ستخسر دعمك.</string>
   <!--Kin opt-out prompt negative button label.-->
   <string name="lbl_no">‮لا</string>
   <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
   <string name="lbl_yes">‮نعم</string>
   <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
      Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_opt_in_to_kin">تفعيل خدمة كين</string>
   <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="title_donate_kin">تبرع بكين</string>
   <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
+  <string name="lbl_kin_pay">شكرًا لك على تفعيل خدمة كين ، هل ترغب في مواصلة التبرع بـ 1 كين إلى سايفون عند الاتصال؟</string>
   <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
+  <string name="lbl_opt_out">إلغاء خدمة كين</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <!--"Selected region is not available" notification title-->
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">سايفون VPN قد توقف</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
 </resources>
