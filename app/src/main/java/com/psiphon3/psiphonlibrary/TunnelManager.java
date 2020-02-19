@@ -63,10 +63,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -1042,30 +1041,58 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     @Override
     public Builder newVpnServiceBuilder() {
         Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
-        if (Build.VERSION.SDK_INT >= LOLLIPOP) {
-            final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
-            Resources res = getContext().getResources();
+        // only can control tunneling post lollipop
+        if (Build.VERSION.SDK_INT < LOLLIPOP) {
+            return vpnBuilder;
+        }
 
+        Context context = getContext();
+        AppPreferences appPreferences = new AppPreferences(context);
 
-            // Check for individual apps to exclude
-            String excludedAppsFromPreference = multiProcessPreferences.getString(res.getString(R.string.preferenceExcludeAppsFromVpnString), "");
-            List<String> excludedApps;
-            if (excludedAppsFromPreference.isEmpty()) {
-                excludedApps = Collections.emptyList();
-                MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
-            } else {
-                excludedApps = Arrays.asList(excludedAppsFromPreference.split(","));
+        // do we tunnel only apps which have been selected
+        if (appPreferences.getBoolean(context.getString(R.string.preferenceIncludeAllAppsInVpn), false)) {
+            MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+        } else if (appPreferences.getBoolean(context.getString(R.string.preferenceIncludeAppsInVpn), false)) {
+            // check for individual apps to include
+            String includedAppsFromPreference = appPreferences.getString(context.getString(R.string.preferenceIncludeAppsInVpnString), "");
+            Set<String> includedApps = SharedPreferenceUtils.deserializeSet(includedAppsFromPreference);
+            if (includedApps.size() == 0) {
+                MyLog.v(R.string.no_apps_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
             }
 
-            if (excludedApps.size() > 0) {
-                for (String packageId : excludedApps) {
-                    try {
-                        vpnBuilder.addDisallowedApplication(packageId);
-                        MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
-                    } catch (PackageManager.NameNotFoundException e) {
-                        // Because the list that is passed in to this builder was created by
-                        // a PackageManager instance, this exception should never be thrown
-                    }
+            // allow the selected apps
+            for (String packageId : includedApps) {
+                try {
+                    vpnBuilder.addAllowedApplication(packageId);
+                    MyLog.v(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Because the list that is passed in to this builder was created by
+                    // a PackageManager instance, this exception should never be thrown
+                }
+            }
+
+            // always allow ourselves to be tunneled, also has the side effect of preventing all not selected apps from being tunneled if none were selected
+            try {
+                vpnBuilder.addAllowedApplication(context.getPackageName());
+            } catch (PackageManager.NameNotFoundException e) {
+                // this should never be thrown
+            }
+        } else {
+            // check for individual apps to exclude
+            String excludedAppsFromPreference = appPreferences.getString(context.getString(R.string.preferenceExcludeAppsFromVpnString), "");
+            Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(excludedAppsFromPreference);
+            if (excludedApps.size() == 0) {
+                MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+            }
+
+            // disallow the selected apps
+            for (String packageId : excludedApps) {
+                try {
+                    vpnBuilder.addDisallowedApplication(packageId);
+                    MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                } catch (PackageManager.NameNotFoundException e) {
+                    // Because the list that is passed in to this builder was created by
+                    // a PackageManager instance, this exception should never be thrown
                 }
             }
         }
