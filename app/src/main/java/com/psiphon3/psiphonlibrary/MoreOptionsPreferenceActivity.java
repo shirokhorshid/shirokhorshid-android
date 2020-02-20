@@ -252,6 +252,15 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             tunnelNotSelectedApps();
         }
 
+        // Also create a snapshot of current VPN exclusion sets. We need this because tunnel restart
+        // logic when we return back to main activity from this screen will compare the preferences
+        // set in this screen with currently stored preferences in order to make decision if the
+        // preferences change needs to trigger a tunnel restart.
+        String currentIncludeAppsString = preferenceGetter.getString(getString(R.string.preferenceIncludeAppsInVpnString), "");
+        preferences.getEditor().putString(getString(R.string.preferenceIncludeAppsInVpnString), currentIncludeAppsString).apply();
+        String currentExcludeAppsString = preferenceGetter.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+        preferences.getEditor().putString(getString(R.string.preferenceExcludeAppsFromVpnString), currentExcludeAppsString).apply();
+
         mTunnelAllApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
@@ -305,7 +314,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                         int installedAppsCount = installedAppsMultiSelectListPreference.getInstalledAppsCount();
                         if (installedAppsMultiSelectListPreference.isWhitelist()) {
                             if (selectedApps.size() > 0) {
-                                mAppExclusionsManager.setAppsToIncludeInVpn(selectedApps);
+                                mAppExclusionsManager.setPendingAppsToIncludeInVpn(selectedApps);
                             } else {
                                 new AlertDialog.Builder(MoreOptionsPreferenceActivity.this)
                                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -318,7 +327,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                             }
                         } else {
                             if (installedAppsCount > selectedApps.size()) {
-                                mAppExclusionsManager.setAppsToExcludeFromVpn(selectedApps);
+                                mAppExclusionsManager.setPendingAppsToExcludeFromVpn(selectedApps);
                             } else {
                                 new AlertDialog.Builder(MoreOptionsPreferenceActivity.this)
                                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -354,7 +363,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps.setChecked(true);
         mTunnelNotSelectedApps.setChecked(false);
         mSelectApps.setEnabled(true);
-        int count = mAppExclusionsManager.getAppsIncludedInVpn().size();
+        int count = mAppExclusionsManager.getCurrentAppsIncludedInVpn().size();
         String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_include_summary, count, count);
         mSelectApps.setSummary(summary);
     }
@@ -364,7 +373,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps.setChecked(false);
         mTunnelNotSelectedApps.setChecked(true);
         mSelectApps.setEnabled(true);
-        int count = mAppExclusionsManager.getAppsExcludedFromVpn().size();
+        int count = mAppExclusionsManager.getCurrentAppsExcludedFromVpn().size();
         String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_exclude_summary, count, count);
         mSelectApps.setSummary(summary);
     }

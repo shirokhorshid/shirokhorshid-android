@@ -171,8 +171,6 @@
     <string name="preference_routing_exclude_apps_title">Exclude Apps</string>
     <!-- Description of option to tunnel everything but selected apps -->
     <string name="preference_routing_exclude_apps_summary">Don\'t tunnel selected apps</string>
-    <!-- Confirm selection of apps, used for including and excluding apps from tunnel -->
-    <string name="preference_routing_exclude_apps_ok_button_text">Set</string>
     <!-- Log line for when an app is tunneled -->
     <string name="individual_app_included">Tunneling app: %s</string>
     <!-- Log line for when an app is excluded from being tunneled -->

@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.psiphon3.R;
 
@@ -28,33 +29,35 @@ import net.grandcentrix.tray.AppPreferences;
 import java.util.Set;
 
 public class AppExclusionsManager {
-    private final AppPreferences preferences;
+    private final AppPreferences currentPreferences;
+    private final SharedPreferences pendingPreferences;
     private final String includeAppsStringPreferenceKey;
     private final String excludeAppsStringPreferenceKey;
 
     AppExclusionsManager(Context context) {
-        this.preferences = new AppPreferences(context);
+        this.currentPreferences = new AppPreferences(context);
         includeAppsStringPreferenceKey = context.getString(R.string.preferenceIncludeAppsInVpnString);
         excludeAppsStringPreferenceKey = context.getString(R.string.preferenceExcludeAppsFromVpnString);
+        pendingPreferences = context.getSharedPreferences(context.getString(R.string.moreOptionsPreferencesName), Context.MODE_PRIVATE);
     }
 
-    public Set<String> getAppsIncludedInVpn() {
-        String serializedSet = preferences.getString(includeAppsStringPreferenceKey, "");
+    public Set<String> getCurrentAppsIncludedInVpn() {
+        String serializedSet = currentPreferences.getString(includeAppsStringPreferenceKey, "");
         return SharedPreferenceUtils.deserializeSet(serializedSet);
     }
 
-    public Set<String> getAppsExcludedFromVpn() {
-        String serializedSet = preferences.getString(excludeAppsStringPreferenceKey, "");
+    public Set<String> getCurrentAppsExcludedFromVpn() {
+        String serializedSet = currentPreferences.getString(excludeAppsStringPreferenceKey, "");
         return SharedPreferenceUtils.deserializeSet(serializedSet);
     }
 
-    public void setAppsToIncludeInVpn(Set<String> packageIds) {
+    public void setPendingAppsToIncludeInVpn(Set<String> packageIds) {
         String serializedSet = SharedPreferenceUtils.serializeSet(packageIds);
-        preferences.put(includeAppsStringPreferenceKey, serializedSet);
+        pendingPreferences.edit().putString(includeAppsStringPreferenceKey, serializedSet).apply();
     }
 
-    public void setAppsToExcludeFromVpn(Set<String> packageIds) {
+    public void setPendingAppsToExcludeFromVpn(Set<String> packageIds) {
         String serializedSet = SharedPreferenceUtils.serializeSet(packageIds);
-        preferences.put(excludeAppsStringPreferenceKey, serializedSet);
+        pendingPreferences.edit().putString(excludeAppsStringPreferenceKey, serializedSet).apply();
     }
 }

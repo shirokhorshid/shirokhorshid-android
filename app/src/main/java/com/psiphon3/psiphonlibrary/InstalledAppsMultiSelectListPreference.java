@@ -60,8 +60,8 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
         List<AppEntry> installedApps = getInstalledApps(context);
         installedAppsCount = installedApps.size();
         final Set<String> selectedApps = whitelist ?
-                appExclusionsManager.getAppsIncludedInVpn() :
-                appExclusionsManager.getAppsExcludedFromVpn();
+                appExclusionsManager.getCurrentAppsIncludedInVpn() :
+                appExclusionsManager.getCurrentAppsExcludedFromVpn();
 
         adapter = new InstalledAppsRecyclerViewAdapter(
                 context,
@@ -70,7 +70,7 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
 
         setTitle(getTitle(whitelist));
         setView(getView(context, layoutInflater, whitelist));
-        setPositiveButton(R.string.preference_routing_exclude_apps_ok_button_text, null);
+        setPositiveButton(R.string.abc_action_mode_done , null);
         setCancelable(true);
         setNegativeButton(android.R.string.cancel, null);
     }
