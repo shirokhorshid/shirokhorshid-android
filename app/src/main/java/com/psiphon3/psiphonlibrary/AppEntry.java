@@ -33,8 +33,6 @@ public class AppEntry implements Comparable<AppEntry> {
         this.name = name;
         this.packageId = packageId;
         this.iconLoader = iconLoader;
-        iconLoader.subscribe();
-
         comparableName = getComparableName();
     }
 

@@ -19,6 +19,7 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -42,8 +43,6 @@ import com.psiphon3.R;
 import net.grandcentrix.tray.AppPreferences;
 
 import org.zirco.ui.activities.MainActivity;
-
-import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
@@ -98,7 +97,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     RadioButtonPreference mTunnelSelectedApps;
     RadioButtonPreference mTunnelNotSelectedApps;
     Preference mSelectApps;
-    ListPreference mTunnelPresets;
     CheckBoxPreference mUseProxy;
     RadioButtonPreference mUseSystemProxy;
     RadioButtonPreference mUseCustomProxy;
@@ -110,10 +108,13 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     EditTextPreference mProxyDomain;
     Bundle mDefaultSummaryBundle;
     ListPreference mLanguageSelector;
+    AppExclusionsManager mAppExclusionsManager;
+
 
     @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAppExclusionsManager = new AppExclusionsManager(this);
 
         // Store temporary preferences used in this activity in its own file
         PreferenceManager prefMgr = getPreferenceManager();
@@ -235,7 +236,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceIncludeAppsInVpn));
         mTunnelNotSelectedApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
         mSelectApps = preferences.findPreference(getString(R.string.preferenceSelectApps));
-        mTunnelPresets = (ListPreference) preferences.findPreference(getString(R.string.preferenceTunnelPresets));
 
         if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false)) {
             tunnelAllApps();
@@ -272,22 +272,20 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mSelectApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                new InstalledAppsMultiSelectListPreference(MoreOptionsPreferenceActivity.this, getLayoutInflater(), mTunnelSelectedApps.isChecked()).show();
-                return true;
-            }
-        });
-
-        final AppExclusionsManager appExclusionsManager = new AppExclusionsManager(this);
-        mTunnelPresets.setEntries(R.array.preference_routing_presets_entries);
-        mTunnelPresets.setEntryValues(AppExclusionsManager.ROUTING_PRESETS);
-        mTunnelPresets.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                String preset = (String) newValue;
-                Set<String> presetsPackageIds = appExclusionsManager.getPresetsPackageIds(getPackageManager(), preset);
-                // appExclusionsManager.allowSelectedAppsThroughVpn();
-                appExclusionsManager.setAppsToIncludeInVpn(presetsPackageIds);
-                tunnelSelectedApps();
+                new InstalledAppsMultiSelectListPreference(MoreOptionsPreferenceActivity.this, getLayoutInflater(), mTunnelSelectedApps.isChecked())
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialog) {
+                                if (mTunnelAllApps.isChecked()) {
+                                    tunnelAllApps();
+                                } else if (mTunnelSelectedApps.isChecked()) {
+                                    tunnelSelectedApps();
+                                } else {
+                                    tunnelNotSelectedApps();
+                                }
+                            }
+                        })
+                        .show();
                 return true;
             }
         });
@@ -298,7 +296,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps.setChecked(false);
         mTunnelNotSelectedApps.setChecked(false);
         mSelectApps.setEnabled(false);
-        mSelectApps.setSummary(null);
+        mSelectApps.setSummary(R.string.preference_routing_all_apps_tunnel_summary);
     }
 
     private void tunnelSelectedApps() {
@@ -306,7 +304,9 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps.setChecked(true);
         mTunnelNotSelectedApps.setChecked(false);
         mSelectApps.setEnabled(true);
-        mSelectApps.setSummary(R.string.preference_routing_select_apps_to_include_summary);
+        int count = mAppExclusionsManager.getAppsIncludedInVpn().size();
+        String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_include_summary, count, count);
+        mSelectApps.setSummary(summary);
     }
 
     private void tunnelNotSelectedApps() {
@@ -314,7 +314,9 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps.setChecked(false);
         mTunnelNotSelectedApps.setChecked(true);
         mSelectApps.setEnabled(true);
-        mSelectApps.setSummary(R.string.preference_routing_select_apps_to_exclude_summary);
+        int count = mAppExclusionsManager.getAppsExcludedFromVpn().size();
+        String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_exclude_summary, count, count);
+        mSelectApps.setSummary(summary);
     }
 
     private void setupLanguageSelector(PreferenceScreen preferences) {

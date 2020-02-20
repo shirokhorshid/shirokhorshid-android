@@ -42,10 +42,7 @@ import java.util.List;
 import java.util.Set;
 
 import io.reactivex.Single;
-import io.reactivex.SingleEmitter;
-import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -111,16 +108,22 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
         List<AppEntry> apps = new ArrayList<>();
         List<PackageInfo> packages = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
 
+
         String selfPackageName = context.getPackageName();
+        boolean checkSelf = true;
 
         for (int i = 0; i < packages.size(); i++) {
             PackageInfo p = packages.get(i);
 
             // The returned app list excludes:
             //  - Apps that don't require internet access
-            // TODO: add Psiphon back to the list when we are able to send all Kin traffic via proxy.
-            // That requires a change in Kin SDK.
-            if (isInternetPermissionGranted(p) && !p.packageName.equals(selfPackageName)) {
+            //  - Psiphon itself
+            if (checkSelf && p.packageName.equals(selfPackageName)) {
+                // Skip the check next time once we got a match.
+                checkSelf = false;
+                continue;
+            }
+            if (isInternetPermissionGranted(p)) {
                 // This takes a bit of time, but since we want the apps sorted by displayed name
                 // its best to do synchronously
                 String appName = p.applicationInfo.loadLabel(pm).toString();
@@ -150,29 +153,17 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
     }
 
     private Single<Drawable> getIconLoader(final ApplicationInfo applicationInfo, final PackageManager packageManager) {
-        Single<Drawable> single = Single.create(new SingleOnSubscribe<Drawable>() {
-            @Override
-            public void subscribe(SingleEmitter<Drawable> emitter) {
-                Drawable icon = applicationInfo.loadIcon(packageManager);
-                if (!emitter.isDisposed()) {
-                    emitter.onSuccess(icon);
-                }
+        return Single.<Drawable>create(emitter -> {
+            Drawable icon = applicationInfo.loadIcon(packageManager);
+            if (!emitter.isDisposed()) {
+                emitter.onSuccess(icon);
             }
-        });
-
-        return single
+        })
                 // shouldn't ever get an error but handle it just in case
-                .doOnError(new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable e) {
-                        Utils.MyLog.g("failed to load icon for " + applicationInfo.packageName + " " + e);
-                    }
-                })
+                .doOnError(e -> Utils.MyLog.g("failed to load icon for " + applicationInfo.packageName + " " + e))
                 // run on io as we're reading off disk
                 .subscribeOn(Schedulers.io())
                 // observe on ui
-                .observeOn(AndroidSchedulers.mainThread())
-                // cache so we can subscribe off the bat to start the op + subscribe when drawing
-                .cache();
+                .observeOn(AndroidSchedulers.mainThread());
     }
 }

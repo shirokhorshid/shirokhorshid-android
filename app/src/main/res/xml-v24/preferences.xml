@@ -55,10 +55,6 @@
         <Preference
             android:key="@string/preferenceSelectApps"
             android:title="@string/preference_routing_select_apps_title" />
-        <com.psiphon3.psiphonlibrary.ListPreference
-            android:key="@string/preferenceTunnelPresets"
-            android:title="@string/preference_routing_presets_title"
-            android:summary="@string/preference_routing_presets_summary" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/proxySettingsCategoryKey"

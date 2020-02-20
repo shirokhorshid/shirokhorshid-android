@@ -171,16 +171,6 @@
     <string name="preference_routing_exclude_apps_title">Exclude Apps</string>
     <!-- Description of option to tunnel everything but selected apps -->
     <string name="preference_routing_exclude_apps_summary">Don\'t tunnel selected apps</string>
-    <!-- Title description of option to select a preset of app routing -->
-    <string name="preference_routing_presets_title">Tunneling presets</string>
-    <!-- Summary description of option to select a preset of app routing -->
-    <string name="preference_routing_presets_summary">Select a preset tunneling setting</string>
-    <!-- List of tunneling preset names -->
-    <string-array name="preference_routing_presets_entries">
-        <item>Web browsers</item>
-        <item>Reddit apps</item>
-        <item>Social apps</item>
-    </string-array>
     <!-- Confirm selection of apps, used for including and excluding apps from tunnel -->
     <string name="preference_routing_exclude_apps_ok_button_text">Set</string>
     <!-- Log line for when an app is tunneled -->
@@ -194,9 +184,18 @@
     <!-- Title for option to select apps for routing changes -->
     <string name="preference_routing_select_apps_title">Select apps</string>
     <!-- Description of option to select apps to exclusively tunnel -->
-    <string name="preference_routing_select_apps_to_include_summary">Select apps to tunnel</string>
+    <plurals name="preference_routing_select_apps_to_include_summary">
+        <item quantity="zero">%d apps will be tunnelled via VPN</item>
+        <item quantity="one">%d app will be tunneled via VPN</item>
+        <item quantity="other">%d apps will be tunneled via VPN</item>
+    </plurals>
     <!-- Description of option to select apps to not tunnel -->
-    <string name="preference_routing_select_apps_to_exclude_summary">Select apps to exclude from tunnel</string>
+    <plurals name="preference_routing_select_apps_to_exclude_summary">
+        <item quantity="zero">%d apps will be excluded from VPN</item>
+        <item quantity="one">%d app will be excluded from VPN</item>
+        <item quantity="other">%d apps will be excluded from VPN</item>
+    </plurals>
+    <string name="preference_routing_all_apps_tunnel_summary">All apps will be tunnelled via VPN</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>
     <string name="preference_notifications_with_vibrate_title">Vibrate</string>

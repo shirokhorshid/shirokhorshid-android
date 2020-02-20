@@ -20,7 +20,6 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +32,6 @@ import com.psiphon3.R;
 
 import java.util.List;
 import java.util.Set;
-
-import io.reactivex.functions.Consumer;
 
 public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<InstalledAppsRecyclerViewAdapter.ViewHolder> {
     private final LayoutInflater inflater;
@@ -60,14 +57,11 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
         final AppEntry appEntry = data.get(position);
 
         appEntry.getIconLoader()
-                .doOnSuccess(new Consumer<Drawable>() {
-                    @Override
-                    public void accept(Drawable icon) {
-                        // check to see if the adapter position matches the position of the holder
-                        // if it does then set the picture
-                        if (position == holder.getAdapterPosition()) {
-                            holder.appIcon.setImageDrawable(icon);
-                        }
+                .doOnSuccess(icon -> {
+                    // check to see if the adapter position matches the position of the holder
+                    // if it does then set the picture
+                    if (position == holder.getAdapterPosition()) {
+                        holder.appIcon.setImageDrawable(icon);
                     }
                 })
                 .subscribe();
