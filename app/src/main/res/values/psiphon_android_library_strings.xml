@@ -185,13 +185,11 @@
     <string name="preference_routing_select_apps_title">Select apps</string>
     <!-- Description of option to select apps to exclusively tunnel -->
     <plurals name="preference_routing_select_apps_to_include_summary">
-        <item quantity="zero">%d apps will be tunnelled via VPN</item>
         <item quantity="one">%d app will be tunneled via VPN</item>
         <item quantity="other">%d apps will be tunneled via VPN</item>
     </plurals>
     <!-- Description of option to select apps to not tunnel -->
     <plurals name="preference_routing_select_apps_to_exclude_summary">
-        <item quantity="zero">%d apps will be excluded from VPN</item>
         <item quantity="one">%d app will be excluded from VPN</item>
         <item quantity="other">%d apps will be excluded from VPN</item>
     </plurals>
