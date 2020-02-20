@@ -48,15 +48,43 @@ import io.reactivex.schedulers.Schedulers;
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
     private final AppExclusionsManager appExclusionsManager;
+    private final InstalledAppsRecyclerViewAdapter adapter;
+    private final boolean whitelist;
+
+    private final int installedAppsCount;
 
     InstalledAppsMultiSelectListPreference(Context context, LayoutInflater layoutInflater, boolean whitelist) {
         super(context);
-
+        this.whitelist = whitelist;
         appExclusionsManager = new AppExclusionsManager(context);
+        List<AppEntry> installedApps = getInstalledApps(context);
+        installedAppsCount = installedApps.size();
+        final Set<String> selectedApps = whitelist ?
+                appExclusionsManager.getAppsIncludedInVpn() :
+                appExclusionsManager.getAppsExcludedFromVpn();
+
+        adapter = new InstalledAppsRecyclerViewAdapter(
+                context,
+                installedApps,
+                selectedApps);
 
         setTitle(getTitle(whitelist));
         setView(getView(context, layoutInflater, whitelist));
         setPositiveButton(R.string.preference_routing_exclude_apps_ok_button_text, null);
+        setCancelable(true);
+        setNegativeButton(android.R.string.cancel, null);
+    }
+
+    public boolean isWhitelist() {
+        return whitelist;
+    }
+
+    public Set<String> getSelectedApps() {
+        return adapter.getSelectedApps();
+    }
+
+    public int getInstalledAppsCount() {
+        return installedAppsCount;
     }
 
     private int getTitle(boolean whitelist) {
@@ -65,16 +93,6 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
 
     private View getView(Context context, LayoutInflater layoutInflater, final boolean whitelist) {
         View view = layoutInflater.inflate(R.layout.dialog_list_preference, null);
-
-        List<AppEntry> installedApps = getInstalledApps(context);
-
-        final Set<String> selectedApps = whitelist ? appExclusionsManager.getAppsIncludedInVpn() : appExclusionsManager.getAppsExcludedFromVpn();
-
-        final InstalledAppsRecyclerViewAdapter adapter = new InstalledAppsRecyclerViewAdapter(
-                context,
-                installedApps,
-                selectedApps);
-
         adapter.setClickListener(new InstalledAppsRecyclerViewAdapter.ItemClickListener() {
             @SuppressLint("ApplySharedPref")
             @Override
@@ -82,15 +100,8 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
                 String app = adapter.getItem(position).getPackageId();
 
                 // try to remove the app, if not able, i.e. it wasn't in the set, add it
-                if (!selectedApps.remove(app)) {
-                    selectedApps.add(app);
-                }
-
-                // store the selection immediately
-                if (whitelist) {
-                    appExclusionsManager.setAppsToIncludeInVpn(selectedApps);
-                } else {
-                    appExclusionsManager.setAppsToExcludeFromVpn(selectedApps);
+                if (!adapter.getSelectedApps().remove(app)) {
+                    adapter.getSelectedApps().add(app);
                 }
             }
         });

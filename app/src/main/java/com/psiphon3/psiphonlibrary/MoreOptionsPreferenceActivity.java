@@ -34,8 +34,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.psiphon3.R;
@@ -43,6 +45,8 @@ import com.psiphon3.R;
 import net.grandcentrix.tray.AppPreferences;
 
 import org.zirco.ui.activities.MainActivity;
+
+import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
 
@@ -54,6 +58,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
+
         String getString(@NonNull final String key, final String defaultValue);
     }
 
@@ -68,6 +73,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         public boolean getBoolean(@NonNull String key, boolean defaultValue) {
             return prefs.getBoolean(key, defaultValue);
         }
+
         @Override
         public String getString(@NonNull String key, String defaultValue) {
             return prefs.getString(key, defaultValue);
@@ -85,6 +91,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         public boolean getBoolean(@NonNull String key, boolean defaultValue) {
             return prefs.getBoolean(key, defaultValue);
         }
+
         @Override
         public String getString(@NonNull String key, String defaultValue) {
             return prefs.getString(key, defaultValue);
@@ -187,7 +194,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mProxyHost.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                String proxyHost = (String)newValue;
+                String proxyHost = (String) newValue;
                 if (TextUtils.isEmpty(proxyHost)) {
                     Toast toast = Toast.makeText(MoreOptionsPreferenceActivity.this, R.string.network_proxy_connect_invalid_values, Toast.LENGTH_SHORT);
                     toast.show();
@@ -203,7 +210,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                 int proxyPort;
                 try {
                     proxyPort = Integer.valueOf((String) newValue);
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     proxyPort = 0;
                 }
                 if (proxyPort >= 1 && proxyPort <= 65535) {
@@ -272,7 +279,11 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mSelectApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                new InstalledAppsMultiSelectListPreference(MoreOptionsPreferenceActivity.this, getLayoutInflater(), mTunnelSelectedApps.isChecked())
+                final InstalledAppsMultiSelectListPreference installedAppsMultiSelectListPreference =
+                        new InstalledAppsMultiSelectListPreference(MoreOptionsPreferenceActivity.this,
+                                getLayoutInflater(), mTunnelSelectedApps.isChecked());
+
+                final AlertDialog alertDialog = installedAppsMultiSelectListPreference
                         .setOnDismissListener(new DialogInterface.OnDismissListener() {
                             @Override
                             public void onDismiss(DialogInterface dialog) {
@@ -285,7 +296,46 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                                 }
                             }
                         })
-                        .show();
+                        .create();
+
+                alertDialog.setOnShowListener(dialog -> {
+                    Button button = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE);
+                    button.setOnClickListener(v -> {
+                        Set<String> selectedApps = installedAppsMultiSelectListPreference.getSelectedApps();
+                        int installedAppsCount = installedAppsMultiSelectListPreference.getInstalledAppsCount();
+                        if (installedAppsMultiSelectListPreference.isWhitelist()) {
+                            if (selectedApps.size() > 0) {
+                                mAppExclusionsManager.setAppsToIncludeInVpn(selectedApps);
+                            } else {
+                                new AlertDialog.Builder(MoreOptionsPreferenceActivity.this)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .setTitle(R.string.bad_vpn_exclusion_setting_alert_title)
+                                        .setMessage(R.string.bad_vpn_exclusion_whitelist_alert_message)
+                                        .setPositiveButton(R.string.label_ok, null)
+                                        .setCancelable(true)
+                                        .show();
+                                return;
+                            }
+                        } else {
+                            if (installedAppsCount > selectedApps.size()) {
+                                mAppExclusionsManager.setAppsToExcludeFromVpn(selectedApps);
+                            } else {
+                                new AlertDialog.Builder(MoreOptionsPreferenceActivity.this)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .setTitle(R.string.bad_vpn_exclusion_setting_alert_title)
+                                        .setMessage(R.string.bad_vpn_exclusion_blacklist_alert_message)
+                                        .setPositiveButton(R.string.label_ok, null)
+                                        .setCancelable(true)
+                                        .show();
+                                return;
+                            }
+                        }
+                        alertDialog.dismiss();
+                    });
+                });
+
+                alertDialog.show();
+
                 return true;
             }
         });
@@ -361,7 +411,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             try {
                 mLanguageSelector.setValueIndex(currentLocaleLanguageIndex);
                 mLanguageSelector.setSummary(languageNames[currentLocaleLanguageIndex]);
-            } catch(Exception ignored) {
+            } catch (Exception ignored) {
             }
         }
     }
@@ -438,14 +488,13 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                 //hide passwords
                 //http://stackoverflow.com/questions/15044595/preventing-edittextpreference-from-updating-summary-for-inputtype-password
                 int inputType = editTextPref.getEditText().getInputType() & InputType.TYPE_MASK_VARIATION;
-                boolean isPassword = ((inputType  == InputType.TYPE_NUMBER_VARIATION_PASSWORD)
-                        ||(inputType  == InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                        ||(inputType  == InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD));
+                boolean isPassword = ((inputType == InputType.TYPE_NUMBER_VARIATION_PASSWORD)
+                        || (inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD)
+                        || (inputType == InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD));
 
                 if (isPassword) {
                     editTextPref.setSummary(editTextPref.getText().replaceAll(".", "*"));
-                }
-                else {
+                } else {
                     editTextPref.setSummary(editTextPref.getText());
                 }
             } else {

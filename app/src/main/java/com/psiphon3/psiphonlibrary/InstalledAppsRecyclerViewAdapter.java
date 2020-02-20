@@ -36,6 +36,11 @@ import java.util.Set;
 public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<InstalledAppsRecyclerViewAdapter.ViewHolder> {
     private final LayoutInflater inflater;
     private final List<AppEntry> data;
+
+    public Set<String> getSelectedApps() {
+        return selectedApps;
+    }
+
     private final Set<String> selectedApps;
 
     private ItemClickListener clickListener;
