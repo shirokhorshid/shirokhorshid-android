@@ -60,8 +60,8 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
         List<AppEntry> installedApps = getInstalledApps(context);
         installedAppsCount = installedApps.size();
         final Set<String> selectedApps = whitelist ?
-                appExclusionsManager.getCurrentAppsIncludedInVpn() :
-                appExclusionsManager.getCurrentAppsExcludedFromVpn();
+                appExclusionsManager.getPendingAppsIncludedInVpn() :
+                appExclusionsManager.getPendingAppsExcludedFromVpn();
 
         adapter = new InstalledAppsRecyclerViewAdapter(
                 context,

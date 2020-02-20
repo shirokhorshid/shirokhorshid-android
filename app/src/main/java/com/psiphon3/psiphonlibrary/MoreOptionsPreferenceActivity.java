@@ -363,7 +363,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps.setChecked(true);
         mTunnelNotSelectedApps.setChecked(false);
         mSelectApps.setEnabled(true);
-        int count = mAppExclusionsManager.getCurrentAppsIncludedInVpn().size();
+        int count = mAppExclusionsManager.getPendingAppsIncludedInVpn().size();
         String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_include_summary, count, count);
         mSelectApps.setSummary(summary);
     }
@@ -373,7 +373,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelSelectedApps.setChecked(false);
         mTunnelNotSelectedApps.setChecked(true);
         mSelectApps.setEnabled(true);
-        int count = mAppExclusionsManager.getCurrentAppsExcludedFromVpn().size();
+        int count = mAppExclusionsManager.getPendingAppsExcludedFromVpn().size();
         String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_exclude_summary, count, count);
         mSelectApps.setSummary(summary);
     }

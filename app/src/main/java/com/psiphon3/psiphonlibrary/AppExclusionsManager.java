@@ -60,4 +60,14 @@ public class AppExclusionsManager {
         String serializedSet = SharedPreferenceUtils.serializeSet(packageIds);
         pendingPreferences.edit().putString(excludeAppsStringPreferenceKey, serializedSet).apply();
     }
+
+    public Set<String> getPendingAppsIncludedInVpn() {
+        String serializedSet = pendingPreferences.getString(includeAppsStringPreferenceKey, "");
+        return SharedPreferenceUtils.deserializeSet(serializedSet);
+    }
+
+    public Set<String> getPendingAppsExcludedFromVpn() {
+        String serializedSet = pendingPreferences.getString(excludeAppsStringPreferenceKey, "");
+        return SharedPreferenceUtils.deserializeSet(serializedSet);
+    }
 }
