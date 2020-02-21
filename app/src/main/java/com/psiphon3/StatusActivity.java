@@ -25,8 +25,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -43,6 +41,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.psiphon3.psiphonlibrary.AppExclusionsManager;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
@@ -57,6 +56,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class StatusActivity
@@ -378,102 +378,102 @@ public class StatusActivity
 
     @Override
     public void displayBrowser(Context context, String urlString) {
-        try {
-            boolean wantVPN = m_multiProcessPreferences
-                    .getBoolean(getString(R.string.tunnelWholeDevicePreference),
-                            false);
+        boolean wantVPN = m_multiProcessPreferences
+                .getBoolean(getString(R.string.tunnelWholeDevicePreference),
+                        false);
 
-            if (wantVPN && Utils.hasVpnService()) {
-                // TODO: support multiple home pages in whole device mode. This is
-                // disabled due to the case where users haven't set a default browser
-                // and will get the prompt once per home page.
+        if (wantVPN && Utils.hasVpnService()) {
+            // TODO: support multiple home pages in whole device mode. This is
+            // disabled due to the case where users haven't set a default browser
+            // and will get the prompt once per home page.
 
-                // If URL is not empty we will try to load in an external browser, otherwise we will
-                // try our best to open an external browser instance without specifying URL to load
-                // or will load "about:blank" URL if that fails.
+            // If URL is not empty we will try to load in an external browser, otherwise we will
+            // try our best to open an external browser instance without specifying URL to load
+            // or will load "about:blank" URL if that fails.
 
-                // Prepare browser starting intent.
-                Intent browserIntent;
-                if (TextUtils.isEmpty(urlString)) {
-                    // If URL is empty, just start the app.
-                    browserIntent = new Intent(Intent.ACTION_MAIN);
-                } else {
-                    // If URL is not empty, start the app with URL load intent.
-                    browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+            AppExclusionsManager appExclusionsManager = new AppExclusionsManager(context);
+
+            // Prepare browser starting intent.
+            Intent browserIntent;
+            if (TextUtils.isEmpty(urlString)) {
+                // If URL is empty, just start the app.
+                browserIntent = new Intent(Intent.ACTION_MAIN);
+            } else {
+                // If URL is not empty, start the app with URL load intent.
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+            }
+            browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            List<String> browserIds = new ArrayList<>();
+            // Put Brave first in the list
+            browserIds.add("com.brave.browser");
+
+            // Add all resolved browsers to the list
+            for (String id : appExclusionsManager.getInstalledWebBrowserPackageIds(getPackageManager())) {
+                if (browserIds.contains(id)) {
+                    continue;
                 }
-                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                browserIds.add(id);
+            }
 
-                // Try Brave Privacy Browser directly before anything else
-                browserIntent.setPackage("com.brave.browser");
-                try {
-                    context.startActivity(browserIntent);
-                    return;
-                } catch (ActivityNotFoundException | SecurityException ignored) {
-                }
+            // Put Chrome at the end if it is not already on the list
+            String chromeId = "com.android.chrome";
+            if (!browserIds.contains(chromeId)) {
+                browserIds.add(chromeId);
+            }
 
-                // query default 'URL open' intent handler.
-                Intent queryIntent;
-                if (TextUtils.isEmpty(urlString)) {
-                    queryIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.org"));
-                } else {
-                    queryIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
-                }
-                ResolveInfo resolveInfo = getPackageManager().resolveActivity(queryIntent, PackageManager.MATCH_DEFAULT_ONLY);
+            // Last effort - let the system handle it
+            browserIds.add(null);
 
-                // Try and start default intent handler application if there is one
-                if (resolveInfo != null &&
-                        resolveInfo.activityInfo != null &&
-                        resolveInfo.activityInfo.name != null &&
-                        !resolveInfo.activityInfo.name.toLowerCase().contains("resolver")) {
-                    browserIntent.setClassName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name);
-                    context.startActivity(browserIntent);
-                } else { // There is no default handler, try chrome
-                    browserIntent.setPackage("com.android.chrome");
-                    try {
-                        context.startActivity(browserIntent);
-                    } catch (ActivityNotFoundException ex) {
-                        // We tried to open Chrome and it is not installed,
-                        // so reinvoke with the default behaviour
-                        browserIntent.setPackage(null);
-                        // If URL is empty try loading a special URL 'about:blank'
-                        if (TextUtils.isEmpty(urlString)) {
-                            browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
-                        }
-                        context.startActivity(browserIntent);
+            for (String id : browserIds) {
+                if (id == null) {
+                    // If URL is empty try loading a special URL 'about:blank'
+                    if (TextUtils.isEmpty(urlString)) {
+                        browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
                     }
                 }
-            } else {
-                Uri uri = null;
-                if (!TextUtils.isEmpty(urlString)) {
-                    uri = Uri.parse(urlString);
+
+                if (id == null || appExclusionsManager.isTunneledAppId(context, id)) {
+                    browserIntent.setPackage(id);
+                    try {
+                        context.startActivity(browserIntent);
+                        return;
+                    } catch (ActivityNotFoundException | SecurityException ignored) {
+                    }
                 }
-
-                Intent intent = new Intent(
-                        "ACTION_VIEW",
-                        uri,
-                        context,
-                        org.zirco.ui.activities.MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                // This intent displays the Zirco browser.
-                // We use "extras" to communicate Psiphon settings to Zirco.
-                // When Zirco is first created, it will use the homePages
-                // extras to open tabs for each home page, respectively. When the intent
-                // triggers an existing Zirco instance (and it's a singleton) this extra
-                // is ignored and the browser is displayed as-is.
-                // When a uri is specified, it will open as a new tab. This is
-                // independent of the home pages.
-                // Note: Zirco now directly accesses PsiphonData to get the current
-                // local HTTP proxy port for WebView tunneling.
-
-                if (urlString != null) {
-                    intent.putExtra("homePages", new ArrayList<>(Collections.singletonList(urlString)));
-                }
-
-                context.startActivity(intent);
             }
-        } catch (ActivityNotFoundException e) {
-            // Thrown by startActivity; in this case, we ignore and the URI isn't opened
+        } else {
+            // BOM, try to open Zirco
+            Uri uri = null;
+            if (!TextUtils.isEmpty(urlString)) {
+                uri = Uri.parse(urlString);
+            }
+
+            Intent intent = new Intent(
+                    "ACTION_VIEW",
+                    uri,
+                    context,
+                    org.zirco.ui.activities.MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+            // This intent displays the Zirco browser.
+            // We use "extras" to communicate Psiphon settings to Zirco.
+            // When Zirco is first created, it will use the homePages
+            // extras to open tabs for each home page, respectively. When the intent
+            // triggers an existing Zirco instance (and it's a singleton) this extra
+            // is ignored and the browser is displayed as-is.
+            // When a uri is specified, it will open as a new tab. This is
+            // independent of the home pages.
+            // Note: Zirco now directly accesses PsiphonData to get the current
+            // local HTTP proxy port for WebView tunneling.
+
+            if (urlString != null) {
+                intent.putExtra("homePages", new ArrayList<>(Collections.singletonList(urlString)));
+            }
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException | SecurityException ignored) {
+            }
         }
     }
 

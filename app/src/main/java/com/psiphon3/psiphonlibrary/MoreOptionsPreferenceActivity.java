@@ -244,14 +244,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mTunnelNotSelectedApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
         mSelectApps = preferences.findPreference(getString(R.string.preferenceSelectApps));
 
-        if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false)) {
-            tunnelAllApps();
-        } else if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false)) {
-            tunnelSelectedApps();
-        } else {
-            tunnelNotSelectedApps();
-        }
-
         // Also create a snapshot of current VPN exclusion sets. We need this because tunnel restart
         // logic when we return back to main activity from this screen will compare the preferences
         // set in this screen with currently stored preferences in order to make decision if the
@@ -260,6 +252,14 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         preferences.getEditor().putString(getString(R.string.preferenceIncludeAppsInVpnString), currentIncludeAppsString).apply();
         String currentExcludeAppsString = preferenceGetter.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
         preferences.getEditor().putString(getString(R.string.preferenceExcludeAppsFromVpnString), currentExcludeAppsString).apply();
+
+        if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false)) {
+            tunnelAllApps();
+        } else if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false)) {
+            tunnelSelectedApps();
+        } else {
+            tunnelNotSelectedApps();
+        }
 
         mTunnelAllApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
             @Override

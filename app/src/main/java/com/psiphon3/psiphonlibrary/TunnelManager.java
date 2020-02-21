@@ -1048,6 +1048,16 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         Context context = getContext();
         AppPreferences appPreferences = new AppPreferences(context);
 
+        // Prevent running in VPN include-only mode if the list of included apps is empty
+        if (appPreferences.getBoolean(context.getString(R.string.preferenceIncludeAppsInVpn), false)) {
+            String includedAppsFromPreference = appPreferences.getString(context.getString(R.string.preferenceIncludeAppsInVpnString), "");
+            Set<String> includedApps = SharedPreferenceUtils.deserializeSet(includedAppsFromPreference);
+            if (includedApps.isEmpty()) {
+                // If no apps to include then switch preference to VPN tunnel-all mode
+                appPreferences.put(context.getString(R.string.preferenceIncludeAllAppsInVpn), true);
+            }
+        }
+
         // do we tunnel only apps which have been selected
         if (appPreferences.getBoolean(context.getString(R.string.preferenceIncludeAllAppsInVpn), false)) {
             MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
