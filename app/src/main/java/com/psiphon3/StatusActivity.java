@@ -403,6 +403,14 @@ public class StatusActivity
                 }
                 browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
+                // Try Brave Privacy Browser directly before anything else
+                browserIntent.setPackage("com.brave.browser");
+                try {
+                    context.startActivity(browserIntent);
+                    return;
+                } catch (ActivityNotFoundException | SecurityException ignored) {
+                }
+
                 // query default 'URL open' intent handler.
                 Intent queryIntent;
                 if (TextUtils.isEmpty(urlString)) {
