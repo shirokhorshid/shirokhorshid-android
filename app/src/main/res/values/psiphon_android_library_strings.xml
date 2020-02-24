@@ -175,8 +175,6 @@
     <string name="individual_app_included">Tunneling app: %s</string>
     <!-- Log line for when an app is excluded from being tunneled -->
     <string name="individual_app_excluded">App excluded from tunnel: %s</string>
-    <!-- Log line for when no apps will be tunneled -->
-    <string name="no_apps_included">No applications were tunnelled</string>
     <!-- Log line for when all apps will be tunneled -->
     <string name="no_apps_excluded">No applications were excluded from the tunnel</string>
     <!-- Title for option to select apps for routing changes -->

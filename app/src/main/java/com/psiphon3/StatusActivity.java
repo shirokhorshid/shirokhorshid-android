@@ -41,7 +41,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import com.psiphon3.psiphonlibrary.AppExclusionsManager;
+import com.psiphon3.psiphonlibrary.VpnAppsUtils;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
@@ -391,8 +391,6 @@ public class StatusActivity
             // try our best to open an external browser instance without specifying URL to load
             // or will load "about:blank" URL if that fails.
 
-            AppExclusionsManager appExclusionsManager = new AppExclusionsManager(context);
-
             // Prepare browser starting intent.
             Intent browserIntent;
             if (TextUtils.isEmpty(urlString)) {
@@ -409,7 +407,7 @@ public class StatusActivity
             browserIds.add("com.brave.browser");
 
             // Add all resolved browsers to the list
-            for (String id : appExclusionsManager.getInstalledWebBrowserPackageIds(getPackageManager())) {
+            for (String id : VpnAppsUtils.getInstalledWebBrowserPackageIds(getPackageManager())) {
                 if (browserIds.contains(id)) {
                     continue;
                 }
@@ -433,7 +431,7 @@ public class StatusActivity
                     }
                 }
 
-                if (id == null || appExclusionsManager.isTunneledAppId(context, id)) {
+                if (id == null || VpnAppsUtils.isTunneledAppId(context, id)) {
                     browserIntent.setPackage(id);
                     try {
                         context.startActivity(browserIntent);

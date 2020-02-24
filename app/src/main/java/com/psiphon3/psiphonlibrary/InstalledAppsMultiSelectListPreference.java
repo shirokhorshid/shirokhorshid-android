@@ -47,7 +47,6 @@ import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
-    private final AppExclusionsManager appExclusionsManager;
     private final InstalledAppsRecyclerViewAdapter adapter;
     private final boolean whitelist;
 
@@ -56,12 +55,11 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
     InstalledAppsMultiSelectListPreference(Context context, LayoutInflater layoutInflater, boolean whitelist) {
         super(context);
         this.whitelist = whitelist;
-        appExclusionsManager = new AppExclusionsManager(context);
         List<AppEntry> installedApps = getInstalledApps(context);
         installedAppsCount = installedApps.size();
         final Set<String> selectedApps = whitelist ?
-                appExclusionsManager.getPendingAppsIncludedInVpn() :
-                appExclusionsManager.getPendingAppsExcludedFromVpn();
+                VpnAppsUtils.getPendingAppsIncludedInVpn(context) :
+                VpnAppsUtils.getPendingAppsExcludedFromVpn(context);
 
         adapter = new InstalledAppsRecyclerViewAdapter(
                 context,
