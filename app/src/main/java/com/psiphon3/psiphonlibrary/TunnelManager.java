@@ -1047,7 +1047,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         Context context = getContext();
 
-        switch(VpnAppsUtils.getVpnAppsExclusionMode(context)) {
+        switch (VpnAppsUtils.getVpnAppsExclusionMode(context)) {
             case ALL_APPS:
                 MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 break;
@@ -1055,54 +1055,53 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             case INCLUDE_APPS:
                 Set<String> includedApps = VpnAppsUtils.getCurrentAppsIncludedInVpn(context);
                 int includedAppsCount = includedApps.size();
-                if (includedAppsCount == 0) {
-                    // Bad settings, tunnel all apps
-                    MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+                // allow the selected apps
+                for (String packageId : includedApps) {
+                    try {
+                        vpnBuilder.addAllowedApplication(packageId);
+                        MyLog.v(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        includedApps.remove(packageId);
+                    }
+                }
+                // If some packages are no longer installed, updated persisted set
+                if (includedAppsCount != includedApps.size()) {
+                    VpnAppsUtils.setCurrentAppsToIncludeInVpn(context, includedApps);
+                    includedAppsCount = includedApps.size();
+                }
+                // If we run in this mode and there at least one allowed app then add ourselves too
+                if (includedAppsCount > 0) {
+                    try {
+                        vpnBuilder.addAllowedApplication(context.getPackageName());
+                    } catch (PackageManager.NameNotFoundException e) {
+                        // this should never be thrown
+                    }
                 } else {
-                    // allow the selected apps
-                    for (String packageId : includedApps) {
-                        try {
-                            vpnBuilder.addAllowedApplication(packageId);
-                            MyLog.v(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
-                        } catch (PackageManager.NameNotFoundException e) {
-                            includedApps.remove(packageId);
-                        }
-                    }
-                    // If some packages are no longer installed, updated persisted set
-                    if (includedAppsCount != includedApps.size()) {
-                        VpnAppsUtils.setCurrentAppsToIncludeInVpn(context, includedApps);
-                        includedAppsCount = includedApps.size();
-                    }
-                    // If we run in this mode and there at least one allowed app then add ourselves too
-                    if(includedAppsCount > 0) {
-                        try {
-                            vpnBuilder.addAllowedApplication(context.getPackageName());
-                        } catch (PackageManager.NameNotFoundException e) {
-                            // this should never be thrown
-                        }
-                    }
+                    // There's no included apps, we're tunnelling all
+                    MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 }
                 break;
 
             case EXCLUDE_APPS:
                 Set<String> excludedApps = VpnAppsUtils.getCurrentAppsExcludedFromVpn(context);
                 int excludedAppsCount = excludedApps.size();
+                // disallow the selected apps
+                for (String packageId : excludedApps) {
+                    try {
+                        vpnBuilder.addDisallowedApplication(packageId);
+                        MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        excludedApps.remove(packageId);
+                    }
+                }
+                // If some packages are no longer installed, updated persisted set
+                if (excludedAppsCount != excludedApps.size()) {
+                    VpnAppsUtils.setCurrentAppsToExcludeFromVpn(context, excludedApps);
+                    excludedAppsCount = excludedApps.size();
+                }
+
                 if (excludedAppsCount == 0) {
                     MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
-                } else {
-                    // disallow the selected apps
-                    for (String packageId : excludedApps) {
-                        try {
-                            vpnBuilder.addDisallowedApplication(packageId);
-                            MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
-                        } catch (PackageManager.NameNotFoundException e) {
-                            excludedApps.remove(packageId);
-                        }
-                    }
-                    // If some packages are no longer installed, updated persisted set
-                    if (excludedAppsCount != excludedApps.size()) {
-                        VpnAppsUtils.setCurrentAppsToExcludeFromVpn(context, excludedApps);
-                    }
                 }
                 break;
         }
