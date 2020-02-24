@@ -310,6 +310,10 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                 alertDialog.setOnShowListener(dialog -> {
                     Button button = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE);
                     button.setOnClickListener(v -> {
+                        if (!installedAppsMultiSelectListPreference.isLoaded()) {
+                            alertDialog.dismiss();
+                            return;
+                        }
                         Set<String> selectedApps = installedAppsMultiSelectListPreference.getSelectedApps();
                         int installedAppsCount = installedAppsMultiSelectListPreference.getInstalledAppsCount();
                         if (installedAppsMultiSelectListPreference.isWhitelist()) {

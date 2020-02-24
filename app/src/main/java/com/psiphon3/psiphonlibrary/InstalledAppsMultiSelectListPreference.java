@@ -20,7 +20,6 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -38,6 +37,7 @@ import com.psiphon3.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -47,30 +47,22 @@ import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
-    private final InstalledAppsRecyclerViewAdapter adapter;
+    private InstalledAppsRecyclerViewAdapter adapter;
     private final boolean whitelist;
-
-    private final int installedAppsCount;
+    private final View view;
 
     InstalledAppsMultiSelectListPreference(Context context, LayoutInflater layoutInflater, boolean whitelist) {
         super(context);
         this.whitelist = whitelist;
-        List<AppEntry> installedApps = getInstalledApps(context);
-        installedAppsCount = installedApps.size();
-        final Set<String> selectedApps = whitelist ?
-                VpnAppsUtils.getPendingAppsIncludedInVpn(context) :
-                VpnAppsUtils.getPendingAppsExcludedFromVpn(context);
+        view = layoutInflater.inflate(R.layout.dialog_list_preference, null);
 
-        adapter = new InstalledAppsRecyclerViewAdapter(
-                context,
-                installedApps,
-                selectedApps);
-
+        setView(view);
         setTitle(getTitle(whitelist));
-        setView(getView(context, layoutInflater, whitelist));
-        setPositiveButton(R.string.abc_action_mode_done , null);
+        setPositiveButton(R.string.abc_action_mode_done, null);
         setCancelable(true);
         setNegativeButton(android.R.string.cancel, null);
+
+        loadInstalledAppsView(context);
     }
 
     public boolean isWhitelist() {
@@ -78,37 +70,60 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
     }
 
     public Set<String> getSelectedApps() {
+        if (adapter == null) {
+            return new HashSet<>();
+        }
         return adapter.getSelectedApps();
     }
 
     public int getInstalledAppsCount() {
-        return installedAppsCount;
+        if (adapter == null) {
+            return 0;
+        }
+        return adapter.getItemCount();
+    }
+
+    private void loadInstalledAppsView(Context context) {
+        Single.<List<AppEntry>>create(emitter -> {
+            if (!emitter.isDisposed()) {
+                emitter.onSuccess(getInstalledApps(context));
+            }
+
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSuccess(dataSet -> {
+                    final Set<String> selectedApps = whitelist ?
+                            VpnAppsUtils.getPendingAppsIncludedInVpn(context) :
+                            VpnAppsUtils.getPendingAppsExcludedFromVpn(context);
+
+                    adapter = new InstalledAppsRecyclerViewAdapter(
+                            context,
+                            dataSet,
+                            selectedApps);
+
+
+                    adapter.setClickListener((view, position) -> {
+                        String app = adapter.getItem(position).getPackageId();
+
+                        // try to remove the app, if not able, i.e. it wasn't in the set, add it
+                        if (!adapter.getSelectedApps().remove(app)) {
+                            adapter.getSelectedApps().add(app);
+                        }
+                    });
+
+                    RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                    recyclerView.setAdapter(adapter);
+
+                    view.findViewById(R.id.recycler_view).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.progress_overlay).setVisibility(View.GONE);
+                })
+                .subscribe();
     }
 
     private int getTitle(boolean whitelist) {
         return whitelist ? R.string.preference_routing_include_apps_title : R.string.preference_routing_exclude_apps_title;
-    }
-
-    private View getView(Context context, LayoutInflater layoutInflater, final boolean whitelist) {
-        View view = layoutInflater.inflate(R.layout.dialog_list_preference, null);
-        adapter.setClickListener(new InstalledAppsRecyclerViewAdapter.ItemClickListener() {
-            @SuppressLint("ApplySharedPref")
-            @Override
-            public void onItemClick(View view, int position) {
-                String app = adapter.getItem(position).getPackageId();
-
-                // try to remove the app, if not able, i.e. it wasn't in the set, add it
-                if (!adapter.getSelectedApps().remove(app)) {
-                    adapter.getSelectedApps().add(app);
-                }
-            }
-        });
-
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(adapter);
-
-        return view;
     }
 
     private List<AppEntry> getInstalledApps(Context context) {
@@ -174,5 +189,9 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
                 .subscribeOn(Schedulers.io())
                 // observe on ui
                 .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public boolean isLoaded() {
+        return adapter != null;
     }
 }
