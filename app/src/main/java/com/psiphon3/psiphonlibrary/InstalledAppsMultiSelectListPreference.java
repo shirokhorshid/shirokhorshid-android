@@ -37,8 +37,8 @@ import com.psiphon3.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import io.reactivex.Single;
@@ -70,17 +70,13 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
     }
 
     public Set<String> getSelectedApps() {
-        if (adapter == null) {
-            return new HashSet<>();
-        }
+        Objects.requireNonNull(adapter);
         return adapter.getSelectedApps();
     }
 
     public int getInstalledAppsCount() {
-        if (adapter == null) {
-            return 0;
-        }
-        return adapter.getItemCount();
+        Objects.requireNonNull(adapter);
+       return adapter.getItemCount();
     }
 
     private void loadInstalledAppsView(Context context) {
