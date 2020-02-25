@@ -79,4 +79,9 @@
     <string name="notification_title_vpn_revoked">Psiphon VPN has stopped</string>
     <!-- Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user -->
     <string name="notification_text_vpn_revoked">Psiphon VPN has been disconnected by you or by another app.</string>
+    <!-- Description for an app icon image -->
+    <string name="description_app_icon">App Icon</string>
+    <string name="bad_vpn_exclusion_setting_alert_title">Invalid VPN setting</string>
+    <string name="bad_vpn_exclusion_whitelist_alert_message">You need to have at least one app selected in this mode!</string>
+    <string name="bad_vpn_exclusion_blacklist_alert_message">You need to have at least one app unselected in this mode!</string>
 </resources>

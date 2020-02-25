@@ -19,12 +19,13 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.DialogPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -33,8 +34,10 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.psiphon3.R;
@@ -43,9 +46,6 @@ import net.grandcentrix.tray.AppPreferences;
 
 import org.zirco.ui.activities.MainActivity;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
@@ -58,6 +58,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
+
         String getString(@NonNull final String key, final String defaultValue);
     }
 
@@ -72,6 +73,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         public boolean getBoolean(@NonNull String key, boolean defaultValue) {
             return prefs.getBoolean(key, defaultValue);
         }
+
         @Override
         public String getString(@NonNull String key, String defaultValue) {
             return prefs.getString(key, defaultValue);
@@ -89,6 +91,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         public boolean getBoolean(@NonNull String key, boolean defaultValue) {
             return prefs.getBoolean(key, defaultValue);
         }
+
         @Override
         public String getString(@NonNull String key, String defaultValue) {
             return prefs.getString(key, defaultValue);
@@ -97,7 +100,10 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
     CheckBoxPreference mNotificationSound;
     CheckBoxPreference mNotificationVibration;
-    DialogPreference mVpnAppExclusions;
+    RadioButtonPreference mTunnelAllApps;
+    RadioButtonPreference mTunnelSelectedApps;
+    RadioButtonPreference mTunnelNotSelectedApps;
+    Preference mSelectApps;
     CheckBoxPreference mUseProxy;
     RadioButtonPreference mUseSystemProxy;
     RadioButtonPreference mUseCustomProxy;
@@ -124,8 +130,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mNotificationSound = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithSound));
         mNotificationVibration = (CheckBoxPreference) preferences.findPreference(getString(R.string.preferenceNotificationsWithVibrate));
 
-        mVpnAppExclusions = (DialogPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
-
         mUseProxy = (CheckBoxPreference) preferences.findPreference(getString(R.string.useProxySettingsPreference));
         mUseSystemProxy = (RadioButtonPreference) preferences
                 .findPreference(getString(R.string.useSystemProxySettingsPreference));
@@ -146,12 +150,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mProxyDomain = (EditTextPreference) preferences
                 .findPreference(getString(R.string.useProxyDomainPreference));
 
-        if (Utils.supportsAlwaysOnVPN()) {
-            setupNavigateToVPNSettings(preferences);
-        }
-
-        setupLanguageSelector(preferences);
-
         PreferenceGetter preferenceGetter;
 
         // Initialize with current shared preferences if restoring from configuration change,
@@ -162,28 +160,18 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             preferenceGetter = new AppPreferencesWrapper(new AppPreferences(this));
         }
 
+        if (Utils.supportsAlwaysOnVPN()) {
+            setupNavigateToVPNSettings(preferences);
+        }
+
+        if (supportsRoutingConfiguration()) {
+            setupTunnelConfiguration(preferences, preferenceGetter);
+        }
+
+        setupLanguageSelector(preferences);
+
         mNotificationSound.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithSound), false));
         mNotificationVibration.setChecked(preferenceGetter.getBoolean(getString(R.string.preferenceNotificationsWithVibrate), false));
-
-        // R.xml.preferences is conditionally loaded at API version 11 and higher from the xml-v11 folder
-        // If it isn't null here, we can reasonably assume it can be cast to our MultiSelectListPreference
-        if (mVpnAppExclusions != null) {
-            String excludedValuesFromPreference = preferenceGetter.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
-
-            SharedPreferences.Editor e = preferences.getEditor();
-            e.putString(getString(R.string.preferenceExcludeAppsFromVpnString), excludedValuesFromPreference);
-            // Use commit (sync) instead of apply (async) to prevent possible race with restarting
-            // the tunnel happening before the value is fully persisted to shared preferences
-            e.commit();
-
-            if (!excludedValuesFromPreference.isEmpty()) {
-                Set<String> excludedValuesSet = new HashSet<>(Arrays.asList(excludedValuesFromPreference.split(",")));
-                ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(excludedValuesSet);
-            } else {
-                Set<String> noneExcluded = Collections.emptySet();
-                ((InstalledAppsMultiSelectListPreference) mVpnAppExclusions).setValues(noneExcluded);
-            }
-        }
 
         mUseProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useProxySettingsPreference), false));
         // set use system proxy preference by default
@@ -196,7 +184,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mProxyPassword.setText(preferenceGetter.getString(getString(R.string.useProxyPasswordPreference), ""));
         mProxyDomain.setText(preferenceGetter.getString(getString(R.string.useProxyDomainPreference), ""));
 
-
         // Set listeners
         mUseSystemProxy.setOnPreferenceClickListener(this);
         mUseCustomProxy.setOnPreferenceClickListener(this);
@@ -204,7 +191,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mProxyHost.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                String proxyHost = (String)newValue;
+                String proxyHost = (String) newValue;
                 if (TextUtils.isEmpty(proxyHost)) {
                     Toast toast = Toast.makeText(MoreOptionsPreferenceActivity.this, R.string.network_proxy_connect_invalid_values, Toast.LENGTH_SHORT);
                     toast.show();
@@ -220,7 +207,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                 int proxyPort;
                 try {
                     proxyPort = Integer.valueOf((String) newValue);
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     proxyPort = 0;
                 }
                 if (proxyPort >= 1 && proxyPort <= 65535) {
@@ -246,6 +233,153 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                 return true;
             }
         });
+    }
+
+    private void setupTunnelConfiguration(PreferenceScreen preferences, PreferenceGetter preferenceGetter) {
+        mTunnelAllApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceIncludeAllAppsInVpn));
+        mTunnelSelectedApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceIncludeAppsInVpn));
+        mTunnelNotSelectedApps = (RadioButtonPreference) preferences.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
+        mSelectApps = preferences.findPreference(getString(R.string.preferenceSelectApps));
+
+        // Migrate old VPN exclusions preferences if any
+        VpnAppsUtils.migrate(getApplicationContext());
+
+        // Also create a snapshot of current VPN exclusion sets. We need this because tunnel restart
+        // logic when we return back to main activity from this screen will compare the preferences
+        // set in this screen with currently stored preferences in order to make decision if the
+        // preferences change needs to trigger a tunnel restart.
+        String currentIncludeAppsString = preferenceGetter.getString(getString(R.string.preferenceIncludeAppsInVpnString), "");
+        preferences.getEditor().putString(getString(R.string.preferenceIncludeAppsInVpnString), currentIncludeAppsString).apply();
+        String currentExcludeAppsString = preferenceGetter.getString(getString(R.string.preferenceExcludeAppsFromVpnString), "");
+        preferences.getEditor().putString(getString(R.string.preferenceExcludeAppsFromVpnString), currentExcludeAppsString).apply();
+
+        if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAllAppsInVpn), false)) {
+            tunnelAllApps();
+        } else if (preferenceGetter.getBoolean(getString(R.string.preferenceIncludeAppsInVpn), false)) {
+            tunnelSelectedApps();
+        } else {
+            tunnelNotSelectedApps();
+        }
+
+        mTunnelAllApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                tunnelAllApps();
+                return true;
+            }
+        });
+
+        mTunnelSelectedApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                tunnelSelectedApps();
+                return true;
+            }
+        });
+
+        mTunnelNotSelectedApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                tunnelNotSelectedApps();
+                return true;
+            }
+        });
+
+        mSelectApps.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                final InstalledAppsMultiSelectListPreference installedAppsMultiSelectListPreference =
+                        new InstalledAppsMultiSelectListPreference(MoreOptionsPreferenceActivity.this,
+                                getLayoutInflater(), mTunnelSelectedApps.isChecked());
+
+                final AlertDialog alertDialog = installedAppsMultiSelectListPreference
+                        .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogInterface dialog) {
+                                if (mTunnelAllApps.isChecked()) {
+                                    tunnelAllApps();
+                                } else if (mTunnelSelectedApps.isChecked()) {
+                                    tunnelSelectedApps();
+                                } else {
+                                    tunnelNotSelectedApps();
+                                }
+                            }
+                        })
+                        .create();
+
+                alertDialog.setOnShowListener(dialog -> {
+                    Button button = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE);
+                    button.setOnClickListener(v -> {
+                        if (!installedAppsMultiSelectListPreference.isLoaded()) {
+                            alertDialog.dismiss();
+                            return;
+                        }
+                        Set<String> selectedApps = installedAppsMultiSelectListPreference.getSelectedApps();
+                        int installedAppsCount = installedAppsMultiSelectListPreference.getInstalledAppsCount();
+                        if (installedAppsMultiSelectListPreference.isWhitelist()) {
+                            if (selectedApps.size() > 0) {
+                                VpnAppsUtils.setPendingAppsToIncludeInVpn(getApplicationContext(), selectedApps);
+                            } else {
+                                new AlertDialog.Builder(MoreOptionsPreferenceActivity.this)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .setTitle(R.string.bad_vpn_exclusion_setting_alert_title)
+                                        .setMessage(R.string.bad_vpn_exclusion_whitelist_alert_message)
+                                        .setPositiveButton(R.string.label_ok, null)
+                                        .setCancelable(true)
+                                        .show();
+                                return;
+                            }
+                        } else {
+                            if (installedAppsCount > selectedApps.size()) {
+                                VpnAppsUtils.setPendingAppsToExcludeFromVpn(getApplicationContext(), selectedApps);
+                            } else {
+                                new AlertDialog.Builder(MoreOptionsPreferenceActivity.this)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .setTitle(R.string.bad_vpn_exclusion_setting_alert_title)
+                                        .setMessage(R.string.bad_vpn_exclusion_blacklist_alert_message)
+                                        .setPositiveButton(R.string.label_ok, null)
+                                        .setCancelable(true)
+                                        .show();
+                                return;
+                            }
+                        }
+                        alertDialog.dismiss();
+                    });
+                });
+
+                alertDialog.show();
+
+                return true;
+            }
+        });
+    }
+
+    private void tunnelAllApps() {
+        mTunnelAllApps.setChecked(true);
+        mTunnelSelectedApps.setChecked(false);
+        mTunnelNotSelectedApps.setChecked(false);
+        mSelectApps.setEnabled(false);
+        mSelectApps.setSummary(R.string.preference_routing_all_apps_tunnel_summary);
+    }
+
+    private void tunnelSelectedApps() {
+        mTunnelAllApps.setChecked(false);
+        mTunnelSelectedApps.setChecked(true);
+        mTunnelNotSelectedApps.setChecked(false);
+        mSelectApps.setEnabled(true);
+        int count = VpnAppsUtils.getPendingAppsIncludedInVpn(getApplicationContext()).size();
+        String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_include_summary, count, count);
+        mSelectApps.setSummary(summary);
+    }
+
+    private void tunnelNotSelectedApps() {
+        mTunnelAllApps.setChecked(false);
+        mTunnelSelectedApps.setChecked(false);
+        mTunnelNotSelectedApps.setChecked(true);
+        mSelectApps.setEnabled(true);
+        int count = VpnAppsUtils.getPendingAppsExcludedFromVpn(getApplicationContext()).size();
+        String summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_exclude_summary, count, count);
+        mSelectApps.setSummary(summary);
     }
 
     private void setupLanguageSelector(PreferenceScreen preferences) {
@@ -290,9 +424,14 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             try {
                 mLanguageSelector.setValueIndex(currentLocaleLanguageIndex);
                 mLanguageSelector.setSummary(languageNames[currentLocaleLanguageIndex]);
-            } catch(Exception ignored) {
+            } catch (Exception ignored) {
             }
         }
+    }
+
+    private boolean supportsRoutingConfiguration() {
+        // technically supported after v14 but the earliest preference file with it is v21
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
     private void disableCustomProxySettings() {
@@ -362,14 +501,13 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
                 //hide passwords
                 //http://stackoverflow.com/questions/15044595/preventing-edittextpreference-from-updating-summary-for-inputtype-password
                 int inputType = editTextPref.getEditText().getInputType() & InputType.TYPE_MASK_VARIATION;
-                boolean isPassword = ((inputType  == InputType.TYPE_NUMBER_VARIATION_PASSWORD)
-                        ||(inputType  == InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                        ||(inputType  == InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD));
+                boolean isPassword = ((inputType == InputType.TYPE_NUMBER_VARIATION_PASSWORD)
+                        || (inputType == InputType.TYPE_TEXT_VARIATION_PASSWORD)
+                        || (inputType == InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD));
 
                 if (isPassword) {
                     editTextPref.setSummary(editTextPref.getText().replaceAll(".", "*"));
-                }
-                else {
+                } else {
                     editTextPref.setSummary(editTextPref.getText());
                 }
             } else {
@@ -466,8 +604,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         if (preference == mUseSystemProxy) {
             mUseSystemProxy.setChecked(true);
             mUseCustomProxy.setChecked(false);
-        }
-        if (preference == mUseCustomProxy) {
+        } else if (preference == mUseCustomProxy) {
             mUseSystemProxy.setChecked(false);
             mUseCustomProxy.setChecked(true);
         }
