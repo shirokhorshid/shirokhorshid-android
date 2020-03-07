@@ -63,6 +63,7 @@ import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -231,6 +232,7 @@ public abstract class MainBase {
         // http://danielkvist.net/code/animated-tabhost-with-slide-gesture-in-android
         private static final int ANIMATION_TIME = 240;
         protected TabHost m_tabHost;
+        protected HorizontalScrollView m_tabsScrollView;
         private int m_currentTab;
         private View m_previousView;
         private View m_currentView;
@@ -310,6 +312,21 @@ public abstract class MainBase {
             m_currentTab = m_tabHost.getCurrentTab();
 
             m_multiProcessPreferences.put(CURRENT_TAB, m_currentTab);
+
+            // Also scroll to the corresponding tab label if it is not fully in view
+            View tabView = m_tabHost.getTabWidget().getChildTabViewAt(m_tabHost.getCurrentTab());
+            int vLeft = tabView.getLeft();
+            int vRight = tabView.getRight();
+            int sScrollOffset = m_tabsScrollView.getScrollX();
+            int sWidth = m_tabsScrollView.getWidth();
+
+            if (vLeft < sScrollOffset) {
+                m_tabsScrollView.smoothScrollTo(vLeft, 0);
+            } else if (vRight > sWidth + sScrollOffset) {
+                int deltaX = vRight - (sWidth + sScrollOffset);
+                m_tabsScrollView.smoothScrollTo(sScrollOffset + deltaX, 0);
+            }
+
         }
 
         /**
@@ -460,7 +477,11 @@ public abstract class MainBase {
 
             int currentTab = m_multiProcessPreferences.getInt(CURRENT_TAB, 0);
             m_currentTab = currentTab;
-            m_tabHost.setCurrentTab(currentTab);
+
+            // We need to delay this call until m_tabHost is fully inflated because we are
+            // calculating scrolling offsets in the onTabChanged(). This is achieved by using
+            // View.post(Runnable)
+            m_tabHost.post(() -> m_tabHost.setCurrentTab(currentTab));
 
             m_sponsorViewFlipper = (ViewFlipper) findViewById(R.id.sponsorViewFlipper);
             m_sponsorViewFlipper.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
