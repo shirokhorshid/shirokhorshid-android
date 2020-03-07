@@ -323,8 +323,7 @@ public abstract class MainBase {
             if (vLeft < sScrollOffset) {
                 m_tabsScrollView.smoothScrollTo(vLeft, 0);
             } else if (vRight > sWidth + sScrollOffset) {
-                int deltaX = vRight - (sWidth + sScrollOffset);
-                m_tabsScrollView.smoothScrollTo(sScrollOffset + deltaX, 0);
+                m_tabsScrollView.smoothScrollTo(vRight - sWidth, 0);
             }
 
         }
