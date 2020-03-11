@@ -41,11 +41,11 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import com.psiphon3.psiphonlibrary.VpnAppsUtils;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
 import com.psiphon3.psiphonlibrary.Utils;
+import com.psiphon3.psiphonlibrary.VpnAppsUtils;
 
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
@@ -56,8 +56,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class StatusActivity
         extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase {
@@ -402,43 +403,42 @@ public class StatusActivity
             }
             browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            List<String> browserIds = new ArrayList<>();
-            // Put Brave first in the list
-            browserIds.add("com.brave.browser");
+            // LinkedHashSet maintains FIFO order and does not allow duplicates.
+            Set<String> browserIdsSet = new LinkedHashSet<>();
 
-            // Add all resolved browsers to the list
-            for (String id : VpnAppsUtils.getInstalledWebBrowserPackageIds(getPackageManager())) {
-                if (browserIds.contains(id)) {
-                    continue;
+            // Put Brave first in the ordered set.
+            browserIdsSet.add("com.brave.browser");
+
+            // Add all resolved browsers to the set preserving the order.
+            browserIdsSet.addAll(VpnAppsUtils.getInstalledWebBrowserPackageIds(getPackageManager()));
+
+            // Put Chrome at the end if it is not already in the set.
+            browserIdsSet.add("com.android.chrome");
+
+            String matchingPackageId = null;
+
+            for (String id : browserIdsSet) {
+                if (VpnAppsUtils.isTunneledAppId(context, id)) {
+                    matchingPackageId = id;
+                    break;
                 }
-                browserIds.add(id);
             }
 
-            // Put Chrome at the end if it is not already on the list
-            String chromeId = "com.android.chrome";
-            if (!browserIds.contains(chromeId)) {
-                browserIds.add(chromeId);
+            // If we have a candidate then set the app package ID for the browser intent.
+            // Otherwise let the system handle it.
+            // Note that the browser picked by the system will be most likely not tunneled.
+            if(matchingPackageId != null ) {
+                browserIntent.setPackage(matchingPackageId);
+            } else if (TextUtils.isEmpty(urlString)) {
+                // We don't have explicit packed ID for the browser intent, so the URL cannot be empty.
+                // In this case try loading a special URL 'about:blank'.
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
+                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             }
 
-            // Last effort - let the system handle it
-            browserIds.add(null);
-
-            for (String id : browserIds) {
-                if (id == null) {
-                    // If URL is empty try loading a special URL 'about:blank'
-                    if (TextUtils.isEmpty(urlString)) {
-                        browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
-                    }
-                }
-
-                if (id == null || VpnAppsUtils.isTunneledAppId(context, id)) {
-                    browserIntent.setPackage(id);
-                    try {
-                        context.startActivity(browserIntent);
-                        return;
-                    } catch (ActivityNotFoundException | SecurityException ignored) {
-                    }
-                }
+            try {
+                context.startActivity(browserIntent);
+            } catch (ActivityNotFoundException | SecurityException ignored) {
             }
         } else {
             // BOM, try to open Zirco

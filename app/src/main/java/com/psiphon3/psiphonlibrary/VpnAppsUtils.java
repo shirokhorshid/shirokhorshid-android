@@ -34,6 +34,7 @@ import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -156,8 +157,9 @@ public class VpnAppsUtils {
     @NonNull
     static Set<String> getPackagesAbleToHandleIntent(PackageManager packageManager, Intent intent) {
         // collect using a set rather than a list in case the browser has multiple activities which
-        // are registered to accept URL's
-        Set<String> packageIds = new HashSet<>();
+        // are registered to accept URL's.
+        // Note that we are using a LinkedHashSet here which yields FIFO order when iterated.
+        Set<String> packageIds = new LinkedHashSet<>();
 
         // determine the match criteria
         // DEFAULT_ONLY will return a single result, the default browser while ALL will
