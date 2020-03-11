@@ -430,7 +430,7 @@ public class StatusActivity
             if(matchingPackageId != null ) {
                 browserIntent.setPackage(matchingPackageId);
             } else if (TextUtils.isEmpty(urlString)) {
-                // We don't have explicit packed ID for the browser intent, so the URL cannot be empty.
+                // We don't have explicit package ID for the browser intent, so the URL cannot be empty.
                 // In this case try loading a special URL 'about:blank'.
                 browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
                 browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
