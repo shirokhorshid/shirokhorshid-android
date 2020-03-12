@@ -415,30 +415,33 @@ public class StatusActivity
             // Put Chrome at the end if it is not already in the set.
             browserIdsSet.add("com.android.chrome");
 
-            String matchingPackageId = null;
-
+            // If we have a candidate then set the app package ID for the browser intent and try to
+            // start the app with the intent right away.
             for (String id : browserIdsSet) {
                 if (VpnAppsUtils.isTunneledAppId(context, id)) {
-                    matchingPackageId = id;
-                    break;
+                    browserIntent.setPackage(id);
+                    try {
+                        context.startActivity(browserIntent);
+                        // Return immediately if success.
+                        return;
+                    } catch (ActivityNotFoundException | SecurityException ignored) {
+                        // Continue looping if error.
+                    }
                 }
             }
 
-            // If we have a candidate then set the app package ID for the browser intent.
-            // Otherwise let the system handle it.
+            // Last effort - let the system handle it.
             // Note that the browser picked by the system will be most likely not tunneled.
-            if(matchingPackageId != null ) {
-                browserIntent.setPackage(matchingPackageId);
-            } else if (TextUtils.isEmpty(urlString)) {
+            try {
                 // We don't have explicit package ID for the browser intent, so the URL cannot be empty.
                 // In this case try loading a special URL 'about:blank'.
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
-                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            }
-
-            try {
+                if (TextUtils.isEmpty(urlString)) {
+                    browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
+                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                }
                 context.startActivity(browserIntent);
             } catch (ActivityNotFoundException | SecurityException ignored) {
+                // Fail silently.
             }
         } else {
             // BOM, try to open Zirco
