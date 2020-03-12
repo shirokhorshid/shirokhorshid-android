@@ -33,7 +33,6 @@ import com.psiphon3.R;
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -161,18 +160,18 @@ public class VpnAppsUtils {
         // Note that we are using a LinkedHashSet here which yields FIFO order when iterated.
         Set<String> packageIds = new LinkedHashSet<>();
 
-        // determine the match criteria
-        // DEFAULT_ONLY will return a single result, the default browser while ALL will
-        // return all possible web browsers
-        int matchFlags = PackageManager.MATCH_DEFAULT_ONLY;
-
-        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            matchFlags = PackageManager.MATCH_ALL;
-        }
-        // determine which activities are available to handle the intent
-        List<ResolveInfo> matchingActivities = packageManager.queryIntentActivities(intent, matchFlags);
+        // Try and put default package ID first by matching DEFAULT_ONLY
+        List<ResolveInfo> matchingActivities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         for (ResolveInfo info : matchingActivities) {
             packageIds.add(info.activityInfo.packageName);
+        }
+
+        // Next add all other packages able to handle the intent by matching ALL
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            matchingActivities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_ALL);
+            for (ResolveInfo info : matchingActivities) {
+                packageIds.add(info.activityInfo.packageName);
+            }
         }
         return packageIds;
     }
