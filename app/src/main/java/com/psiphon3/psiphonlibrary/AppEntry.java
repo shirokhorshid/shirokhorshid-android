@@ -21,20 +21,23 @@ package com.psiphon3.psiphonlibrary;
 
 import android.graphics.drawable.Drawable;
 
+import io.reactivex.Single;
+
 public class AppEntry implements Comparable<AppEntry> {
+    private final String name;
+    private final String packageId;
+    private final Single<Drawable> iconLoader;
+    private final String comparableName;
 
-    private String name;
-    private String packageId;
-    private Drawable icon;
-
-    public AppEntry(String name, String packageId, Drawable icon) {
+    public AppEntry(String name, String packageId, Single<Drawable> iconLoader) {
         this.name = name;
         this.packageId = packageId;
-        this.icon = icon;
+        this.iconLoader = iconLoader;
+        comparableName = getComparableName();
     }
 
     public int compareTo(AppEntry other) {
-        return this.getComparableName().compareTo(other.getComparableName());
+        return this.comparableName.compareTo(other.comparableName);
     }
 
     private String getComparableName() {
@@ -47,5 +50,5 @@ public class AppEntry implements Comparable<AppEntry> {
     public String getPackageId() {
         return packageId;
     }
-    public Drawable getIcon() { return icon; }
+    public Single<Drawable> getIconLoader() { return iconLoader; }
 }
