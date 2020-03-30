@@ -60,7 +60,11 @@
 
         <activity
             android:name=".FeedbackActivity"
+            android:parentActivityName=".StatusActivity"
             android:label="@string/app_name">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StatusActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -73,7 +77,11 @@
         </activity>
         <activity
             android:name=".psiphonlibrary.MoreOptionsPreferenceActivity"
+            android:parentActivityName=".StatusActivity"
             android:label="@string/app_name">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StatusActivity" />
         </activity>
         <service
             android:name=".psiphonlibrary.TunnelService"
