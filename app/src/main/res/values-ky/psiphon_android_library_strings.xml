@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Тармак байланышын күтүү…</string>
   <string name="checking_for_root_access">Тамыр жеткисин текшерүү…</string>
   <string name="psiphon_service_notification_message_connecting">Байланышуу...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon сервисинин маалымкаттары</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Артыкчылык берилген серверлер: %d</string>
   <string name="selecting_server">Серверди тандоо...</string>
   <string name="fetch_remote_server_list">Алыстан кирүү серверлер тизмесин алуу...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Бул колдонмо үчүн топтом маалыматын алуу мүмкүн эмес.</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Жаңылоо файлы жазылбай койду</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Жаңылоо жүктөлбөй койду</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Жаңылоо жүктөлдү. Жаңыланууга азыр уруксат беришиңизди бекем сунуштайбыз. Жаңылануудан соң Pshiphon-ду жаңыдан жүргүзүшүңүз керек болот.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Жаңыланбай койду.  Жаңылануу файлынан топтом маалыматын чыгаруу мүмкүн эмес.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Жаңылоочу файл табылбады</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-ду  Жаңылоо</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon үчүн жаңылоо орнотууга даяр.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Жаңылоо файлы окулбай койду</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Жаңылоо файлынын аныктыгы текшерилбей койду</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Башкы бет</string>
   <string name="settings_tab_name">Опциялар</string>
   <string name="statistics_tab_name">Статистика</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журналдар</string>
   <string name="socks_proxy_address">Локалдуу SOCKS прокси %sде жүргүзүлүүдө</string>
   <string name="http_proxy_address">Локалдуу HTTP прокси %sде жүргүзүлүүдө</string>
@@ -143,6 +147,7 @@
   <string name="region_name_no">Норвегия</string>
   <string name="region_name_ro">Румыния</string>
   <string name="region_name_se">Швеция</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon Тууралуу</string>
   <string name="feedback">Кайтарым байланыш</string>
   <string name="tunnel_whole_device_toggle">Бүт түзмөктү туннелдөө (Android 4.0+ талап кылат)</string>
@@ -155,6 +160,17 @@
   <string name="wdm_force_iptables_toggle">Бүткүл түзмөктү туннелдөө ыкмасын мажбурлоо</string>
   <string name="http_prefix_toggle">HTTP катары маскалоо</string>
   <string name="preference_notifications_title">Маалымкаттар</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Үн</string>
   <string name="preference_notifications_with_sound_summary">Байланыш статусу өзгөргөндө үн чыгаруу</string>
   <string name="preference_notifications_with_vibrate_title">Титирөө</string>
@@ -185,6 +201,7 @@
   <string name="waiting">Күтүү...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

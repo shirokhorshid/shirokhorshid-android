@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Ждём подключения к сети...</string>
   <string name="checking_for_root_access">Проверка доступа с правами root...</string>
   <string name="psiphon_service_notification_message_connecting">Идет соединение...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Сообщения сервиса Psiphon </string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Предпочитаемые сервера: %d</string>
   <string name="selecting_server">Выбор сервера...</string>
   <string name="fetch_remote_server_list">Получение списка удаленных серверов...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Ошибка чтения информации о пакете данного приложения</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Ошибка записи файла обновления</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Ошибка загрузки обновления</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Загружена новая версия. Мы настоятельно рекомендуем установить эту версию. Перезапустите Psiphon после установки.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Ошибка обновления. Ошибка чтения информации о файле обновления.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Файл обновления не найден</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Обновление Psiphon </string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Новая версия Psiphon готова к установке. </string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Ошибка чтения файла обновления</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Ошибка проверки подлинности файла обновления</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Домой</string>
   <string name="settings_tab_name">Настройки</string>
   <string name="statistics_tab_name">Статистика</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журналы</string>
   <string name="socks_proxy_address">Локальный прокси-сервер SOCKS работает на %s</string>
   <string name="http_proxy_address">Локальный прокси-сервер HTTP работает на %s</string>
@@ -147,6 +151,7 @@
   <string name="region_name_sk">Словакия</string>
   <string name="region_name_rs">Сербия</string>
   <string name="region_name_au">Австралия</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Что такое Psiphon</string>
   <string name="feedback">Отзыв</string>
   <string name="tunnel_whole_device_toggle">Туннелировать все интернет-соединения (требует Android 4.0+)</string>
@@ -160,7 +165,17 @@
   <string name="http_prefix_toggle">Симулировать HTTP </string>
   <string name="preference_notifications_title">Уведомления</string>
   <string name="preference_vpn_title">VPN</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Установить</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Оповестить звуковым сигналом при изменении статуса подключения</string>
   <string name="preference_notifications_with_vibrate_title">Вибрация</string>
@@ -191,6 +206,7 @@
   <string name="waiting">Ожидание…</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

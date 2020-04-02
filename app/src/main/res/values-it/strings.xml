@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">banner sponsor: clicca per visitare la pagina dello sponsor</string>
-  <string name="start_desc">connetti a Psiphon: clicca per connetterti</string>
+  <string name="banner_desc">banner sponsor; clicca per visitare la pagina dello sponsor</string>
+  <string name="start_desc">connettiti con Psiphon; clicca per connetterti</string>
   <string name="message_image_success_desc">icona indicante messaggio di successo</string>
   <string name="message_image_error_desc">icona indicante messaggio di errore</string>
   <string name="message_image_debug_desc">icona indicante messaggio di debug</string>
@@ -19,17 +19,17 @@
   <string name="StatusActivity.VpnRevokedMessage">La VPN di Psiphon è stata disconnessa da te o da un\'altra app. Non è possibile eseguire più app VPN contemporaneamente. Controllare se un\'altra app VPN è installata e attualmente in esecuzione.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN non può avviarsi</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon non può avviare la VPN. Non è possibile eseguire più app VPN contemporaneamente. Verifica se un\'altra app VPN è installata e impostata su Always-on.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Utilizzare il Tunnel per l\'intero dispositivo?</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Utilizzare il Tunnel per tutto il dispositivo?</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptMessage">L\'opzione Tunnel Whole Device è disponibile per il tuo apparato.\n\nCon questa opzione, tutto il traffico Internet per tutte le app, inclusi tutti i browser, sarà inoltrato attraverso Psiphon.\n\nIn alternativa, è possibile scegliere di canalizzare solo il browser Psiphon in bundle, permettendo alle altre app di connettersi direttamente attraverso la connessione Internet standard.</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Whole Device</string>
   <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Utilizzare solo Psiphon Browser</string>
   <string name="selected_region_currently_not_available">La regione selezionata non è attualmente disponibile, selezionare un\'altra regione.</string>
   <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Ci teniamo alla tua privacy e alla sicurezza dei tuoi dati. Manteniamo questa app gratuita mostrando annunci pubblicitari.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Possiamo continuare ad utilizzare i tuoi dati per personalizzare gli annunci su misura per te?</string>
+  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Possiamo continuare ad utilizzare i dati per personalizzare gli annunci su misura?</string>
   <string name="you_can_change_your_choice_anytime">Puoi cambiare la tua scelta in qualsiasi momento nelle impostazioni dell\'app Psiphon Pro. I nostri fornitori di pubblicità raccoglieranno i dati e utilizzeranno un identificatore univoco sul tuo dispositivo per mostrarti annunci più rilevanti.</string>
   <string name="learn_more_about_our_ad_providers"><u>Scopri di più sui nostri fornitori di pubblicità</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Sì, continua a mostrarmi annunci rilevanti</string>
-  <string name="no_see_ads_that_are_less_relevant">No, mostrami annunci meno rilevanti</string>
+  <string name="yes_continue_to_see_relevant_ads">Sì, mostra annunci rilevanti</string>
+  <string name="no_see_ads_that_are_less_relevant">No, mostra annunci meno rilevanti</string>
   <string name="pay_for_the_ad_free_version">Aggiorna alla versione senza pubblicità</string>
   <string name="click_ad_provider_name_to_see_privacy_policy">Clicca sul nome dei fornitori dell\'annuncio per vedere la loro informativa privacy</string>
   <string name="ads_consent_preference_category_title">Personalizzazione annunci</string>
@@ -58,44 +58,34 @@
   <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
   <string name="get_help_connecting_notification_message">Clicca per potenziali correzioni</string>
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">Aiuta un amico a connettersi</string>
+  <string name="how_to_help">Aiuta qualcuno a connettersi</string>
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">Puoi aiutare un amico a connettersi a Psiphon posizionando i telefoni di schiena, mentre tu sei connesso e lui sta cercando di connettersi.</string>
+  <string name="how_to_help_connect_text">Aiuta qualcuno a connettersi con Psiphon, avvicinando i dispositivi mentre sei connesso e lui sta cercando di connettersi.</string>
   <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
   <string name="how_to_help_connect_image_description">Telefoni posizionati per NFC</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN Permanente</string>
   <string name="preference_navigate_to_vpn_setting_summary">Vai alle impostazioni di sistema per abilitare la VPN Permanente.</string>
-  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
-  <string name="title_kin_and_psiphon">Kin e Psiphon</string>
-  <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
-    since it gets converted to a hyperlink automatically.-->
-  <string name="lbl_kin_onboard_explanation">Kin è un nuovo modo per aiutare a supportare Psiphon.\n\nSe sei d\'accordo, verrà creato un portafoglio Kin per te e ogni volta che ti collegherai, questo farà una piccola donazione a Psiphon.\n\nPerché partecipare? Quando si spendono Kin attraverso Psiphon, vengono finanziati i nostri server.\n\nPer saperne di più su Kin vai a: kin.org</string>
-  <!--Kin onboarding prompt positive button label.-->
-  <string name="lbl_help_psiphon">Aiuta Psiphon!</string>
-  <!--Kin onboarding prompt negative button label.-->
-  <string name="lbl_help_psiphon_no_thanks">No grazie</string>
-  <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_opt_out">Sicuro di voler rinunciare a Kin?\n\nPotrai sempre rientrare nel programma in futuro, ma fino ad allora non aiuterai Psiphon.</string>
-  <!--Kin opt-out prompt negative button label.-->
+  <!--Generic negative button label.-->
   <string name="lbl_no">No</string>
-  <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
+  <!--Generic positive button label.-->
   <string name="lbl_yes">Sì</string>
-  <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
-     Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_opt_in_to_kin">Accedi a Kin</string>
-  <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="title_donate_kin">Dona Kin</string>
-  <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_pay">Grazie per aver scelto Kin; vorresti continuare a donare 1 Kin a Psiphon quando ti colleghi?</string>
-  <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
-  <string name="lbl_opt_out">Esci</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Azione richiesta!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Apri Psiphon per terminare la connessione.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">La regione selezionata non è disponibile</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Apri Psiphon e seleziona un\'altra regione.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon VPN è stato arrestato</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN è stato disconnesso da te o da un\'app.</string>
+  <!--Description for an app icon image-->
+  <string name="description_app_icon">Icona App</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Impostazione VPN scorretta</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">In questa modalità, In questa modalità, è necessario attivare almeno un\'app!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">In questa modalità, è necessario disattivare almeno un\'app!</string>
 </resources>

@@ -15,7 +15,7 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">ግብረመልስ ማስገባት ከሽፏል። </string>
   <string name="FeedbackActivity.InvalidURLParameters">በግብረመልስ  ማስገቢያ ቅጽ ላይ የማይሰሩ የurl መለኪያዎች አሉ</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">የግብረመልስ ይዘት ገጽን ማግኘት ከሽፏል </string>
-  <string name="StatusActivity.VpnRevokedTitle">ሳይፈን - Psiphon VPN ቆሟል።</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon (ሳይፈን) - Psiphon VPN ቆሟል።</string>
   <string name="StatusActivity.VpnRevokedMessage">የPsiphon (ሳይፈን) ምናባዊ የግል አውታረ መረብ (ቪፒኤን) ግንኙነት በእርስዎ ወይም በሌላ መተግበሪያ ተቋርጧል። ከአንድ በላይ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ በአንድ ግዜ ገባር ሊሆን አይችልም። ሌላ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ መጫኑን እና ገባር መሆን አለመሆኑን ያጣሩ።</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon (ሳይፈን) VPNን ማስጀመር አልቻለም።</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">መሳሪያውን ሙሉ በሙሉ ማስተላለፍ ይፈልጋሉ?</string>
@@ -43,26 +43,16 @@
   <string name="how_to_help_connect_image_description">ስልኮችን ማነካካት ለ NFC (ቅርብ ርቀት ተግባቦት)</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">እሺ </string>
-  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
-  <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
-    since it gets converted to a hyperlink automatically.-->
-  <!--Kin onboarding prompt positive button label.-->
-  <!--Kin onboarding prompt negative button label.-->
-  <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin opt-out prompt negative button label.-->
+  <!--Generic negative button label.-->
   <string name="lbl_no">አይ </string>
-  <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
+  <!--Generic positive button label.-->
   <string name="lbl_yes">አዎ</string>
-  <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
-     Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
   <!--"Please open Psiphon to keep connecting" notification title-->
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
   <!--"Selected region is not available" notification title-->
   <!--Message shown in notification informing the user that selected region is not currently available-->
   <!--"VPN stopped" notification title-->
-  <string name="notification_title_vpn_revoked">ሳይፈን - Psiphon VPN ቆሟል።</string>
+  <string name="notification_title_vpn_revoked">Psiphon (ሳይፈን) - Psiphon VPN ቆሟል።</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <!--Description for an app icon image-->
 </resources>

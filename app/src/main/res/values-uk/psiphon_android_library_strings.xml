@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Чекаємо на під\'єднання до мережі...</string>
   <string name="checking_for_root_access">Перевірка доступу адміністратора...</string>
   <string name="psiphon_service_notification_message_connecting">Під\'єднання...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Служба сповіщення Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Привілейовані сервери: %d</string>
   <string name="selecting_server">Вибір сервера...</string>
   <string name="fetch_remote_server_list">Отримання списку віддалених серверів...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Не вдається отримати інформацію про пакет для поточної програми</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Не вдалося записати файл оновлення</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Помилка  завантаження оновлення</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Оновлення завантажено. Наполегливо рекомендується дозволити продовження процесу оновлення. Після його завершення вам доведеться знову запустити Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Оновлення не вдалося. Не вдається отримати інформацію про пакет з файлу оновлення.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Файл оновлення не знайдено</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Оновлення Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Оновлення для Psiphon готове для встановлення.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Не вдалося прочитати файл оновлення</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Не вдалося перевірити автентичність файлу оновлення</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Додому</string>
   <string name="settings_tab_name">Параметри</string>
   <string name="statistics_tab_name">Статистика</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журнали</string>
   <string name="socks_proxy_address">Локальний проксі SOCKS працює на %s</string>
   <string name="http_proxy_address">Локальний проксі HTTP працює на %s</string>
@@ -146,6 +150,7 @@
   <string name="region_name_pl">Польща</string>
   <string name="region_name_sk">Словаччина</string>
   <string name="region_name_au">Австралія</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Про Psiphon</string>
   <string name="feedback">Відгуки</string>
   <string name="tunnel_whole_device_toggle">Тунелювання всього пристрою (вимагається Android 4.0+)</string>
@@ -160,11 +165,20 @@
   <string name="http_prefix_toggle">Маскуватися як HTTP</string>
   <string name="preference_notifications_title">Сповіщення</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Виключені програми</string>
-  <string name="preference_routing_exclude_apps_summary">Уникати тунелювання для вибраних програм</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Задати</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Програма, виключена з тунелювання: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Жодна програма не виключена з тунелювання</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Звук під час зміни стану з\'єднання</string>
   <string name="preference_notifications_with_vibrate_title">Вібрувати</string>
@@ -196,6 +210,7 @@
   <string name="waiting">Очікування...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

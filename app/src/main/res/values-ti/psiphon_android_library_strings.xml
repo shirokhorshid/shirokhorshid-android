@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">ነትዎርክ ኣብ ምርኻብ ኣሎ...</string>
   <string name="checking_for_root_access">ዋና መሕለፊ ኣብ ምርኣይ ኣሎ...</string>
   <string name="psiphon_service_notification_message_connecting">የራኸብ ኣሎ...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">መዘኻኸሪ ኣገልግሎት ሳይፎን (Psiphon)</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">ተመረጽቲ ሰርቨራት: %d</string>
   <string name="selecting_server">ሰርቨር ይመርጽ ኣሎ...</string>
   <string name="fetch_remote_server_list">ርሑቕ ንዘሎ ናይ ሰርቨር ዝርዝር ይስሕብ ኣሎ...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">ነዚ ዘሎ ኣፕ ዝኸውን ሓበረታ ጥማር ምምጻእ ኣይተኻእለን</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">ሕዱስ ፋይል ምጽሓፍ ኣይተኻእለን</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">ምሕዳስ ምውራድ ፋይል ፈሺሉ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">ዝወረደ ኣሓድስ። ኣብዚ ግዜ`ዚ እቲ ሕዱስ ክቕጽል ክተፍቅደሉ ብጽኑዕ ትምከር። ድሕሪ ምሕዳስ ሳይፎን (Psiphon) እንደገና ምውላዕ ከድልየካ `ዩ፡፡</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ምሕዳስ ኣይተኻእለን። ጥሙር ሓበረታ ካብ ምሕዩሽ ፋይል ምውጻእ ኣይክኣልን፡፡</string>
   <string name="UpgradeManager.UpgradeFileNotFound">ምሕዩሽ ፋይል ኣይተረኽበን</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">ምሕየሻ ሳይፎን (Psiphon)</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">ንሳይፎን ዝኸውን ምሕየሻ ክጽዕን ድልው ኣሎ፡፡</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">ምሕዩሽ ፋይል ምንባብ ኣይተኻእለን</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">ምሕዩሽ ፋይል ምርግጋጽ ኣይተኻእለን</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">ቤት</string>
   <string name="settings_tab_name">ኣማራጽታት</string>
   <string name="statistics_tab_name">ስታትስቲክስ</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">መዝገባት</string>
   <string name="socks_proxy_address">ከባቢያዊ SOCKS ተካኢ ኣብ %s ይሰርሕ ኣሎ</string>
   <string name="http_proxy_address">ከባቢያዊ  HTTP ተካኢ ኣብ %s ይሰርሕ ኣሎ</string>
@@ -145,6 +149,7 @@
   <string name="region_name_se">ሽወደን</string>
   <string name="region_name_pl">ፖላንድ</string>
   <string name="region_name_sk">ስሎቫክያ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">ብዛዕባ ሳይፎን (Psiphon)</string>
   <string name="feedback">ግብረ-መልሲ</string>
   <string name="tunnel_whole_device_toggle">ምሉእ መሳርሒ ንምትሕልላፍ (Android 4.0+ የድሊ) </string>
@@ -158,11 +163,20 @@
   <string name="wdm_force_iptables_toggle">ዋና መተሓላለፊ ሜላ ምሉእ መሳርሒ ኣገድድ</string>
   <string name="http_prefix_toggle"> ከም HTTP ኣምስል</string>
   <string name="preference_notifications_title">መዘኻኸርታት</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">ኣፓት ኣውጽእ</string>
-  <string name="preference_routing_exclude_apps_summary">ዝተመርጸ ኣፕ ካብ ምትሕልላፍ ኣግድ</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">ኣርትዕ</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">ኣፕ ካብ መተሓላለፊ ተኣጊዱ`ሎ: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">መተግበሪታት ካብ መተሓላለፊ ኣይተኣገዱን</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">ድምጺ</string>
   <string name="preference_notifications_with_sound_summary">ኩነታት ርክብ ክቕየር ከሎ ድምጺ ኣጻውት</string>
   <string name="preference_notifications_with_vibrate_title">ንዝረት</string>
@@ -194,6 +208,7 @@
   <string name="waiting">ኣብ ምጽባይ ኣሎ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

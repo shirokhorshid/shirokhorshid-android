@@ -47,7 +47,9 @@
   <string name="waiting_for_network_connectivity">A aguardar por conexão à rede ...</string>
   <string name="checking_for_root_access">A verificar o acesso ao \"root\" ...</string>
   <string name="psiphon_service_notification_message_connecting">A conetar ...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notificação do Serviço do Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Servidores preferidos: %d</string>
   <string name="selecting_server">A selecionar o servidor ...</string>
   <string name="fetch_remote_server_list">A obter a lista de servidores remota</string>
@@ -66,10 +68,13 @@
   <string name="Diagnostics.EncryptedFailed">Não foi possível encriptar a informação do diagnóstico do comentário. Esta informação não será anexada à mensagem do comentário.</string>
   <string name="current_network_type">Rede atual: %s</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">A transferência da atualização falhou</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Atualização transferida. Recomenda-se fortemente que permita agora a atualização para prosseguir. Depois de atualizar, terá de iniciar novamente o Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">A atualização falhou. Não é possível extrair a informação do pacote do ficheiro de atualização.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Ficheiro de atualização não encontrado</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Atualização do Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Está disponível uma atualização do Psiphon para ser instalada.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Não foi possível ler o ficheiro de atualização</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Não foi possível autenticar o ficheiro de atualização</string>
@@ -84,7 +89,6 @@
   <string name="home_tab_name">Início</string>
   <string name="settings_tab_name">Opções</string>
   <string name="statistics_tab_name">Estados</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Registo de Eventos</string>
   <string name="share_proxies_prompt_title">É necessário reiniciar a aplicação</string>
   <string name="share_proxies_prompt_message">A aplicação precisa de ser reiniciada para aplicar esta definição.</string>
@@ -115,13 +119,24 @@
   <string name="region_name_no">Noruega</string>
   <string name="region_name_ro">Roménia</string>
   <string name="region_name_se">Suécia</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentário</string>
   <string name="disable_timeouts">Desativar \'expiração\' para redes lentas</string>
   <string name="region_selector">Selecione a região</string>
   <string name="preference_notifications_title">Notificações</string>
   <string name="preference_vpn_title">VPN</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Definir</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Reproduzir um som quando o estado da ligação é alterado</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>
@@ -143,6 +158,7 @@
   <string name="waiting">A aguardar...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

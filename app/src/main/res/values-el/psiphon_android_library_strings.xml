@@ -13,6 +13,8 @@
   <string name="no_server_entries">Δεν υπάρχουν διακομιστές για να συνδεθείτε </string>
   <string name="psiphon_stopped">Σταμάτησε</string>
   <string name="psiphon_service_notification_message_connecting">Γίνεται σύνδεση...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Προτιμητέοι διακομιστές: %d</string>
   <string name="selecting_server">Επιλογή διακομιστή</string>
   <string name="fetch_remote_server_list">Γινεται ανάκτηση της λίστας απομακρυσμένων διακομιστών...</string>
@@ -22,8 +24,11 @@
   <string name="data_transfer_elapsed_time">Χρόνος σύνδεσης: %s</string>
   <string name="debug_message">%s</string>
   <string name="current_network_type">Υπάρχον δίκτυο: %s</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeFileNotFound">Το αρχείο αναβάθμισης δεν βρέθηκε.</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Αναβάθμιση του Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Μια αναβάθμιση του Psiphon είναι έτοιμη προς εγκατάσταση.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Αποτυχία ανάγνωσης αρχείου αναβάθμισης</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Αποτυχία επιβεβαίωσης αρχείου αναβάθμισης</string>
@@ -38,7 +43,6 @@
   <string name="home_tab_name">Αρχική</string>
   <string name="settings_tab_name">Επιλογές</string>
   <string name="statistics_tab_name">Στατιστικά</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Αρχεία καταγραφής</string>
   <string name="share_proxies_prompt_title">Απαιτείται επανεκκίνηση της εφαρμογής</string>
   <string name="share_proxies_prompt_message">Για να εφαρμοστεί αυτή η ρύθμιση πρέπει να γίνει επανεκκίνηση της εφαρμογής.</string>
@@ -70,6 +74,7 @@
   <string name="region_name_no">Νορβηγία</string>
   <string name="region_name_ro">Ρουμανία</string>
   <string name="region_name_se">Σουηδία</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Σχετικά με το Psiphon</string>
   <string name="feedback">Σχόλια</string>
   <string name="region_selector">Επιλογή περιοχής</string>
@@ -77,6 +82,17 @@
   <string name="network_proxy_connect_invalid_values">Μη έγκυρες ρυθμίσεις του HTTP διαμεσολαβητή</string>
   <string name="preference_notifications_title">Ειδοποιήσεις</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Ήχος</string>
   <string name="preference_notifications_with_vibrate_title">Δόνηση</string>
   <string name="moreOptions">Περισσότερες επιλογές</string>
@@ -89,6 +105,7 @@
   <string name="waiting">Αναμονή...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">ကွန်ယက်လိုင်းချိတ်နိုင်ရန်စောင့်နေပါသည်...</string>
   <string name="checking_for_root_access">Root ရယူရန်အတွက် စစ်ဆေးနေသည်</string>
   <string name="psiphon_service_notification_message_connecting">ချိတ်ဆက်နေသည်...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon ဝန်ဆောင်မှုဆိုင်ရာအချက်ပြမှု</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">ကြိုက်နှစ်သက်သော ဆာဗာများ : %d</string>
   <string name="selecting_server">ဆာဗာရွေးချယ်နေပါသည်...</string>
   <string name="fetch_remote_server_list">အဝေးထိန်းဆာဗာစာရင်း ရယူနေပါသည်...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">လက်ရှိ app အတွက် အစုအတွဲ၏ သတင်းအချက်အလက်ကို ပြန်လည်မရယူနိုင်ပါ</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">အဆင့်မြှင့်ဖိုင်ကိုရေးရန် မအောင်မြင်ပါ</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">အဆင့်မြှင့်ရန် ဒေါင်းလုပ်လုပ်မှု မအောင်မြင်ပါ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">အဆင့်မြှင့်မှုကို ဒေါင်းလုပ်လုပ်ပြီးပါပြီ။ ဤအချိန်တွင် အဆင့်မြှင့်မှုကိုဆက်လက်လုပ်ဆောင်နိုင်ရန်အတွက် ခွင့်ပြုပေးရန် အကြံပြုလိုပါသည်။ အဆင့်မြှင့်မှုပြီးဆုံးသွားပါက Psiphon ကိုနောက်တစ်ကြိမ် ပြန်ဖွင့်ရပါလိမ့်မည်။</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">အဆင့်မြှင့်မှုမအောင်မြင်ပါ။ အဆင့်မြှင့်ရန်ဖိုင်အတွင်းမှ အစုအတွဲသတင်းအချက်အလက်ကို ထုတ်မယူနိုင်ပါ။</string>
   <string name="UpgradeManager.UpgradeFileNotFound">အဆင့်မြှင့်ရန်ဖိုင်ကို မတွေ့ရှိပါ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon အဆင့်မြှင့်မှု</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon အား အဆင့်မြှင့်ရန်အတွက် ထည့်သွင်းရမည့်ဖိုင်သည် ထည့်သွင်းရန်အတွက်အဆင်သင့်ဖြစ်ပါပြီ။</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">အဆင့်မြှင့်ရန်ဖိုင်ကိုဖတ်ရန်မအောင်မြင်ပါ</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">အဆင့်မြှင့်ရန်ဖိုင်ကိုအတည်ပြုရန်မအောင်မြင်ပါ</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">ပင်မစာမျက်နှာ</string>
   <string name="settings_tab_name">ရွေးချယ်စရာများ</string>
   <string name="statistics_tab_name">အသုံးပြုမှုဆိုင်ရာအချက်အလက်များ</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">မှတ်တမ်းများ</string>
   <string name="socks_proxy_address">ဒေသခံ SOCKS ကြားခံသည် %s တွင်လည်ပတ်နေပါသည်</string>
   <string name="http_proxy_address">ဒေသခံ HTTP ကြားခံသည် %s တွင်လည်ပတ်နေပါသည်</string>
@@ -147,6 +151,7 @@
   <string name="region_name_sk">ဆလိုဗာကီးယား</string>
   <string name="region_name_rs">ဆားဘီးယား</string>
   <string name="region_name_au">သြစတြေးလျ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon အကြောင်း</string>
   <string name="feedback">အကြံပြုချက်</string>
   <string name="tunnel_whole_device_toggle">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်ရန် (Android 4.0+ လိုအပ်သည်)</string>
@@ -160,9 +165,20 @@
   <string name="wdm_force_iptables_toggle">အင်အားသုံး root လုပ်၍ စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့် ချိတ်ဆက်ရန်နည်းလမ်း</string>
   <string name="http_prefix_toggle">HTTP ကဲ့သို့ သရုပ်သဏ္ဍန်လုပ်ရန်</string>
   <string name="preference_notifications_title">အသိပေးချက်များ</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">ချန်ထားသော အပ်ပလီကေးရှင်းများ</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Tunnel မှ ချန်ထားသော အပ်ပလီကေးရှင်း %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Tunnel သည် မည်သည့် အပ်ပလီကေးရှင်းကိုမှ မချန်ထားပါ။</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">အသံ</string>
   <string name="preference_notifications_with_sound_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းအသံထွက်ရန်</string>
   <string name="preference_notifications_with_vibrate_title">တုန်ခါမှု</string>
@@ -194,6 +210,7 @@
   <string name="waiting">စောင့်နေပါသည်...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

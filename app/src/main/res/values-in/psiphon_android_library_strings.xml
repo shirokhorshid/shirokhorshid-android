@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Menunggu ketersambungan jaringan...</string>
   <string name="checking_for_root_access">Memeriksa akses root..</string>
   <string name="psiphon_service_notification_message_connecting">Menyambung...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notifikasi Layanan Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Server utama: %d</string>
   <string name="selecting_server">Memilih server..</string>
   <string name="fetch_remote_server_list">Mengambil daftar remote server...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Tidak dapat mengambil info paket aplikasi yang dipakai</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Gagal menulis berkas pembaruan</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Gagal mengunduh pembaruan</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Pembaruan telah diunduh. Anda sangat dianjurkan agar segera melakukan proses pembaruan. Setelah itu, Anda harus menjalankan Psiphon lagi.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Pembaruan gagal. Tidak dapat mengekstrak info paket dari berkas pembaruan.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Berkas pembaruan tak ditemukan</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Pembaruan Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon versi terbaru siap dipasang.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Gagal membaca berkas pembaruan</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Gagal mengautentikasi berkas pembaruan</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Beranda</string>
   <string name="settings_tab_name">Opsi</string>
   <string name="statistics_tab_name">Statistik</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Catatan</string>
   <string name="socks_proxy_address">Proksi SOCKS lokal beroperasi di %s</string>
   <string name="http_proxy_address">Proksi HTTP lokal beroperasi di %s</string>
@@ -147,6 +151,7 @@
   <string name="region_name_sk">Slowakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
   <string name="tunnel_whole_device_toggle">Alihkan Sambungan Seluruh Perangkat (perlu Android 4.0+)</string>
@@ -161,11 +166,20 @@
   <string name="http_prefix_toggle">Samarkan sebagai HTTP</string>
   <string name="preference_notifications_title">Notifikasi</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Kecualikan Aplikasi</string>
-  <string name="preference_routing_exclude_apps_summary">Cegah aplikasi terpilih digunakan terowongan</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Set</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Aplikasi dikecualikan dari terowongan: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Tidak ada aplikasi dikecualikan dalam saluran ini.</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Suara</string>
   <string name="preference_notifications_with_sound_summary">Beri tanda suara saat status sambungan berubah</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
@@ -197,6 +211,7 @@
   <string name="waiting">Menunggu...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Oke</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

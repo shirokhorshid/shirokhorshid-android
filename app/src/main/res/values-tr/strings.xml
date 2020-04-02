@@ -67,30 +67,10 @@
   <string name="label_ok">Tamam</string>
   <string name="preference_navigate_to_vpn_setting_title">Her zaman açık VPN</string>
   <string name="preference_navigate_to_vpn_setting_summary">Her zaman VPN kullanılması için sistem ayarlarına gidin</string>
-  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
-  <string name="title_kin_and_psiphon">Kin ve Psiphon</string>
-  <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
-    since it gets converted to a hyperlink automatically.-->
-  <string name="lbl_kin_onboard_explanation">Kin Psiphon projesini desteklemenin yeni bir yoludur.\nOnay verirseniz, sizin için bir Kin cüzdanı oluşturulur ve her bağlantı kurduğunuzda Psiphoın için küçük bir bağış yapılır\n\nNeden destek olmalıyım? Psiphon üzerinden bağışlanan Kin kredileri sunucularımızın maliyetini karşılamamıza yardımcı olur.\n\nKin hakkında ayrıntılı bilgi almak için kin.org adresine bakabilirsiniz.</string>
-  <!--Kin onboarding prompt positive button label.-->
-  <string name="lbl_help_psiphon">Psiphon Projesine Destek Olun!</string>
-  <!--Kin onboarding prompt negative button label.-->
-  <string name="lbl_help_psiphon_no_thanks">Hayır, teşekkürler</string>
-  <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_opt_out">Kin uygulamasından ayrılmak istediğinize emin misiniz?\n\nDaha sonra istediğiniz zaman katılabilirsiniz ancak o zamana kadar Psiphon projesine destek vermiyor olacaksınız.</string>
-  <!--Kin opt-out prompt negative button label.-->
+  <!--Generic negative button label.-->
   <string name="lbl_no">Hayır</string>
-  <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
+  <!--Generic positive button label.-->
   <string name="lbl_yes">Evet</string>
-  <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
-     Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_opt_in_to_kin">Kin Uygulamasından Ayrıl</string>
-  <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="title_donate_kin">Kin Bağışı Yap</string>
-  <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_pay">Kin uygulamasına katıldığınız için teşekkürler. Bağlantı kurduğunuzda Psiphon projesine bir Kin bağışlamak ister misiniz?</string>
-  <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
-  <string name="lbl_opt_out">Ayrıl</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
   <string name="notification_title_action_required">İşlem yapılması gerekiyor!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
@@ -103,4 +83,5 @@
   <string name="notification_title_vpn_revoked">Psiphon VPN durdu</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <string name="notification_text_vpn_revoked">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kesildi.</string>
+  <!--Description for an app icon image-->
 </resources>

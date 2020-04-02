@@ -22,6 +22,7 @@
   <string name="HistoryListActivity.MenuOpenInTab">เปิดในแท็บใหม่</string>
   <string name="HistoryListActivity.MenuDelete">ลบ</string>
   <string name="PreferencesActivity.GeneralSettingsCategoryTitle">การตั้งค่าทั่วไป</string>
+  <string name="PreferencesActivity.HomePagePreferenceTitle">หน้าหลัก</string>
   <string name="Commons.Cancel">ยกเลิก</string>
   <string name="Commons.PleaseWait">โปรดรอสักครู่</string>
   <string name="Commons.Yes">ใช่</string>
@@ -30,8 +31,12 @@
   <string name="PreferencesActivity.AboutCategoryTitle">เกี่ยวกับ</string>
   <string name="PreferencesActivity.AboutPreferenceTitle">เกี่ยวกับ</string>
   <string name="PreferencesActivity.DefaultZoomClose">ปิด</string>
+  <string name="PreferencesActivity.DefaultZoomMedium">กลาง</string>
+  <string name="StartPage.Welcome">ยินดีต้อนรับ!</string>
   <string name="ChangelogActivity.Title">สมุดบันทึกสิ่งของใหม่</string>
   <string name="PreferencesActivity.ChangelogPreferenceTitle">สมุดบันทึกสิ่งของใหม่</string>
+  <string name="HomepagePreferenceActivity.Title">หน้าหลัก</string>
+  <string name="HomepagePreferenceActivity.Prompt">หน้าหลัก</string>
   <string name="PreferencesActivity.SearchUrlGoogle">Google</string>
   <string name="PreferencesActivity.SearchUrlCustom">กรอกเอง</string>
   <string name="StartPage.Search">ค้นหา</string>
@@ -45,6 +50,8 @@
   <string name="Commons.Add">เพิ่ม</string>
   <string name="Commons.Clear">ล้างทิ้ง</string>
   <string name="Commons.Delete">ลบ</string>
+  <string name="QuickAction.Home">หน้าหลัก</string>
+  <string name="QuickAction.Share">แบ่งปัน</string>
   <string name="PreferencesActivity.WeaveServerPreferenceTitle">เซิร์ฟเวอร์</string>
   <string name="PreferencesActivity.WeavePasswordTitle">รหัสผ่าน</string>
   <string name="PreferencesActivity.WeaveKeyTitle">รหัสกุญแจ</string>
@@ -54,6 +61,7 @@
   <string name="WeaveBookmarksListActivity.SetupButton">ติดตั้ง</string>
   <string name="WeaveBookmarksListActivity.SyncButton">เชื่อมข้อมูล
 </string>
+  <string name="WeaveSync.SyncTitle">การปรับประสานกัน</string>
   <string name="WeaveServerPreferenceActivity.Prompt">เซิร์ฟเวอร์</string>
   <string name="WeaveServerPreferenceActivity.Title">เซิร์ฟเวอร์</string>
   <string name="WeaveServerPreferenceActivity.CustomServer">กำหนดเซิร์ฟเวอร์เอง</string>
@@ -64,4 +72,5 @@
   <string name="HttpAuthenticationDialog.UserName">ชื่อเอกสาร</string>
   <string name="HttpAuthenticationDialog.Password">รหัสผ่าน</string>
   <string name="Commons.Proceed">ดำเนิน</string>
+  <string name="Main.MenuFeedback">การตอบสนอง</string>
 </resources>

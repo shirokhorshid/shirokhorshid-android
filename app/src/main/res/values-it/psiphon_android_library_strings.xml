@@ -55,9 +55,12 @@
   <string name="psiphon_running_whole_device">Esecuzione in modalità Intero Dispositivo</string>
   <string name="psiphon_running_browser_only">Esecuzione in modalità Solo Browser</string>
   <string name="waiting_for_network_connectivity">In attesa di connettività di rete...</string>
-  <string name="checking_for_root_access">Verifica dell\'accesso Root ...</string>
+  <string name="checking_for_root_access">Verifica accesso Root ...</string>
   <string name="psiphon_service_notification_message_connecting">Connessione in corso...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notifica Servizio Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="psiphon_service_notification_channel_name">Modifiche Stato Psiphon </string>
   <string name="preferred_servers">Server preferiti: %d</string>
   <string name="selecting_server">Selezione del server in corso...</string>
   <string name="fetch_remote_server_list">Recupero elenco server remoti in corso...</string>
@@ -88,10 +91,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Impossibile recuperare le informazioni sul pacchetto per l\'app corrente</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Impossibile scrivere il file di aggiornamento</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Download dell\'aggiornamento fallito</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Aggiornamento scaricato. Si raccomanda di consentire l\'aggiornamento in questo momento. Dopo l\'aggiornamento, Psiphon dovrà essere riavviato.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Aggiornamento fallito. Impossibile estrarre informazioni dal file di aggiornamento.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">File di aggiornamento mancante</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Aggiornamento Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Un aggiornamento per Psiphon è pronto per essere installato.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Impossibile leggere il file di aggiornamento</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Impossibile autenticare il file di aggiornamento</string>
@@ -106,7 +112,6 @@
   <string name="home_tab_name">Pagina Iniziale</string>
   <string name="settings_tab_name">Opzioni</string>
   <string name="statistics_tab_name">Statistiche</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Log</string>
   <string name="socks_proxy_address">Il proxy SOCKS locale è in esecuzione sulla porta %s</string>
   <string name="http_proxy_address">Il proxy HTTP locale è in esecuzione sulla porta %s</string>
@@ -147,6 +152,7 @@
   <string name="region_name_sk">Slovacchia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Informazioni su Psiphon</string>
   <string name="feedback">Feedback</string>
   <string name="tunnel_whole_device_toggle">Tunnel Whole Device (richiede Android 4.0+)</string>
@@ -161,11 +167,27 @@
   <string name="http_prefix_toggle">Mascherato come HTTP</string>
   <string name="preference_notifications_title">Notifiche</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tunnel di tutte le app</string>
+  <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Includi App</string>
+  <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Tunnel solo per le app selezionate</string>
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Escludi App</string>
-  <string name="preference_routing_exclude_apps_summary">Impedisci che le app selezionate vengano sottoposte a tunnelling</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Imposta</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Niente tunnel per le app selezionate</string>
+  <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">App di tunneling: %s</string>
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">App escluse dal Tunnel: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Nessuna applicazione verrà esclusa dal tunnel</string>
+  <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">App selezionate</string>
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
+  <string name="preference_routing_all_apps_tunnel_summary">Tutto il traffico sarà instradato via VPN</string>
   <string name="preference_notifications_with_sound_title">Suona</string>
   <string name="preference_notifications_with_sound_summary">Suona quando cambia lo stato della connessione</string>
   <string name="preference_notifications_with_vibrate_title">Vibra</string>
@@ -196,7 +218,10 @@
   <string name="tunnel_connected">Tunnel connesso</string>
   <string name="waiting">In attesa...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Richiesta Autorizzazione </string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Permetti a Psiphon di mogliorare le prestazioni della rete, concedendo l\'accesso alla posizione.\n\nSi noti che queste informazioni vengono utilizzate solo localmente sul dispositivo e non vengono trasmesse ai nostri server o a cedute terzi.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Ok</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

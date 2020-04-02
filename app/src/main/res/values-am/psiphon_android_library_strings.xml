@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">የኔትወርክ ግንኙነትን በመጠበቅ ላይ...</string>
   <string name="checking_for_root_access">ሩት አክስስን በማጣራት ላይ...</string>
   <string name="psiphon_service_notification_message_connecting">በመገናኘት ላይ....</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">የሳይፈን አገልግሎት ማስታወቂያ </string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">ተመራጭ አገልጋዮች፡- %d</string>
   <string name="selecting_server">አገልጋይ በመምረጥ ላይ... </string>
   <string name="fetch_remote_server_list">የርቀት አገልጋይ ዝርዝር በመልቀም ላይ...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">አሁን ላለው መተግበሪያ ጥቅል መረጃን ማምጣት አልተቻለም</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">የማላቂያ ሰነዱን መጻፍ አልተሳካም </string>
   <string name="UpgradeManager.UpgradeDownloadFailed">ማላቂያን ማውረድ አልተሳካም </string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">ማላቂያው ቀርዷል። ማላቂያው በዚህ ጊዜ  እንዲቀጥል እንዲፈቅዱ በጥብቅ ይመከራል። ካላቁት  በኋላ ሳይፈንን እንደገና ማስጀመር ይኖርብዎታል። </string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ማላቅ አልተሳካም። ከማላቂያው ሰነድ ውስጥ የጥቅሉን መረጃ ማግኘት አይቻልም።</string>
   <string name="UpgradeManager.UpgradeFileNotFound">የማላቂያ ሰነድ አልተገኘም </string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">የሳይፈን ማላቂያ </string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">የሳይፈን ማላቂያ ለመጫን ዝግጁ ነው። </string>
   <string name="UpgradeManager.UpgradeFileReadFailed">የማላቂያ ሰነዱን ማንበብ አልተሳካም </string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">የማላቂያ ሰነዱን ማረጋገጥ አልተሳካም </string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">ቅድመ ገጽ </string>
   <string name="settings_tab_name">አማራጮች </string>
   <string name="statistics_tab_name">ስታትስቲክስ</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">መዝገቦች </string>
   <string name="socks_proxy_address">የአካባቢ SOCKS ተኪ በ %s ላይ እየሰራ ነው</string>
   <string name="http_proxy_address">የአካባቢ HTTP ተኪ በ %s ላይ እየሰራ ነው</string>
@@ -145,7 +149,10 @@
   <string name="region_name_se">ስዊድን </string>
   <string name="region_name_pl">ፖላንድ</string>
   <string name="region_name_sk">ስሎቫኪያ</string>
-  <string name="about">ስለ ሳይፈን </string>
+  <string name="region_name_rs">ሰርቢያ</string>
+  <string name="region_name_au">አውስትራሊያ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="about">ስለ Psiphon (ሳይፈን) </string>
   <string name="feedback">ግብረመልስ</string>
   <string name="tunnel_whole_device_toggle">መሳሪያውን ሙሉ በሙሉ ማስተለለፍ (Android 4.0+ ይፈልጋል )</string>
   <string name="disable_timeouts">ለዝግተኛ ኔትወርኮች የጊዜ እረፍቶችን አቦዝን </string>
@@ -158,8 +165,18 @@
   <string name="http_prefix_toggle">እንደ HTTP አስመስል </string>
   <string name="preference_notifications_title">ማስታወቂያዎች </string>
   <string name="preference_vpn_title">ምናባዊ የግል አውታረ መረብ (ቪፒኤን)</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">መተግበሪያዎችን አታካትት</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">አቀናብር</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">ድምጽ</string>
   <string name="preference_notifications_with_sound_summary">የግንኝነት ደረጃ ለውጥ ሲኖር ድምጽ አሰማ </string>
   <string name="preference_notifications_with_vibrate_title">ንዘር </string>
@@ -191,6 +208,7 @@
   <string name="waiting">በመጠበቅ ላይ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">እቪ</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

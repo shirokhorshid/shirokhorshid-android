@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Đang chờ kết nối mạng...</string>
   <string name="checking_for_root_access">Đang kiểm tra truy cập root...</string>
   <string name="psiphon_service_notification_message_connecting">Đang kết nối...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Thông Báo Dịch Vụ Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Các máy chủ ưu tiên chọn: %d</string>
   <string name="selecting_server">Đang lựa chọn máy chủ...</string>
   <string name="fetch_remote_server_list">Đang lấy danh sách máy chủ từ xa...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Không thể truy lại thông tin gói cho ứng dụng hiện tại</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Không thể ghi tập tin nâng cấp</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Tải tập tin nâng cấp xuống thất bại</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Nâng cấp đã tải. Đề nghị bạn nên cho phép việc nâng cấp được tiến hành vào thời điểm này. Sau khi nâng cấp, bạn sẽ phải khởi động lại Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Nâng cấp thất bại. Không thể trích xuất thông tin gói từ tập tin nâng cấp.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Không tìm thấy tập tin nâng cấp</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Nâng Cấp Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Gói nâng cấp cho Psiphon đã sẵn sàng để cài đặt.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Không thể đọc tập tin nâng cấp</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Không thể xác thực tập tin nâng cấp</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Trang nhà</string>
   <string name="settings_tab_name">Các tùy chọn</string>
   <string name="statistics_tab_name">Thống kê</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Ký sự</string>
   <string name="socks_proxy_address">Proxy SOCKS địa phương đang chạy tại %s</string>
   <string name="http_proxy_address">Proxy HTTP địa phương đang chạy tại %s</string>
@@ -147,6 +151,7 @@
   <string name="region_name_sk">Slovakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Úc</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Giới thiệu về Psiphon</string>
   <string name="feedback">Ý kiến phản hồi</string>
   <string name="tunnel_whole_device_toggle">Kết Nối Toàn Thiết Bị Xuyên Qua Psiphon (cần Android 4.0+)</string>
@@ -160,7 +165,17 @@
   <string name="http_prefix_toggle">Ngụy trang làm HTTP</string>
   <string name="preference_notifications_title">Thông báo</string>
   <string name="preference_vpn_title">VPN</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Chọn</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Âm thanh</string>
   <string name="preference_notifications_with_sound_summary">Phát âm thanh khi tình trạng kết nối thay đổi</string>
   <string name="preference_notifications_with_vibrate_title">Rung</string>
@@ -191,6 +206,7 @@
   <string name="waiting">Đang chờ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Chấp nhận</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

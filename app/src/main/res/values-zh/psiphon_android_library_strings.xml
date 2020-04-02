@@ -57,7 +57,10 @@
   <string name="waiting_for_network_connectivity">等待网络连接...</string>
   <string name="checking_for_root_access">检查 root 权限...</string>
   <string name="psiphon_service_notification_message_connecting">连接中…</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">赛风服务通知</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="psiphon_service_notification_channel_name">赛风状态更改</string>
   <string name="preferred_servers">首选服务器：%d</string>
   <string name="selecting_server">正在选择服务器…</string>
   <string name="fetch_remote_server_list">正在获取远程服务器列表…</string>
@@ -88,10 +91,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">无法检索当前应用的包信息</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">无法写入更新文件</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">无法下载更新</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">更新已下载。强烈建议允许更新继续下一步操作。更新完成之后，将再次启动赛风。</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">更新失败。无法从更新文件提取软件包信息。</string>
   <string name="UpgradeManager.UpgradeFileNotFound">未发现更新文件</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">赛风更新</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">赛风更新安装准备就绪。</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">无法读取更新文件</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">无法验证更新文件</string>
@@ -106,7 +112,6 @@
   <string name="home_tab_name">主页</string>
   <string name="settings_tab_name">选项</string>
   <string name="statistics_tab_name">统计</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">日志</string>
   <string name="socks_proxy_address">本地 SOCKS 代理端口 %s</string>
   <string name="http_proxy_address">本地 HTTP 代理端口 %s</string>
@@ -146,6 +151,8 @@
   <string name="region_name_pl">波兰</string>
   <string name="region_name_sk">斯洛伐克</string>
   <string name="region_name_rs">塞尔维亚</string>
+  <string name="region_name_au">澳大利亚</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">关于赛风</string>
   <string name="feedback">反馈</string>
   <string name="tunnel_whole_device_toggle">全局代理设备（适用于 Android 4.0+）</string>
@@ -160,11 +167,20 @@
   <string name="http_prefix_toggle">伪装成 HTTP</string>
   <string name="preference_notifications_title">通知</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">排除应用</string>
-  <string name="preference_routing_exclude_apps_summary">选中的应用不使用赛风代理</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">设置</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">不使用代理的应用：%s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">不使用代理的应用为零</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">声音</string>
   <string name="preference_notifications_with_sound_summary">当连接状态改变时发出声音</string>
   <string name="preference_notifications_with_vibrate_title">震动</string>
@@ -195,7 +211,10 @@
   <string name="tunnel_connected">代理已连接</string>
   <string name="waiting">等待中…</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">权限请求</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">通过授予赛风对您位置的访问权限，可以帮助赛风在如何更好的工作上做出更好的决定。/n/n请注意这个信息只会在本地使用，不会被传输到赛风的服务其或者任何其他第三方。</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">确定</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

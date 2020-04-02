@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Esperando conectividad de red...</string>
   <string name="checking_for_root_access">Comprobando si hay acceso de root...</string>
   <string name="psiphon_service_notification_message_connecting">Conectando...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notificación del servicio Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Servidores preferidos: %d</string>
   <string name="selecting_server">Seleccionando servidor...</string>
   <string name="fetch_remote_server_list">Obteniendo lista de servidores remotos...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">No se pudo obtener la información de paquete de la aplicación actual</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">No se pudo escribir fichero de actualización</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">La descarga de la actualización falló</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Actualización descargada. Está expresamente recomendado que permita que la actualización se realice en este momento. Después de actualizar, tendrá que iniciar Psiphon de nuevo.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">La actualización falló. No se pudo extraer la información de paquete del fichero de actualización.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">No se encontró el fichero de actualización</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Actualización de Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Una actualización para Psiphon está lista para ser instalada.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Fallo al leer fichero de actualización</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Fallo al autenticar el fichero de actualización</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Principal</string>
   <string name="settings_tab_name">Opciones</string>
   <string name="statistics_tab_name">Estadísticas</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Registros</string>
   <string name="socks_proxy_address">El proxy SOCKS local está ejecutándose en %s</string>
   <string name="http_proxy_address">El proxy HTTP local está ejecutándose en %s</string>
@@ -147,6 +151,7 @@
   <string name="region_name_sk">Eslovaquia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Acerca de Psiphon</string>
   <string name="feedback">Comentarios</string>
   <string name="tunnel_whole_device_toggle">Derivar por el túnel el dispositivo al completo (requiere Android 4.0+)</string>
@@ -161,11 +166,20 @@
   <string name="http_prefix_toggle">Enmascarar como HTTP</string>
   <string name="preference_notifications_title">Notificaciones</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Excluir apps</string>
-  <string name="preference_routing_exclude_apps_summary">Evita que las apps seleccionadas sean tunelizadas</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Establecer</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">App excluida del túnel: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Ninguna aplicación fue excluida del túnel</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Sonido</string>
   <string name="preference_notifications_with_sound_summary">Reproduce un sonido cuando cambie el estado de la conexión</string>
   <string name="preference_notifications_with_vibrate_title">Vibración</string>
@@ -197,6 +211,7 @@
   <string name="waiting">Esperando...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Aceptar </string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

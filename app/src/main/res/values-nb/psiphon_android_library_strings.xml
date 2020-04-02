@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Venter på nettverkstilkobling…</string>
   <string name="checking_for_root_access">Sjekker superbrukerrettigheter…</string>
   <string name="psiphon_service_notification_message_connecting">Kobler til…</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon tjeneste-kunngjøring</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Forvalgte tjenere: %d</string>
   <string name="selecting_server">Velger tjener…</string>
   <string name="fetch_remote_server_list">Henter liste over tjenere eksternt…</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Klarte ikke å motta pakkeinfo for gjeldende program</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Klarte ikke å skrive oppgraderingsfil</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Nedlasting av oppgraderinger feilet</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Oppgradering nedlastet. Det anbefales på det sterkeste at du tillater oppgraderingsprosessen å fortsette denne gangen. Etter oppgradering må du kjøre omstart av Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Oppgradering feilet. Klarte ikke å pakke ut pakkeinfo fra oppgraderingsfilen.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Oppgraderingsfil ikke funnet</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-oppgradering</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">En oppgradering for Psiphon er klar til installasjon.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Klarte ikke å lese oppgraderingsfil</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Klarte ikke å sjekke gyldighet for oppgraderingsfil</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Hjem</string>
   <string name="settings_tab_name">Valg</string>
   <string name="statistics_tab_name">Statistikk</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Logg</string>
   <string name="socks_proxy_address">Lokal SOCKS-mellomtjener kjører på %s</string>
   <string name="http_proxy_address">Lokal HTTP-mellomtjener kjører på %s</string>
@@ -144,6 +148,7 @@
   <string name="region_name_ro">Romania</string>
   <string name="region_name_se">Sverige</string>
   <string name="region_name_pl">Polen</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Om Psiphon</string>
   <string name="feedback">Tilbakemeldinger</string>
   <string name="tunnel_whole_device_toggle">Tunnel over hele fjøla (krever Android 4.0+)</string>
@@ -158,11 +163,20 @@
   <string name="http_prefix_toggle">Masker som HTTP</string>
   <string name="preference_notifications_title">Kunngjøringer</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Ekskluder programmer</string>
-  <string name="preference_routing_exclude_apps_summary">Forhindre valgte programmer fra å tunneleres </string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Sett</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Program ekskludert fra tunnel: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Ingen programmer ble ekskludert fra tunnelen</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Lyd</string>
   <string name="preference_notifications_with_sound_summary">Avspill lyd når tilkoblingsstatus endres</string>
   <string name="preference_notifications_with_vibrate_title">Vibrer</string>
@@ -194,6 +208,7 @@
   <string name="waiting">Venter …</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Greit</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

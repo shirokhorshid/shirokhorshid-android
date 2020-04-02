@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Čekam povezivost s mrežom...</string>
   <string name="checking_for_root_access">Provjeravam pristup root-u...</string>
   <string name="psiphon_service_notification_message_connecting">Spajam...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Obavijesti o Psiphon usluzi</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Preferirani poslužitelji: %d</string>
   <string name="selecting_server">Biram poslužitelje...</string>
   <string name="fetch_remote_server_list">Dobavljam popis udaljenih poslužitelja...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Nije moguće dohvatiti informacije o paketu za trenutnu aplikaciju</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Pisanje datoteke nadogradnje nije uspjelo</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Preuzimanje nadogradnje nije uspjelo</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Nadogradnja preuzeta. Preporuča se da dozvolite nadogradnju u ovom trenu. Nakon nadogradnje morati ćete ponovno pokrenuti Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Nadogradnja nije uspjela. Izvlačenje informacija o paketu iz datoteke nadogradnje nije moguće.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Datoteka nadogradnje nije nađena</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon nadogradnja</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Nadogradnja Psiphon-a je spremna za instalaciju.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Čitanje datoteke nadogradnje nije uspjelo</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Autentikacija datoteke nadogradnje nije uspjela</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Početak</string>
   <string name="settings_tab_name">Opcije</string>
   <string name="statistics_tab_name">Statistika</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Dnevnici</string>
   <string name="socks_proxy_address">Lokalni SOCKS proxy je pokrenut na %s</string>
   <string name="http_proxy_address">Lokalni HTTP proxy je pokrenut na %s</string>
@@ -147,6 +151,7 @@
   <string name="region_name_sk">Slovačka</string>
   <string name="region_name_rs">Srbija</string>
   <string name="region_name_au">Australija</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
   <string name="tunnel_whole_device_toggle">Tuneliraj cjeli uređaj (zahtjeva Android 4.0+)</string>
@@ -160,6 +165,17 @@
   <string name="http_prefix_toggle">Ponašaj se kao HTTP</string>
   <string name="preference_notifications_title">Obavijesti</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Zvuk</string>
   <string name="preference_notifications_with_sound_summary">Sviraj zvuk kad se status veze promjeni</string>
   <string name="preference_notifications_with_vibrate_title">Vibriraj</string>
@@ -190,6 +206,7 @@
   <string name="waiting">Čekam...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">U redu</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
