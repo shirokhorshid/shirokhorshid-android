@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 28
     useLibrary 'org.apache.http.legacy'
 
     repositories{
@@ -23,8 +23,8 @@ android {
                 project.ext.set("archivesBaseName", "PsiphonAndroid");
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
-                minSdkVersion 9
-                targetSdkVersion 24
+                minSdkVersion 14
+                targetSdkVersion 28
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

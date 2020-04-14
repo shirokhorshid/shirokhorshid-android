@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -165,6 +166,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private State m_tunnelState = new State();
 
     private NotificationManager mNotificationManager = null;
+    private final static String NOTIFICATION_CHANNEL_ID = "psiphon_notification_channel";
     private Service m_parentService;
 
     private boolean mGetHelpConnectingRunnablePosted = false;
@@ -174,7 +176,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         public void run() {
             final Context context = getContext();
             PendingIntent pendingIntent = getPendingIntent(context, ACTION_SHOW_GET_HELP_DIALOG);
-            Notification notification = new NotificationCompat.Builder(context)
+            Notification notification = new NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                     .setContentTitle(context.getString(R.string.get_help_connecting_notification_title))
                     .setContentText(context.getString(R.string.get_help_connecting_notification_message))
@@ -228,6 +230,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         if (mNotificationManager == null) {
             mNotificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel(
+                        NOTIFICATION_CHANNEL_ID, getContext().getText(R.string.psiphon_service_notification_channel_name),
+                        NotificationManager.IMPORTANCE_LOW);
+                mNotificationManager.createNotificationChannel(notificationChannel);
+            }
         }
 
         m_tunnelState.isVPN = m_parentService instanceof TunnelVpnService;
@@ -345,7 +353,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             return;
         }
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
         notificationBuilder
                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                 .setContentTitle(getContext().getString(R.string.notification_title_action_required))
@@ -392,7 +400,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 return;
             }
 
-            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
             notificationBuilder
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                     .setContentTitle(getContext().getString(R.string.notification_title_vpn_revoked))
@@ -522,7 +530,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 .build();
 
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
         return notificationBuilder
                 .setSmallIcon(iconID)
                 .setContentTitle(getContext().getText(R.string.app_name))
@@ -1290,7 +1298,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                             return;
                         }
 
-                        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext());
+                        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
                         notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
                                 .setContentTitle(getContext().getString(R.string.notification_title_region_not_available))

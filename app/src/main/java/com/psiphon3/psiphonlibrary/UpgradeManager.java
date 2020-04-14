@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -311,6 +312,7 @@ public interface UpgradeManager
      */
     class UpgradeInstaller
     {
+        private static final String UPGRADE_NOTIFICATION_CHANNEL_ID = "psiphon_upgrade_notification_channel";
         private static NotificationManager mNotificationManager;
         private static NotificationCompat.Builder mNotificationBuilder;
 
@@ -447,7 +449,7 @@ public interface UpgradeManager
                             PendingIntent.FLAG_UPDATE_CURRENT);
 
             if (mNotificationBuilder == null) {
-                mNotificationBuilder = new NotificationCompat.Builder(context)
+                mNotificationBuilder = new NotificationCompat.Builder(context, UPGRADE_NOTIFICATION_CHANNEL_ID)
                         .setSmallIcon(R.drawable.notification_icon_upgrade_available)
                         .setContentTitle(context.getString(R.string.UpgradeManager_UpgradePromptTitle))
                         .setContentText(context.getString(R.string.UpgradeManager_UpgradePromptMessage))
@@ -462,6 +464,12 @@ public interface UpgradeManager
         private static void postNotification(Context context) {
             if (mNotificationManager == null) {
                 mNotificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationChannel notificationChannel = new NotificationChannel(
+                            UPGRADE_NOTIFICATION_CHANNEL_ID, context.getText(R.string.psiphon_upgrade_notification_channel_name),
+                            NotificationManager.IMPORTANCE_LOW);
+                    mNotificationManager.createNotificationChannel(notificationChannel);
+                }
             }
 
             if (mNotificationManager != null) {
