@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -33,6 +34,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 
 import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
@@ -60,7 +62,6 @@ public class TunnelServiceInteractor {
     private Relay<NfcExchange> nfcExchangeRelay = PublishRelay.<NfcExchange>create().toSerialized();
 
     private final Messenger incomingMessenger = new Messenger(new IncomingMessageHandler(this));
-    private Disposable restartServiceDisposable = null;
 
     private Rx2ServiceBindingFactory serviceBindingFactory;
     private boolean isStopped = true;
@@ -113,7 +114,23 @@ public class TunnelServiceInteractor {
         tunnelStateRelay.accept(TunnelState.unknown());
         Intent intent = new Intent(context, TunnelVpnService.class);
         try {
-            context.startService(intent);
+            // Starting with API 26 use startForegroundService
+            //
+            // From the docs:
+            // Similar to startService(android.content.Intent), but with an implicit promise that the
+            // Service will call startForeground(int, android.app.Notification) once it begins running.
+            // The service is given an amount of time comparable to the ANR interval to do this, otherwise
+            // the system will automatically stop the service and declare the app ANR.
+            //
+            // Unlike the ordinary startService(android.content.Intent), this method can be used at
+            // any time, regardless of whether the app hosting the service is in a foreground state.
+            Log.d("HACK", "startTunnelService: thread " + Thread.currentThread().getName());
+            if (Build.VERSION.SDK_INT >= 26) {
+                context.startForegroundService(intent);
+            } else {
+                // Pre-O behavior.
+                context.startService(intent);
+            }
             // Send tunnel starting service broadcast to all instances so they all bind
             LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(SERVICE_STARTING_BROADCAST_INTENT));
         } catch (SecurityException | IllegalStateException e) {

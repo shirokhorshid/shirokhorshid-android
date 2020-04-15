@@ -19,10 +19,12 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -37,7 +39,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -45,6 +46,12 @@ import com.psiphon3.R;
 
 import net.grandcentrix.tray.AppPreferences;
 
+import org.zirco.providers.ZircoBookmarksContentProvider;
+import org.zirco.ui.runnables.XmlHistoryBookmarksExporter;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
@@ -221,11 +228,44 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
         mDefaultSummaryBundle = new Bundle();
 
-        updatePreferencesScreen();
-
         if (getIntent().getBooleanExtra(INTENT_EXTRA_VPN_EXCLUSIONS_ONLY, false)) {
             trimToVpnExclusionsOnly();
+            return;
         }
+
+        updateProxyPreferencesUI();
+        setExportZircoBookmarksPreference();
+    }
+
+    private void setExportZircoBookmarksPreference() {
+        final PreferenceScreen screen = this.getPreferenceScreen();
+        Preference exportZircoPref = screen.findPreference(getString(R.string.exportZircoPref));
+
+        // do nothing if the preference already exists
+        if (exportZircoPref != null) {
+            return;
+        }
+        final Cursor cursor = ZircoBookmarksContentProvider.getAllRecords(this.getContentResolver());
+
+        // Do not show preference if there is no data to export
+        if (cursor == null || cursor.getCount() == 0) {
+            return;
+        }
+
+        PreferenceCategory category = new PreferenceCategory(screen.getContext());
+        category.setTitle(R.string.legacy_zirco_export_pref_category_title);
+        category.setKey(getString(R.string.exportZircoPref));
+        screen.addPreference(category);
+
+        Preference pref = new Preference(this);
+        pref.setTitle("Export data");
+        pref.setSummary("Click here to export legacy Zirco browser bookmarks and history to external data storage");
+
+        pref.setOnPreferenceClickListener(preference -> {
+            exportZircoHistoryBookmarks(cursor);
+            return true;
+        });
+        category.addPreference(pref);
     }
 
     private void trimToVpnExclusionsOnly() {
@@ -269,7 +309,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, final String key) {
         Preference curPref = findPreference(key);
         updatePrefsSummary(sharedPreferences, curPref);
-        updatePreferencesScreen();
+        updateProxyPreferencesUI();
 
         // If language preference has changed we need to set new locale based on the current
         // preference value and restart the app.
@@ -471,7 +511,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         enableProxyAuthenticationSettings();
     }
 
-    private void updatePreferencesScreen() {
+    private void updateProxyPreferencesUI() {
         if (!mUseProxy.isChecked()) {
             disableProxySettings();
         } else {
@@ -639,5 +679,22 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     private boolean supportsRoutingConfiguration() {
         // technically supported after v14 but the earliest preference file with it is v21
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    private void exportZircoHistoryBookmarks(Cursor cursor) {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US);
+
+        final String fileName =  sdf.format(c.getTime()) + ".xml";
+        final ProgressDialog progressDialog = ProgressDialog.show(this,
+                "Wait",
+                "Exporting bookmarks and history");
+
+        final XmlHistoryBookmarksExporter exporter = new XmlHistoryBookmarksExporter(this,
+                fileName,
+                cursor,
+                progressDialog
+        );
+        new Thread(exporter).start();
     }
 }
