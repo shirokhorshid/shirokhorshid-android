@@ -30,6 +30,7 @@ import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -46,7 +47,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
+class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder implements SearchView.OnQueryTextListener {
     private InstalledAppsRecyclerViewAdapter adapter;
     private final boolean whitelist;
     private final View view;
@@ -111,6 +112,10 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
                     RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
                     recyclerView.setLayoutManager(new LinearLayoutManager(context));
                     recyclerView.setAdapter(adapter);
+
+                    final SearchView searchView = view.findViewById(R.id.search_view);
+                    searchView.setVisibility(View.VISIBLE);
+                    searchView.setOnQueryTextListener(this);
 
                     view.findViewById(R.id.recycler_view).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.progress_overlay).setVisibility(View.GONE);
@@ -189,5 +194,16 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder {
 
     public boolean isLoaded() {
         return adapter != null;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String searchString) {
+        adapter.getFilter().filter(searchString);
+        return true;
     }
 }

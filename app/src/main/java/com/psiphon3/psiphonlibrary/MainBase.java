@@ -43,6 +43,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
@@ -503,6 +504,16 @@ public abstract class MainBase {
             m_downloadOnWifiOnlyToggle = (CheckBox) findViewById(R.id.downloadOnWifiOnlyToggle);
             m_moreOptionsButton = (Button) findViewById(R.id.moreOptionsButton);
             m_openBrowserButton = (Button) findViewById(R.id.openBrowserButton);
+
+            final Intent vpnSettingIntent = new Intent(this, MoreOptionsPreferenceActivity.class);
+            vpnSettingIntent.putExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_VPN_EXCLUSIONS_ONLY, true);
+            findViewById(R.id.vpnModeSpinner).setOnTouchListener((v, event) -> {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    startActivityForResult(vpnSettingIntent, REQUEST_CODE_PREFERENCE);
+                }
+                return true;
+            });
+
 
             m_slowSentGraph = new DataTransferGraph(this, R.id.slowSentGraph);
             m_slowReceivedGraph = new DataTransferGraph(this, R.id.slowReceivedGraph);

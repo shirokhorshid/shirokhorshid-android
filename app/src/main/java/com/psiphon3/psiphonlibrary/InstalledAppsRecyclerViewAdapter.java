@@ -25,17 +25,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.psiphon3.R;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<InstalledAppsRecyclerViewAdapter.ViewHolder> {
+public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<InstalledAppsRecyclerViewAdapter.ViewHolder>
+        implements Filterable {
     private final LayoutInflater inflater;
     private final List<AppEntry> data;
+    private List<AppEntry> dataFiltered;
 
     public Set<String> getSelectedApps() {
         return selectedApps;
@@ -48,6 +53,7 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
     InstalledAppsRecyclerViewAdapter(Context context, List<AppEntry> data, Set<String> selectedApps) {
         this.inflater = LayoutInflater.from(context);
         this.data = data;
+        this.dataFiltered = data;
         this.selectedApps = selectedApps;
     }
 
@@ -59,7 +65,7 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        final AppEntry appEntry = data.get(position);
+        final AppEntry appEntry = dataFiltered.get(position);
 
         appEntry.getIconLoader()
                 .doOnSuccess(icon -> {
@@ -76,15 +82,49 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return dataFiltered.size();
     }
 
     AppEntry getItem(int id) {
-        return data.get(id);
+        return dataFiltered.get(id);
     }
 
     void setClickListener(ItemClickListener itemClickListener) {
         this.clickListener = itemClickListener;
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                final String charString = charSequence.toString().toLowerCase();
+                if (charString.isEmpty()) {
+                    dataFiltered = data;
+                } else {
+                    List<AppEntry> filteredList = new ArrayList<>();
+                    for (AppEntry row : data) {
+                        if (row.getName().toLowerCase().contains(charString)) {
+                                // TODO: also filter by package name too?
+                                // row.getPackageId().contains(charString)
+                            filteredList.add(row);
+                        }
+                    }
+
+                    dataFiltered = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = dataFiltered;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                dataFiltered = (ArrayList<AppEntry>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public interface ItemClickListener {

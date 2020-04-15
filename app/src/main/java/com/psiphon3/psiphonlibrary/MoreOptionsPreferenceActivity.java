@@ -37,6 +37,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     private static final String ACTION_VPN_SETTINGS = "android.settings.VPN_SETTINGS";
 
     public static final String INTENT_EXTRA_LANGUAGE_CHANGED = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.LANGUAGE_CHANGED";
+    public static final String INTENT_EXTRA_VPN_EXCLUSIONS_ONLY = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.VPN_EXCLUSIONS_ONLY";;
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
@@ -220,6 +222,31 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         mDefaultSummaryBundle = new Bundle();
 
         updatePreferencesScreen();
+
+        if (getIntent().getBooleanExtra(INTENT_EXTRA_VPN_EXCLUSIONS_ONLY, false)) {
+            trimToVpnExclusionsOnly();
+        }
+    }
+
+    private void trimToVpnExclusionsOnly() {
+        final PreferenceScreen preferenceScreen = getPreferenceScreen();
+        for (int i = preferenceScreen.getPreferenceCount() - 1; i >= 0; i--) {
+            Preference p = preferenceScreen.getPreference(i);
+            if (p instanceof PreferenceCategory) {
+                PreferenceCategory pCat = (PreferenceCategory) p;
+                if (!pCat.getKey().equals(getString(R.string.vpnSettingsCategoryKey))) {
+                    preferenceScreen.removePreference(p);
+                } else {
+                    for (int j = pCat.getPreferenceCount() - 1; j >= 0; j--) {
+                        Preference pSub = pCat.getPreference(j);
+                        if (pSub.getKey().equals(getString(R.string.preferenceNavigateToVPNSetting))) {
+                            pCat.removePreference(pSub);
+                        }
+                    }
+                }
+            }
+            mTunnelSelectedApps.setSummary(R.string.vpn_exclusions_pro_tip_summary);
+        }
     }
 
     @Override

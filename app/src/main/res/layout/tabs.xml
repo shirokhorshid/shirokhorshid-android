@@ -165,6 +165,31 @@
                         android:onClick="onDisableTimeoutsToggle"
                         android:text="@string/disable_timeouts"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginRight="5dp"
+                            android:text="VPN mode (I'm ugly &#128557;)"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <Spinner
+                            android:id="@+id/vpnModeSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:drawSelectorOnTop="true"
+                            android:entries="@array/demoVPNItems"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
