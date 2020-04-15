@@ -37,10 +37,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
 import com.jakewharton.rxrelay2.Relay;
-import com.psiphon3.R;
 import com.psiphon3.TunnelState;
-
-import net.grandcentrix.tray.AppPreferences;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -92,12 +89,7 @@ public class TunnelServiceInteractor {
         tunnelStateRelay.accept(TunnelState.unknown());
         String serviceName = getRunningService(context);
         if (serviceName != null) {
-            final Intent bindingIntent;
-            if (isVpnService(serviceName)) {
-                bindingIntent = getVpnServiceIntent(context);
-            } else {
-                bindingIntent = new Intent(context, TunnelService.class);
-            }
+            final Intent bindingIntent = new Intent(context, TunnelVpnService.class);
             bindTunnelService(context, bindingIntent);
         } else {
             tunnelStateRelay.accept(TunnelState.stopped());
@@ -117,9 +109,9 @@ public class TunnelServiceInteractor {
         LocalBroadcastManager.getInstance(context).unregisterReceiver(broadcastReceiver);
     }
 
-    public void startTunnelService(Context context, boolean wantVPN) {
+    public void startTunnelService(Context context) {
         tunnelStateRelay.accept(TunnelState.unknown());
-        Intent intent = getServiceIntent(context, wantVPN);
+        Intent intent = new Intent(context, TunnelVpnService.class);
         try {
             context.startService(intent);
             // Send tunnel starting service broadcast to all instances so they all bind
@@ -141,19 +133,7 @@ public class TunnelServiceInteractor {
             // There is no running service, do nothing.
             return;
         }
-        // If the running service doesn't need to be changed from WDM to BOM or vice versa we will
-        // just message the service a restart command and have it restart Psiphon tunnel (and VPN
-        // if in WDM mode) internally via TunnelManager.onRestartCommand without stopping the service.
-        // If the WDM preference has changed we will message the service to stop self, wait for it to
-        // stop and then start a brand new service via checkRestartTunnel on a timer.
-        AppPreferences appPreferences = new AppPreferences(context);
-        boolean wantVPN = appPreferences.getBoolean(context.getString(R.string.tunnelWholeDevicePreference), false);
-        if ((wantVPN && isVpnService(runningService))
-                || (!wantVPN && runningService.equals(TunnelService.class.getName()))) {
-            commandTunnelRestart();
-        } else {
-            scheduleCompleteServiceRestart(startServiceRunnable);
-        }
+        commandTunnelRestart();
     }
 
     public Flowable<TunnelState> tunnelStateFlowable() {
@@ -182,10 +162,6 @@ public class TunnelServiceInteractor {
         return getRunningService(context) != null;
     }
 
-    private Intent getVpnServiceIntent(Context context) {
-        return new Intent(context, TunnelVpnService.class);
-    }
-
     private String getRunningService(Context context) {
         ActivityManager manager = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
         if (manager == null) {
@@ -193,32 +169,15 @@ public class TunnelServiceInteractor {
         }
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (service.uid == android.os.Process.myUid() &&
-                    (TunnelService.class.getName().equals(service.service.getClassName())
-                            || isVpnService(service.service.getClassName()))) {
+                    TunnelVpnService.class.getName().equals(service.service.getClassName())) {
                 return service.service.getClassName();
             }
         }
         return null;
     }
 
-    private boolean isVpnService(String className) {
-        return Utils.hasVpnService() && TunnelVpnService.class.getName().equals(className);
-    }
-
     private void commandTunnelRestart() {
         sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_SERVICE.ordinal(), null);
-    }
-
-    private void scheduleCompleteServiceRestart(Runnable startServiceRunnable) {
-        if (restartServiceDisposable != null && !restartServiceDisposable.isDisposed()) {
-            // call in progress, do nothing
-            return;
-        }
-        // Start observing service connection for disconnected message then command service stop.
-        restartServiceDisposable = serviceBindingFactory.getMessengerObservable()
-                .doOnComplete(startServiceRunnable::run)
-                .subscribe();
-        stopTunnelService();
     }
 
     private void bindTunnelService(Context context, Intent intent) {
@@ -228,12 +187,6 @@ public class TunnelServiceInteractor {
                 .doOnComplete(() -> dataStatsRelay.accept(Boolean.FALSE))
                 .subscribe();
         sendServiceMessage(TunnelManager.ClientToServiceMessage.REGISTER.ordinal(), null);
-    }
-
-    private Intent getServiceIntent(Context context, boolean wantVPN) {
-        Intent intent = wantVPN && Utils.hasVpnService() ?
-                getVpnServiceIntent(context) : new Intent(context, TunnelService.class);
-        return intent;
     }
 
     private void sendServiceMessage(int what, Bundle data) {
@@ -263,7 +216,6 @@ public class TunnelServiceInteractor {
             return tunnelState;
         }
         tunnelState.isRunning = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_RUNNING);
-        tunnelState.isVPN = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_VPN);
         tunnelState.isConnected = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_CONNECTED);
         tunnelState.listeningLocalSocksProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT);
         tunnelState.listeningLocalHttpProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT);
@@ -337,7 +289,6 @@ public class TunnelServiceInteractor {
                                 .setPropagationChannelId(EmbeddedValues.PROPAGATION_CHANNEL_ID)
                                 .setSponsorId(state.sponsorId)
                                 .setHttpPort(state.listeningLocalHttpProxyPort)
-                                .setVpnMode(state.isVPN)
                                 .setHomePages(state.homePages)
                                 .setNeedsHelpConnecting(state.needsHelpConnecting)
                                 .build();

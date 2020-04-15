@@ -44,8 +44,6 @@ import com.psiphon3.R;
 
 import net.grandcentrix.tray.AppPreferences;
 
-import org.zirco.ui.activities.MainActivity;
-
 import java.util.Set;
 
 public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity implements OnSharedPreferenceChangeListener, OnPreferenceClickListener {
@@ -266,12 +264,6 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
             localeManager.resetToSystemLocale(MoreOptionsPreferenceActivity.this);
         } else {
             localeManager.setNewLocale(MoreOptionsPreferenceActivity.this, languageCode);
-        }
-
-        // Kill the browser instance if it exists.
-        // This is required as it's a singleTask activity and isn't recreated when it loses focus.
-        if (MainActivity.INSTANCE != null) {
-            MainActivity.INSTANCE.finish();
         }
 
         // Finish back to the StatusActivity and inform the language has changed

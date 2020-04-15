@@ -149,15 +149,6 @@
                     android:orientation="vertical" >
 
                     <CheckBox
-                        android:id="@+id/tunnelWholeDeviceToggle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:onClick="onTunnelWholeDeviceToggle"
-                        android:text="@string/tunnel_whole_device_toggle"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <CheckBox
                         android:id="@+id/downloadOnWifiOnlyToggle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

@@ -46,8 +46,6 @@ public abstract class TunnelState {
 
         public abstract String sponsorId();
 
-        public abstract boolean vpnMode();
-
         public abstract int httpPort();
 
         public abstract boolean needsHelpConnecting();
@@ -62,7 +60,6 @@ public abstract class TunnelState {
                     .setClientVersion("")
                     .setPropagationChannelId("")
                     .setSponsorId("")
-                    .setVpnMode(false)
                     .setHttpPort(0)
                     .setNeedsHelpConnecting(false)
                     .setHomePages(null);
@@ -79,8 +76,6 @@ public abstract class TunnelState {
             public abstract Builder setPropagationChannelId(String value);
 
             public abstract Builder setSponsorId(String value);
-
-            public abstract Builder setVpnMode(boolean isVpn);
 
             public abstract Builder setHttpPort(int port);
 

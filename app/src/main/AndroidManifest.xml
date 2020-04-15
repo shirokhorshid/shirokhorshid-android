@@ -87,12 +87,6 @@
                 android:value=".StatusActivity" />
         </activity>
         <service
-            android:name=".psiphonlibrary.TunnelService"
-            android:label="@string/app_name"
-            android:exported="false"
-            android:process=":TunnelService" >
-        </service>
-        <service
             android:name=".psiphonlibrary.TunnelVpnService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_VPN_SERVICE"
@@ -139,37 +133,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"/>
         </provider>
-
-        <activity
-            android:name="org.zirco.ui.activities.MainActivity"
-            android:label="@string/browser_task_label"
-            android:launchMode="singleTask"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:taskAffinity=":PsiphonBrowserTask"
-            android:theme="@style/ZircoTheme"
-            android:exported="false">
-        </activity>
-        <activity android:name="org.zirco.ui.activities.AboutActivity" />
-        <activity android:name="org.zirco.ui.activities.EditBookmarkActivity"/>
-        <activity android:name="org.zirco.ui.activities.BookmarksListActivity"/>
-        <activity android:name="org.zirco.ui.activities.HistoryListActivity"/>
-        <activity android:name="org.zirco.ui.activities.DownloadsListActivity"/>
-        <activity android:name="org.zirco.ui.activities.AdBlockerWhiteListActivity"/>
-        <activity android:name="org.zirco.ui.activities.BookmarksHistoryActivity"/>
-        <activity android:name="org.zirco.ui.activities.ChangelogActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.PreferencesActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.HomepagePreferenceActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.SearchUrlPreferenceActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.UserAgentPreferenceActivity"/>
-        <activity android:name="org.zirco.ui.activities.MobileViewListActivity"/>
-        <activity android:name="org.zirco.ui.activities.DesktopViewListActivity"/>
-        <activity android:name="org.zirco.ui.activities.WeaveBookmarksListActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.WeavePreferencesActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.WeaveServerPreferenceActivity"/>
-
-        <provider android:name="org.zirco.providers.ZircoBookmarksContentProvider" android:exported="false" android:authorities="org.zirco.providers.psiphonzircobookmarkscontentprovider"/>
-        <provider android:name="org.zirco.providers.WeaveContentProvider" android:exported="false" android:authorities="org.zirco.providers.psiphonweavecontentprovider"/>
-
     </application>
 
 </manifest>

@@ -23,18 +23,14 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
@@ -45,10 +41,7 @@ import android.widget.Toast;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
-import com.psiphon3.psiphonlibrary.Utils;
 import com.psiphon3.psiphonlibrary.VpnAppsUtils;
-
-import net.grandcentrix.tray.core.ItemNotFoundException;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -67,7 +60,6 @@ public class StatusActivity
     public static final String ACTION_SHOW_GET_HELP_DIALOG = "com.psiphon3.StatusActivity.SHOW_GET_HELP_CONNECTING_DIALOG";
 
     private ImageView m_banner;
-    private boolean m_tunnelWholeDevicePromptShown = false;
     private boolean m_firstRun = true;
 
     @Override
@@ -303,180 +295,69 @@ public class StatusActivity
 
     @Override
     protected void startUp() {
-        // If the user hasn't set a whole-device-tunnel preference, show a prompt
-        // (and delay starting the tunnel service until the prompt is completed)
-        boolean hasPreference;
-        try {
-            m_multiProcessPreferences.getBoolean(getString(R.string.tunnelWholeDevicePreference));
-            hasPreference = true;
-        } catch (ItemNotFoundException e) {
-            hasPreference = false;
-        }
-        if (Utils.hasVpnService() && !hasPreference) {
-            if (!m_tunnelWholeDevicePromptShown && !this.isFinishing()) {
-                final Context context = this;
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        AlertDialog dialog = new AlertDialog.Builder(context)
-                                .setCancelable(false)
-                                .setOnKeyListener(
-                                        new DialogInterface.OnKeyListener() {
-                                            @Override
-                                            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                                                // Don't dismiss when hardware search button is clicked (Android 2.3 and earlier)
-                                                return keyCode == KeyEvent.KEYCODE_SEARCH;
-                                            }
-                                        })
-                                .setTitle(R.string.StatusActivity_WholeDeviceTunnelPromptTitle)
-                                .setMessage(R.string.StatusActivity_WholeDeviceTunnelPromptMessage)
-                                .setPositiveButton(R.string.StatusActivity_WholeDeviceTunnelPositiveButton,
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int whichButton) {
-                                                // Persist the "on" setting
-                                                updateWholeDevicePreference(true);
-                                                startTunnel();
-                                            }
-                                        })
-                                .setNegativeButton(R.string.StatusActivity_WholeDeviceTunnelNegativeButton,
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int whichButton) {
-                                                // Turn off and persist the "off" setting
-                                                m_tunnelWholeDeviceToggle.setChecked(false);
-                                                updateWholeDevicePreference(false);
-                                                startTunnel();
-                                            }
-                                        })
-                                .setOnCancelListener(
-                                        new DialogInterface.OnCancelListener() {
-                                            @Override
-                                            public void onCancel(DialogInterface dialog) {
-                                                // Don't change or persist preference (this prompt may reappear)
-                                                startTunnel();
-                                            }
-                                        })
-                                .show();
-                        // Our text no longer fits in the AlertDialog buttons on Lollipop, so force the
-                        // font size (on older versions, the text seemed to be scaled down to fit).
-                        // TODO: custom layout
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
-                            dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextSize(TypedValue.COMPLEX_UNIT_DIP, 10);
-                        }
-                    }
-                });
-                m_tunnelWholeDevicePromptShown = true;
-            } else {
-                // ...there's a prompt already showing (e.g., user hit Home with the
-                // prompt up, then resumed Psiphon)
-            }
-            // ...wait and let onClick handlers will start tunnel
-        } else {
-            // No prompt, just start the tunnel (if not already running)
-            startTunnel();
-        }
+        startTunnel();
     }
 
     @Override
     public void displayBrowser(Context context, String urlString) {
-        boolean wantVPN = m_multiProcessPreferences
-                .getBoolean(getString(R.string.tunnelWholeDevicePreference),
-                        false);
+        // TODO: support multiple home pages in whole device mode. This is
+        // disabled due to the case where users haven't set a default browser
+        // and will get the prompt once per home page.
 
-        if (wantVPN && Utils.hasVpnService()) {
-            // TODO: support multiple home pages in whole device mode. This is
-            // disabled due to the case where users haven't set a default browser
-            // and will get the prompt once per home page.
+        // If URL is not empty we will try to load in an external browser, otherwise we will
+        // try our best to open an external browser instance without specifying URL to load
+        // or will load "about:blank" URL if that fails.
 
-            // If URL is not empty we will try to load in an external browser, otherwise we will
-            // try our best to open an external browser instance without specifying URL to load
-            // or will load "about:blank" URL if that fails.
-
-            // Prepare browser starting intent.
-            Intent browserIntent;
-            if (TextUtils.isEmpty(urlString)) {
-                // If URL is empty, just start the app.
-                browserIntent = new Intent(Intent.ACTION_MAIN);
-            } else {
-                // If URL is not empty, start the app with URL load intent.
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
-            }
-            browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            // LinkedHashSet maintains FIFO order and does not allow duplicates.
-            Set<String> browserIdsSet = new LinkedHashSet<>();
-
-            // Put Brave first in the ordered set.
-            browserIdsSet.add("com.brave.browser");
-
-            // Add all resolved browsers to the set preserving the order.
-            browserIdsSet.addAll(VpnAppsUtils.getInstalledWebBrowserPackageIds(getPackageManager()));
-
-            // Put Chrome at the end if it is not already in the set.
-            browserIdsSet.add("com.android.chrome");
-
-            // If we have a candidate then set the app package ID for the browser intent and try to
-            // start the app with the intent right away.
-            for (String id : browserIdsSet) {
-                if (VpnAppsUtils.isTunneledAppId(context, id)) {
-                    browserIntent.setPackage(id);
-                    try {
-                        context.startActivity(browserIntent);
-                        // Return immediately if success.
-                        return;
-                    } catch (ActivityNotFoundException | SecurityException ignored) {
-                        // Continue looping if error.
-                    }
-                }
-            }
-
-            // Last effort - let the system handle it.
-            // Note that the browser picked by the system will be most likely not tunneled.
-            try {
-                // We don't have explicit package ID for the browser intent, so the URL cannot be empty.
-                // In this case try loading a special URL 'about:blank'.
-                if (TextUtils.isEmpty(urlString)) {
-                    browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
-                    browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                }
-                context.startActivity(browserIntent);
-            } catch (ActivityNotFoundException | SecurityException ignored) {
-                // Fail silently.
-            }
+        // Prepare browser starting intent.
+        Intent browserIntent;
+        if (TextUtils.isEmpty(urlString)) {
+            // If URL is empty, just start the app.
+            browserIntent = new Intent(Intent.ACTION_MAIN);
         } else {
-            // BOM, try to open Zirco
-            Uri uri = null;
-            if (!TextUtils.isEmpty(urlString)) {
-                uri = Uri.parse(urlString);
-            }
+            // If URL is not empty, start the app with URL load intent.
+            browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+        }
+        browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            Intent intent = new Intent(
-                    "ACTION_VIEW",
-                    uri,
-                    context,
-                    org.zirco.ui.activities.MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        // LinkedHashSet maintains FIFO order and does not allow duplicates.
+        Set<String> browserIdsSet = new LinkedHashSet<>();
 
-            // This intent displays the Zirco browser.
-            // We use "extras" to communicate Psiphon settings to Zirco.
-            // When Zirco is first created, it will use the homePages
-            // extras to open tabs for each home page, respectively. When the intent
-            // triggers an existing Zirco instance (and it's a singleton) this extra
-            // is ignored and the browser is displayed as-is.
-            // When a uri is specified, it will open as a new tab. This is
-            // independent of the home pages.
-            // Note: Zirco now directly accesses PsiphonData to get the current
-            // local HTTP proxy port for WebView tunneling.
+        // Put Brave first in the ordered set.
+        browserIdsSet.add("com.brave.browser");
 
-            if (urlString != null) {
-                intent.putExtra("homePages", new ArrayList<>(Collections.singletonList(urlString)));
+        // Add all resolved browsers to the set preserving the order.
+        browserIdsSet.addAll(VpnAppsUtils.getInstalledWebBrowserPackageIds(getPackageManager()));
+
+        // Put Chrome at the end if it is not already in the set.
+        browserIdsSet.add("com.android.chrome");
+
+        // If we have a candidate then set the app package ID for the browser intent and try to
+        // start the app with the intent right away.
+        for (String id : browserIdsSet) {
+            if (VpnAppsUtils.isTunneledAppId(context, id)) {
+                browserIntent.setPackage(id);
+                try {
+                    context.startActivity(browserIntent);
+                    // Return immediately if success.
+                    return;
+                } catch (ActivityNotFoundException | SecurityException ignored) {
+                    // Continue looping if error.
+                }
             }
-            try {
-                context.startActivity(intent);
-            } catch (ActivityNotFoundException | SecurityException ignored) {
+        }
+
+        // Last effort - let the system handle it.
+        // Note that the browser picked by the system will be most likely not tunneled.
+        try {
+            // We don't have explicit package ID for the browser intent, so the URL cannot be empty.
+            // In this case try loading a special URL 'about:blank'.
+            if (TextUtils.isEmpty(urlString)) {
+                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
+                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             }
+            context.startActivity(browserIntent);
+        } catch (ActivityNotFoundException | SecurityException ignored) {
+            // Fail silently.
         }
     }
 

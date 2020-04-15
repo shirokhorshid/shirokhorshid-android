@@ -64,7 +64,6 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -113,7 +112,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
-    static final String DATA_TUNNEL_STATE_IS_VPN = "isVpn";
     static final String DATA_TUNNEL_STATE_IS_CONNECTED = "isConnected";
     static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT = "listeningLocalSocksProxyPort";
     static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT = "listeningLocalHttpProxyPort";
@@ -137,7 +135,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     // Tunnel config, received from the client.
     static class Config {
-        boolean wholeDevice = false;
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
         String sponsorId = EmbeddedValues.SPONSOR_ID;
@@ -154,7 +151,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static class State {
         boolean isRunning = false;
         boolean isConnected = false;
-        boolean isVPN = false;
         boolean needsHelpConnecting = false;
         int listeningLocalSocksProxyPort = 0;
         int listeningLocalHttpProxyPort = 0;
@@ -238,8 +234,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             }
         }
 
-        m_tunnelState.isVPN = m_parentService instanceof TunnelVpnService;
-        m_parentService.startForeground(R.string.psiphon_service_notification_id, createNotification(false, false, m_tunnelState.isVPN));
+        m_parentService.startForeground(R.string.psiphon_service_notification_id, createNotification(false, false));
 
         m_tunnelState.isRunning = true;
         // This service runs as a separate process, so it needs to initialize embedded values
@@ -472,10 +467,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         Single<Config> configSingle = Single.fromCallable(() -> {
             final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
             Config tunnelConfig = new Config();
-            tunnelConfig.wholeDevice = Utils.hasVpnService() &&
-                    multiProcessPreferences
-                            .getBoolean(getContext().getString(R.string.tunnelWholeDevicePreference),
-                                    false);
             tunnelConfig.egressRegion = multiProcessPreferences
                     .getString(getContext().getString(R.string.egressRegionPreference),
                             PsiphonConstants.REGION_CODE_ANY);
@@ -488,18 +479,14 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         return configSingle;
     }
 
-    private Notification createNotification(boolean alert, boolean isConnected, boolean isVPN) {
+    private Notification createNotification(boolean alert, boolean isConnected) {
         int contentTextID;
         int iconID;
         CharSequence ticker = null;
         int defaults = 0;
 
         if (isConnected) {
-            if (isVPN) {
-                contentTextID = R.string.psiphon_running_whole_device;
-            } else {
-                contentTextID = R.string.psiphon_running_browser_only;
-            }
+            contentTextID = R.string.psiphon_running_whole_device;
             iconID = R.drawable.notification_icon_connected;
         } else {
             contentTextID = R.string.psiphon_service_notification_message_connecting;
@@ -557,7 +544,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             m_Handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Notification notification = createNotification(alert, isConnected, m_tunnelState.isVPN);
+                    Notification notification = createNotification(alert, isConnected);
                     mNotificationManager.notify(
                             R.string.psiphon_service_notification_id,
                             notification);
@@ -795,7 +782,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         Bundle data = new Bundle();
         data.putBoolean(DATA_TUNNEL_STATE_IS_RUNNING, m_tunnelState.isRunning);
-        data.putBoolean(DATA_TUNNEL_STATE_IS_VPN, m_tunnelState.isVPN);
         data.putBoolean(DATA_TUNNEL_STATE_IS_CONNECTED, m_tunnelState.isConnected);
         data.putBoolean(DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING, m_tunnelState.needsHelpConnecting);
         data.putInt(DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT, m_tunnelState.listeningLocalSocksProxyPort);
@@ -907,19 +893,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         sendDataTransferStatsHandler.postDelayed(sendDataTransferStats, sendDataTransferStatsIntervalMs);
         periodicMaintenanceHandler.postDelayed(periodicMaintenance, periodicMaintenanceIntervalMs);
 
-        boolean runVpn =
-                m_tunnelConfig.wholeDevice &&
-                        Utils.hasVpnService() &&
-                        // Guard against trying to start WDM mode when the global option flips while starting a TunnelService
-                        (m_parentService instanceof TunnelVpnService);
-
         try {
-            if (runVpn) {
-                if (!m_tunnel.startRouting()) {
-                    throw new PsiphonTunnel.Exception("application is not prepared or revoked");
-                }
-                MyLog.v(R.string.vpn_service_running, MyLog.Sensitivity.NOT_SENSITIVE);
+            if (!m_tunnel.startRouting()) {
+                throw new PsiphonTunnel.Exception("application is not prepared or revoked");
             }
+            MyLog.v(R.string.vpn_service_running, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_tunnel.startTunneling(getServerEntries(m_parentService));
             m_startedTunneling.set(true);
@@ -957,22 +935,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             public void run() {
                 m_isReconnect.set(false);
                 try {
-                    if (Utils.hasVpnService()
-                            && m_parentService instanceof TunnelVpnService
-                            && m_tunnelConfig.wholeDevice) {
-                        Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
-                        m_tunnel.seamlessVpnRestart(vpnBuilder);
-                    } else if (m_parentService instanceof TunnelService
-                            && !m_tunnelConfig.wholeDevice) {
-                        m_tunnel.restartPsiphon();
-                    } else {
-                        // There is a conflict in the restart call, we probably shouldn't keep running.
-                        signalStopService();
-                        MyLog.g(String.format(Locale.US,
-                                "The %s received a restart command when the WDM flag was %s",
-                                m_parentService.getClass().getSimpleName(),
-                                m_tunnelConfig.wholeDevice ? "on" : "off"));
-                    }
+                    m_tunnel.restartPsiphon();
                 } catch (PsiphonTunnel.Exception e) {
                     MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
                 }
