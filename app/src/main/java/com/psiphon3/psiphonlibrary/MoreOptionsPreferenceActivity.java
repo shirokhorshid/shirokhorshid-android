@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ import net.grandcentrix.tray.AppPreferences;
 
 import org.zirco.providers.ZircoBookmarksContentProvider;
 import org.zirco.ui.runnables.XmlHistoryBookmarksExporter;
+import org.zirco.utils.ApplicationUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -61,7 +63,10 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
     private static final String ACTION_VPN_SETTINGS = "android.settings.VPN_SETTINGS";
 
     public static final String INTENT_EXTRA_LANGUAGE_CHANGED = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.LANGUAGE_CHANGED";
-    public static final String INTENT_EXTRA_VPN_EXCLUSIONS_ONLY = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.VPN_EXCLUSIONS_ONLY";;
+    public static final String INTENT_EXTRA_VPN_EXCLUSIONS_ONLY = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.VPN_EXCLUSIONS_ONLY";
+    ;
+    private static final int ZIRCO_WRITE_EXTERNAL_PERMISSION_REQUEST_CODE = 12312;
+    private Cursor zircoExporCursor;
 
     private interface PreferenceGetter {
         boolean getBoolean(@NonNull final String key, final boolean defaultValue);
@@ -237,6 +242,17 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         setExportZircoBookmarksPreference();
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == ZIRCO_WRITE_EXTERNAL_PERMISSION_REQUEST_CODE &&
+                grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            exportZircoHistoryBookmarks();
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
     private void setExportZircoBookmarksPreference() {
         final PreferenceScreen screen = this.getPreferenceScreen();
         Preference exportZircoPref = screen.findPreference(getString(R.string.exportZircoPref));
@@ -245,10 +261,10 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         if (exportZircoPref != null) {
             return;
         }
-        final Cursor cursor = ZircoBookmarksContentProvider.getAllRecords(this.getContentResolver());
+        zircoExporCursor = ZircoBookmarksContentProvider.getAllRecords(this.getContentResolver());
 
         // Do not show preference if there is no data to export
-        if (cursor == null || cursor.getCount() == 0) {
+        if (zircoExporCursor == null || zircoExporCursor.getCount() == 0) {
             return;
         }
 
@@ -262,7 +278,14 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         pref.setSummary("Click here to export legacy Zirco browser bookmarks and history to external data storage");
 
         pref.setOnPreferenceClickListener(preference -> {
-            exportZircoHistoryBookmarks(cursor);
+            if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this,
+                    getString(R.string.PreferencesActivity_ImportHistoryBookmarksPermissionRequestReason),
+                    ZIRCO_WRITE_EXTERNAL_PERMISSION_REQUEST_CODE
+            )) {
+                Toast.makeText(this, R.string.Commons_NeedWritePermissions, Toast.LENGTH_LONG).show();
+                return true;
+            }
+            exportZircoHistoryBookmarks();
             return true;
         });
         category.addPreference(pref);
@@ -681,18 +704,18 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
-    private void exportZircoHistoryBookmarks(Cursor cursor) {
+    private void exportZircoHistoryBookmarks() {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US);
 
-        final String fileName =  sdf.format(c.getTime()) + ".xml";
+        final String fileName = sdf.format(c.getTime()) + ".xml";
         final ProgressDialog progressDialog = ProgressDialog.show(this,
                 "Wait",
                 "Exporting bookmarks and history");
 
         final XmlHistoryBookmarksExporter exporter = new XmlHistoryBookmarksExporter(this,
                 fileName,
-                cursor,
+                zircoExporCursor,
                 progressDialog
         );
         new Thread(exporter).start();

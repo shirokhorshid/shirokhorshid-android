@@ -11,6 +11,7 @@ import android.util.Log;
 import com.psiphon3.R;
 
 import org.zirco.providers.ZircoBookmarksContentProvider;
+import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.IOUtils;
 
 import java.io.File;
@@ -98,39 +99,26 @@ public class XmlHistoryBookmarksExporter implements Runnable {
 		
 		mHandler.sendEmptyMessage(0);
 	}
-	
-	private Handler mHandler = new Handler() {
-		public void handleMessage(Message msg) {
-			if (mProgressDialog != null) {
-				mProgressDialog.dismiss();
-			}
-			
-			if (mContext != null) {
-				if (mErrorMessage == null) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                    builder.setCancelable(false);
-                    builder.setIcon(android.R.drawable.ic_dialog_info);
-                    builder.setTitle("Saved OK");
-                    builder.setMessage("Saved to " + mFile.getAbsolutePath());
 
-                    builder.setInverseBackgroundForced(true);
-                    builder.setPositiveButton(R.string.label_ok, null);
-                    AlertDialog alert = builder.create();
-                    alert.show();
-				} else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                    builder.setCancelable(false);
-                    builder.setIcon(android.R.drawable.ic_dialog_alert);
-                    builder.setTitle("Error title");
-                    builder.setMessage("Error saving:  " + mErrorMessage);
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            if (mProgressDialog != null) {
+                mProgressDialog.dismiss();
+            }
 
-                    builder.setInverseBackgroundForced(true);
-                    builder.setPositiveButton(R.string.label_ok, null);
-                    AlertDialog alert = builder.create();
-                    alert.show();
-				}
-			}
-		}
-	};
-
+            if (mContext != null) {
+                if (mErrorMessage == null) {
+                    ApplicationUtils.showOkDialog(mContext,
+                            android.R.drawable.ic_dialog_info,
+                            mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardDoneTitle),
+                            String.format(mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardDoneMessage), mFile.getAbsolutePath()));
+                } else {
+                    ApplicationUtils.showOkDialog(mContext,
+                            android.R.drawable.ic_dialog_alert,
+                            mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardFailedTitle),
+                            String.format(mContext.getResources().getString(R.string.Commons_HistoryBookmarksFailedMessage), mErrorMessage));
+                }
+            }
+        }
+    };
 }
