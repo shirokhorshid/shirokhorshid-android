@@ -32,6 +32,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
@@ -118,11 +119,13 @@ public class StatusActivity
             }
         } else {
             // Legacy case: do not auto-start if last preference was BOM
-            // Instead we will display a modal
+            // Instead we will display a modal with the help information
+            LayoutInflater inflater = this.getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.legacy_bom_alert_view_layout, null);
             new android.support.v7.app.AlertDialog.Builder(this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setIcon(R.drawable.ic_psiphon_alert_notification)
                     .setTitle(R.string.legacy_bom_alert_title)
-                    .setMessage(R.string.legacy_bom_alert_message)
+                    .setView(dialogView)
                     .setPositiveButton(R.string.label_ok, (dialog, which) ->
                             m_multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference)))
                     .setCancelable(false)
