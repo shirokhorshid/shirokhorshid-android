@@ -21,13 +21,16 @@
 package com.psiphon3;
 
 import android.app.Application;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.support.multidex.MultiDex;
 
 import com.psiphon3.psiphonlibrary.LocaleManager;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
+import com.psiphon3.psiphonlibrary.TunnelVpnService;
 import com.psiphon3.psiphonlibrary.Utils;
 
 public class PsiphonApplication extends Application {
@@ -81,6 +84,13 @@ public class PsiphonApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // Make sure VPN service is ALWAYS enabled because app upgrade will not automatically re-enable it
+        PackageManager packageManager = getPackageManager();
+        ComponentName componentName = new ComponentName(getPackageName(), TunnelVpnService.class.getName());
+        packageManager.setComponentEnabledSetting(componentName,
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                PackageManager.DONT_KILL_APP);
+
         PsiphonConstants.DEBUG = Utils.isDebugMode(this);
     }
 }
