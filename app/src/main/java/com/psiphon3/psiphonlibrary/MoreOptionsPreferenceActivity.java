@@ -279,7 +279,7 @@ public class MoreOptionsPreferenceActivity extends AppCompatPreferenceActivity i
 
         pref.setOnPreferenceClickListener(preference -> {
             if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this,
-                    getString(R.string.PreferencesActivity_ImportHistoryBookmarksPermissionRequestReason),
+                    getString(R.string.PreferencesActivity_ExportHistoryBookmarksPermissionRequestReason),
                     ZIRCO_WRITE_EXTERNAL_PERMISSION_REQUEST_CODE
             )) {
                 Toast.makeText(this, R.string.Commons_NeedWritePermissions, Toast.LENGTH_LONG).show();
