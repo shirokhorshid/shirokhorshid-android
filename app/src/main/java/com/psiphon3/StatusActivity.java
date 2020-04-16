@@ -116,7 +116,6 @@ public class StatusActivity
             if (shouldAutoStart()) {
                 startUp();
             }
-            preventAutoStart();
         } else {
             // Legacy case: do not auto-start if last preference was BOM
             // Instead we will display a modal
@@ -129,6 +128,7 @@ public class StatusActivity
                     .setCancelable(false)
                     .show();
         }
+        preventAutoStart();
     }
 
     private void setUpBanner() {
