@@ -87,5 +87,5 @@
     <string name="legacy_zirco_export_pref_category_title">Legacy Browser Support</string>
     <string name="legacy_bom_alert_title">Legacy mode detected</string>
     <string name="legacy_bom_alert_heading">Psiphon Browser is no longer available</string>
-    <string name="legacy_bom_alert_message">We have detected that you were using Psiphon Browser in the previously installed version of {app_name}. If your Android version is recent enough (5.0 or greater) you can select any installed web browser app to be tunneled through {app_name} instead. If you have any bookmarks or browsing history from Psiphon Browser that you would like to keep, you can export them in More Options ("Legacy Browser Support" section).</string>
+    <string name="legacy_bom_alert_message">We have detected that you were using Psiphon Browser in the previously installed version of %1$s.\nIf your Android version is recent enough (5.0 or greater) you can select any installed web browser app to be tunneled through %1$s instead.\nIf you have any bookmarks or browsing history from Psiphon Browser that you would like to keep, you can export them in More Options ("Legacy Browser Support" section).</string>
 </resources>

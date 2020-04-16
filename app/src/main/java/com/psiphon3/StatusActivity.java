@@ -30,7 +30,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +41,7 @@ import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
@@ -55,6 +59,8 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StatusActivity
         extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase {
@@ -119,15 +125,25 @@ public class StatusActivity
             }
         } else {
             // Legacy case: do not auto-start if last preference was BOM
-            // Instead we will display a modal with the help information
+            // Instead we switch to the options tab and display a modal with the help information
+            m_tabHost.setCurrentTabByTag("settings");
             LayoutInflater inflater = this.getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.legacy_bom_alert_view_layout, null);
+            TextView tv = dialogView.findViewById(R.id.legacy_mode_alert_tv);
+            String text = getString(R.string.legacy_bom_alert_message, getString(R.string.app_name));
+            String formattedText = text.replaceAll("\n", "\n\n");
+            SpannableString spannableString = new SpannableString(formattedText);
+
+            Matcher matcher = Pattern.compile("\n\n").matcher(formattedText);
+            while (matcher.find()) {
+                spannableString.setSpan(new AbsoluteSizeSpan(10, true), matcher.start() + 1, matcher.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+            tv.setText(spannableString);
             new android.support.v7.app.AlertDialog.Builder(this)
-                    .setIcon(R.drawable.ic_psiphon_alert_notification)
-                    .setTitle(R.string.legacy_bom_alert_title)
                     .setView(dialogView)
-                    .setPositiveButton(R.string.label_ok, (dialog, which) ->
-                            m_multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference)))
+                    .setPositiveButton(R.string.label_ok, (dialog, which) -> {
+                        m_multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference));
+                    })
                     .setCancelable(false)
                     .show();
         }
