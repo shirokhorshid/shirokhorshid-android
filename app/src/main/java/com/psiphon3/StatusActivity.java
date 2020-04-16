@@ -23,6 +23,7 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -107,11 +108,27 @@ public class StatusActivity
     @Override
     protected void onResume() {
         super.onResume();
-        // Auto-start on app first run
-        if (shouldAutoStart()) {
-            startUp();
+        boolean wantVPN = m_multiProcessPreferences
+                .getBoolean(getString(R.string.tunnelWholeDevicePreference),
+                        true);
+        if(wantVPN) {
+            // Auto-start on app first run
+            if (shouldAutoStart()) {
+                startUp();
+            }
+            preventAutoStart();
+        } else {
+            // Legacy case: do not auto-start if last preference was BOM
+            // Instead we will display a modal
+            new android.support.v7.app.AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle(R.string.legacy_bom_alert_title)
+                    .setMessage(R.string.legacy_bom_alert_message)
+                    .setPositiveButton(R.string.label_ok, (dialog, which) ->
+                            m_multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference)))
+                    .setCancelable(false)
+                    .show();
         }
-        preventAutoStart();
     }
 
     private void setUpBanner() {

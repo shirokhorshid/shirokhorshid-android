@@ -40,6 +40,7 @@
     <string name="downloadWifiOnlyPreference">downloadWifiOnlyPreference</string>
     <string name="disableTimeoutsPreference">disableTimeoutsPreference</string>
     <string name="egressRegionPreference">egressRegionPreference</string>
+    <string name="tunnelWholeDevicePreference">tunnelWholeDevicePreference</string>
     <string name="moreOptionsPreferencesName">moreOptionsPreferencesName</string>
 
     <!-- When Psiphon disconnects it sends a one last ("final") status request. This message is shown if that request fails. -->

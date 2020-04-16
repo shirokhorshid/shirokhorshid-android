@@ -84,5 +84,7 @@
     <string name="bad_vpn_exclusion_setting_alert_title">Invalid VPN setting</string>
     <string name="bad_vpn_exclusion_whitelist_alert_message">You need to have at least one app selected in this mode!</string>
     <string name="bad_vpn_exclusion_blacklist_alert_message">You need to have at least one app unselected in this mode!</string>
-    <string name="legacy_zirco_export_pref_category_title" >Legacy Browser Support</string>
+    <string name="legacy_zirco_export_pref_category_title">Legacy Browser Support</string>
+    <string name="legacy_bom_alert_title">Legacy BOM alert title</string>
+    <string name="legacy_bom_alert_message">Legacy BOM alert message</string>
 </resources>
