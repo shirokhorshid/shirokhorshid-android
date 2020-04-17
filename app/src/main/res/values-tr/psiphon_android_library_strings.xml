@@ -168,19 +168,34 @@
   <string name="preference_notifications_title">Bildirimler</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tüm uygulamalar tünel kullansın</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Katılacak Uygulamalar</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Seçilmiş uygulamalar tünel kullansın</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Katılmayacak Uygulamalar</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Seçilmiş uygulamalar tünel kullanmasın</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Tünel kullanan uygulama: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Tüneli kullanmayacak uygulamalar: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Tünel kullanmayan herhangi bir uygulama yok</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Uygulamaları seçin</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d uygulama VPN tüneli kullanacak</item>
+    <item quantity="other">%d uygulama VPN tüneli kullanacak</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d uygulama VPN tüneli kullanmayacak</item>
+    <item quantity="other">%d uygulama VPN tüneli kullanmayacak</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">Tüm uygulamalar VPN tüneli kullanacak</string>
   <string name="preference_notifications_with_sound_title">Ses</string>
   <string name="preference_notifications_with_sound_summary">Bağlantı durumu değiştiğinde ses çıkarılsın</string>
   <string name="preference_notifications_with_vibrate_title">Titreşim</string>

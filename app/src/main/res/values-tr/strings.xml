@@ -84,4 +84,8 @@
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <string name="notification_text_vpn_revoked">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kesildi.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Uygulama Simgesi</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">VPN ayarı geçersiz</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Bu model için en az bir uygulama seçmeniz gerekir</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Bu model için en az bir uygulamayı bırakmanız gerekir</string>
 </resources>
