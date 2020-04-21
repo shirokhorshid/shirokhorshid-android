@@ -367,6 +367,10 @@ public class StatusList {
     }
     
     public static class StatusListIntentReceiver extends BroadcastReceiver {
+        public void unregisterSelf() {
+            m_localBroadcastManager.unregisterReceiver(this);
+        }
+
         public interface NotificationRecipient {
             void statusAddedNotificationReceived();
         }
@@ -468,6 +472,10 @@ public class StatusList {
                     m_listview.setSelection(m_adapter.getCount() - 1);
                 }
             });
+        }
+
+        public void onDestroy() {
+            m_intentReceiver.unregisterSelf();
         }
     }
 }
