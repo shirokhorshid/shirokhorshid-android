@@ -22,6 +22,7 @@
     <string name="preferenceExcludeAppsFromVpnString" translatable="false">preferenceExcludeAppsFromVpnString</string>
     <string name="preferenceSelectApps" translatable="false">preferenceSelectApps</string>
     <string name="preferenceTunnelPresets" translatable="false">preferenceTunnelPresets</string>
+    <string name="preferenceAbout" translatable="false">preferenceAbout</string>
     <string name="make_request_close_http_client">makeRequest error closing HTTP client: %s</string>
     <string name="make_request_close_http_response">makeRequest error closing HTTP response: %s</string>
     <string name="rotating_target_protocol_state">rotating target protocol state</string>
@@ -70,7 +71,8 @@
     <string name="upgrade_checker_tunnel_diagnostic_message">UpgradeCheckerService: tunnel diagnostic: %s</string>
 
     <string name="current_local_http_proxy_port">currentLocalHttpProxyPort</string>
-    <string name="exportZircoPref" >exportZircoPref</string>
+    <string name="exportZircoPreference" translatable="false">exportZircoPref</string>
+    <string name="exportZircoPreferenceCategory" translatable="false">exportZircoPreferenceCategory</string>
 
     <string-array name="languages">
         <item>English,en</item>

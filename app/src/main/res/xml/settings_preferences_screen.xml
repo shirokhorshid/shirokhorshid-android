@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.psiphon3.psiphonlibrary.RegionListPreference
+        android:icon="@drawable/baseline_place_white_24"
+        android:key="region_preference"
+        android:title="@string/region_selector" />
+    <Preference
+        android:icon="@drawable/baseline_vpn_key_white_24"
+        android:key="vpn_options"
+        android:title="VPN settings" />
+    <Preference
+        android:icon="@drawable/baseline_device_hub_white_24"
+        android:key="proxy_options"
+        android:title="Proxy settings" />
+    <Preference
+        android:key="feedback"
+        android:icon="@drawable/baseline_send_white_24"
+        android:title="Feedback" />
+    <Preference
+        android:key="more_options"
+        android:icon="@drawable/baseline_settings_white_24"
+        android:title="More options"
+        />
+</PreferenceScreen>

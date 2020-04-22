@@ -113,131 +113,13 @@
             android:weightSum="1.0" >
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:orientation="vertical" >
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal" >
-
-                    <TextView
-                        android:id="@+id/regionPrompt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="5dp"
-                        android:text="@string/region_selector"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <Spinner
-                        android:id="@+id/regionSelector"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:drawSelectorOnTop="true"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical" >
-
-                    <CheckBox
-                        android:id="@+id/downloadOnWifiOnlyToggle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:onClick="onDownloadOnWifiOnlyToggle"
-                        android:text="@string/preference_download_wifi_only_toggle"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <CheckBox
-                        android:id="@+id/disableTimeoutsToggle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:onClick="onDisableTimeoutsToggle"
-                        android:text="@string/disable_timeouts"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:orientation="horizontal" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginRight="5dp"
-                            android:text="VPN mode (I'm ugly &#128557;)"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                        <Spinner
-                            android:id="@+id/vpnModeSpinner"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:drawSelectorOnTop="true"
-                            android:entries="@array/demoVPNItems"
-                            android:textAppearance="?android:attr/textAppearanceSmall" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal" >
-
-                    <Button
-                        android:id="@+id/moreOptionsButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:onClick="onMoreOptionsClick"
-                        android:text="@string/moreOptions"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <Button
-                        android:id="@+id/feedbackButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:onClick="onFeedbackClick"
-                        android:text="@string/feedback"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <Button
-                        android:id="@+id/aboutButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:onClick="onAboutClick"
-                        android:text="@string/about"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/howToHelpButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:onClick="onHowToHelpClick"
-                    android:text="@string/how_to_help"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
+                <FrameLayout
+                    android:id="@+id/container_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
             </LinearLayout>
         </ScrollView>
 

@@ -234,7 +234,6 @@
     <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
     <!-- Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
     <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No thanks</string>
-    <string name="vpn_exclusions_pro_tip_summary" >Protip: select only one browser for classic Browser Only Mode</string>
 
     <!-- Empty string array to initialize things that will be programatically populated later -->
     <string-array name="empty_array"/>

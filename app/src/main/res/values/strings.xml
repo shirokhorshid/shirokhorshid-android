@@ -41,6 +41,8 @@
     <string name="preference_language_selection_title">Language</string>
     <string name="preference_language_title">Language Selection</string>
     <string name="preference_language_default_language">Default language</string>
+    <string name="preference_category_advanced_title">Advanced</string>
+    <string name="preference_category_info_title">Information</string>
     <!--A toast message which appears upon successful NFC bump & connection info transfer-->
     <string name="nfc_connection_info_import_success">Connection information imported successfully!</string>
     <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
@@ -88,4 +90,7 @@
     <string name="legacy_bom_alert_title">Legacy mode detected</string>
     <string name="legacy_bom_alert_heading">Psiphon Browser is no longer available</string>
     <string name="legacy_bom_alert_message">We have detected that you were using Psiphon Browser in the previously installed version of %1$s.\nIf your Android version is recent enough (5.0 or greater) you can select any installed web browser app to be tunneled through %1$s instead.\nIf you have any bookmarks or browsing history from Psiphon Browser that you would like to keep, you can export them in More Options ("Legacy Browser Support" section).</string>
+    <string name="vpn_exclusions_preference_not_available_summary">Requires Android 5.0 or greater</string>
+    <string name="vpn_always_on_preference_not_available_summary">Requires Android 7.0 or greater</string>
+    <string name="vpn_exclusions_pro_tip_summary" >Protip: select only one browser for classic Browser Only Mode</string>
 </resources>

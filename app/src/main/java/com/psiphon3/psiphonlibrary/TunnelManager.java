@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Psiphon Inc.
+ * Copyright (c) 2020, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -935,7 +935,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             public void run() {
                 m_isReconnect.set(false);
                 try {
-                    m_tunnel.restartPsiphon();
+                    Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
+                    m_tunnel.seamlessVpnRestart(vpnBuilder);
                 } catch (PsiphonTunnel.Exception e) {
                     MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
                 }
@@ -1237,7 +1238,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             @Override
             public void run() {
                 // regions are already sorted alphabetically by tunnel core
-                new AppPreferences(getContext()).put(RegionAdapter.KNOWN_REGIONS_PREFERENCE, TextUtils.join(",", regions));
+                new AppPreferences(getContext()).put(RegionListPreference.KNOWN_REGIONS_PREFERENCE, TextUtils.join(",", regions));
 
                 if (!isSelectedEgressRegionAvailable(regions)) {
                     // command service stop

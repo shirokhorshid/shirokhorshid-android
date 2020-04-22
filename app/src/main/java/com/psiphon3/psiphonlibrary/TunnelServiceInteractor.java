@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Psiphon Inc.
+ * Copyright (c) 2020, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -124,7 +124,6 @@ public class TunnelServiceInteractor {
             //
             // Unlike the ordinary startService(android.content.Intent), this method can be used at
             // any time, regardless of whether the app hosting the service is in a foreground state.
-            Log.d("HACK", "startTunnelService: thread " + Thread.currentThread().getName());
             if (Build.VERSION.SDK_INT >= 26) {
                 context.startForegroundService(intent);
             } else {

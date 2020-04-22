@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Psiphon Inc.
+ * Copyright (c) 2020, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -33,7 +33,6 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.Uri;
 import android.net.VpnService;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -43,7 +42,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.provider.ContactsContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
@@ -60,14 +58,11 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
-import android.webkit.URLUtil;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -144,8 +139,10 @@ public abstract class MainBase {
         protected static final String CURRENT_TAB = "currentTab";
 
         protected static final int REQUEST_CODE_PREPARE_VPN = 100;
-        protected static final int REQUEST_CODE_PREFERENCE = 101;
-        protected static final int REQUEST_CODE_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 102;
+        protected static final int REQUEST_CODE_VPN_PREFERENCES = 102;
+        protected static final int REQUEST_CODE_PROXY_PREFERENCES = 103;
+        protected static final int REQUEST_CODE_MORE_PREFERENCES = 104;
+        protected static final int REQUEST_CODE_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 105;
 
         protected boolean m_loadedSponsorTab = false;
 
@@ -165,17 +162,14 @@ public abstract class MainBase {
         private DataTransferGraph m_slowReceivedGraph;
         private DataTransferGraph m_fastSentGraph;
         private DataTransferGraph m_fastReceivedGraph;
-        private RegionAdapter m_regionAdapter;
-        protected SpinnerHelper m_regionSelector;
-        protected CheckBox m_downloadOnWifiOnlyToggle;
-        protected CheckBox m_disableTimeoutsToggle;
         private Toast m_invalidProxySettingsToast;
-        private Button m_moreOptionsButton;
         private Button m_openBrowserButton;
         private LoggingObserver m_loggingObserver;
         private CompositeDisposable compositeDisposable = new CompositeDisposable();
         protected TunnelServiceInteractor tunnelServiceInteractor;
         private Disposable handleNfcIntentDisposable;
+        protected StatusActivity.OptionsTabFragment m_optionsTabFragment;
+
 
         public TabbedActivityBase() {
             Utils.initializeSecureRandom();
@@ -186,7 +180,6 @@ public abstract class MainBase {
         private ImageButton m_statusViewImage;
 
         private View mGetHelpConnectingButton;
-        private View mHelpConnectButton;
 
         private NfcAdapter mNfcAdapter;
         private NfcAdapterCallback mNfcAdapterCallback;
@@ -474,9 +467,6 @@ public abstract class MainBase {
             findViewById(R.id.sponsorWebView).setOnTouchListener(onTouchListener);
             findViewById(R.id.statisticsView).setOnTouchListener(onTouchListener);
             findViewById(R.id.settingsView).setOnTouchListener(onTouchListener);
-            findViewById(R.id.regionSelector).setOnTouchListener(onTouchListener);
-            findViewById(R.id.feedbackButton).setOnTouchListener(onTouchListener);
-            findViewById(R.id.aboutButton).setOnTouchListener(onTouchListener);
             ListView statusListView = (ListView) findViewById(R.id.statusList);
             statusListView.setOnTouchListener(onTouchListener);
 
@@ -499,20 +489,8 @@ public abstract class MainBase {
             m_elapsedConnectionTimeView = (TextView) findViewById(R.id.elapsedConnectionTime);
             m_totalSentView = (TextView) findViewById(R.id.totalSent);
             m_totalReceivedView = (TextView) findViewById(R.id.totalReceived);
-            m_regionSelector = new SpinnerHelper(findViewById(R.id.regionSelector));
-            m_disableTimeoutsToggle = (CheckBox) findViewById(R.id.disableTimeoutsToggle);
-            m_downloadOnWifiOnlyToggle = (CheckBox) findViewById(R.id.downloadOnWifiOnlyToggle);
-            m_moreOptionsButton = (Button) findViewById(R.id.moreOptionsButton);
             m_openBrowserButton = (Button) findViewById(R.id.openBrowserButton);
 
-            final Intent vpnSettingIntent = new Intent(this, MoreOptionsPreferenceActivity.class);
-            vpnSettingIntent.putExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_VPN_EXCLUSIONS_ONLY, true);
-            findViewById(R.id.vpnModeSpinner).setOnTouchListener((v, event) -> {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    startActivityForResult(vpnSettingIntent, REQUEST_CODE_PREFERENCE);
-                }
-                return true;
-            });
 
 
             m_slowSentGraph = new DataTransferGraph(this, R.id.slowSentGraph);
@@ -525,32 +503,6 @@ public abstract class MainBase {
 
             m_localBroadcastManager = LocalBroadcastManager.getInstance(this);
             m_localBroadcastManager.registerReceiver(new StatusEntryAdded(), new IntentFilter(STATUS_ENTRY_AVAILABLE));
-
-            m_regionAdapter = new RegionAdapter(this);
-            m_regionSelector.setAdapter(m_regionAdapter);
-            String egressRegionPreference = m_multiProcessPreferences
-                    .getString(getString(R.string.egressRegionPreference),
-                            PsiphonConstants.REGION_CODE_ANY);
-
-            m_regionSelector.setSelectionByValue(egressRegionPreference);
-
-            m_regionSelector.setOnItemSelectedListener(regionSpinnerOnItemSelected);
-
-            // Show download-wifi-only preference only in not Play Store build
-            if (!EmbeddedValues.IS_PLAY_STORE_BUILD) {
-                boolean downLoadWifiOnlyPreference = m_multiProcessPreferences.getBoolean(
-                        getString(R.string.downloadWifiOnlyPreference),
-                        PsiphonConstants.DOWNLOAD_WIFI_ONLY_PREFERENCE_DEFAULT);
-                m_downloadOnWifiOnlyToggle.setChecked(downLoadWifiOnlyPreference);
-            }
-            else {
-                m_downloadOnWifiOnlyToggle.setEnabled(false);
-                m_downloadOnWifiOnlyToggle.setVisibility(View.GONE);
-            }
-
-            boolean disableTimeoutsPreference = m_multiProcessPreferences.getBoolean(
-                    getString(R.string.disableTimeoutsPreference), false);
-            m_disableTimeoutsToggle.setChecked(disableTimeoutsPreference);
 
             String msg = getContext().getString(R.string.client_version, EmbeddedValues.CLIENT_VERSION);
             m_statusTabVersionLine.setText(msg);
@@ -572,7 +524,6 @@ public abstract class MainBase {
 
             // Get the connection help buttons
             mGetHelpConnectingButton = findViewById(R.id.getHelpConnectingButton);
-            mHelpConnectButton = findViewById(R.id.howToHelpButton);
 
             // Only handle NFC if the version is sufficient
             if (ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
@@ -611,10 +562,6 @@ public abstract class MainBase {
                     tunnelServiceInteractor.dataStatsFlowable()
                             .startWith(Boolean.FALSE)
                             .doOnNext(isConnected -> runOnUiThread(() -> updateStatisticsUICallback(isConnected)))
-                            .subscribe(),
-
-                    tunnelServiceInteractor.knownRegionsFlowable()
-                            .doOnNext(__ -> m_regionAdapter.updateRegionsFromPreferences())
                             .subscribe(),
 
                     tunnelServiceInteractor.nfcExchangeFlowable()
@@ -710,8 +657,6 @@ public abstract class MainBase {
             if (!ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 return;
             }
-
-            mHelpConnectButton.setVisibility(View.VISIBLE);
         }
 
         private void hideHelpConnectUI() {
@@ -719,8 +664,6 @@ public abstract class MainBase {
             if (!ConnectionInfoExchangeUtils.isNfcSupported(getApplicationContext())) {
                 return;
             }
-
-            mHelpConnectButton.setVisibility(View.GONE);
         }
 
         protected void handleNfcConnectionInfoExchangeResponseExport(String payload) {
@@ -883,46 +826,7 @@ public abstract class MainBase {
 
         protected abstract void startUp();
 
-        protected void doAbout() {
-            if (URLUtil.isValidUrl(EmbeddedValues.INFO_LINK_URL)) {
-                // TODO: if connected, open in Psiphon browser?
-                // Events.displayBrowser(this,
-                // Uri.parse(PsiphonConstants.INFO_LINK_URL));
-
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(EmbeddedValues.INFO_LINK_URL));
-                startActivity(browserIntent);
-            }
-        }
-
-        public void onMoreOptionsClick(View v) {
-            startActivityForResult(new Intent(this, MoreOptionsPreferenceActivity.class), REQUEST_CODE_PREFERENCE);
-        }
-
-        public abstract void onFeedbackClick(View v);
-
-        public void onAboutClick(View v) {
-            doAbout();
-        }
-
-        private final AdapterView.OnItemSelectedListener regionSpinnerOnItemSelected = new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String regionCode = parent.getItemAtPosition(position).toString();
-                onRegionSelected(regionCode);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView parent) {
-            }
-        };
-
-        public void onRegionSelected(String selectedRegionCode) {
-            // Just in case an OnItemSelected message is in transit before
-            // setEnabled is processed...(?)
-            if (!m_regionSelector.isEnabled()) {
-                return;
-            }
+        protected void onRegionSelected(String selectedRegionCode) {
             String egressRegionPreference = m_multiProcessPreferences
                     .getString(getString(R.string.egressRegionPreference),
                             PsiphonConstants.REGION_CODE_ANY);
@@ -944,28 +848,28 @@ public abstract class MainBase {
             m_multiProcessPreferences.put(getString(R.string.egressRegionPreference), egressRegionPreference);
         }
 
-        public void onDisableTimeoutsToggle(View v) {
-            boolean disableTimeoutsChecked = m_disableTimeoutsToggle.isChecked();
-            updateDisableTimeoutsPreference(disableTimeoutsChecked);
-            tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(getApplicationContext(), this::startTunnel);
-        }
-        protected void updateDisableTimeoutsPreference(boolean disableTimeoutsPreference) {
-            m_multiProcessPreferences.put(getString(R.string.disableTimeoutsPreference), disableTimeoutsPreference);
-        }
-
-        public void onDownloadOnWifiOnlyToggle(View v) {
-            boolean downloadWifiOnly = m_downloadOnWifiOnlyToggle.isChecked();
-
-            // There is no need to restart the service if the value of downloadWifiOnly
-            // has changed because upgrade downloads happen in a different, temp tunnel
-
-            m_multiProcessPreferences.put(getString(R.string.downloadWifiOnlyPreference), downloadWifiOnly);
-        }
-
         // Basic check of proxy settings values
         private boolean customProxySettingsValuesValid() {
+            boolean useHTTPProxyPreference = UpstreamProxySettings.getUseHTTPProxy(this);
+            boolean useCustomProxySettingsPreference = UpstreamProxySettings.getUseCustomProxySettings(this);
+
+            if (!useHTTPProxyPreference ||
+                    !useCustomProxySettingsPreference) {
+                return true;
+            }
             UpstreamProxySettings.ProxySettings proxySettings = UpstreamProxySettings.getProxySettings(this);
-            return proxySettings != null && proxySettings.proxyHost.length() > 0 && proxySettings.proxyPort >= 1 && proxySettings.proxyPort <= 65535;
+            boolean isValid = proxySettings != null &&
+                    proxySettings.proxyHost.length() > 0 &&
+                    proxySettings.proxyPort >= 1 &&
+                    proxySettings.proxyPort <= 65535;
+            if (!isValid) {
+                runOnUiThread(() -> {
+                    cancelInvalidProxySettingsToast();
+                    m_invalidProxySettingsToast = Toast.makeText(this, R.string.network_proxy_connect_invalid_values, Toast.LENGTH_SHORT);
+                    m_invalidProxySettingsToast.show();
+                });
+            }
+            return isValid;
         }
 
         private class DataTransferGraph {
@@ -1101,16 +1005,10 @@ public abstract class MainBase {
         
         protected void enableToggleServiceUI() {
             m_toggleButton.setEnabled(true);
-            m_disableTimeoutsToggle.setEnabled(true);
-            m_regionSelector.setEnabled(true);
-            m_moreOptionsButton.setEnabled(true);
         }
 
         protected void disableToggleServiceUI() {
             m_toggleButton.setEnabled(false);
-            m_disableTimeoutsToggle.setEnabled(false);
-            m_regionSelector.setEnabled(false);
-            m_moreOptionsButton.setEnabled(false);
         }
 
         protected void startTunnel() {
@@ -1183,18 +1081,10 @@ public abstract class MainBase {
         }
 
         private void proceedStartTunnel() {
-            // Don't start if custom proxy settings is selected and values are
-            // invalid
-            boolean useHTTPProxyPreference = UpstreamProxySettings.getUseHTTPProxy(this);
-            boolean useCustomProxySettingsPreference = UpstreamProxySettings.getUseCustomProxySettings(this);
-
-            if (useHTTPProxyPreference && useCustomProxySettingsPreference && !customProxySettingsValuesValid()) {
-                cancelInvalidProxySettingsToast();
-                m_invalidProxySettingsToast = Toast.makeText(this, R.string.network_proxy_connect_invalid_values, Toast.LENGTH_SHORT);
-                m_invalidProxySettingsToast.show();
+            // Don't start if custom proxy settings is selected and values are invalid
+            if (!customProxySettingsValuesValid()) {
                 return;
             }
-
             boolean waitingForPrompt = doVpnPrepare();
             if (!waitingForPrompt) {
                 startAndBindTunnelService();
@@ -1241,7 +1131,7 @@ public abstract class MainBase {
             return false;
         }
 
-        private boolean isSettingsRestartRequired() {
+        private boolean vpnSettingsRestartRequired() {
             SharedPreferences prefs = getSharedPreferences(getString(R.string.moreOptionsPreferencesName), MODE_PRIVATE);
 
             // check if selected routing preference has changed
@@ -1280,6 +1170,11 @@ public abstract class MainBase {
                     return true;
                 }
             }
+            return false;
+        }
+
+        private boolean proxySettingsRestartRequired() {
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.moreOptionsPreferencesName), MODE_PRIVATE);
 
             // check if "use proxy" has changed
             boolean useHTTPProxyPreference = prefs.getBoolean(getString(R.string.useProxySettingsPreference),
@@ -1313,7 +1208,7 @@ public abstract class MainBase {
             if (!prefs.getString(getString(R.string.useCustomProxySettingsHostPreference), "")
                     .equals(UpstreamProxySettings.getCustomProxyHost(this))
                     || !prefs.getString(getString(R.string.useCustomProxySettingsPortPreference), "")
-                            .equals(UpstreamProxySettings.getCustomProxyPort(this))) {
+                    .equals(UpstreamProxySettings.getCustomProxyPort(this))) {
                 return true;
             }
 
@@ -1340,56 +1235,120 @@ public abstract class MainBase {
                     .equals(UpstreamProxySettings.getProxyDomain(this));
         }
 
+        private boolean moreSettingsRestartRequired() {
+            SharedPreferences prefs = getSharedPreferences(getString(R.string.moreOptionsPreferencesName), MODE_PRIVATE);
+
+            // check if disable timeouts setting has changed
+            boolean disableTimeoutsNewPreference =
+                    prefs.getBoolean(getString(R.string.disableTimeoutsPreference), false);
+            boolean disableTimeoutsCurrentPreference =
+                    m_multiProcessPreferences.getBoolean(getString(R.string.disableTimeoutsPreference), false);
+            return disableTimeoutsCurrentPreference != disableTimeoutsNewPreference;
+        }
+
+        private void updateVpnSettingsFromPreferences() {
+            // Import 'VPN Settings' values to tray preferences
+            String prefName = getString(R.string.moreOptionsPreferencesName);
+            m_multiProcessPreferences.migrate(
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAllAppsInVpn), getString(R.string.preferenceIncludeAllAppsInVpn)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpn), getString(R.string.preferenceIncludeAppsInVpn)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpnString), getString(R.string.preferenceIncludeAppsInVpnString)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpn), getString(R.string.preferenceExcludeAppsFromVpn)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpnString), getString(R.string.preferenceExcludeAppsFromVpnString))
+            );
+        }
+
+        private void updateProxySettingsFromPreferences() {
+            // Import 'Proxy settings' values to tray preferences
+            String prefName = getString(R.string.moreOptionsPreferencesName);
+            m_multiProcessPreferences.migrate(
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxySettingsPreference), getString(R.string.useProxySettingsPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useSystemProxySettingsPreference), getString(R.string.useSystemProxySettingsPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsPreference), getString(R.string.useCustomProxySettingsPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsHostPreference), getString(R.string.useCustomProxySettingsHostPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsPortPreference), getString(R.string.useCustomProxySettingsPortPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxyAuthenticationPreference), getString(R.string.useProxyAuthenticationPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxyUsernamePreference), getString(R.string.useProxyUsernamePreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxyPasswordPreference), getString(R.string.useProxyPasswordPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.useProxyDomainPreference), getString(R.string.useProxyDomainPreference))
+            );
+        }
+
+        private void updateMoreSettingsFromPreferences() {
+            // Import 'More Options' values to tray preferences
+            String prefName = getString(R.string.moreOptionsPreferencesName);
+            m_multiProcessPreferences.migrate(
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithSound), getString(R.string.preferenceNotificationsWithSound)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithVibrate), getString(R.string.preferenceNotificationsWithVibrate)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.downloadWifiOnlyPreference), getString(R.string.downloadWifiOnlyPreference)),
+                    new SharedPreferencesImport(this, prefName, getString(R.string.disableTimeoutsPreference), getString(R.string.disableTimeoutsPreference))
+            );
+        }
+
         @Override
         protected void onActivityResult(int request, int result, Intent data) {
-            if (request == REQUEST_CODE_PREPARE_VPN) {
-                if(result == RESULT_OK) {
-                    startAndBindTunnelService();
-                } else if(result == RESULT_CANCELED) {
-                    onVpnPromptCancelled();
-                }
-            } else if (request == REQUEST_CODE_PREFERENCE) {
+            boolean shouldRestart = false;
+            switch (request) {
+                case REQUEST_CODE_PREPARE_VPN:
+                    if (result == RESULT_OK) {
+                        startAndBindTunnelService();
+                    } else if (result == RESULT_CANCELED) {
+                        onVpnPromptCancelled();
+                    }
+                    // We're done here
+                    return;
 
-                // Verify if restart is required before saving new settings
-                boolean bRestartRequired = isSettingsRestartRequired();
+                case REQUEST_CODE_VPN_PREFERENCES:
+                    shouldRestart = vpnSettingsRestartRequired();
+                    updateVpnSettingsFromPreferences();
+                    break;
 
-                // Import 'More Options' values to tray preferences
-                String prefName = getString(R.string.moreOptionsPreferencesName);
-                m_multiProcessPreferences.migrate(
-                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithSound), getString(R.string.preferenceNotificationsWithSound)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceNotificationsWithVibrate), getString(R.string.preferenceNotificationsWithVibrate)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAllAppsInVpn), getString(R.string.preferenceIncludeAllAppsInVpn)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpn), getString(R.string.preferenceIncludeAppsInVpn)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceIncludeAppsInVpnString), getString(R.string.preferenceIncludeAppsInVpnString)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpn), getString(R.string.preferenceExcludeAppsFromVpn)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.preferenceExcludeAppsFromVpnString), getString(R.string.preferenceExcludeAppsFromVpnString)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.downloadWifiOnlyPreference), getString(R.string.downloadWifiOnlyPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.disableTimeoutsPreference), getString(R.string.disableTimeoutsPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useProxySettingsPreference), getString(R.string.useProxySettingsPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useSystemProxySettingsPreference), getString(R.string.useSystemProxySettingsPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsPreference), getString(R.string.useCustomProxySettingsPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsHostPreference), getString(R.string.useCustomProxySettingsHostPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useCustomProxySettingsPortPreference), getString(R.string.useCustomProxySettingsPortPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useProxyAuthenticationPreference), getString(R.string.useProxyAuthenticationPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useProxyUsernamePreference), getString(R.string.useProxyUsernamePreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useProxyPasswordPreference), getString(R.string.useProxyPasswordPreference)),
-                        new SharedPreferencesImport(this, prefName, getString(R.string.useProxyDomainPreference), getString(R.string.useProxyDomainPreference))
-                );
+                case REQUEST_CODE_PROXY_PREFERENCES:
+                    shouldRestart = proxySettingsRestartRequired();
+                    updateProxySettingsFromPreferences();
+                    break;
 
-                if (bRestartRequired) {
+                case REQUEST_CODE_MORE_PREFERENCES:
+                    shouldRestart = moreSettingsRestartRequired();
+                    updateMoreSettingsFromPreferences();
+                    break;
+
+                default:
+                    super.onActivityResult(request, result, data);
+            }
+            // Update preferences in the options tab
+            if (m_optionsTabFragment != null) {
+                m_optionsTabFragment.setSummaryFromPreferences();
+            }
+
+            if (shouldRestart) {
+                // stop if running and custom proxy settings is selected and values are invalid
+                if (!customProxySettingsValuesValid()) {
+                    tunnelServiceInteractor.tunnelStateFlowable()
+                            .filter(tunnelState -> !tunnelState.isUnknown())
+                            .firstOrError()
+                            .doOnSuccess(state -> {
+                                if (state.isRunning()) {
+                                    stopTunnelService();
+                                }
+                            })
+                            .subscribe();
+                } else {
                     tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(getApplicationContext(), this::startTunnel);
                 }
-
-                if (data != null && data.getBooleanExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
-                    // This is a bit of a weird hack to cause a restart, but it works
-                    // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
-                    // before the activity would relaunch. This *seems* to provide the best functionality across phones.
+            }
+            if (data != null && data.getBooleanExtra(MoreOptionsPreferenceFragment.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
+                // This is a bit of a weird hack to cause a restart, but it works
+                // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
+                // before the activity would relaunch. This *seems* to provide the best functionality across phones.
+                // Add a 1 second delay to give activity chance to restart the service if needed
+                new Handler().postDelayed(() -> {
                     finish();
                     Intent intent = new Intent(this, StatusActivity.class);
                     intent.putExtra(INTENT_EXTRA_PREVENT_AUTO_START, true);
                     startActivity(intent);
                     System.exit(1);
-                }
+                }, shouldRestart ? 1000 : 0);
             }
         }
 

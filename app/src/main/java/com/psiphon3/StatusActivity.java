@@ -23,13 +23,14 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.preference.Preference;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -45,9 +46,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
+import com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity;
+import com.psiphon3.psiphonlibrary.ProxyOptionsPreferenceActivity;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
+import com.psiphon3.psiphonlibrary.PsiphonPreferenceFragmentCompat;
+import com.psiphon3.psiphonlibrary.RegionListPreference;
 import com.psiphon3.psiphonlibrary.TunnelManager;
+import com.psiphon3.psiphonlibrary.UpstreamProxySettings;
+import com.psiphon3.psiphonlibrary.Utils;
 import com.psiphon3.psiphonlibrary.VpnAppsUtils;
+import com.psiphon3.psiphonlibrary.VpnOptionsPreferenceActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -82,6 +90,12 @@ public class StatusActivity
         // NOTE: super class assumes m_tabHost is initialized in its onCreate
 
         super.onCreate(savedInstanceState);
+        if (savedInstanceState == null) {
+            m_optionsTabFragment = new OptionsTabFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container_settings, m_optionsTabFragment)
+                    .commit();
+        }
 
         // EmbeddedValues.initialize(this); is called in MainBase.OnCreate
 
@@ -285,9 +299,10 @@ public class StatusActivity
 
             // Set egress region preference to 'Best Performance'
             updateEgressRegionPreference(PsiphonConstants.REGION_CODE_ANY);
-
-            // Set region selection to 'Best Performance' too
-            m_regionSelector.setSelectionByValue(PsiphonConstants.REGION_CODE_ANY);
+            // Update region preference in the options tab
+            if (m_optionsTabFragment != null) {
+                m_optionsTabFragment.updateRegionSelectorFromPreferences();
+            }
 
             // Show "Selected region unavailable" toast
             Toast toast = Toast.makeText(this, R.string.selected_region_currently_not_available, Toast.LENGTH_LONG);
@@ -316,17 +331,6 @@ public class StatusActivity
 
     public void onGetHelpConnectingClick(View v) {
         showConnectionHelpDialog(this, R.layout.dialog_get_help_connecting);
-    }
-
-    public void onHowToHelpClick(View view) {
-        showConnectionHelpDialog(this, R.layout.dialog_how_to_help_connect);
-    }
-
-    @Override
-    public void onFeedbackClick(View v)
-    {
-        Intent feedbackIntent = new Intent(this, FeedbackActivity.class);
-        startActivity(feedbackIntent);
     }
 
     @Override
@@ -410,5 +414,112 @@ public class StatusActivity
                 .setMessage(messageId)
                 .setPositiveButton(android.R.string.ok, null)
                 .show();
+    }
+
+    public static class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
+        private RegionListPreference regionListPreference;
+        private Preference moreOptionsPreference;
+        private Preference feedbackPreference;
+        private Preference vpnOptionsPreference;
+        private Preference proxyOptionsPreference;
+        boolean arePreferencesCreated = false;
+
+        @Override
+        public void onCreatePreferencesFix(Bundle bundle, String s) {
+            super.onCreatePreferencesFix(bundle, s);
+            addPreferencesFromResource(R.xml.settings_preferences_screen);
+
+            regionListPreference = (RegionListPreference) findPreference("region_preference");
+            regionListPreference.setOnRegionSelectedListener(regionCode -> {
+                StatusActivity activity = (StatusActivity) getActivity();
+                if (activity != null && !activity.isFinishing()) {
+                    activity.onRegionSelected(regionCode);
+                    regionListPreference.setCurrentRegionFromPreferences();
+                }
+            });
+
+            feedbackPreference = findPreference("feedback");
+            feedbackPreference.setIntent(new Intent(getActivity(), FeedbackActivity.class));
+
+            moreOptionsPreference = findPreference("more_options");
+            moreOptionsPreference.setOnPreferenceClickListener(__ -> {
+                final FragmentActivity activity = getActivity();
+                if (activity != null && !activity.isFinishing()) {
+                    getActivity().startActivityForResult(new Intent(getActivity(),
+                            MoreOptionsPreferenceActivity.class), REQUEST_CODE_MORE_PREFERENCES);
+                }
+                return true;
+            });
+
+            vpnOptionsPreference = findPreference("vpn_options");
+            if (Utils.supportsVpnExclusions()) {
+                vpnOptionsPreference.setOnPreferenceClickListener(__ -> {
+                    final FragmentActivity activity = getActivity();
+                    if (activity != null && !activity.isFinishing()) {
+                        getActivity().startActivityForResult(new Intent(getActivity(),
+                                VpnOptionsPreferenceActivity.class), REQUEST_CODE_VPN_PREFERENCES);
+                    }
+                    return true;
+                });
+            } else {
+                vpnOptionsPreference.setEnabled(false);
+                vpnOptionsPreference.setSummary(R.string.vpn_exclusions_preference_not_available_summary);
+            }
+
+            proxyOptionsPreference = findPreference("proxy_options");
+            proxyOptionsPreference.setOnPreferenceClickListener(__ -> {
+                final FragmentActivity activity = getActivity();
+                if (activity != null && !activity.isFinishing()) {
+                    getActivity().startActivityForResult(new Intent(getActivity(),
+                            ProxyOptionsPreferenceActivity.class), REQUEST_CODE_PROXY_PREFERENCES);
+                }
+                return true;
+            });
+            arePreferencesCreated = true;
+            setSummaryFromPreferences();
+        }
+
+        public void setSummaryFromPreferences() {
+            if (!arePreferencesCreated) {
+                return;
+            }
+
+            int count;
+            String summary;
+            // Update VPN setting summary if applicable
+            if (Utils.supportsVpnExclusions()) {
+                switch (VpnAppsUtils.getVpnAppsExclusionMode(getContext())) {
+                    case ALL_APPS:
+                        vpnOptionsPreference.setSummary(R.string.preference_routing_all_apps_tunnel_summary);
+                        break;
+                    case EXCLUDE_APPS:
+                        count = VpnAppsUtils.getCurrentAppsExcludedFromVpn(getContext()).size();
+                        summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_exclude_summary, count, count);
+                        vpnOptionsPreference.setSummary(summary);
+                        break;
+                    case INCLUDE_APPS:
+                        count = VpnAppsUtils.getCurrentAppsIncludedInVpn(getContext()).size();
+                        summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_include_summary, count, count);
+                        vpnOptionsPreference.setSummary(summary);
+                        break;
+                }
+            }
+            // Update Proxy setting summary
+            summary = "No proxy";
+            if (UpstreamProxySettings.getUseHTTPProxy(getContext())) {
+                if (UpstreamProxySettings.getUseCustomProxySettings(getContext())) {
+                    summary = "Custom proxy";
+                } else {
+                    summary = "System proxy";
+                }
+            }
+            proxyOptionsPreference.setSummary(summary);
+        }
+
+        public void updateRegionSelectorFromPreferences() {
+            if (arePreferencesCreated) {
+                regionListPreference.setCurrentRegionFromPreferences();
+            }
+        }
     }
 }

@@ -31,8 +31,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.psiphon3.R;
 
@@ -56,6 +58,13 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
         super(context);
         this.whitelist = whitelist;
         view = layoutInflater.inflate(R.layout.dialog_list_preference, null);
+
+        // Open full height.
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        view.findViewById(R.id.recycler_view).setMinimumHeight(height);
 
         setView(view);
         setTitle(getTitle(whitelist));
