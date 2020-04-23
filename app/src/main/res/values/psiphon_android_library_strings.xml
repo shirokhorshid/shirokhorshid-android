@@ -248,6 +248,9 @@
     <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No thanks</string>
     <string name="label_vpn_settings">VPN settings</string>
     <string name="label_proxy_settings">Proxy settings</string>
+    <string name="preference_summary_no_proxy">No proxy</string>
+    <string name="preference_summary_custom_proxy">Custom proxy</string>
+    <string name="preference_summary_system_proxy">System proxy</string>
 
     <!-- Empty string array to initialize things that will be programatically populated later -->
     <string-array name="empty_array"/>

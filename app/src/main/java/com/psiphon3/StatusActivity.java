@@ -22,7 +22,6 @@ package com.psiphon3;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -158,7 +157,9 @@ public class StatusActivity
             tv.setText(spannableString);
             AlertDialog.Builder builder = new AlertDialog.Builder(this)
                     .setView(dialogView)
-                    .setCancelable(true)
+                    // We are displaying important information to the user, so make sure the dialog
+                    // is not dismissed accidentally as it won't be shown again.
+                    .setCancelable(false)
                     .setPositiveButton(R.string.label_ok, null)
                     .setCancelable(true)
                     .setOnDismissListener(dialog ->
@@ -429,8 +430,6 @@ public class StatusActivity
 
     public static class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
         private RegionListPreference regionListPreference;
-        private Preference moreOptionsPreference;
-        private Preference feedbackPreference;
         private Preference vpnOptionsPreference;
         private Preference proxyOptionsPreference;
         boolean arePreferencesCreated = false;
@@ -440,7 +439,7 @@ public class StatusActivity
             super.onCreatePreferencesFix(bundle, s);
             addPreferencesFromResource(R.xml.settings_preferences_screen);
 
-            regionListPreference = (RegionListPreference) findPreference("region_preference");
+            regionListPreference = (RegionListPreference) findPreference(getContext().getString(R.string.regionPreferenceKey));
             regionListPreference.setOnRegionSelectedListener(regionCode -> {
                 StatusActivity activity = (StatusActivity) getActivity();
                 if (activity != null && !activity.isFinishing()) {
@@ -449,10 +448,10 @@ public class StatusActivity
                 }
             });
 
-            feedbackPreference = findPreference("feedback");
+            Preference feedbackPreference = findPreference(getContext().getString(R.string.feedbackPreferenceKey));
             feedbackPreference.setIntent(new Intent(getActivity(), FeedbackActivity.class));
 
-            moreOptionsPreference = findPreference("more_options");
+            Preference moreOptionsPreference = findPreference(getContext().getString(R.string.moreOptionsPreferenceKey));
             moreOptionsPreference.setOnPreferenceClickListener(__ -> {
                 final FragmentActivity activity = getActivity();
                 if (activity != null && !activity.isFinishing()) {
@@ -462,7 +461,7 @@ public class StatusActivity
                 return true;
             });
 
-            vpnOptionsPreference = findPreference("vpn_options");
+            vpnOptionsPreference = findPreference(getContext().getString(R.string.vpnOptionsPreferenceKey));
             if (Utils.supportsVpnExclusions()) {
                 vpnOptionsPreference.setOnPreferenceClickListener(__ -> {
                     final FragmentActivity activity = getActivity();
@@ -477,7 +476,7 @@ public class StatusActivity
                 vpnOptionsPreference.setSummary(R.string.vpn_exclusions_preference_not_available_summary);
             }
 
-            proxyOptionsPreference = findPreference("proxy_options");
+            proxyOptionsPreference = findPreference(getContext().getString(R.string.proxyOptionsPreferenceKey));
             proxyOptionsPreference.setOnPreferenceClickListener(__ -> {
                 final FragmentActivity activity = getActivity();
                 if (activity != null && !activity.isFinishing()) {
@@ -516,15 +515,15 @@ public class StatusActivity
                 }
             }
             // Update Proxy setting summary
-            summary = "No proxy";
             if (UpstreamProxySettings.getUseHTTPProxy(getContext())) {
                 if (UpstreamProxySettings.getUseCustomProxySettings(getContext())) {
-                    summary = "Custom proxy";
+                    proxyOptionsPreference.setSummary(R.string.preference_summary_custom_proxy);
                 } else {
-                    summary = "System proxy";
+                    proxyOptionsPreference.setSummary(R.string.preference_summary_system_proxy);
                 }
+            } else {
+                proxyOptionsPreference.setSummary(R.string.preference_summary_no_proxy);
             }
-            proxyOptionsPreference.setSummary(summary);
         }
 
         public void updateRegionSelectorFromPreferences() {

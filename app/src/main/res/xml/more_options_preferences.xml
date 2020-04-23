@@ -58,7 +58,7 @@
         <Preference
             android:icon="@drawable/baseline_save_alt_white_24"
             android:key="@string/exportZircoPreference"
-            android:summary="Click here to export legacy Zirco browser bookmarks and history to external data storage"
-            android:title="Export data" />
+            android:summary="@string/exportZircoPreferenceSummary"
+            android:title="@string/exportZircoPreferenceTitle" />
     </PreferenceCategory>
 </PreferenceScreen>

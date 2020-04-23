@@ -73,6 +73,11 @@
     <string name="current_local_http_proxy_port">currentLocalHttpProxyPort</string>
     <string name="exportZircoPreference" translatable="false">exportZircoPref</string>
     <string name="exportZircoPreferenceCategory" translatable="false">exportZircoPreferenceCategory</string>
+    <string name="proxyOptionsPreferenceKey" translatable="false">proxyOptionsPreferenceKey</string>
+    <string name="vpnOptionsPreferenceKey" translatable="false">vpnOptionsPreferenceKey</string>
+    <string name="feedbackPreferenceKey" translatable="false">feedbackPreferenceKey</string>
+    <string name="moreOptionsPreferenceKey" translatable="false">moreOptionsPreferenceKey</string>
+    <string name="regionPreferenceKey" translatable="false">regionPreferenceKey</string>
 
     <string-array name="languages">
         <item>English,en</item>
