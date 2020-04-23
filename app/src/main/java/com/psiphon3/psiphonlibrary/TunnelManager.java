@@ -210,6 +210,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
     private ConnectivityManager.NetworkCallback networkCallback;
     private AtomicBoolean m_waitingForConnectivity = new AtomicBoolean(false);
+    private VpnAppsUtils.VpnAppsExclusionSetting vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
+    private int vpnAppsExclusionCount = 0;
 
     TunnelManager(Service parentService) {
         m_parentService = parentService;
@@ -480,21 +482,38 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private Notification createNotification(boolean alert, boolean isConnected) {
-        int contentTextID;
         int iconID;
+        CharSequence contentText;
         CharSequence ticker = null;
         int defaults = 0;
 
         if (isConnected) {
-            contentTextID = R.string.psiphon_running_whole_device;
             iconID = R.drawable.notification_icon_connected;
+            switch(vpnAppsExclusionSetting) {
+                case INCLUDE_APPS:
+                    contentText = getContext().getResources()
+                            .getQuantityString(R.plurals.psiphon_service_notification_message_vpn_include_apps,
+                                    vpnAppsExclusionCount, vpnAppsExclusionCount);
+                    break;
+                case EXCLUDE_APPS:
+                    contentText = getContext().getResources()
+                            .getQuantityString(R.plurals.psiphon_service_notification_message_vpn_exclude_apps,
+                                    vpnAppsExclusionCount, vpnAppsExclusionCount);
+                    break;
+                case ALL_APPS:
+                default:
+                    contentText = getContext().getString(R.string.psiphon_service_notification_message_vpn_all_apps);
+                    break;
+            }
         } else {
-            contentTextID = R.string.psiphon_service_notification_message_connecting;
-            ticker = getContext().getText(R.string.psiphon_service_notification_message_connecting);
             iconID = R.drawable.notification_icon_connecting_animation;
+            contentText = getContext().getString(R.string.psiphon_service_notification_message_connecting);
+            ticker = getContext().getText(R.string.psiphon_service_notification_message_connecting);
         }
 
-        if (alert) {
+        // Only add notification vibration and sound defaults from preferences
+        // when user has access to Sound and Vibration in the app's settings.
+        if (alert && Utils.supportsNotificationSound()) {
             final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
 
             if (multiProcessPreferences.getBoolean(
@@ -521,8 +540,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         return notificationBuilder
                 .setSmallIcon(iconID)
                 .setContentTitle(getContext().getText(R.string.app_name))
-                .setContentText(getContext().getText(contentTextID))
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(getContext().getText(contentTextID)))
+                .setContentText(contentText)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(contentText))
                 .setTicker(ticker)
                 .setDefaults(defaults)
                 .setContentIntent(m_notificationPendingIntent)
@@ -1021,6 +1040,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
         switch (VpnAppsUtils.getVpnAppsExclusionMode(context)) {
             case ALL_APPS:
+                vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
+                vpnAppsExclusionCount = 0;
                 MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 break;
 
@@ -1048,8 +1069,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     } catch (PackageManager.NameNotFoundException e) {
                         // this should never be thrown
                     }
+                    vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.INCLUDE_APPS;
+                    vpnAppsExclusionCount = includedAppsCount;
                 } else {
                     // There's no included apps, we're tunnelling all
+                    vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
+                    vpnAppsExclusionCount = 0;
                     MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 }
                 break;
@@ -1066,15 +1091,16 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         excludedApps.remove(packageId);
                     }
                 }
-                // If some packages are no longer installed, updated persisted set
+                // If some packages are no longer installed update persisted set
                 if (excludedAppsCount != excludedApps.size()) {
                     VpnAppsUtils.setCurrentAppsToExcludeFromVpn(context, excludedApps);
                     excludedAppsCount = excludedApps.size();
                 }
-
                 if (excludedAppsCount == 0) {
                     MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 }
+                vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.EXCLUDE_APPS;
+                vpnAppsExclusionCount = excludedAppsCount;
                 break;
         }
 

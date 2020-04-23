@@ -191,6 +191,18 @@
         <item quantity="one">%d app will be excluded from VPN</item>
         <item quantity="other">%d apps will be excluded from VPN</item>
     </plurals>
+    <!-- Vpn service notification text shown in the toolbar when tunneling all apps-->
+    <string name="psiphon_service_notification_message_vpn_all_apps">Tunneling all apps</string>
+    <!-- Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+    <plurals name="psiphon_service_notification_message_vpn_include_apps">
+        <item quantity="one">Tunneling %d app</item>
+        <item quantity="other">Tunneling %d apps</item>
+    </plurals>
+    <!-- Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+    <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+        <item quantity="one">%d app excluded from the tunnel</item>
+        <item quantity="other">%d apps excluded from the tunnel</item>
+    </plurals>
     <string name="preference_routing_all_apps_tunnel_summary">All apps will be tunnelled via VPN</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>
