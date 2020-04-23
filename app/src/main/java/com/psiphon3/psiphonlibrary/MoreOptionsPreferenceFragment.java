@@ -236,8 +236,8 @@ public class MoreOptionsPreferenceFragment extends PsiphonPreferenceFragmentComp
 
         final String fileName = sdf.format(c.getTime()) + ".xml";
         final ProgressDialog progressDialog = ProgressDialog.show(getActivity(),
-                "Wait",
-                "Exporting bookmarks and history");
+                this.getResources().getString(R.string.Commons_PleaseWait),
+                this.getResources().getString(R.string.Commons_ExportingHistoryBookmarks));
 
         final XmlHistoryBookmarksExporter exporter = new XmlHistoryBookmarksExporter(getActivity(),
                 fileName,
