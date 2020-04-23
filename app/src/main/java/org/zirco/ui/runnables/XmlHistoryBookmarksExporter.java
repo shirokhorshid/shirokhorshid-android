@@ -1,6 +1,5 @@
 package org.zirco.ui.runnables;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;

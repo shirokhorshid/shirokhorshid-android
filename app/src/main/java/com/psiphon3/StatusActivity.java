@@ -19,10 +19,10 @@
 
 package com.psiphon3;
 
-import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,6 +30,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.preference.Preference;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -155,13 +156,21 @@ public class StatusActivity
                 spannableString.setSpan(new AbsoluteSizeSpan(10, true), matcher.start() + 1, matcher.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
             tv.setText(spannableString);
-            new android.support.v7.app.AlertDialog.Builder(this)
+            AlertDialog.Builder builder = new AlertDialog.Builder(this)
                     .setView(dialogView)
-                    .setPositiveButton(R.string.label_ok, (dialog, which) -> {
-                        m_multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference));
-                    })
-                    .setCancelable(false)
-                    .show();
+                    .setCancelable(true)
+                    .setPositiveButton(R.string.label_ok, null)
+                    .setCancelable(true)
+                    .setOnDismissListener(dialog ->
+                            m_multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference)));
+            // Add 'VPN settings' button if VPN exclusions are supported
+            if (Utils.supportsVpnExclusions()) {
+                builder.setNegativeButton(R.string.label_vpn_settings, (dialog, which) ->
+                    startActivityForResult(new Intent(StatusActivity.this,
+                            VpnOptionsPreferenceActivity.class), REQUEST_CODE_VPN_PREFERENCES)
+                );
+            }
+            builder.show();
         }
         preventAutoStart();
     }

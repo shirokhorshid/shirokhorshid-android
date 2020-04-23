@@ -8,18 +8,18 @@
     <Preference
         android:icon="@drawable/baseline_vpn_key_white_24"
         android:key="vpn_options"
-        android:title="VPN settings" />
+        android:title="@string/label_vpn_settings" />
     <Preference
         android:icon="@drawable/baseline_device_hub_white_24"
         android:key="proxy_options"
-        android:title="Proxy settings" />
+        android:title="@string/label_proxy_settings" />
     <Preference
         android:key="feedback"
         android:icon="@drawable/baseline_send_white_24"
-        android:title="Feedback" />
+        android:title="@string/feedback" />
     <Preference
         android:key="more_options"
         android:icon="@drawable/baseline_settings_white_24"
-        android:title="More options"
+        android:title="@string/moreOptions"
         />
 </PreferenceScreen>

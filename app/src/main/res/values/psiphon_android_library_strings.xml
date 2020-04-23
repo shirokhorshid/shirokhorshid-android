@@ -246,6 +246,8 @@
     <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
     <!-- Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
     <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No thanks</string>
+    <string name="label_vpn_settings">VPN settings</string>
+    <string name="label_proxy_settings">Proxy settings</string>
 
     <!-- Empty string array to initialize things that will be programatically populated later -->
     <string-array name="empty_array"/>
