@@ -93,8 +93,10 @@ public class StatusActivity
         if (savedInstanceState == null) {
             m_optionsTabFragment = new OptionsTabFragment();
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container_settings, m_optionsTabFragment)
+                    .replace(R.id.container_settings, m_optionsTabFragment, "OptionsTabFragment")
                     .commit();
+        } else {
+            m_optionsTabFragment = (OptionsTabFragment) getSupportFragmentManager().findFragmentByTag("OptionsTabFragment");
         }
 
         // EmbeddedValues.initialize(this); is called in MainBase.OnCreate
