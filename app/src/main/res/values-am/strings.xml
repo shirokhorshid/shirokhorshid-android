@@ -1,27 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">የስፖንሰር ባነር፤ የስፖንሰሩን ቅድመ ገጽ ለመጎብኘት ጠቅ ያድርጉ</string>
-  <string name="start_desc"> ከሳይፈን ጋር አገኛኝ፤ ለመገናኘት ጠቅ ያድርጉ</string>
+  <string name="start_desc"> ከPsiphon ጋር አገኛኝ፤ ለመገናኘት ጠቅ ያድርጉ</string>
   <string name="message_image_success_desc">የተሳካ መልዕክትን የሚያሳይ አዶ</string>
   <string name="message_image_error_desc">የስህተት መልእክትን የሚያሳይ አዶ</string>
   <string name="message_image_debug_desc">ስህተት የሚያርም መልእክትን የሚያሳይ አዶ</string>
   <string name="message_image_warning_desc">የማስጠንቀቂያ መልዕክትን የሚያሳይ አዶ</string>
   <string name="exit">አቋርጥ </string>
   <string name="open_browser">መዳሰሻ ክፈት</string>
-  <string name="browser_task_label">የሳይፈን መዳሰሻ </string>
+  <string name="browser_task_label">የPsiphon መዳሰሻ </string>
   <string name="FeedbackActivity.DefaultText">ለየት ያሉ አስተያየቶች ካሉዎት፣  ስለማይሠሩ ድረ ገጾች ተጨማሪ መረጃ  ካለዎት ወይም ይህ ፎርም ለእርስዎ የማይሰራ ከሆነ እባክዎ በ &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; ኢሜይል ያድርጉ። </string>
   <string name="FeedbackActivity.Success">ግብረመልስዎን በማስገባትዎ እናመሰግናለን</string>
   <string name="FeedbackActivity.Failure">ማስገባቱ  አልተሳካም። እባክዎ ከእንደገና ይሞክሩ። </string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">ግብረመልስ ማስገባት ከሽፏል። </string>
   <string name="FeedbackActivity.InvalidURLParameters">በግብረመልስ  ማስገቢያ ቅጽ ላይ የማይሰሩ የurl መለኪያዎች አሉ</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">የግብረመልስ ይዘት ገጽን ማግኘት ከሽፏል </string>
-  <string name="StatusActivity.VpnRevokedTitle">Psiphon (ሳይፈን) - Psiphon VPN ቆሟል።</string>
-  <string name="StatusActivity.VpnRevokedMessage">የPsiphon (ሳይፈን) ምናባዊ የግል አውታረ መረብ (ቪፒኤን) ግንኙነት በእርስዎ ወይም በሌላ መተግበሪያ ተቋርጧል። ከአንድ በላይ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ በአንድ ግዜ ገባር ሊሆን አይችልም። ሌላ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ መጫኑን እና ገባር መሆን አለመሆኑን ያጣሩ።</string>
-  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon (ሳይፈን) VPNን ማስጀመር አልቻለም።</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon - Psiphon VPN ቆሟል።</string>
+  <string name="StatusActivity.VpnRevokedMessage">የPsiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) ግንኙነት በእርስዎ ወይም በሌላ መተግበሪያ ተቋርጧል። ከአንድ በላይ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ በአንድ ግዜ ገባር ሊሆን አይችልም። ሌላ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ መጫኑን እና ገባር መሆን አለመሆኑን ያጣሩ።</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPNን ማስጀመር አልቻለም።</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">መሳሪያውን ሙሉ በሙሉ ማስተላለፍ ይፈልጋሉ?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ለመሳሪያዎ ሙሉ በሙሉ መሳሪያውን የማስተላለፍ አማራጭ አለ። \n\nበዚህ አማራጭ ለሁሉም መተግበሪያዎች መዳሰሻዎችን ጨምሮ ሁሉም የእርስዎ የኢንተርኔት ትራፊክ በሳይፈን አማካኝነት ይተላለፋል።  \n\n በአማራጭነት የሳይፈን ቅርቅብ መዳሰሻን ብቻ መርጠው ማስተላለፍ ይችላሉ። ይህ ማለት የሌሎች መተግበሪያዎች ግንኝነት የሚያልፈው በቀጥታ በመደበኛው የኢንተርኔት ግንኙነት አማካኝነት ይሆናል። </string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ለመሳሪያዎ ሙሉ በሙሉ መሳሪያውን የማስተላለፍ አማራጭ አለ። \n\nበዚህ አማራጭ ለሁሉም መተግበሪያዎች መዳሰሻዎችን ጨምሮ ሁሉም የእርስዎ የኢንተርኔት ትራፊክ በPsiphon አማካኝነት ይተላለፋል።  \n\n በአማራጭነት የPsiphon ቅርቅብ መዳሰሻን ብቻ መርጠው ማስተላለፍ ይችላሉ። ይህ ማለት የሌሎች መተግበሪያዎች ግንኝነት የሚያልፈው በቀጥታ በመደበኛው የኢንተርኔት ግንኙነት አማካኝነት ይሆናል። </string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">መሳሪያውን ሙሉ በሙሉ አስተላልፍ </string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">የሳይፈን መዳሰሻን ብቻ ተጠቀም </string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">የPsiphon መዳሰሻን ብቻ ተጠቀም </string>
   <string name="selected_region_currently_not_available">የተመረጠው ክልል ለጊዜው </string>
   <string name="ads_consent_preference_dialog_title">ዳግም አቀናብር</string>
   <string name="preference_language_selection_summary">ቋንቋ ይምረጡ</string>
@@ -36,6 +36,7 @@
   <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
   <string name="get_help_connecting_image_description">ስልኮችን ማነካካት ለ NFC (ቅርብ ርቀት ተግባቦት)</string>
   <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
+  <string name="get_help_connecting_notification_title">የግንኙነት ችግር</string>
   <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
   <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
   <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
@@ -43,16 +44,19 @@
   <string name="how_to_help_connect_image_description">ስልኮችን ማነካካት ለ NFC (ቅርብ ርቀት ተግባቦት)</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">እሺ </string>
+  <string name="preference_navigate_to_vpn_setting_title">ሁሌም የነቃ ምናባዊ የግል አውታረ መረብ (ቪፒኤን)</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">አይ </string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">አዎ</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">እርምጃ ያስፈልጋል!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
   <!--"Selected region is not available" notification title-->
   <!--Message shown in notification informing the user that selected region is not currently available-->
   <!--"VPN stopped" notification title-->
-  <string name="notification_title_vpn_revoked">Psiphon (ሳይፈን) - Psiphon VPN ቆሟል።</string>
+  <string name="notification_title_vpn_revoked">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) ቆሟል።</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <!--Description for an app icon image-->
+  <string name="description_app_icon">የመተግበሪያ አዶ</string>
 </resources>

@@ -33,10 +33,10 @@
   <string name="AuthenticatedDataPackage.InvalidSignature">Tanda tangan paket data terautentikasi tidak berlaku</string>
   <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Gagal memarser paket data terautentikasi</string>
   <string name="AuthenticatedDataPackage.MissingValue">Ada nilai yang hilang pada paket data terautentikasi</string>
-  <string name="starting_tunnel">Membuka terowongan...</string>
-  <string name="stopping_tunnel">Menutup terowongan...</string>
-  <string name="stopped_tunnel">Terowongan ditutup</string>
-  <string name="ServerInterface.StopRequested">Minta berhenti</string>
+  <string name="starting_tunnel">Memulai pengalihan...</string>
+  <string name="stopping_tunnel">Menyelesaikan pengalihan...</string>
+  <string name="stopped_tunnel">Pengalihan berhenti</string>
+  <string name="ServerInterface.StopRequested">Permintaan selesai</string>
   <string name="ServerInterface.HTTPSRequestFailed">Permintaan HTTPS gagal dengan galat:</string>
   <string name="socks_ports_failed">Gagal memulai proksi SOCKS: Port lowong tak tersedia</string>
   <string name="http_proxy_ports_failed">Gagal memulai proksi HTTP: Port lowong tak tersedia</string>
@@ -60,6 +60,7 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notifikasi Layanan Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="psiphon_service_notification_channel_name">Status Perubahan Psiphon</string>
   <string name="preferred_servers">Server utama: %d</string>
   <string name="selecting_server">Memilih server..</string>
   <string name="fetch_remote_server_list">Mengambil daftar remote server...</string>
@@ -76,7 +77,7 @@
   <string name="data_transfer_bytes_sent">Bita terkirim: %1$s (%2$.2f%% terkompres)</string>
   <string name="data_transfer_bytes_received">Bita diterima: %1$s (%2$.2f%% terkompres)</string>
   <string name="data_transfer_elapsed_time">Waktu sambungan: %s</string>
-  <string name="check_tunnel_failed">Pemeriksaan terowongan gagal. Perangkat Anda mungkin tidak mendukung opsi pengalihan sambungan seluruh perangkat.</string>
+  <string name="check_tunnel_failed">Pemeriksaan pengalihan gagal. Perangkat Anda mungkin tidak mendukung opsi pengalihan sambungan seluruh perangkat.</string>
   <string name="debug_message">%s</string>
   <string name="Diagnostics.AttachmentWriteFailed">Gagal membuat atau menulis berkas diagnostik untuk kritik dan saran</string>
   <string name="Diagnostics.EncryptedFailed">Gagal mengenkripsi informasi diagnostik untuk kritik dan saran. Informasi ini tidak akan dilampirkan pada email kritik dan saran.</string>
@@ -167,19 +168,32 @@
   <string name="preference_notifications_title">Notifikasi</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Alihkan semua aplikasi</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Aplikasi yang disertakan</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Hanya mengalihkan aplikasi terpilih</string>
   <!--Title for selecting apps to be excluded-->
-  <string name="preference_routing_exclude_apps_title">Kecualikan Aplikasi</string>
+  <string name="preference_routing_exclude_apps_title">Aplikasi tidak disertakan</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Jangan mengalihkan aplikasi terpilih</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Mengalihkan aplikasi: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
-  <string name="individual_app_excluded">Aplikasi dikecualikan dari terowongan: %s</string>
+  <string name="individual_app_excluded">Aplikasi yang tidak dialihkan: %s</string>
   <!--Log line for when all apps will be tunneled-->
-  <string name="no_apps_excluded">Tidak ada aplikasi dikecualikan dalam saluran ini.</string>
+  <string name="no_apps_excluded">Tiada aplikasi yang tidak disertakan dalam saluran ini.</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Pilih aplikasi</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">%d aplikasi akan dialihkan lewat VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">%d aplikasi tidak akan disertakan dalam VPN</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">Semua aplikasi akan dialihkan lewat VPN</string>
   <string name="preference_notifications_with_sound_title">Suara</string>
   <string name="preference_notifications_with_sound_summary">Beri tanda suara saat status sambungan berubah</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
@@ -199,19 +213,21 @@
   <string name="proxy_domain_summary">Domain untuk autentikasi proksi</string>
   <string name="http_proxy_port_in_use">Port proksi HTTP lokal %d yang diminta sedang dipakai aplikasi lain. Tidak dapat melanjutkan.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
-  <string name="split_tunnel_region">Wilayah terowongan terpisah: %s</string>
+  <string name="split_tunnel_region">Memisahkan wilayah pengalihan: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
-  <string name="untunneled_address">Tidak lewat terowongan: %s</string>
+  <string name="untunneled_address">Tidak dialihkan: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Galat proksi hulu: %s</string>
   <string name="diagnostic">Diagnostik: %s</string>
-  <string name="start_tunnel_failed">Gagal membuka terowongan: %s</string>
-  <string name="tunnel_connecting">Menyambung ke terowongan...</string>
-  <string name="tunnel_connected">Terowongan tersambung</string>
+  <string name="start_tunnel_failed">Gagal memulai pengalihan: %s</string>
+  <string name="tunnel_connecting">Pengalihan tersambung...</string>
+  <string name="tunnel_connected">Pengalihan tersambung</string>
   <string name="waiting">Menunggu...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Kabulkan Permintaan</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Mengizinkan Psiphon mengambil keputusan terbaik perihal bagaimana menangani jaringan Anda dengan cara memberi akses ke lokasi Anda.\n\nPerlu diingat bahwa informasi ini hanya digunakan di perangkat Anda dan tidak dikirimkan ke server kami maupun ke pihak-pihak ke-3.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Oke</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

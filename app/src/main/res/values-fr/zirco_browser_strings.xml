@@ -181,7 +181,7 @@
   <string name="PreferencesActivity.PluginsAlwaysOff">Toujours désactivés</string>
   <string name="PreferencesActivity.PluginsOnDemand">Sur demande</string>
   <string name="PreferencesActivity.PluginsAlwaysOn">Toujours activés</string>
-  <string name="Commons.Continue">Continuer</string>
+  <string name="Commons.Continue">Poursuivre</string>
   <string name="Commons.SslWarning">Avertissement de sécurité</string>
   <string name="Commons.SslWarningsHeader">Il y a des problèmes avec les certificats de sécurité de ce site.</string>
   <string name="Commons.SslUntrusted">Ce certificat n’émane pas d’une autorité de confiance.</string>
@@ -282,7 +282,7 @@
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Importer les marque-pages et l’historique de la carte SD.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Les autorisations de lecture sont exigées pour importer des marque-pages, car ils seront stockés dans la mémoire externe.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Effacer l’historique ou les marque-pages</string>
-  <string name="PreferencesActivity.SummaryCannotBeUndone">Utiliser avec prudence, cette opération est irréversible.</string>
+  <string name="PreferencesActivity.SummaryCannotBeUndone">À utiliser avec prudence, cette opération est irréversible.</string>
   <string name="Commons.ClearingHistoryBookmarks">Effacement de l’historique ou des marque-pages…</string>
   <string name="Commons.ClearHistoryBookmarks">Effacer l’historique ou les marque-pages</string>
   <string name="Commons.Bookmarks">Marque-pages</string>
@@ -310,7 +310,7 @@
   <string name="PreferencesActivity.EnableProxySettingsSummary">Activer ou désactiver la prise en charge des paramètres du serveur mandataire système.</string>
   <string name="ProxySettings.EnablingProxySettings">Activation des paramètres du mandataire…</string>
   <string name="ProxySettings.ErrorProxySettingsNotValid">Paramètres de mandataire invalides.</string>
-  <string name="ProxySettings.ErrorProxyServerNotReachable">Serveur mandataire injoignable.</string>
+  <string name="ProxySettings.ErrorProxyServerNotReachable">Le serveur mandataire est inaccessible.</string>
   <string name="ProxySettings.ErrorProxyInternetNotReachable">Impossible d’accéder au Web au travers du serveur mandataire spécifié.</string>
   <string name="ProxySettings.ProxySettingsEnabled">Les paramètres du mandataire sont activés avec succès.</string>
   <string name="PreferencesActivity.EnableRestoreLastPagePreferenceTitle">Restaurer les onglets</string>
