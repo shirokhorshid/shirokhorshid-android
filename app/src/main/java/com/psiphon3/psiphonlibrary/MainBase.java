@@ -1341,7 +1341,7 @@ public abstract class MainBase {
                     tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(getApplicationContext(), this::startTunnel);
                 }
             }
-            if (data != null && data.getBooleanExtra(MoreOptionsPreferenceFragment.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
+            if (data != null && data.getBooleanExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
                 // This is a bit of a weird hack to cause a restart, but it works
                 // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
                 // before the activity would relaunch. This *seems* to provide the best functionality across phones.
