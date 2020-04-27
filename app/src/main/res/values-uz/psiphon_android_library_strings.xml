@@ -151,7 +151,7 @@
   <string name="about">Psiphon haqida</string>
   <string name="feedback">Fikr-mulohaza</string>
   <string name="tunnel_whole_device_toggle">Butun qurilma ulanishini shifrlash (Android 4.0+ zarur)</string>
-  <string name="disable_timeouts">Tezligi past tarmoqlar uchun kutish vaqtini o‘chirib qo‘yish</string>
+  <string name="disableTimeoutsPreferenceSummary">Tezligi past tarmoqlar uchun kutish vaqtini o‘chirib qo‘yish</string>
   <string name="region_selector">Mintaqani tanlash</string>
   <string name="network_proxy_connect_exception">Tarmoqdagi HTTP proksi-serveriga ulanib bo‘lmadi: %s</string>
   <string name="network_proxy_connect_information">HTTP proksi-serveri orqali ulanilmoqda: %s</string>

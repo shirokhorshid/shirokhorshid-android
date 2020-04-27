@@ -151,7 +151,7 @@
   <string name="about">Оиди Psiphon</string>
   <string name="feedback">Изҳори назар</string>
   <string name="tunnel_whole_device_toggle">Тамоми трафики дастгоҳро тавассути нақб равона кардан (Android 4.0 ё навтар лозим аст)</string>
-  <string name="disable_timeouts">Меъёрҳои интизориро барои шабакаҳои суст ғайрифаъол кардан</string>
+  <string name="disableTimeoutsPreferenceSummary">Меъёрҳои интизориро барои шабакаҳои суст ғайрифаъол кардан</string>
   <string name="region_selector">Минтақаи интихоб кардан</string>
   <string name="network_proxy_connect_exception">Пайваст ба HTTP-проксии шабака барор наёфт: %s</string>
   <string name="network_proxy_connect_information">Тавассути HTTP-проксии шумо пайваст мешавем: %s</string>

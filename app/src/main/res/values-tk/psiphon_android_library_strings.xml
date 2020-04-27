@@ -151,7 +151,7 @@
   <string name="about">Psiphon hakynda</string>
   <string name="feedback">Seslenme</string>
   <string name="tunnel_whole_device_toggle">Bütin Tunel Enjamyna (Android 4.0+ gerekli)</string>
-  <string name="disable_timeouts">Yuwaş network üçin goşmaça wagtalmalary öçür </string>
+  <string name="disableTimeoutsPreferenceSummary">Yuwaş network üçin goşmaça wagtalmalary öçür </string>
   <string name="region_selector">Ýurt saýla</string>
   <string name="network_proxy_connect_exception">Networkyň HTTP Proksisine birikmedi: %s</string>
   <string name="network_proxy_connect_information">HTTP Proksi üsti bilen birikdirilýär: %s</string>

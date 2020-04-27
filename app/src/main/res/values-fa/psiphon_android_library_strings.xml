@@ -157,7 +157,7 @@
   <string name="about">درباره سایفون</string>
   <string name="feedback">بازخوردها</string>
   <string name="tunnel_whole_device_toggle">تونل تمام دستگاه «نیاز به اندروید ۴.۰ به بالا دارد»</string>
-  <string name="disable_timeouts">غیر فعال کردن تایم‌آوت برای شبکه‌های کند </string>
+  <string name="disableTimeoutsPreferenceSummary">غیر فعال کردن تایم‌آوت برای شبکه‌های کند </string>
   <string name="region_selector">منطقۀ خود را انتخاب کنید</string>
   <string name="network_proxy_connect_exception">اتصال به شبکه اچ‌تی‌تی‌پی پراکسی امکان پذیر نبود: %s</string>
   <string name="network_proxy_connect_information">ایجاد اتصال از طریق http پراکسی: %s</string>
@@ -201,7 +201,7 @@
   <string name="preference_notifications_with_sound_summary">وقتی وضعیت اتصال تغییر میکند صدا پخش شود</string>
   <string name="preference_notifications_with_vibrate_title">ویبره</string>
   <string name="preference_notifications_with_vibrate_summary">وقتی وضعیت اتصال تغییر میکند موبایل ویبره کند. </string>
-  <string name="preference_download_wifi_only_toggle">دانلود بروزرسانی‌ها فقط با Wi-Fi</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">دانلود بروزرسانی‌ها فقط با Wi-Fi</string>
   <string name="moreOptions">گزینه های بیشتر</string>
   <string name="root_mode_not_supported">این نسخه اندروید از حالت روت پشتیبانی نمی کند</string>
   <string name="proxySettingsCategoryTitle">تنظیمات پروکسی</string>

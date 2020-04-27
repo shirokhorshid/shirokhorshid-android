@@ -155,7 +155,7 @@
   <string name="about">Что такое Psiphon</string>
   <string name="feedback">Отзыв</string>
   <string name="tunnel_whole_device_toggle">Туннелировать все интернет-соединения (требует Android 4.0+)</string>
-  <string name="disable_timeouts">Отключение лимита времени соединения для медленных сетей</string>
+  <string name="disableTimeoutsPreferenceSummary">Отключение лимита времени соединения для медленных сетей</string>
   <string name="region_selector">Выберите регион</string>
   <string name="network_proxy_connect_exception">Ошибка соединения с HTTP прокси сети: %s</string>
   <string name="network_proxy_connect_information">Подключение через ваш HTTP прокси: %s</string>

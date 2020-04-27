@@ -155,7 +155,7 @@
   <string name="about">Acerca de Psiphon</string>
   <string name="feedback">Comentarios</string>
   <string name="tunnel_whole_device_toggle">Derivar por el túnel el dispositivo al completo (requiere Android 4.0+)</string>
-  <string name="disable_timeouts">Deshabilitar tiempos de espera para redes lentas</string>
+  <string name="disableTimeoutsPreferenceSummary">Deshabilitar tiempos de espera para redes lentas</string>
   <string name="region_selector">Seleccionar región</string>
   <string name="network_proxy_connect_exception">Fallo al conectar al proxy HTTP de la red: %s</string>
   <string name="network_proxy_connect_information">Conectando mediante su proxy HTTP: %s</string>
@@ -184,7 +184,7 @@
   <string name="preference_notifications_with_sound_summary">Reproduce un sonido cuando cambie el estado de la conexión</string>
   <string name="preference_notifications_with_vibrate_title">Vibración</string>
   <string name="preference_notifications_with_vibrate_summary">Vibra cuando el estado de la conexión cambia</string>
-  <string name="preference_download_wifi_only_toggle">Descarga de actualizaciones sólo sobre Wi-Fi</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Descarga de actualizaciones sólo sobre Wi-Fi</string>
   <string name="moreOptions">Más opciones</string>
   <string name="root_mode_not_supported">El modo root no está soportado en esta versión de Android</string>
   <string name="proxySettingsCategoryTitle">Configuraciones para proxy</string>

@@ -151,7 +151,7 @@
   <string name="about">Psiphon haqda</string>
   <string name="feedback">Şərhiniz</string>
   <string name="tunnel_whole_device_toggle">Bütün aləti tunelə qoş (Android 4.0+ tələb olunur)</string>
-  <string name="disable_timeouts">Aşağı sürətli şəbəkələr üçün dayanmaları söndür</string>
+  <string name="disableTimeoutsPreferenceSummary">Aşağı sürətli şəbəkələr üçün dayanmaları söndür</string>
   <string name="region_selector">Bölgəni seçin</string>
   <string name="network_proxy_connect_exception">Şəbəkənin HTTP proksisinə qoşulma alınmadı: %s</string>
   <string name="network_proxy_connect_information">Sizin HTTP proksinizlə qoşulur: %s</string>

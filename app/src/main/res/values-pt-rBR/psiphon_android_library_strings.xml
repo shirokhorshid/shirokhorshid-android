@@ -155,7 +155,7 @@
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentários</string>
   <string name="tunnel_whole_device_toggle">Tunelar todo o dispositivo (requer Android 4.0+)</string>
-  <string name="disable_timeouts">Desabilitar timeouts para redes lentas</string>
+  <string name="disableTimeoutsPreferenceSummary">Desabilitar timeouts para redes lentas</string>
   <string name="region_selector">Escolha a região</string>
   <string name="network_proxy_connect_exception">Falha ao conectar ao Proxy HTTP da rede: %s</string>
   <string name="network_proxy_connect_information">Conectando através do seu Proxy HTTP: %s</string>

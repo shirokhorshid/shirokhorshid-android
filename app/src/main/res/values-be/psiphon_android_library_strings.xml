@@ -153,7 +153,7 @@
   <string name="about">Пра Psiphon</string>
   <string name="feedback">Зваротная сувязь</string>
   <string name="tunnel_whole_device_toggle">Тунеляваць усю прыладу цалкам (патрэбны Android 4.0+)</string>
-  <string name="disable_timeouts">Адключыць час чакання для павольных злучэнняў</string>
+  <string name="disableTimeoutsPreferenceSummary">Адключыць час чакання для павольных злучэнняў</string>
   <string name="region_selector">Абраць рэгіён</string>
   <string name="network_proxy_connect_exception">Памылка падлучэння да HTTP проксі-сервера сеткі: %s</string>
   <string name="network_proxy_connect_information">Ідзе падлучэнне праз ваш проксі-сервер HTTP : %s</string>

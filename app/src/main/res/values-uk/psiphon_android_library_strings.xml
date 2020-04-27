@@ -154,7 +154,7 @@
   <string name="about">Про Psiphon</string>
   <string name="feedback">Відгуки</string>
   <string name="tunnel_whole_device_toggle">Тунелювання всього пристрою (вимагається Android 4.0+)</string>
-  <string name="disable_timeouts">Вимкнути час очікування для повільних мереж</string>
+  <string name="disableTimeoutsPreferenceSummary">Вимкнути час очікування для повільних мереж</string>
   <string name="region_selector">Виберіть країну</string>
   <string name="network_proxy_connect_exception">Не вдалося під\'єднатися до проксі HTTP мережі:%s</string>
   <string name="network_proxy_connect_information">Під\'єднання через ваш проксі HTTP :%s</string>
@@ -183,7 +183,7 @@
   <string name="preference_notifications_with_sound_summary">Звук під час зміни стану з\'єднання</string>
   <string name="preference_notifications_with_vibrate_title">Вібрувати</string>
   <string name="preference_notifications_with_vibrate_summary">Вібрувати, коли змінюється статус з\'єднання</string>
-  <string name="preference_download_wifi_only_toggle">Завантажувати оновлення лише через Wi-Fi</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Завантажувати оновлення лише через Wi-Fi</string>
   <string name="moreOptions">Більше параметрів</string>
   <string name="root_mode_not_supported">Режим адміністратора не підтримується в цій версії Android</string>
   <string name="proxySettingsCategoryTitle">Параметри проксі</string>

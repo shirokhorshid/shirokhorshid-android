@@ -153,7 +153,7 @@
   <string name="about">সাইফন সম্পর্কে</string>
   <string name="feedback">প্রতিক্রিয়া</string>
   <string name="tunnel_whole_device_toggle">টানেল সমগ্র ডিভাইস (অ্যান্ড্রয়েড 4.0+ প্রয়োজন)</string>
-  <string name="disable_timeouts">ধীর গতির নেটওয়ার্কগুলির জন্য সময়সীমা অক্ষম করুন</string>
+  <string name="disableTimeoutsPreferenceSummary">ধীর গতির নেটওয়ার্কগুলির জন্য সময়সীমা অক্ষম করুন</string>
   <string name="region_selector">অঞ্চল নির্বাচন করুন</string>
   <string name="network_proxy_connect_exception">নেটওয়ার্ক এর HTTP প্রক্সির সাথে সংযোগ করতে ব্যর্থ:%s</string>
   <string name="network_proxy_connect_information">আপনার HTTP প্রক্সির মাধ্যমে সংযুক্ত হচ্ছে:%s</string>
@@ -182,7 +182,7 @@
   <string name="preference_notifications_with_sound_summary">সংযোগ স্থিতি পরিবর্তন হলে শব্দটি প্লে করুন</string>
   <string name="preference_notifications_with_vibrate_title">কম্পন</string>
   <string name="preference_notifications_with_vibrate_summary">কম্পন যখন সংযোগ স্থিতি পরিবর্তন </string>
-  <string name="preference_download_wifi_only_toggle">শুধুমাত্র Wi-Fi এ আপগ্রেড ডাউনলোড করুন</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">শুধুমাত্র Wi-Fi এ আপগ্রেড ডাউনলোড করুন</string>
   <string name="moreOptions">আরো বিকল্প</string>
   <string name="root_mode_not_supported">অ্যান্ড্রয়েড এর এ সংস্করণে রুট মোডটি সমর্থিত নয়</string>
   <string name="proxySettingsCategoryTitle">প্রক্সি সেটিংস</string>

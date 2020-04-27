@@ -155,7 +155,7 @@
   <string name="about">Giới thiệu về Psiphon</string>
   <string name="feedback">Ý kiến phản hồi</string>
   <string name="tunnel_whole_device_toggle">Kết Nối Toàn Thiết Bị Xuyên Qua Psiphon (cần Android 4.0+)</string>
-  <string name="disable_timeouts">Tắt hạn chờ cho mạng chậm</string>
+  <string name="disableTimeoutsPreferenceSummary">Tắt hạn chờ cho mạng chậm</string>
   <string name="region_selector">Chọn vùng</string>
   <string name="network_proxy_connect_exception">Không thể kết nối với proxy HTTP của mạng: %s</string>
   <string name="network_proxy_connect_information">Kết nối thông qua proxy HTTP của bạn: %s</string>

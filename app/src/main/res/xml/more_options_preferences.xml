@@ -36,13 +36,13 @@
         <CheckBoxPreference
             android:icon="@drawable/baseline_sync_disabled_white_24"
             android:key="@string/disableTimeoutsPreference"
-            android:title="Disable timeouts"
-            android:summary="@string/disable_timeouts" />
+            android:title="@string/disableTimeoutsPreferenceTitle"
+            android:summary="@string/disableTimeoutsPreferenceSummary" />
         <CheckBoxPreference
             android:icon="@drawable/baseline_system_update_white_24"
             android:key="@string/downloadWifiOnlyPreference"
-            android:title="Wi-Fi only"
-            android:summary="@string/preference_download_wifi_only_toggle" />
+            android:title="@string/downloadWiFiOnlyPreferenceTitle"
+            android:summary="@string/downloadWiFiOnlyPreferenceSummary" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preference_category_info_title">

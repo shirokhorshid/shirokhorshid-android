@@ -153,7 +153,7 @@
   <string name="about">Psiphon (سائفن) سے متعلق</string>
   <string name="feedback">آراؑ</string>
   <string name="tunnel_whole_device_toggle">Tunnel (ٹنل) مکمل ڈیوائس (اینڈرائیڈ +4.0 مطلوب ہے)</string>
-  <string name="disable_timeouts">سست نیٹ ورکس کے ٹائم آؤٹ کو غیر فعال کریں</string>
+  <string name="disableTimeoutsPreferenceSummary">سست نیٹ ورکس کے ٹائم آؤٹ کو غیر فعال کریں</string>
   <string name="region_selector">علاقہ منتخب کریں</string>
   <string name="network_proxy_connect_exception">نیٹ ورک کے HTTP پراکسی سے رابطہ قائم کرنے میں ناکام: %s</string>
   <string name="network_proxy_connect_information">آپ کے HTTP پراکسی کے ذریعہ رابطہ قائم ہو ریا یے: %s</string>
@@ -182,7 +182,7 @@
   <string name="preference_notifications_with_sound_summary"> آواز چلائیں جب کنکشن کی کیفیت بدل جاتی ہے </string>
   <string name="preference_notifications_with_vibrate_title">وائبریٹ</string>
   <string name="preference_notifications_with_vibrate_summary">وائبریٹ کریں جب کنکشن کی کیفیت بدل جاتی ہے</string>
-  <string name="preference_download_wifi_only_toggle">اپ گریڈ کو صرف Wi-FI (وائی- فائی) پر ڈاؤن لوڈ کریں</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">اپ گریڈ کو صرف Wi-FI (وائی- فائی) پر ڈاؤن لوڈ کریں</string>
   <string name="moreOptions">زیادو آپشنز</string>
   <string name="root_mode_not_supported">اینڈرائڈ کے اس ورژن پر روٹ موڈ کی سہولت نہیں ہے</string>
   <string name="proxySettingsCategoryTitle">Proxy Settings</string>

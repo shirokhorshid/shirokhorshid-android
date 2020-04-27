@@ -155,7 +155,7 @@
   <string name="about">關於賽風</string>
   <string name="feedback">回饋</string>
   <string name="tunnel_whole_device_toggle">全局代理設備（適用於 Android 4.0+）</string>
-  <string name="disable_timeouts">慢速網路中禁用超時斷線</string>
+  <string name="disableTimeoutsPreferenceSummary">慢速網路中禁用超時斷線</string>
   <string name="region_selector">選擇區域</string>
   <string name="network_proxy_connect_exception">無法連接到網絡的HTTP代理：%s</string>
   <string name="network_proxy_connect_information">正在通過您的HTTP代理連接：%s</string>
@@ -184,7 +184,7 @@
   <string name="preference_notifications_with_sound_summary">當連接狀態改變時發出聲音</string>
   <string name="preference_notifications_with_vibrate_title">震動</string>
   <string name="preference_notifications_with_vibrate_summary">當連接狀態改變時震動</string>
-  <string name="preference_download_wifi_only_toggle">僅在 WiFi 環境下下載更新</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">僅在 WiFi 環境下下載更新</string>
   <string name="moreOptions">更多選項</string>
   <string name="root_mode_not_supported">您的安卓版本不支持 root 模式</string>
   <string name="proxySettingsCategoryTitle">代理設置</string>

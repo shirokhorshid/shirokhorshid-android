@@ -122,7 +122,7 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentário</string>
-  <string name="disable_timeouts">Desativar \'expiração\' para redes lentas</string>
+  <string name="disableTimeoutsPreferenceSummary">Desativar \'expiração\' para redes lentas</string>
   <string name="region_selector">Selecione a região</string>
   <string name="preference_notifications_title">Notificações</string>
   <string name="preference_vpn_title">VPN</string>
