@@ -34,7 +34,9 @@
   <string name="psiphon_running_browser_only">Suoritetaan vain selaintilassa</string>
   <string name="waiting_for_network_connectivity">Odotetaan verkkoyhteyttä...</string>
   <string name="psiphon_service_notification_message_connecting">Yhdistetään...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon-palveluilmoitus</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Ensisijaiset palvelimet: %d</string>
   <string name="selecting_server">Valitaan palvelin...</string>
   <string name="fetch_remote_server_list">Noudetaan etäpalvelinluettelo...</string>
@@ -50,10 +52,13 @@
   <string name="current_network_type">Nykyinen verkko: %s</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Päivitystiedoston kirjoittaminen epäonnistui</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Päivityksen lataus epäonnistui</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Päivitys ladattu. Suosittelemme painokkaasti, että sallit päivityksen jatkua tällä kertaa. Päivityksen jälkeen sinun on käynnistettävä Psiphon uudelleen.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Päivitys epäonnistui. Pakkaustietojen purkaminen päivitystiedostosta epäonnistui.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Päivitystiedostoa ei löytynyt</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-päivitys</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon-päivitys on valmis asennettavaksi.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Päivitystiedoston lukeminen epäonnistui</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Päivitystiedoston todentaminen epäonnistui</string>
@@ -68,7 +73,6 @@
   <string name="home_tab_name">Koti</string>
   <string name="settings_tab_name">Valitsimet</string>
   <string name="statistics_tab_name">Tilastot</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Logitiedostot</string>
   <string name="http_proxy_address">Paikallinen HTTP-välityspalvelin käynnissä osoitteessa %s</string>
   <string name="share_proxies_toggle">Salli muiden verkkolaitteiden käyttää paikallisia välityspalvelimia</string>
@@ -89,6 +93,7 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Hollanti</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon-ohjelmasta</string>
   <string name="feedback">Palaute</string>
   <string name="region_selector">Valitse alue</string>
@@ -97,6 +102,17 @@
   <string name="run_polipo_failed">Polipo-sovelluksen suorittaminen epäonnistui: %s</string>
   <string name="preference_notifications_title">Ilmoitukset</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Ääni</string>
   <string name="preference_notifications_with_sound_summary">Soita ääntä, kun yhteystila muuttuu</string>
   <string name="preference_notifications_with_vibrate_title">Värähtele</string>
@@ -114,6 +130,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

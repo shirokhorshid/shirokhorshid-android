@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">بانتظار عملية الاتصال بالشبكة المعلوماتية</string>
   <string name="checking_for_root_access">جاري التحقق للدخول الجذري </string>
   <string name="psiphon_service_notification_message_connecting">جاري الاتصال</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">إعلام خدمة  برنامج سايفون</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">السيرفرات المفضلة: %d</string>
   <string name="selecting_server">اختيار السيرفر ...</string>
   <string name="fetch_remote_server_list">جلب قائمة السيرفر server عن بعد... </string>
@@ -91,10 +93,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">يتعذر استرجاع معلومات الحزمة للتطبيق الحالي</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">فشل كتابة ملف التحديث</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">فشل تنزيل التحديث</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">تم تنزيل النسخة الجديدة. من الأقضل تحميل النسخة الجديدة فورا. بعد التحميل, سوف يستوجب تشغيل سايفون مرة أخرى.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">فشل التحديث. تعذر استخراج معلومات الحزمة من ملف التحديث.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">لم يتم العثور على ملف التحديث</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">تحديث برنامج سايفون</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">هناك تحسين لبرنامج سايفون و هو متوفر للتثبيت.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">لم يتم قراءة ملف التحديث</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">لم تتم المصادقة على ملف التحديث</string>
@@ -109,7 +114,6 @@
   <string name="home_tab_name">الرئيسية </string>
   <string name="settings_tab_name">الإعدادات </string>
   <string name="statistics_tab_name">البيانات </string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">السجلات </string>
   <string name="socks_proxy_address">وكيل بروتوكول SOCKS المحلي يعمل بنسبة  %s</string>
   <string name="http_proxy_address">بروكسي HTTP المحلي يشتغل بنسبة %s</string>
@@ -150,6 +154,7 @@
   <string name="region_name_sk">سلوفاكيا</string>
   <string name="region_name_rs">صربيا</string>
   <string name="region_name_au">أستراليا</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">من نحن؟</string>
   <string name="feedback">رأيك </string>
   <string name="tunnel_whole_device_toggle">تمرير الجهاز بأكمله عبر النفق (يتطلب أندرويد 4.0+) </string>
@@ -167,11 +172,20 @@
   <string name="http_prefix_toggle">التنكر بصورة بروتوكول HTTP </string>
   <string name="preference_notifications_title">الإعلامات </string>
   <string name="preference_vpn_title">الشبكة الخاصة الإفتراضية</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">التطبيقات المستبعدة</string>
-  <string name="preference_routing_exclude_apps_summary">منع التطبيقات المحددة من تمريرها بالنفق</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">ضبط</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">التطبيق المُستبعد من النفق: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">لم يتم استبعاد أي تطبيق من النفق</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">صوت </string>
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
   <string name="preference_notifications_with_vibrate_title">إهتزاز </string>
@@ -203,6 +217,7 @@
   <string name="waiting">جاري الإنتظار ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">موافق</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

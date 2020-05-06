@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Neetwoorkiin hamma argamutti eegaa jira...</string>
   <string name="checking_for_root_access">Argannoo hundee  caqasaa jira...</string>
   <string name="psiphon_service_notification_message_connecting">Wal agarsiisaa jira...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Beeksisa Tajaajila Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Serveriiwwan filataman: %d</string>
   <string name="selecting_server">Serverii filataa jira...</string>
   <string name="fetch_remote_server_list">Tarree serverii fagoo irraa funaanaa jira...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Appilikeeshinii amma jiruuf walitti-qabinsa odeeffannoo deebisanii argachuun hin danda\'amne</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Faayilii fooeyeffame barreessuun hin milkoofne</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Kan fooyeffame gad fe\'uun hin danda\'amne</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Kan fooyya’e gad fe\'ameera.  kan fooyya’e amma akka itti fufu akka eeyyamtu haala ol-aanaan gorsama. Erga fooyessitanii booda, Psiphon deebisatanii jalqabsisuu qabdu.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Fooyyessuun hin danda\'amne. Odeeffannoo galmee fooyyeffame keessaa baasuun hin danda\'amu.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Galmeen fooyeffame hin jiru</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Fooyyessa Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Kan Psiphon ittiin fooyyessan fe\'amuuf qophee dha.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Faayila foyyeessaa dubbisuun  hin danda\'amne</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Faayila foyyeessaa mirkaneessuun hin danda\'amne</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Fuula duraa</string>
   <string name="settings_tab_name">Filmaatawwan</string>
   <string name="statistics_tab_name">Istaatistiksii</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Galmeelee</string>
   <string name="socks_proxy_address">Bakka bu\'aa SOCKS naannoo jiruu hojjetaa jira %s</string>
   <string name="http_proxy_address">Bkka bu\'aan HTTP naannoo jiru hojjetaa jira %s</string>
@@ -144,6 +148,7 @@
   <string name="region_name_ro">Roomaaniyaa</string>
   <string name="region_name_se">Iswiidin</string>
   <string name="region_name_pl">Polaand</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Waa\'ee Psiphon</string>
   <string name="feedback">Yaada</string>
   <string name="tunnel_whole_device_toggle">Dabarsa Meeshaa guutuu (Android 4.0+ barbaachisa)</string>
@@ -157,11 +162,20 @@
   <string name="wdm_force_iptables_toggle">Mala hundee dabarsa meeshaa guutuu dirqisiisi</string>
   <string name="http_prefix_toggle">HTTP fakkeessi</string>
   <string name="preference_notifications_title">Yaadachiisawwan</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Appilikeeshiniiwwan moggaatti qoodi</string>
-  <string name="preference_routing_exclude_apps_summary">Appilikeeshiniiwwan filataman akka hin dabarfamne ittisi</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Tolchi</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Appilikeeshinii dabarsa keessaa hambifame: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Appilikeeshiniin kamiyyu dabarsama keessaa hin hambifamne</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Sagalee</string>
   <string name="preference_notifications_with_sound_summary">Akkaataan wal qabsiisuu ennaa jijjiiramu sagalee dhageessisi</string>
   <string name="preference_notifications_with_vibrate_title">Hollachiisi</string>
@@ -193,6 +207,7 @@
   <string name="waiting">Eegaa jira...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

@@ -1,12 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="disconnected">ตัดการเชื่อมต่อ</string>
   <string name="label_sent">ส่งแล้ว</string>
   <string name="start">เริ่ม</string>
   <string name="stop">หยุด</string>
   <string name="home_tab_name">หน้าหลัก</string>
   <string name="settings_tab_name">ตัวเลือก</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
+  <string name="statistics_tab_name">สถิติ</string>
   <string name="logs_tab_name">ปูม</string>
   <string name="share_proxies_prompt_positive">เริ่มต้นใหม่เดี๋ยวนี้</string>
   <string name="share_proxies_prompt_negative">ยกเลิก</string>
@@ -32,13 +38,27 @@
   <string name="region_name_pl">โปแลนด์</string>
   <string name="region_name_rs">เซอร์เบีย</string>
   <string name="region_name_au">ออสเตรเลีย</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="feedback">การตอบสนอง</string>
   <string name="preference_notifications_title">การแจ้งเตือน</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ตกลง</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

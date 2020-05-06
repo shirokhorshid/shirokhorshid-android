@@ -28,6 +28,8 @@
   <string name="psiphon_stopped">Zvamira</string>
   <string name="waiting_for_network_connectivity">Takamirira kochekero yetande...</string>
   <string name="psiphon_service_notification_message_connecting">Kukochekera...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Maservers anodiwa: %d</string>
   <string name="selecting_server">Kusarudza server...</string>
   <string name="vpn_service_failed">Chirango cheVPN charamba: %s</string>
@@ -51,8 +53,11 @@
   <string name="dns_resolver">DNS resolver: %s</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Tatadza kunyora faira rekukwidziridza software</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Kututunura kwekwidziridzo yesoftware kwaramba</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeFileNotFound">Kwidziridzo yesoftware yashaikwa.</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Kwidziridzo yesoftware yePsiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Pane kwidziridzo yesoftware yePsiphon yagadzirira kuvakirirwa.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Tatadza kuverenga faira rekukwidziridza software</string>
   <string name="connected_elapsed_time">Kukochekera: %s</string>
@@ -65,7 +70,6 @@
   <string name="stop">Mira</string>
   <string name="home_tab_name">Pekutangira</string>
   <string name="settings_tab_name">Sarudzo</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Matarwa emakare</string>
   <string name="share_proxies_prompt_title">Kutangidza app kurikudiwa</string>
   <string name="share_proxies_prompt_message">App irikufanirwa kutangidza kuti gadziro iyi ishandisike.</string>
@@ -84,6 +88,7 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Netherlands</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Nezve pamusoro pePsiphon</string>
   <string name="feedback">Mhinduro</string>
   <string name="disable_timeouts">Rambidza kupera kwenguva kana paine matande anononoka</string>
@@ -94,6 +99,17 @@
   <string name="run_polipo_failed">Kushandisa Polipo kwaramba: %s</string>
   <string name="http_prefix_toggle">Ita kunge HTTP</string>
   <string name="preference_notifications_title">Zviziviso</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Ruzha</string>
   <string name="moreOptions">Sarudzo dzimwe</string>
   <string name="proxySettingsCategoryTitle">Gadziro dzeProxy</string>
@@ -104,6 +120,7 @@
   <string name="waiting">Kumirira...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

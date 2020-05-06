@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">انتظار برای اتصال به شبکه...</string>
   <string name="checking_for_root_access">درحال بررسی دسترسی به روت...</string>
   <string name="psiphon_service_notification_message_connecting">در حال اتصال...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">اعلانات سرویس سایفون </string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_channel_name">وضعیت سایفون تغییر می‌کند</string>
   <string name="preferred_servers">سرورهای مورد ترجیح:  %d</string>
   <string name="selecting_server">انتخاب سرور...</string>
@@ -90,10 +92,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">بازیابی اطلاعات بسته برای برنامه جاری امکان پذیر نیست  </string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">خطا در نوشتن فایل ارتقا</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">دانلود بروزرسانی ناموفقیت آمیز بود</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">بسته بروزرسانی دانلود شد. به شدت توصیه می‌شود که شما اجازه‌ی به روزرسانی اپلیکیشن را همین الان بدهید. پس از بروزرسانی شما باید سایفون را دوباره راه اندازی کنید.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">به روز رسانی ناموفقیت آمیز بود. بازکردن اطلاعات بسته از فایل ارتقا نا‌موفق بود.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">فایل بروزرسانی پیدا نشد.</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">به روز رسانی سایفون</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">بسته بروزرسانی سایفون آماده نصب است.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">ناموفقیت آمیز بودن خواندن فایل بروز رسانی</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">تصدیق فایل بروز رسانی نا‌موفقیت آمیز بود </string>
@@ -108,8 +113,6 @@
   <string name="home_tab_name">خانه</string>
   <string name="settings_tab_name">گزینه‌ها </string>
   <string name="statistics_tab_name">آمارها</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
-  <string name="psicash_tab_name">PsiCash</string>
   <string name="logs_tab_name">لاگ</string>
   <string name="socks_proxy_address">ساکس محلی فعال است s%</string>
   <string name="http_proxy_address">پراکسی اچ تی تی پی فعال است در s%</string>
@@ -150,6 +153,7 @@
   <string name="region_name_sk">اسلواکی</string>
   <string name="region_name_rs">صربستان</string>
   <string name="region_name_au">استرالیا</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">درباره سایفون</string>
   <string name="feedback">بازخوردها</string>
   <string name="tunnel_whole_device_toggle">تونل تمام دستگاه «نیاز به اندروید ۴.۰ به بالا دارد»</string>
@@ -164,11 +168,35 @@
   <string name="http_prefix_toggle">ترافیک را مثل http نشان بده</string>
   <string name="preference_notifications_title">اطلاعیه ها</string>
   <string name="preference_vpn_title">وی پی ان</string>
+  <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">تونل همه برنامه‌ها</string>
+  <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">شامل شدن برنامه‌ها</string>
+  <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">تونل تنها برنامه‌های انتخاب شده</string>
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">حذف برنامه‌ها</string>
-  <string name="preference_routing_exclude_apps_summary">برنامه‌های انتخاب شده را از استفاده از سایفون منع کنید.</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">تنظیم</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">عدم تونل برنامه‌های انتخاب شده</string>
+  <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">تونل برنامه: %s</string>
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">%s برنامه‌ها از سایفون استفاده نمی‌کنند </string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">هیچ برنامه‌ای بیرون از تونل سایفون قرار نگرفت. </string>
+  <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">برنامه‌ها را انتخاب کنید</string>
+  <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d برنامه با VPN تونل خواهد شد</item>
+    <item quantity="other">%d برنامه با VPN تونل خواهد شد</item>
+  </plurals>
+  <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d برنامه از VPN استثنا خواهد شد</item>
+    <item quantity="other">%d برنامه از VPN استثنا خواهد شد</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">تمام برنامه‌ها از VPN تونل خواهد شد</string>
   <string name="preference_notifications_with_sound_title">صدا </string>
   <string name="preference_notifications_with_sound_summary">وقتی وضعیت اتصال تغییر میکند صدا پخش شود</string>
   <string name="preference_notifications_with_vibrate_title">ویبره</string>
@@ -201,6 +229,7 @@
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">درخواست مجوز</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">با اعطای دسترسی به مکان خودتان، به سایفون اجازه دهید تصمیمات بهتری در مورد چگونگی عملکرد روی شبکه شما بگیرد.\n\nبه یاد داشته باشید که این اطلاعات تنها به صورت محلی در دستگاه خود شما مورد استفاده قرار می‌گیرد، و به سرورهای ما یا هیچ شخص ثالثی انتقال نمی‌یابد.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">قبول</string>

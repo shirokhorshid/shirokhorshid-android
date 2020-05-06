@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Wachten op netwerkverbinding...</string>
   <string name="checking_for_root_access">Controle voor root toegang...</string>
   <string name="psiphon_service_notification_message_connecting">Verbinden</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon Service Notificatie</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Gewenste servers: %d</string>
   <string name="selecting_server">Selecteren Server...</string>
   <string name="fetch_remote_server_list">Ophalen externe server lijst</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Niet in staat om op te halen pakket informatie voor de huidige app</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Mislukt te schrijven upgrade-bestand</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Upgrade download mislukt</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Upgrade gedownload. Het wordt ten zeerste aanbevolen dat u toestaan dat de upgrade om verder te gaan op dit moment. Na het upgraden, moet u Psiphon opnieuw starten.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Upgrade is mislukt. Kan niet uitpakken pakket info vanaf upgrade-bestand.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Upgrade bestand niet gevonden</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon Upgrade</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Een upgrade voor Psiphon is klaar om te worden geïnstalleerd.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Mislukt te lezen upgrade bestand</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Mislukt te authenticeren upgrade-bestand</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">THUIS</string>
   <string name="settings_tab_name">OPTIE</string>
   <string name="statistics_tab_name">STATISTIEK</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">LOGBOEK</string>
   <string name="socks_proxy_address">Lokale SOCKS proxy  werkt op %s</string>
   <string name="http_proxy_address">Lokale HTTP proxy werkt op %s</string>
@@ -148,6 +152,7 @@
   <string name="region_name_sk">Slovakije</string>
   <string name="region_name_rs">Servië</string>
   <string name="region_name_au">Australië</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Over Psiphon</string>
   <string name="feedback">Feedback</string>
   <string name="tunnel_whole_device_toggle">Tunnel gehele apparaat (vereist Android 4.0+)</string>
@@ -162,11 +167,20 @@
   <string name="http_prefix_toggle">Voordoen als HTTP</string>
   <string name="preference_notifications_title">Notificatie</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Uitsluiten Apps</string>
-  <string name="preference_routing_exclude_apps_summary">Voorkomen dat gekozen apps worden getunneld</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">Ingesteld</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">App uitsluiten van tunnel: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Geen applicaties werden uitgesloten van de tunnel</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Geluid</string>
   <string name="preference_notifications_with_sound_summary">Speel geluid wanneer status van de verbinding verandert</string>
   <string name="preference_notifications_with_vibrate_title">Trillen</string>
@@ -198,6 +212,7 @@
   <string name="waiting">Wachten...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

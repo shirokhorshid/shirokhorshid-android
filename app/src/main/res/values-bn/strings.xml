@@ -37,21 +37,10 @@
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ঠিক আছে</string>
   <string name="preference_navigate_to_vpn_setting_title">সর্বদা সচল VPN</string>
-  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
-  <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
-    since it gets converted to a hyperlink automatically.-->
-  <!--Kin onboarding prompt positive button label.-->
-  <!--Kin onboarding prompt negative button label.-->
-  <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin opt-out prompt negative button label.-->
+  <!--Generic negative button label.-->
   <string name="lbl_no">না</string>
-  <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
+  <!--Generic positive button label.-->
   <string name="lbl_yes">হা</string>
-  <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
-     Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
-  <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
   <!--"Please open Psiphon to keep connecting" notification title-->
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
   <!--"Selected region is not available" notification title-->
@@ -59,4 +48,5 @@
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon ভিপিএন বন্ধ আছে</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <!--Description for an app icon image-->
 </resources>

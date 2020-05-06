@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">نیٹ ورک منسلک ہونے کا انتظار کرے۔۔۔</string>
   <string name="checking_for_root_access">root (روٹ) تک رسائی کی جانچ کرے</string>
   <string name="psiphon_service_notification_message_connecting">رابطہ ہو رہا ہے۔۔۔</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon (سائفن) سروس کی اطلاع</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">پسندیدہ سرورز: %d</string>
   <string name="selecting_server">سرور کا انتخاب ہو رہا ہے۔۔۔</string>
   <string name="fetch_remote_server_list">ریموٹ سرور کی لسٹ حاصل کر رہے ہیں۔۔۔</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">موجودہ ایپ کیلئے پیکیج کی معلومات حاصل کرنے سے قاصر ہے</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">اپ گریڈ فائل لکھنے میں ناکام</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">ڈاؤن لوڈ اپ گریڈ ناکام ہو گئی</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">اپ گریڈ ڈاؤن لوڈ ہورہا۔ اس کی مظبوط سفارش کی جاتی ہے کہ آپ اس وقت اپ گریڈ کو آگے بڑھنے دیں۔ اپ گریڈ کرنے کے بعد ، آپ کو Psiphon (سائفن) کو دوبارہ لانچ کرنا پڑے گا۔</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">اپ گریڈ ناکام ہو گئی ۔ اپ گریڈ فائل میں سے پیکچ کی معلومات نہیں نکال سکتے۔</string>
   <string name="UpgradeManager.UpgradeFileNotFound">اپ گریڈ فائل نہیں مل رہی</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon (سائفن) اپ گریڈ ہو گیا</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon (سائفن) کے لئے ایک اپ گریڈ انسٹال ہونے کےلئے تیار ہے۔</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">اپ گریڈ فائل پڑھنے میں ناکام ہو گئی</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">اپ گریڈ فائل کو مستند کرنے میں ناکام۔</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">ابتدائی صحفہ</string>
   <string name="settings_tab_name">آپشنز </string>
   <string name="statistics_tab_name">stats(سٹیٹس)</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">لاگز</string>
   <string name="socks_proxy_address">لوکل SOCKS پراکسی %s چل رہی ہے </string>
   <string name="http_proxy_address">لوکل HTTPS پراکسی %s چل رہی ہے</string>
@@ -145,6 +149,7 @@
   <string name="region_name_se">سویڈن</string>
   <string name="region_name_pl">پولینڈ</string>
   <string name="region_name_sk">سلوواکیہ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon (سائفن) سے متعلق</string>
   <string name="feedback">آراؑ</string>
   <string name="tunnel_whole_device_toggle">Tunnel (ٹنل) مکمل ڈیوائس (اینڈرائیڈ +4.0 مطلوب ہے)</string>
@@ -159,11 +164,20 @@
   <string name="http_prefix_toggle">HTTP جیسی بناوٹ</string>
   <string name="preference_notifications_title">اطلاع کرنا</string>
   <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">ایپس کو خارج کریں</string>
-  <string name="preference_routing_exclude_apps_summary">منتخب ایپس کو ٹنلڈ ہونے سے روکیں</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">سیٹ کریں</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">ایپ کو ٹنل سے خارج نہیں کیا گیا: %s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">ٹنل سے کسی بھی ایپلیکشن کو خارج نہیں کیا گیا تھا</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">آواز</string>
   <string name="preference_notifications_with_sound_summary"> آواز چلائیں جب کنکشن کی کیفیت بدل جاتی ہے </string>
   <string name="preference_notifications_with_vibrate_title">وائبریٹ</string>
@@ -195,6 +209,7 @@
   <string name="waiting">انتظار کیجئے۔۔۔</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

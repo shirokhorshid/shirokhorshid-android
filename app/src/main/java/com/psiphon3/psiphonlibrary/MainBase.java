@@ -63,6 +63,7 @@ import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -169,6 +170,7 @@ public abstract class MainBase {
         private CompositeDisposable compositeDisposable = new CompositeDisposable();
         protected TunnelServiceInteractor tunnelServiceInteractor;
         private Disposable handleNfcIntentDisposable;
+        private StatusEntryAdded m_statusEntryAddedBroadcastReceiver;
 
         public TabbedActivityBase() {
             Utils.initializeSecureRandom();
@@ -231,6 +233,7 @@ public abstract class MainBase {
         // http://danielkvist.net/code/animated-tabhost-with-slide-gesture-in-android
         private static final int ANIMATION_TIME = 240;
         protected TabHost m_tabHost;
+        protected HorizontalScrollView m_tabsScrollView;
         private int m_currentTab;
         private View m_previousView;
         private View m_currentView;
@@ -310,6 +313,20 @@ public abstract class MainBase {
             m_currentTab = m_tabHost.getCurrentTab();
 
             m_multiProcessPreferences.put(CURRENT_TAB, m_currentTab);
+
+            // Also scroll to the corresponding tab label if it is not fully in view
+            View tabView = m_tabHost.getTabWidget().getChildTabViewAt(m_tabHost.getCurrentTab());
+            int vLeft = tabView.getLeft();
+            int vRight = tabView.getRight();
+            int sScrollOffset = m_tabsScrollView.getScrollX();
+            int sWidth = m_tabsScrollView.getWidth();
+
+            if (vLeft < sScrollOffset) {
+                m_tabsScrollView.smoothScrollTo(vLeft, 0);
+            } else if (vRight > sWidth + sScrollOffset) {
+                m_tabsScrollView.smoothScrollTo(vRight - sWidth, 0);
+            }
+
         }
 
         /**
@@ -464,7 +481,11 @@ public abstract class MainBase {
 
             int currentTab = m_multiProcessPreferences.getInt(CURRENT_TAB, 0);
             m_currentTab = currentTab;
-            m_tabHost.setCurrentTab(currentTab);
+
+            // We need to delay this call until m_tabHost is fully inflated because we are
+            // calculating scrolling offsets in the onTabChanged(). This is achieved by using
+            // View.post(Runnable)
+            m_tabHost.post(() -> m_tabHost.setCurrentTab(currentTab));
 
             m_sponsorViewFlipper = (ViewFlipper) findViewById(R.id.sponsorViewFlipper);
             m_sponsorViewFlipper.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left));
@@ -490,8 +511,9 @@ public abstract class MainBase {
             // Set up the list view
             m_statusListManager = new StatusListViewManager(statusListView);
 
+            m_statusEntryAddedBroadcastReceiver = new StatusEntryAdded();
             m_localBroadcastManager = LocalBroadcastManager.getInstance(this);
-            m_localBroadcastManager.registerReceiver(new StatusEntryAdded(), new IntentFilter(STATUS_ENTRY_AVAILABLE));
+            m_localBroadcastManager.registerReceiver(m_statusEntryAddedBroadcastReceiver, new IntentFilter(STATUS_ENTRY_AVAILABLE));
 
             m_regionAdapter = new RegionAdapter(this);
             m_regionSelector.setAdapter(m_regionAdapter);
@@ -768,6 +790,8 @@ public abstract class MainBase {
                 m_sponsorHomePage = null;
             }
             compositeDisposable.dispose();
+            m_localBroadcastManager.unregisterReceiver(m_statusEntryAddedBroadcastReceiver);
+            m_statusListManager.onDestroy();
         }
 
         @Override

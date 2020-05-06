@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">নেটওয়ার্ক সংযোগের জন্য অপেক্ষা করা হচ্ছে ...</string>
   <string name="checking_for_root_access">রুট অ্যাক্সেসের জন্য চেক করা হচ্ছে ...</string>
   <string name="psiphon_service_notification_message_connecting">সংযুক্ত হচ্ছে ...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">সাইফন সার্ভিস বিজ্ঞপ্তি</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">পছন্দের সার্ভার: %d</string>
   <string name="selecting_server">সার্ভার নির্বাচন করা হচ্ছে ...</string>
   <string name="fetch_remote_server_list">দূরবর্তী সার্ভারে তালিকা আনা হচ্ছে ...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">বর্তমান অ্যাপ্লিকেশনের জন্য প্যাকেজ তথ্য পুনরুদ্ধার করতে অক্ষম</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">আপগ্রেড ফাইল লিখতে ব্যর্থ হয়েছে</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">আপগ্রেড ডাউনলোড ব্যর্থ হয়েছে</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">ডাউনলোড করা অ্যাপ্লিকেশন আপগ্রেড করুন, এটি জোরালোভাবে সুপারিশ করা হয় যে আপনি আপগ্রেড এই সময়ে এগিয়ে যাওয়ার অনুমতি দিন।আপগ্রেড করার পরে আপনাকে আবার সাইফনটি চালু করতে হবে।</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">আপগ্রেড ব্যর্থ হয়েছে ।আপগ্রেড ফাইল থেকে প্যাকেজ তথ্য সরানো যাবে না</string>
   <string name="UpgradeManager.UpgradeFileNotFound">আপগ্রেড ফাইল পাওয়া যায় নি</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">সাইফন আপগ্রেড</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">সাইফন এর একটি আপগ্রেড ইনস্টল করার জন্য প্রস্তুত।</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">আপগ্রেড ফাইল পড়তে ব্যর্থ হয়েছে</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">আপগ্রেড ফাইল প্রমাণীকরণ-এ ব্যর্থ হয়েছে</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">মূল</string>
   <string name="settings_tab_name">বিকল্প</string>
   <string name="statistics_tab_name">পরিসংখ্যান</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">কার্যবিবরণীগুলি</string>
   <string name="socks_proxy_address">স্থানীয় SOCKS প্রক্সি  %s এ চলছে</string>
   <string name="http_proxy_address">স্থানীয় HTTP প্রক্সি %s এ চলছে </string>
@@ -145,6 +149,7 @@
   <string name="region_name_se">সুইডেন</string>
   <string name="region_name_pl">পোল্যান্ড</string>
   <string name="region_name_sk">Slovakia</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">সাইফন সম্পর্কে</string>
   <string name="feedback">প্রতিক্রিয়া</string>
   <string name="tunnel_whole_device_toggle">টানেল সমগ্র ডিভাইস (অ্যান্ড্রয়েড 4.0+ প্রয়োজন)</string>
@@ -159,11 +164,20 @@
   <string name="http_prefix_toggle">HTTP হিসাবে মুখোমুখি</string>
   <string name="preference_notifications_title">প্রজ্ঞাপন</string>
   <string name="preference_vpn_title">ভিপিএন</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">অ্যাপ্লিকেশনগুলি বাদ দিন</string>
-  <string name="preference_routing_exclude_apps_summary">নির্বাচিত অ্যাপগুলিকে টানেল করা থেকে আটকান</string>
-  <string name="preference_routing_exclude_apps_ok_button_text">সেট</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">টানেল থেকে অ্যাপটি বাদ দেওয়া হয়েছে:%s</string>
+  <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">কোনো অ্যাপ্লিকেশন টানেল থেকে বাদ যায়নি</string>
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">শব্দ</string>
   <string name="preference_notifications_with_sound_summary">সংযোগ স্থিতি পরিবর্তন হলে শব্দটি প্লে করুন</string>
   <string name="preference_notifications_with_vibrate_title">কম্পন</string>
@@ -195,6 +209,7 @@
   <string name="waiting">অপেক্ষা করা হচ্ছে ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ঠিক আছে</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Интернет қосылымын күтуде...</string>
   <string name="checking_for_root_access">Root қатынауын тексеруде...</string>
   <string name="psiphon_service_notification_message_connecting">Қосылым орнатылуда…</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon қызметтік хабарламасы</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Таңдаулы серверлер: %d</string>
   <string name="selecting_server">Серверді таңдауда...</string>
   <string name="fetch_remote_server_list">Қашықтағы серверлер тізімін алуда…</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Ағымдағы қолданба үшін бума ақпаратын алу мүмкін емес</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Жаңарту файлын жазу сәтсіз болды</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Жаңартуды жүктеп алу сәтсіз болды</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Жаңарту жүктеліп алынды. Қазір жалғастыру үшін жаңартуға рұқсат етуді ұсынамыз. Жаңартылғаннан кейін Psiphon қолданбасын қайта іске қосу керек болады.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Жаңарту сәтсіз болды. Жаңарту файлынан бума ақпаратын шығарып алу мүмкін емес.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Жаңарту файлы табылмады</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon жаңартуы</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon жаңартуы орнату үшін дайын.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Жаңарту файлын оқу сәтсіз болды</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Жаңарту файлын аутентификациялау сәтсіз болды</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">басты бет</string>
   <string name="settings_tab_name">Таңдалатын нұсқалар</string>
   <string name="statistics_tab_name">Статистика</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журналдар</string>
   <string name="socks_proxy_address">Жергілікті SOCKS проксиі %s портында орындалуда</string>
   <string name="http_proxy_address">Жергілікті HTTP проксиі %s портында орындалуда</string>
@@ -143,6 +147,7 @@
   <string name="region_name_no">Норвегия</string>
   <string name="region_name_ro">Румыния</string>
   <string name="region_name_se">Швеция</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon туралы</string>
   <string name="feedback">Кері байланыс</string>
   <string name="tunnel_whole_device_toggle">Бүкіл құрылғыны туннельдеу (Android 4.0+ қажет)</string>
@@ -155,6 +160,17 @@
   <string name="wdm_force_iptables_toggle">Тұтас құрылғыны туннельдеудің root тәсілін орындату </string>
   <string name="http_prefix_toggle">HTTP сияқты бүркемелеу</string>
   <string name="preference_notifications_title">Хабарламалар</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Дыбыс</string>
   <string name="preference_notifications_with_sound_summary">Қосылым күйі өзгерген кезде дыбысты ойнату</string>
   <string name="preference_notifications_with_vibrate_title">Дірілдеу</string>
@@ -185,6 +201,7 @@
   <string name="waiting">Күтуде…</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Empty string array to initialize things that will be programatically populated later-->

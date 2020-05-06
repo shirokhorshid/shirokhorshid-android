@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="ApplicationName">የሳይፈን - Psiphon ማሰሺያ</string>
-  <string name="ApplicationNameUrl">Psiphon (ሳይፈን) - %s</string>
-  <string name="ApplicationDescription">የሳይፈን (Psiphon) ማሰሺያ በZirco ማሰሺያ ላይ የተመሰረተ የAndroid ክፍተ ምንጭ ማሰሺያ ነው።  </string>
+  <string name="ApplicationNameUrl">Psiphon - %s</string>
+  <string name="ApplicationDescription">Psiphon ማሰሺያ በZirco ማሰሺያ ላይ የተመሰረተ የAndroid ክፍተ ምንጭ ማሰሺያ ነው።  </string>
   <string name="AboutActivity.Title">ስለ</string>
   <string name="AboutActivity.VersionText">ስሪት:</string>
   <string name="AboutActivity.LicenseText">ፍቃድ፡-</string>
@@ -307,13 +307,13 @@
   <string name="HttpAuthenticationDialog.UserName">ስም </string>
   <string name="HttpAuthenticationDialog.Password">የይለፍ ቃል </string>
   <string name="Commons.Proceed">ቀጥል </string>
-  <string name="PreferencesActivity.EnableProxySettings">የስርአቱን ተኪ አንቃ </string>
-  <string name="PreferencesActivity.EnableProxySettingsSummary">የስርአቱን ተኪ ቅንብሮች ድጋፍ አንቃ ወይም አቦዝን።  </string>
-  <string name="ProxySettings.EnablingProxySettings">የተኪ ቅንብሮችን በማንቃት ላይ... </string>
-  <string name="ProxySettings.ErrorProxySettingsNotValid">የተሳሳተ የተኪ ስርአት ቅንብር።</string>
-  <string name="ProxySettings.ErrorProxyServerNotReachable">የተኪ አገልጋዩ መገኘት አልቻለም። </string>
-  <string name="ProxySettings.ErrorProxyInternetNotReachable">በተገለጸው የተኪ አገልጋይ አማካኝነት ድሩን ማግኘት አልተቻለም። </string>
-  <string name="ProxySettings.ProxySettingsEnabled">የተኪ ቅንብሩ በተሳካ መንገድ ነቅቷል። </string>
+  <string name="PreferencesActivity.EnableProxySettings">የሥርአቱን ወኪል አንቃ </string>
+  <string name="PreferencesActivity.EnableProxySettingsSummary">የሥርአቱን ወኪል ቅንብሮች ድጋፍ አንቃ ወይም አቦዝን።  </string>
+  <string name="ProxySettings.EnablingProxySettings">የወኪል ቅንብሮችን በማንቃት ላይ... </string>
+  <string name="ProxySettings.ErrorProxySettingsNotValid">የተሳሳተ የወኪል ሥርአት ቅንብር።</string>
+  <string name="ProxySettings.ErrorProxyServerNotReachable">የወኪል አገልጋዩ መገኘት አልቻለም። </string>
+  <string name="ProxySettings.ErrorProxyInternetNotReachable">በተገለጸው የወኪል አገልጋይ አማካኝነት ድሩን ማግኘት አልተቻለም። </string>
+  <string name="ProxySettings.ProxySettingsEnabled">የወኪል ቅንብሩ በተሳካ መንገድ ነቅቷል። </string>
   <string name="PreferencesActivity.EnableRestoreLastPagePreferenceTitle">ትሮችን ወደነበሩበት መልስ</string>
   <string name="PreferencesActivity.EnableRestoreLastPagePreferenceSummary">ከተመረጠ ትሮች ሲገኙ ወደነበሩበት ይመለሳሉ። </string>
   <string name="VideoLoading">ቪዲዮ\u2026 በመጫን ላይ </string>

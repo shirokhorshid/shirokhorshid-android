@@ -57,7 +57,9 @@
   <string name="waiting_for_network_connectivity">Чаканне злучэння з сеткай...</string>
   <string name="checking_for_root_access">Праверка каранёвага доступу...</string>
   <string name="psiphon_service_notification_message_connecting">Ідзе злучэнне...</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Апавяшчэнне Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preferred_servers">Прыярытэтныя серверы: %d</string>
   <string name="selecting_server">Ідзе выбар сервера...</string>
   <string name="fetch_remote_server_list">Атрыманне спісу аддаленых сервераў...</string>
@@ -88,10 +90,13 @@
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Немагчыма атрымаць пакет інфармацыі для бягучай праграмы</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Памылка запісу файлу абнаўлення</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">Памылка спамкоўкі абнаўлення</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeDownloaded">Абнаўленне спампаванае. Настойліва рэкамендуем дазволіць абнаўленню ўсталявацца зараз. Пасля сканчэння абнаўлення трэба будзе запусціць Psiphon зноў. </string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Памылка абнаўлення. Немагчыма атрымаць пакет інфармацыі з файлу абнаўлення.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Файл абнаўлення не знойдзены</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Абнаўленне Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Абнаўленне Psiphon гатова для ўсталявання.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Памылка чытання файлу абнаўлення</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Памылка праверкі сапраўднасці файлу абнаўлення</string>
@@ -106,7 +111,6 @@
   <string name="home_tab_name">Галоўная</string>
   <string name="settings_tab_name">Параметры</string>
   <string name="statistics_tab_name">Статыстыка</string>
-  <!--Do not transliterate or translate the word PsiCash, leave as is-->
   <string name="logs_tab_name">Журналы</string>
   <string name="socks_proxy_address">Лакальны проксі-сервер SOCKS задзейнічаны на %s</string>
   <string name="http_proxy_address">Лакальны проксі-сервер HTTP задзейнічаны на %s</string>
@@ -145,6 +149,7 @@
   <string name="region_name_se">Швецыя</string>
   <string name="region_name_pl">Польшчы</string>
   <string name="region_name_sk">Славакія</string>
+  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Пра Psiphon</string>
   <string name="feedback">Зваротная сувязь</string>
   <string name="tunnel_whole_device_toggle">Тунеляваць усю прыладу цалкам (патрэбны Android 4.0+)</string>
@@ -158,6 +163,17 @@
   <string name="wdm_force_iptables_toggle">Ужыць прымусова метад каранёвага тунелявання ўсяе прылады</string>
   <string name="http_prefix_toggle">Замаскіраваць як HTTP</string>
   <string name="preference_notifications_title">Апавяшчэнні</string>
+  <!--Description of option to tunnel everything-->
+  <!--Title for selecting apps to be tunneled-->
+  <!--Description of option to tunnel only selected apps-->
+  <!--Title for selecting apps to be excluded-->
+  <!--Description of option to tunnel everything but selected apps-->
+  <!--Log line for when an app is tunneled-->
+  <!--Log line for when an app is excluded from being tunneled-->
+  <!--Log line for when all apps will be tunneled-->
+  <!--Title for option to select apps for routing changes-->
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
   <string name="preference_notifications_with_sound_title">Гук</string>
   <string name="preference_notifications_with_sound_summary">Гук пры змене статусу падлучэння</string>
   <string name="preference_notifications_with_vibrate_title">Вібрацыя</string>
@@ -188,6 +204,7 @@
   <string name="waiting">Чаканне...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">bannière des commanditaires ; cliquez pour visiter le site des commanditaires</string>
+  <string name="banner_desc">bandeau des commanditaires ; cliquez pour visiter le site des commanditaires</string>
   <string name="start_desc">connexion à Psiphon ; cliquez pour vous connecter</string>
   <string name="message_image_success_desc">icône indiquant un message de réussite</string>
   <string name="message_image_error_desc">icône indiquant un message d’erreur</string>
@@ -67,30 +67,10 @@
   <string name="label_ok">Valider</string>
   <string name="preference_navigate_to_vpn_setting_title">RPV permanent</string>
   <string name="preference_navigate_to_vpn_setting_summary">Rendez-vous dans les paramètres du système pour activer RPV permanent</string>
-  <!--Kin onboarding prompt dialog title. Kin is a cryptocurrency name and should not be translated or transliterated-->
-  <string name="title_kin_and_psiphon">Kin et Psiphon</string>
-  <!--Kin onboarding prompt text. Kin is a cryptocurrency name and should not be translated. Please, keep the line breaks and do not translate 'kin.org' at the end of the sentence
-    since it gets converted to a hyperlink automatically.-->
-  <string name="lbl_kin_onboard_explanation">Kin est une nouvelle façon d’aider à soutenir Psiphon.\n\nSi vous acceptez, un porte-monnaie Kin sera créé pour vous et chaque fois que vous vous connecterez, il fera un petit don à Psiphon.\n\nPourquoi participer ? Quand les utilisateurs dépensent des kins en utilisant Psiphon, cela nous aide à financer nos serveurs.\n\nPour en apprendre davantage sur Kin, visitez kin.org</string>
-  <!--Kin onboarding prompt positive button label.-->
-  <string name="lbl_help_psiphon">Aidez Psiphon !</string>
-  <!--Kin onboarding prompt negative button label.-->
-  <string name="lbl_help_psiphon_no_thanks">Non merci</string>
-  <!--Kin opt-out prompt text. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_opt_out">Voulez-vous vraiment ne pas participer à Kin ?\n\nVous pourrez toujours vous joindre au programme à nouveau à l’avenir, mais en attendant, vous n’aiderez pas Psiphon.</string>
-  <!--Kin opt-out prompt negative button label.-->
+  <!--Generic negative button label.-->
   <string name="lbl_no">Non</string>
-  <!--Kin opt-out prompt positive button label, Kin auto-pay confirmation positive button label.-->
+  <!--Generic positive button label.-->
   <string name="lbl_yes">Oui</string>
-  <!--Kin opt-in checkbox label text, this checkbox is a part of the settings UI and can be clicked by the user at any time in order to opt in or opt out of Kin donations.
-     Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_opt_in_to_kin">Adhérer à Kin</string>
-  <!--Kin auto-pay confirmation prompt dialog title. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="title_donate_kin">Faire un don en Kin</string>
-  <!--Kin auto-pay confirmation prompt text, appears every 30 days for opted-in users. Kin is a cryptocurrency name and should not be translated.-->
-  <string name="lbl_kin_pay">Nous vous remercions d’avoir adhéré à Kin. Souhaitez-vous continuer à donner 1 Kin à Psiphon quand vous vous connectez ?</string>
-  <!--Kin auto-pay confirmation negative button label. Clicking this button when presented auto-pay prompt will opt out the user of making Kin donations.-->
-  <string name="lbl_opt_out">Ne pas participer</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
   <string name="notification_title_action_required">Une action est nécessaire</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
@@ -103,4 +83,9 @@
   <string name="notification_title_vpn_revoked">Le RPV Psiphon s’est arrêté</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <string name="notification_text_vpn_revoked">Le RPV Psiphon a été déconnecté par vous ou par une autre appli.</string>
+  <!--Description for an app icon image-->
+  <string name="description_app_icon">Icône d’appli</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Un paramètre RPV est invalide</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Au moins une appli doit être sélectionnée dans ce mode</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Au moins une appli doit être dessélectionnée dans ce mode</string>
 </resources>
