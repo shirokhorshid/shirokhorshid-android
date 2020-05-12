@@ -161,7 +161,6 @@ public class StatusActivity
                     // is not dismissed accidentally as it won't be shown again.
                     .setCancelable(false)
                     .setPositiveButton(R.string.label_ok, null)
-                    .setCancelable(true)
                     .setOnDismissListener(dialog ->
                             m_multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference)));
             // Add 'VPN settings' button if VPN exclusions are supported
