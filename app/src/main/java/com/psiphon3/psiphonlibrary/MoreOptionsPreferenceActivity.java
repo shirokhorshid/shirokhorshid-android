@@ -235,7 +235,6 @@ public class MoreOptionsPreferenceActivity extends MainBase.Activity {
         }
 
         private void setupAbout(PreferenceScreen preferences) {
-            // TODO: if connected, open in Psiphon browser?
             Preference pref = preferences.findPreference(getString(R.string.preferenceAbout));
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(EmbeddedValues.INFO_LINK_URL));
             pref.setIntent(browserIntent);
