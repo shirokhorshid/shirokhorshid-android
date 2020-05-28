@@ -467,7 +467,9 @@ public interface UpgradeManager
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     NotificationChannel notificationChannel = new NotificationChannel(
                             UPGRADE_NOTIFICATION_CHANNEL_ID, context.getText(R.string.psiphon_upgrade_notification_channel_name),
-                            NotificationManager.IMPORTANCE_DEFAULT);
+                            NotificationManager.IMPORTANCE_HIGH);
+                    notificationChannel.setSound(null, null);
+                    notificationChannel.enableVibration(false);
                     mNotificationManager.createNotificationChannel(notificationChannel);
                 }
             }
