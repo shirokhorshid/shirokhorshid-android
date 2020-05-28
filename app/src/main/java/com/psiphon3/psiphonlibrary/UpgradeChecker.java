@@ -322,14 +322,14 @@ public class UpgradeChecker extends BroadcastReceiver {
 
         /**
          * Entry point for starting the upgrade service.
-         * @param intent Must be passed to UpgradeChecker.completeWakefulIntent when the check is done.
+         * @param intent Intent passed to enqueueWork, ignored.
          */
         @Override
         protected void onHandleWork(@NonNull Intent intent) {
             log(this, R.string.upgrade_checker_check_start, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
 
             if (mUpgradeCheckInProgress) {
-                // Already processing an intent.
+                // A check is already in progress, log and return
                 log(this, R.string.upgrade_checker_already_in_progress, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
                 // Not calling shutDownTunnel() because we don't want to interfere with the currently running request.
                 return;
@@ -421,7 +421,7 @@ public class UpgradeChecker extends BroadcastReceiver {
         }
 
         /**
-         * Called when the tunnel has finished shutting down. We'll all done and can release the wakeful intent.
+         * Called when the tunnel has finished shutting down. We're all done and can shut down the JobIntentService
          * May be due to a connection timeout, or simply an exit triggered by one of the shutDownTunnel() calls.
          */
         @Override
@@ -444,60 +444,5 @@ public class UpgradeChecker extends BroadcastReceiver {
         public Context getContext() {
             return this;
         }
-
-        @Override
-        public void onConnected() {}
-
-        @Override
-        public Object getVpnService() {
-            return null;
-        }
-
-        @Override
-        public Object newVpnServiceBuilder() {
-            return null;
-        }
-
-        @Override
-        public void onAvailableEgressRegions(List<String> regions) {}
-
-        @Override
-        public void onSocksProxyPortInUse(int port) {}
-
-        @Override
-        public void onHttpProxyPortInUse(int port) {}
-
-        @Override
-        public void onListeningSocksProxyPort(int port) {}
-
-        @Override
-        public void onListeningHttpProxyPort(int port) {}
-
-        @Override
-        public void onUpstreamProxyError(String message) {}
-
-        @Override
-        public void onConnecting() {}
-
-        @Override
-        public void onHomepage(String url) {}
-
-        @Override
-        public void onClientRegion(String region) {}
-
-        @Override
-        public void onSplitTunnelRegion(String region) {}
-
-        @Override
-        public void onUntunneledAddress(String address) {}
-
-        @Override
-        public void onBytesTransferred(long sent, long received) {}
-
-        @Override
-        public void onStartedWaitingForNetworkConnectivity() {}
-
-        @Override
-        public void onActiveAuthorizationIDs(List<String> authorizations) {}
     }
 }

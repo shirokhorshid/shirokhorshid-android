@@ -200,14 +200,12 @@ public class ProxyOptionsPreferenceActivity extends MainBase.Activity {
             useSystemProxy.setEnabled(false);
             useCustomProxy.setEnabled(false);
             disableCustomProxySettings();
-            disableProxyAuthenticationSettings();
         }
 
         private void enableProxySettings() {
             useSystemProxy.setEnabled(true);
             useCustomProxy.setEnabled(true);
             enableCustomProxySettings();
-            enableProxyAuthenticationSettings();
         }
 
         private void updateProxyPreferencesUI() {
