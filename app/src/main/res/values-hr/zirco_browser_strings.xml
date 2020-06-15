@@ -17,6 +17,7 @@
   <string name="Main.DownloadStartedMsg">Preuzimanje započelo.</string>
   <string name="Main.DownloadFinishedMsg">Preuzimanje završeno.</string>
   <string name="Main.DownloadErrorMsg">Pogreška pri preuzimanju: %s</string>
+  <string name="Main.DownloadPermissionRequestReason">Dozvole za pisanje su potrebne jer se preuzete stavke zapisuju u vanjsku pohranu.</string>
   <string name="Main.ToastTabSwitchMessage">Kartica %s</string>
   <string name="Main.ToastTabSwitchFullMessage">Kartica %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">Nije moguće otvoriti url</string>
@@ -268,13 +269,18 @@
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Izvoz nije uspio</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Poruka pogreške: %s.</string>
   <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Uvoz nije uspio</string>
+  <string name="Commons.PermissionRequestReasonTitle">Razlog za zahtjev dozvole</string>
+  <string name="Commons.NeedWritePermissions">Molimo dozvolite pisanje i pokušajte ponovno</string>
+  <string name="Commons.NeedReadPermissions">Molimo dozvolite čitanje i pokušajte ponovno</string>
   <string name="Commons.OperationCanBeLongMessage">Ova operacija može potrajati. Želite li nastaviti?</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Upravljaj oznakama i povijesti</string>
   <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Uvezi, izvezi, očisti povijest i oznake.</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Izvezi povijest i oznake</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Izvezi oznake i povijest na SD karticu.</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Dozvole za pisanje su potrebne jer se izvezene oznake spremaju u vanjsku pohranu.</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Uvezi oznake i povijest</string>
   <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Uvezi oznake i povijest sa SD kartice.</string>
+  <string name="PreferencesActivity.ImportHistoryBookmarksPermissionRequestReason">Dozvole za čitanje su potrebne jer se uvezene oznake spremaju u vanjskoj pohrani.</string>
   <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Očisti povijest i/ili oznake</string>
   <string name="PreferencesActivity.SummaryCannotBeUndone">Koristite oprezno, ova operacija ne može biti poništena.</string>
   <string name="Commons.ClearingHistoryBookmarks">Čistim povijest i/ili oznake...</string>

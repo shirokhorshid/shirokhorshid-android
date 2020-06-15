@@ -3,6 +3,7 @@
   <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ...</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="debug_message">%s</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
@@ -52,6 +53,8 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <string name="preference_notifications_with_sound_title">เสียง</string>
+  <string name="preference_notifications_with_vibrate_title">สั่น</string>
   <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
