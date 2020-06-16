@@ -60,6 +60,7 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Obavijesti o Psiphon usluzi</string>
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="psiphon_service_notification_channel_name">Promjene Psiphon statusa</string>
   <string name="preferred_servers">Preferirani poslužitelji: %d</string>
   <string name="selecting_server">Biram poslužitelje...</string>
   <string name="fetch_remote_server_list">Dobavljam popis udaljenih poslužitelja...</string>
@@ -160,26 +161,48 @@
   <string name="network_proxy_connect_exception">Spajanje na mrežni HTTP proxy nije uspjelo: %s</string>
   <string name="network_proxy_connect_information">Spajanje preko Vašeg HTTP proxy-a: %s</string>
   <string name="network_proxy_connect_invalid_values">Neispravane postavke HTTP proxy-a</string>
+  <string name="tunnel_whole_device_exception">Vaš uređaj ne podržava tuneliranje cijelog uređaja jer nema VpnService API.</string>
   <string name="run_polipo_failed">Pokretanje Polipo-a nije uspjelo: %s</string>
   <string name="wdm_force_iptables_toggle">Prisili root metodu  tuneliranja cijelog uređaja</string>
   <string name="http_prefix_toggle">Ponašaj se kao HTTP</string>
   <string name="preference_notifications_title">Obavijesti</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tuneliraj sve aplikacije</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Uključi aplikacije</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Tuneliraj samo odabrane aplikacije</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Isključi aplikacije</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Ne tuneliraj odabrane aplikacije</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Tuneliranje aplikacije: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Aplikacija isključena iz tuneliranja: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Nema aplikacija isključenih iz tuneliranja</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Odaberite aplikacije</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d aplikacija će biti tunelirano kroz VPN</item>
+    <item quantity="few">%d aplikacije će biti tunelirane kroz VPN</item>
+    <item quantity="other">%d aplikacija će biti tunelirana kroz VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d aplikacija će biti isključena iz VPN-a</item>
+    <item quantity="few">%d aplikacije će biti isključene iz VPN-a</item>
+    <item quantity="other">%d aplikacija će biti isključeno iz VPN-a</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">Sve aplikacije će biti tunelirane kroz VPN</string>
   <string name="preference_notifications_with_sound_title">Zvuk</string>
   <string name="preference_notifications_with_sound_summary">Sviraj zvuk kad se status veze promjeni</string>
   <string name="preference_notifications_with_vibrate_title">Vibriraj</string>
   <string name="preference_notifications_with_vibrate_summary">Vibriraj kad se status veze promjeni</string>
+  <string name="preference_download_wifi_only_toggle">Preuzmi nadogradnje samo preko Wi-Fi mreže</string>
   <string name="moreOptions">Više opcija</string>
   <string name="root_mode_not_supported">Root način nije podržan na ovoj verziji Android-a</string>
   <string name="proxySettingsCategoryTitle">Postavke proxy-a</string>
@@ -205,12 +228,14 @@
   <string name="tunnel_connected">Tunel spojen</string>
   <string name="waiting">Čekam...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Zahtjev za dozvolom</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Davanjem pristupa Vašoj lokaciji će te dozvolite Psiphonu da donosi bolje odluke o tome kako da radi na Vašoj mreži.\n\nImajte na umu da se ova informacija koristi samo lokalno na Vašem uređaju, i ne šalje se na naše poslužitelje ili treće strane.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">U redu</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Ne, hvala.</string>
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Ne, hvala</string>
   <!--Empty string array to initialize things that will be programatically populated later-->
   <string-array name="empty_array"></string-array>
 </resources>

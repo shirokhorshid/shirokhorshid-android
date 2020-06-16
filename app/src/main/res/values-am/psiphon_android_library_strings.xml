@@ -161,6 +161,7 @@
   <string name="network_proxy_connect_exception">ከኔትወርኩ HTTP ወኪል ጋር መገናኘት አልተሳካም፡- %s</string>
   <string name="network_proxy_connect_information">በእርስዎ የHTTP ወኪል በኩል በመገናኘት ላይ፡-%s</string>
   <string name="network_proxy_connect_invalid_values">የተሳሳተ የHTTP ወኪል ቅንብር</string>
+  <string name="tunnel_whole_device_exception">VpnService ኤፒኣይ (የመተግበሪያ መፈርገሚያ በይነ ገጽ) በመጉደሉ መሣሪያዎ ሙሉ በሙሉ የመሣሪያ መቦርቦር አማራጭን አይደግፍም። </string>
   <string name="run_polipo_failed">Polipoን ማሰራት አልተሳካም፡-%s</string>
   <string name="wdm_force_iptables_toggle">የሩት ሙሉ በሙሉ የመሳሪያ ማስተላለፊያ መንገድን አስገድድ </string>
   <string name="http_prefix_toggle">እንደ HTTP አስመስል </string>
@@ -228,6 +229,7 @@
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ፈቃድ ጥየቃ</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Psiphon አውታረመረብዎ ላይ ስላለው አሠራር የተሻለ ውሳኔ ወስኖ እንዲሠራ የመገኛ ፍቃድ ያስጡ።\n\nማስታወሻ፦ ይህ የሚሰበሰበው መረጃ ከመሣሪያዎ ላይ ሳለ ነው ጥቅም ላይ የሚውለው፤ ወደ ሌላ አስተናጋጅ ወይም ሶስተኛ ወገን አይተላለፍም።</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">እሺ</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

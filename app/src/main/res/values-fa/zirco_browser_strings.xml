@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">مرورگر سایفون</string>
-  <string name="ApplicationNameUrl">سایفون - %s</string>
-  <string name="ApplicationDescription">مرورگر سایفون یک مرورگر متن باز برای اندروید است که بر اساس مرورگر زیرکو طراحی شده است.    </string>
+  <string name="ApplicationName">مرورگر Psiphon</string>
+  <string name="ApplicationNameUrl">Psiphon- %s</string>
+  <string name="ApplicationDescription">مرورگر Psiphon یک مرورگر متن باز برای اندروید است که بر اساس مرورگر زیرکو طراحی شده است.    </string>
   <string name="AboutActivity.Title">درباره </string>
   <string name="AboutActivity.VersionText">نسخه:</string>
   <string name="AboutActivity.LicenseText">پروانه:</string>
@@ -17,12 +17,12 @@
   <string name="Main.DownloadStartedMsg">شروع دانلود:</string>
   <string name="Main.DownloadFinishedMsg">دانلود کامل شد.</string>
   <string name="Main.DownloadErrorMsg">دانلود با خطا روبرو شد: %s</string>
-  <string name="Main.DownloadPermissionRequestReason">برای بارگیری فایل‌ها اجازه ی نوشتن لازم است زیرا که آنها در حافظه خارجی ذخیره خواهند شد.</string>
+  <string name="Main.DownloadPermissionRequestReason">برای بارگیری فایل‌ها اجازه‌ی نوشتن لازم است زیرا که آنها در حافظه خارجی ذخیره خواهند شد.</string>
   <string name="Main.ToastTabSwitchMessage">زبانه %s</string>
   <string name="Main.ToastTabSwitchFullMessage">زبانه %1$s: %2$s</string>
   <string name="Main.VndErrorTitle">قادر به بازکردن آدرس نبود</string>
   <string name="Main.VndErrorMessage">شما اپلیکیشن مورد نیاز برای باز کردن این آدرس را ندارید: %s.</string>
-  <string name="BookmarksListActivity.Title">مرورگر سایفون - بوکمارک‌ها</string>
+  <string name="BookmarksListActivity.Title">مرورگر Psiphon - بوکمارک‌ها</string>
   <string name="BookmarksListActivity.MenuSortMode">مرتب سازی با</string>
   <string name="BookmarksListActivity.MenuAddBookmark">اضافه کردن بوکمارک</string>
   <string name="BookmarksListActivity.Empty">بوکمارک وجود ندارد</string>
@@ -35,14 +35,14 @@
   <string name="EditBookmarkActivity.TitleAdd">اضافه کردن بوکمارک</string>
   <string name="EditBookmarkActivity.TitleLabel">نام:</string>
   <string name="EditBookmarkActivity.UrlLabel">مکان:</string>
-  <string name="HistoryListActivity.Title">مرورگر سایفون - تاریخچه</string>
+  <string name="HistoryListActivity.Title">مرورگر Psiphon - تاریخچه</string>
   <string name="HistoryListActivity.MenuOpenInTab">در پنجره جدید باز کن</string>
   <string name="HistoryListActivity.MenuDelete">حذف</string>
-  <string name="DownloadListActivity.Title">مرورگر سایفون - دانلود‌ها </string>
+  <string name="DownloadListActivity.Title">مرورگر Psiphon - دانلود‌ها </string>
   <string name="DownloadListActivity.Empty">دانلودی وجود ندارد </string>
   <string name="DownloadListActivity.Aborted">%s (لغو شد)</string>
   <string name="DownloadListActivity.Finished">%s (به پایان رسید)</string>
-  <string name="AdBlockerWhiteListActivity.Title">مرورگر سایفون - لیست سفید تبلیغات مسدود شده</string>
+  <string name="AdBlockerWhiteListActivity.Title">مرورگر Psiphon - لیست سفید تبلیغات مسدود شده</string>
   <string name="AdBlockerWhiteListActivity.Empty">لیست سفید خالی است.</string>
   <string name="AdBlockerWhiteListActivity.AddMessage">به لیست سفید اضافه کن</string>
   <string name="AdBlockerWhiteListActivity.ClearMessage">لیست سفید رو پاک کن</string>
@@ -188,7 +188,7 @@
   <string name="Commons.SslIDMismatch">نام سایت با نام در گواهینامه مطابقت ندارد.</string>
   <string name="Commons.SslExpired">این گواهی منقضی شده است.</string>
   <string name="Commons.SslNotYetValid"> این گواهینامه هنوز معتبر نیست.</string>
-  <string name="MobileViewListActivity.Title">مرورگر سایفون - لیست وبسایت های موجود برای بازدید در موبایل</string>
+  <string name="MobileViewListActivity.Title">مرورگر Psiphon - لیست وبسایت های موجود برای بازدید در موبایل</string>
   <string name="MobileViewListActivity.ListEmpty">لیست خالی است.</string>
   <string name="MobileViewListActivity.AddMessage">افزودن  وب سایت</string>
   <string name="MobileViewListActivity.ClearMessage">پاک کردن تمامی سایت‌ها</string>
@@ -319,7 +319,7 @@
   <string name="PreferencesActivity.DesktopViewCategoryTitle">تنظیمات نمایش دسکتاپ </string>
   <string name="PreferencesActivity.DesktopViewListPreferenceTitle">لیست حالت دسکتاپ</string>
   <string name="PreferencesActivity.DesktopViewListPreferenceSummary">سایت‌های این لیست توسط برنامه عامل کاربردسکتاپ باز می‌شوند.</string>
-  <string name="DesktopViewListActivity.Title">مرورگر سایفون - لیست وبسایت‌های مشاهده در دسکتاپ </string>
+  <string name="DesktopViewListActivity.Title">مرورگر Psiphon - لیست وبسایت‌های مشاهده در دسکتاپ </string>
   <string name="DesktopViewListActivity.ListEmpty">لیست خالی است.</string>
   <string name="DesktopViewListActivity.AddMessage">افزودن وب سایت.</string>
   <string name="DesktopViewListActivity.ClearMessage">پاک کردن تمامی سایت‌ها</string>

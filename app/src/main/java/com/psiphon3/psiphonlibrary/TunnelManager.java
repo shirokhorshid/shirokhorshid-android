@@ -824,7 +824,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private final static String LEGACY_SERVER_ENTRY_FILENAME = "psiphon_server_entries.json";
-    private final static int MAX_LEGACY_SERVER_ENTRIES = 100;
 
     static String getServerEntries(Context context) {
         StringBuilder list = new StringBuilder();
@@ -834,33 +833,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             list.append("\n");
         }
 
-        // Import legacy server entries
-        try {
-            FileInputStream file = context.openFileInput(LEGACY_SERVER_ENTRY_FILENAME);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(file));
-            StringBuilder json = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                json.append(line);
-            }
-            file.close();
-            JSONObject obj = new JSONObject(json.toString());
-            JSONArray jsonServerEntries = obj.getJSONArray("serverEntries");
-
-            // MAX_LEGACY_SERVER_ENTRIES ensures the list we pass through to tunnel-core
-            // is unlikely to trigger an OutOfMemoryError
-            for (int i = 0; i < jsonServerEntries.length() && i < MAX_LEGACY_SERVER_ENTRIES; i++) {
-                list.append(jsonServerEntries.getString(i));
-                list.append("\n");
-            }
-
-            // Don't need to repeat the import again
-            context.deleteFile(LEGACY_SERVER_ENTRY_FILENAME);
-        } catch (FileNotFoundException e) {
-            // pass
-        } catch (IOException | JSONException | OutOfMemoryError e) {
-            MyLog.g(String.format("prepareServerEntries failed: %s", e.getMessage()));
-        }
+        // Delete legacy server entries if they exist
+        context.deleteFile(LEGACY_SERVER_ENTRY_FILENAME);
 
         return list.toString();
     }

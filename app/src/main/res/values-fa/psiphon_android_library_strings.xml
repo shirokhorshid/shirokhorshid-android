@@ -53,14 +53,14 @@
   <string name="root_access_denied">دسترسی روت امکان پذیر نیست</string>
   <string name="psiphon_stopped">متوقف شد</string>
   <string name="psiphon_running_whole_device">تونل تمام گوشی فعال است</string>
-  <string name="psiphon_running_browser_only">فقط مرورگر سایفون در حال اجراست</string>
+  <string name="psiphon_running_browser_only">فقط مرورگر Psiphon در حال اجراست</string>
   <string name="waiting_for_network_connectivity">انتظار برای اتصال به شبکه...</string>
   <string name="checking_for_root_access">درحال بررسی دسترسی به روت...</string>
   <string name="psiphon_service_notification_message_connecting">در حال اتصال...</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="psiphon_service_notification_id">اعلانات سرویس سایفون </string>
+  <string name="psiphon_service_notification_id">اعلانات سرویس Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="psiphon_service_notification_channel_name">وضعیت سایفون تغییر می‌کند</string>
+  <string name="psiphon_service_notification_channel_name">وضعیت Psiphon تغییر می‌کند</string>
   <string name="preferred_servers">سرورهای مورد ترجیح:  %d</string>
   <string name="selecting_server">انتخاب سرور...</string>
   <string name="fetch_remote_server_list">گرفتن لیست سرورهای ریموت... </string>
@@ -93,13 +93,13 @@
   <string name="UpgradeManager.UpgradeFileWriteFailed">خطا در نوشتن فایل ارتقا</string>
   <string name="UpgradeManager.UpgradeDownloadFailed">دانلود بروزرسانی ناموفقیت آمیز بود</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">بسته بروزرسانی دانلود شد. به شدت توصیه می‌شود که شما اجازه‌ی به روزرسانی اپلیکیشن را همین الان بدهید. پس از بروزرسانی شما باید سایفون را دوباره راه اندازی کنید.</string>
+  <string name="UpgradeManager.UpgradeDownloaded">بسته بروزرسانی دانلود شد. به شدت توصیه می‌شود که شما اجازه‌ی به روزرسانی اپلیکیشن را همین الان بدهید. پس از بروزرسانی شما باید Psiphon را دوباره راه اندازی کنید.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">به روز رسانی ناموفقیت آمیز بود. بازکردن اطلاعات بسته از فایل ارتقا نا‌موفق بود.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">فایل بروزرسانی پیدا نشد.</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptTitle">به روز رسانی سایفون</string>
+  <string name="UpgradeManager.UpgradePromptTitle">به روز رسانی Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptMessage">بسته بروزرسانی سایفون آماده نصب است.</string>
+  <string name="UpgradeManager.UpgradePromptMessage">بسته بروزرسانی Psiphon آماده نصب است.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">ناموفقیت آمیز بودن خواندن فایل بروز رسانی</string>
   <string name="UpgradeManager.UpgradeFileAuthenticateFailed">تصدیق فایل بروز رسانی نا‌موفقیت آمیز بود </string>
   <string name="connected_elapsed_time">وصل شد : %s</string>
@@ -121,7 +121,7 @@
   <string name="share_proxies_prompt_message">برای اعمال این تغییرات، اپلیکیشن نیاز به راه‌اندازی مجدد دارد.</string>
   <string name="share_proxies_prompt_positive">رستارت </string>
   <string name="share_proxies_prompt_negative">لغو</string>
-  <string name="use_proxy_settings_toggle">اتصال به سایفون از طریق پراکسی http </string>
+  <string name="use_proxy_settings_toggle">اتصال به Psiphon از طریق پراکسی http </string>
   <string name="use_system_proxy_settings_radio">از تنظیمات شبکه ی سیستم استفاده کن.  </string>
   <string name="use_custom_proxy_settings_radio">استفاده از این تنظیمات:</string>
   <string name="custom_proxy_settings_host">آدرس هاست</string>
@@ -154,7 +154,7 @@
   <string name="region_name_rs">صربستان</string>
   <string name="region_name_au">استرالیا</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="about">درباره سایفون</string>
+  <string name="about">درباره Psiphon</string>
   <string name="feedback">بازخوردها</string>
   <string name="tunnel_whole_device_toggle">تونل تمام دستگاه «نیاز به اندروید ۴.۰ به بالا دارد»</string>
   <string name="disableTimeoutsPreferenceSummary">غیر فعال کردن تایم‌آوت برای شبکه‌های کند </string>
@@ -181,9 +181,9 @@
   <!--Log line for when an app is tunneled-->
   <string name="individual_app_included">تونل برنامه: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
-  <string name="individual_app_excluded">%s برنامه‌ها از سایفون استفاده نمی‌کنند </string>
+  <string name="individual_app_excluded">%s برنامه‌ها از Psiphon استفاده نمی‌کنند </string>
   <!--Log line for when all apps will be tunneled-->
-  <string name="no_apps_excluded">هیچ برنامه‌ای بیرون از تونل سایفون قرار نگرفت. </string>
+  <string name="no_apps_excluded">هیچ برنامه‌ای بیرون از تونل Psiphon قرار نگرفت. </string>
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">برنامه‌ها را انتخاب کنید</string>
   <!--Description of option to select apps to exclusively tunnel-->
@@ -230,7 +230,7 @@
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">درخواست مجوز</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">با اعطای دسترسی به مکان خودتان، به سایفون اجازه دهید تصمیمات بهتری در مورد چگونگی عملکرد روی شبکه شما بگیرد.\n\nبه یاد داشته باشید که این اطلاعات تنها به صورت محلی در دستگاه خود شما مورد استفاده قرار می‌گیرد، و به سرورهای ما یا هیچ شخص ثالثی انتقال نمی‌یابد.</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">با اعطای دسترسی به مکان خودتان، به Psiphon اجازه دهید تصمیمات بهتری در مورد چگونگی عملکرد روی شبکه شما بگیرد.\n\nبه یاد داشته باشید که این اطلاعات تنها به صورت محلی در دستگاه خود شما مورد استفاده قرار می‌گیرد، و به سرورهای ما یا هیچ شخص ثالثی انتقال نمی‌یابد.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">قبول</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

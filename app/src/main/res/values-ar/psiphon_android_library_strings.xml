@@ -60,6 +60,7 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">إعلام خدمة  برنامج سايفون</string>
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="psiphon_service_notification_channel_name">تغييرات حالات Psiphon</string>
   <string name="preferred_servers">السيرفرات المفضلة: %d</string>
   <string name="selecting_server">اختيار السيرفر ...</string>
   <string name="fetch_remote_server_list">جلب قائمة السيرفر server عن بعد... </string>
@@ -173,19 +174,26 @@
   <string name="preference_notifications_title">الإعلامات </string>
   <string name="preference_vpn_title">الشبكة الخاصة الإفتراضية</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">مرّر كل التطبيقات نفَقيا</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">تحديد التطبيقات</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">مرّر نفَقيا فقط التطبيقات المحددة </string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">التطبيقات المستبعدة</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">لا تمرّر نفَقيا التطبيقات المحددة </string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">‫‫تطبيق مُمرَّر نفقيا : %s ‬</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">التطبيق المُستبعد من النفق: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">لم يتم استبعاد أي تطبيق من النفق</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">حدد التطبيقات</string>
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <string name="preference_routing_all_apps_tunnel_summary">‫كل التطبيقات سوف تُمرَّر نفقيا بواسطة VPN ‬</string>
   <string name="preference_notifications_with_sound_title">صوت </string>
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
   <string name="preference_notifications_with_vibrate_title">إهتزاز </string>
@@ -216,8 +224,10 @@
   <string name="tunnel_connected">النفق متصل </string>
   <string name="waiting">جاري الإنتظار ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">طلب الترخيص</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">اسمح لتطبيق Psiphon باتخاذ القرارات الملائمة حول كيفية العمل في شبكتك عبر منحه الوصول إلى موقعك.\n\nتذكر أن هذه المعلومة تُستخدَم فقط محليا في جهازك، ولا تُرسَل إلى خوادمنا ولا إلى أطراف أخرى.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">موافق</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
