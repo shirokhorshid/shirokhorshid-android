@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">प्रायोजक बैनर; प्रायोजक मुख पृष्ठ पर जाएं क्लिक करें</string>
-  <string name="start_desc">साइफॉन से कनेक्ट; कनेक्ट करने के लिए क्लिक करें</string>
+  <string name="start_desc">Psiphon से कनेक्ट; कनेक्ट करने के लिए क्लिक करें</string>
   <string name="message_image_success_desc">आइकन एक सफलता संदेश दर्शाता है</string>
   <string name="message_image_error_desc">आइकन एक त्रुटि संदेश दर्शाता है</string>
   <string name="message_image_debug_desc">आइकन एक डीबग संदेश को इंगित करता है</string>
   <string name="message_image_warning_desc">आइकन एक चेतावनी संदेश दर्शाता है</string>
   <string name="exit">छोड़ें</string>
   <string name="open_browser">खुला ब्राउज़र</string>
-  <string name="browser_task_label">साइफ़ोन ब्राउज़र</string>
+  <string name="browser_task_label">Psiphon ब्राउज़र</string>
   <string name="FeedbackActivity.DefaultText">यदि आपके पास कोई विशिष्ट टिप्पणी है, वे वेब साइट्स के बारे में अधिक जानकारी जो काम नहीं करती है, या यदि यह फ़ॉर्म आपके लिए काम नहीं कर रहा है, तो कृपया ईमेल करें और &amp; lt; a href = "mailto: feedback@psiphon.ca" &amp; gt; feedback@psiphon.ca&amp;lt ; / a &amp; gt ;.</string>
   <string name="FeedbackActivity.Success">अपना फीडबैक देने के लिए धन्यवाद</string>
   <string name="FeedbackActivity.Failure">सबमिशन असफल रहा कृपया पुन: प्रयास करें।</string>
@@ -20,9 +20,9 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN प्रारंभ नहीं हो सकता है</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN शुरू नहीं कर सकता। एक ही समय में कई VPN ऐप नहीं चल सकते हैं। जांचें कि क्या दूसरा VPN ऐप इंस्टॉल है और ऑलवेज-ऑन पर सेट है</string>
   <string name="StatusActivity.WholeDeviceTunnelPromptTitle">पूरी डिवाइस को टनल करें?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">संपूर्ण डिवाइस सुरंग विकल्प आपके उपकरण के लिए उपलब्ध है। \ N \ n इस विकल्प के साथ, सभी ब्राउज़रों सहित सभी एप्लिकेशन के लिए आपके सभी इंटरनेट ट्रैफ़िक को साइफ़ोन के माध्यम से सुरंगित किया जाएगा। \ N \ n वैकल्पिक रूप से, आप केवल बंडल किए गए Psiphon ब्राउज़र को सुरंग चुन सकते हैं जो आपके मानक इंटरनेट कनेक्शन के माध्यम से सीधे जा रहे सभी अन्य ऐप्स को छोड़ देगा।</string>
+  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">संपूर्ण डिवाइस सुरंग विकल्प आपके उपकरण के लिए उपलब्ध है। \ N \ n इस विकल्प के साथ, सभी ब्राउज़रों सहित सभी एप्लिकेशन के लिए आपके सभी इंटरनेट ट्रैफ़िक को Psiphon के माध्यम से सुरंगित किया जाएगा। \ N \ n वैकल्पिक रूप से, आप केवल बंडल किए गए Psiphon ब्राउज़र को सुरंग चुन सकते हैं जो आपके मानक इंटरनेट कनेक्शन के माध्यम से सीधे जा रहे सभी अन्य ऐप्स को छोड़ देगा।</string>
   <string name="StatusActivity.WholeDeviceTunnelPositiveButton">सुरंग पूरे डिवाइस</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">केवल साइफ़ोन ब्राउज़र का उपयोग करें</string>
+  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">केवल Psiphon ब्राउज़र का उपयोग करें</string>
   <string name="selected_region_currently_not_available">वर्तमान में चयनित क्षेत्र उपलब्ध नहीं है, कृपया अन्य क्षेत्र चुनें।</string>
   <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">हमें आपकी गोपनीयता और डेटा सुरक्षा की परवाह है। हम विज्ञापन दिखा कर इस ऐप को फ्री रखते हैं।</string>
   <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">क्या हम आपके डेटा का उपयोग आपके लिए दर्जी विज्ञापनों तक जारी रख सकते हैं?</string>

@@ -73,11 +73,20 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">‮نعم</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">إجراء مطلوب !</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">يُرجى فتح Psiphon لإكمال الاتصال.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">المنطقة المحددة غير متاحة</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">يُرجى فتح Psiphon وتحديد منطقة أخرى.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">سايفون VPN قد توقف</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">‫قطعت اتصالك بـ Psiphon VPN أو قُطع بواسطة تطبيق آخر.‬</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">أيقونة التطبيق</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">‫إعدادات VPN باطلة‬</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">تحتاج إلى تطبيق واحد محدد على الأقل بالنسبة لهذا الوضع !</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">تحتاج إلى تطبيق واحد غير محدد على الأقل بالنسبة لهذا الوضع !</string>
 </resources>

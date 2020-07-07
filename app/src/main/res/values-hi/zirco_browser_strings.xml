@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ApplicationName">साइफ़ोन ब्राउज़र</string>
+  <string name="ApplicationName">Psiphon ब्राउज़र</string>
   <string name="AboutActivity.Title">बारे में</string>
   <string name="AboutActivity.VersionText">संस्करण:</string>
   <string name="Main.MenuShowBookmarks">बुकमार्क</string>
