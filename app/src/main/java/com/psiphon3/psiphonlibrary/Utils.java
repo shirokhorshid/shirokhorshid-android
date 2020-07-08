@@ -593,6 +593,22 @@ public class Utils
         return false;
     }
 
+    public static String getClientPlatformSuffix() {
+        String suffix = "";
+
+        // Detect if device is rooted and append to the client_platform string
+        if (Utils.isRooted()) {
+            suffix += PsiphonConstants.ROOTED;
+        }
+
+        // Detect if this is a Play Store build
+        if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
+            suffix += PsiphonConstants.PLAY_STORE_BUILD;
+        }
+
+        return suffix;
+    }
+
     public static boolean supportsAlwaysOnVPN() {
         return Build.VERSION.SDK_INT >= 24;
     }

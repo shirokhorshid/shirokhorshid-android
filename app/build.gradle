@@ -110,6 +110,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
     implementation "com.jakewharton.rxrelay2:rxrelay:$rootProject.ext.rxrelayVersion"
 
+    implementation "androidx.work:work-runtime:$rootProject.ext.workManagerVersion"
+    implementation "androidx.work:work-rxjava2:$rootProject.ext.workManagerVersion"
+
     compileOnly "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
     annotationProcessor "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
 
