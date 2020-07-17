@@ -1238,11 +1238,15 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             @Override
             public void run() {
                 // regions are already sorted alphabetically by tunnel core
-                new AppPreferences(getContext()).put(RegionListPreference.KNOWN_REGIONS_PREFERENCE, TextUtils.join(",", regions));
+                AppPreferences mp = new AppPreferences(getContext());
+                mp.put(RegionListPreference.KNOWN_REGIONS_PREFERENCE, TextUtils.join(",", regions));
 
                 if (!isSelectedEgressRegionAvailable(regions)) {
                     // command service stop
                     signalStopService();
+
+                    // Set region preference to PsiphonConstants.REGION_CODE_ANY
+                    mp.put(m_parentService.getString(R.string.egressRegionPreference), PsiphonConstants.REGION_CODE_ANY);
 
                     // Send REGION_NOT_AVAILABLE intent,
                     // Activity intent handler will show "Region not available" toast and populate

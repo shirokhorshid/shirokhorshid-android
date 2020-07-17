@@ -838,18 +838,12 @@ public abstract class MainBase {
                 return;
             }
 
-            updateEgressRegionPreference(selectedRegionCode);
+            // Store the selection in preferences
+            m_multiProcessPreferences.put(getString(R.string.egressRegionPreference), selectedRegionCode);
 
             // NOTE: reconnects even when Any is selected: we could select a
             // faster server
             tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(getApplicationContext(), this::startTunnel);
-        }
-
-        protected void updateEgressRegionPreference(String egressRegionPreference) {
-            // No isRooted check: the user can specify whatever preference they
-            // wish. Also, CheckBox enabling should cover this (but isn't
-            // required to).
-            m_multiProcessPreferences.put(getString(R.string.egressRegionPreference), egressRegionPreference);
         }
 
         // Basic check of proxy settings values

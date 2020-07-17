@@ -308,9 +308,10 @@ public class StatusActivity
             // Switch to settings tab
             m_tabHost.setCurrentTabByTag("settings");
 
-            // Set egress region preference to 'Best Performance'
-            updateEgressRegionPreference(PsiphonConstants.REGION_CODE_ANY);
-            // Update region preference in the options tab
+            // At this point the service should be stopped and the persisted region selection set
+            // to PsiphonConstants.REGION_CODE_ANY by TunnelManager, so we only need to update the
+            // region selection UI.
+            // Update region preference in the options tab.
             if (m_optionsTabFragment != null) {
                 m_optionsTabFragment.updateRegionSelectorFromPreferences();
             }
