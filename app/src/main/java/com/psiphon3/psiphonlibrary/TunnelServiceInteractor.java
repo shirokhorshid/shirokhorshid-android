@@ -58,7 +58,6 @@ public class TunnelServiceInteractor {
     private final BroadcastReceiver broadcastReceiver;
     private Relay<TunnelState> tunnelStateRelay = BehaviorRelay.<TunnelState>create().toSerialized();
     private Relay<Boolean> dataStatsRelay = PublishRelay.<Boolean>create().toSerialized();
-    private Relay<Boolean> knownRegionsRelay = PublishRelay.<Boolean>create().toSerialized();
     private Relay<NfcExchange> nfcExchangeRelay = PublishRelay.<NfcExchange>create().toSerialized();
 
     private final Messenger incomingMessenger = new Messenger(new IncomingMessageHandler(this));
@@ -160,11 +159,6 @@ public class TunnelServiceInteractor {
 
     public Flowable<Boolean> dataStatsFlowable() {
         return dataStatsRelay
-                .toFlowable(BackpressureStrategy.LATEST);
-    }
-
-    public Flowable<Boolean> knownRegionsFlowable() {
-        return knownRegionsRelay
                 .toFlowable(BackpressureStrategy.LATEST);
     }
 
@@ -291,9 +285,6 @@ public class TunnelServiceInteractor {
             }
             Bundle data = msg.getData();
             switch (scm[msg.what]) {
-                case KNOWN_SERVER_REGIONS:
-                    tunnelServiceInteractor.knownRegionsRelay.accept(Boolean.TRUE);
-                    break;
                 case TUNNEL_CONNECTION_STATE:
                     state = getTunnelStateFromBundle(data);
                     TunnelState tunnelState;

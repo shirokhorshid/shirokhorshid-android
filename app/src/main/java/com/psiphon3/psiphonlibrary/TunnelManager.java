@@ -93,7 +93,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     // Service -> Client
     enum ServiceToClientMessage {
-        KNOWN_SERVER_REGIONS,
         TUNNEL_CONNECTION_STATE,
         DATA_TRANSFER_STATS,
         NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT,
@@ -1279,8 +1278,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                         mNotificationManager.notify(R.id.notification_id_region_not_available, notificationBuilder.build());
                     }
                 }
-                // Notify activity so it has a chance to update region selector values
-                sendClientMessage(ServiceToClientMessage.KNOWN_SERVER_REGIONS.ordinal(), null);
+                // UPDATE:
+                // The region list preference view is created with the stored known regions list every time
+                // before presenting, there is no need to notify the activity of the data change anymore.
             }
         });
     }
