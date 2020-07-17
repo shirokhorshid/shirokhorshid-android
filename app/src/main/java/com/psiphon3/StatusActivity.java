@@ -43,7 +43,6 @@ import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
-import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelManager;
 import com.psiphon3.psiphonlibrary.Utils;
 import com.psiphon3.psiphonlibrary.VpnAppsUtils;
@@ -255,11 +254,10 @@ public class StatusActivity
             // Switch to settings tab
             m_tabHost.setCurrentTabByTag("settings");
 
-            // Set egress region preference to 'Best Performance'
-            updateEgressRegionPreference(PsiphonConstants.REGION_CODE_ANY);
-
-            // Set region selection to 'Best Performance' too
-            m_regionSelector.setSelectionByValue(PsiphonConstants.REGION_CODE_ANY);
+            // At this point the service should be stopped and the persisted region selection set
+            // to PsiphonConstants.REGION_CODE_ANY by TunnelManager, so we only need to update the
+            // region selection UI
+            setRegionSelectionUiFromPreferences();
 
             // Show "Selected region unavailable" toast
             Toast toast = Toast.makeText(this, R.string.selected_region_currently_not_available, Toast.LENGTH_LONG);

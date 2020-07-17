@@ -118,7 +118,7 @@ public class SpinnerHelper implements OnItemSelectedListener {
 
     public void setSelectionByValue(String value) {
         int position = getIndex(value);
-        setSelection(position);
+        setSelection(position, false);
     }
 
     public void setSelection(int position, boolean animate) {

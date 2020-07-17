@@ -517,11 +517,8 @@ public abstract class MainBase {
 
             m_regionAdapter = new RegionAdapter(this);
             m_regionSelector.setAdapter(m_regionAdapter);
-            String egressRegionPreference = m_multiProcessPreferences
-                    .getString(getString(R.string.egressRegionPreference),
-                            PsiphonConstants.REGION_CODE_ANY);
 
-            m_regionSelector.setSelectionByValue(egressRegionPreference);
+            setRegionSelectionUiFromPreferences();
 
             m_regionSelector.setOnItemSelectedListener(regionSpinnerOnItemSelected);
 
@@ -613,7 +610,10 @@ public abstract class MainBase {
                             .subscribe(),
 
                     tunnelServiceInteractor.knownRegionsFlowable()
-                            .doOnNext(__ -> m_regionAdapter.updateRegionsFromPreferences())
+                            .doOnNext(__ -> {
+                                m_regionAdapter.updateRegionsFromPreferences();
+                                setRegionSelectionUiFromPreferences();
+                            })
                             .subscribe(),
 
                     tunnelServiceInteractor.nfcExchangeFlowable()
@@ -957,18 +957,12 @@ public abstract class MainBase {
                 return;
             }
 
-            updateEgressRegionPreference(selectedRegionCode);
+            // Store the selection in preferences
+            m_multiProcessPreferences.put(getString(R.string.egressRegionPreference), selectedRegionCode);
 
             // NOTE: reconnects even when Any is selected: we could select a
             // faster server
             tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(getApplicationContext(), this::startTunnel);
-        }
-
-        protected void updateEgressRegionPreference(String egressRegionPreference) {
-            // No isRooted check: the user can specify whatever preference they
-            // wish. Also, CheckBox enabling should cover this (but isn't
-            // required to).
-            m_multiProcessPreferences.put(getString(R.string.egressRegionPreference), egressRegionPreference);
         }
 
         public void onTunnelWholeDeviceToggle(View v) {
@@ -1556,6 +1550,13 @@ public abstract class MainBase {
                 }
             }
             return true;
+        }
+
+        protected void setRegionSelectionUiFromPreferences() {
+            String egressRegionPreference = m_multiProcessPreferences
+                    .getString(getString(R.string.egressRegionPreference),
+                            PsiphonConstants.REGION_CODE_ANY);
+            m_regionSelector.setSelectionByValue(egressRegionPreference);
         }
     }
 }
