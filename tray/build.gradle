@@ -5,11 +5,11 @@ def final String VERSION_NAME = "0.10.0"
 def final int VERSION_CODE = 10
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 26
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 23
+        minSdkVersion 14
+        targetSdkVersion 26
         versionCode VERSION_CODE
         versionName VERSION_NAME
 
