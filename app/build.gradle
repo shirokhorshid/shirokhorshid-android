@@ -98,13 +98,13 @@ dependencies {
 
     implementation project(':tray')
 
-    implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation "androidx.multidex:multidex:$rootProject.ext.multidexVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.ext.recyclerviewVersion"
+    implementation "androidx.localbroadcastmanager:localbroadcastmanager:$rootProject.ext.localBroadCastManagerVersion"
+    implementation "androidx.preference:preference:$rootProject.ext.preferenceVersion"
     implementation "com.takisoft.preferencex:preferencex:$rootProject.ext.preferenceLibraryFixVersion"
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
 
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
@@ -113,6 +113,6 @@ dependencies {
     compileOnly "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
     annotationProcessor "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
 
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    testImplementation "androidx.test.ext:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.junitVersion"
 }
