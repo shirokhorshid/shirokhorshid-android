@@ -16,5 +16,5 @@
 #   public *;
 #}
 
-# Only strip these
--keep class !com.google.android.gms.**,!android.support.** { *; }
+# keep all of the ca.psiphon package
+-keep class ca.psiphon.** {*;}
