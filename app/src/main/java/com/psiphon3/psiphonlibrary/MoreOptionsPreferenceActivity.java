@@ -26,11 +26,11 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.preference.CheckBoxPreference;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceScreen;
+import androidx.annotation.Nullable;
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 import android.widget.Toast;
 
 import com.psiphon3.R;
@@ -65,7 +65,7 @@ public class MoreOptionsPreferenceActivity extends MainBase.Activity {
         public void onCreatePreferencesFix(Bundle savedInstanceState, String rootKey) {
             super.onCreatePreferencesFix(savedInstanceState, rootKey);
             addPreferencesFromResource(R.xml.more_options_preferences);
-            final android.support.v7.preference.PreferenceScreen preferences = getPreferenceScreen();
+            final PreferenceScreen preferences = getPreferenceScreen();
             final PreferenceGetter preferenceGetter = getPreferenceGetter();
 
             // Notifications

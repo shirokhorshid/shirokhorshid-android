@@ -22,7 +22,7 @@ import net.grandcentrix.tray.core.TrayStorage;
 import net.grandcentrix.tray.provider.ContentProviderStorage;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Created by pascalwelsch on 11/20/14.

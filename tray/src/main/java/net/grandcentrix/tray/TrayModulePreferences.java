@@ -1,7 +1,7 @@
 package net.grandcentrix.tray;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * use {@link TrayPreferences} instead. Only the name was changed.

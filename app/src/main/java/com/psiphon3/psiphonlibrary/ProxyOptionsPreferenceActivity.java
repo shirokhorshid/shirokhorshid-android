@@ -21,10 +21,12 @@ package com.psiphon3.psiphonlibrary;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.preference.CheckBoxPreference;
-import android.support.v7.preference.EditTextPreference;
-import android.support.v7.preference.Preference;
+import androidx.annotation.Nullable;
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.EditTextPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -61,7 +63,7 @@ public class ProxyOptionsPreferenceActivity extends MainBase.Activity {
         public void onCreatePreferencesFix(Bundle savedInstanceState, String rootKey) {
             super.onCreatePreferencesFix(savedInstanceState, rootKey);
             addPreferencesFromResource(R.xml.proxy_options_preferences);
-            final android.support.v7.preference.PreferenceScreen preferences = getPreferenceScreen();
+            final PreferenceScreen preferences = getPreferenceScreen();
 
             useProxy = (CheckBoxPreference) preferences.findPreference(getString(R.string.useProxySettingsPreference));
             useSystemProxy = (RadioButtonPreference) preferences

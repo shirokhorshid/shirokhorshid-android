@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import static android.content.pm.PackageManager.GET_META_DATA;
 
@@ -25,7 +25,7 @@ public abstract class LocalizedActivities {
         }
     }
 
-    public static abstract class AppCompatActivity extends android.support.v7.app.AppCompatActivity {
+    public static abstract class AppCompatActivity extends androidx.appcompat.app.AppCompatActivity {
         @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

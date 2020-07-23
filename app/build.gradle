@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     useLibrary 'org.apache.http.legacy'
 
     repositories{
@@ -24,7 +24,7 @@ android {
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
                 minSdkVersion 14
-                targetSdkVersion 28
+                targetSdkVersion 29
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -69,6 +69,8 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+    buildToolsVersion = '29.0.3'
+
     if (propFile.canRead()) {
         def Properties props = new Properties()
         props.load(new FileInputStream(propFile))
@@ -96,12 +98,13 @@ dependencies {
 
     implementation project(':tray')
 
-    implementation "com.android.support:multidex:$rootProject.ext.multidexVersion"
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.androidSupportLibraryVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.ext.androidSupportLibraryVersion"
-    implementation "com.android.support:preference-v7:$rootProject.ext.androidSupportLibraryVersion"
-    implementation "com.takisoft.fix:preference-v7:$rootProject.ext.preferenceLibraryFixVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation "com.takisoft.preferencex:preferencex:$rootProject.ext.preferenceLibraryFixVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
@@ -111,5 +114,5 @@ dependencies {
     annotationProcessor "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
 
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.testRunnerVersion"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }

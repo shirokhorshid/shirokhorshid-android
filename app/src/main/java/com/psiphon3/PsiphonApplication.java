@@ -24,9 +24,8 @@ import android.app.Application;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 
 import com.psiphon3.psiphonlibrary.LocaleManager;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;

@@ -27,8 +27,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.v4.app.JobIntentService;
+import androidx.annotation.NonNull;
+import androidx.core.app.JobIntentService;
 import android.util.Log;
 
 import com.psiphon3.R;
@@ -38,7 +38,6 @@ import net.grandcentrix.tray.AppPreferences;
 
 import java.io.File;
 import java.util.Date;
-import java.util.List;
 
 import ca.psiphon.PsiphonTunnel;
 

@@ -22,9 +22,8 @@ allprojects {
 
 // define all dependencies versions here
 ext {
-    androidSupportLibraryVersion = '28.0.0'
     constraintLayoutVersion = '1.1.3'
-    preferenceLibraryFixVersion = '28.0.0.0'
+    preferenceLibraryFixVersion = '1.1.0'
     rxjavaVersion = '2.2.5'
     rxandroidVersion = '2.1.0'
     rxrelayVersion = '2.1.0'
