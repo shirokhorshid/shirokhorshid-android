@@ -94,7 +94,7 @@ public class MoreOptionsPreferenceActivity extends MainBase.Activity {
             if (!EmbeddedValues.IS_PLAY_STORE_BUILD && hasUpgradeChecker) {
                 upgradeWiFiOnlyCheckBox.setChecked(preferenceGetter.getBoolean(getString(R.string.downloadWifiOnlyPreference), false));
             } else {
-                preferences.removePreference(upgradeWiFiOnlyCheckBox);
+                preferences.removePreferenceRecursively(getString(R.string.downloadWifiOnlyPreference));
             }
             CheckBoxPreference disableTimeoutsCheckBox =
                     (CheckBoxPreference) preferences.findPreference(getString(R.string.disableTimeoutsPreference));
