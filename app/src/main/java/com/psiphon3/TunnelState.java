@@ -48,8 +48,6 @@ public abstract class TunnelState {
 
         public abstract int httpPort();
 
-        public abstract boolean needsHelpConnecting();
-
         @Nullable
         public abstract ArrayList<String> homePages();
 
@@ -61,7 +59,6 @@ public abstract class TunnelState {
                     .setPropagationChannelId("")
                     .setSponsorId("")
                     .setHttpPort(0)
-                    .setNeedsHelpConnecting(false)
                     .setHomePages(null);
         }
 
@@ -80,8 +77,6 @@ public abstract class TunnelState {
             public abstract Builder setHttpPort(int port);
 
             public abstract Builder setHomePages(@Nullable ArrayList<String> homePages);
-
-            public abstract Builder setNeedsHelpConnecting(boolean needsHelpConnecting);
 
             public abstract ConnectionData build();
         }

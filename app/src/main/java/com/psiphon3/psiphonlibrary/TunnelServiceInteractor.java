@@ -57,7 +57,6 @@ public class TunnelServiceInteractor {
     private final BroadcastReceiver broadcastReceiver;
     private Relay<TunnelState> tunnelStateRelay = BehaviorRelay.<TunnelState>create().toSerialized();
     private Relay<Boolean> dataStatsRelay = PublishRelay.<Boolean>create().toSerialized();
-    private Relay<NfcExchange> nfcExchangeRelay = PublishRelay.<NfcExchange>create().toSerialized();
 
     private final Messenger incomingMessenger = new Messenger(new IncomingMessageHandler(this));
 
@@ -161,12 +160,6 @@ public class TunnelServiceInteractor {
                 .toFlowable(BackpressureStrategy.LATEST);
     }
 
-    public Flowable<NfcExchange> nfcExchangeFlowable() {
-        return nfcExchangeRelay
-                .distinctUntilChanged()
-                .toFlowable(BackpressureStrategy.LATEST);
-    }
-
     public boolean isServiceRunning(Context context) {
         return getRunningService(context) != null;
     }
@@ -230,7 +223,6 @@ public class TunnelServiceInteractor {
         tunnelState.listeningLocalHttpProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT);
         tunnelState.clientRegion = data.getString(TunnelManager.DATA_TUNNEL_STATE_CLIENT_REGION);
         tunnelState.sponsorId = data.getString(TunnelManager.DATA_TUNNEL_STATE_SPONSOR_ID);
-        tunnelState.needsHelpConnecting = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_NEEDS_HELP_CONNECTING);
         ArrayList<String> homePages = data.getStringArrayList(TunnelManager.DATA_TUNNEL_STATE_HOME_PAGES);
         if (homePages != null && tunnelState.isConnected) {
             tunnelState.homePages = homePages;
@@ -250,16 +242,6 @@ public class TunnelServiceInteractor {
         DataTransferStats.getDataTransferStatsForUI().m_slowBucketsLastStartTime = data.getLong(TunnelManager.DATA_TRANSFER_STATS_SLOW_BUCKETS_LAST_START_TIME);
         DataTransferStats.getDataTransferStatsForUI().m_fastBuckets = data.getParcelableArrayList(TunnelManager.DATA_TRANSFER_STATS_FAST_BUCKETS);
         DataTransferStats.getDataTransferStatsForUI().m_fastBucketsLastStartTime = data.getLong(TunnelManager.DATA_TRANSFER_STATS_FAST_BUCKETS_LAST_START_TIME);
-    }
-
-    public void importConnectionInfo(String connectionInfoPayload) {
-        Bundle data = new Bundle();
-        data.putString(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_IMPORT, connectionInfoPayload);
-        sendServiceMessage(TunnelManager.ClientToServiceMessage.NFC_CONNECTION_INFO_EXCHANGE_IMPORT.ordinal(), data);
-    }
-
-    public void nfcExportConnectionInfo() {
-        sendServiceMessage(TunnelManager.ClientToServiceMessage.NFC_CONNECTION_INFO_EXCHANGE_EXPORT.ordinal(), null);
     }
 
     private static class IncomingMessageHandler extends Handler {
@@ -296,7 +278,6 @@ public class TunnelServiceInteractor {
                                 .setSponsorId(state.sponsorId)
                                 .setHttpPort(state.listeningLocalHttpProxyPort)
                                 .setHomePages(state.homePages)
-                                .setNeedsHelpConnecting(state.needsHelpConnecting)
                                 .build();
                         tunnelState = TunnelState.running(connectionData);
                     } else {
@@ -307,12 +288,6 @@ public class TunnelServiceInteractor {
                 case DATA_TRANSFER_STATS:
                     getDataTransferStatsFromBundle(data);
                     tunnelServiceInteractor.dataStatsRelay.accept(state.isConnected);
-                    break;
-                case NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT:
-                    tunnelServiceInteractor.nfcExchangeRelay.accept(NfcExchange.exported(data.getString(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_EXPORT)));
-                    break;
-                case NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT:
-                    tunnelServiceInteractor.nfcExchangeRelay.accept(NfcExchange.imported(data.getBoolean(TunnelManager.DATA_NFC_CONNECTION_INFO_EXCHANGE_RESPONSE_IMPORT, false)));
                     break;
                 default:
                     super.handleMessage(msg);

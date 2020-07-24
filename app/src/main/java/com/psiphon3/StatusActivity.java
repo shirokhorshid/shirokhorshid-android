@@ -72,7 +72,6 @@ import java.util.regex.Pattern;
 public class StatusActivity
         extends com.psiphon3.psiphonlibrary.MainBase.TabbedActivityBase {
     public static final String BANNER_FILE_NAME = "bannerImage";
-    public static final String ACTION_SHOW_GET_HELP_DIALOG = "com.psiphon3.StatusActivity.SHOW_GET_HELP_CONNECTING_DIALOG";
 
     private ImageView m_banner;
     private boolean m_firstRun = true;
@@ -329,19 +328,12 @@ public class StatusActivity
                     this.getClass()));
         } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_VPN_REVOKED)) {
             showVpnAlertDialog(R.string.StatusActivity_VpnRevokedTitle, R.string.StatusActivity_VpnRevokedMessage);
-        } else if (0 == intent.getAction().compareTo(ACTION_SHOW_GET_HELP_DIALOG)) {
-            // OK to be null because we don't use it
-            onGetHelpConnectingClick(null);
         }
     }
 
     public void onToggleClick(View v)
     {
         doToggle();
-    }
-
-    public void onGetHelpConnectingClick(View v) {
-        showConnectionHelpDialog(this, R.layout.dialog_get_help_connecting);
     }
 
     @Override
