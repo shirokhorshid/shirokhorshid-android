@@ -103,7 +103,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$rootProject.ext.recyclerviewVersion"
     implementation "androidx.localbroadcastmanager:localbroadcastmanager:$rootProject.ext.localBroadCastManagerVersion"
     implementation "androidx.preference:preference:$rootProject.ext.preferenceVersion"
-    implementation "com.takisoft.preferencex:preferencex:$rootProject.ext.preferenceLibraryFixVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
 
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"

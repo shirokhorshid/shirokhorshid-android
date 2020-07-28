@@ -12,8 +12,6 @@
                   android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.NFC" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -52,19 +50,6 @@
             android:name="com.psiphon3.psiphonlibrary.TunnelIntentsHandler"
             android:exported="false"
             android:targetActivity="com.psiphon3.StatusActivity" />
-
-        <activity android:name=".psiphonlibrary.NfcActivity" />
-        <activity-alias
-            android:name=".psiphonlibrary.NfcActivity"
-            android:targetActivity=".StatusActivity"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="psiphon://nfc" />
-            </intent-filter>
-        </activity-alias>
-
         <activity
             android:name=".FeedbackActivity"
             android:parentActivityName=".StatusActivity"

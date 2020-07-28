@@ -21,11 +21,12 @@ package com.psiphon3.psiphonlibrary;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 import com.psiphon3.R;
-import com.takisoft.preferencex.PreferenceFragmentCompat;
 
 import net.grandcentrix.tray.AppPreferences;
 
@@ -33,7 +34,7 @@ public abstract class PsiphonPreferenceFragmentCompat extends PreferenceFragment
     private PreferenceGetter preferenceGetter;
 
     @Override
-    public void onCreatePreferencesFix(Bundle savedInstanceState, String rootKey) {
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         // Store temporary preferences used in this activity in its own file
         PreferenceManager prefMgr = getPreferenceManager();
         prefMgr.setSharedPreferencesName(getString(R.string.moreOptionsPreferencesName));

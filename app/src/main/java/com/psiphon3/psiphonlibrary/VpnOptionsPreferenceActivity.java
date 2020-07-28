@@ -23,13 +23,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
+
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
-
-import android.widget.Button;
 
 import com.psiphon3.R;
 
@@ -56,14 +56,14 @@ public class VpnOptionsPreferenceActivity extends MainBase.Activity {
         Preference mSelectApps;
 
         @Override
-        public void onCreatePreferencesFix(Bundle savedInstanceState, String rootKey) {
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             if (!Utils.supportsVpnExclusions()) {
                 FragmentActivity activity = getActivity();
                 if (activity != null && !activity.isFinishing()) {
                     activity.finish();
                 }
             }
-            super.onCreatePreferencesFix(savedInstanceState, rootKey);
+            super.onCreatePreferences(savedInstanceState, rootKey);
             addPreferencesFromResource(R.xml.vpn_options_preferences);
             final PreferenceScreen preferenceScreen = getPreferenceScreen();
             final PreferenceGetter preferenceGetter = getPreferenceGetter();

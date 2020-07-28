@@ -426,8 +426,8 @@ public class StatusActivity
         boolean arePreferencesCreated = false;
 
         @Override
-        public void onCreatePreferencesFix(Bundle bundle, String s) {
-            super.onCreatePreferencesFix(bundle, s);
+        public void onCreatePreferences(Bundle bundle, String s) {
+            super.onCreatePreferences(bundle, s);
             addPreferencesFromResource(R.xml.settings_preferences_screen);
 
             regionListPreference = (RegionListPreference) findPreference(getContext().getString(R.string.regionPreferenceKey));
