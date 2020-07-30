@@ -38,6 +38,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.psiphon3.R;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -413,11 +415,11 @@ public class StatusList {
             Context context = listview.getContext();
             
             m_adapter = new StatusListAdapter(
-                    context, 
-                    context.getResources().getIdentifier("message_row", "layout", context.getPackageName()),
-                    context.getResources().getIdentifier("MessageRow.Text", "id", context.getPackageName()),
-                    context.getResources().getIdentifier("MessageRow.Image", "id", context.getPackageName()),
-                    context.getResources().getIdentifier("MessageRow.Timestamp", "id", context.getPackageName()));
+                    context,
+                    R.layout.message_row,
+                    R.id.MessageRow_Text,
+                    0,
+                    R.id.MessageRow_Timestamp);
             
             m_listview = listview;
             m_listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
