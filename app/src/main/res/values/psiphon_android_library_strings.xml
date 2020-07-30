@@ -16,6 +16,7 @@
     <string name="psiphon_service_notification_id">Psiphon Service Notification</string>
     <string name="psiphon_service_notification_channel_name">Psiphon Status Changes</string>
     <string name="psiphon_upgrade_notification_channel_name">Psiphon Upgrade</string>
+    <string name="psiphon_server_alert_notification_channel_name">Psiphon Server Alerts</string>
     <string name="vpn_service_running">VPN service running</string>
     <string name="vpn_service_revoked">VPN service revoked</string>
     <string name="debug_message">%s</string>
