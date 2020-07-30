@@ -74,7 +74,7 @@
     <string name="about">About Psiphon</string>
     <string name="feedback">Feedback</string>
     <string name="disableTimeoutsPreferenceSummary">Disable timeouts for slow networks</string>
-    <string name="region_selector">Select region</string>
+    <string name="region_selector">Select server region</string>
     <string name="network_proxy_connect_invalid_values">Invalid HTTP Proxy settings</string>
     <string name="tunnel_whole_device_exception">Your device does not support the whole device tunnel option due to missing VpnService API.</string>
     <string name="preference_notifications_title">Notifications</string>
