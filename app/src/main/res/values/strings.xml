@@ -28,6 +28,13 @@
     <string name="label_ok">OK</string>
     <string name="preference_navigate_to_vpn_setting_title">Always-on VPN</string>
     <string name="preference_navigate_to_vpn_setting_summary">Go to system settings to enable Always-on VPN</string>
+
+    <!-- Generic negative button label.-->
+    <string name="lbl_no">No</string>
+
+    <!-- Generic positive button label.-->
+    <string name="lbl_yes">Yes</string>
+
     <!-- "Please open Psiphon to keep connecting" notification title -->
     <string name="notification_title_action_required">Action required!</string>
     <!-- Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app. -->
