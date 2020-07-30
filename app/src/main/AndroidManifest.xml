@@ -22,8 +22,6 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
-    <uses-feature android:name="android.hardware.nfc" android:required="false" />
-
     <application
         android:name=".PsiphonApplication"
         android:hardwareAccelerated="true"
