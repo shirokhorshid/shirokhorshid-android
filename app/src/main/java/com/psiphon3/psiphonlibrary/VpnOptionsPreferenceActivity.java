@@ -28,14 +28,16 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
+import com.psiphon3.MainActivityViewModel;
 import com.psiphon3.R;
 
 import java.util.Set;
 
-public class VpnOptionsPreferenceActivity extends MainBase.Activity {
+public class VpnOptionsPreferenceActivity extends LocalizedActivities.AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,11 @@ public class VpnOptionsPreferenceActivity extends MainBase.Activity {
                     .add(android.R.id.content, new VpnOptionsPreferenceFragment())
                     .commit();
         }
+
+        MainActivityViewModel viewModel = new ViewModelProvider(this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication()))
+                .get(MainActivityViewModel.class);
+        getLifecycle().addObserver(viewModel);
     }
 
     public static class VpnOptionsPreferenceFragment extends PsiphonPreferenceFragmentCompat {

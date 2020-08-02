@@ -100,6 +100,7 @@ dependencies {
 
     implementation "androidx.multidex:multidex:$rootProject.ext.multidexVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatVersion"
+    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
     implementation "androidx.recyclerview:recyclerview:$rootProject.ext.recyclerviewVersion"
     implementation "androidx.localbroadcastmanager:localbroadcastmanager:$rootProject.ext.localBroadCastManagerVersion"
     implementation "androidx.preference:preference:$rootProject.ext.preferenceVersion"

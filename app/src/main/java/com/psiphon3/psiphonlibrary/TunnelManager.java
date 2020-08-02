@@ -396,11 +396,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     }
 
     private PendingIntent getPendingIntent(Context ctx, final String actionString) {
-        // This comment is copied from StatusActivity::HandleCurrentIntent
+        // This comment is copied from MainActivity::HandleCurrentIntent
         //
-        // StatusActivity is exposed to other apps because it is declared as an entry point activity of the app in the manifest.
+        // MainActivity is exposed to other apps because it is declared as an entry point activity of the app in the manifest.
         // For the purpose of handling internal intents, such as handshake, etc., from the tunnel service we have declared a not
-        // exported activity alias 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler' that should act as a proxy for StatusActivity.
+        // exported activity alias 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler' that should act as a proxy for MainActivity.
         // We expect our own intents have a component set to 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler', all other intents
         // should be ignored.
         Intent intent = new Intent();

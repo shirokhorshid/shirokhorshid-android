@@ -29,11 +29,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
+import com.psiphon3.MainActivityViewModel;
 import com.psiphon3.R;
 
 import org.zirco.providers.ZircoBookmarksContentProvider;
@@ -44,7 +46,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MoreOptionsPreferenceActivity extends MainBase.Activity {
+public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompatActivity {
     public static final String INTENT_EXTRA_LANGUAGE_CHANGED = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.LANGUAGE_CHANGED";
     private static final int ZIRCO_WRITE_EXTERNAL_PERMISSION_REQUEST_CODE = 12312;
 
@@ -56,6 +58,11 @@ public class MoreOptionsPreferenceActivity extends MainBase.Activity {
                     .add(android.R.id.content, new MoreOptionsPreferenceFragment())
                     .commit();
         }
+
+        MainActivityViewModel viewModel = new ViewModelProvider(this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication()))
+                .get(MainActivityViewModel.class);
+        getLifecycle().addObserver(viewModel);
     }
 
     public static class MoreOptionsPreferenceFragment extends PsiphonPreferenceFragmentCompat
@@ -181,7 +188,7 @@ public class MoreOptionsPreferenceActivity extends MainBase.Activity {
                 localeManager.setNewLocale(getActivity(), languageCode);
             }
 
-            // Finish back to the StatusActivity and inform the language has changed
+            // Finish back to the MainActivity and inform the language has changed
             Intent data = new Intent();
             data.putExtra(INTENT_EXTRA_LANGUAGE_CHANGED, true);
             getActivity().setResult(RESULT_OK, data);
@@ -190,7 +197,7 @@ public class MoreOptionsPreferenceActivity extends MainBase.Activity {
 
         private void setupLanguageSelector(PreferenceScreen preferences) {
             // Get the preference view and create the locale manager with the app's context.
-            // Cannot use this activity as the context as we also need StatusActivity to pick up on it.
+            // Cannot use this activity as the context as we also need MainActivity to pick up on it.
             mLanguageSelector = (ListPreference) preferences.findPreference(getString(R.string.preferenceLanguageSelection));
 
             // Collect the string array of <language name>,<language code>

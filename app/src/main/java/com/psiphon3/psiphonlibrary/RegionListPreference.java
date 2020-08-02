@@ -20,12 +20,6 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
-import androidx.appcompat.app.AlertDialog;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceViewHolder;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +27,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.psiphon3.R;
 
@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RegionListPreference extends Preference {
-    private final AppPreferences appPreferences;
+    private final AppPreferences multiProcessPreferences;
     private Region currentRegion;
     private ImageView flagView;
 
@@ -53,7 +53,7 @@ public class RegionListPreference extends Preference {
 
     public RegionListPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.appPreferences = new AppPreferences(context);
+        multiProcessPreferences = new AppPreferences(context);
         setWidgetLayoutResource(R.layout.region_selector_pref_widget_layout);
 
         setCurrentRegionFromPreferences();
@@ -86,7 +86,7 @@ public class RegionListPreference extends Preference {
     private void loadRegionSelectorView(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        String knownRegions = appPreferences.getString(KNOWN_REGIONS_PREFERENCE, "");
+        String knownRegions = multiProcessPreferences.getString(KNOWN_REGIONS_PREFERENCE, "");
 
         ArrayList<String> regionCodes = new ArrayList<>();
         regionCodes.add(PsiphonConstants.REGION_CODE_ANY);
@@ -123,7 +123,7 @@ public class RegionListPreference extends Preference {
     }
 
     public void setCurrentRegionFromPreferences() {
-        String egressRegionPreference = appPreferences
+        String egressRegionPreference = multiProcessPreferences
                 .getString(getContext().getString(R.string.egressRegionPreference),
                         PsiphonConstants.REGION_CODE_ANY);
         currentRegion = allRegions.get(egressRegionPreference);

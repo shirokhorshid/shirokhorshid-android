@@ -26,16 +26,18 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 
+import com.psiphon3.MainActivityViewModel;
 import com.psiphon3.R;
 
 import java.util.ArrayList;
 
-public class ProxyOptionsPreferenceActivity extends MainBase.Activity {
+public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,11 @@ public class ProxyOptionsPreferenceActivity extends MainBase.Activity {
                     .add(android.R.id.content, new ProxyOptionsPreferenceFragment())
                     .commit();
         }
+
+        MainActivityViewModel viewModel = new ViewModelProvider(this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication()))
+                .get(MainActivityViewModel.class);
+        getLifecycle().addObserver(viewModel);
     }
 
     public static class ProxyOptionsPreferenceFragment extends PsiphonPreferenceFragmentCompat

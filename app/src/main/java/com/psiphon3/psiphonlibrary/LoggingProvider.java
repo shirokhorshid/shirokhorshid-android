@@ -44,6 +44,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import static com.psiphon3.LogsTabFragment.STATUS_ENTRY_AVAILABLE;
+
 /**
  * All logging is done directly to the LoggingProvider from all processes.
  */
@@ -483,7 +485,7 @@ public class LoggingProvider extends ContentProvider {
             }
 
             if (numberOfLogsRetrieved > 0) {
-                LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(MainBase.TabbedActivityBase.STATUS_ENTRY_AVAILABLE));
+                LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(STATUS_ENTRY_AVAILABLE));
             }
 
 
