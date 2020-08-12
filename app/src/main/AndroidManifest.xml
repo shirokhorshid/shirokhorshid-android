@@ -23,6 +23,7 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:name=".PsiphonApplication"
         android:hardwareAccelerated="true"
         android:allowBackup="false"
