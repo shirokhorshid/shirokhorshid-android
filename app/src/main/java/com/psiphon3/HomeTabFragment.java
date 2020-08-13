@@ -92,17 +92,19 @@ public class HomeTabFragment extends Fragment {
                 .filter(tunnelState -> tunnelState.isRunning() && tunnelState.connectionData().isConnected())
                 .flatMap(tunnelState -> {
                     ArrayList<String> homePages = tunnelState.connectionData().homePages();
-                    if (homePages != null && homePages.size() > 0) {
-                        return Flowable.just(homePages.get(0));
+                    if (homePages == null || homePages.size() == 0) {
+                        // There's no URL to load
+                        return Flowable.empty();
                     }
-                    return Flowable.empty();
-                })
-                .flatMap(url -> {
-                    // Check if the embedded view needs to load the home page
-                    if (!isWebViewLoaded && MainActivity.shouldLoadInEmbeddedWebView(url)) {
-                        return Flowable.just(url);
+                    String url = homePages.get(0);
+
+                    if (isWebViewLoaded || !MainActivity.shouldLoadInEmbeddedWebView(url)) {
+                        // The embedded view has loaded the URL already or the URL should not
+                        // be loaded in the embedded view
+                        return Flowable.empty();
                     }
-                    return Flowable.empty();
+                    // Pass the URL downstream to be loaded in the embedded web view
+                    return Flowable.just(url);
                 })
                 .doOnNext(this::loadEmbeddedWebView)
                 .subscribe();
