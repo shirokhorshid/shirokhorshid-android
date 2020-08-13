@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -34,7 +35,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 public class HomeTabFragment extends Fragment {
     private MainActivityViewModel viewModel;
     private ViewFlipper sponsorViewFlipper;
-    private LinearLayout statusLayout;
+    private ScrollView statusLayout;
     private ImageButton statusViewImage;
     private View mainView;
     private SponsorHomePage sponsorHomePage;
