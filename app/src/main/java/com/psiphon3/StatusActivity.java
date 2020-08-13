@@ -129,18 +129,22 @@ public class StatusActivity
     @Override
     protected void onResume() {
         super.onResume();
+
+        boolean shouldAutoStart = shouldAutoStart();
+        preventAutoStart();
+
         boolean wantVPN = m_multiProcessPreferences
                 .getBoolean(getString(R.string.tunnelWholeDevicePreference),
                         true);
         if(wantVPN) {
             // Auto-start on app first run
-            if (shouldAutoStart()) {
+            if (shouldAutoStart) {
                 startUp();
             }
         } else {
             // Legacy case: do not auto-start if last preference was BOM
             // Instead we switch to the options tab and display a modal with the help information
-            m_tabHost.setCurrentTabByTag("settings");
+            m_tabHost.post(() -> m_tabHost.setCurrentTabByTag("settings"));
             LayoutInflater inflater = this.getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.legacy_bom_alert_view_layout, null);
             TextView tv = dialogView.findViewById(R.id.legacy_mode_alert_tv);
@@ -170,7 +174,6 @@ public class StatusActivity
             }
             builder.show();
         }
-        preventAutoStart();
     }
 
     private void setUpBanner() {
