@@ -209,7 +209,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .subscribe());
 
         // Observe link clicks in the embedded web view to open in the external browser
-        compositeDisposable.add(viewModel.externalBrowserUrlUrlFlowable()
+        compositeDisposable.add(viewModel.externalBrowserUrlFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(url -> displayBrowser(this, url))
                 .subscribe());

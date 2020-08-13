@@ -121,7 +121,7 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
         externalBrowserUrlRelay.accept(url);
     }
 
-    public Flowable<String> externalBrowserUrlUrlFlowable() {
+    public Flowable<String> externalBrowserUrlFlowable() {
         return externalBrowserUrlRelay.toFlowable(BackpressureStrategy.LATEST);
     }
 
