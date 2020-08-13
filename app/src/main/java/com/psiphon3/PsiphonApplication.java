@@ -25,12 +25,18 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
+
 import androidx.multidex.MultiDex;
 
 import com.psiphon3.psiphonlibrary.LocaleManager;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelVpnService;
 import com.psiphon3.psiphonlibrary.Utils;
+
+import java.io.IOException;
+
+import io.reactivex.exceptions.UndeliverableException;
+import io.reactivex.plugins.RxJavaPlugins;
 
 public class PsiphonApplication extends Application {
     @Override
@@ -91,5 +97,25 @@ public class PsiphonApplication extends Application {
                 PackageManager.DONT_KILL_APP);
 
         PsiphonConstants.DEBUG = Utils.isDebugMode(this);
+
+        // If an Rx subscription is disposed while the observable is still running its async task
+        // which may throw an error the error will have nowhere to go and will result in an uncaught
+        // UndeliverableException being thrown. We are going to set up a global error handler to make
+        // sure the app is not crashed in this case. For more details see
+        // https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0#error-handling
+        RxJavaPlugins.setErrorHandler(e -> {
+            if (e instanceof UndeliverableException) {
+                e = e.getCause();
+            }
+            if ((e instanceof IOException)) {
+                // fine, irrelevant network problem or API that throws on cancellation
+                return;
+            }
+            if (e instanceof InterruptedException) {
+                // fine, some blocking code was interrupted by a dispose call
+                return;
+            }
+            Utils.MyLog.g("RxJava undeliverable exception received: " + e);
+        });
     }
 }
