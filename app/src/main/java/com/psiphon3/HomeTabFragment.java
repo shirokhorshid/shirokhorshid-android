@@ -75,7 +75,7 @@ public class HomeTabFragment extends Fragment {
                 // Check for URLs to be opened in the embedded web view.
                 .filter(tunnelState -> !tunnelState.isUnknown())
                 .doOnNext(tunnelState -> {
-                    if (!tunnelState.isRunning() || tunnelState.connectionData().isConnected()) {
+                    if (!tunnelState.isRunning() || !tunnelState.connectionData().isConnected()) {
                         // The tunnel is either not running or connecting,
                         // stop loading the sponsor page and flip to status view.
                         if (sponsorHomePage != null) {
