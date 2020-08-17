@@ -1,38 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">баннер спонсора; кликните, чтобы увидеть домашнюю страницу спонсора</string>
-  <string name="start_desc">подключиться к Psiphon; кликните, чтобы подключиться</string>
-  <string name="message_image_success_desc">иконка сообщения об успехе</string>
-  <string name="message_image_error_desc">иконка сообщения об ошибке</string>
-  <string name="message_image_debug_desc">иконка сообщения отладки</string>
-  <string name="message_image_warning_desc">иконка предупреждающего сообщения</string>
-  <string name="exit">Закрыть</string>
   <string name="open_browser">Открыть браузер</string>
-  <string name="browser_task_label">Браузер Psiphon</string>
   <string name="FeedbackActivity.DefaultText">Если у вас есть какие-либо особые комментарии, дополнительная информация о сайтах, которые не загружаются, или эта форма не работает для вас, напишите нам на &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Спасибо за ваш отзыв</string>
   <string name="FeedbackActivity.Failure">Сбой отправки. Попробуйте еще раз.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Сбой отправки отзыва.</string>
   <string name="FeedbackActivity.InvalidURLParameters">Неверные параметры ссылки при отправке формы отзыва</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Сбой загрузки формы отзыва</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Туннелировать интернет-соединение для всех приложений?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Для вашего устройства доступна опция полного тунеллирования устройства.\n\nС этой опцией весь ваш интернет-трафик для всех приложений, включая все браузеры, будет тунеллирован через Psiphon.\n\nЛибо вы можете выбрать тунеллирование только встроенного браузера Psiphon, а все остальные приложения будут использовать ваше стандартное подключение к интернет напрямую.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Туннелировать все интернет-соединения</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Туннелировать только браузер Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Сброс</string>
   <string name="preference_language_selection_title">Язык</string>
   <string name="preference_language_default_language">Язык по умолчанию</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Расширенный</string>
+  <string name="preference_category_info_title">Информация</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN всегда включен</string>

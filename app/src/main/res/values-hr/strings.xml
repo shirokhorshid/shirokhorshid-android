@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">zastava sponzora; kliknite da bi posjetili stranicu sponzora</string>
-  <string name="start_desc">spoji se na Psiphon; kliknite za spajanje</string>
-  <string name="message_image_success_desc">ikona koja pokazuje poruku uspjeha</string>
-  <string name="message_image_error_desc">ikona koja pokazuje poruku pogreške</string>
-  <string name="message_image_debug_desc">ikona koja pokazuje poruku otklanjanja pogreške</string>
-  <string name="message_image_warning_desc">ikona koja pokazuje poruku upozorenja</string>
-  <string name="exit">Prestani</string>
   <string name="open_browser">Otvoreni Preglednik</string>
-  <string name="browser_task_label">Psiphon Preglednik</string>
   <string name="FeedbackActivity.DefaultText">Ako imate nekih specifičnih komentara, daljnjih informacija o stranicama koje ne rade, ili ako vam ovaj format ne odgovara, molimo Vas pošaljite email &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Hvala Vam što ste podjelili povratne informacije</string>
   <string name="FeedbackActivity.Failure">Podnošenje nije uspjelo. Molimo pokušajte ponovno.</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">Vi ili neka druga aplikacija ste odspojili Psiphonov VPN. Više VPN aplikacija ne može biti pokrenuto u isto vrijeme. Provjerite ako je instalirana i pokrenuta neka druga VPN aplikacija.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN se ne može pokrenuti</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne može pokrenuti VPN. Više VPN aplikacija ne može biti pokrenuto u isto vrijeme. Provjerite ako je instalirana neka druga VPN aplikacija i ako je postavljena da bude stalno upaljena.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tuneliraj cijeli uređaj?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Opcija \'Tuneliraj cijeli uređaj\' je dostupna za Vaš uređaj.\n\nS ovom opcijom sav Vaš Internet promet aplikacija, uključujući i preglednike, će biti tuneliran kroz Psiphon.\n\nAlternativno, možete odabrati tuneliranje samo Psiphon pregledničkog paketa što će ostaviti sve Vaše druge aplikacije da koriste Vašu standardnu Internet vezu.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tuneliraj cijeli uređaj</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Koristi samo Psiphon Preglednik</string>
   <string name="selected_region_currently_not_available">Odabrana regija je trenutno nedostupna, molimo odaberite drugu regiju.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Brinemo o Vašoj privatnosti i sigurnosti podataka. Ova aplikacija ostaje besplatna prikazivanjem reklama.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Smijemo li koristiti Vaše podatke kako bi Vam prilagodili reklame?</string>
-  <string name="you_can_change_your_choice_anytime">Možete promjeniti svoj izbor bilo kad u opcijama aplikacije Psiphon Pro. Naši reklamni partneri će prikupljati podatke i koristiti unikatni identifikator na Vašem uređaju kako bi Vam prikazali reklame.</string>
-  <string name="learn_more_about_our_ad_providers"><u>Naučite više o našim reklamnim partnerima</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Da, nastavi prikazivati relevantne reklame</string>
-  <string name="no_see_ads_that_are_less_relevant">Ne, prikazuj reklame koje su manje relevantne</string>
-  <string name="pay_for_the_ad_free_version">Nadogradite na verziju bez reklama</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">Kliknite na ime reklamnog partnera kako bi vidjeli njihovu politiku privatnosti</string>
   <string name="ads_consent_preference_category_title">Personalizacija reklama</string>
   <string name="ads_consent_preference_dialog_preference_message">Stvarno želite ponovno postaviti svoje reklamne postavke?</string>
   <string name="ads_consent_preference_title">Ponovno postavi reklamne postavke</string>
@@ -41,28 +22,7 @@
   <string name="preference_language_selection_title">Jezik</string>
   <string name="preference_language_title">Odabir jezika</string>
   <string name="preference_language_default_language">Zadani jezik</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">Informacije o vezi uspješno uvezene!</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">Infomracije o vezi nisu uvezene.</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">Molimo stisnite Start i ponovno probajte NFC razmjenu.</string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">Trebate pomoć pri povezivanju?</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">Kako bi dobili pomoć, potražite drugog Psiphon korisnika koji je spojen. Zatim, dok se Vi pokušavate spojiti, a on je spojen, prislonite svoje telefone leđa na leđa kako bi započeli razmjenu informacija o vezi.</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">Telefoni se spajaju NFC-om</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Problemi s vezom</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">Kliknite za moguće popravke</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">Pomozite prijatelju da se spoji</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">Možete pomoći prijatelju da se spoji na Psiphon tako da, dok ste vi spojeni, a on se pokušava spojiti, prislonite svoje telefone leđa na leđa.</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">Telefoni se spajaju NFC-om</string>
+  <string name="preference_category_advanced_title">Napredno</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">Uvijek upaljen VPN</string>

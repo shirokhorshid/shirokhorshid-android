@@ -1,38 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">демөөрчүнүн баннери; демөөрчүнүн ,бетин көрүү үчүн басыңыз</string>
-  <string name="start_desc">Psiphon-го байланышуу; байланышуу үчүн басыңыз</string>
-  <string name="message_image_success_desc">ийгиликтүү билдирүүнү белгилөөчү сүрөтчө</string>
-  <string name="message_image_error_desc">ката билдирүүнү белгилөөчү сүрөтчө</string>
-  <string name="message_image_debug_desc">жөндөө билдирүүнү белгилөөчү сүрөтчө</string>
-  <string name="message_image_warning_desc">эскертүү билдирүүнү белгилөөчү сүрөтчө</string>
-  <string name="exit">Чыгуу</string>
   <string name="open_browser">Браузерди Ачуу</string>
-  <string name="browser_task_label">Psiphon Браузери</string>
   <string name="FeedbackActivity.DefaultText">Эгерде сизде иштебей жаткан сайттар тууралуу өзгөчө пикир же маалымат болсо, же болбосо бул форма сизде иштебей жатса, буга кат жибериңиз: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Пикириңизди билдиргениңиз үчүн рахмат</string>
   <string name="FeedbackActivity.Failure">Жиберүү ишке ашкан жок. Дагы бир жолу аракет кылыңыз.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Пикириңиз жиберилбей калды</string>
   <string name="FeedbackActivity.InvalidURLParameters">Пикир жиберүү формасында URL Параметрлери жараксыз</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Пикир билдирүү бетинин мазмуну алынбай калды</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Бүткүл түзмөктү туннелдөө керекпи?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Түзмөгүңүз бүткүл түзмөктү туннелдөө мүмкүнчүлүгүн колдойт. \n\nБул опция мененбардык браузерлерди кошум бардык колдонмолор үчүн интернет трафигиңиз Psiphon аркылуу туннелдөөдөн өтөт. \n\nЖе болбосо, сиз тутамдалган Psiphon  браузерин гана туннелдөөнү тандасаңыз болот, анда калган колдонмолордун баары стандарт интернет байланыш аркылуу түз жүргүзүлөт.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Бүткүл түзмөктүтуннелдөө</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Бир гана Psiphon Браузерин колдонуу</string>
   <string name="ads_consent_preference_dialog_title">Баштапкы абалга кайтаруу</string>
   <string name="preference_language_selection_title">Тил</string>
   <string name="preference_language_default_language">Демейки тил</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Өркүндөтүлгөн</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Макул</string>
   <!--Generic negative button label.-->

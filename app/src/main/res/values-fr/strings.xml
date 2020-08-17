@@ -1,17 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">bandeau des commanditaires ; cliquez pour visiter le site des commanditaires</string>
-  <string name="start_desc">connexion à Psiphon ; cliquez pour vous connecter</string>
-  <string name="message_image_success_desc">icône indiquant un message de réussite</string>
-  <string name="message_image_error_desc">icône indiquant un message d’erreur</string>
-  <string name="message_image_debug_desc">icône indiquant un message de débogage</string>
-  <string name="message_image_warning_desc">icône indiquant un message d’avertissement</string>
-  <string name="exit">Quitter</string>
   <string name="open_browser">Ouvrir le navigateur</string>
-  <string name="browser_task_label">Navigateur Psiphon</string>
   <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des renseignements complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, veuillez envoyer un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Merci pour votre rétroaction</string>
-  <string name="FeedbackActivity.Failure">L’envoi a échoué. Veuillez ressayer.</string>
+  <string name="FeedbackActivity.Failure">L’envoi a échoué. Veuillez réessayer.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Échec d’envoi de votre rétroaction</string>
   <string name="FeedbackActivity.InvalidURLParameters">Paramètres d’URL invalides dans l’envoi du formulaire de rétroaction</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Échec de récupération du contenu de la page de rétroaction</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">Le RPV de Psiphon a été déconnecté par vous ou par une autre appli. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et en cours d’exécution.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas démarrer le RPV. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et réglée sur RPV permanent.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunnelliser tout l’appareil ?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">La tunnellisation intégrale est possible pour votre appareil.\n\nAvec ette option, tout le trafic Internet de toutes vos applis, dont tous les navigateurs, sera tunnellisé par Psiphon.\n\nVous pouvez autrement choisir de ne tunnelliser que le trafic du Navigateur Psiphon, toutes les autres applis se connectant directement par votre connexion Internet habituelle.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tout l’appareil</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">N’utiliser que le Navigateur Psiphon</string>
   <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">La protection et la sécurité de vos données nous tiennent à cœur. Nous assurons la gratuité de cette appli en affichant des publicités.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Pouvons-nous continuer à utiliser vos données pour adapter les publicités pour vous ?</string>
-  <string name="you_can_change_your_choice_anytime">Pour Psiphon Pro, vous pouvez changer votre choix n’importe quand dans les options de l’appli. Notre fournisseur de publicité recueillera des données et utilisera un identifiant unique sur votre appareil pour afficher vos publicités.</string>
-  <string name="learn_more_about_our_ad_providers"><u>En apprendre davantage sur nos fournisseurs de publicité</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Oui, continuer à voir des publicités pertinentes</string>
-  <string name="no_see_ads_that_are_less_relevant">Non, voir des publicités moins pertinentes</string>
-  <string name="pay_for_the_ad_free_version">Passer à la version sans publicité</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">Cliquez sur le nom du fournisseur de publicité pour visualiser sa politique de confidentialité</string>
   <string name="ads_consent_preference_category_title">Personnalisation de la publicité</string>
   <string name="ads_consent_preference_dialog_preference_message">Souhaitez-vous vraiment réinitialiser vos préférences de personnalisation des publicités ?</string>
   <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
@@ -41,28 +22,8 @@
   <string name="preference_language_selection_title">Langue</string>
   <string name="preference_language_title">Sélection de la langue</string>
   <string name="preference_language_default_language">Langue par défaut</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">Les renseignements de connexion ont été importés avec succès.</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">Échec d’importation des renseignements de connexion.</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">Veuillez appuyer sur Démarrer et ressayer l’échange par CCP</string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">Avez-vous besoin d’aide pour vous connecter ?</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">Pour obtenir de l’aide afin de vous connecter, trouvez un autre utilisateur de Psiphon qui est connecté, puis, alors que vous essayez de vous connecter et qu’il est connecté, placez vos téléphones dos à dos pour lancer un transfert de renseignements de connexion.</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">Des  téléphones qui se rencontrent pour la CCP</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Problème de connexion</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">Cliquez pour voir les correctifs possibles</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">Aider un ami à se connecter</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">Vous pouvez aider un ami à se connecter en plaçant vos téléphones dos à dos alors que vous êtes connecté et qu’il essaie de se connecter.</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">Des  téléphones qui se rencontrent pour la CCP</string>
+  <string name="preference_category_advanced_title">Avancé</string>
+  <string name="preference_category_info_title">Renseignements</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Valider</string>
   <string name="preference_navigate_to_vpn_setting_title">RPV permanent</string>
@@ -88,4 +49,12 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Un paramètre RPV est invalide</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Au moins une appli doit être sélectionnée dans ce mode</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Au moins une appli doit être dessélectionnée dans ce mode</string>
+  <string name="legacy_zirco_export_pref_category_title">Prise en charge de l’ancien navigateur</string>
+  <string name="legacy_bom_alert_heading">Le Navigateur Psiphon n’est plus proposé</string>
+  <string name="legacy_bom_alert_message">Nous avons détecté que vous utilisez le Navigateur Psiphon dans la version de %1$s installée précédemment.\nSi votre version d’Android est assez récente (5.0 ou ultérieure), vous pouvez plutôt sélectionner n’importe quelle appli de navigateur Web installée pour qu’elle soit tunnellisée par %1$s.\nSi vous souhaitez conserver des marque-pages ou l’historique de navigation du Navigateur Psiphon, vous pouvez les exporter dans &gt; Plus d’options &gt; Prise en charge de l’ancien navigateur.</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ou ultérieur est exigé</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ou ultérieur est exigé</string>
+  <string name="vpn_exclusions_tip_summary">Ne sélectionnez qu’un navigateur pour le mode classique « navigateur seulement »</string>
+  <string name="exportZircoPreferenceSummary">Cliquez ici pour exporter les marque-pages et l’historique de l’ancien Navigateur Psiphon vers une unité externe de stockage des données</string>
+  <string name="exportZircoPreferenceTitle">Exporter les données du navigateur</string>
 </resources>

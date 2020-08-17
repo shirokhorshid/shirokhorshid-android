@@ -1,98 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">Menyambung ke SSH...</string>
-  <string name="ssh_connected">SSH tersambung</string>
-  <string name="ssh_connection_failed">Sambungan SSH gagal</string>
-  <string name="ssh_authenticating">Mengautentikasi SSH...</string>
-  <string name="ssh_authentication_failed">Autentikasi SSH gagal</string>
-  <string name="ssh_authenticated">SSH terautentikasi</string>
-  <string name="socks_starting">Memulai SOCKS...</string>
   <string name="socks_running">SOCKS beroperasi di port %d</string>
-  <string name="socks_stopped">SOCKS dihentikan</string>
-  <string name="ssh_stopped">SSH dihentikan</string>
-  <string name="error_message">Terjadi kesalahan:</string>
-  <string name="http_proxy_starting">Memulai proksi HTTP...</string>
   <string name="http_proxy_running">Proksi HTTP beroperasi di port %d</string>
-  <string name="http_proxy_stopped">Proksi HTTP dihentikan</string>
-  <string name="http_proxy_stopped_unexpectedly">Proksi HTTP tiba-tiba berhenti</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Gagal membuat entri server untuk disimpan.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Gagal menyimpan entri server.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Gagal membaca entri server tersimpan.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Gagal mengurai entri peladen tersimpan.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Gagal mengurai entri peladen yang tertanam.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Gagal memarser jabat-tangan.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Gagal menyimpan waktu tersambung terakhir.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Gagal memarser respons waktu tersambung terakhir JSON.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Gagal membaca waktu tersambung terakhir.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Permintaan jabat-tangan gagal.</string>
-  <string name="ssh_disconnected_unexpectedly">Sambungan SSH tiba-tiba terputus</string>
   <string name="client_version">Versi Klien %s</string>
-  <string name="no_server_entries">Tak ada server yang dapat disambung</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Daftar remote server tak berlaku</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Paket data terautentikasi yang ditandatangani dengan kunci publik berbeda</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Tanda tangan paket data terautentikasi tidak berlaku</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Gagal memarser paket data terautentikasi</string>
   <string name="AuthenticatedDataPackage.MissingValue">Ada nilai yang hilang pada paket data terautentikasi</string>
   <string name="starting_tunnel">Memulai pengalihan...</string>
   <string name="stopping_tunnel">Menyelesaikan pengalihan...</string>
   <string name="stopped_tunnel">Pengalihan berhenti</string>
-  <string name="ServerInterface.StopRequested">Permintaan selesai</string>
-  <string name="ServerInterface.HTTPSRequestFailed">Permintaan HTTPS gagal dengan galat:</string>
-  <string name="socks_ports_failed">Gagal memulai proksi SOCKS: Port lowong tak tersedia</string>
-  <string name="http_proxy_ports_failed">Gagal memulai proksi HTTP: Port lowong tak tersedia</string>
   <string name="socks_port_in_use">Port proksi SOCKS lokal %d yang diminta sedang dipakai aplikasi lain. Tidak dapat melanjutkan.</string>
-  <string name="transparent_proxy_running">Proksi transparan beroperasi di port %d</string>
-  <string name="transparent_proxy_ports_failed">Gagal memulai proksi transparan: Port lowong tak tersedia</string>
-  <string name="transparent_proxy_command_failed">Perintah konfigurasi proksi transparan gagal: %s</string>
-  <string name="transparent_proxy_stopped">Proksi transparan dihentikan</string>
-  <string name="dns_proxy_running">Proksi DNS beroperasi di port %d</string>
-  <string name="dns_proxy_ports_failed">Gagal memulai proksi DNS: Port lowong tak tersedia</string>
-  <string name="dns_proxy_stopped">Proksi DNS dihentikan</string>
-  <string name="dns_proxy_failed">Gagal memulai proksi DNS</string>
-  <string name="iptables_binary_not_found">Tidak dapat menemukan implementasi iptables yang diperlukan proksi transparan</string>
-  <string name="root_access_denied">Akses root ditolak</string>
-  <string name="psiphon_stopped">Dihentikan</string>
-  <string name="psiphon_running_whole_device">Beroperasi dalam modus seluruh perangkat</string>
-  <string name="psiphon_running_browser_only">Beroperasi dalam modus hanya peramban</string>
   <string name="waiting_for_network_connectivity">Menunggu ketersambungan jaringan...</string>
-  <string name="checking_for_root_access">Memeriksa akses root..</string>
   <string name="psiphon_service_notification_message_connecting">Menyambung...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notifikasi Layanan Psiphon</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_channel_name">Status Perubahan Psiphon</string>
-  <string name="preferred_servers">Server utama: %d</string>
-  <string name="selecting_server">Memilih server..</string>
-  <string name="fetch_remote_server_list">Mengambil daftar remote server...</string>
-  <string name="vpn_service_failed">Layanan VPN gagal: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Pembaruan Psiphon</string>
   <string name="vpn_service_running">Layanan VPN beroperasi</string>
-  <string name="vpn_service_stopped">Layanan VPN dihentikan</string>
   <string name="vpn_service_revoked">Layanan VPN dibatalkan</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN ke SOCKS gagal</string>
-  <string name="tun2socks_running">VPN ke SOCKS beroperasi</string>
-  <string name="tun2socks_stopped">VPN ke SOCKS dihentikan</string>
-  <string name="vpn_service_no_private_address_available">Tak ada alamat pribadi yang tersedia untuk layanan VPN</string>
-  <string name="psiphon_running_generic">Menjalankan...</string>
-  <string name="data_transfer_bytes_sent">Bita terkirim: %1$s (%2$.2f%% terkompres)</string>
-  <string name="data_transfer_bytes_received">Bita diterima: %1$s (%2$.2f%% terkompres)</string>
-  <string name="data_transfer_elapsed_time">Waktu sambungan: %s</string>
-  <string name="check_tunnel_failed">Pemeriksaan pengalihan gagal. Perangkat Anda mungkin tidak mendukung opsi pengalihan sambungan seluruh perangkat.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Gagal membuat atau menulis berkas diagnostik untuk kritik dan saran</string>
   <string name="Diagnostics.EncryptedFailed">Gagal mengenkripsi informasi diagnostik untuk kritik dan saran. Informasi ini tidak akan dilampirkan pada email kritik dan saran.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Gagal mengekstrak biner iptables.</string>
-  <string name="transparent_proxy_routing_failed">Gagal memulai routing proksi transparan: %s</string>
-  <string name="transparent_proxy_routing_running">Routing proxy transparan beroperasi</string>
-  <string name="transparent_proxy_routing_stopped">Routing proksi transparan dihentikan</string>
   <string name="current_network_type">Jaringan saat ini: %s</string>
-  <string name="dns_resolver">Pengurai DNS: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Gagal mendapat pengurai DNS jaringan aktif</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Tidak dapat mengambil info paket aplikasi yang dipakai</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Gagal menulis berkas pembaruan</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Gagal mengunduh pembaruan</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Pembaruan telah diunduh. Anda sangat dianjurkan agar segera melakukan proses pembaruan. Setelah itu, Anda harus menjalankan Psiphon lagi.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Pembaruan gagal. Tidak dapat mengekstrak info paket dari berkas pembaruan.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Berkas pembaruan tak ditemukan</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -105,21 +34,12 @@
   <string name="disconnected">Tidak tersambung</string>
   <string name="label_sent">Terkirim</string>
   <string name="label_received">Diterima</string>
-  <string name="compression_ratio">%1$.2f%% terkompres</string>
-  <string name="compression_savings">%s tersimpan</string>
   <string name="start">Mulai</string>
   <string name="stop">Hentikan</string>
   <string name="home_tab_name">Beranda</string>
   <string name="settings_tab_name">Opsi</string>
   <string name="statistics_tab_name">Statistik</string>
   <string name="logs_tab_name">Catatan</string>
-  <string name="socks_proxy_address">Proksi SOCKS lokal beroperasi di %s</string>
-  <string name="http_proxy_address">Proksi HTTP lokal beroperasi di %s</string>
-  <string name="share_proxies_toggle">Izinkan perangkat jaringan lain menggunakan proksi lokal</string>
-  <string name="share_proxies_prompt_title">Aplikasi harus dijalankan ulang</string>
-  <string name="share_proxies_prompt_message">Aplikasi harus dijalankan ulang untuk menerapkan setelan ini.</string>
-  <string name="share_proxies_prompt_positive">Jalankan ulang</string>
-  <string name="share_proxies_prompt_negative">Batal</string>
   <string name="use_proxy_settings_toggle">Sambungkan lewat Proksi HTTP</string>
   <string name="use_system_proxy_settings_radio">Gunakan setelan jaringan sistem</string>
   <string name="use_custom_proxy_settings_radio">Gunakan setelan berikut ini:</string>
@@ -152,19 +72,11 @@
   <string name="region_name_sk">Slowakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
-  <string name="tunnel_whole_device_toggle">Alihkan Sambungan Seluruh Perangkat (perlu Android 4.0+)</string>
-  <string name="disableTimeoutsPreferenceSummary">Matikan timeours untuk internet yang lambat</string>
-  <string name="region_selector">Pilih wilayah</string>
-  <string name="network_proxy_connect_exception">Gagal menyambung ke Proksi HTTP jaringan: %s</string>
-  <string name="network_proxy_connect_information">Menyambung lewat Proksi HTTP Anda: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Nonaktifkan batasan waktu (timeout) untuk jaringan lambat</string>
   <string name="network_proxy_connect_invalid_values">Setelan Proksi HTTP tak berlaku</string>
   <string name="tunnel_whole_device_exception">Perangkat Anda tidak mendukung pengalihan sambungan seluruh perangkat dikarenakan hilangnya VpnService API.</string>
-  <string name="run_polipo_failed">Gagal menjalankan Polipo: %s</string>
-  <string name="wdm_force_iptables_toggle">Paksa pakai metode root Alihkan Sambungan Seluruh Perangkat</string>
-  <string name="http_prefix_toggle">Samarkan sebagai HTTP</string>
   <string name="preference_notifications_title">Notifikasi</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -193,6 +105,9 @@
   <plurals name="preference_routing_select_apps_to_exclude_summary">
     <item quantity="other">%d aplikasi tidak akan disertakan dalam VPN</item>
   </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_routing_all_apps_tunnel_summary">Semua aplikasi akan dialihkan lewat VPN</string>
   <string name="preference_notifications_with_sound_title">Suara</string>
   <string name="preference_notifications_with_sound_summary">Beri tanda suara saat status sambungan berubah</string>
@@ -200,7 +115,6 @@
   <string name="preference_notifications_with_vibrate_summary">Beri tanda getar saat status sambungan berubah</string>
   <string name="downloadWiFiOnlyPreferenceSummary">Unduh pembaruan hanya lewat WI-FI</string>
   <string name="moreOptions">Opsi Lanjutan</string>
-  <string name="root_mode_not_supported">Modus root tidak didukung oleh versi Android ini</string>
   <string name="proxySettingsCategoryTitle">Setelan Proksi</string>
   <string name="custom_proxy_host_summary">Hostname atau IP server proksi</string>
   <string name="custom_proxy_port_summary">Port server proksi</string>
@@ -218,7 +132,6 @@
   <string name="untunneled_address">Tidak dialihkan: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Galat proksi hulu: %s</string>
-  <string name="diagnostic">Diagnostik: %s</string>
   <string name="start_tunnel_failed">Gagal memulai pengalihan: %s</string>
   <string name="tunnel_connecting">Pengalihan tersambung...</string>
   <string name="tunnel_connected">Pengalihan tersambung</string>
@@ -232,6 +145,6 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Oke</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Tidak makasih</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_proxy_settings">Seting proxy</string>
+  <string name="disableTimeoutsPreferenceTitle">Menonaktifkan waktu habis</string>
 </resources>

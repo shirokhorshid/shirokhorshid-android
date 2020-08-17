@@ -3,16 +3,12 @@
   <string name="psiphon_service_notification_message_connecting">कनेक्ट हो रहा है ...</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="disconnected">डिस्कनेक्ट किया गया</string>
   <string name="start">प्रारंभ</string>
   <string name="stop">रुकें</string>
   <string name="home_tab_name">होम </string>
   <string name="settings_tab_name">विकल्प</string>
   <string name="logs_tab_name">लॉग्स</string>
-  <string name="share_proxies_prompt_negative">रद्द करना</string>
   <string name="region_name_any">सबसे अच्छा प्रदर्शन</string>
   <string name="region_name_us">अमेरिका</string>
   <string name="region_name_gb">यूनाइटेड किंगडम</string>
@@ -40,7 +36,6 @@
   <string name="region_name_sk">स्लोवाकिया</string>
   <string name="region_name_rs">सर्बिआ</string>
   <string name="region_name_au">ऑस्ट्रेलिया</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="feedback">प्रतिक्रिया</string>
   <string name="preference_notifications_title">सूचनाएं</string>
   <string name="preference_vpn_title">वीपीएन</string>
@@ -55,6 +50,9 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">ध्वनि</string>
   <string name="preference_notifications_with_sound_summary">कनेक्शन स्थिति बदलते समय ध्वनि चलाएं</string>
   <string name="preference_notifications_with_vibrate_title">कांपना</string>
@@ -69,6 +67,4 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ठीक है</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

@@ -1,38 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">banner do patrocinador, clique para visitar a página dele</string>
-  <string name="start_desc">conectado ao Psiphon; clique para conectar</string>
-  <string name="message_image_success_desc">ícone indicando uma mensagem de sucesso</string>
-  <string name="message_image_error_desc">ícone indicando uma mensagem de erro</string>
-  <string name="message_image_debug_desc">ícone indicando uma mensagem de depuração</string>
-  <string name="message_image_warning_desc">ícone indicando uma mensagem de alerta</string>
-  <string name="exit">Sair</string>
   <string name="open_browser">Abrir Navegador</string>
-  <string name="browser_task_label">Navegador Psiphon</string>
   <string name="FeedbackActivity.DefaultText">Se você tiver algum comentário específico, informações sobre páginas que não funcionam, ou se este formulário não funciona para você, por favor escreva &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Obrigado por enviar seus comentários</string>
   <string name="FeedbackActivity.Failure">Falha no envio. Por favor tente novamente.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Falha ao enviar comentário</string>
   <string name="FeedbackActivity.InvalidURLParameters">Parâmetros inválidos da URL no envio do formulário</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Falha ao carregar conteúdo da página de comentários</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunelar todo o dispositivo?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">O túnel para todo o dispositivo está disponível para o seu aparelho\n\nCom esta opção, todo o seu tráfego para a Internet, para todos os aplicativos, incluindo todos os navegadore, vai ser tunelado através do Psiphon.\n\nAlternativamente, você pode optar por tunelar apenas o tráfego do navegador Psiphon. Isso fará com que todas as suas outras aplicações saiam por sua conexão padrão de Internet.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunelar Todo o Dispositivo</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Usar Apenas o Navegador Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Resetar</string>
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_default_language">Idioma padrão</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Avançado</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN sempre ativa</string>

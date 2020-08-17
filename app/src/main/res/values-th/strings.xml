@@ -1,25 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">แบนเนอร์ผู้ลนับสนุน; แตะเพื่อเยี่ยมชมหน้าหลักของผู้สนุับสนุน</string>
-  <string name="start_desc">เชื่อมต่อกับ Psiphon; แตะเพื่อเชื่อมต่อ</string>
-  <string name="exit">ออก</string>
   <string name="open_browser">เปิดเบราเซอร์</string>
-  <string name="browser_task_label">เบราเซอร์ของ Psiphon</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ใช้เฉพาะเบราเซอร์ของ Psiphon</string>
   <string name="ads_consent_preference_dialog_title">รีเซ็ต</string>
   <string name="preference_language_selection_title">ภาษา</string>
   <string name="preference_language_default_language">ภาษาเริ่มต้น</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">ขั้นสูง</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ตกลง</string>
   <!--Generic negative button label.-->

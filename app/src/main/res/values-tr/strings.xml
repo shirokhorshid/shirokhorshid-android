@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">destekçi başlığı; destekçi ana sayfasını açmak için tıklayın</string>
-  <string name="start_desc">Psiphon bağlantısı kur; bağlanmak için tıklayın</string>
-  <string name="message_image_success_desc">tamamlanma iletisi simgesi</string>
-  <string name="message_image_error_desc">hata iletisi simgesi</string>
-  <string name="message_image_debug_desc">hata ayıklama iletisi simgesi</string>
-  <string name="message_image_warning_desc">uyarı iletisi simgesi</string>
-  <string name="exit">Çık</string>
   <string name="open_browser">Tarayıcıyı Aç</string>
-  <string name="browser_task_label">Psiphon Browser</string>
   <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan web siteleri hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
   <string name="FeedbackActivity.Success">Geri bildiriminiz için teşekkür ederiz</string>
   <string name="FeedbackActivity.Failure">Form gönderilemedi. Lütfen yeniden deneyin.</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kesilmiş. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlatılamadı</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN bağlantısını başlatamadı. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tüm aygıt tünel kullansın</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Aygıtınızda Tüm aygıt tünel kullansın seçeneği uygulanabilir.\n\nBu seçenek etkinleştirildiğinde, tüm tarayıcılar ile tüm uygulamaların İnternet trafiği Psiphon tüneli üzerinden aktarılır.\n\nAlternatif olarak, yalnız Psiphon tarayıcının trafiği tünel üzerinden geçerken diğer uygulamaların trafiğinin doğrudan standart İnternet bağlantısı üzerinden aktarılmasını seçebilirsiniz.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tüm Aygıt Tünel Kullansın </string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Tüneli Yalnız Psiphon Browser Kullansın</string>
   <string name="selected_region_currently_not_available">Seçtiğiniz bölge şu anda kullanılamıyor, lütfen başka bir bölge seçin.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Kişisel gizliliğiniz ve veri güvenliğinizi önemsiyoruz. Bu uygulamanın ücretsiz kalması için reklam görüntülememiz gerekiyor.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Verilerinizi kullanarak size özel reklamları göstermeye devam edelim mi?</string>
-  <string name="you_can_change_your_choice_anytime">Bu durumu istediğiniz zaman Psiphon Pro ayarlarından değiştirebilirsiniz. Reklam yayıncılarımız veri toplayarak aygıtınıza özel bir kod oluşturur ve size özel reklamlar görüntüler.</string>
-  <string name="learn_more_about_our_ad_providers"><u>Reklam yayıncılarımız hakkında ayrıntılı bilgi alın</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Evet, bana özel reklamlar görüntülensin</string>
-  <string name="no_see_ads_that_are_less_relevant">Hayır, ilgisiz reklamlar görüntülensin</string>
-  <string name="pay_for_the_ad_free_version">Reklamsız sürüme yükseltin</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">Gizlilik ilkesini görmek istediğiniz reklam yayıncısına tıklayın</string>
   <string name="ads_consent_preference_category_title">Reklamları Kişiselleştirme</string>
   <string name="ads_consent_preference_dialog_preference_message">Reklam kişiselleştirme ayarlarınızı sıfırlamak istediğinize emin misiniz?</string>
   <string name="ads_consent_preference_title">Reklamları kişiselleştirme ayarlarını sıfırla</string>
@@ -41,28 +22,8 @@
   <string name="preference_language_selection_title">Dil</string>
   <string name="preference_language_title">Dil Seçimi</string>
   <string name="preference_language_default_language">Varsayılan dil</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">Bağlantı bilgileri içe aktarıldı!</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">Bağlantı bilgileri içe aktarılamadı.</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">Lütfen Başlat üzerine basıp NFC okutmayı yeniden deneyin.</string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">Bağlanmak için yardım ister misiniz?</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">Bağlantı yardımı almak için siz bağlanmayı denerken bağlı olan başka bir Psiphon kullanıcısı bulun. Bağlantı bilgilerinin aktarılması için telefonlarınızı sırt sırta yerleştirin.</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">Telefonlar NFC ile bilgi aktarır</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Bağlantı sorunu</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">Olası çözümler için tıklayın</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">Arkadaşınızın bağlanmasına yardım edin</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">Siz bağlıyken bağlantı kuramayan arkadaşlarınıza yardımcı olmak için telefonlarınızı sırt sırta yerleştirerek bağlantı bilgilerini aktarabilirsiniz.</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">Telefonlar NFC ile bilgi aktarır</string>
+  <string name="preference_category_advanced_title">Gelişmiş</string>
+  <string name="preference_category_info_title">Bilgiler</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Tamam</string>
   <string name="preference_navigate_to_vpn_setting_title">Her zaman açık VPN</string>
@@ -88,4 +49,12 @@
   <string name="bad_vpn_exclusion_setting_alert_title">VPN ayarı geçersiz</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Bu model için en az bir uygulama seçmeniz gerekir</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Bu model için en az bir uygulamayı bırakmanız gerekir</string>
+  <string name="legacy_zirco_export_pref_category_title">Eski Tarayıcı Desteği</string>
+  <string name="legacy_bom_alert_heading">Psiphon Tarayıcı artık kullanılamıyor</string>
+  <string name="legacy_bom_alert_message">Önceden kurulmuş %1$s sürümünde Psiphon Tarayıcı kullandığınız algılandı.\nAndroid sürümünüz yeterince yeniyse (5.0 ya da üzeri), kurulu herhangi bir web tarayıcısını seçerek %1$s üzerinden tünel kullanmasını sağlayabilirsiniz.\nPhiphon Tarayıcıdaki yer imlerini ve göz atma geçmişini korumak istiyorsanız, bunları Diğer Ayarlar bölümünden (\"Eski Tarayıcı Desteği\") dışa aktarabilirsiniz.</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ya da üzeri bir sürüm gerekiyor</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ya da üzeri bir sürüm gerekiyor</string>
+  <string name="vpn_exclusions_tip_summary">Klasik salt-tarayıcı kipi için yalnız bir tarayıcı seçin</string>
+  <string name="exportZircoPreferenceSummary">Eski Psiphon Tarayıcı yer imleri ve geçmişini bir dış depolamaya aktarmak için buraya tıklayın</string>
+  <string name="exportZircoPreferenceTitle">Tarayıcı verilerini dışa aktar</string>
 </resources>

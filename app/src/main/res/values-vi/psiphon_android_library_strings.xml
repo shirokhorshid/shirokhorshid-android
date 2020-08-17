@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH đang kết nối...</string>
-  <string name="ssh_connected">SSH đã kết nối</string>
-  <string name="ssh_connection_failed">Kết nối SSH thất bại</string>
-  <string name="ssh_authenticating">SSH đang xác thực...</string>
-  <string name="ssh_authentication_failed">Xác thực SSH thất bại</string>
-  <string name="ssh_authenticated">Đã xác thực SSH</string>
-  <string name="socks_starting">SOCKS đang khởi động...</string>
   <string name="socks_running">SOCKS đang chạy ở cổng %d</string>
-  <string name="socks_stopped">Đã dừng SOCKS</string>
-  <string name="ssh_stopped">Đã dừng SSH</string>
-  <string name="error_message">Có lỗi xảy ra:</string>
-  <string name="http_proxy_starting">Proxy HTTP đang khởi động...</string>
   <string name="http_proxy_running">Proxy HTTP đang chạy ở cổng %d</string>
-  <string name="http_proxy_stopped">Đã dừng proxy HTTP</string>
-  <string name="http_proxy_stopped_unexpectedly">Đã dừng proxy HTTP bất ngờ</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Không thể tạo mục nhập máy chủ để lưu.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Không thể lưu mục nhập máy chủ.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Không thể đọc mục nhập máy chủ đã lưu.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Không thể phân tách các mục nhập máy chủ đã lưu.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Không thể phân tách các mục nhập máy chủ đã nhúng.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Không thể phân tách handshake.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Không thể lưu thời gian đã kết nối lần cuối.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Không phân tích cú pháp JSON trong phản hồi thời gian được kết nối cuối cùng.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Không thể đọc thời gian đã kết nối lần cuối.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Yêu cầu handshake thất bại.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH ngắt kết nối bất ngờ</string>
   <string name="client_version">Phiên Bản Trình %s</string>
-  <string name="no_server_entries">Không có máy chủ để kết nối</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Danh sách máy chủ từ xa không hợp lệ</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Gói dữ liệu xác thực đã được ký bằng khóa công khai khác.</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Chữ ký không hợp lệ trên gói dữ liệu xác thực</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Không phân tích được cú pháp gói dữ liệu xác thực được</string>
   <string name="AuthenticatedDataPackage.MissingValue">Thiếu giá trị trong gói dữ liệu xác thực</string>
   <string name="starting_tunnel">Khởi động đường hầm...</string>
   <string name="stopping_tunnel">Ngưng đường hầm...</string>
   <string name="stopped_tunnel">Đã dừng đường hầm</string>
-  <string name="ServerInterface.StopRequested">Đã yêu cầu dừng</string>
-  <string name="ServerInterface.HTTPSRequestFailed">Yêu cầu HTTPS thất bại, có lỗi:</string>
-  <string name="socks_ports_failed">Không khởi động proxy SOCKS được: không tìm thấy các cổng có sẵn</string>
-  <string name="http_proxy_ports_failed">Không khởi động proxy HTTP được: không tìm thấy các cổng có sẵn</string>
   <string name="socks_port_in_use">Cổng proxy SOCKS địa phương %d yêu cầu đã được một ứng dụng khác dùng. Không thể tiếp tục.</string>
-  <string name="transparent_proxy_running">Proxy xuyên suốt đang chạy trên cổng %d</string>
-  <string name="transparent_proxy_ports_failed">Không khởi động proxy xuyên suốt được: không tìm thấy các cổng có sẵn</string>
-  <string name="transparent_proxy_command_failed">Lệnh cấu hình proxy xuyên suốt bị thất bại: %s</string>
-  <string name="transparent_proxy_stopped">Proxy xuyên suốt đã dừng</string>
-  <string name="dns_proxy_running">Proxy DNS đang chạy trên cổng %d</string>
-  <string name="dns_proxy_ports_failed">Không khởi động proxy DNS được: không tìm thấy các cổng có sẵn</string>
-  <string name="dns_proxy_stopped">Proxy DNS đã dừng</string>
-  <string name="dns_proxy_failed">Không khởi động proxy DNS được</string>
-  <string name="iptables_binary_not_found">Không thể tìm thấy bảng iptables cần thiết cho Proxy xuyên suốt</string>
-  <string name="root_access_denied">Truy cập root bị từ chối</string>
-  <string name="psiphon_stopped">Đã dừng</string>
-  <string name="psiphon_running_whole_device">Đang chạy trên chế độ toàn thiết bị</string>
-  <string name="psiphon_running_browser_only">Đang chạy trên chế độ chỉ có trình duyệt</string>
   <string name="waiting_for_network_connectivity">Đang chờ kết nối mạng...</string>
-  <string name="checking_for_root_access">Đang kiểm tra truy cập root...</string>
   <string name="psiphon_service_notification_message_connecting">Đang kết nối...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Thông Báo Dịch Vụ Psiphon</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Các máy chủ ưu tiên chọn: %d</string>
-  <string name="selecting_server">Đang lựa chọn máy chủ...</string>
-  <string name="fetch_remote_server_list">Đang lấy danh sách máy chủ từ xa...</string>
-  <string name="vpn_service_failed">Dịch vụ VPN thất bại: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Nâng Cấp Psiphon</string>
   <string name="vpn_service_running">Dịch vụ VPN đang chạy</string>
-  <string name="vpn_service_stopped">Dịch vụ VPN đã dừng</string>
   <string name="vpn_service_revoked">Dịch vụ VPN bị thu hồi</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN sang SOCKS bị thất bại</string>
-  <string name="tun2socks_running">VPN sang SOCKS đang chạy</string>
-  <string name="tun2socks_stopped">VPN sang SOCKS đã dừng</string>
-  <string name="vpn_service_no_private_address_available">Không có địa chỉ riêng có sẵn cho dịch vụ VPN</string>
-  <string name="psiphon_running_generic">Đang chạy...</string>
-  <string name="data_transfer_bytes_sent">Số bytes gửi đi:  %1$s (%2$.2f%% được nén)</string>
-  <string name="data_transfer_bytes_received">Số bytes nhận được: %1$s (%2$.2f%% được nén)</string>
-  <string name="data_transfer_elapsed_time">Thời gian kết nối: %s</string>
-  <string name="check_tunnel_failed">Kiểm tra đường hầm thất bại. Thiết bị của bạn có thể không hỗ trợ tùy chọn kết nối toàn thiết bị xuyên qua Psiphon.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Không tạo hay ghi tập tin chẩn đoán phản hồi được</string>
   <string name="Diagnostics.EncryptedFailed">Không mã hóa thông tin chẩn đoán phản hồi được. Thông tin này sẽ không được đính kèm vào email phản hồi.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Không thể trích xuất tập tin iptables.</string>
-  <string name="transparent_proxy_routing_failed">Không thể khởi động định tuyến proxy xuyên suốt được: %s</string>
-  <string name="transparent_proxy_routing_running">Định tuyến proxy xuyên suốt đang chạy</string>
-  <string name="transparent_proxy_routing_stopped">Định tuyến proxy xuyên suốt đã dừng</string>
   <string name="current_network_type">Mạng hiện tại: %s</string>
-  <string name="dns_resolver">Công cụ xử lý DNS: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Không lấy được công cụ xử lý DNS đang hoạt động</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Không thể truy lại thông tin gói cho ứng dụng hiện tại</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Không thể ghi tập tin nâng cấp</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Tải tập tin nâng cấp xuống thất bại</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Nâng cấp đã tải. Đề nghị bạn nên cho phép việc nâng cấp được tiến hành vào thời điểm này. Sau khi nâng cấp, bạn sẽ phải khởi động lại Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Nâng cấp thất bại. Không thể trích xuất thông tin gói từ tập tin nâng cấp.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Không tìm thấy tập tin nâng cấp</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Đã dừng kết nối</string>
   <string name="label_sent">Đã gửi</string>
   <string name="label_received">Đã nhận</string>
-  <string name="compression_ratio">%1$.2f%% đã nén</string>
-  <string name="compression_savings">%s đã lưu</string>
   <string name="start">Khởi động</string>
   <string name="stop">Dừng </string>
   <string name="home_tab_name">Trang nhà</string>
   <string name="settings_tab_name">Các tùy chọn</string>
   <string name="statistics_tab_name">Thống kê</string>
   <string name="logs_tab_name">Ký sự</string>
-  <string name="socks_proxy_address">Proxy SOCKS địa phương đang chạy tại %s</string>
-  <string name="http_proxy_address">Proxy HTTP địa phương đang chạy tại %s</string>
-  <string name="share_proxies_toggle">Cho phép các thiết bị mạng khác sử dụng các proxy địa phương</string>
-  <string name="share_proxies_prompt_title">Yêu cầu khởi động lại ứng dụng</string>
-  <string name="share_proxies_prompt_message">Ứng dụng cần phải khởi động lại để áp dụng thiết đặt này</string>
-  <string name="share_proxies_prompt_positive">Khởi động lại ngay bây giờ</string>
-  <string name="share_proxies_prompt_negative">Hủy</string>
   <string name="use_proxy_settings_toggle">Kết nối thông qua proxy HTTP</string>
   <string name="use_system_proxy_settings_radio">Sử dụng các thiết đặt mạng hệ thống</string>
   <string name="use_custom_proxy_settings_radio">Sử dụng các thiết đặt sau đây:</string>
@@ -151,18 +71,10 @@
   <string name="region_name_sk">Slovakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Úc</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Giới thiệu về Psiphon</string>
   <string name="feedback">Ý kiến phản hồi</string>
-  <string name="tunnel_whole_device_toggle">Kết Nối Toàn Thiết Bị Xuyên Qua Psiphon (cần Android 4.0+)</string>
   <string name="disableTimeoutsPreferenceSummary">Tắt hạn chờ cho mạng chậm</string>
-  <string name="region_selector">Chọn vùng</string>
-  <string name="network_proxy_connect_exception">Không thể kết nối với proxy HTTP của mạng: %s</string>
-  <string name="network_proxy_connect_information">Kết nối thông qua proxy HTTP của bạn: %s</string>
   <string name="network_proxy_connect_invalid_values">Thiết đặt Proxy HTTP không hợp lệ</string>
-  <string name="run_polipo_failed">Không chạy được Polipo: %s</string>
-  <string name="wdm_force_iptables_toggle">Buộc dùng phương pháp Kết Nối Toàn Thiết Bị Xuyên qua Psiphon với root</string>
-  <string name="http_prefix_toggle">Ngụy trang làm HTTP</string>
   <string name="preference_notifications_title">Thông báo</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -176,12 +88,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Âm thanh</string>
   <string name="preference_notifications_with_sound_summary">Phát âm thanh khi tình trạng kết nối thay đổi</string>
   <string name="preference_notifications_with_vibrate_title">Rung</string>
   <string name="preference_notifications_with_vibrate_summary">Rung khi tình trạng kết nối thay đổi</string>
   <string name="moreOptions">Các tùy chọn khác</string>
-  <string name="root_mode_not_supported">Chế độ root không được hỗ trợ trong phiên bản này của Android</string>
   <string name="proxySettingsCategoryTitle">Các thiết đặt Proxy</string>
   <string name="custom_proxy_host_summary">Tên miền máy chủ Proxy hay IP</string>
   <string name="custom_proxy_port_summary">Cổng máy chủ Proxy</string>
@@ -199,7 +113,6 @@
   <string name="untunneled_address">Tháo gỡ đường hầm: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Có lỗi proxy ở luồng trên: %s</string>
-  <string name="diagnostic">Chẩn đoán: %s</string>
   <string name="start_tunnel_failed">Khởi động đường hầm thất bại: %s</string>
   <string name="tunnel_connecting">Đang kết nối an toàn qua Psiphon...</string>
   <string name="tunnel_connected">Đã kết nối an toàn qua Psiphon</string>
@@ -210,6 +123,4 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Chấp nhận</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

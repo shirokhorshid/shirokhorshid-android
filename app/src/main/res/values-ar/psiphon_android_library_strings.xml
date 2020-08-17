@@ -1,101 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">جاري اتصال بروتوكول القشرة الآمنة (SSH)...</string>
-  <string name="ssh_connected">تم اتصال بروتوكول القشرة الآمنة (SSH)</string>
-  <string name="ssh_connection_failed">فشل اتصال بروتوكول القشرة الآمنة (SSH)</string>
-  <string name="ssh_authenticating">تتم الآن مصادقة بروتوكول القشرة الآمنة (SSH)...</string>
-  <string name="ssh_authentication_failed">فشل مصادقة بروتوكول القشرة الآمنة (SSH)</string>
-  <string name="ssh_authenticated">تمت مصادقة بروتوكول القشرة الآمنة (SSH)</string>
-  <string name="socks_starting">جاري بدء تشغيل بروتوكول SOCKS...</string>
   <string name="socks_running">بروتوكول SOCKS قيد التشغيل %d</string>
-  <string name="socks_stopped">توقف بروتوكول SOCKS عن العمل</string>
-  <string name="ssh_stopped">توقف بروتوكول القشرة الآمنة (SSH) عن العمل</string>
-  <string name="error_message">حدث خطأ: </string>
-  <string name="http_proxy_starting">جاري بدء تشغيل وكيل HTTP...</string>
   <string name="http_proxy_running">وكيل HTTP قيد التشغيل %d</string>
-  <string name="http_proxy_stopped">توقف وكيل HTTP عن العمل</string>
-  <string name="http_proxy_stopped_unexpectedly">توقف وكيل HTTP عن العمل بشكل غير متوقع</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">فشل إنشاء مدخلات السيرفر للتخزين.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">فشل تخزين مدخلات السيرفر.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">فشل قراءة مدخلات السيرفر المخزنة.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">فشل توزيع مدخلات السيرفرالمخزنة.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">فشل توزيع مدخلات السيرفر المُضمّنة.</string>
-  <string name="ServerInterface.FailedToParseHandshake">فشل توزيع تأكيد الاتصال.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">فشل في تسجيل وقت الاتصال الأخير.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">فشل عملية تحليل استجابة آخر اتصال لتطبيق رموز جافاسكريبت JSON </string>
-  <string name="ServerInterface.FailedToReadLastConnected">فشل في قراءة وقت الاتصال الأخير.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">فشل طلب تأكيد الاتصال.</string>
-  <string name="ssh_disconnected_unexpectedly">تم قطع اتصال بروتوكل القشرة الآمنة (SSH) بشكل غير متوقع</string>
   <string name="client_version">نسخة العميل %s</string>
-  <string name="no_server_entries">لا توجد خوادم كي يتم الاتصال بها</string>
-  <string name="ServerInterface.InvalidRemoteServerList">قائمة السيرفر البعيد غير صالحة</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey"> تمً تأكيد حزمة البيانات الموثقة بمفتاح عام مختلف</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">التوقيع المستخدم للدخول لحزمة البيانات الموثقة  غير صالح أو لا يعمل</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">فشل عملية تحليل حزمة البيانات الموثقة </string>
   <string name="AuthenticatedDataPackage.MissingValue">قيم أو معلومات مفقودة في حزمة البيانات الموثقة </string>
   <string name="starting_tunnel">جاري بدء تشغيل النفق ...</string>
   <string name="stopping_tunnel">توقيف النفق عن العمل...</string>
   <string name="stopped_tunnel">توقف النفق عن العمل</string>
-  <string name="ServerInterface.StopRequested">تم طلب التوقف</string>
-  <string name="ServerInterface.HTTPSRequestFailed">فشل طلب بروتوكول HTTPS الآمن مع إصدار الخطأ: </string>
-  <string name="socks_ports_failed">فشل عملية تشغيل سيرفر قناة الاتصال الآمنة SOCKS بروكسي: لم يتم التعرف على أيًة منافذ متوفرة </string>
-  <string name="http_proxy_ports_failed">فشل عملية تشغيل HTTP بروكسي: لم يتم التعرف على أيًة منافذ متوفرة </string>
   <string name="socks_port_in_use">منفذ بروكسي SOCKS المحلي المطلوب %d يجري إستعماله من تطبيق آخر. لا يمكن الإستمرار بعملية التشغيل.</string>
-  <string name="transparent_proxy_running">البروكسي الشفاف  يعمل على منفذ %d</string>
-  <string name="transparent_proxy_ports_failed">فشل عملية تشغيل البروكسي الشفاف: لا يوجد أية منافذ شاغرة</string>
-  <string name="transparent_proxy_command_failed">فشل الاستجابة لأمر ترتيب  البروكسي الشفاف:  %s</string>
-  <string name="transparent_proxy_stopped">توقف البروكسي الشفاف عن العمل</string>
-  <string name="dns_proxy_running"> بروكسي DNS يعمل على منفذ %d</string>
-  <string name="dns_proxy_ports_failed">فشل عملية تشغيل بروكسي DNS: لم يتم العثور على أية منافذ متاحة </string>
-  <string name="dns_proxy_stopped">توقف بروكسي DNS عن العمل </string>
-  <string name="dns_proxy_failed">الفشل في تشغيل بروكسي DNS </string>
-  <string name="iptables_binary_not_found">لا يمكن العثور على تطبيق جداول بروتوكول الانترنت iptables المطلوب للبروكسي الشفاف</string>
-  <string name="root_access_denied">تمً رفض الدخول إلى الجذر </string>
-  <string name="psiphon_stopped">توقف عملية التشغيل</string>
-  <string name="psiphon_running_whole_device">يعمل بوضعية \"الجهاز بأكمله\"</string>
-  <string name="psiphon_running_browser_only">عملية التشغيل تجري بوضعية التصفح فقط</string>
   <string name="waiting_for_network_connectivity">بانتظار عملية الاتصال بالشبكة المعلوماتية</string>
-  <string name="checking_for_root_access">جاري التحقق للدخول الجذري </string>
   <string name="psiphon_service_notification_message_connecting">جاري الاتصال</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">إعلام خدمة  برنامج سايفون</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_channel_name">تغييرات حالات Psiphon</string>
-  <string name="preferred_servers">السيرفرات المفضلة: %d</string>
-  <string name="selecting_server">اختيار السيرفر ...</string>
-  <string name="fetch_remote_server_list">جلب قائمة السيرفر server عن بعد... </string>
-  <string name="vpn_service_failed">فشل خدمة الشبكة الافتراضية الخاصة: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">تحديث برنامج سايفون</string>
   <string name="vpn_service_running">تشغيل خدمة الشبكة الافتراضية الخاصة</string>
-  <string name="vpn_service_stopped">توقف خدمة الشبكة الافتراضية الخاصة</string>
   <string name="vpn_service_revoked">إلغاء خدمة الشبكة الافتراضية الخاصة </string>
-  <string name="tun2socks_error">برنامج tun2socks:
-%s</string>
-  <string name="tun2socks_failed">فشل عملية تشغيل الشبكة الخاصة الافتراضية على بروتوكول المفتاح الآمن SOCKS</string>
-  <string name="tun2socks_running"> الشبكة الافتراضية الخاصة تعمل الآن على بروتوكول المفتاح الآمن SOCKS</string>
-  <string name="tun2socks_stopped">توقف عمل  الشبكة الافتراضية الخاصة على بروتوكول المفتاح الآمن SOCKS</string>
-  <string name="vpn_service_no_private_address_available">عدم توفر عنوان خاص لخدمة  الشبكة الافتراضية الخاصة</string>
-  <string name="psiphon_running_generic">تشغيل...</string>
-  <string name="data_transfer_bytes_sent"> نسبة البايت  المرسلة: %1$s
-(%2$.2f%%  مضغوطة )</string>
-  <string name="data_transfer_bytes_received"> نسبة البايت  المستلمة: %1$s
-( %%%2$.2f)  مضغوطة</string>
-  <string name="data_transfer_elapsed_time">وقت التواصل: %s</string>
-  <string name="check_tunnel_failed">فشل عملية فحص النفق. قد يكون جهازك لا يدعم خيار \"تمرير الجهاز كله بنفق\" </string>
   <string name="debug_message">نسبة %s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">فشل عملية كتابة ملف معلومات التشخيص</string>
   <string name="Diagnostics.EncryptedFailed">فشل عملية تشفير معلومات التشخيص. لن يتم إدراج تلك المعلومات في الرسالة الإلكترونية المتعلقة بمعلومات التشخيص.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">فشل عملية استخلاص نظام العد الثنائي لتطبيق جداول بروتوكول الانترنت iptables. </string>
-  <string name="transparent_proxy_routing_failed">فشل عملية البدء بإرسال السيرفر الشفاف:  %s</string>
-  <string name="transparent_proxy_routing_running">مُرسل السيرفر الشفاف  يعمل</string>
-  <string name="transparent_proxy_routing_stopped">مُرسل السيرفر الشفاف قد توقف عن العمل</string>
   <string name="current_network_type">الشبكة الحالية: %s</string>
-  <string name="dns_resolver">مزود إسم المجال: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">فشل عملية الحصول على محللي نظام تسمية المجالات على الشبكة المعلوماتية DNS </string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">يتعذر استرجاع معلومات الحزمة للتطبيق الحالي</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">فشل كتابة ملف التحديث</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">فشل تنزيل التحديث</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">تم تنزيل النسخة الجديدة. من الأقضل تحميل النسخة الجديدة فورا. بعد التحميل, سوف يستوجب تشغيل سايفون مرة أخرى.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">فشل التحديث. تعذر استخراج معلومات الحزمة من ملف التحديث.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">لم يتم العثور على ملف التحديث</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -108,21 +34,12 @@
   <string name="disconnected">غير متصل</string>
   <string name="label_sent">تمً الإرسال</string>
   <string name="label_received">تمً الإستلام</string>
-  <string name="compression_ratio">%1$.2f%% مضغوطة</string>
-  <string name="compression_savings">%s محفوظة </string>
   <string name="start">إبدأ</string>
   <string name="stop">توقف</string>
   <string name="home_tab_name">الرئيسية </string>
   <string name="settings_tab_name">الإعدادات </string>
   <string name="statistics_tab_name">البيانات </string>
   <string name="logs_tab_name">السجلات </string>
-  <string name="socks_proxy_address">وكيل بروتوكول SOCKS المحلي يعمل بنسبة  %s</string>
-  <string name="http_proxy_address">بروكسي HTTP المحلي يشتغل بنسبة %s</string>
-  <string name="share_proxies_toggle">السماح لأجهزة الشبكة الأخرى بإستخدام وكلاء البروكسي المحليين</string>
-  <string name="share_proxies_prompt_title">يتطلب إعادة تشغيل البرنامج</string>
-  <string name="share_proxies_prompt_message">التطبيق بحاجة ٍالى إلى إعادة تشغيل لتثبيت هذه الإعدادات </string>
-  <string name="share_proxies_prompt_positive">إعادة التشغيل الآن</string>
-  <string name="share_proxies_prompt_negative">إلغاء</string>
   <string name="use_proxy_settings_toggle">إتصل عبر بروكسي  HTTP </string>
   <string name="use_system_proxy_settings_radio">إستعمال إعدادات شبكة النظام </string>
   <string name="use_custom_proxy_settings_radio">إستعمل الإعدادات التالية:</string>
@@ -155,22 +72,11 @@
   <string name="region_name_sk">سلوفاكيا</string>
   <string name="region_name_rs">صربيا</string>
   <string name="region_name_au">أستراليا</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">من نحن؟</string>
   <string name="feedback">رأيك </string>
-  <string name="tunnel_whole_device_toggle">تمرير الجهاز بأكمله عبر النفق (يتطلب أندرويد 4.0+) </string>
   <string name="disableTimeoutsPreferenceSummary">إبطال الانقطاعات للإتصالات البطيئة </string>
-  <string name="region_selector">اختر المنطقة</string>
-  <string name="network_proxy_connect_exception"> فشل عملية الاتصال مع شبكة  بروكسي HTTP :
-%s </string>
-  <string name="network_proxy_connect_information">جاري الإتصال عبر بروكسي  HTTP
- : %s</string>
   <string name="network_proxy_connect_invalid_values">إعدادات بروكسي HTTP غير صالحة </string>
   <string name="tunnel_whole_device_exception">جهازك لايدعم خيار تمرير كامل الجهاز بالنفق بسبب فقدان VpnService API.</string>
-  <string name="run_polipo_failed">فشل عملية تشغيل  تطبيق  Polipo :
- %s</string>
-  <string name="wdm_force_iptables_toggle">فرض جذر وضعية \"نقل الجهاز بأكمله عبر نفق\" </string>
-  <string name="http_prefix_toggle">التنكر بصورة بروتوكول HTTP </string>
   <string name="preference_notifications_title">الإعلامات </string>
   <string name="preference_vpn_title">الشبكة الخاصة الإفتراضية</string>
   <!--Description of option to tunnel everything-->
@@ -193,6 +99,9 @@
   <string name="preference_routing_select_apps_title">حدد التطبيقات</string>
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_routing_all_apps_tunnel_summary">‫كل التطبيقات سوف تُمرَّر نفقيا بواسطة VPN ‬</string>
   <string name="preference_notifications_with_sound_title">صوت </string>
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
@@ -200,7 +109,6 @@
   <string name="preference_notifications_with_vibrate_summary">الإهتزاز عند تغير حالة الإتصال </string>
   <string name="downloadWiFiOnlyPreferenceSummary">تحميل التحديثات فقط عند الاتصال بشبكة واي فاي</string>
   <string name="moreOptions">إعدادات أخرى </string>
-  <string name="root_mode_not_supported">النمط الجذري  \"الروت مود\" غير مدعوم على هذا الإصدار من أندرويد </string>
   <string name="proxySettingsCategoryTitle">إعدادات البروكسي </string>
   <string name="custom_proxy_host_summary">اسم ألمضيف  أو عنوان بروتوكول الإنترنت لسيرفر البروكسي </string>
   <string name="custom_proxy_port_summary">منفذ سيرفر البروكسي </string>
@@ -218,7 +126,6 @@
   <string name="untunneled_address">غير مار بالنفق : %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">خطأ في الأبستريم بروكسي: %s</string>
-  <string name="diagnostic">تشخيص: %s</string>
   <string name="start_tunnel_failed">فشل في تشغيل النفق: %s</string>
   <string name="tunnel_connecting">النفق يحاول الإتصال... </string>
   <string name="tunnel_connected">النفق متصل </string>
@@ -232,6 +139,6 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">موافق</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">لا شكراً</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_proxy_settings">إعدادات البروكسي</string>
+  <string name="disableTimeoutsPreferenceTitle">إلغاء الإنقطاع عند نفاذ المهلة</string>
 </resources>

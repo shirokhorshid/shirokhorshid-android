@@ -1,38 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">sponsor-banner; klikk for å besøke sponsor-siden på nett</string>
-  <string name="start_desc">koble til Psiphon; trykk for å koble til</string>
-  <string name="message_image_success_desc">ikon som indikerer en gladmelding</string>
-  <string name="message_image_error_desc">ikon som indikerer en feilmelding</string>
-  <string name="message_image_debug_desc">ikon som indikerer en feilrettingsnotat-melding</string>
-  <string name="message_image_warning_desc">ikon som indikerer en advarsel</string>
-  <string name="exit">Avslutt</string>
   <string name="open_browser">Åpne nettleser</string>
-  <string name="browser_task_label">Psiphon nettleser</string>
   <string name="FeedbackActivity.DefaultText">Hvis du har spesifikke kommentarer, videre informasjon om nettsider som ikke virker, eller hvis dette datafeltet ikke virker for din del, send e-post til &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Takk for at du sender inn din tilbakemelding</string>
   <string name="FeedbackActivity.Failure">Innsending feilet. Prøv igjen.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Klarte ikke å sende inn tilbakemelding</string>
   <string name="FeedbackActivity.InvalidURLParameters">Ugyldig nettadresse-paramater i feltet for innsending av tilbakemelding</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Klarte ikke å hente innholdet i tilbakemeldingen</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Kjør tunnel over hele fjøla?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Hele-fjøla-modus er tilgjengelig på din enhet. Dette valget sender all internett-trafikk for alle programmer, inkludert alle nettlesere i en tunnel gjennom Psiphon.\n\nAlternativt kan du velge å bare sende data fra den medfølgende Psiphon-nettlesen gjennom tunnelen, hvilket ikke vil ha noen innvirkning på andre programmer som måtte bruke din Internett-tilkobling på annen måte.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel over hele fjøla</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Bare bruk Psiphon-nettleser</string>
   <string name="ads_consent_preference_dialog_title">Tilbakestill</string>
   <string name="preference_language_selection_title">Språk</string>
   <string name="preference_language_default_language">Forvalgt språk</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Avansert</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <!--Generic negative button label.-->

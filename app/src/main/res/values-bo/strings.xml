@@ -1,38 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">སྦྱིན་བདག་ཕྲེད་དར། སྦྱིན་བདག་ཚོའི་དྲྭ་ཤོག་ཨ་མར་གཟིགས་འདོད་ན་འདིར་སྣོན་རོགས།</string>
-  <string name="start_desc">སཡི་ཕོན་ལ་མཐུད། འབྲེལ་བ་གནང་འདོད་ན་འདིར་སྣོན་རོགས།</string>
-  <string name="message_image_success_desc">འཕྲིན་ཐུང་གཏོང་ཐུབ་པར་མཚོན་བྱེད་ཀྱི་རྟགས་ཅན།</string>
-  <string name="message_image_error_desc">འཕྲིན་ཐུང་ནོར་བ་མཚོན་པའི་རྟགས་ཅན།</string>
-  <string name="message_image_debug_desc">འཕྲིན་ཐུང་ནོར་བཅོས་མཚོན་པའི་རྟགས་ཅན།</string>
-  <string name="message_image_warning_desc">འཕྲིན་ཐུང་ངན་བརྡ་ཅན་མཚོན་པའི་རྟགས་ཅན།</string>
-  <string name="exit">དོར་བྱེད།</string>
   <string name="open_browser">དྲྭ་རྒྱ་བལྟ་ཆས་ཁ་ཕྱེས།</string>
-  <string name="browser_task_label">སཡི་ཕོན་བལྟ་ཆས།</string>
   <string name="FeedbackActivity.DefaultText">གལ་ཏེ་སྐུ་ཉིད་ལ་དམིགས་གསལ་གྱི་བསམ་ཚུལ་ཡོད་ན། དྲྭ་རྒྱ་འདི་དང་འབྲེལ་བའི་གནས་ཚུལ་ད་དུང་མཁོ་སྒྲུབ་མ་ཐུབ་པའམ་ཡིག་ཆ་ཁ་མ་ཕྱེ་སོགས་བྱུང་ཚེ་གཤམ་གྱི་དྲྭ་ཚིགས་ཐོག་འབྲེལ་བ་གནང་རོགས། &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">སྐུ་ཉིད་ནས་ང་ཚོར་དགོངས་འཆར་གནང་བར་ཐུགས་རྗེ་ཆེ་ཞུ།</string>
   <string name="FeedbackActivity.Failure">སྐུ་ཉིད་ཀྱི་དྭང་ལེན་གྲུབ་ཐུབ་མ་སོང། ཡང་སྐྱར་ཐབས་ཤེས་ཤིག་གནང་རོགས།</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">ཁྱེད་ཀྱི་དགོངས་འཆར་འབུལ་ཐུབ་མ་སོང་།</string>
   <string name="FeedbackActivity.InvalidURLParameters">དགོངས་འཆར་འགེངས་ཤོག་འབུལ་བའི་་སྐབས་སུ་URLགྱི་ཁ་བྱང་ནོར་འདུག</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">དགོངས་འཆར་གྱི་དྲྭ་ཤོག་རྙེད་སོན་ཐུབ་མ་སོང་།</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">ཡོ་བྱད་ཚ་ཚང་གཅིག་ཏུ་བཏུས་སམ།</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ཚ་ཚང་ཡུར་བཅུག་བྱ་རྒྱུའི་གདམ་ཀ་ཁྱེད་རང་གི་ཡོ་བྱད་སྒང་ལ་ཐོན་ཡོད། \n\n གདམ་ཀ་འདིས་སཡི་ཕོན་རྒྱུད་དེ་བལྟ་ཆས་དང་མཉེན་ཆས་ཚང་མའི་དྲྭ་རྙོག་དེ་དག་ཡུར་བའི་ནང་བཅུག \n\nགཞན་ཡང་སཡི་ཕོན་བལྟ་ཆས་ཁོ་ནས་ཡུར་བའི་ནང་བཅུག་པ་དགོས་ལ། འདི་མཉེན་ཆས་ལྷག་མ་གཞན་ཐམས་ཅད་ཚད་འཛིན་གྱི་དྲྭ་རྒྱ་ལ་ཐད་ཀར་སྤྱོད་ཐུབ།</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">ཡོ་བྱད་ཆ་ཚང་ཚུར་བཏུས།</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">སཡི་ཕོན་བལྟ་ཆས་ཁོ་ན་བེད་སྤྱོད་གནང་རོགས།</string>
   <string name="ads_consent_preference_dialog_title">བསྐྱར་སྒྲིག</string>
   <string name="preference_language_selection_title">སྐད་ཡིག</string>
   <string name="preference_language_default_language">སྐད་རིགས་སོར་བཞག</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">མཐོ་རིམ།</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <!--Generic negative button label.-->

@@ -1,98 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">Connexion SSH…</string>
-  <string name="ssh_connected">SSH connecté</string>
-  <string name="ssh_connection_failed">Échec de connexion SSH</string>
-  <string name="ssh_authenticating">Authentification SSH…</string>
-  <string name="ssh_authentication_failed">Échec d’authentification SSH</string>
-  <string name="ssh_authenticated">Authentification SSH réussie</string>
-  <string name="socks_starting">Démarrage de SOCKS…</string>
   <string name="socks_running">SOCKS en fonction sur le port %d</string>
-  <string name="socks_stopped">SOCKS arrêté</string>
-  <string name="ssh_stopped">SSH arrêté</string>
-  <string name="error_message">Une erreur est survenue :</string>
-  <string name="http_proxy_starting">Démarrage du mandataire HTTP…</string>
   <string name="http_proxy_running">Mandataire HTTP en fonction sur le port %d</string>
-  <string name="http_proxy_stopped">Mandataire HTTP arrêté </string>
-  <string name="http_proxy_stopped_unexpectedly">Le mandataire HTTP s’est arrêté inopinément</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Échec de création d’entrées serveur à stocker.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Échec de stockage d’entrées serveur.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Échec de lecture d’entrées serveur stockées.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Échec d’analyse d’entrées serveur stockées.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Échec d’analyse d’entrées serveur intégrées.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Échec d’analyse de la poignée de main.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Échec de stockage de l’heure de dernière connexion.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Échec d’analyse de la réponse JSON d’heure de dernière connexion.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Échec de lecture de l’heure de dernière connexion.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">La demande de la poignée de main a échoué</string>
-  <string name="ssh_disconnected_unexpectedly">SSH s’est déconnecté inopinément</string>
   <string name="client_version">Version du client %s</string>
-  <string name="no_server_entries">Aucun serveur auquel se connecter</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Liste de serveurs distants invalide</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Le paquet de données authentifié est signé avec une clé publique différente</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Signature invalide pour le paquet de données authentifié</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Échec d’analyse du paquet de données authentifié</string>
   <string name="AuthenticatedDataPackage.MissingValue">Valeur manquante dans le paquet de données authentifié</string>
   <string name="starting_tunnel">Démarrage du tunnel…</string>
   <string name="stopping_tunnel">Arrêt du tunnel…</string>
   <string name="stopped_tunnel">Tunnel arrêté</string>
-  <string name="ServerInterface.StopRequested">Arrêt demandé</string>
-  <string name="ServerInterface.HTTPSRequestFailed">La requête HTTPS a échoué avec l’erreur :</string>
-  <string name="socks_ports_failed">Échec de démarrage du mandataire SOCKS : aucun port disponible trouvé</string>
-  <string name="http_proxy_ports_failed">Échec de démarrage du mandataire HTTP : aucun port disponible trouvé</string>
   <string name="socks_port_in_use">Le port de mandataire local SOCKS %d est déjà utilisé par une autre appli. Impossible de continuer.</string>
-  <string name="transparent_proxy_running">Mandataire transparent en fonction sur le port %d</string>
-  <string name="transparent_proxy_ports_failed">Échec de démarrage du mandataire transparent : aucun port disponible trouvé</string>
-  <string name="transparent_proxy_command_failed">La commande de configuration du mandataire transparent a échoué : %s</string>
-  <string name="transparent_proxy_stopped">Le mandataire transparent est arrêté</string>
-  <string name="dns_proxy_running">Mandataire DNS en fonction sur le port %d</string>
-  <string name="dns_proxy_ports_failed">Échec de démarrage du mandataire DNS : aucun port disponible trouvé</string>
-  <string name="dns_proxy_stopped">Le mandataire DNS est arrêté</string>
-  <string name="dns_proxy_failed">Échec de démarrage du mandataire DNS</string>
-  <string name="iptables_binary_not_found">Impossible de trouver la version « iptables » exigée pour le mandataire transparent</string>
-  <string name="root_access_denied">L’accès racine est refusé</string>
-  <string name="psiphon_stopped">Arrêté</string>
-  <string name="psiphon_running_whole_device">Exécution en mode Tout l’appareil</string>
-  <string name="psiphon_running_browser_only">Exécution en mode navigateur seulement</string>
   <string name="waiting_for_network_connectivity">En attente de connectivité réseau…</string>
-  <string name="checking_for_root_access">Vérification de l’accès racine…</string>
   <string name="psiphon_service_notification_message_connecting">Connexion…</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notification du service Psiphon</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_channel_name">Changements d’état de Psiphon</string>
-  <string name="preferred_servers">Serveurs préférés : %d</string>
-  <string name="selecting_server">Choix du serveur…</string>
-  <string name="fetch_remote_server_list">Obtention de la liste de serveurs distants…</string>
-  <string name="vpn_service_failed">Échec du service RPV : %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Mise à niveau de Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Alertes des serveurs Psiphon</string>
   <string name="vpn_service_running">Service RPV en fonction</string>
-  <string name="vpn_service_stopped">Service RPV arrêté</string>
   <string name="vpn_service_revoked">Service RPV révoqué</string>
-  <string name="tun2socks_error">tun2socks : %s</string>
-  <string name="tun2socks_failed">RPV vers SOCKS a échoué</string>
-  <string name="tun2socks_running">RPV vers SOCKS en fonction</string>
-  <string name="tun2socks_stopped">RPV vers SOCKS arrêté</string>
-  <string name="vpn_service_no_private_address_available">Aucune adresse privée disponible pour le service RPV</string>
-  <string name="psiphon_running_generic">En fonction…</string>
-  <string name="data_transfer_bytes_sent">Octets envoyés : %1$s (%2$.2f %% comprimées)</string>
-  <string name="data_transfer_bytes_received">Octets reçus : %1$s (%2$.2f %% comprimées)</string>
-  <string name="data_transfer_elapsed_time">Temps de connexion : %s</string>
-  <string name="check_tunnel_failed">La vérification du tunnel a échoué. Votre appareil pourrait ne pas prendre en charge l’option de tunnellisation de tout l’appareil. </string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Échec de création ou d’écriture du fichier de diagnostic rétroactif</string>
   <string name="Diagnostics.EncryptedFailed">Échec de chiffrement des renseignements de diagnostic rétroactif. Ces renseignements ne seront pas joints au courriel de rétroaction.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Échec d’extraction du binaire iptables.</string>
-  <string name="transparent_proxy_routing_failed">Échec de démarrage du routage par mandataire transparent : %s</string>
-  <string name="transparent_proxy_routing_running">Routage par mandataire transparent en fonction </string>
-  <string name="transparent_proxy_routing_stopped">Routage par mandataire transparent arrêté</string>
   <string name="current_network_type">Réseau actuel : %s</string>
-  <string name="dns_resolver">Résolveur DNS : %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Échec d’obtention des résolveurs DNS réseau actifs</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Impossible de récupérer les infos de paquet pour l’appli actuelle</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Échec d’écriture du fichier de mise à niveau</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Échec de téléchargement de la mise à niveau</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">La mise à jour est téléchargée. Il est fortement recommandé de permettre la mise à niveau maintenant. Celle-ci terminée, vous devrez exécuter Psiphon de nouveau. </string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Échec de mise à jour. Impossible d’extraire les infos de paquet du fichier de mise à niveau.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Le fichier de mise à niveau est introuvable</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -105,27 +35,18 @@
   <string name="disconnected">Déconnecté</string>
   <string name="label_sent">Envoyé</string>
   <string name="label_received">Reçu</string>
-  <string name="compression_ratio">%1$.2f %% comprimées</string>
-  <string name="compression_savings">%s enregistré</string>
   <string name="start">Démarrer</string>
   <string name="stop">Arrêter</string>
   <string name="home_tab_name">Accueil</string>
   <string name="settings_tab_name">Options</string>
   <string name="statistics_tab_name">Statistiques</string>
   <string name="logs_tab_name">Journaux</string>
-  <string name="socks_proxy_address">Le mandataire local SOCKS est en fonction sur %s</string>
-  <string name="http_proxy_address">Le mandataire local HTTP est en fonction sur %s</string>
-  <string name="share_proxies_toggle">Autoriser l’utilisation des mandataires locaux par d’autres appareils réseau</string>
-  <string name="share_proxies_prompt_title">Redémarrage de l’appli exigé</string>
-  <string name="share_proxies_prompt_message">L’appli doit redémarrer pour mettre ce paramètre en place.</string>
-  <string name="share_proxies_prompt_positive">Redémarrer maintenant</string>
-  <string name="share_proxies_prompt_negative">Annuler</string>
   <string name="use_proxy_settings_toggle">Se connecter au travers d’un mandataire HTTP</string>
   <string name="use_system_proxy_settings_radio">Utiliser les paramètres réseau du système</string>
   <string name="use_custom_proxy_settings_radio">Utiliser les paramètres suivants :</string>
   <string name="custom_proxy_settings_host">Adresse de l’hôte</string>
   <string name="custom_proxy_settings_port">Port</string>
-  <string name="region_name_any">Meilleure performance</string>
+  <string name="region_name_any">Meilleures performances</string>
   <string name="region_name_us">États-Unis</string>
   <string name="region_name_gb">Royaume-Uni</string>
   <string name="region_name_ca">Canada</string>
@@ -152,19 +73,12 @@
   <string name="region_name_sk">Slovaquie</string>
   <string name="region_name_rs">Serbie</string>
   <string name="region_name_au">Australie</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">À propos de Psiphon</string>
   <string name="feedback">Rétroaction</string>
-  <string name="tunnel_whole_device_toggle">Tunnelliser tout l’appareil (Android 4.0+ exigé)</string>
   <string name="disableTimeoutsPreferenceSummary">Désactiver les temporisations pour les réseaux lents</string>
-  <string name="region_selector">Sélectionner une région</string>
-  <string name="network_proxy_connect_exception">Échec de connexion au mandataire HTTP du réseau : %s </string>
-  <string name="network_proxy_connect_information">Connexion au travers de votre mandataire HTTP : %s</string>
+  <string name="region_selector">Sélectionner la région du serveur</string>
   <string name="network_proxy_connect_invalid_values">Paramètres de mandataire HTTP invalides</string>
   <string name="tunnel_whole_device_exception">Votre appareil ne prend pas en charge l’option de tunnellisation de tout l’appareil, car l’API VpnService manque. </string>
-  <string name="run_polipo_failed">Échec d’exécution de Polipo : %s</string>
-  <string name="wdm_force_iptables_toggle">Forcer la méthode racine Tunnelliser tout l’appareil</string>
-  <string name="http_prefix_toggle">Se déguiser en HTTP</string>
   <string name="preference_notifications_title">Notifications</string>
   <string name="preference_vpn_title">RPV</string>
   <!--Description of option to tunnel everything-->
@@ -195,6 +109,18 @@
     <item quantity="one">%d appli sera exclue du RPV</item>
     <item quantity="other">%d applis seront exclues du RPV</item>
   </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Tunnellisation de toutes les applis</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Tunnellisation d’%d appli</item>
+    <item quantity="other">Tunnellisation de %d applis</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d appli est exclue du tunnel</item>
+    <item quantity="other">%d applis sont exclues du tunnel</item>
+  </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">Toutes les applis seront tunnellisées par le RPV</string>
   <string name="preference_notifications_with_sound_title">Son</string>
   <string name="preference_notifications_with_sound_summary">Émettre un son quand l’état de connexion change</string>
@@ -202,7 +128,6 @@
   <string name="preference_notifications_with_vibrate_summary">Vibrer quand l’état de connexion change</string>
   <string name="downloadWiFiOnlyPreferenceSummary">Ne télécharger les mises à niveau que par Wi-Fi</string>
   <string name="moreOptions">Plus d’options</string>
-  <string name="root_mode_not_supported">Le mode racine n’est pas pris en charge sur cette version d’Android</string>
   <string name="proxySettingsCategoryTitle">Paramètres du mandataire</string>
   <string name="custom_proxy_host_summary">Nom d’hôte du serveur mandataire ou IP</string>
   <string name="custom_proxy_port_summary">Port du serveur mandataire</string>
@@ -220,7 +145,6 @@
   <string name="untunneled_address">Non tunnellisé : %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Erreur de mandataire ascendant : %s</string>
-  <string name="diagnostic">Diagnostic : %s</string>
   <string name="start_tunnel_failed">Échec de démarrage du tunnel : %s</string>
   <string name="tunnel_connecting">Connexion du tunnel…</string>
   <string name="tunnel_connected">Tunnel connecté</string>
@@ -234,6 +158,11 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Valider</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Non merci</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_vpn_settings">Paramètres du RPV</string>
+  <string name="label_proxy_settings">Paramètres du mandataire</string>
+  <string name="preference_summary_no_proxy">Aucun mandataire</string>
+  <string name="preference_summary_custom_proxy">Mandataire personnalisé</string>
+  <string name="preference_summary_system_proxy">Mandataire système</string>
+  <string name="disableTimeoutsPreferenceTitle">Désactiver les temporisations</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi seulement</string>
 </resources>

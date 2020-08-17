@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">ባነር ስፖንሰር፡ ናብ ቀንዲ ገጽ ንምኻድ ኣብዚ ጠውቕ</string>
-  <string name="start_desc">ምስ ሳይፎን (Psiphon) ተራኸብ፡ ንምርኻብ ጠውቕ</string>
-  <string name="message_image_success_desc">ዕዉት መልእኽቲ ዘመልክት ኣይከን</string>
-  <string name="message_image_error_desc">ጌጋ መልእኽቲ ዘመልክት ኣይከን</string>
-  <string name="message_image_debug_desc">ጌጋ ዝእርም መልእኽቲ ዘመልክት ኢይከን</string>
-  <string name="message_image_warning_desc">ናይ መጠንቀቕታ መልእኽቲ ዘመልክት ኣይከን</string>
-  <string name="exit">ኣቋርጽ</string>
   <string name="open_browser">ባይታ መርበብ ንምኽፋት</string>
-  <string name="browser_task_label">ሳይፎን (Psiphon) ባይታ መርበብ </string>
   <string name="FeedbackActivity.DefaultText">ብዛዕባ ምስራሕ ዝኣበዩ መርበባት ሓበሬታ ርእይቶን ተወሳኺ ሓበሬታን ምስ ዝህልወካ ወይ እዚ ፎረም ምስራሕ ምስ ዝኣብየካ ናብዚ ዝስዕብ ኤመይል ግበር &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">ግብረ-መልሲ ብምሃብካ ነመስግን</string>
   <string name="FeedbackActivity.Failure">ዘእተኻዮ ኣይሰርሐን-እንደገና ፈትን</string>
@@ -20,19 +13,7 @@
 ውልቃዊ ቀጥታ መስመር ምድላይ ይሓትት።</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">ሳይፎን ውልቃዊ ቀጥታ መስመር ክነጥፍ ኣይከኣለን።</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">ሳይፎን ዉልቃዊ ቀጥታዊ መስመር ንጡፍ ኣይርከብን። ተደራራቢ ዉልቃዊ ቀጥታዊ መስመር ብሓንሳብ ክነጥፍ ኣይግባአን። ተወሳኺ ዉልቃዊ ቀጥታዊ መስመር ኣፕ ምስ ዝህሉ ንጥፈቲ ምፍታሽ የድሊ።</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">ነታ መሳርሒት ብምልኣ ከተሕልፋ ታነል ክትገብራ ትደሊ?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">ነታ መሳርሒት ብምልኣ ከተሕልፋ ዘኽእል ኣማራጺ ቀሪቡ ኣሎ፡ \n\nበዚ ኣማራጺ ኣቢሉ ኩሉ ምትሕልላፍ ኢንተርነት ናብ ኣፕሊኬሽናትን ባይታ መርበብን ብመንገዲ ሳይፎን (Psiphon) ክመሓላለፍ እዩ፡፡ \n\nብተወሳኺ ነቲ ሳይፎን (Psiphon) ባይታ መርበብ ጥራይ ብምምራጽ እቲ ኻልእ ኣፕሊኬሽናት በቲ ንቡር ኢንተርነት ከተመሓላልፍ ትኽእል፡፡</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">ነታ መሳርሒ ብምልኣ ኣመሓላልፋ ወይ ታነል ግበራ</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">ሳይፎን (Psiphon) ባይታ መርበብ ጥራይ</string>
   <string name="selected_region_currently_not_available">ዝተመርጸ ኣከባቢ ካብ ዕዮ ወጻአኢ ይርከብ።</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">ብናይ ውልቃዊ ጸጥታትካን ሓበረታኻን ንሓሊ። ንቀጻልነትን ናትነተን ናይዛ ኣፕ ብረክላም ነውሕስ።</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">ንሓበረታኻ ተጠቂምና ናይ ውልቅዊ ረክላም ክንሰድድ ፍቃድ ንሓትት? </string>
-  <string name="you_can_change_your_choice_anytime">ምርጭታትካ ኣብ ሳይፎን ኣብ ዝተደልየ ጊዘ ክልወጥ ይክኣል። ኣውፍርትና ነቲ ውልቃዊ ሓበረታኻ ተጠቂሞም ንውልቅኻ ዝኸውን ረክላም ይሰዱ።</string>
-  <string name="learn_more_about_our_ad_providers"><u>ብዛዕባ አዞም ኣውፈርቲ ናይዛ ረክላም ንተዓዘብ።</u></string>
-  <string name="yes_continue_to_see_relevant_ads">አወ፥ ቀጽል ንተመሳሳሊ ረክላም ክትዕዘብ።</string>
-  <string name="no_see_ads_that_are_less_relevant">ኖአ፡ ንተመሳሳሊ ዘይኮነ ረክላም ተኽታተል።</string>
-  <string name="pay_for_the_ad_free_version">ናብ ረክላም ዘይብሉ ኣማራጺ ተሰጋገር።</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">ናብ ስም ናይ ወናኒ ረክላም ኣድህብ ምአንቲ ምስጢራዊ ፕሊሲ ክትዕዘብ።</string>
   <string name="ads_consent_preference_category_title">ውልቃዊ ረክላም ምምራጽ።</string>
   <string name="ads_consent_preference_dialog_preference_message">ርግጸኛ ዲካ ናይ ውልቅኻ ምርጫታት ከተስተኻኽል ከምተደሊ።</string>
   <string name="ads_consent_preference_title">ናይ ውልቅኻ ረክላም ምርጫታት ኣስተኻኽል።</string>
@@ -40,17 +21,7 @@
   <string name="ads_consent_preference_summary">ምርጫኻ ኣስተኻኽሎ ምአንታን ናይ ነትዎርክ ረክላም ነቲ ናይ ውልቅኻ ሓበረታ ኩኪስ ብፍቃድካ ክጥቀመሉ።</string>
   <string name="preference_language_selection_title">ቋንቋ</string>
   <string name="preference_language_default_language">ነባሪ ቋንቋ</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">ዝሓሸ</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ሕራይ</string>
   <!--Generic negative button label.-->

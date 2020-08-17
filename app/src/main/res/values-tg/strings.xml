@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">баннери парастор; барои саҳифаи асосии парастор гузаштан, зер кунед</string>
-  <string name="start_desc">ба Psiphon пайваст шудан; барои пайваст шудан, зер кунед</string>
-  <string name="message_image_success_desc">нишона бо ишораи паёми муваффақ</string>
-  <string name="message_image_error_desc">нишона бо ишораи паёми хатогӣ</string>
-  <string name="message_image_debug_desc">нишона бо ишораи паёми ислоҳи нуқсон</string>
-  <string name="message_image_warning_desc">нишона бо ишораи паёми огоҳӣ</string>
-  <string name="exit">Баромадан</string>
   <string name="open_browser">Браузерро кушодан</string>
-  <string name="browser_task_label">Psiphon Browser</string>
   <string name="FeedbackActivity.DefaultText">Агар ягон шарҳи муайян, маълумоти бештар оиди вебсайтҳое, ки кор намекунанд, ё агар ин варақа дуруст кор накунад, ба &lt;a href=”mailto:feedback@psiphon.ca”&gt;feedback@psiphon.ca&lt;/a&gt; мактуби электронӣ бифиристед.</string>
   <string name="FeedbackActivity.Success">Барои изҳори назаратон миннатдорем</string>
   <string name="FeedbackActivity.Failure">Пешниҳод барор наёфт.  Кӯшишро такрор кунед.</string>
@@ -18,30 +11,12 @@
   <string name="StatusActivity.VpnRevokedTitle">Psiphon  VPN бозистод</string>
   <string name="StatusActivity.VpnRevokedMessage">VPNи Psiphon аз тарафи шумо ё дигар замима чудо шуд. Якчанд замимахои VPN дар як вакт фаъол буда наметавонанд. Санчед ки дигар VPN фаъол аст ё не.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN наметавонад фаъол шавад</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Тамоми трафики дастгоҳро тавассути нақб равона кунем?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Барои дастгоҳи шумо имкони тамоми трафикро тавассути нақб равона кардан дастрас аст.\n\nБо ин имкон, тамоми трафики интернети шумо барои ҳамаи барномаҳо (аз ҷумла, ҳамаи браузерҳо) бо истифодаи Psiphon тавассути нақб равона карда мешавад.\n\nВагарна, шумо метавонед танҳо трафики браузери ҳамроҳи Psiphon тавассути нақб равона кунед, ки дар ин маврид трафики ҳамаи барномаҳои дигар тавассути пайвасти стандартии шумо ба интернет равона карда мешавад.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тамоми трафики дастгоҳро тавассути нақб равона кардан</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Танҳо Psiphon Browser-ро истифода бурдан</string>
   <string name="selected_region_currently_not_available">Минтақаи интихобшуда айни ҳол дастнорас аст, лутфан дигар минтақаро интихоб намоед.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Мо нисбати махфият ва амнияти иттилоотии шумо масъул ҳастем. Мо бо нишон додани рекламаҳо нармафзори мазкурро ройгон нигоҳ медорем.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Оё мо метавонем истифодабарии маълумотхои шуморо барои нишон додани рекламаи мувофик идома дихем?</string>
-  <string name="you_can_change_your_choice_anytime">Шумо дар вақти дилхоҳ метавонед интихоби худро нисбати Psiphon Pro дар функсияҳои нармафзор тағйир диҳед. Дар мо таъминкунандагони реклама маълумотро ҷамъ намуда, муайянсози махсусро дар дастгоҳи шумо ба хотири нишон додани реклама истифода мебаранд.</string>
-  <string name="learn_more_about_our_ad_providers"><u>Дар бораи таъминкунандагони реклама маълумоти бештар гиред</u></string>
   <string name="ads_consent_preference_category_title">Шахсигардонии реклама</string>
   <string name="ads_consent_preference_dialog_title">Барқарор кардан</string>
   <string name="preference_language_selection_title">Забон</string>
   <string name="preference_language_default_language">Забони пешфарз</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Бештар</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ОК</string>
   <!--Generic negative button label.-->

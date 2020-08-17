@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">স্পনসর ব্যানার; পৃষ্ঠপোষক হোমপেজ দেখার জন্য ক্লিক করুন</string>
-  <string name="start_desc">সাইফন সাথে সংযোগ স্থাপন; সংযোগ করতে ক্লিক করুন</string>
-  <string name="message_image_success_desc">আইকন একটি সফল বার্তা ইঙ্গিত করছে</string>
-  <string name="message_image_error_desc">আইকন একটি ত্রুটি বার্তা নির্দেশ করছে</string>
-  <string name="message_image_debug_desc">আইকনএকটি ত্রুটি শনাক্তকরণ এবং অপসারণ বার্তা ইঙ্গিত করছে</string>
-  <string name="message_image_warning_desc">আইকন একটি সতর্কতামূলক বার্তা ইঙ্গিত করছে</string>
-  <string name="exit">বেরিয়ে যান</string>
   <string name="open_browser">ব্রাউজার খুলুন</string>
-  <string name="browser_task_label">সাইফোন ব্রাউজার</string>
   <string name="FeedbackActivity.DefaultText">আপনার কোন নির্দিষ্ট মন্তব্য থাকলে, ওয়েবসাইট যদি কাজ না করে সম্পর্কে আরও তথ্য, অথবা যদি এই ফর্মটি আপনার জন্য কাজ করে না, দয়া করে ইমেইল করুন &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">আপনার মতামত জমা দেওয়ার জন্য আপনাকে ধন্যবাদ</string>
   <string name="FeedbackActivity.Failure">জমা দেওয়া যায়নি।অনুগ্রহ করে আবার চেষ্টা করুন</string>
@@ -17,23 +10,9 @@
   <string name="FeedbackActivity.GetHTMLContentFailed">প্রতিক্রিয়া পাতা এর কন্টেন্ট পেতে ব্যর্থ হয়েছে</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon ভিপিএন বন্ধ আছে</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার দ্বারা বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">সম্পুর্ন ডিভাইসটি টানেল-এ রুপান্তর করা হবে?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">আপনার ডিভাইসের জন্য পুরো ডিভাইসের টানেল বিকল্পটি উপলব্ধ।  এই বিকল্পের সাহায্যে, সমস্ত ব্রাউজার সহ সমস্ত অ্যাপ্লিকেশনের জন্য আপনার সমস্ত ইন্টারনেট ট্র্যাফিকটি সাইফনের মাধ্যমে টানেল করা হবে। বিকল্পভাবে, আপনি শুধুমাত্র বান্ডলড সাইফোন ব্রাউজার টানেল চয়ন করতে পারেন, যা আপনার স্ট্যান্ডার্ড ইন্টারনেট সংযোগের মাধ্যমে সরাসরি সমস্ত অন্যান্য অ্যাপ্লিকেশনগুলিকে সুযোগ দিবে। </string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">পুরো যন্ত্র সুড়ঙ্গ বা টানেল-এ রুপান্তর করা</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">শুধুমাত্র সাইফোন ব্রাউজার ব্যবহার করুন</string>
   <string name="preference_language_selection_title">ভাষা</string>
   <string name="preference_language_default_language">নির্ধারিত ভাষা</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">অগ্রবর্তী</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ঠিক আছে</string>
   <string name="preference_navigate_to_vpn_setting_title">সর্বদা সচল VPN</string>
