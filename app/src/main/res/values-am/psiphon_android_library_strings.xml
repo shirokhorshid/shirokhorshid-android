@@ -156,7 +156,7 @@
   <string name="about">ስለ Psiphon (ሳይፈን) </string>
   <string name="feedback">ግብረመልስ</string>
   <string name="tunnel_whole_device_toggle">መሳሪያውን ሙሉ በሙሉ ማስተለለፍ (Android 4.0+ ይፈልጋል )</string>
-  <string name="disable_timeouts">ለዝግተኛ ኔትወርኮች የጊዜ እረፍቶችን አቦዝን </string>
+  <string name="disableTimeoutsPreferenceSummary">ለዝግተኛ ኔትወርኮች የጊዜ እረፍቶችን አቦዝን </string>
   <string name="region_selector">ክልል ምረጥ </string>
   <string name="network_proxy_connect_exception">ከኔትወርኩ HTTP ወኪል ጋር መገናኘት አልተሳካም፡- %s</string>
   <string name="network_proxy_connect_information">በእርስዎ የHTTP ወኪል በኩል በመገናኘት ላይ፡-%s</string>
@@ -200,7 +200,7 @@
   <string name="preference_notifications_with_sound_summary">የግንኝነት ደረጃ ለውጥ ሲኖር ድምጽ አሰማ </string>
   <string name="preference_notifications_with_vibrate_title">ንዘር </string>
   <string name="preference_notifications_with_vibrate_summary">የግንኝነት ደረጃ ሲለወጥ ንዘር </string>
-  <string name="preference_download_wifi_only_toggle">ማዘመኛዎችን በ Wi-Fi  ብቻ አውርድ</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ማዘመኛዎችን በ Wi-Fi  ብቻ አውርድ</string>
   <string name="moreOptions">ተጨማሪ አማራጮች </string>
   <string name="root_mode_not_supported">በዚህ የAndroid ስሪት ላይ ሩት ሁነታ አይደገፍም </string>
   <string name="proxySettingsCategoryTitle">የወኪል ቅንብሮች</string>

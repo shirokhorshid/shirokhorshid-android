@@ -1,22 +1,22 @@
 package org.zirco.ui.runnables;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URLEncoder;
-
-import com.psiphon3.R;
-
-import org.zirco.providers.BookmarksProviderWrapper;
-import org.zirco.utils.ApplicationUtils;
-import org.zirco.utils.IOUtils;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import com.psiphon3.R;
+
+import org.zirco.providers.ZircoBookmarksContentProvider;
+import org.zirco.utils.ApplicationUtils;
+import org.zirco.utils.IOUtils;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.URLEncoder;
 
 /**
  * Runnable to export history and bookmarks to an XML file.
@@ -57,12 +57,12 @@ public class XmlHistoryBookmarksExporter implements Runnable {
 			
 			if (mCursor.moveToFirst()) {
 				
-				int titleIndex = mCursor.getColumnIndex(BookmarksProviderWrapper.BookmarkColumns.TITLE);
-				int urlIndex = mCursor.getColumnIndex(BookmarksProviderWrapper.BookmarkColumns.URL);
-				int visitsIndex = mCursor.getColumnIndex(BookmarksProviderWrapper.BookmarkColumns.VISITS);
-				int dateIndex = mCursor.getColumnIndex(BookmarksProviderWrapper.BookmarkColumns.DATE);
-				int createdIndex = mCursor.getColumnIndex(BookmarksProviderWrapper.BookmarkColumns.CREATED);
-				int bookmarkIndex = mCursor.getColumnIndex(BookmarksProviderWrapper.BookmarkColumns.BOOKMARK);
+				int titleIndex = mCursor.getColumnIndex(ZircoBookmarksContentProvider.BookmarkColumns.TITLE);
+				int urlIndex = mCursor.getColumnIndex(ZircoBookmarksContentProvider.BookmarkColumns.URL);
+				int visitsIndex = mCursor.getColumnIndex(ZircoBookmarksContentProvider.BookmarkColumns.VISITS);
+				int dateIndex = mCursor.getColumnIndex(ZircoBookmarksContentProvider.BookmarkColumns.DATE);
+				int createdIndex = mCursor.getColumnIndex(ZircoBookmarksContentProvider.BookmarkColumns.CREATED);
+				int bookmarkIndex = mCursor.getColumnIndex(ZircoBookmarksContentProvider.BookmarkColumns.BOOKMARK);
 				
 				while (!mCursor.isAfterLast()) {
 					
@@ -98,27 +98,26 @@ public class XmlHistoryBookmarksExporter implements Runnable {
 		
 		mHandler.sendEmptyMessage(0);
 	}
-	
-	private Handler mHandler = new Handler() {
-		public void handleMessage(Message msg) {
-			if (mProgressDialog != null) {
-				mProgressDialog.dismiss();
-			}
-			
-			if (mContext != null) {
-				if (mErrorMessage == null) {
-					ApplicationUtils.showOkDialog(mContext,
-							android.R.drawable.ic_dialog_info,
-							mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardDoneTitle),
-							String.format(mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardDoneMessage), mFile.getAbsolutePath()));
-				} else {
-					ApplicationUtils.showOkDialog(mContext,
-							android.R.drawable.ic_dialog_alert,
-							mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardFailedTitle),
-							String.format(mContext.getResources().getString(R.string.Commons_HistoryBookmarksFailedMessage), mErrorMessage));
-				}
-			}
-		}
-	};
 
+    private Handler mHandler = new Handler() {
+        public void handleMessage(Message msg) {
+            if (mProgressDialog != null) {
+                mProgressDialog.dismiss();
+            }
+
+            if (mContext != null) {
+                if (mErrorMessage == null) {
+                    ApplicationUtils.showOkDialog(mContext,
+                            android.R.drawable.ic_dialog_info,
+                            mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardDoneTitle),
+                            String.format(mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardDoneMessage), mFile.getAbsolutePath()));
+                } else {
+                    ApplicationUtils.showOkDialog(mContext,
+                            android.R.drawable.ic_dialog_alert,
+                            mContext.getResources().getString(R.string.Commons_HistoryBookmarksExportSDCardFailedTitle),
+                            String.format(mContext.getResources().getString(R.string.Commons_HistoryBookmarksFailedMessage), mErrorMessage));
+                }
+            }
+        }
+    };
 }

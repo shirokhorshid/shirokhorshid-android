@@ -151,7 +151,7 @@
   <string name="about">درباره سایفون</string>
   <string name="feedback">ملاحظات</string>
   <string name="tunnel_whole_device_toggle">استفاده از تونل برای تمام دستگاه (به اندرواید 4.0+ نیاز دارد)</string>
-  <string name="disable_timeouts">غیرفعال‌سازی مهلت زمانی برای شبکه‌های کم‌سرعت</string>
+  <string name="disableTimeoutsPreferenceSummary">غیرفعال‌سازی مهلت زمانی برای شبکه‌های کم‌سرعت</string>
   <string name="region_selector">منطقه را انتخاب کنید</string>
   <string name="network_proxy_connect_exception">اتصال به پراکسی HTTP شبکه انجام نشد: %s</string>
   <string name="network_proxy_connect_information">اتصال از طریق پراکسی HTTP شما: %s</string>

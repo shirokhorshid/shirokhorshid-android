@@ -151,7 +151,7 @@
   <string name="about">Psiphon Тууралуу</string>
   <string name="feedback">Кайтарым байланыш</string>
   <string name="tunnel_whole_device_toggle">Бүт түзмөктү туннелдөө (Android 4.0+ талап кылат)</string>
-  <string name="disable_timeouts">Жай тармактар үчүн танаписти өчүрүү</string>
+  <string name="disableTimeoutsPreferenceSummary">Жай тармактар үчүн танаписти өчүрүү</string>
   <string name="region_selector">Аймакты тандоо</string>
   <string name="network_proxy_connect_exception">Тармактык HTTP Проксисине туташа албай койду: %s</string>
   <string name="network_proxy_connect_information">Сиздин HTTP проксиңиз аркылуу туташуу: %s</string>

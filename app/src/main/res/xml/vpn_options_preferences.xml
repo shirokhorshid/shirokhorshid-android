@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:key="@string/vpnSettingsCategoryKey"
+        android:title="@string/preference_vpn_title">
+        <Preference
+            android:key="@string/preferenceNavigateToVPNSetting"
+            android:summary="@string/preference_navigate_to_vpn_setting_summary"
+            android:title="@string/preference_navigate_to_vpn_setting_title" />
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:defaultValue="true"
+            android:enabled="true"
+            android:key="@string/preferenceIncludeAllAppsInVpn"
+            android:selectable="true"
+            android:title="@string/preference_routing_include_all_apps_summary" />
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:summary="@string/vpn_exclusions_tip_summary"
+            android:defaultValue="true"
+            android:enabled="true"
+            android:key="@string/preferenceIncludeAppsInVpn"
+            android:selectable="true"
+            android:title="@string/preference_routing_include_apps_summary" />
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:defaultValue="true"
+            android:enabled="true"
+            android:key="@string/preferenceExcludeAppsFromVpn"
+            android:selectable="true"
+            android:title="@string/preference_routing_exclude_apps_summary" />
+        <Preference
+            android:key="@string/preferenceSelectApps"
+            android:title="@string/preference_routing_select_apps_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

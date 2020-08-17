@@ -20,14 +20,15 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.app.AlarmManager;
-import android.app.IntentService;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.v4.content.WakefulBroadcastReceiver;
+import androidx.annotation.NonNull;
+import androidx.core.app.JobIntentService;
 import android.util.Log;
 
 import com.psiphon3.R;
@@ -37,7 +38,6 @@ import net.grandcentrix.tray.AppPreferences;
 
 import java.io.File;
 import java.util.Date;
-import java.util.List;
 
 import ca.psiphon.PsiphonTunnel;
 
@@ -65,7 +65,7 @@ import ca.psiphon.PsiphonTunnel;
  *       when the user clicks the notification, but very tiny.
  */
 
-public class UpgradeChecker extends WakefulBroadcastReceiver {
+public class UpgradeChecker extends BroadcastReceiver {
     private static final int ALARM_INTENT_REQUEST_CODE = 0;
     private static final String ALARM_INTENT_ACTION = UpgradeChecker.class.getName()+":ALARM";
     private static final String CREATE_ALARM_INTENT_ACTION = UpgradeChecker.class.getName()+":CREATE_ALARM";
@@ -282,26 +282,24 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
      */
     private void checkForUpgrade(Context context) {
         log(context, R.string.upgrade_checker_start_service, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
-
-        Intent service = new Intent(context, UpgradeCheckerService.class);
-        startWakefulService(context, service);
+        UpgradeCheckerService.enqueueWork(context);
     }
 
 
     /**
      * The service that does the upgrade checking, via tunnel-core.
      */
-    public static class UpgradeCheckerService extends IntentService implements PsiphonTunnel.HostService {
+    public static class UpgradeCheckerService extends JobIntentService implements PsiphonTunnel.HostService {
+        private static final int JOB_ID = 10029;
         /**
          * The tunnel-core instance.
          */
-        private PsiphonTunnel mTunnel;
+        private PsiphonTunnel mTunnel = PsiphonTunnel.newPsiphonTunnel(this);
 
         /**
-         * The wakeful intent that was received to launch the upgrade checking. We hold on to it so
-         * that we can release the wakelock when we're done.
+         * Keep track if the upgrade check is already in progress
          */
-        private Intent mWakefulIntent;
+        private boolean mUpgradeCheckInProgress = false;
 
         /**
          * Used to post back to stop the tunnel, to avoid locking the thread.
@@ -314,29 +312,30 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
          */
         private boolean mUpgradeDownloaded;
 
-        public UpgradeCheckerService() {
-            super("UpgradeCheckerService");
-            mTunnel = PsiphonTunnel.newPsiphonTunnel(this);
+        /**
+         * Convenience method for enqueuing work in to this service.
+         */
+        public static void enqueueWork(Context context) {
+            enqueueWork(context, UpgradeCheckerService.class, JOB_ID, new Intent());
         }
 
         /**
          * Entry point for starting the upgrade service.
-         * @param intent Must be passed to UpgradeChecker.completeWakefulIntent when the check is done.
+         * @param intent Intent passed to enqueueWork, ignored.
          */
         @Override
-        protected void onHandleIntent(Intent intent) {
+        protected void onHandleWork(@NonNull Intent intent) {
             log(this, R.string.upgrade_checker_check_start, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
 
-            if (mWakefulIntent != null) {
-                // Already processing an intent.
+            if (mUpgradeCheckInProgress) {
+                // A check is already in progress, log and return
                 log(this, R.string.upgrade_checker_already_in_progress, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
                 // Not calling shutDownTunnel() because we don't want to interfere with the currently running request.
-                UpgradeChecker.completeWakefulIntent(intent);
                 return;
             }
 
-            setWakefulIntent(intent);
             mUpgradeDownloaded = false;
+            mUpgradeCheckInProgress = true;
 
             Utils.initializeSecureRandom();
 
@@ -345,7 +344,8 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
             } catch (PsiphonTunnel.Exception e) {
                 log(this, R.string.upgrade_checker_start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN, e.getMessage());
                 // No need to call shutDownTunnel().
-                releaseWakefulIntent();
+                mUpgradeCheckInProgress = false;
+                stopSelf();
             }
         }
 
@@ -362,22 +362,6 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
                     mTunnel.stop();
                 }
             });
-        }
-
-        protected void setWakefulIntent(Intent intent) {
-            assert(mWakefulIntent == null);
-            mWakefulIntent = intent;
-        }
-
-        /**
-         * Complete the current wakeful intent. Note that this releases the wakelock and should be
-         * called only when everything else is finished.
-         */
-        protected void releaseWakefulIntent() {
-            if (mWakefulIntent != null) {
-                UpgradeChecker.completeWakefulIntent(mWakefulIntent);
-            }
-            mWakefulIntent = null;
         }
 
         /*
@@ -436,13 +420,13 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
         }
 
         /**
-         * Called when the tunnel has finished shutting down. We'll all done and can release the wakeful intent.
+         * Called when the tunnel has finished shutting down. We're all done and can shut down the JobIntentService
          * May be due to a connection timeout, or simply an exit triggered by one of the shutDownTunnel() calls.
          */
         @Override
         public void onExiting() {
             log(this, R.string.upgrade_checker_tunnel_exiting, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
-            releaseWakefulIntent();
+            stopSelf();
         }
 
         @Override
@@ -459,60 +443,5 @@ public class UpgradeChecker extends WakefulBroadcastReceiver {
         public Context getContext() {
             return this;
         }
-
-        @Override
-        public void onConnected() {}
-
-        @Override
-        public Object getVpnService() {
-            return null;
-        }
-
-        @Override
-        public Object newVpnServiceBuilder() {
-            return null;
-        }
-
-        @Override
-        public void onAvailableEgressRegions(List<String> regions) {}
-
-        @Override
-        public void onSocksProxyPortInUse(int port) {}
-
-        @Override
-        public void onHttpProxyPortInUse(int port) {}
-
-        @Override
-        public void onListeningSocksProxyPort(int port) {}
-
-        @Override
-        public void onListeningHttpProxyPort(int port) {}
-
-        @Override
-        public void onUpstreamProxyError(String message) {}
-
-        @Override
-        public void onConnecting() {}
-
-        @Override
-        public void onHomepage(String url) {}
-
-        @Override
-        public void onClientRegion(String region) {}
-
-        @Override
-        public void onSplitTunnelRegion(String region) {}
-
-        @Override
-        public void onUntunneledAddress(String address) {}
-
-        @Override
-        public void onBytesTransferred(long sent, long received) {}
-
-        @Override
-        public void onStartedWaitingForNetworkConnectivity() {}
-
-        @Override
-        public void onActiveAuthorizationIDs(List<String> authorizations) {}
     }
 }

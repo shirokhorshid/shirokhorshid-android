@@ -68,7 +68,7 @@
   <string name="vpn_service_running">تشغيل خدمة الشبكة الافتراضية الخاصة</string>
   <string name="vpn_service_stopped">توقف خدمة الشبكة الافتراضية الخاصة</string>
   <string name="vpn_service_revoked">إلغاء خدمة الشبكة الافتراضية الخاصة </string>
-  <string name="tun2socks_error">برنامج tun2socks: 
+  <string name="tun2socks_error">برنامج tun2socks:
 %s</string>
   <string name="tun2socks_failed">فشل عملية تشغيل الشبكة الخاصة الافتراضية على بروتوكول المفتاح الآمن SOCKS</string>
   <string name="tun2socks_running"> الشبكة الافتراضية الخاصة تعمل الآن على بروتوكول المفتاح الآمن SOCKS</string>
@@ -159,11 +159,11 @@
   <string name="about">من نحن؟</string>
   <string name="feedback">رأيك </string>
   <string name="tunnel_whole_device_toggle">تمرير الجهاز بأكمله عبر النفق (يتطلب أندرويد 4.0+) </string>
-  <string name="disable_timeouts">إبطال الانقطاعات للإتصالات البطيئة </string>
+  <string name="disableTimeoutsPreferenceSummary">إبطال الانقطاعات للإتصالات البطيئة </string>
   <string name="region_selector">اختر المنطقة</string>
-  <string name="network_proxy_connect_exception"> فشل عملية الاتصال مع شبكة  بروكسي HTTP : 
+  <string name="network_proxy_connect_exception"> فشل عملية الاتصال مع شبكة  بروكسي HTTP :
 %s </string>
-  <string name="network_proxy_connect_information">جاري الإتصال عبر بروكسي  HTTP 
+  <string name="network_proxy_connect_information">جاري الإتصال عبر بروكسي  HTTP
  : %s</string>
   <string name="network_proxy_connect_invalid_values">إعدادات بروكسي HTTP غير صالحة </string>
   <string name="tunnel_whole_device_exception">جهازك لايدعم خيار تمرير كامل الجهاز بالنفق بسبب فقدان VpnService API.</string>
@@ -198,7 +198,7 @@
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
   <string name="preference_notifications_with_vibrate_title">إهتزاز </string>
   <string name="preference_notifications_with_vibrate_summary">الإهتزاز عند تغير حالة الإتصال </string>
-  <string name="preference_download_wifi_only_toggle">تحميل التحديثات فقط عند الاتصال بشبكة واي فاي</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">تحميل التحديثات فقط عند الاتصال بشبكة واي فاي</string>
   <string name="moreOptions">إعدادات أخرى </string>
   <string name="root_mode_not_supported">النمط الجذري  \"الروت مود\" غير مدعوم على هذا الإصدار من أندرويد </string>
   <string name="proxySettingsCategoryTitle">إعدادات البروكسي </string>

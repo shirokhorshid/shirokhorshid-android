@@ -153,7 +153,7 @@
   <string name="about">ብዛዕባ ሳይፎን (Psiphon)</string>
   <string name="feedback">ግብረ-መልሲ</string>
   <string name="tunnel_whole_device_toggle">ምሉእ መሳርሒ ንምትሕልላፍ (Android 4.0+ የድሊ) </string>
-  <string name="disable_timeouts">ንዝሑላት ነትዎርክታት ናይ ግዜ ዕረፍቲታት ኣደስክል</string>
+  <string name="disableTimeoutsPreferenceSummary">ንዝሑላት ነትዎርክታት ናይ ግዜ ዕረፍቲታት ኣደስክል</string>
   <string name="region_selector">ዞባ ምረጽ</string>
   <string name="network_proxy_connect_exception">ምስ HTTP ተካኢ ክራኸብ ኣይክኣለን: %s: </string>
   <string name="network_proxy_connect_information">ብ HTTP ተካኢ ኣቢሉ ይራኸብ ኣሎ: %s</string>
@@ -181,7 +181,7 @@
   <string name="preference_notifications_with_sound_summary">ኩነታት ርክብ ክቕየር ከሎ ድምጺ ኣጻውት</string>
   <string name="preference_notifications_with_vibrate_title">ንዝረት</string>
   <string name="preference_notifications_with_vibrate_summary">ኩነታት ርክብ ክቕየር ከሎ ኣብ ንዝረት ግበሮ</string>
-  <string name="preference_download_wifi_only_toggle">ኣብ Wi-Fi ጥራሕ ንምሕዩሻት ጽዕነት ኣውርድ</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ኣብ Wi-Fi ጥራሕ ንምሕዩሻት ጽዕነት ኣውርድ</string>
   <string name="moreOptions">ተወሳኺ ኣማራጽታት</string>
   <string name="root_mode_not_supported">ሱር ኩነት ኣብ ስሪት Android ኣይሕገዝን`ዩ</string>
   <string name="proxySettingsCategoryTitle">ተካኢ ባይታ-ውህደት</string>

@@ -91,7 +91,7 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Nezve pamusoro pePsiphon</string>
   <string name="feedback">Mhinduro</string>
-  <string name="disable_timeouts">Rambidza kupera kwenguva kana paine matande anononoka</string>
+  <string name="disableTimeoutsPreferenceSummary">Rambidza kupera kwenguva kana paine matande anononoka</string>
   <string name="region_selector">Sarudza nzvimbo</string>
   <string name="network_proxy_connect_exception">Tatadza kukochekera kuHTTP Proxy yetande iri: %s</string>
   <string name="network_proxy_connect_information">Kukochekera kuburikidza neHTTP Proxy yako: %s</string>

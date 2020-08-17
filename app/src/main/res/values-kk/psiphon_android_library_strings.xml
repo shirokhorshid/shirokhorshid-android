@@ -151,7 +151,7 @@
   <string name="about">Psiphon туралы</string>
   <string name="feedback">Кері байланыс</string>
   <string name="tunnel_whole_device_toggle">Бүкіл құрылғыны туннельдеу (Android 4.0+ қажет)</string>
-  <string name="disable_timeouts">Баяу желілер үшін таймауттарды ажырату</string>
+  <string name="disableTimeoutsPreferenceSummary">Баяу желілер үшін таймауттарды ажырату</string>
   <string name="region_selector">Аймақты таңдау</string>
   <string name="network_proxy_connect_exception">Желінің HTTP проксиіне қосылу сәтсіз болды: %s</string>
   <string name="network_proxy_connect_information">Сіздің HTTP проксиі арқылы қосылу: %s</string>

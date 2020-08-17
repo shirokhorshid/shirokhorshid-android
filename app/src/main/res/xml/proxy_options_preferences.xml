@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="@string/proxySettingsCategoryKey"
+        android:title="@string/proxySettingsCategoryTitle">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:enabled="true"
+            android:key="@string/useProxySettingsPreference"
+            android:selectable="true"
+            android:shouldDisableView="true"
+            android:title="@string/use_proxy_settings_toggle" />
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:defaultValue="true"
+            android:enabled="true"
+            android:key="@string/useSystemProxySettingsPreference"
+            android:selectable="true"
+            android:title="@string/use_system_proxy_settings_radio" />
+        <com.psiphon3.psiphonlibrary.RadioButtonPreference
+            android:defaultValue="false"
+            android:enabled="true"
+            android:key="@string/useCustomProxySettingsPreference"
+            android:selectable="true"
+            android:title="@string/use_custom_proxy_settings_radio" />
+        <EditTextPreference
+            android:key="@string/useCustomProxySettingsHostPreference"
+            android:inputType="text"
+            android:summary="@string/custom_proxy_host_summary"
+            android:title="@string/custom_proxy_settings_host" />
+        <EditTextPreference
+            android:key="@string/useCustomProxySettingsPortPreference"
+            android:maxLength="5"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:summary="@string/custom_proxy_port_summary"
+            android:title="@string/custom_proxy_settings_port" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:enabled="true"
+            android:key="@string/useProxyAuthenticationPreference"
+            android:selectable="true"
+            android:shouldDisableView="true"
+            android:title="@string/use_proxy_authentication_title" />
+        <EditTextPreference
+            android:key="@string/useProxyUsernamePreference"
+            android:inputType="text"
+            android:summary="@string/proxy_username_summary"
+            android:title="@string/proxy_username_title" />
+        <EditTextPreference
+            android:key="@string/useProxyPasswordPreference"
+            android:inputType="text|textPassword"
+            android:summary="@string/proxy_password_summary"
+            android:title="@string/proxy_password_title" />
+        <EditTextPreference
+            android:key="@string/useProxyDomainPreference"
+            android:summary="@string/proxy_domain_summary"
+            android:title="@string/proxy_domain_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

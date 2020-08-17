@@ -155,7 +155,7 @@
   <string name="about">Psiphon အကြောင်း</string>
   <string name="feedback">အကြံပြုချက်</string>
   <string name="tunnel_whole_device_toggle">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်ရန် (Android 4.0+ လိုအပ်သည်)</string>
-  <string name="disable_timeouts">နှေးသောကွန်ယက်များအတွက် အချိန်သတ်မှတ်ချက်များကို အသုံးပြု၍မရအောင်လုပ်ရန်</string>
+  <string name="disableTimeoutsPreferenceSummary">နှေးသောကွန်ယက်များအတွက် အချိန်သတ်မှတ်ချက်များကို အသုံးပြု၍မရအောင်လုပ်ရန်</string>
   <string name="region_selector">ဒေသရွေးရန်</string>
   <string name="network_proxy_connect_exception">ကွန်ယက်၏ HTTP ကြားခံ %s ကိုချိတ်ဆက်ရန်မအောင်မြင်ပါ</string>
   <string name="network_proxy_connect_information">သင်၏ HTTP ကြားခံ%s မှတဆင့်ချိတ်ဆက်နေပါသည်</string>
@@ -183,7 +183,7 @@
   <string name="preference_notifications_with_sound_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းအသံထွက်ရန်</string>
   <string name="preference_notifications_with_vibrate_title">တုန်ခါမှု</string>
   <string name="preference_notifications_with_vibrate_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းတုန်ခါရန်</string>
-  <string name="preference_download_wifi_only_toggle">ဝိုင်ဖိုင်နှင့် ချိတ်ထားမှသာ အဆင့်မြှင့်ပါ။ </string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ဝိုင်ဖိုင်နှင့် ချိတ်ထားမှသာ အဆင့်မြှင့်ပါ။ </string>
   <string name="moreOptions">နောက်ထပ်ရွေးချယ်စရာများ</string>
   <string name="root_mode_not_supported">ဤ Android ဗားရှင်းအတွက် root ပုံစံပြုလုပ်ရန် အထောက်အပံ့ မပေးပါ။</string>
   <string name="proxySettingsCategoryTitle">ကြားခံ အပြင်အဆင်များ</string>

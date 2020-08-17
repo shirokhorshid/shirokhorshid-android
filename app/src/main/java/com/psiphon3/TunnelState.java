@@ -20,7 +20,7 @@
 
 package com.psiphon3;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
 
@@ -46,11 +46,7 @@ public abstract class TunnelState {
 
         public abstract String sponsorId();
 
-        public abstract boolean vpnMode();
-
         public abstract int httpPort();
-
-        public abstract boolean needsHelpConnecting();
 
         @Nullable
         public abstract ArrayList<String> homePages();
@@ -62,9 +58,7 @@ public abstract class TunnelState {
                     .setClientVersion("")
                     .setPropagationChannelId("")
                     .setSponsorId("")
-                    .setVpnMode(false)
                     .setHttpPort(0)
-                    .setNeedsHelpConnecting(false)
                     .setHomePages(null);
         }
 
@@ -80,13 +74,9 @@ public abstract class TunnelState {
 
             public abstract Builder setSponsorId(String value);
 
-            public abstract Builder setVpnMode(boolean isVpn);
-
             public abstract Builder setHttpPort(int port);
 
             public abstract Builder setHomePages(@Nullable ArrayList<String> homePages);
-
-            public abstract Builder setNeedsHelpConnecting(boolean needsHelpConnecting);
 
             public abstract ConnectionData build();
         }

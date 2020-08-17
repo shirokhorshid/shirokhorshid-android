@@ -18,7 +18,7 @@ package net.grandcentrix.tray.core;
 
 import net.grandcentrix.tray.mock.MockTrayStorage;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Created by pascalwelsch on 3/9/15.

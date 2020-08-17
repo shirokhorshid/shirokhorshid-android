@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 29
     useLibrary 'org.apache.http.legacy'
 
     repositories{
@@ -23,8 +23,8 @@ android {
                 project.ext.set("archivesBaseName", "PsiphonAndroid");
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
-                minSdkVersion 9
-                targetSdkVersion 24
+                minSdkVersion 14
+                targetSdkVersion 29
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -69,6 +69,8 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
+    buildToolsVersion = '29.0.3'
+
     if (propFile.canRead()) {
         def Properties props = new Properties()
         props.load(new FileInputStream(propFile))
@@ -96,10 +98,13 @@ dependencies {
 
     implementation project(':tray')
 
-    implementation "com.android.support:multidex:$rootProject.ext.multidexVersion"
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.androidSupportLibraryVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.ext.androidSupportLibraryVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
+    implementation "androidx.multidex:multidex:$rootProject.ext.multidexVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatVersion"
+    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.ext.recyclerviewVersion"
+    implementation "androidx.localbroadcastmanager:localbroadcastmanager:$rootProject.ext.localBroadCastManagerVersion"
+    implementation "androidx.preference:preference:$rootProject.ext.preferenceVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
 
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
@@ -108,6 +113,6 @@ dependencies {
     compileOnly "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
     annotationProcessor "com.google.auto.value:auto-value:$rootProject.ext.autoValueVersion"
 
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.testRunnerVersion"
+    testImplementation "androidx.test.ext:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.junitVersion"
 }

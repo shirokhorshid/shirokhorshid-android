@@ -16,8 +16,8 @@
 
 package net.grandcentrix.tray.core;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Modular implementation of a {@link Preferences} which allows access to a {@link TrayStorage}.

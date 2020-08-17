@@ -151,7 +151,7 @@
   <string name="about">སཡི་ཕོན་གྱི་ངོ་སྤྲོད།</string>
   <string name="feedback">དགོངས་འཆར།</string>
   <string name="tunnel_whole_device_toggle">ཡོ་བྱད་ཆ་ཚང་ཡུར་བའི་ནང་བཅུག (Android 4.0+ དགོས།)</string>
-  <string name="disable_timeouts">དྲྭ་རྒྱ་དལ་པོ་ཡོད་སྐབས་་དུས་བརྒལ་གྱི་ཚད་གཞི་མེད་བ་བཟོས།</string>
+  <string name="disableTimeoutsPreferenceSummary">དྲྭ་རྒྱ་དལ་པོ་ཡོད་སྐབས་་དུས་བརྒལ་གྱི་ཚད་གཞི་མེད་བ་བཟོས།</string>
   <string name="region_selector">ས་གནས་གདམ་ག</string>
   <string name="network_proxy_connect_exception">དྲྭ་རྒྱའི་HTTP ངོ་ཚབ་མཐུད་ཐུབ་མ་སོང་།: %s</string>
   <string name="network_proxy_connect_information">HTTP ངོ་ཚབ་རྒྱུད་དེ་མཐུད་བཞིན་པ།: %s</string>

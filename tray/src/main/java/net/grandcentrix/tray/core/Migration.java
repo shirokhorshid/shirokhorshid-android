@@ -16,8 +16,8 @@
 
 package net.grandcentrix.tray.core;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Representing something which should be migrated with getters for the data and additional

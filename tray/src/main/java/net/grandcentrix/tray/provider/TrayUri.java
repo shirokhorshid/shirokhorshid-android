@@ -4,7 +4,7 @@ import net.grandcentrix.tray.core.TrayStorage;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Internal helper class to build uris for the {@link TrayContentProvider}

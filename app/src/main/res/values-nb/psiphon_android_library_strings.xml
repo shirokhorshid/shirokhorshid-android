@@ -152,7 +152,7 @@
   <string name="about">Om Psiphon</string>
   <string name="feedback">Tilbakemeldinger</string>
   <string name="tunnel_whole_device_toggle">Tunnel over hele fjøla (krever Android 4.0+)</string>
-  <string name="disable_timeouts">Skru av tidsavbrudd for trege nettverk</string>
+  <string name="disableTimeoutsPreferenceSummary">Skru av tidsavbrudd for trege nettverk</string>
   <string name="region_selector">Velg region</string>
   <string name="network_proxy_connect_exception">Klarte ikke å koble til nettverkets HTTP-mellomtjener: %s</string>
   <string name="network_proxy_connect_information">Kobler til via din HTTP-mellomtjener: %s</string>
@@ -181,7 +181,7 @@
   <string name="preference_notifications_with_sound_summary">Avspill lyd når tilkoblingsstatus endres</string>
   <string name="preference_notifications_with_vibrate_title">Vibrer</string>
   <string name="preference_notifications_with_vibrate_summary">Vibrer når tilkoblingsstatus endres</string>
-  <string name="preference_download_wifi_only_toggle">Kun last ned oppgraderinger på Wi-Fi</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Kun last ned oppgraderinger på Wi-Fi</string>
   <string name="moreOptions">Flere valg</string>
   <string name="root_mode_not_supported">Superbruker-modus er ikke støttet på denne versjonen av Android</string>
   <string name="proxySettingsCategoryTitle">Innstillinger for mellomtjener</string>

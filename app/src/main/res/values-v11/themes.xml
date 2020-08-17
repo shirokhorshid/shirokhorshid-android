@@ -1,5 +1,0 @@
-<resources>
-    <style name="ZircoTheme" parent="@android:style/Theme.Holo.Light">
-        <!-- Any customizations for your app running on devices with Theme.Holo here -->
-    </style>
-</resources>

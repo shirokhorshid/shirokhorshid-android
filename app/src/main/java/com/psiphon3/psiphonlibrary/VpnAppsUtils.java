@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Psiphon Inc.
+ * Copyright (c) 2020, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.psiphon3.R;
 
@@ -40,13 +40,15 @@ import java.util.Set;
 public class VpnAppsUtils {
     public enum VpnAppsExclusionSetting {ALL_APPS, INCLUDE_APPS, EXCLUDE_APPS}
 
-    static VpnAppsExclusionSetting getVpnAppsExclusionMode(Context context) {
-        AppPreferences prefs = new AppPreferences(context);
-        if(prefs.getBoolean(context.getString(R.string.preferenceExcludeAppsFromVpn), false)) {
-            return VpnAppsExclusionSetting.EXCLUDE_APPS;
-        }
-        if(prefs.getBoolean(context.getString(R.string.preferenceIncludeAppsInVpn), false)) {
-            return VpnAppsExclusionSetting.INCLUDE_APPS;
+    public static VpnAppsExclusionSetting getVpnAppsExclusionMode(Context context) {
+        if (Utils.supportsVpnExclusions()) {
+            AppPreferences prefs = new AppPreferences(context);
+            if (prefs.getBoolean(context.getString(R.string.preferenceExcludeAppsFromVpn), false)) {
+                return VpnAppsExclusionSetting.EXCLUDE_APPS;
+            }
+            if (prefs.getBoolean(context.getString(R.string.preferenceIncludeAppsInVpn), false)) {
+                return VpnAppsExclusionSetting.INCLUDE_APPS;
+            }
         }
         return VpnAppsExclusionSetting.ALL_APPS;
     }
@@ -74,13 +76,13 @@ public class VpnAppsUtils {
         }
     }
 
-    static Set<String> getCurrentAppsIncludedInVpn(Context context) {
+    public static Set<String> getCurrentAppsIncludedInVpn(Context context) {
         AppPreferences prefs = new AppPreferences(context);
         String serializedSet = prefs.getString(context.getString(R.string.preferenceIncludeAppsInVpnString), "");
         return SharedPreferenceUtils.deserializeSet(serializedSet);
     }
 
-    static Set<String> getCurrentAppsExcludedFromVpn(Context context) {
+    public static Set<String> getCurrentAppsExcludedFromVpn(Context context) {
         AppPreferences prefs = new AppPreferences(context);
         String serializedSet = prefs.getString(context.getString(R.string.preferenceExcludeAppsFromVpnString), "");
         return SharedPreferenceUtils.deserializeSet(serializedSet);

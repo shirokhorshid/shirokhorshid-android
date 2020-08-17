@@ -156,7 +156,7 @@
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
   <string name="tunnel_whole_device_toggle">Tuneliraj cjeli uređaj (zahtjeva Android 4.0+)</string>
-  <string name="disable_timeouts">Onemogući istek vremena za spore mreže</string>
+  <string name="disableTimeoutsPreferenceSummary">Onemogući istek vremena za spore mreže</string>
   <string name="region_selector">Odaberite regiju</string>
   <string name="network_proxy_connect_exception">Spajanje na mrežni HTTP proxy nije uspjelo: %s</string>
   <string name="network_proxy_connect_information">Spajanje preko Vašeg HTTP proxy-a: %s</string>

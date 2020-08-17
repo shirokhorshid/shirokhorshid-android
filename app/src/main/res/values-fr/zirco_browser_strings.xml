@@ -117,7 +117,7 @@
   <string name="PreferencesActivity.DefaultZoomClose">Fermer</string>
   <string name="PreferencesActivity.DefaultZoomMedium">Moyen</string>
   <string name="PreferencesActivity.DefaultZoomFar">Éloigné</string>
-  <string name="StartPage.Welcome">Bienvenue</string>
+  <string name="StartPage.Welcome">Bienvenue !</string>
   <string name="StartPage.Bookmarks">Marque-pages les plus utilisés</string>
   <string name="StartPage.History">Historique récent</string>
   <string name="ChangelogActivity.Title">Journal des changements</string>

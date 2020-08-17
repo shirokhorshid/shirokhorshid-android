@@ -15,6 +15,7 @@
     android:weightSum="1.0">
 
     <TextView
+        android:padding="4dp"
         android:id="@+id/elapsedConnectionTime"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -31,6 +32,7 @@
         android:layout_height="wrap_content">
         
         <TextView
+            android:padding="4dp"
             android:id="@+id/labelSent"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
@@ -38,6 +40,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
+            android:padding="4dp"
             android:id="@+id/totalSent"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
@@ -92,6 +95,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
+            android:padding="4dp"
             android:id="@+id/labelReceived"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
@@ -99,6 +103,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
+            android:padding="4dp"
             android:id="@+id/totalReceived"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"

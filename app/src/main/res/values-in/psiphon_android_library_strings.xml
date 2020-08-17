@@ -156,7 +156,7 @@
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
   <string name="tunnel_whole_device_toggle">Alihkan Sambungan Seluruh Perangkat (perlu Android 4.0+)</string>
-  <string name="disable_timeouts">Matikan timeours untuk internet yang lambat</string>
+  <string name="disableTimeoutsPreferenceSummary">Matikan timeours untuk internet yang lambat</string>
   <string name="region_selector">Pilih wilayah</string>
   <string name="network_proxy_connect_exception">Gagal menyambung ke Proksi HTTP jaringan: %s</string>
   <string name="network_proxy_connect_information">Menyambung lewat Proksi HTTP Anda: %s</string>
@@ -198,7 +198,7 @@
   <string name="preference_notifications_with_sound_summary">Beri tanda suara saat status sambungan berubah</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
   <string name="preference_notifications_with_vibrate_summary">Beri tanda getar saat status sambungan berubah</string>
-  <string name="preference_download_wifi_only_toggle">Unduh pembaruan hanya lewat WI-FI</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Unduh pembaruan hanya lewat WI-FI</string>
   <string name="moreOptions">Opsi Lanjutan</string>
   <string name="root_mode_not_supported">Modus root tidak didukung oleh versi Android ini</string>
   <string name="proxySettingsCategoryTitle">Setelan Proksi</string>
