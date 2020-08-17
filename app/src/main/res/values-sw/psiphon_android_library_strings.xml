@@ -2,18 +2,18 @@
 <resources>
   <string name="socks_running">SOCKS ikikimbia bandarini %d</string>
   <string name="http_proxy_running">HTTP wakala anaekimbia bandarini %d</string>
-  <string name="client_version">Toleo la wateja%s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">kuhalisisha mfuko wa data kusaini kwa funguo huria tofauti</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Saini batili kwenye uhalisi wa  mfuko wa data </string>
-  <string name="AuthenticatedDataPackage.MissingValue">kukosekana kwa thamani kiuhalisia wa mfuko wa data</string>
+  <string name="client_version">Toleo la wateja %s</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">Kuhalisisha mfuko wa data kusaini kwa funguo huria tofauti</string>
+  <string name="AuthenticatedDataPackage.InvalidSignature">Saini batili kwenye uhalisi wa  mfuko wa data</string>
+  <string name="AuthenticatedDataPackage.MissingValue">Kukosekana kwa thamani kiuhalisia wa mfuko wa data</string>
   <string name="starting_tunnel">Kuanza kwa ficho</string>
-  <string name="stopping_tunnel">Kuzima kwa handaki...</string>
+  <string name="stopping_tunnel">Kuzima kwa handaki…</string>
   <string name="stopped_tunnel">Handaki iliyosimamishwa</string>
-  <string name="socks_port_in_use"> Ombi la wakala wa karibu wa SOCKS %d tayari inatumika na programu nyingine. Haiwezi kuendelea.</string>
-  <string name="waiting_for_network_connectivity">Kusubiri kunganishwa kwa mtandao...</string>
+  <string name="socks_port_in_use">Ombi la wakala wa karibu wa SOCKS %d tayari inatumika na programu nyingine. Haiwezi kuendelea.</string>
+  <string name="waiting_for_network_connectivity">Kusubiri kunganishwa kwa mtandao…</string>
   <string name="psiphon_service_notification_message_connecting">Inaunganishwa</string>
   <string name="psiphon_service_notification_id">Arifa ya huduma ya Psiphon</string>
-  <string name="psiphon_service_notification_channel_name"> Kubadilika kwa hali ya Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Kubadilika kwa hali ya Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Boresha Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon Arifu Seva</string>
   <string name="vpn_service_running">Kuendesha kwa VPN seva</string>
@@ -37,7 +37,7 @@
   <string name="label_received">Imepokelewa</string>
   <string name="start">Anza</string>
   <string name="stop">Simama</string>
-  <string name="home_tab_name">kaya</string>
+  <string name="home_tab_name">Kaya</string>
   <string name="settings_tab_name">Chaguo</string>
   <string name="statistics_tab_name">Hali</string>
   <string name="logs_tab_name">Ingia</string>
@@ -78,7 +78,7 @@
   <string name="disableTimeoutsPreferenceSummary">Lemaza umalizikaji wa mtandao polepole</string>
   <string name="region_selector">Chagua eneo la seva</string>
   <string name="network_proxy_connect_invalid_values">Mpangilio wa wakala wa HTTP batili</string>
-  <string name="tunnel_whole_device_exception">Kifaa chako hakiingiliani na chaguo zima la kifaa cha tunnel kukosekana kwa huduma ya Vpn API.  </string>
+  <string name="tunnel_whole_device_exception">Kifaa chako hakiingiliani na chaguo zima la kifaa cha tunnel kukosekana kwa huduma ya Vpn API.</string>
   <string name="preference_notifications_title">Arifu</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -112,18 +112,18 @@
   <string name="use_proxy_authentication_title">Tumia uthibitisho wa proxy</string>
   <string name="proxy_username_title">Proksi jina la mtumiaji</string>
   <string name="proxy_username_summary">Jina la mtumiaji kwa proxy halisi</string>
-  <string name="proxy_password_title">proksi ya nywila</string>
+  <string name="proxy_password_title">Proksi ya nywila</string>
   <string name="proxy_password_summary">Nywila kwa utibitisho wa proksi</string>
-  <string name="proxy_domain_title">proksi kikoa</string>
+  <string name="proxy_domain_title">Proksi kikoa</string>
   <string name="proxy_domain_summary">Kikoa kwa uthibitisho wa proksi</string>
   <string name="http_proxy_port_in_use">Maombi ya local HTTP proxy port%d  yapotayari kutumika na programu nyingine. haiwezi kuendelea.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
-  <string name="untunneled_address">Untunneled: %s </string>
+  <string name="untunneled_address">Untunneled: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
-  <string name="start_tunnel_failed">kushindwa kuanza kwa ficho: %s </string>
-  <string name="tunnel_connecting">Kunganisha ficho...</string>
-  <string name="tunnel_connected">ficho imeunganishwa</string>
+  <string name="start_tunnel_failed">Kushindwa kuanza kwa ficho: %s</string>
+  <string name="tunnel_connecting">Kunganisha ficho…</string>
+  <string name="tunnel_connected">Ficho imeunganishwa</string>
   <string name="waiting">Kusubiri</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Ruhusu ombi</string>

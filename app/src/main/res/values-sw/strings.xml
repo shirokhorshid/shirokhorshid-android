@@ -7,7 +7,7 @@
   <string name="FeedbackActivity.Failure">Uwasilishwaji umefeli. Tafadhali jaribu tena.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Imefeli kuwasilisha mrejesho</string>
   <string name="FeedbackActivity.InvalidURLParameters">Mrejesho usio sahihi wa vigezo vya URL wakati wa kuwalisha fomu</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">imefeli kupata yaliyomo kwenye ukurasa wa mrejesho</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Imefeli kupata yaliyomo kwenye ukurasa wa mrejesho</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN imesimama</string>
   <string name="StatusActivity.VpnRevokedMessage">VPN ya Psiphon imekatishwa na wewe au programu nyingine. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia kama programu nyingine ya VPN imesakinishwa na inafanya kazi.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN haiwezi kuanza</string>
@@ -25,7 +25,7 @@
   <string name="preference_category_advanced_title">Iliyoboreshwa</string>
   <string name="preference_category_info_title">Taarifa</string>
   <!--Generic string to say OK or acknowledge-->
-  <string name="label_ok">sawa</string>
+  <string name="label_ok">Sawa</string>
   <string name="preference_navigate_to_vpn_setting_title">Sikuzote VPN wazi</string>
   <string name="preference_navigate_to_vpn_setting_summary">Nenda kwenye mfumo wa mpangilio kuwezesha Sikuzote VPN wazi</string>
   <!--Generic negative button label.-->
