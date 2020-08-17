@@ -35,16 +35,3 @@ ext {
     localBroadCastManagerVersion = '1.0.0'
     junitVersion = '1.1.1'
 }
-
-subprojects {
-    project.configurations.all {
-        resolutionStrategy.eachDependency { details ->
-            // resolve all android support library conflicts to the same version
-            // except for multidex modules
-            if (details.requested.group == 'com.android.support' && !details.requested.name.startsWith('multidex')) {
-                details.useVersion rootProject.ext.androidSupportLibraryVersion
-            }
-        }
-    }
-}
-
