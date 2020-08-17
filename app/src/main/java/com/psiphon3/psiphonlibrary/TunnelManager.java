@@ -41,8 +41,9 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import androidx.core.app.NotificationCompat;
 import android.text.TextUtils;
+
+import androidx.core.app.NotificationCompat;
 
 import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
@@ -58,6 +59,8 @@ import org.json.JSONObject;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
@@ -540,7 +543,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private final Messenger m_incomingMessenger = new Messenger(
             new IncomingMessageHandler(this));
-    private ArrayList<Messenger> mClients = new ArrayList<>();
+    private HashSet<Messenger> mClients = new HashSet<>();
 
 
     private static class IncomingMessageHandler extends Handler {
@@ -641,14 +644,15 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
 
     private boolean sendClientMessage(int what, Bundle data) {
         Message msg = composeClientMessage(what, data);
-        for (int i = mClients.size() - 1; i >= 0; i--) {
+        for (Iterator<Messenger> i = mClients.iterator(); i.hasNext();) {
+            Messenger messenger = i.next();
             try {
-                mClients.get(i).send(msg);
+                messenger.send(msg);
             } catch (RemoteException e) {
                 // The client is dead.  Remove it from the list;
                 // we are going through the list from back to front
                 // so this is safe to do inside the loop.
-                mClients.remove(i);
+                i.remove();
             }
         }
         return mClients.size() > 0;

@@ -42,18 +42,4 @@ public class PsiphonTabLayout extends TabLayout {
             setTabMode(TabLayout.MODE_FIXED);
         }
     }
-
-    public void selectTabByTag(@NonNull Object tag) {
-        this.post(() -> {
-            for (int i = 0; i < getTabCount(); i++) {
-                Tab tab = getTabAt(i);
-                if (tab != null) {
-                    Object tabTag = getTabAt(i).getTag();
-                    if (tag.equals(tabTag)) {
-                        selectTab(tab);
-                    }
-                }
-            }
-        });
-    }
 }
