@@ -71,6 +71,7 @@ APP_LANGS = {
     'pt_PT': 'pt',   # Portuguese-Portugal
     'ru': 'ru',         # Russian
     'sn': 'sn',         # Shona
+    'sw': 'sw',         # Swahili
     'tg': 'tg',         # Tajik
     'th': 'th',         # Thai
     'ti': 'ti',         # Tigrinya
@@ -118,6 +119,7 @@ FEEDBACK_LANGS = {
     'pt_PT': 'pt_PT',
     'ru': 'ru',
     'sn': 'sn',
+    'sw': 'sw',
     'tg': 'tg',
     #'th': 'th',
     'ti': 'ti',
