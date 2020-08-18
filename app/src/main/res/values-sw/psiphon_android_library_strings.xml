@@ -105,10 +105,16 @@
   <string name="psiphon_service_notification_message_vpn_all_apps">Kusimama kwa programu zote</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <string name="preference_routing_all_apps_tunnel_summary">Programu zote zitakua tunn kupitia VPN</string>
   <string name="preference_notifications_with_sound_title">Sauti</string>
   <string name="preference_notifications_with_sound_summary">Weka sauti wakati wa kuunganisha mabadiliko ya hali</string>
   <string name="preference_notifications_with_vibrate_title">Tetemeka</string>
   <string name="preference_notifications_with_vibrate_summary">Tetemeka wakati wa mabadiliko ya kunganizisha hali</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Pakua kwa Wi-Fi tu ya juu</string>
+  <string name="moreOptions">Chaguo zaidi</string>
+  <string name="proxySettingsCategoryTitle">Mpangilio wa Proxy</string>
+  <string name="custom_proxy_host_summary">Jina la mwenyeji wa Proxy seva au IP</string>
+  <string name="custom_proxy_port_summary">Mahala pa proxy seva</string>
   <string name="use_proxy_authentication_title">Tumia uthibitisho wa proxy</string>
   <string name="proxy_username_title">Proksi jina la mtumiaji</string>
   <string name="proxy_username_summary">Jina la mtumiaji kwa proxy halisi</string>
@@ -118,9 +124,11 @@
   <string name="proxy_domain_summary">Kikoa kwa uthibitisho wa proksi</string>
   <string name="http_proxy_port_in_use">Maombi ya local HTTP proxy port%d  yapotayari kutumika na programu nyingine. haiwezi kuendelea.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Mgawanyiko wa sehemu ya tunn:%s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <string name="untunneled_address">Untunneled: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">Kosa la proxy ya juu:%s</string>
   <string name="start_tunnel_failed">Kushindwa kuanza kwa ficho: %s</string>
   <string name="tunnel_connecting">Kunganisha ficho…</string>
   <string name="tunnel_connected">Ficho imeunganishwa</string>
@@ -129,6 +137,7 @@
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Ruhusu ombi</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Fikia Psiphon kuweka uamuzi sahihi kuhusu vipi utafanya kazi kwenye mtandao wako kwa kutoa ufikiaji kwenye eneo lako.\n\nKumbuka kua taarifa hii ndio inayotumia pekee ndani ya kifaa chako, na hakipiti kwenye seva zetu au kwa upande wowote wa 3.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Sawa</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
