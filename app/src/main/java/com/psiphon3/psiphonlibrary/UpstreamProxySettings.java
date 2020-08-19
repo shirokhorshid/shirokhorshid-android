@@ -220,7 +220,7 @@ public class UpstreamProxySettings {
 
         if (credentials != null) {
             if (!credentials.getDomain().equals("")) {
-                url.append(credentials.getDomain());
+                url.append(Uri.encode(credentials.getDomain()));
                 url.append(Uri.encode("\\"));
             }
             url.append(Uri.encode(credentials.getUserName()));
