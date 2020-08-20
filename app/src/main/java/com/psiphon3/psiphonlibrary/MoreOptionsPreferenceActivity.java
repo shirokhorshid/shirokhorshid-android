@@ -252,7 +252,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             Calendar c = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US);
 
-            final String fileName = sdf.format(c.getTime()) + ".xml";
+            final String fileName = sdf.format(c.getTime()) + ".html";
             final ProgressDialog progressDialog = ProgressDialog.show(getActivity(),
                     this.getResources().getString(R.string.Commons_PleaseWait),
                     this.getResources().getString(R.string.Commons_ExportingHistoryBookmarks));
