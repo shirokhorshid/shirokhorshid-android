@@ -88,9 +88,8 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
         }
         UpstreamProxySettings.ProxySettings proxySettings = UpstreamProxySettings.getProxySettings(context);
         boolean isValid = proxySettings != null &&
-                proxySettings.proxyHost.length() > 0 &&
-                proxySettings.proxyPort >= 1 &&
-                proxySettings.proxyPort <= 65535;
+                UpstreamProxySettings.isValidProxyHostName(proxySettings.proxyHost) &&
+                UpstreamProxySettings.isValidProxyPort(proxySettings.proxyPort);
 
         customProxyValidationResultRelay.accept(isValid);
 

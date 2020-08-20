@@ -22,7 +22,6 @@ package com.psiphon3.psiphonlibrary;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -117,7 +116,8 @@ public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompa
             useSystemProxy.setChecked(preferenceGetter.getBoolean(getString(R.string.useSystemProxySettingsPreference), true));
             useCustomProxy.setChecked(!useSystemProxy.isChecked());
 
-            proxyHost.setText(preferenceGetter.getString(getString(R.string.useCustomProxySettingsHostPreference), ""));
+            // Make sure proxy hostname is trimmed when retrieved directly from preferences
+            proxyHost.setText(preferenceGetter.getString(getString(R.string.useCustomProxySettingsHostPreference), "").trim());
             proxyPort.setText(preferenceGetter.getString(getString(R.string.useCustomProxySettingsPortPreference), ""));
             useProxyAuthentication.setChecked(preferenceGetter.getBoolean(getString(R.string.useProxyAuthenticationPreference), false));
             proxyUsername.setText(preferenceGetter.getString(getString(R.string.useProxyUsernamePreference), ""));
@@ -137,8 +137,11 @@ public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompa
             });
 
             proxyHost.setOnPreferenceChangeListener((preference, newValue) -> {
-                String proxyHost = (String) newValue;
-                if (TextUtils.isEmpty(proxyHost)) {
+                // Trim the hostname value before passing to validation.
+                // The value will be checked upon again in onSharedPreferenceChanged before
+                // it is stored and trimmed if needed.
+                String proxyHost = ((String) newValue).trim();
+                if (!UpstreamProxySettings.isValidProxyHostName(proxyHost)) {
                     Toast toast = Toast.makeText(getActivity(), R.string.network_proxy_connect_invalid_values, Toast.LENGTH_SHORT);
                     toast.show();
                     return false;
@@ -149,11 +152,11 @@ public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompa
             proxyPort.setOnPreferenceChangeListener((preference, newValue) -> {
                 int proxyPort;
                 try {
-                    proxyPort = Integer.valueOf((String) newValue);
+                    proxyPort = Integer.parseInt((String) newValue);
                 } catch (NumberFormatException e) {
                     proxyPort = 0;
                 }
-                if (proxyPort >= 1 && proxyPort <= 65535) {
+                if (UpstreamProxySettings.isValidProxyPort(proxyPort)) {
                     return true;
                 }
                 Toast toast = Toast.makeText(getActivity(), R.string.network_proxy_connect_invalid_values, Toast.LENGTH_SHORT);
@@ -163,7 +166,6 @@ public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompa
 
             updateProxyPreferencesUI();
         }
-
 
         @Override
         public void onResume() {
@@ -181,6 +183,15 @@ public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompa
 
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            // Trim proxy hostname if needed.
+            if (getString(R.string.useCustomProxySettingsHostPreference).equals(key)) {
+                String val = sharedPreferences.getString(getString(R.string.useCustomProxySettingsHostPreference), "");
+                String trimmed = val.trim();
+                if (!trimmed.equals(val)) {
+                    proxyHost.setText(trimmed);
+                    sharedPreferences.edit().putString(key, trimmed).apply();
+                }
+            }
             updateProxyPreferencesUI();
         }
 
