@@ -162,7 +162,9 @@ public class ZircoBookmarksContentProvider extends ContentProvider {
             BookmarkColumns.FAVICON };
 
     public static Cursor getAllRecords(ContentResolver contentResolver) {
-        return contentResolver.query(BOOKMARKS_URI, sHistoryBookmarksProjection, null, null, null);
+        return contentResolver.query(BOOKMARKS_URI, sHistoryBookmarksProjection,
+				null,
+				null,
+				BookmarkColumns.BOOKMARK  + " DESC, " +  BookmarkColumns.DATE + " DESC, " +  BookmarkColumns.CREATED + " DESC");
     }
-
 }

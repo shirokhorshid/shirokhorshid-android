@@ -16,15 +16,15 @@
 package org.zirco.utils;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
-import androidx.core.app.ActivityCompat;
+
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.psiphon3.R;
 
@@ -188,42 +188,39 @@ public class ApplicationUtils {
 	/**
 	 * Checks if we can write to external storage, requesting permission to do so if we can't.
 	 *
-	 * @param activity The activity to request permissions for
+	 * @param fragment The fragment to request permissions for
 	 * @param requestReason The reason we are requesting permissions
 	 *
 	 * @return true iff we have the permission to write to external storage.
 	 */
-	public static boolean ensureWriteStoragePermissionGranted(final Activity activity, final String requestReason, final int requestCode) {
+	public static boolean ensureWriteStoragePermissionGranted(final Fragment fragment, final String requestReason, final int requestCode) {
 		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
 			// Permission is automatically granted on sdk < 23 upon installation
 			return true;
 		}
 
 		// The permission has already been granted
-		if (activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+		if (ActivityCompat.checkSelfPermission(fragment.requireContext(),
+				Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 			return true;
 		}
 
 		// The permission has already been denied at least once, so we explain why we need it
-		if (activity.shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-			showOkDialog(activity,
+		if (ActivityCompat.shouldShowRequestPermissionRationale(fragment.requireActivity(),
+				Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+			showOkDialog(fragment.requireContext(),
 					android.R.drawable.ic_dialog_info,
-					activity.getString(R.string.Commons_PermissionRequestReasonTitle),
+					fragment.getString(R.string.Commons_PermissionRequestReasonTitle),
 					requestReason,
-					new DialogInterface.OnClickListener() {
-						@SuppressLint("InlinedApi")
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							dialog.dismiss();
-							ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode);
-						}
+					(dialog, which) -> {
+						dialog.dismiss();
+						fragment.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+								requestCode);
 					});
-
 			return false;
 		}
 
-		// Request the permission. The request code doesn't matter because we aren't handling it.
-		ActivityCompat.requestPermissions(activity, new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+		fragment.requestPermissions(new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE }, requestCode);
 		return false;
 	}
 	
