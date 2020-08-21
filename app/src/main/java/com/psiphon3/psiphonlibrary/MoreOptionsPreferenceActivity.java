@@ -137,7 +137,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             Preference pref = findPreference(getString(R.string.exportZircoPreference));
 
             pref.setOnPreferenceClickListener(preference -> {
-                if (!ApplicationUtils.ensureWriteStoragePermissionGranted(getActivity(),
+                if (!ApplicationUtils.ensureWriteStoragePermissionGranted(this,
                         getString(R.string.PreferencesActivity_ExportHistoryBookmarksPermissionRequestReason),
                         ZIRCO_WRITE_EXTERNAL_PERMISSION_REQUEST_CODE
                 )) {
