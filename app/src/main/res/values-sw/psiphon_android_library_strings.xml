@@ -10,7 +10,7 @@
   <string name="stopping_tunnel">Kuzima kwa handaki…</string>
   <string name="stopped_tunnel">Handaki iliyosimamishwa</string>
   <string name="socks_port_in_use">Ombi la wakala wa karibu wa SOCKS %d tayari inatumika na programu nyingine. Haiwezi kuendelea.</string>
-  <string name="waiting_for_network_connectivity">Kusubiri kunganishwa kwa mtandao…</string>
+  <string name="waiting_for_network_connectivity">Subiri kunganishwa kwa mtandao…</string>
   <string name="psiphon_service_notification_message_connecting">Inaunganishwa</string>
   <string name="psiphon_service_notification_id">Arifa ya huduma ya Psiphon</string>
   <string name="psiphon_service_notification_channel_name">Kubadilika kwa hali ya Psiphon</string>
