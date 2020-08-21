@@ -188,7 +188,7 @@ public class ApplicationUtils {
 	/**
 	 * Checks if we can write to external storage, requesting permission to do so if we can't.
 	 *
-	 * @param activity The activity to request permissions for
+	 * @param fragment The fragment to request permissions for
 	 * @param requestReason The reason we are requesting permissions
 	 *
 	 * @return true iff we have the permission to write to external storage.
