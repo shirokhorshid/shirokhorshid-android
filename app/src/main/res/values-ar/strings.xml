@@ -24,6 +24,7 @@
   <string name="preference_language_title">اختيار اللغة</string>
   <string name="preference_language_default_language">اللغة الافتراضية</string>
   <string name="preference_category_advanced_title">متقدم</string>
+  <string name="preference_category_info_title">المعلومات</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">يعمل</string>
   <string name="preference_navigate_to_vpn_setting_title">اتصال دائم بـ VPN</string>
@@ -49,4 +50,6 @@
   <string name="bad_vpn_exclusion_setting_alert_title">‫إعدادات VPN باطلة‬</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">تحتاج إلى تطبيق واحد محدد على الأقل بالنسبة لهذا الوضع !</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">تحتاج إلى تطبيق واحد غير محدد على الأقل بالنسبة لهذا الوضع !</string>
+  <string name="legacy_zirco_export_pref_category_title">دعم المتصفحات القديمة</string>
+  <string name="legacy_bom_alert_heading">متصفح Psiphon لم يعد متاحا</string>
 </resources>

@@ -8,23 +8,53 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Сбой отправки отзыва.</string>
   <string name="FeedbackActivity.InvalidURLParameters">Неверные параметры ссылки при отправке формы отзыва</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Сбой загрузки формы отзыва</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN остановлена</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN отключена вами или другим приложением. Нельзя запускать несколько VPN одновременно. Убедитесь, что другое VPN-приложение не установлено/запущено.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Ошибка старта Psiphon VPN</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Ошибка запуска VPN. Нельзя запускать несколько VPN одновременно. Убедитесь, что другое VPN-приложение не установлено/запущено.</string>
+  <string name="selected_region_currently_not_available">Выбранный регион сейчас недоступен. Пожалуйста, выберите другой регион.</string>
+  <string name="ads_consent_preference_category_title">Персонализация рекламы</string>
+  <string name="ads_consent_preference_dialog_preference_message">Вы правда хотите сбросить настройки персонализации рекламы?</string>
+  <string name="ads_consent_preference_title">Сбросить настройки персонализации рекламы</string>
   <string name="ads_consent_preference_dialog_title">Сброс</string>
+  <string name="ads_consent_preference_summary">Сбросить ваши настройки, чтобы позволить рекламным сетям использовать файлы cookie и ваши персональные данные</string>
+  <string name="preference_language_selection_summary">Выберите язык</string>
   <string name="preference_language_selection_title">Язык</string>
+  <string name="preference_language_title">Выбор языка</string>
   <string name="preference_language_default_language">Язык по умолчанию</string>
   <string name="preference_category_advanced_title">Расширенный</string>
   <string name="preference_category_info_title">Информация</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN всегда включен</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Для постоянного включения VPN зайдите в системные настройки</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Нет</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">Да</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Требуется действие!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Пожалуйста, откройте Psiphon и завершите подключение.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Выбранный регион недоступен</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Пожалуйста, откройте Psiphon и выберите другой регион.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN остановлена</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN была отключена вами или другим приложением.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Значок приложения</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Ошибка в настройках VPN</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">В этом режиме нужно выбрать хотя бы одно приложение!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">В этом режиме нужно отменить выбор хотя бы одного приложения!</string>
+  <string name="legacy_zirco_export_pref_category_title">Поддержка устаревшего браузера</string>
+  <string name="legacy_bom_alert_heading">Psiphon Browser более недоступен</string>
+  <string name="legacy_bom_alert_message">Мы обнаружили, что вы использовали Psiphon Browser в прошлой версии %1$s.\nЕсли у вас свежая версия Android (5.0 или новее), можете выбрать любой установленный браузер для туннелирования через %1$s.\nЕсли от Psiphon Browser у вас остались закладки или история браузера и вы хотели бы их сохранить, можете воспользоваться экспортом в дополнительных настройках (раздел \"Поддержка устаревшего браузера\").</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Нужен Android 5.0 или новее</string>
+  <string name="vpn_always_on_preference_not_available_summary">Нужен Android 7.0 или новее</string>
+  <string name="vpn_exclusions_tip_summary">Выберите только один браузер для классического браузерного режима</string>
+  <string name="exportZircoPreferenceSummary">Нажмите, чтобы экспортировать закладки и историю Psiphon Browser во внешнее хранилище</string>
+  <string name="exportZircoPreferenceTitle">Экспорт данных браузера</string>
 </resources>

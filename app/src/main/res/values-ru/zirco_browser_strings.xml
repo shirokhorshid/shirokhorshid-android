@@ -13,5 +13,8 @@
   <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">Ваша история и закладки сохранены в %s.</string>
   <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Ошибка экспортирования</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Сообщение об ошибке: %s.</string>
+  <string name="Commons.PermissionRequestReasonTitle">Почему требуется разрешение</string>
+  <string name="Commons.NeedWritePermissions">Пожалуйста, разрешите запись и попробуйте снова</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Экспорт закладок требует разрешения записи. Закладки сохраняются во внешнем хранилище.</string>
   <string name="Commons.ExportingHistoryBookmarks">Экспортирование истории и закладок…</string>
 </resources>
