@@ -451,10 +451,12 @@ public interface UpgradeManager
             if (mNotificationBuilder == null) {
                 mNotificationBuilder = new NotificationCompat.Builder(context, UPGRADE_NOTIFICATION_CHANNEL_ID)
                         .setSmallIcon(R.drawable.notification_icon_upgrade_available)
-                        .setContentTitle(context.getString(R.string.UpgradeManager_UpgradePromptTitle))
-                        .setContentText(context.getString(R.string.UpgradeManager_UpgradePromptMessage))
                         .setContentIntent(invokeUpgradeIntent);
             }
+            // Always update the text because the locale may have changed
+            mNotificationBuilder
+                    .setContentTitle(context.getString(R.string.UpgradeManager_UpgradePromptTitle))
+                    .setContentText(context.getString(R.string.UpgradeManager_UpgradePromptMessage));
 
             postNotification(context);
 

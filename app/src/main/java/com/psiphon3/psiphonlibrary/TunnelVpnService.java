@@ -43,6 +43,7 @@ public class TunnelVpnService extends VpnService {
         LocaleManager localeManager = LocaleManager.getInstance(this);
         if (localeManager.isSetToSystemLocale()) {
             m_Manager.updateNotifications();
+            UpgradeManager.UpgradeInstaller.updateNotification(m_Manager.getContext());
         }
     }
 

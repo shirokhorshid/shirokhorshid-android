@@ -77,6 +77,8 @@ import io.reactivex.schedulers.Schedulers;
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
+    private static String currentLanguageCode = "";
+
     // Android IPC messages
     // Client -> Service
     enum ClientToServiceMessage {
@@ -626,12 +628,16 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     private static void setLocale(TunnelManager manager) {
         LocaleManager localeManager = LocaleManager.getInstance(manager.m_parentService);
         String languageCode = localeManager.getLanguage();
-        if (localeManager.isSystemLocale(languageCode)) {
-            manager.m_context = localeManager.resetToSystemLocale(manager.m_parentService);
-        } else {
-            manager.m_context = localeManager.setNewLocale(manager.m_parentService, languageCode);
+        if (!languageCode.equals(currentLanguageCode)) {
+            if (localeManager.isSystemLocale(languageCode)) {
+                manager.m_context = localeManager.resetToSystemLocale(manager.m_parentService);
+            } else {
+                manager.m_context = localeManager.setNewLocale(manager.m_parentService, languageCode);
+            }
+            manager.updateNotifications();
+            UpgradeManager.UpgradeInstaller.updateNotification(manager.getContext());
         }
-        manager.updateNotifications();
+        currentLanguageCode = languageCode;
     }
 
     private Message composeClientMessage(int what, Bundle data) {
