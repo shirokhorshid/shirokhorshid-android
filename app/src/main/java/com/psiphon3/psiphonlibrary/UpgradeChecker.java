@@ -223,7 +223,7 @@ public class UpgradeChecker extends BroadcastReceiver {
             log(context, R.string.upgrade_checker_upgrade_file_available_intent_received, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
             // Create upgrade notification. User clicking the notification will trigger the install.
             String filename = intent.getStringExtra(UPGRADE_FILE_AVAILABLE_INTENT_EXTRA_FILENAME);
-            UpgradeManager.UpgradeInstaller.notifyUpgrade(context.getApplicationContext(), filename);
+            UpgradeManager.UpgradeInstaller.notifyUpgrade(LocaleManager.getInstance(context).setLocale(context), filename);
         }
         else if (action.equals(Intent.ACTION_BOOT_COMPLETED)) {
             log(context, R.string.upgrade_checker_boot_completed_intent_received, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
