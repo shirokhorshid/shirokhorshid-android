@@ -216,6 +216,8 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
         }
 
         if (data != null && data.getBooleanExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
+            // Signal the service to update notifications with new language
+            viewModel.sendLocaleChangedMessage();
             // This is a bit of a weird hack to cause a restart, but it works
             // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
             // before the activity would relaunch. This *seems* to provide the best functionality across phones.

@@ -77,6 +77,10 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
         tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(context);
     }
 
+    public void sendLocaleChangedMessage() {
+        tunnelServiceInteractor.sendLocaleChangedMessage();
+    }
+
     // Basic check of proxy settings values
     public boolean validateCustomProxySettings() {
         boolean useHTTPProxyPreference = UpstreamProxySettings.getUseHTTPProxy(context);
