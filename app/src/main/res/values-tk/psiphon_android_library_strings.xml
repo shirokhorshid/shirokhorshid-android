@@ -67,6 +67,10 @@
   <string name="region_name_no">Norwegiýa</string>
   <string name="region_name_ro">Rumyniýa</string>
   <string name="region_name_se">Şwesiýa</string>
+  <string name="region_name_pl">Olonya</string>
+  <string name="region_name_sk">Slowakiýa</string>
+  <string name="region_name_rs">Serbiýa</string>
+  <string name="region_name_au">Awstraliýa</string>
   <string name="about">Psiphon hakynda</string>
   <string name="feedback">Seslenme</string>
   <string name="disableTimeoutsPreferenceSummary">Yuwaş network üçin goşmaça wagtalmalary öçür </string>

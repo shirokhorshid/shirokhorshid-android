@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="socks_running">SOCKS запущен %d</string>
+  <string name="socks_running">SOCKS запущен (порт %d)</string>
   <string name="http_proxy_running">HTTP прокси запущен %d</string>
   <string name="client_version">Версия клиента %s</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Неверный публичный ключ в подписи пакета данных, прошедшего проверку </string>
@@ -75,7 +75,7 @@
   <string name="region_name_au">Австралия</string>
   <string name="about">Что такое Psiphon</string>
   <string name="feedback">Отзыв</string>
-  <string name="disableTimeoutsPreferenceSummary">Отключение лимита времени соединения для медленных сетей</string>
+  <string name="disableTimeoutsPreferenceSummary">Отключить таймауты для медленных сетей</string>
   <string name="region_selector">Выбор региона сервера</string>
   <string name="network_proxy_connect_invalid_values">Неверные настройки HTTP прокси</string>
   <string name="tunnel_whole_device_exception">Ваше устройство не поддерживает полное туннелирование: отсутствует VpnService API.</string>
@@ -84,7 +84,7 @@
   <!--Description of option to tunnel everything-->
   <string name="preference_routing_include_all_apps_summary">Для всех приложений</string>
   <!--Title for selecting apps to be tunneled-->
-  <string name="preference_routing_include_apps_title">Включить приложения</string>
+  <string name="preference_routing_include_apps_title">Выбрать приложения</string>
   <!--Description of option to tunnel only selected apps-->
   <string name="preference_routing_include_apps_summary">Для выбранных приложений</string>
   <!--Title for selecting apps to be excluded-->

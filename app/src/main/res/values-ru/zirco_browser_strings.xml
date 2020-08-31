@@ -5,9 +5,9 @@
   <string name="Commons.PleaseWait">Пожалуйста, подождите</string>
   <string name="Commons.Yes">Да</string>
   <string name="Commons.No">Нет</string>
-  <string name="Commons.SDCardErrorTitle">SD карта недоступна</string>
-  <string name="Commons.SDCardErrorNoSDMsg">SD карта не найдена</string>
-  <string name="Commons.SDCardErrorSDUnavailable">SD карта недоступна</string>
+  <string name="Commons.SDCardErrorTitle">SD-карта недоступна</string>
+  <string name="Commons.SDCardErrorNoSDMsg">SD-карта не найдена</string>
+  <string name="Commons.SDCardErrorSDUnavailable">SD-карта недоступна</string>
   <string name="Commons.Continue">Продолжить</string>
   <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">Экспорт завершен</string>
   <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">Ваша история и закладки сохранены в %s.</string>

@@ -75,6 +75,7 @@
   <string name="about">من نحن؟</string>
   <string name="feedback">رأيك </string>
   <string name="disableTimeoutsPreferenceSummary">إبطال الانقطاعات للإتصالات البطيئة </string>
+  <string name="region_selector">تحديد منطقة الخادوم</string>
   <string name="network_proxy_connect_invalid_values">إعدادات بروكسي HTTP غير صالحة </string>
   <string name="tunnel_whole_device_exception">جهازك لايدعم خيار تمرير كامل الجهاز بالنفق بسبب فقدان VpnService API.</string>
   <string name="preference_notifications_title">الإعلامات </string>
