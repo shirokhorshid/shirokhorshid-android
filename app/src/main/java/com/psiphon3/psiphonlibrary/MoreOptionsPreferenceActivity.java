@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -243,9 +244,15 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         }
 
         private void setupAbout(PreferenceScreen preferences) {
-            Preference pref = preferences.findPreference(getString(R.string.preferenceAbout));
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(EmbeddedValues.INFO_LINK_URL));
-            pref.setIntent(browserIntent);
+            final Preference pref = preferences.findPreference(getString(R.string.preferenceAbout));
+            final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(EmbeddedValues.INFO_LINK_URL));
+            pref.setOnPreferenceClickListener(preference -> {
+                try {
+                    requireContext().startActivity(browserIntent);
+                } catch (ActivityNotFoundException ignored) {
+                }
+                return true;
+            });
         }
 
         private void exportZircoHistoryBookmarks() {

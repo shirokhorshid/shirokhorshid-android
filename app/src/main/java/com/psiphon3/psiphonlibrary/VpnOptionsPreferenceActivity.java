@@ -19,6 +19,7 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -80,9 +81,16 @@ public class VpnOptionsPreferenceActivity extends LocalizedActivities.AppCompatA
             mTunnelNotSelectedApps = (RadioButtonPreference) preferenceScreen.findPreference(getString(R.string.preferenceExcludeAppsFromVpn));
             mSelectApps = preferenceScreen.findPreference(getString(R.string.preferenceSelectApps));
 
-            Preference alwaysOnVpnPref = preferenceScreen.findPreference(getString(R.string.preferenceNavigateToVPNSetting));
+            final Preference alwaysOnVpnPref = preferenceScreen.findPreference(getString(R.string.preferenceNavigateToVPNSetting));
             if (Utils.supportsAlwaysOnVPN()) {
-                alwaysOnVpnPref.setIntent(new Intent(ACTION_VPN_SETTINGS));
+                final Intent vpnSettingsIntent = new Intent(ACTION_VPN_SETTINGS);
+                alwaysOnVpnPref.setOnPreferenceClickListener(preference -> {
+                    try {
+                        requireContext().startActivity(vpnSettingsIntent);
+                    } catch (ActivityNotFoundException ignored) {
+                    }
+                    return true;
+                });
             } else {
                 alwaysOnVpnPref.setEnabled(false);
                 alwaysOnVpnPref.setSummary(R.string.vpn_always_on_preference_not_available_summary);
