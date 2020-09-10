@@ -43,6 +43,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import com.jakewharton.rxrelay2.BehaviorRelay;
@@ -59,9 +60,10 @@ import org.json.JSONObject;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -99,6 +101,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
     public static final String INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE = "com.psiphon3.psiphonlibrary.TunnelManager.SELECTED_REGION_NOT_AVAILABLE";
     public static final String INTENT_ACTION_VPN_REVOKED = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_VPN_REVOKED";
     public static final String INTENT_ACTION_STOP_TUNNEL = "com.psiphon3.psiphonlibrary.TunnelManager.ACTION_STOP_TUNNEL";
+    public static final String IS_CLIENT_AN_ACTIVITY = "IS_CLIENT_AN_ACTIVITY";
 
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
@@ -259,15 +262,15 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     if (Build.VERSION.SDK_INT < 29) {
                         return Single.just(isConnected);
                     }
-                    // If there is at least one live client, which means there is at least one
-                    // activity in foreground bound to the service - return immediately
-                    if (sendClientMessage(ServiceToClientMessage.PING.ordinal(), null)) {
+                    // If there is at least one live activity client, which means there is at least
+                    // one activity in foreground bound to the service - return immediately
+                    if (pingForActivity()) {
                         return Single.just(isConnected);
                     }
                     // If there are no live client wait for new ones to bind
                     return m_newClientPublishRelay
-                            // Test the client(s) again by pinging, block until there's at least one live client
-                            .filter(__ -> sendClientMessage(ServiceToClientMessage.PING.ordinal(), null))
+                            // Test the activity client(s) again by pinging, block until there's at least one live client
+                            .filter(__ -> pingForActivity())
                             // We have a live client, complete this inner subscription and send down original isConnected value
                             .map(__ -> isConnected)
                             .firstOrError()
@@ -340,9 +343,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         stopAndWaitForTunnel();
         PendingIntent vpnRevokedPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VPN_REVOKED);
         // Try and foreground client activity with the vpnRevokedPendingIntent in order to notify user.
-        // If Android < 10 or there is a live client then send the intent right away,
+        // If Android < 10 or there is a live activity client then send the intent right away,
         // otherwise show a notification.
-        if (Build.VERSION.SDK_INT < 29 || sendClientMessage(ServiceToClientMessage.PING.ordinal(), null)) {
+        if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
             try {
                 vpnRevokedPendingIntent.send(m_parentService, 0, null);
             } catch (PendingIntent.CanceledException e) {
@@ -540,9 +543,24 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         return false;
     }
 
+    private static class MessengerWrapper {
+        @NonNull Messenger messenger;
+        boolean isActivity;
+        MessengerWrapper(@NonNull Messenger messenger, Bundle data) {
+            this.messenger = messenger;
+            if (data!= null) {
+                isActivity = data.getBoolean(IS_CLIENT_AN_ACTIVITY, false);
+            }
+        }
+
+        void send(Message message) throws RemoteException {
+            messenger.send(message);
+        }
+    }
+
     private final Messenger m_incomingMessenger = new Messenger(
             new IncomingMessageHandler(this));
-    private HashSet<Messenger> mClients = new HashSet<>();
+    private HashMap<Integer, MessengerWrapper> mClients = new HashMap<>();
 
 
     private static class IncomingMessageHandler extends Handler {
@@ -559,11 +577,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             switch (csm[msg.what]) {
                 case REGISTER:
                     if (manager != null) {
-                        Messenger client = msg.replyTo;
-                        if (client == null) {
+                        if (msg.replyTo == null) {
                             MyLog.d("Error registering a client: client's messenger is null.");
                             return;
                         }
+                        MessengerWrapper client = new MessengerWrapper(msg.replyTo, msg.getData());
                         // Respond immediately to the new client with current connection state and
                         // data stats. All following distinct tunnel connection updates will be provided
                         // by an Rx connectionStatusUpdaterDisposable() subscription to all clients.
@@ -580,14 +598,14 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                                 return;
                             }
                         }
-                        manager.mClients.add(client);
+                        manager.mClients.put(msg.replyTo.hashCode(), client);
                         manager.m_newClientPublishRelay.accept(new Object());
                     }
                     break;
 
                 case UNREGISTER:
                     if (manager != null) {
-                        manager.mClients.remove(msg.replyTo);
+                        manager.mClients.remove(msg.replyTo.hashCode());
                     }
                     break;
 
@@ -646,20 +664,33 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         return msg;
     }
 
-    private boolean sendClientMessage(int what, Bundle data) {
+    private void sendClientMessage(int what, Bundle data) {
         Message msg = composeClientMessage(what, data);
-        for (Iterator<Messenger> i = mClients.iterator(); i.hasNext();) {
-            Messenger messenger = i.next();
+        for (Iterator i = mClients.entrySet().iterator(); i.hasNext();) {
+            Map.Entry pair = (Map.Entry) i.next();
+            MessengerWrapper messenger = (MessengerWrapper) pair.getValue();
             try {
                 messenger.send(msg);
             } catch (RemoteException e) {
                 // The client is dead.  Remove it from the list;
-                // we are going through the list from back to front
-                // so this is safe to do inside the loop.
                 i.remove();
             }
         }
-        return mClients.size() > 0;
+    }
+
+    private boolean pingForActivity() {
+        Message msg = composeClientMessage(ServiceToClientMessage.PING.ordinal(), null);
+        for (Map.Entry<Integer, MessengerWrapper> entry : mClients.entrySet()) {
+            MessengerWrapper messenger = entry.getValue();
+            if (messenger.isActivity) {
+                try {
+                    messenger.send(msg);
+                    return true;
+                } catch (RemoteException ignore) {
+                }
+            }
+        }
+        return false;
     }
 
     private void sendHandshakeIntent() {
@@ -1148,9 +1179,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                     // the region selector with new available regions
                     PendingIntent regionNotAvailablePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE);
 
-                    // If Android < 10 or there is a live client then send the intent right away,
+                    // If Android < 10 or there is a live activity client then send the intent right away,
                     // otherwise show a notification.
-                    if (Build.VERSION.SDK_INT < 29 || sendClientMessage(ServiceToClientMessage.PING.ordinal(), null)) {
+                    if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
                         try {
                             regionNotAvailablePendingIntent.send(m_parentService, 0, null);
                         } catch (PendingIntent.CanceledException e) {

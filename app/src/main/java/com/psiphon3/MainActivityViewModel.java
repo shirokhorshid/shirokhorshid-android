@@ -31,7 +31,7 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
-        tunnelServiceInteractor = new TunnelServiceInteractor(application.getApplicationContext());
+        tunnelServiceInteractor = new TunnelServiceInteractor(application.getApplicationContext(), true);
         Utils.MyLog.setLogger(() -> context);
 
         // remove logs from previous sessions if tunnel service is not running.
