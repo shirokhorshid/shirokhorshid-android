@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">Sponsorenbanner; klicken Sie, um die Homepage des Sponsors zu besuchen</string>
-  <string name="start_desc">mit Psiphon verbinden; klicken, um zu verbinden</string>
-  <string name="message_image_success_desc">Symbol für eine Erfolgsmeldung</string>
-  <string name="message_image_error_desc">Symbol für eine Fehlermeldung</string>
-  <string name="message_image_debug_desc">Symbol für eine Debugmeldung</string>
-  <string name="message_image_warning_desc">Symbol für eine Warnmeldung</string>
-  <string name="exit">Verlassen</string>
   <string name="open_browser">Browser öffnen</string>
-  <string name="browser_task_label">Psiphon Browser</string>
   <string name="FeedbackActivity.DefaultText">Wenn Sie Anmerkungen oder weitere Informationen über nicht funktionierende Websites haben oder wenn dieses Format nicht funktioniert, kontaktieren Sie bitte:  &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Vielen Dank für Ihre Rückmeldung.</string>
   <string name="FeedbackActivity.Failure">Einsendung fehlgeschlagen. Bitte versuchen Sie es erneut.</string>
@@ -16,19 +9,7 @@
   <string name="FeedbackActivity.InvalidURLParameters">Ungültige URL-Parameter in der Einreichung des Rückmeldungsformulars</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Das Abrufen des Inhalts der Rückmeldungsseite ist fehlgeschlagen</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN wurde gestoppt</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Das ganze Gerät tunneln?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Die Funktion alle Informationen ihres Geräts zu tunneln ist auf Ihrem Gerät verfügbar.\n\nMit dieser Funktion können Sie Ihren gesamten Internet traffic einschließlich Apps und Browser mit Psiphon tunneln.\n\nAlternativ können Sie auswählen, dass Sie nur den Psiphon Browser tunneln und alle anderen Apps direkt durch die Standart Internet Verbindung fließen.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Gesamtes Gerät tunneln</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Nur den Psiphon Browser verwenden</string>
   <string name="selected_region_currently_not_available">Ausgewählte Region ist derzeit nicht verfügbar, bitte wählen Sie eine andere Region aus.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Wir kümmern uns um Ihre Privatsphäre und Datensicherheit. Wir halten diese App kostenlos, indem wir Anzeigen schalten.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Können wir Ihre Daten weiterhin verwenden, um Werbung für Sie zu personalisieren?</string>
-  <string name="you_can_change_your_choice_anytime">Sie können Ihre Wahl für Psiphon Pro in den App-Optionen jederzeit ändern. Unsere Werbeanbieter sammeln Daten und verwenden eine eindeutige Kennung auf Ihrem Gerät, um Ihnen Werbung anzuzeigen.</string>
-  <string name="learn_more_about_our_ad_providers"><u>Erfahren Sie mehr über unsere Werbeanbieter</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Ja, weiterhin relevante Werbung sehen.</string>
-  <string name="no_see_ads_that_are_less_relevant">Nein, weniger relevante Werbung sehen.</string>
-  <string name="pay_for_the_ad_free_version">Umstieg auf die werbefreie Version</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">Klicken Sie auf den Namen des Werbeanbieters, um dessen Datenschutzerklärung einzusehen</string>
   <string name="ads_consent_preference_category_title">Personalisierung der Werbung</string>
   <string name="ads_consent_preference_dialog_preference_message">Möchten Sie wirklich die Einstellungen für die Werbepersonalisierung zurücksetzen?</string>
   <string name="ads_consent_preference_title">Einstellungen für die Werbepersonalisierung zurücksetzen</string>
@@ -38,19 +19,8 @@
   <string name="preference_language_selection_title">Sprache</string>
   <string name="preference_language_title">Sprachauswahl</string>
   <string name="preference_language_default_language">Standardsprache</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">Verbindungsinformationen erfolgreich importiert!</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Verbindungsproblem</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Fortgeschritten</string>
+  <string name="preference_category_info_title">Information</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN immer anlassen</string>
@@ -59,11 +29,19 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">Ja</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Aktion erforderlich!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Ausgewählte Region ist nicht verfügbar</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Bitte öffnen Sie Psiphon und wählen Sie eine andere Region aus.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon VPN wurde gestoppt</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN wurde von Ihnen oder einer anderen Anwendung getrennt.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">App-Symbol</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Ungültige VPN-Einstellungen</string>
+  <string name="legacy_bom_alert_heading">Psiphon Browser ist nicht mehr verfügbar</string>
+  <string name="exportZircoPreferenceTitle">Browserdaten exportieren</string>
 </resources>

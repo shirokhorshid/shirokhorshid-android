@@ -1,97 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">Идет соединение SSH...</string>
-  <string name="ssh_connected">Успешное соединение SSH</string>
-  <string name="ssh_connection_failed">Ошибка соединения SSH</string>
-  <string name="ssh_authenticating">SSH аутентификация...</string>
-  <string name="ssh_authentication_failed">Ошибка аутентификации SSH</string>
-  <string name="ssh_authenticated">Успешная аутентификация SSH</string>
-  <string name="socks_starting">Запуск SOCKS...</string>
-  <string name="socks_running">SOCKS запущен %d</string>
-  <string name="socks_stopped">SOCKS остановлен</string>
-  <string name="ssh_stopped">SSH соединение остановлено</string>
-  <string name="error_message">Произошла ошибка: </string>
-  <string name="http_proxy_starting">Запуск HTTP прокси...</string>
+  <string name="socks_running">SOCKS запущен (порт %d)</string>
   <string name="http_proxy_running">HTTP прокси запущен %d</string>
-  <string name="http_proxy_stopped">HTTP прокси остановлен</string>
-  <string name="http_proxy_stopped_unexpectedly">Неожиданная остановка HTTP прокси</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Ошибка создания списка серверов</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Ошибка сохранения списка серверов.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Ошибка чтения сохраненного списка серверов.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Ошибка распознавания сохраненного списка серверов.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Ошибка распознавания встроенного списка серверов.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Ошибка проверки подлинности соединения.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Ошибка сохранения времени последнего соединения</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Ошибка распознавания времени последнего соединения в ответе JSON</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Ошибка чтения времени последнего соединения</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Ошибка запроса на соединение.</string>
-  <string name="ssh_disconnected_unexpectedly">Неожиданный обрыв соединения SSH </string>
   <string name="client_version">Версия клиента %s</string>
-  <string name="no_server_entries">Список серверов для соединения отсутствует</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Некорректный список серверов</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Неверный публичный ключ в подписи пакета данных, прошедшего проверку </string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Неверная цифровая подпись пакета данных</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Ошибка распознавания пакета данных</string>
   <string name="AuthenticatedDataPackage.MissingValue">Недостающее значение в пакете данных</string>
   <string name="starting_tunnel">Запуск туннеля...</string>
   <string name="stopping_tunnel">Остановка туннеля...</string>
   <string name="stopped_tunnel">Туннель остановлен</string>
-  <string name="ServerInterface.StopRequested">Получен сигнал остановки</string>
-  <string name="ServerInterface.HTTPSRequestFailed">Ошибка HTTPS запроса: </string>
-  <string name="socks_ports_failed">Не удалось запустить SOCKS прокси: нет свободных портов</string>
-  <string name="http_proxy_ports_failed">Не удалось запустить HTTP прокси: нет свободных портов</string>
   <string name="socks_port_in_use">Запрошенный порт локального SOCKS прокси %d используется другим приложением. Продолжение невозможно.</string>
-  <string name="transparent_proxy_running">Прозрачный прокси запущен на порту %d</string>
-  <string name="transparent_proxy_ports_failed">Не удалось запустить прозрачный прокси: нет свободных портов</string>
-  <string name="transparent_proxy_command_failed">Ошибка команды конфигурации прозрачного прокси: %s</string>
-  <string name="transparent_proxy_stopped">Прозрачный прокси остановлен</string>
-  <string name="dns_proxy_running">DNS прокси запущен на порту %d</string>
-  <string name="dns_proxy_ports_failed">Не удалось запустить DNS прокси: нет свободных портов</string>
-  <string name="dns_proxy_stopped">DNS прокси остановлен</string>
-  <string name="dns_proxy_failed">Не удалось запустить DNS прокси</string>
-  <string name="iptables_binary_not_found">Реализация iptables, необходимая для запуска transparent прокси, не найдена</string>
-  <string name="root_access_denied">Отказ в доступе с правами root</string>
-  <string name="psiphon_stopped">Приложение остановлено</string>
-  <string name="psiphon_running_whole_device">Приложение запущено в режиме туннелирования всех интернет-соединений</string>
-  <string name="psiphon_running_browser_only">Приложение запущено в режиме туннелирования браузера Psiphon </string>
   <string name="waiting_for_network_connectivity">Ждём подключения к сети...</string>
-  <string name="checking_for_root_access">Проверка доступа с правами root...</string>
   <string name="psiphon_service_notification_message_connecting">Идет соединение...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Сообщения сервиса Psiphon </string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Предпочитаемые сервера: %d</string>
-  <string name="selecting_server">Выбор сервера...</string>
-  <string name="fetch_remote_server_list">Получение списка удаленных серверов...</string>
-  <string name="vpn_service_failed">Ошибка сервиса VPN: %s</string>
+  <string name="psiphon_service_notification_channel_name">Статус Psiphon изменен</string>
+  <string name="psiphon_upgrade_notification_channel_name">Обновление Psiphon </string>
+  <string name="psiphon_server_alert_notification_channel_name">Выбор региона сервера</string>
   <string name="vpn_service_running">VPN сервис запущен</string>
-  <string name="vpn_service_stopped">VPN сервис остановлен</string>
   <string name="vpn_service_revoked">VPN сервис удален</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">Ошибка VPN to SOCKS</string>
-  <string name="tun2socks_running">VPN to SOCKS запущен</string>
-  <string name="tun2socks_stopped">VPN to SOCKS остановлен</string>
-  <string name="vpn_service_no_private_address_available">Частный IP адрес для VPN сервиса недоступен</string>
-  <string name="psiphon_running_generic">Приложение запущено...</string>
-  <string name="data_transfer_bytes_sent">Отправлено байт: %1$s (%2$.2f%% сжато)</string>
-  <string name="data_transfer_bytes_received">Получено байт: %1$s (%2$.2f%% сжато)</string>
-  <string name="data_transfer_elapsed_time">Время подключения: %s</string>
-  <string name="check_tunnel_failed">Ошибка проверки туннеля. Возможно, ваше устройство не поддерживает туннелирование всех интернет-соединений.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Ошибка создания или записи прикрепленного файла диагностики</string>
   <string name="Diagnostics.EncryptedFailed">Ошибка шифрования диагностических данных. Диагностические данные не будут прикреплены к отзыву</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Ошибка извлечения бинарного кода iptables.</string>
-  <string name="transparent_proxy_routing_failed">Не удалось запустить маршрутизацию прозрачного прокси: %s</string>
-  <string name="transparent_proxy_routing_running">Маршрутизация прозрачного прокси запущена</string>
-  <string name="transparent_proxy_routing_stopped">Маршрутизация прозрачного прокси остановленa</string>
   <string name="current_network_type">Текущая сеть: %s</string>
-  <string name="dns_resolver">DNS распознаватель: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Ошибка определения активных DNS распознавателей сети </string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Ошибка чтения информации о пакете данного приложения</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Ошибка записи файла обновления</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Ошибка загрузки обновления</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Загружена новая версия. Мы настоятельно рекомендуем установить эту версию. Перезапустите Psiphon после установки.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Ошибка обновления. Ошибка чтения информации о файле обновления.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Файл обновления не найден</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +35,12 @@
   <string name="disconnected">Соединение разорвано</string>
   <string name="label_sent">Отправлено</string>
   <string name="label_received">Получено</string>
-  <string name="compression_ratio">%1$.2f%% сжато</string>
-  <string name="compression_savings">%s сохранено</string>
   <string name="start">Старт</string>
   <string name="stop">Стоп</string>
   <string name="home_tab_name">Домой</string>
   <string name="settings_tab_name">Настройки</string>
   <string name="statistics_tab_name">Статистика</string>
   <string name="logs_tab_name">Журналы</string>
-  <string name="socks_proxy_address">Локальный прокси-сервер SOCKS работает на %s</string>
-  <string name="http_proxy_address">Локальный прокси-сервер HTTP работает на %s</string>
-  <string name="share_proxies_toggle">Разрешить другим сетевым устройствам использовать локальные прокси</string>
-  <string name="share_proxies_prompt_title">Требуется перезапуск приложения</string>
-  <string name="share_proxies_prompt_message">Для применения этой настройки требуется перезапуск приложения</string>
-  <string name="share_proxies_prompt_positive">Перезапустить сейчас</string>
-  <string name="share_proxies_prompt_negative">Отмена</string>
   <string name="use_proxy_settings_toggle">Подключение через HTTP прокси</string>
   <string name="use_system_proxy_settings_radio">Использовать системные настройки сети</string>
   <string name="use_custom_proxy_settings_radio">Использовать настройки:</string>
@@ -151,37 +73,69 @@
   <string name="region_name_sk">Словакия</string>
   <string name="region_name_rs">Сербия</string>
   <string name="region_name_au">Австралия</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Что такое Psiphon</string>
   <string name="feedback">Отзыв</string>
-  <string name="tunnel_whole_device_toggle">Туннелировать все интернет-соединения (требует Android 4.0+)</string>
-  <string name="disable_timeouts">Отключение лимита времени соединения для медленных сетей</string>
-  <string name="region_selector">Выберите регион</string>
-  <string name="network_proxy_connect_exception">Ошибка соединения с HTTP прокси сети: %s</string>
-  <string name="network_proxy_connect_information">Подключение через ваш HTTP прокси: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Отключить таймауты для медленных сетей</string>
+  <string name="region_selector">Выбор региона сервера</string>
   <string name="network_proxy_connect_invalid_values">Неверные настройки HTTP прокси</string>
-  <string name="run_polipo_failed">Ошибка запуска Polipo: %s</string>
-  <string name="wdm_force_iptables_toggle">Туннелировать все интернет-соединения методом root</string>
-  <string name="http_prefix_toggle">Симулировать HTTP </string>
+  <string name="tunnel_whole_device_exception">Ваше устройство не поддерживает полное туннелирование: отсутствует VpnService API.</string>
   <string name="preference_notifications_title">Уведомления</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Для всех приложений</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Выбрать приложения</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Для выбранных приложений</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Исключить приложения</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Кроме выбранных приложений</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Туннелирование приложения: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Не туннелировать приложение: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Нет исключенных приложений</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Выбор приложений</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">Приложений через VPN: %d</item>
+    <item quantity="few">Приложений через VPN: %d</item>
+    <item quantity="many">Приложений через VPN: %d</item>
+    <item quantity="other">Приложений через VPN: %d</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">Исключенных из VPN приложений: %d</item>
+    <item quantity="few">Исключенных из VPN приложений: %d</item>
+    <item quantity="many">Исключенных из VPN приложений: %d</item>
+    <item quantity="other">Приложений без VPN: %d</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Туннелировать все приложения</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Туннелирование приложений: %d</item>
+    <item quantity="few">Туннелирование приложений: %d</item>
+    <item quantity="many">Туннелирование приложений: %d</item>
+    <item quantity="other">Туннелирование приложений: %d</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">Исключенных приложений: %d</item>
+    <item quantity="few">Исключенных приложений: %d</item>
+    <item quantity="many">Исключенных приложений: %d</item>
+    <item quantity="other">Исключенных приложений: %d</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">Все приложения будут пропущены через VPN</string>
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Оповестить звуковым сигналом при изменении статуса подключения</string>
   <string name="preference_notifications_with_vibrate_title">Вибрация</string>
   <string name="preference_notifications_with_vibrate_summary">Вибрировать при изменении статуса подключения</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Скачивать обновления только по wi-fi</string>
   <string name="moreOptions">Другие настройки</string>
-  <string name="root_mode_not_supported">Режим root не поддерживается на этой версии Android</string>
   <string name="proxySettingsCategoryTitle">Настройки прокси</string>
   <string name="custom_proxy_host_summary">Имя прокси-сервера или его IP адрес</string>
   <string name="custom_proxy_port_summary">Порт прокси-сервера</string>
@@ -199,17 +153,24 @@
   <string name="untunneled_address">Нетуннелированное: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Ошибка внешнего прокси: %s</string>
-  <string name="diagnostic">Диагностика: %s</string>
   <string name="start_tunnel_failed">Запуск туннеля не удался: %s</string>
   <string name="tunnel_connecting">Идет соединение туннеля…</string>
   <string name="tunnel_connected">Соединение туннеля установлено</string>
   <string name="waiting">Ожидание…</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Запрос разрешения</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Можно позволить Psiphon принимать оптимальные решения о работе в вашей сети, если открыть Psiphon доступ к вашему местонахождению.\n\nВнимание: эта информация используется только на вашем устройстве и не передается ни на наши серверы, ни третьим лицам.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Нет, спасибо</string>
+  <string name="label_vpn_settings">Настройки VPN</string>
+  <string name="label_proxy_settings">Настройки прокси</string>
+  <string name="preference_summary_no_proxy">Нет прокси</string>
+  <string name="preference_summary_custom_proxy">Пользовательский прокси</string>
+  <string name="preference_summary_system_proxy">Системный прокси</string>
+  <string name="disableTimeoutsPreferenceTitle">Отключить таймауты</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Только wi-fi</string>
 </resources>

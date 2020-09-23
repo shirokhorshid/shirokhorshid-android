@@ -1,7 +1,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
-import android.preference.CheckBoxPreference;
+import androidx.preference.CheckBoxPreference;
 import android.util.AttributeSet;
 
 import com.psiphon3.R;

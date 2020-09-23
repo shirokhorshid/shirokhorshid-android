@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH ulanmoqda…</string>
-  <string name="ssh_connected">SSH ulandi</string>
-  <string name="ssh_connection_failed">SSH ulanmadi</string>
-  <string name="ssh_authenticating">SSH tekshirilmoqda…</string>
-  <string name="ssh_authentication_failed">SSH tekshirilmadi</string>
-  <string name="ssh_authenticated">SSH tekshirildi</string>
-  <string name="socks_starting">SOCKS ishga tushmoqda…</string>
   <string name="socks_running">SOCKS %d portida ishlamoqda</string>
-  <string name="socks_stopped">SOCKS to‘xtatildi</string>
-  <string name="ssh_stopped">SSH to‘xatildi</string>
-  <string name="error_message">Xatolik yuz berdi:</string>
-  <string name="http_proxy_starting">HTTP proksi-serveri ishga tushmoqda…</string>
   <string name="http_proxy_running">HTTP proksi-serveri %d portida ishlamoqda</string>
-  <string name="http_proxy_stopped">HTTP proksi-serveri to‘xtatildi</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP proksi-serveri kutilmaganda to‘xtab qoldi</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Serverda saqlanadigan qaydlar yaratib bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Serverda qaydlarni saqlab bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Serverda saqlangan qaydlarni o‘qib bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Serverda saqlangan qaydlarni tahlil qilib bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Serverda o‘rnatilgan qaydlarni tahlil qilib bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Aloqa o‘rnatilishini tahlil qilib bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Oxirgi ulanish vaqtini saqlab bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Oxirgi ulanish vaqti JSON javobini tahlil qilib bo‘lmadi.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Oxirgi ulanish vaqtini o‘qib bo‘lmadi.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Aloqa o‘rnatish so‘rovi bajarilmadi.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH kutilmaganda uzilib qoldi</string>
   <string name="client_version">Mijoz-dastur versiyasi: %s</string>
-  <string name="no_server_entries">Ulanish uchun serverlar yo‘q</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Yaroqsiz masofaviy serverlar ro‘yxati</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Axborot paketi tekshirilgan imzoda notog‘ri rasmiy kalit</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Tekshirilgan axborot paketi noto‘g‘ri imzolangan</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Tekshirilgan axborot paketini tahlil qilib bo‘lmadi</string>
   <string name="AuthenticatedDataPackage.MissingValue">Tekshirilgan axborot paketida parametr yetishmayapti</string>
   <string name="starting_tunnel">Shifrlash tunneli ishga tushmoqda…</string>
   <string name="stopping_tunnel">Shifrlash tunneli to‘xtatilmoqda…</string>
   <string name="stopped_tunnel">Shifrlash tunneli to‘xtatildi</string>
-  <string name="ServerInterface.StopRequested">To‘xtatish so‘rovi qabul qilindi</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS so‘rovida xatolik yuz berdi.</string>
-  <string name="socks_ports_failed">SOCKS proksi-serveri ishga tushmadi: bo‘sh portlar yo‘q</string>
-  <string name="http_proxy_ports_failed">HTTP proksi-serveri ishga tushmadi: bo‘sh portlar yo‘q</string>
   <string name="socks_port_in_use">Mahalliy SOCKS proksi-serveri so‘ragan %d portini boshqa ilova ishlatmoqda. Davom etilmaydi.</string>
-  <string name="transparent_proxy_running">Shaffof proksi-server %d portida ishlamoqda</string>
-  <string name="transparent_proxy_ports_failed">Shaffof proksi-server ishga tushmadi: bo‘sh portlar yo‘q</string>
-  <string name="transparent_proxy_command_failed">Shaffof proksi-serverni sozlash buyrug‘i bajarilmadi: %s</string>
-  <string name="transparent_proxy_stopped">Shaffof proksi-server to‘xtatildi</string>
-  <string name="dns_proxy_running">DNS proksi-serveri %d portida ishlamoqda</string>
-  <string name="dns_proxy_ports_failed">DNS proksi-serveri ishga tushmadi: bo‘sh portlar yo‘q</string>
-  <string name="dns_proxy_stopped">DNS proksi-server to‘xtatildi</string>
-  <string name="dns_proxy_failed">DNS proksi-server ishga tushmadi</string>
-  <string name="iptables_binary_not_found">Shaffof proksi-serverga zarur bo‘lgan iptables himoyasi topilmadi</string>
-  <string name="root_access_denied">Rut huquqi berilmadi</string>
-  <string name="psiphon_stopped">To‘xtatildi</string>
-  <string name="psiphon_running_whole_device">Butun qurilma ulanishi shifrlanmoqda</string>
-  <string name="psiphon_running_browser_only">Faqat brauzer ulanishi shifrlanmoqda</string>
   <string name="waiting_for_network_connectivity">Tarmoq bilan aloqa o‘rnatilishi kutilmoqda…</string>
-  <string name="checking_for_root_access">Rut huquqi tekshirilmoqda…</string>
   <string name="psiphon_service_notification_message_connecting">Ulanmoqda…</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon xizmat bildirishnomasi</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Afzal ko‘rilgan serverlar: %d</string>
-  <string name="selecting_server">Server tanlanmoqda…</string>
-  <string name="fetch_remote_server_list">Masofaviy serverlar ro‘yxati yuklanmoqda…</string>
-  <string name="vpn_service_failed">VPN xizmati ishga tushmadi: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon brauzerini yangilash</string>
   <string name="vpn_service_running">VPN xizmati ishlamoqda</string>
-  <string name="vpn_service_stopped">VPN xizmati to‘yxatildi</string>
   <string name="vpn_service_revoked">VPN xizmati bekor qilindi</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN dan SOCKS ga o‘tkazib bo‘lmadi</string>
-  <string name="tun2socks_running">VPN dan SOCKS ga o‘tkazilmoqda</string>
-  <string name="tun2socks_stopped">VPN dan SOCKS ga o‘tkazish to‘xtatildi</string>
-  <string name="vpn_service_no_private_address_available">VPN xizmati uchun bo‘sh himoyalangan manzil yo‘q</string>
-  <string name="psiphon_running_generic">Ishlamoqda…</string>
-  <string name="data_transfer_bytes_sent">Yuborildi: %1$s bayt (%2$.2f%% zichlangan)</string>
-  <string name="data_transfer_bytes_received">Qabul qilindi: %1$s bayt (%2$.2f%% zichlangan)</string>
-  <string name="data_transfer_elapsed_time">Ulanish vaqti: %s</string>
-  <string name="check_tunnel_failed">Ulanish shifrlanishini tekshirib bo‘lmadi. Qurilmangizda butun qurilma ulanishini shifrlash imkoniyati ishlamasligi mumkin.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Diagnostika hisoboti faylini yaratib yoki yozib bo‘lmadi</string>
   <string name="Diagnostics.EncryptedFailed">Diagnostika axborotini shifrlab bo‘lmadi. Bu axborot fikr-mulohaza xatiga biriktirilmaydi.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">iptables himoyasi ishga tushirgichini chiqarib bo‘lmadi.</string>
-  <string name="transparent_proxy_routing_failed">Shaffof proksi-server yo‘naltirilishi ishga tushmadi: %s</string>
-  <string name="transparent_proxy_routing_running">Shaffof proksi-server yo‘naltirilmoqda</string>
-  <string name="transparent_proxy_routing_stopped">Shaffof proksi-server yo‘naltirilishi to‘xtatildi</string>
   <string name="current_network_type">Joriy tarmoq: %s</string>
-  <string name="dns_resolver">DNS qidirgich: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">DNS qidiruvchi faol tarmoq yuklanmadi</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Joriy ilova uchun axborot paketi qabul qilinmadi</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Yangilanish fayli yozilmadi</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Yangilanish yuklab olinmadi</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Yangilanish yuklab olindi. Hozir yangilanishni o‘rnatishingiz tavsiya etiladi. Yangilangandan keyin Psiphon qaytadan ishga tushirilishi kerak.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Yangilab bo‘lmadi. Yangilanish faylidan axborot paketini chiqarib bo‘lmadi.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Yangilanish fayli topilmadi</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Aloqa uzildi</string>
   <string name="label_sent">Yuborilgan</string>
   <string name="label_received">Qabul qilingan</string>
-  <string name="compression_ratio">%1$.2f%% zichlandi</string>
-  <string name="compression_savings">%s tejaldi</string>
   <string name="start">Boshlash</string>
   <string name="stop">To‘xtatish</string>
   <string name="home_tab_name">Boshiga</string>
   <string name="settings_tab_name">Sozlamalar</string>
   <string name="statistics_tab_name">Statistika</string>
   <string name="logs_tab_name">Jurnal</string>
-  <string name="socks_proxy_address">Mahalliy SOCKS proksi-serveri %s manzilida ishlamoqda</string>
-  <string name="http_proxy_address">Mahalliy HTTP proksi-serveri %s manzilida ishlamoqda</string>
-  <string name="share_proxies_toggle">Tarmoqdagi boshqa qurilmalar mahalliy proksidan foydalanishiga ruxsat berish</string>
-  <string name="share_proxies_prompt_title">Ilova qaytadan ishga tushirilishi zarur</string>
-  <string name="share_proxies_prompt_message">Bu sozlama qo‘llanishi uchun ilova qaytadan ishga tushirilishi kerak.</string>
-  <string name="share_proxies_prompt_positive">Qaytadan ishga tushirish</string>
-  <string name="share_proxies_prompt_negative">Bekor qilish</string>
   <string name="use_proxy_settings_toggle">HTTP proksi-server orqali ulanish</string>
   <string name="use_system_proxy_settings_radio">Birlamchi tarmoq sozlamalarini ishlatish</string>
   <string name="use_custom_proxy_settings_radio">Quyidagi sozlamalarni ishlatish:</string>
@@ -147,18 +67,10 @@
   <string name="region_name_no">Norvegiya</string>
   <string name="region_name_ro">Ruminiya</string>
   <string name="region_name_se">Shvetsiya</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon haqida</string>
   <string name="feedback">Fikr-mulohaza</string>
-  <string name="tunnel_whole_device_toggle">Butun qurilma ulanishini shifrlash (Android 4.0+ zarur)</string>
-  <string name="disable_timeouts">Tezligi past tarmoqlar uchun kutish vaqtini o‘chirib qo‘yish</string>
-  <string name="region_selector">Mintaqani tanlash</string>
-  <string name="network_proxy_connect_exception">Tarmoqdagi HTTP proksi-serveriga ulanib bo‘lmadi: %s</string>
-  <string name="network_proxy_connect_information">HTTP proksi-serveri orqali ulanilmoqda: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Tezligi past tarmoqlar uchun kutish vaqtini o‘chirib qo‘yish</string>
   <string name="network_proxy_connect_invalid_values">HTTP proksi-serveri sozlamalari noto‘g‘ri</string>
-  <string name="run_polipo_failed">Polipo ishga tushmadi: %s</string>
-  <string name="wdm_force_iptables_toggle">Butun qurilma ulanishini shifrlash majburan rutlansin</string>
-  <string name="http_prefix_toggle">Masquerade paketlarini HTTP sifatida himoyalash</string>
   <string name="preference_notifications_title">Bildirishnomalar</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -171,12 +83,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Tovushlar</string>
   <string name="preference_notifications_with_sound_summary">Aloqa ahvoli o‘zgarganda jiringlasin</string>
   <string name="preference_notifications_with_vibrate_title">Tebranish</string>
   <string name="preference_notifications_with_vibrate_summary">Aloqa ahvoli o‘zgarganda tebranish</string>
   <string name="moreOptions">Qo‘shimcha sozlamalar</string>
-  <string name="root_mode_not_supported">Androidning bu versiyasida rutlash rejimi ishlamaydi</string>
   <string name="proxySettingsCategoryTitle">Proksi-server sozlamalari</string>
   <string name="custom_proxy_host_summary">Proksi-server host nomi yoki IP manzili</string>
   <string name="custom_proxy_port_summary">Proksi-server porti</string>
@@ -194,7 +108,6 @@
   <string name="untunneled_address">Shifrlanmagan: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Tashqi proksi xatoligi: %s</string>
-  <string name="diagnostic">Diagnostika: %s</string>
   <string name="start_tunnel_failed">Shifrlash tunneli ishga tushmadi: %s</string>
   <string name="tunnel_connecting">Shifrlash tunneli ulanmoqda…</string>
   <string name="tunnel_connected">Shifrlash tunneli ulandi</string>
@@ -204,6 +117,4 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="socks_running">SOCKS ikikimbia bandarini %d</string>
+  <string name="http_proxy_running">HTTP wakala anaekimbia bandarini %d</string>
+  <string name="client_version">Toleo la wateja %s</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">Kuhalisisha mfuko wa data kusaini kwa funguo huria tofauti</string>
+  <string name="AuthenticatedDataPackage.InvalidSignature">Saini batili kwenye uhalisi wa  mfuko wa data</string>
+  <string name="AuthenticatedDataPackage.MissingValue">Kukosekana kwa thamani kiuhalisia wa mfuko wa data</string>
+  <string name="starting_tunnel">Kuanza kwa ficho</string>
+  <string name="stopping_tunnel">Kuzima kwa handaki…</string>
+  <string name="stopped_tunnel">Handaki iliyosimamishwa</string>
+  <string name="socks_port_in_use">Ombi la wakala wa karibu wa SOCKS %d tayari inatumika na programu nyingine. Haiwezi kuendelea.</string>
+  <string name="waiting_for_network_connectivity">Subiri kunganishwa kwa mtandao…</string>
+  <string name="psiphon_service_notification_message_connecting">Inaunganishwa</string>
+  <string name="psiphon_service_notification_id">Arifa ya huduma ya Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Kubadilika kwa hali ya Psiphon</string>
+  <string name="psiphon_upgrade_notification_channel_name">Boresha Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon Arifu Seva</string>
+  <string name="vpn_service_running">Kuendesha kwa VPN seva</string>
+  <string name="vpn_service_revoked">Kubatilishwa kwa VPN seva</string>
+  <string name="debug_message">%s</string>
+  <string name="Diagnostics.EncryptedFailed">Imeshindwa kwa uchunguzi wa maoni na taarifa iliyosimbwa. Taarifa hii haitashikamana katika maoni ya barua pepe.</string>
+  <string name="current_network_type">Mtandao wa sasa: %s</string>
+  <string name="UpgradeManager.CanNotRetrievePackageInfo">Haiwezi kupata tena maelezo ya kifurushi cha taarifa ya sasa</string>
+  <string name="UpgradeManager.UpgradeFileWriteFailed">Kushindwa kuandika kuboresha kwa faili</string>
+  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Kushindwa kuzindua. Haiwezi kutoa mfuko wa taarifa kutoka uzinduzi wa faili.</string>
+  <string name="UpgradeManager.UpgradeFileNotFound">Uzinduzi wa faili haufanyikazi</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptTitle">Boresha Psiphon</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptMessage">Kuboresha kwa Psiphon tayari kwa kuwekwa.</string>
+  <string name="UpgradeManager.UpgradeFileReadFailed">Kushindwa kusoma kuboresha faili</string>
+  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Kushindwa kuthibitisha usasishaji wa faili</string>
+  <string name="connected_elapsed_time">Kunganishwa: %s</string>
+  <string name="disconnected">Tenganisha</string>
+  <string name="label_sent">Imetumwa</string>
+  <string name="label_received">Imepokelewa</string>
+  <string name="start">Anza</string>
+  <string name="stop">Simama</string>
+  <string name="home_tab_name">Kaya</string>
+  <string name="settings_tab_name">Chaguo</string>
+  <string name="statistics_tab_name">Hali</string>
+  <string name="logs_tab_name">Ingia</string>
+  <string name="use_proxy_settings_toggle">Unganisha kupitia wakala wa HTTP</string>
+  <string name="use_system_proxy_settings_radio">Tumia mfumo wa mpangilio wa mtandao</string>
+  <string name="use_custom_proxy_settings_radio">Tumia mpangilio ufuatao:</string>
+  <string name="custom_proxy_settings_host">Anwani ya mwenyeji</string>
+  <string name="custom_proxy_settings_port">Bandari</string>
+  <string name="region_name_any">Utendaji bora</string>
+  <string name="region_name_us">Umoja</string>
+  <string name="region_name_gb">Umoja uingereza</string>
+  <string name="region_name_ca">Kanada</string>
+  <string name="region_name_de">Ujerumani</string>
+  <string name="region_name_jp">Japani</string>
+  <string name="region_name_hk">Hong Kong</string>
+  <string name="region_name_sg">Singapore</string>
+  <string name="region_name_nl">Netherlands</string>
+  <string name="region_name_in">India</string>
+  <string name="region_name_es">Hispania</string>
+  <string name="region_name_at">Austria</string>
+  <string name="region_name_be">Ubelgiji</string>
+  <string name="region_name_bg">Bulgaria</string>
+  <string name="region_name_ch">Switzerland</string>
+  <string name="region_name_cz">Jamhuri ya Czech</string>
+  <string name="region_name_dk">Denmark</string>
+  <string name="region_name_fr">Ufaransa</string>
+  <string name="region_name_hu">Hungary</string>
+  <string name="region_name_it">Italia</string>
+  <string name="region_name_no">Norway</string>
+  <string name="region_name_ro">Romania</string>
+  <string name="region_name_se">Uswisi</string>
+  <string name="region_name_pl">Polandi</string>
+  <string name="region_name_sk">Slovakia</string>
+  <string name="region_name_rs">Serbia</string>
+  <string name="region_name_au">Australia</string>
+  <string name="about">Kuhusu Psiphon</string>
+  <string name="feedback">Mrejesho</string>
+  <string name="disableTimeoutsPreferenceSummary">Lemaza umalizikaji wa mtandao polepole</string>
+  <string name="region_selector">Chagua eneo la seva</string>
+  <string name="network_proxy_connect_invalid_values">Mpangilio wa wakala wa HTTP batili</string>
+  <string name="tunnel_whole_device_exception">Kifaa chako hakiingiliani na chaguo zima la kifaa cha tunnel kukosekana kwa huduma ya Vpn API.</string>
+  <string name="preference_notifications_title">Arifu</string>
+  <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tunnel programu zote</string>
+  <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Pamoja na programu</string>
+  <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Programu tu za kuchguliwa</string>
+  <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Kutenganisha programu</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Usichague programu iliyotengwa</string>
+  <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Programu handaki: %s</string>
+  <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Programu iliyotenganishwa kutoka tunnel: %s</string>
+  <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Hakuna programu iliyotenganishwa kutoka tunnel</string>
+  <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Teua programu</string>
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Kusimama kwa programu zote</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <string name="preference_routing_all_apps_tunnel_summary">Programu zote zitakua tunn kupitia VPN</string>
+  <string name="preference_notifications_with_sound_title">Sauti</string>
+  <string name="preference_notifications_with_sound_summary">Weka sauti wakati wa kuunganisha mabadiliko ya hali</string>
+  <string name="preference_notifications_with_vibrate_title">Tetemeka</string>
+  <string name="preference_notifications_with_vibrate_summary">Tetemeka wakati wa mabadiliko ya kunganizisha hali</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Pakua kwa Wi-Fi tu ya juu</string>
+  <string name="moreOptions">Chaguo zaidi</string>
+  <string name="proxySettingsCategoryTitle">Mpangilio wa Proxy</string>
+  <string name="custom_proxy_host_summary">Jina la mwenyeji wa Proxy seva au IP</string>
+  <string name="custom_proxy_port_summary">Mahala pa proxy seva</string>
+  <string name="use_proxy_authentication_title">Tumia uthibitisho wa proxy</string>
+  <string name="proxy_username_title">Proksi jina la mtumiaji</string>
+  <string name="proxy_username_summary">Jina la mtumiaji kwa proxy halisi</string>
+  <string name="proxy_password_title">Proksi ya nywila</string>
+  <string name="proxy_password_summary">Nywila kwa utibitisho wa proksi</string>
+  <string name="proxy_domain_title">Proksi kikoa</string>
+  <string name="proxy_domain_summary">Kikoa kwa uthibitisho wa proksi</string>
+  <string name="http_proxy_port_in_use">Maombi ya local HTTP proxy port%d  yapotayari kutumika na programu nyingine. haiwezi kuendelea.</string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Mgawanyiko wa sehemu ya tunn:%s</string>
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">Untunneled: %s</string>
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">Kosa la proxy ya juu:%s</string>
+  <string name="start_tunnel_failed">Kushindwa kuanza kwa ficho: %s</string>
+  <string name="tunnel_connecting">Kunganisha ficho…</string>
+  <string name="tunnel_connected">Ficho imeunganishwa</string>
+  <string name="waiting">Kusubiri</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Ruhusu ombi</string>
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Fikia Psiphon kuweka uamuzi sahihi kuhusu vipi utafanya kazi kwenye mtandao wako kwa kutoa ufikiaji kwenye eneo lako.\n\nKumbuka kua taarifa hii ndio inayotumia pekee ndani ya kifaa chako, na hakipiti kwenye seva zetu au kwa upande wowote wa 3.</string>
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Sawa</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Hapana ahsante</string>
+  <string name="label_vpn_settings">Mpangilio wa VPN</string>
+  <string name="label_proxy_settings">Mpangilio wa proksi</string>
+  <string name="preference_summary_no_proxy">Hakuna proksi</string>
+  <string name="preference_summary_custom_proxy">Mila za proksi</string>
+  <string name="preference_summary_system_proxy">Mfumo wa proksi</string>
+  <string name="disableTimeoutsPreferenceTitle">Lemaza mudaumeisha</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi tu</string>
+</resources>

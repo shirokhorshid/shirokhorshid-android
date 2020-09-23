@@ -1,36 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">sponsorimainospalkki; napsauta sponsorisivulla vierailua varten</string>
-  <string name="start_desc">yhdistä Psiphon-sovellukseen; yhdistä napsauttamalla</string>
-  <string name="message_image_success_desc">kuvake osoittaen onnistumisilmoitusta</string>
-  <string name="message_image_error_desc">kuvake osoittaen virheilmoitusta</string>
-  <string name="message_image_debug_desc">kuvake osoittaen vikajäljitysilmoitusta</string>
-  <string name="message_image_warning_desc">kuvake osoittaen varoitusilmoitusta</string>
-  <string name="exit">Poistu</string>
   <string name="open_browser">Avaa selain</string>
-  <string name="browser_task_label">Psiphon-selain</string>
   <string name="FeedbackActivity.DefaultText">Jos sinulla on jotain erityisiä kommentteja, lisätietoja webbisivuista, jotka eivät toimi, tai jos tämä lomake ei toimi sinulle, lähetä sähköpostiviesti &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;</string>
   <string name="FeedbackActivity.Success">Kiitoksia palautteesi lähettämisestä</string>
   <string name="FeedbackActivity.Failure">Lähetys epäonnistui. Yritä uudelleen.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Palautteen lähettäminen epäonnistui</string>
   <string name="FeedbackActivity.InvalidURLParameters">Virheelliset verkko-osoiteparametrit palautelomakelähetyksessä</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Palautesivun sisällön saaminen epäonnistui</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Tunneloitko koko laitteen?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Koko laitteen tunnelointi on laitteellesi saatavilla oleva vaihtoehto.\n\nTällä valitsimella, kaikki Internet-liikenne kaikille sovelluksille mukaan lukien kaikki selaimet tunneloidaan Psiphon-sovelluksen kautta.\n\nVaihtoehtoisesti, voi valita vain Psiphon-selainryhmän tunneloinnin, mikä sallii muiden sovellusten liikennöidä suoraan vakion Internet-liittymän kautta.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunneloi koko laite</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Käytä vain Psiphon-selainta</string>
   <string name="preference_language_selection_title">Kieli</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Lisätiedot</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Valmis</string>
   <!--Generic negative button label.-->

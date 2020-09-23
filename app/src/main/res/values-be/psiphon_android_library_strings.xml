@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">злучэнне SSH...</string>
-  <string name="ssh_connected">SSH падлучаны</string>
-  <string name="ssh_connection_failed">Памылка SSH злучэння</string>
-  <string name="ssh_authenticating">Праверка сапраўднасці SSH</string>
-  <string name="ssh_authentication_failed">Памылка праверкі сапраўднасці SSH</string>
-  <string name="ssh_authenticated">Cапраўднасць SSH пацверджана</string>
-  <string name="socks_starting">Запуск SOCKS...</string>
   <string name="socks_running">SOCKS выконваецца праз порт %d</string>
-  <string name="socks_stopped">Спыненне SOCKS</string>
-  <string name="ssh_stopped">Спыненне SSH</string>
-  <string name="error_message">Адбылася памылка:</string>
-  <string name="http_proxy_starting">Запуск HTTP проксі...</string>
   <string name="http_proxy_running">HTTP проксі выконваецца  праз порт %d</string>
-  <string name="http_proxy_stopped">Спыненне HTTP проксі</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP проксі нечакана спыніўся</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Памылка стварэння запісаў сервера для захавання.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Памылка захавання запісаў сервера.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Памылка прачытання захаваных запісаў сервера.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Памылка аналізу захаваных запісаў сервера.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Памылка аналізу ўбудаваных запісаў сервера.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Памылка аналізу пацвярджэння сувязі.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Памылка захавання апошняга злучэння.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Памылка аналізу водгуку на апошняе злучэнне JSON.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Памылка чытання апошняга злучэння.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Памылка запыту пацвярджэння сувязі.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH нечакана спыніўся</string>
   <string name="client_version">Версія кліента %s</string>
-  <string name="no_server_entries">Няма сервераў для злучэння</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Няправільны спіс аддаленых сервераў</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Правераны на сапраўднасць пакет даных падпісаны іншым публічным ключом</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Памылковы подпіс на правераным на сапраўднасць пакеце даных</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Памылка аналізу праверанага на сапраўднасць пакета даных</string>
   <string name="AuthenticatedDataPackage.MissingValue">Брак значэння ў правераным на сапраўднасць пакеце даных</string>
   <string name="starting_tunnel">Запуск тунэлявання...</string>
   <string name="stopping_tunnel">Спыненне  тунэлявання...</string>
   <string name="stopped_tunnel"> Тунэляванне спыпыненае</string>
-  <string name="ServerInterface.StopRequested">Запыт на спыненне</string>
-  <string name="ServerInterface.HTTPSRequestFailed">Памылка запыту HTTPS </string>
-  <string name="socks_ports_failed">Памылка запуску проксі-сервера SOCKS: не знойдзена даступных портаў</string>
-  <string name="http_proxy_ports_failed">Памылка запуску проксі-сервера HTTP: не знойдзена даступных портаў</string>
   <string name="socks_port_in_use">Запытаны лакальны порт проксі-сервера SOCKS %d ужо ўжываецца іншай праграмай. Немагчыма працягваць.</string>
-  <string name="transparent_proxy_running">На порце выконваецца празрысты проксі-сервер %d</string>
-  <string name="transparent_proxy_ports_failed">Памылка запуску празрыстага проксі-сервера: не знойдзена даступных портаў</string>
-  <string name="transparent_proxy_command_failed"> Памылка камады аб канфігурацыі празрыстага проксі: %s</string>
-  <string name="transparent_proxy_stopped">Празрысты проксі-сервер спыніўся</string>
-  <string name="dns_proxy_running">DNS проксі-сервер выконваецца праз порт %d</string>
-  <string name="dns_proxy_ports_failed">Памылка запуску проксі-сервера DNS: не знойдзена даступных портаў</string>
-  <string name="dns_proxy_stopped">Спыненне проксі-сервера DNS </string>
-  <string name="dns_proxy_failed">Памылка запуску проксі-сервера DNS</string>
-  <string name="iptables_binary_not_found">Немагчыма знайсці рэалізацыю iptables, неабходную для празрыстага проксі-сервера</string>
-  <string name="root_access_denied">Адмова каранёвага доступу</string>
-  <string name="psiphon_stopped">Спынена</string>
-  <string name="psiphon_running_whole_device">Выконваецца ў рэжыме ўсёй прылады</string>
-  <string name="psiphon_running_browser_only">Выконваецца ў рэжыме толькі браўзера</string>
   <string name="waiting_for_network_connectivity">Чаканне злучэння з сеткай...</string>
-  <string name="checking_for_root_access">Праверка каранёвага доступу...</string>
   <string name="psiphon_service_notification_message_connecting">Ідзе злучэнне...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Апавяшчэнне Psiphon</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Прыярытэтныя серверы: %d</string>
-  <string name="selecting_server">Ідзе выбар сервера...</string>
-  <string name="fetch_remote_server_list">Атрыманне спісу аддаленых сервераў...</string>
-  <string name="vpn_service_failed">Памылка сервісу VPN: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Абнаўленне Psiphon</string>
   <string name="vpn_service_running">Выконваецца сэрвіс VPN</string>
-  <string name="vpn_service_stopped">Спыненне сервісу VPN</string>
   <string name="vpn_service_revoked">сэрвіс VPN адкліканы</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">Памылка VPN да SOCKS</string>
-  <string name="tun2socks_running">Выконваецца VPN да SOCKS</string>
-  <string name="tun2socks_stopped">Спыненне VPN да SOCKS</string>
-  <string name="vpn_service_no_private_address_available">Няма даступнага прыватнага адрасу для сервісу VPN</string>
-  <string name="psiphon_running_generic">Выконваецца...</string>
-  <string name="data_transfer_bytes_sent">Адпраўленыя байты: %1$s (%2$.2f%% кампрэсавана)</string>
-  <string name="data_transfer_bytes_received">Атрыманыя байты: %1$s (%2$.2f%% кампрэсавана)</string>
-  <string name="data_transfer_elapsed_time">Час злучэння: %s</string>
-  <string name="check_tunnel_failed">Памылка праверкі тунэлявання. Вашая прылада магчыма не падтрымлівае опцыю тунэлявання усёй прылады.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Памылка стварэння або запісу файлу водгукаў дыягностыкі</string>
   <string name="Diagnostics.EncryptedFailed">Памылка шыфравання інфармацыі пра дыягностыку. Гэтая інфармацыя не будзе далучанай да ліста зваротнай сувязі.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Памылка вымання двайковых даных iptables.</string>
-  <string name="transparent_proxy_routing_failed">Памылка запуску маршруту празрыстага проксі-сервера: %s</string>
-  <string name="transparent_proxy_routing_running">Выконваецца маршрутызацыя празрыстага проксі-сервера</string>
-  <string name="transparent_proxy_routing_stopped">Спыненне маршрутызацыі празрыстага проксі-сервера</string>
   <string name="current_network_type">Бягучая сетка: %s</string>
-  <string name="dns_resolver">Вызначальнік DNS: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Памылка трымання актыўн вызначальнікаў сеткі DNS</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Немагчыма атрымаць пакет інфармацыі для бягучай праграмы</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Памылка запісу файлу абнаўлення</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Памылка спамкоўкі абнаўлення</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Абнаўленне спампаванае. Настойліва рэкамендуем дазволіць абнаўленню ўсталявацца зараз. Пасля сканчэння абнаўлення трэба будзе запусціць Psiphon зноў. </string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Памылка абнаўлення. Немагчыма атрымаць пакет інфармацыі з файлу абнаўлення.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Файл абнаўлення не знойдзены</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Адлучана</string>
   <string name="label_sent">Адпраўлена</string>
   <string name="label_received">Атрымана</string>
-  <string name="compression_ratio">%1$.2f%% кампрэсавана</string>
-  <string name="compression_savings">%s захавана</string>
   <string name="start">Старт</string>
   <string name="stop">Стоп</string>
   <string name="home_tab_name">Галоўная</string>
   <string name="settings_tab_name">Параметры</string>
   <string name="statistics_tab_name">Статыстыка</string>
   <string name="logs_tab_name">Журналы</string>
-  <string name="socks_proxy_address">Лакальны проксі-сервер SOCKS задзейнічаны на %s</string>
-  <string name="http_proxy_address">Лакальны проксі-сервер HTTP задзейнічаны на %s</string>
-  <string name="share_proxies_toggle">Дазволіць іншым прыладам з падлучэннем да сеткі ўжываць лакальныя проксі-серверы</string>
-  <string name="share_proxies_prompt_title">Патрэбны перазапуск праграмы</string>
-  <string name="share_proxies_prompt_message">Трэба перазапусціць праграму, каб гэтая налада запрацавала.</string>
-  <string name="share_proxies_prompt_positive">Перазапусціць зараз</string>
-  <string name="share_proxies_prompt_negative">Скасаваць</string>
   <string name="use_proxy_settings_toggle">Падключыцца праз проксі-сервер HTTP </string>
   <string name="use_system_proxy_settings_radio">Ужываць сістэмны налады сеткі</string>
   <string name="use_custom_proxy_settings_radio">Ужываць наступныя налады:</string>
@@ -149,19 +69,11 @@
   <string name="region_name_se">Швецыя</string>
   <string name="region_name_pl">Польшчы</string>
   <string name="region_name_sk">Славакія</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Пра Psiphon</string>
   <string name="feedback">Зваротная сувязь</string>
-  <string name="tunnel_whole_device_toggle">Тунеляваць усю прыладу цалкам (патрэбны Android 4.0+)</string>
-  <string name="disable_timeouts">Адключыць час чакання для павольных злучэнняў</string>
-  <string name="region_selector">Абраць рэгіён</string>
-  <string name="network_proxy_connect_exception">Памылка падлучэння да HTTP проксі-сервера сеткі: %s</string>
-  <string name="network_proxy_connect_information">Ідзе падлучэнне праз ваш проксі-сервер HTTP : %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Адключыць час чакання для павольных злучэнняў</string>
   <string name="network_proxy_connect_invalid_values">Няправільныя налады проксі-сервера HTTP </string>
   <string name="tunnel_whole_device_exception">Ваша прылада не падтрымлівае опцыю тунэлявання ўсёй прылады з прычыны браку прыкладання VpnService.</string>
-  <string name="run_polipo_failed">Памылка выканання Polipo: %s</string>
-  <string name="wdm_force_iptables_toggle">Ужыць прымусова метад каранёвага тунелявання ўсяе прылады</string>
-  <string name="http_prefix_toggle">Замаскіраваць як HTTP</string>
   <string name="preference_notifications_title">Апавяшчэнні</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -174,12 +86,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Гук</string>
   <string name="preference_notifications_with_sound_summary">Гук пры змене статусу падлучэння</string>
   <string name="preference_notifications_with_vibrate_title">Вібрацыя</string>
   <string name="preference_notifications_with_vibrate_summary">Вібрацыя пры змене статусу падлучэння</string>
   <string name="moreOptions">Больш параметраў</string>
-  <string name="root_mode_not_supported">Каранёвы рэжым не падтрымліваецца гэтай версіяй Android</string>
   <string name="proxySettingsCategoryTitle">Налады проксі-сервера</string>
   <string name="custom_proxy_host_summary">Назва вузла проксі-сервера або IP-адрас</string>
   <string name="custom_proxy_port_summary">Порт проксі-сервера</string>
@@ -197,7 +111,6 @@
   <string name="untunneled_address">Непратунэляванае: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Памылка зыходнага проксі-сервера: %s</string>
-  <string name="diagnostic">Дыягностыка: %s</string>
   <string name="start_tunnel_failed">Памылка запуску тунэлявання: %s</string>
   <string name="tunnel_connecting">Ідзе злучэнне з тунэлем...</string>
   <string name="tunnel_connected">Тунэль падлучаны</string>
@@ -208,6 +121,4 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

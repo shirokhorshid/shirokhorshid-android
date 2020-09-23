@@ -1,171 +1,85 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH በመገናኘት ላይ....</string>
-  <string name="ssh_connected">SSH ተገናኝቷል</string>
-  <string name="ssh_connection_failed">የSSH ግንኙነት አልተሳካም</string>
-  <string name="ssh_authenticating">SSH በማረጋገጥ ላይ...</string>
-  <string name="ssh_authentication_failed">SSH የማረጋገጥ ሂደት አልተሳካም</string>
-  <string name="ssh_authenticated">SSH ተረጋግጧል </string>
-  <string name="socks_starting">SOCKS በመጀመር ላይ...</string>
-  <string name="socks_running">SOCKS በ %d ወደብ ላይ እየሰራ ነው </string>
-  <string name="socks_stopped">SOCKS ቆሟል </string>
-  <string name="ssh_stopped">SSH ቆሟል </string>
-  <string name="error_message">ስህተት ተፈጥሯል፡-</string>
-  <string name="http_proxy_starting">HTTP ወኪል በመጀመር ላይ...</string>
-  <string name="http_proxy_running">HTTP ወኪል በ %d ወደብ ላይ እየሰራ ነው</string>
-  <string name="http_proxy_stopped">HTTP ወኪል ቆሟል </string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP ወኪል በድንገት ቆሟል </string>
-  <string name="ServerInterface.FailedToCreateServerEntries">የሚጠራቀሙ የአገልጋይ ገቢዎችን መፍጠር አልተሳካም።</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">የአገልጋይ ገቢዎችን ማጠራቀም አልተሳካም።</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">የተጠራቀሙ የአገልጋይ ገቢዎችን ማንበብ አልተሳካም።</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">የተጠራቀሙ የአገልጋይ ገቢዎችን መለየት አልተሳካም።</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">አባሪ የአገልጋይ ገቢዎችን መለየት አልተሳካም።</string>
-  <string name="ServerInterface.FailedToParseHandshake">ልውውጦችን መለየት አልተሳካም።</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">የመጨረሻውን ግንኙነት ጊዜ ማጠራቀም አልተሳካም። </string>
-  <string name="ServerInterface.FailedToParseLastConnected">የመጨረሻውን የJSON ግንኙነት ጊዜ ምላሽ መለየት አልተሳካም። </string>
-  <string name="ServerInterface.FailedToReadLastConnected">የመጨረሻውን ግንኙነት ጊዜ ማንበብ አልተሳካም። </string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">የተጠየቀው ልውውጥ አልተሳካም።</string>
-  <string name="ssh_disconnected_unexpectedly">SSH በድንገት ተቋርጧል </string>
-  <string name="client_version">የደምበኛ ስሪት %s</string>
-  <string name="no_server_entries">ለመገናኛ የሚሆኑ አገልጋዮች የሉም </string>
-  <string name="ServerInterface.InvalidRemoteServerList">የተሳሳተ የርቀት አገልጋይ ዝርዝር </string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">በተለየ የይፋ ቁልፍ የተፈረመ የተረጋገጠ የዳታ እሽግ </string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">በተረጋገጠው የዳታ እሽግ ላይ የተሳሳተ ፊርማ </string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">የተረጋገጠውን የዳታ እሽግ መለየት አልተሳካም </string>
-  <string name="AuthenticatedDataPackage.MissingValue">በተረጋገጠው የዳታ እሽግ ውስጥ የጠፋ ዋጋ </string>
+  <string name="socks_running">SOCKS በ %d ወደብ ላይ እየሠራ ነው</string>
+  <string name="http_proxy_running">HTTP (ኤችቲቲፒ) ወኪል በ %d ወደብ ላይ እየሠራ ነው</string>
+  <string name="client_version">የተገልጋይ ሥሪት %s</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">በተለየ የይፋ ቁልፍ የተፈረመ የተረጋገጠ የውሂብ እሽግ</string>
+  <string name="AuthenticatedDataPackage.InvalidSignature">በተረጋገጠው የውሂብ እሽግ ላይ የተሳሳተ ፊርማ</string>
+  <string name="AuthenticatedDataPackage.MissingValue">በተረጋገጠው የውሂብ እሽግ ውስጥ የጠፋ ዕሴት</string>
   <string name="starting_tunnel">ማስተላለፊያ በመጀመር ላይ...</string>
   <string name="stopping_tunnel">ማስተላለፊያ በማቆም ላይ...</string>
-  <string name="stopped_tunnel">የቆመ ማስተላለፊያ </string>
-  <string name="ServerInterface.StopRequested">እንዲቆም ተጠይቋል </string>
-  <string name="ServerInterface.HTTPSRequestFailed">የHTTPS ጥያቄ በስህተት ከሽፏል፡-</string>
-  <string name="socks_ports_failed">የSOCKS ወኪልን ማስጀመር አልተሳካም፡- ምንም ወደብዎች አልተገኙም </string>
-  <string name="http_proxy_ports_failed">የHTTP ወኪልን ማስጀመር አልተሳካም፡- ምንም ወደብዎች አልተገኙም </string>
-  <string name="socks_port_in_use">የተጠየቀው የአካባቢ SOCKS ወኪል ወደብ %d በሌላ መተግበሪያ ጥቅም ላይ እየዋለ ነው። መቀጠል አይቻልም። </string>
-  <string name="transparent_proxy_running">ግልጽ ወኪል በ %d ወደብ ላይ እየሰራ ነው </string>
-  <string name="transparent_proxy_ports_failed">ግልጽ ወኪልን ማስጀመር አልተሳካም፡- ምንም ወደቦች አልተገኙም </string>
-  <string name="transparent_proxy_command_failed">ግልጽ ወኪልን የማዋቀሪያ ትእዛዝ አልተሳካም፡- %s</string>
-  <string name="transparent_proxy_stopped">ግልጽ ወኪል ቆሟል </string>
-  <string name="dns_proxy_running">የDNS ወኪል በ %d ወደብ ላይ እየሰራ ነው </string>
-  <string name="dns_proxy_ports_failed">የDNS ወኪልን ማስጀመር አልተሳካም፡- ምንም ወደቦች አልተገኙም </string>
-  <string name="dns_proxy_stopped">የDNS ወኪል ቆሟል </string>
-  <string name="dns_proxy_failed">የDNS ወኪልን ማስጀመር አልተሳካም</string>
-  <string name="iptables_binary_not_found">ለግልጽ ወኪል የሚያስፈልገው የአይፒቴብል ማስፈጸሚያ ሊገኝ አልቻለም </string>
-  <string name="root_access_denied">ሩት አክሰስ ተከልክሏል </string>
-  <string name="psiphon_stopped">ቆሟል </string>
-  <string name="psiphon_running_whole_device">በሙሉ መሳሪያ ሁነታ እየሰራ ነው </string>
-  <string name="psiphon_running_browser_only">በመዳሰሻ ብቻ ሁነታ እየሰራ ነው </string>
-  <string name="waiting_for_network_connectivity">የኔትወርክ ግንኙነትን በመጠበቅ ላይ...</string>
-  <string name="checking_for_root_access">ሩት አክስስን በማጣራት ላይ...</string>
-  <string name="psiphon_service_notification_message_connecting">በመገናኘት ላይ....</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="psiphon_service_notification_id">የሳይፈን አገልግሎት ማስታወቂያ </string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="psiphon_service_notification_channel_name">የPsiphon ሁኔታ ይለወጣል</string>
-  <string name="preferred_servers">ተመራጭ አገልጋዮች፡- %d</string>
-  <string name="selecting_server">አገልጋይ በመምረጥ ላይ... </string>
-  <string name="fetch_remote_server_list">የርቀት አገልጋይ ዝርዝር በመልቀም ላይ...</string>
-  <string name="vpn_service_failed">የVPN አገልግሎት አልተሳካም፡- %s</string>
-  <string name="vpn_service_running">የVPN አገልግሎት እየሰራ ነው </string>
-  <string name="vpn_service_stopped">የVPN አገልግሎት ቆሟል </string>
-  <string name="vpn_service_revoked">የVPN አገልግሎት ታግዷል</string>
-  <string name="tun2socks_error">tun2socks፡- %s</string>
-  <string name="tun2socks_failed">ከVPN ወደ SOCKS አልተሳካም </string>
-  <string name="tun2socks_running">ከVPN ወደ SOCKS በመስራት ላይ ነው </string>
-  <string name="tun2socks_stopped">ከVPN ወደ SOCKS ቆሟል</string>
-  <string name="vpn_service_no_private_address_available">ለVPN አገልገሎት የሚሆን ምንም የግል አድራሻ የለም</string>
-  <string name="psiphon_running_generic">በመስራት ላይ...</string>
-  <string name="data_transfer_bytes_sent">የተላኩ ባይቶች፡- %1$s (%2$.2f%% የታመቀ)</string>
-  <string name="data_transfer_bytes_received">የደረሱ ባይቶች: %1$s (%2$.2f%% የታመቀ)</string>
-  <string name="data_transfer_elapsed_time">የግንኙነት ጊዜ፡- %s</string>
-  <string name="check_tunnel_failed">የማጣሪያ ማስተላለፊያ አልተሳካም። መሳሪያዎ ሙሉ የመሳሪያ የማስተላለፊያ አማራጩን ላይደግፍ ይችላል። </string>
+  <string name="stopped_tunnel">ማስተላለፊያ አቁሟል</string>
+  <string name="socks_port_in_use">የተጠየቀው የአካባቢ SOCKS ወኪል ወደብ %d በሌላ መተግበሪያ ጥቅም ላይ እየዋለ ነው። መቀጠል አይቻልም።</string>
+  <string name="waiting_for_network_connectivity">የአውታረመረብ ግንኙነትን በመጠበቅ ላይ...</string>
+  <string name="psiphon_service_notification_message_connecting">በመገናኘት ላይ...</string>
+  <string name="psiphon_service_notification_id">የPsiphon አገልግሎት ማሳወቂያ</string>
+  <string name="psiphon_service_notification_channel_name">የPsiphon ሁኔታ ለውጦች</string>
+  <string name="psiphon_upgrade_notification_channel_name">የPsiphon ደረጃ ማላቂያ</string>
+  <string name="psiphon_server_alert_notification_channel_name">የPsiphon አገልጋይ ማንቅያዎች</string>
+  <string name="vpn_service_running">የምናባዊ የግል አውታረ መረብ (ቪፒኤን) አገልግሎት እየሠራ ነው</string>
+  <string name="vpn_service_revoked">የምናባዊ የግል አውታረ መረብ (ቪፒኤን) አገልግሎት ተሽሯል</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">የግብረመልስ ምርመራ ሰነድ መፍጠር ወይም መጻፍ አልቻለም </string>
-  <string name="Diagnostics.EncryptedFailed">የግብረመልስ ምርመራ መረጃን ማመስጠር አልቻለም። መረጃው ከግብረመልስ ኢሜሎት ጋር አባሪ አይደረግም። </string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">የአይፒቴብል ሁለትዮሽን ማውጣት አልተቻለም። </string>
-  <string name="transparent_proxy_routing_failed">ግልጽ ወኪል መውጫን ማስጀመር አልተቻለም፡-%s</string>
-  <string name="transparent_proxy_routing_running">ግልጽ ወኪል መውጫ እየሰራ ነው </string>
-  <string name="transparent_proxy_routing_stopped">ግልጽ ወኪል መውጫ ቆሟል </string>
-  <string name="current_network_type">አሁን ያለው ኔትወርክ፡- %s</string>
-  <string name="dns_resolver">የDNS ፈቺ፡-%s</string>
-  <string name="get_active_network_dns_resolvers_failed">ንቁ የDNS ኔትወርክ ማስተካከያዎችን ማግኘት አልተቻለም</string>
+  <string name="Diagnostics.EncryptedFailed">የግብረመልስ ምርመራ መረጃን ማመስጠር አልቻለም። መረጃው ከግብረመልስ ኤፖስታዎ ጋር አባሪ አይደረግም።</string>
+  <string name="current_network_type">አሁን ያለው አውታረመረብ፡- %s</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">አሁን ላለው መተግበሪያ ጥቅል መረጃን ማምጣት አልተቻለም</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">የማላቂያ ሰነዱን መጻፍ አልተሳካም </string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">ማላቂያን ማውረድ አልተሳካም </string>
+  <string name="UpgradeManager.UpgradeFileWriteFailed">ደረጃ ማላቂያ ሰነዱን መጻፍ አልተቻለም</string>
+  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ደረጃ ማላቅ አልተቻለም። ከማላቂያው ሰነድ ውስጥ የጥቅሉን መረጃ ማግኘት አይቻልም።</string>
+  <string name="UpgradeManager.UpgradeFileNotFound">ደረጃ ማላቂያ ሰነድ አልተገኘም</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">ማላቂያው ቀርዷል። ማላቂያው በዚህ ጊዜ  እንዲቀጥል እንዲፈቅዱ በጥብቅ ይመከራል። ካላቁት  በኋላ ሳይፈንን እንደገና ማስጀመር ይኖርብዎታል። </string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ማላቅ አልተሳካም። ከማላቂያው ሰነድ ውስጥ የጥቅሉን መረጃ ማግኘት አይቻልም።</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">የማላቂያ ሰነድ አልተገኘም </string>
+  <string name="UpgradeManager.UpgradePromptTitle">የPsiphon ደረጃ ማላቂያ</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptTitle">የሳይፈን ማላቂያ </string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptMessage">የሳይፈን ማላቂያ ለመጫን ዝግጁ ነው። </string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">የማላቂያ ሰነዱን ማንበብ አልተሳካም </string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">የማላቂያ ሰነዱን ማረጋገጥ አልተሳካም </string>
+  <string name="UpgradeManager.UpgradePromptMessage">የPsiphon ደረጃ ማላቂያ ለመጫን ዝግጁ ነው።</string>
+  <string name="UpgradeManager.UpgradeFileReadFailed">ደረጃ ማላቂያ ሰነዱን ማንበብ አልተቻለም</string>
+  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">ደረጃ ማላቂያ ሰነዱን ማረጋገጥ አልተቻለም</string>
   <string name="connected_elapsed_time">ተገናኝቷል፡-%s</string>
-  <string name="disconnected">ተለያይቷል </string>
-  <string name="label_sent">የተላከ </string>
-  <string name="label_received">ደርሷል </string>
-  <string name="compression_ratio">%1$.2f%%የታመቀ</string>
-  <string name="compression_savings">%s ተቀምጧል </string>
-  <string name="start">ጅምር </string>
-  <string name="stop">አቁም </string>
-  <string name="home_tab_name">ቅድመ ገጽ </string>
-  <string name="settings_tab_name">አማራጮች </string>
+  <string name="disconnected">ተለያይቷል</string>
+  <string name="label_sent">የተላከ</string>
+  <string name="label_received">ደርሷል</string>
+  <string name="start">ጀምር</string>
+  <string name="stop">አቁም</string>
+  <string name="home_tab_name">መነሻ</string>
+  <string name="settings_tab_name">አማራጮች</string>
   <string name="statistics_tab_name">ስታትስቲክስ</string>
-  <string name="logs_tab_name">መዝገቦች </string>
-  <string name="socks_proxy_address">የአካባቢ SOCKS ወኪል በ %s ላይ እየሰራ ነው</string>
-  <string name="http_proxy_address">የአካባቢ HTTP ወኪል በ %s ላይ እየሰራ ነው</string>
-  <string name="share_proxies_toggle">የሌሎች ኔትዎርክ መሳሪያዎች የአካባቢ ወኪልዎችን እንዲጠቀሙ ፍቀድ </string>
-  <string name="share_proxies_prompt_title">መተግበሪያውን እንደገና ማስጀመር ያስፈልጋል </string>
-  <string name="share_proxies_prompt_message">ይህንን ቅንብር ለማስፈጸም መተግበሪያው ከእንደገና መጀመር አለበት። </string>
-  <string name="share_proxies_prompt_positive">አሁን እንደገና አስጀምር</string>
-  <string name="share_proxies_prompt_negative">ሰርዝ </string>
-  <string name="use_proxy_settings_toggle">በHTTP ወኪል በኩል አገናኝ </string>
-  <string name="use_system_proxy_settings_radio">የስርአቱን ኔትወርክ ቅንብሮች ተጠቀም </string>
-  <string name="use_custom_proxy_settings_radio">የሚከረሉትን ቅንብሮች ተጠቀም፡- </string>
-  <string name="custom_proxy_settings_host">የአስተናጋጅ አድራሻ </string>
-  <string name="custom_proxy_settings_port">ወደብ </string>
-  <string name="region_name_any">ምርጥ አፈጻጸም </string>
-  <string name="region_name_us">ዩናይትድ ስቴትስ </string>
-  <string name="region_name_gb">ዩናይትድ ኪንግደም </string>
-  <string name="region_name_ca">ካናዳ </string>
-  <string name="region_name_de">ጀርመን </string>
-  <string name="region_name_jp">ጃፓን </string>
-  <string name="region_name_hk">ሆንግ ኮንግ </string>
-  <string name="region_name_sg">ሲንጋፖር </string>
-  <string name="region_name_nl">ኔዘርላንድ </string>
-  <string name="region_name_in">ሕንድ </string>
-  <string name="region_name_es">ስፔን </string>
-  <string name="region_name_at">ኦስትሪያ </string>
-  <string name="region_name_be">ቤልጂየም </string>
-  <string name="region_name_bg">ቡልጋሪያ </string>
-  <string name="region_name_ch">ስዊዘርላንድ </string>
-  <string name="region_name_cz">ቼክ ሪፐብሊክ </string>
-  <string name="region_name_dk">ዴንማርክ </string>
-  <string name="region_name_fr">ፈረንሳይ </string>
-  <string name="region_name_hu">ሃንጋሪ </string>
-  <string name="region_name_it">ጣሊያን </string>
-  <string name="region_name_no">ኖርዌይ </string>
-  <string name="region_name_ro">ሮማንያ </string>
-  <string name="region_name_se">ስዊድን </string>
+  <string name="logs_tab_name">መዝገቦች</string>
+  <string name="use_proxy_settings_toggle">በHTTP (ኤችቲቲፒ) ወኪል በኩል አገናኝ</string>
+  <string name="use_system_proxy_settings_radio">የሥርአቱን አውታረመረብ ቅንብሮች ተጠቀም</string>
+  <string name="use_custom_proxy_settings_radio">የሚከተሉትን ቅንብሮች ተጠቀም፡-</string>
+  <string name="custom_proxy_settings_host">የአስተናጋጅ አድራሻ</string>
+  <string name="custom_proxy_settings_port">ወደብ</string>
+  <string name="region_name_any">ከሁሉም የላቀ አፈጻጸም</string>
+  <string name="region_name_us">ዩናይትድ ስቴትስ</string>
+  <string name="region_name_gb">ዩናይትድ ኪንግደም</string>
+  <string name="region_name_ca">ካናዳ</string>
+  <string name="region_name_de">ጀርመን</string>
+  <string name="region_name_jp">ጃፓን</string>
+  <string name="region_name_hk">ሆንግ ኮንግ</string>
+  <string name="region_name_sg">ሲንጋፖር</string>
+  <string name="region_name_nl">ኔዘርላንድ</string>
+  <string name="region_name_in">ሕንድ</string>
+  <string name="region_name_es">ስፔይን</string>
+  <string name="region_name_at">ኦስትሪያ</string>
+  <string name="region_name_be">ቤልጂየም</string>
+  <string name="region_name_bg">ቡልጋሪያ</string>
+  <string name="region_name_ch">ስዊዘርላንድ</string>
+  <string name="region_name_cz">ቼክ ሪፐብሊክ</string>
+  <string name="region_name_dk">ዴንማርክ</string>
+  <string name="region_name_fr">ፈረንሳይ</string>
+  <string name="region_name_hu">ሃንጋሪ</string>
+  <string name="region_name_it">ጣሊያን</string>
+  <string name="region_name_no">ኖርዌይ</string>
+  <string name="region_name_ro">ሮማንያ</string>
+  <string name="region_name_se">ስዊድን</string>
   <string name="region_name_pl">ፖላንድ</string>
   <string name="region_name_sk">ስሎቫኪያ</string>
   <string name="region_name_rs">ሰርቢያ</string>
   <string name="region_name_au">አውስትራሊያ</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="about">ስለ Psiphon (ሳይፈን) </string>
+  <string name="about">ስለ Psiphon</string>
   <string name="feedback">ግብረመልስ</string>
-  <string name="tunnel_whole_device_toggle">መሳሪያውን ሙሉ በሙሉ ማስተለለፍ (Android 4.0+ ይፈልጋል )</string>
-  <string name="disable_timeouts">ለዝግተኛ ኔትወርኮች የጊዜ እረፍቶችን አቦዝን </string>
-  <string name="region_selector">ክልል ምረጥ </string>
-  <string name="network_proxy_connect_exception">ከኔትወርኩ HTTP ወኪል ጋር መገናኘት አልተሳካም፡- %s</string>
-  <string name="network_proxy_connect_information">በእርስዎ የHTTP ወኪል በኩል በመገናኘት ላይ፡-%s</string>
-  <string name="network_proxy_connect_invalid_values">የተሳሳተ የHTTP ወኪል ቅንብር</string>
-  <string name="tunnel_whole_device_exception">VpnService ኤፒኣይ (የመተግበሪያ መፈርገሚያ በይነ ገጽ) በመጉደሉ መሣሪያዎ ሙሉ በሙሉ የመሣሪያ መቦርቦር አማራጭን አይደግፍም። </string>
-  <string name="run_polipo_failed">Polipoን ማሰራት አልተሳካም፡-%s</string>
-  <string name="wdm_force_iptables_toggle">የሩት ሙሉ በሙሉ የመሳሪያ ማስተላለፊያ መንገድን አስገድድ </string>
-  <string name="http_prefix_toggle">እንደ HTTP አስመስል </string>
-  <string name="preference_notifications_title">ማስታወቂያዎች </string>
+  <string name="disableTimeoutsPreferenceSummary">ለዝግተኛ አውታረመረቦች የጊዜ እረፍቶችን አቦዝን</string>
+  <string name="region_selector">የአገልጋይ ቀጠና ምረጥ</string>
+  <string name="network_proxy_connect_invalid_values">የተሳሳተ የHTTP (ኤችቲቲፒ) ወኪል ቅንብር</string>
+  <string name="tunnel_whole_device_exception">VpnService ኤፒኣይ (የመተግበሪያ መፈርገሚያ በይነ ገጽ) በመጉደሉ መሣሪያዎ ሙሉ በሙሉ የመሣሪያ መቦርቦር አማራጭን አይደግፍም።</string>
+  <string name="preference_notifications_title">ማሳወቂያዎች</string>
   <string name="preference_vpn_title">ምናባዊ የግል አውታረ መረብ (ቪፒኤን)</string>
   <!--Description of option to tunnel everything-->
   <string name="preference_routing_include_all_apps_summary">ሁሉንም መተግበሪያዎች ቦርቡር</string>
@@ -180,9 +94,9 @@
   <!--Log line for when an app is tunneled-->
   <string name="individual_app_included">መተግበሪያን በመቦርቦር ላይ፦ %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
-  <string name="individual_app_excluded">ከዋሻ የተገለለ መተግበሪያ፦ %s</string>
+  <string name="individual_app_excluded">ከመተላለፊያ ዋሻ የተገለለ መተግበሪያ፦ %s</string>
   <!--Log line for when all apps will be tunneled-->
-  <string name="no_apps_excluded">የትኛውም መተግበሪያ ከዋሻው አልተገለለም</string>
+  <string name="no_apps_excluded">የትኛውም መተግበሪያ ከመተላለፊያ ዋሻው አልተገለለም</string>
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">መተግበሪያዎች ይምረጡ</string>
   <!--Description of option to select apps to exclusively tunnel-->
@@ -195,45 +109,60 @@
     <item quantity="one">%d  መተግበሪያ በምናባዊ የግል አውታረ መረብ (ቪፒኤን) አይቦረቦርም</item>
     <item quantity="other">%d መተግበሪያዎች በምናባዊ የግል አውታረ መረብ (ቪፒኤን) አይቦረቦሩም</item>
   </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">ሁሉንም መተግበሪያዎች በመቦርቦር ላይ</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d መተግበሪያ በመቦርቦር ላይ</item>
+    <item quantity="other">%d መተግበሪያ በመቦርቦር ላይ</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d መተግበሪያ ከመተላለፊያ ዋሻው ተገሏል</item>
+    <item quantity="other">%d መተግበሪያዎች ከመተላለፊያ ዋሻው ተገለዋል</item>
+  </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">ሁሉም መተግበሪያዎች በምናባዊ የግል አውታረ መረብ (ቪፒኤን) ይቦረቦራሉ</string>
   <string name="preference_notifications_with_sound_title">ድምጽ</string>
-  <string name="preference_notifications_with_sound_summary">የግንኝነት ደረጃ ለውጥ ሲኖር ድምጽ አሰማ </string>
-  <string name="preference_notifications_with_vibrate_title">ንዘር </string>
-  <string name="preference_notifications_with_vibrate_summary">የግንኝነት ደረጃ ሲለወጥ ንዘር </string>
-  <string name="preference_download_wifi_only_toggle">ማዘመኛዎችን በ Wi-Fi  ብቻ አውርድ</string>
-  <string name="moreOptions">ተጨማሪ አማራጮች </string>
-  <string name="root_mode_not_supported">በዚህ የAndroid ስሪት ላይ ሩት ሁነታ አይደገፍም </string>
+  <string name="preference_notifications_with_sound_summary">የግንኙነት ደረጃ ለውጥ ሲኖር ድምጽ አሰማ</string>
+  <string name="preference_notifications_with_vibrate_title">ንዘር</string>
+  <string name="preference_notifications_with_vibrate_summary">የግንኙነት ደረጃ ሲለወጥ ንዘር</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ደርጃ ማላቅያዎችን በ Wi-Fi  ብቻ አውርድ</string>
+  <string name="moreOptions">ተጨማሪ አማራጮች</string>
   <string name="proxySettingsCategoryTitle">የወኪል ቅንብሮች</string>
-  <string name="custom_proxy_host_summary">የወኪል አገልጋይ የአስተናጋጅ ስም ወይም IP </string>
-  <string name="custom_proxy_port_summary">የወኪል አገልጋይ ወደብ </string>
-  <string name="use_proxy_authentication_title">የወኪል ማረጋገጫን ተጠቀም </string>
-  <string name="proxy_username_title">የወኪል ተጠቃሚ ስም </string>
-  <string name="proxy_username_summary">የወኪል ማረጋገጫ የተጠቃሚ ስም </string>
-  <string name="proxy_password_title">የወኪል የይለፍ ቃል </string>
-  <string name="proxy_password_summary">የወኪል ማረጋገጫ የይለፍ ቃል </string>
-  <string name="proxy_domain_title">የወኪል ጎራ </string>
-  <string name="proxy_domain_summary">ለወኪል ማረጋገጫን ጎራ </string>
-  <string name="http_proxy_port_in_use">የተጠየቀው የአካባቢ HTTP ወኪል ወደብ %d በሌላ መተግበሪያ ጥቅም ላይ እየዋለ ነው። መቀጠል አይቻልም። </string>
+  <string name="custom_proxy_host_summary">የወኪል አገልጋይ የአስተናጋጅ ስም ወይም IP</string>
+  <string name="custom_proxy_port_summary">የወኪል አገልጋይ ወደብ</string>
+  <string name="use_proxy_authentication_title">የወኪል ማረጋገጫን ተጠቀም</string>
+  <string name="proxy_username_title">የወኪል ተጠቃሚ ስም</string>
+  <string name="proxy_username_summary">የወኪል ማረጋገጫ የተጠቃሚ ስም</string>
+  <string name="proxy_password_title">የወኪል የይለፍ ቃል</string>
+  <string name="proxy_password_summary">የወኪል ማረጋገጫ የይለፍ ቃል</string>
+  <string name="proxy_domain_title">የወኪል ጎራ</string>
+  <string name="proxy_domain_summary">ለወኪል ማረጋገጫ ጎራ</string>
+  <string name="http_proxy_port_in_use">የተጠየቀው የአካባቢ HTTP (ኤችቲቲፒ) ወኪል ወደብ %d በሌላ መተግበሪያ ጥቅም ላይ እየዋለ ነው። መቀጠል አይቻልም።</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
-  <string name="split_tunnel_region">የማስተላለፊያ ክልልን ለሁለት ክፈል፡-%s</string>
+  <string name="split_tunnel_region">የማስተላለፊ ዋሻ ቀጠናን  ክፈል፡-%s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
-  <string name="untunneled_address">ያልተላለፈ፡-%s</string>
+  <string name="untunneled_address">ያልተቦረቦረ፡-%s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
-  <string name="upstream_proxy_error">የላይ የወኪል ስህተት፡-%s</string>
-  <string name="diagnostic">የምርመራ፡-%s</string>
-  <string name="start_tunnel_failed">ማስተላለፊውን ማስጀመር አልተሳካም፡-%s</string>
-  <string name="tunnel_connecting">ማስተላለፊያ በመገናኘት ላይ....</string>
-  <string name="tunnel_connected">ማስተላለፊያው ተገናኝቷል</string>
+  <string name="upstream_proxy_error">የላይ ወኪል ስህተት፡-%s</string>
+  <string name="start_tunnel_failed">ማስተላለፊይ ዋሻን ማስጀመር አልተቻለም፡-%s</string>
+  <string name="tunnel_connecting">ማስተላለፊያ ዋሻ በመገናኘት ላይ...</string>
+  <string name="tunnel_connected">ማስተላለፊያ ዋሻው ተገናኝቷል</string>
   <string name="waiting">በመጠበቅ ላይ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ፈቃድ ጥየቃ</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Psiphon አውታረመረብዎ ላይ ስላለው አሠራር የተሻለ ውሳኔ ወስኖ እንዲሠራ የመገኛ ፍቃድ ያስጡ።\n\nማስታወሻ፦ ይህ የሚሰበሰበው መረጃ ከመሣሪያዎ ላይ ሳለ ነው ጥቅም ላይ የሚውለው፤ ወደ ሌላ አስተናጋጅ ወይም ሶስተኛ ወገን አይተላለፍም።</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Psiphon አውታረመረብዎ ላይ ባለው አሠራር የተሻለ ውሳኔ ወስኖ እንዲሠራ የመገኛ ፍቃድ ይስጡ።\n\nማስታወሻ፦ ይህ የሚሰበሰበው መረጃ ከመሣሪያዎ ላይ ሳለ ነው ጥቅም ላይ የሚውለው፤ ወደ ሌላ አስተናጋጅ ወይም ሶስተኛ ወገን አይተላለፍም።</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">እሺ</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">አይ፣ አልፈልግም</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_vpn_settings">የምናባዊ የግል አውታረመረብ (ቪፒኤን) ቅንብሮች</string>
+  <string name="label_proxy_settings">የወኪል ቅንብሮች</string>
+  <string name="preference_summary_no_proxy">ወኪል የለም</string>
+  <string name="preference_summary_custom_proxy">ብጁ ወኪል</string>
+  <string name="preference_summary_system_proxy">የሥርዓት ወኪል</string>
+  <string name="disableTimeoutsPreferenceTitle">የእረፍት ጊዜዎችን ያቦዝኑ</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">ዋይፋይ ብቻ</string>
 </resources>

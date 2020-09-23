@@ -1,97 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">កំពុងតភ្ជាប់ SSH…</string>
-  <string name="ssh_connected">បានតភ្ជាប់SSH </string>
-  <string name="ssh_connection_failed">ការតភ្ជាប់ SSH បរាជ័យ</string>
-  <string name="ssh_authenticating">កំពុងផ្ទៀងផ្ទាត់ SSH...</string>
-  <string name="ssh_authentication_failed">ការផ្ទៀងផ្ទាត់ SSH បរាជ័យ</string>
-  <string name="ssh_authenticated">SSH បានផ្ទៀងផ្ទាត់</string>
-  <string name="socks_starting">កំពុងដំណើរការ SOCKS ...</string>
   <string name="socks_running">SOCKS កំពុងដំណើរការលើច្រក %d</string>
-  <string name="socks_stopped">SOCKS បានបញ្ឈប់</string>
-  <string name="ssh_stopped">SSH បានបញ្ឈប់</string>
-  <string name="error_message">មានបញ្ហាមួយបានកើតឡើង៖</string>
-  <string name="http_proxy_starting">ប្រូកស៊ី HTTP កំពុងចាប់ផ្តើម...</string>
   <string name="http_proxy_running">ប្រូកស៊ី HTTP កំពុងដំណើរការលើច្រក %d</string>
-  <string name="http_proxy_stopped">ប្រូកស៊ី HTTP បានបញ្ឈប់</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP proxy បានបញ្ឈប់ដោយមិនរំពឹងទុក</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">បរាជ័យក្នុងការបង្កើតកំណត់ត្រាម៉ាស៊ីនមេដើម្បីរក្សាទុក។</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">បរាជ័យក្នុងការស្តារការបញ្ចូលម៉ាស៊ីនមេ។</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">បរាជ័យក្នុងការអានការបញ្ចូលម៉ាស៊ីនមេ។</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">បរាជ័យក្នុងការញែកធាតុម៉ាស៊ីនមេដែលបានផ្ទុក។</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">បរាជ័យក្នុងការញែកធាតុម៉ាស៊ីនមេដែលបានបង្កប់។</string>
-  <string name="ServerInterface.FailedToParseHandshake">បរាជ័យក្នុងការញែកដៃ។</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">បរាជ័យក្នុងការរក្សាទុករយៈពេលតភ្ជាប់ចុងក្រោយគេ។</string>
-  <string name="ServerInterface.FailedToParseLastConnected">បរាជ័យក្នុងការវិភាគពេលឆ្លើយតបតភ្ជាប់ចុងក្រោយ JSON ។</string>
-  <string name="ServerInterface.FailedToReadLastConnected">បរាជ័យក្នុងការអានពេលតភ្ជាប់ចុងក្រោយ។</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">ការស្នើសុំចាប់ដៃបរាជ័យ។</string>
-  <string name="ssh_disconnected_unexpectedly">SSH បានផ្តាច់ការតភ្ជាប់ដោយមិនរំពឹងទុក</string>
   <string name="client_version">កុំព្យូទ័រប្រើជំនាន់ %s</string>
-  <string name="no_server_entries">មិនមានម៉ាស៊ីនមេសម្រាប់តភ្ជាប់ទេ</string>
-  <string name="ServerInterface.InvalidRemoteServerList">បញ្ជីម៉ាស៊ីនមេពីចម្ងាយមិនត្រឹមត្រូវ</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">កញ្ចប់ទិន្នន័យផ្ទៀងផ្ទាត់ដែលបានចុះហត្ថលេខាជាមួយសោរសាធារណៈផ្សេងគ្នា</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">ហត្ថលេខាមិនត្រឹមត្រូវលើការផ្ទៀងផ្ទាត់កញ្ចប់ទិន្នន័យ</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">បរាជ័យក្នុងការវិភាគការផ្ទៀងផ្ទាត់កញ្ចប់ទិន្នន័យ</string>
   <string name="AuthenticatedDataPackage.MissingValue">បរាជ័យក្នុងការផ្ទៀងផ្ទាត់កញ្ចប់ទិន្នន័យ</string>
   <string name="starting_tunnel">កំពុងចាប់ផ្តើមច្រក...</string>
   <string name="stopping_tunnel">កំពុងបញ្ឈប់ច្រក...</string>
   <string name="stopped_tunnel">ច្រកបានបញ្ឈប់</string>
-  <string name="ServerInterface.StopRequested">បានបញ្ឈប់ការស្នើសុំ</string>
-  <string name="ServerInterface.HTTPSRequestFailed">ការស្នើសុំ HTTPS បានបរាជ័យជាមួយបញ្ហា៖</string>
-  <string name="socks_ports_failed">បរាជ័យក្នុងការចាប់ផ្តើមប្រូកស៊ី SOCKS៖ រកមិនឃើញច្រកដែលទំនេរ</string>
-  <string name="http_proxy_ports_failed">បរាជ័យក្នុងការចាប់ផ្តើមប្រូកស៊ី HTTP៖ រកមិនឃើញច្រកទំនេរ</string>
   <string name="socks_port_in_use">ការស្នើសុំច្រកប្រូកស៊ី SOCKS %d ត្រូវបានប្រើប្រាស់ដោយកម្មវិធីផ្សេង។ មិនអាចបន្តបាន។</string>
-  <string name="transparent_proxy_running">ប្រូកស៊ីថ្លា ដំណើរការលើច្រក %d</string>
-  <string name="transparent_proxy_ports_failed">បរាជ័យក្នុងការចាប់ផ្តើមប្រូកស៊ីថ្លា៖ មិនមានច្រកទំនេរ</string>
-  <string name="transparent_proxy_command_failed">បញ្ជារការកំណត់ប្រូកស៊ីថ្លាបរាជ័យ៖ %s</string>
-  <string name="transparent_proxy_stopped">ប្រូកស៊ីតម្លាភាពបានបញ្ឈប់</string>
-  <string name="dns_proxy_running">ប្រូកស៊ី DNS កំពុងដំណើរការលើច្រក%d</string>
-  <string name="dns_proxy_ports_failed">បរាជ័យក្នុងការចាប់ផ្តើមប្រូកស៊ី DNS៖ មិនមានច្រកទំនេរ</string>
-  <string name="dns_proxy_stopped">ប្រូកស៊ី DNS បានបញ្ឈប់</string>
-  <string name="dns_proxy_failed">បរាជ័យក្នុងការចាប់ផ្តើមប្រូកស៊ី DNS</string>
-  <string name="iptables_binary_not_found">មិនអាចរកឃើញការអនុវត្ត iptables ដែលទាមទារសម្រាប់ប្រូកស៊ីថ្លា</string>
-  <string name="root_access_denied">សិទ្ធិប្រើប្រាស់ Root បានបដិសេធ</string>
-  <string name="psiphon_stopped">បានបញ្ឈប់</string>
-  <string name="psiphon_running_whole_device">កំពុងដំណើរការក្នុងទម្រង់ឧបករណ៍ទាំងមូល</string>
-  <string name="psiphon_running_browser_only">កំពុងដំណើរការក្នុងទម្រង់កម្មវិធីរុករកប៉ុណ្ណោះ</string>
   <string name="waiting_for_network_connectivity">កំពុងរង់ចាំការតភ្ជាប់បណ្តាញ...</string>
-  <string name="checking_for_root_access">កំពុងត្រួតពិនិត្យ ការប្រើប្រាស់ root...</string>
   <string name="psiphon_service_notification_message_connecting">កំពុងតភ្ជាប់...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">សេវាជូនដំណឹង Psiphon </string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">ម៉ាស៊ីនមេដែលពេញចិត្ត៖ %d</string>
-  <string name="selecting_server">ជ្រើសរើសម៉ាស៊ីនមេ...</string>
-  <string name="fetch_remote_server_list">កំពុងរកបញ្ជីម៉ាស៊ីនមេពីចម្ងាយ ...</string>
-  <string name="vpn_service_failed">សេវាកម្ម VPN បរាជ័យ៖ %s</string>
+  <string name="psiphon_service_notification_channel_name">ស្ថានភាព Psiphon ផ្លាស់ប្តូរ</string>
+  <string name="psiphon_upgrade_notification_channel_name">បច្ចុប្បន្នភាព Psiphon </string>
   <string name="vpn_service_running">សេវាកម្ម VPN កំពុងដំណើរការ</string>
-  <string name="vpn_service_stopped">សេវាកម្ម VPN បានបញ្ឈប់</string>
   <string name="vpn_service_revoked">ដកសិទ្ធិសេវាកម្ម VPN</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN ទៅ SOCKS បរាជ័យ</string>
-  <string name="tun2socks_running">កំពុងដំណើរការ VPN ទៅ SOCKS </string>
-  <string name="tun2socks_stopped">VPN ទៅ SOCKS បានបញ្ឈប់</string>
-  <string name="vpn_service_no_private_address_available">មិនមានអាសយដ្ឋានឯកជនសម្រាប់សេវាកម្ម VPN</string>
-  <string name="psiphon_running_generic">កំពុងដំណើរការ...</string>
-  <string name="data_transfer_bytes_sent">ទំហំ Bytes បានបញ្ជូន៖ %1$s (%2$.2f%% បង្រួម)</string>
-  <string name="data_transfer_bytes_received">ទំហំ Bytes បានទទួល៖ %1$s (%2$.2f%% បង្រួម)</string>
-  <string name="data_transfer_elapsed_time">ពេលតភ្ជាប់៖%s</string>
-  <string name="check_tunnel_failed">ត្រួតពិនិត្យច្រកបរាជ័យ។ ឧបករណ៍អ្នកមិនគាំទ្រជម្រើសប្រើច្រកទាំងអស់។</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">បរាជ័យក្នុងការបង្កើត ឬសរសេរឯកសារត្រួតពិនិត្យមតិយោបល់</string>
   <string name="Diagnostics.EncryptedFailed">បរាជ័យក្នុងការអ៊ីនគ្រីបព័ត៌មានវិភាគមតិយោបល់។ ព័ត៌មាននេះនឹងមិនត្រូវភ្ជាប់ទៅអ៊ីម៉ែលមតិយោបល់ទេ។</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">បរាជ័យក្នុងការស្រង់ចេញពីប្រព័ន្ធគោលពីរ iptables ។</string>
-  <string name="transparent_proxy_routing_failed">បរាជ័យក្នុងការចាប់ផ្តើមប្រូកស៊ីថ្លា៖ %s</string>
-  <string name="transparent_proxy_routing_running">ច្រកប្រូកស៊ីថ្លាកំពុងដំណើរការ</string>
-  <string name="transparent_proxy_routing_stopped">ច្រកប្រូកស៊ីថ្លាបានបញ្ឈប់</string>
   <string name="current_network_type">បណ្តាញបច្ចុប្បន្ន៖ %s</string>
-  <string name="dns_resolver">អ្នកដោះស្រាយ DNS៖ %s</string>
-  <string name="get_active_network_dns_resolvers_failed">ទទួលបណ្តាញ DNS សកម្មបរាជ័យ</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">មិនអាចទាញយកកញ្ចប់ព័ត៌មានសម្រាប់កម្មវិធីបច្ចុប្បន្ន</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">បរាជ័យក្នុងការសរសេរឯកសារតំឡើង</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">ទាញយកបច្ចុប្បន្នភាពបរាជ័យ</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">បានទាញយកបច្ចុប្បន្នភាព។ សូមណែនាំអ្នក ឲ្យអនុញ្ញាតការធ្វើបច្ចុប្បន្នភាប ដើម្បីដំណើរការពេលនេះ។ បន្ទាប់ពីធ្វើបច្ចុប្បន្នភាព អ្នកនឹងតម្រូវឲ្យដំណើរការ Psiphon សារជាថ្មី។</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">បច្ចុប្បន្នបរាជ័យ។ មិនអាចបន្លាកញ្ចប់ព័ត៌មានពីឯកសារបច្ចុប្បន្នភាព។</string>
   <string name="UpgradeManager.UpgradeFileNotFound">រកមិនឃើញឯកសារបច្ចុប្បន្នភាព</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +34,12 @@
   <string name="disconnected">បានផ្តាច់ការតភ្ជាប់</string>
   <string name="label_sent">បានបញ្ជូន</string>
   <string name="label_received">បានទទួល</string>
-  <string name="compression_ratio">%1$.2f%% បានបង្រួម</string>
-  <string name="compression_savings">%s បានរក្សាទុក</string>
   <string name="start">ចាប់ផ្តើម</string>
   <string name="stop">បញ្ឈប់</string>
   <string name="home_tab_name">ទំព័រដើម</string>
   <string name="settings_tab_name">ជម្រើស</string>
   <string name="statistics_tab_name">ស្ថិតិ</string>
   <string name="logs_tab_name">កំណត់ត្រា</string>
-  <string name="socks_proxy_address">ប្រូកស៊ី SOCKS ខាងក្នុងកំពុងដំណើរការនៅ %s</string>
-  <string name="http_proxy_address">ប្រូកស៊ី HTTP ខាងក្នុងកំពុងដំណើរការនៅ %s</string>
-  <string name="share_proxies_toggle">អនុញ្ញាតឧបករណ៍បណ្តាញដទៃ ដើម្បីប្រើប្រាស់ប្រូកស៊ីខាងក្នុង</string>
-  <string name="share_proxies_prompt_title">ទាមទារបើកកម្មវិធីឡើងវិញ</string>
-  <string name="share_proxies_prompt_message">កម្មវិធីនេះទាមទារបើកឡើងវិញ ដើម្បីអនុវត្តការកំណត់នេះ។</string>
-  <string name="share_proxies_prompt_positive">បើកឡើងវិញឥលូវនេះ</string>
-  <string name="share_proxies_prompt_negative">បោះបង់</string>
   <string name="use_proxy_settings_toggle">តភ្ជាប់តាមប្រូកស៊ី HTTP</string>
   <string name="use_system_proxy_settings_radio">ប្រើប្រាស់ការកំណត់បណ្តាញប្រព័ន្ធ</string>
   <string name="use_custom_proxy_settings_radio">ប្រើប្រាស់ការកំណត់ខាងក្រោម៖</string>
@@ -149,42 +70,51 @@
   <string name="region_name_se">ស៊ុយអែត</string>
   <string name="region_name_pl">ប៉ូឡូញ</string>
   <string name="region_name_sk">ស្លូវ៉ាគី</string>
-  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="region_name_rs">ស៊ែប៊ី</string>
+  <string name="region_name_au">អូស្ត្រាលី</string>
   <string name="about">អំពី Psiphon</string>
   <string name="feedback">មតិយោបល់</string>
-  <string name="tunnel_whole_device_toggle">បើករូងលើឧបករណ៍ទាំងមូល (ទាមទារ Android 4.0+)</string>
-  <string name="disable_timeouts">បិទ ការហួសម៉ោង សម្រាប់បណ្តាញយឺត</string>
-  <string name="region_selector">ជ្រើសរើសតំបន់</string>
-  <string name="network_proxy_connect_exception">បរាជ័យក្នុងការតភ្ជាប់ទៅបណ្តាញប្រូកស៊ី HTTP ៖ %s</string>
-  <string name="network_proxy_connect_information">កំពុងតភ្ជាប់ប្រូកស៊ី HTTP របស់អ្នក៖ %s</string>
+  <string name="disableTimeoutsPreferenceSummary">បិទ ការហួសម៉ោង សម្រាប់បណ្តាញយឺត</string>
   <string name="network_proxy_connect_invalid_values">ការកំណត់ប្រូកស៊ី HTTP មិនត្រឹមត្រូវ</string>
   <string name="tunnel_whole_device_exception">ឧបករណ៍របស់អ្នក មិនគាំទ្រការតភ្ជាប់តាមច្រកទាំងអស់ ដោយសារបាត់បង់ VpnService API។</string>
-  <string name="run_polipo_failed">ដំណើរការ Polipo បរាជ័យ៖ %s</string>
-  <string name="wdm_force_iptables_toggle">វិធីបង្ខំ root លើច្រកឧបករណ៍ទាំងមូល</string>
-  <string name="http_prefix_toggle">ក្លែងជា HTTP</string>
   <string name="preference_notifications_title">ការជូនដំណឹង</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">បើកគ្រប់ច្រក</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">រួមបញ្ចូលកម្មវិធី</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">បើកច្រកតែកម្មវិធីបានជ្រើសរើស</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">លើកលែងកម្មវិធី</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">កុំបើកច្រកកម្មវិធីបានជ្រើសរើស</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">បើកច្រកកម្មវិធី៖ %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">កម្មវិធីដែលបានលើកលែងពីច្រក៖ %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">គ្មាន​កម្មវិធីដែលបានលើកលែងពីច្រកនេះទេ</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">កម្មវិធីជ្រើសរើស</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">កម្មវិធី %d និងត្រូវបើកច្រកតាម VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">កម្មវិធី %d នឹងត្រូវលើកលែងចេញពី VPN</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <string name="preference_routing_all_apps_tunnel_summary">គ្រប់កម្មវិធីទាំងអស់នឹងត្រូវបើកច្រកតាម VPN</string>
   <string name="preference_notifications_with_sound_title">សំឡេង</string>
   <string name="preference_notifications_with_sound_summary">ចាក់សំឡេងពេលស្ថានភាពការតភ្ជាប់ផ្លាស់ប្តូរ</string>
   <string name="preference_notifications_with_vibrate_title">ញ័រ</string>
   <string name="preference_notifications_with_vibrate_summary">ញ័រពេលស្ថានភាពការតភ្ជាប់ផ្លាស់ប្តូរ</string>
-  <string name="preference_download_wifi_only_toggle">ទាញយក​បច្ចុប្បន្នភាពពី Wi-Fi តែប៉ុណ្ណោះ</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ទាញយក​បច្ចុប្បន្នភាពពី Wi-Fi តែប៉ុណ្ណោះ</string>
   <string name="moreOptions">ជម្រើសផ្សេងៗ</string>
-  <string name="root_mode_not_supported">ទម្រង់ Root មិនគាំទ្រលើ Android ជំនាន់នេះទេ</string>
   <string name="proxySettingsCategoryTitle">ការកំណត់ប្រូកស៊ី</string>
   <string name="custom_proxy_host_summary">ឈ្មោះម៉ាស៊ីនមេប្រូកស៊ី ឬ IP</string>
   <string name="custom_proxy_port_summary">ច្រកម៉ាស៊ីនមេប្រូកស៊ី</string>
@@ -202,17 +132,18 @@
   <string name="untunneled_address">បិទច្រក៖ %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">បញ្ហាការឡើងប្រូកស៊ី៖ %s</string>
-  <string name="diagnostic">វិនិច្ឆ័យ៖ %s</string>
   <string name="start_tunnel_failed">បរាជ័យបើកច្រក៖ %s</string>
   <string name="tunnel_connecting">កំពុងតភ្ជាប់ច្រក...</string>
   <string name="tunnel_connected">ច្រកបានតភ្ជាប់</string>
   <string name="waiting">កំពុងរង់ចាំ...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ស្នើសុំការអនុញ្ញាត</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">អនុញ្ញាត Psiphon ឲ្យសម្រេចចិត្តប្រសើរជាងមុន អំពីរបៀបធ្វើការលើបណ្តាញរបស់អ្នក ដោយផ្តល់សិទ្ធិចូលប្រើប្រាស់ទីតាំងរបស់អ្នក.\n\nចំណាំ ព័ត៌មាននេះត្រូវ​បានប្រើនៅលើ​ឧបករណ៍របស់​អ្នក​ប៉ុណ្ណោះ ហើយមិនត្រូវបានបញ្ជូនទៅម៉ាស៊ីនមេរបស់យើង​ឬភាគីទីបីទេ។</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">យល់ព្រម</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">ទេ អរគុណ</string>
+  <string name="disableTimeoutsPreferenceTitle">បិទ ការកំណត់ពេល</string>
 </resources>

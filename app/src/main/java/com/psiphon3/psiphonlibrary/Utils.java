@@ -598,16 +598,18 @@ public class Utils
         return false;
     }
 
-    public static boolean hasVpnService()
-    {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
-    }
-
-    public static boolean supportsAlwaysOnVPN()
-    {
+    public static boolean supportsAlwaysOnVPN() {
         return Build.VERSION.SDK_INT >= 24;
     }
-    
+
+    public static boolean supportsVpnExclusions() {
+        return Build.VERSION.SDK_INT >= 21;
+    }
+
+    public static boolean supportsNotificationSound() {
+        return Build.VERSION.SDK_INT < 26;
+    }
+
     public static String getLocalTimeString(Date date)
     {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.US);

@@ -1,59 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH irikukochekera...</string>
-  <string name="ssh_connected">SSH yakochekera</string>
-  <string name="ssh_connection_failed">kukochekera paSSH kwaramba</string>
-  <string name="socks_starting">SOCKS yakutanga...</string>
   <string name="socks_running">SOCKS irikushanda paport %d</string>
-  <string name="socks_stopped">SOCKS yamira</string>
-  <string name="ssh_stopped">SSH yamira</string>
-  <string name="error_message">Pane zvakanganisika:</string>
-  <string name="http_proxy_starting">HTTP proxy irikutanga...</string>
   <string name="http_proxy_running">HTTP proxy irikushanda paport %d</string>
-  <string name="http_proxy_stopped">HTTP proxy yamira</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP proxy yamira zvisina kutarisirwa</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Tatadza kuchengeta kochekero yenguva yekupedzisira.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Tatadza kuverenga kochekero yenguva yekupedzisira.</string>
   <string name="client_version">Vhezheni yemushandisi %s</string>
-  <string name="no_server_entries">Hapana maservers aunokwanisa kuno kochekera</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Rutarwa rweremote server harwushande</string>
   <string name="starting_tunnel">Kuenda padandemutande nenzira yakahwanda kwakutanga...</string>
   <string name="stopping_tunnel">Kuenda padandemutande nenzira yakahwanda kwakumira...</string>
   <string name="stopped_tunnel">Kuenda padandemutande nenzira yakahwanda kwamira</string>
-  <string name="ServerInterface.StopRequested">Kumira kwakumbirwa</string>
-  <string name="ServerInterface.HTTPSRequestFailed">Chikumbiro cheHTTPS chatadza nenhau yekanganiso:</string>
-  <string name="socks_ports_failed">SOCKS proxy yaramba kutanga: hapana maports aripo awanikwa</string>
-  <string name="http_proxy_ports_failed">HTTP proxy yaramba kutanga: hapana maports aripo awanikwa</string>
-  <string name="dns_proxy_failed">Tatadza kutanga DNS proxy</string>
-  <string name="psiphon_stopped">Zvamira</string>
   <string name="waiting_for_network_connectivity">Takamirira kochekero yetande...</string>
   <string name="psiphon_service_notification_message_connecting">Kukochekera...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Maservers anodiwa: %d</string>
-  <string name="selecting_server">Kusarudza server...</string>
-  <string name="vpn_service_failed">Chirango cheVPN charamba: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Kwidziridzo yesoftware yePsiphon</string>
   <string name="vpn_service_running">Chirango cheVPN chirikushanda</string>
-  <string name="vpn_service_stopped">Chirango cheVPN chamira</string>
   <string name="vpn_service_revoked">Chirango cheVPN chakanzurwa</string>
-  <string name="tun2socks_failed">VPN kuenda kuSOCKS kwatadza</string>
-  <string name="tun2socks_running">VPN kuenda kuSOCKS kurikushanda</string>
-  <string name="tun2socks_stopped">VPN kuenda kuSOCKS kwamira</string>
-  <string name="vpn_service_no_private_address_available">Hapana kero yepuraivheti iripo yechirango cheVPN</string>
-  <string name="psiphon_running_generic">Kushanda...</string>
-  <string name="data_transfer_elapsed_time">Nguva yekukochekera: %s</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Tatadza kugadzira kana kunyora mhinduro yefaira rediagnostics</string>
   <string name="Diagnostics.EncryptedFailed">Tatadza kukwedekera mashoko efeedback diagnostic. Mashoko aya haachabatanidzwa patsamba mbozha yefeedback.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Tatadza kutora iptables binary.</string>
-  <string name="transparent_proxy_routing_failed">Tatadza kutanga transparent proxy routing: %s</string>
-  <string name="transparent_proxy_routing_running">Transparent proxy routing irikushanda</string>
-  <string name="transparent_proxy_routing_stopped">Transparent proxy routing yamira</string>
   <string name="current_network_type">Tande yamanje: %s</string>
-  <string name="dns_resolver">DNS resolver: %s</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Tatadza kunyora faira rekukwidziridza software</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Kututunura kwekwidziridzo yesoftware kwaramba</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradeFileNotFound">Kwidziridzo yesoftware yashaikwa.</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Kwidziridzo yesoftware yePsiphon</string>
@@ -64,17 +25,11 @@
   <string name="disconnected">Haisisina kukochekera</string>
   <string name="label_sent">Zvaenda</string>
   <string name="label_received">Zvatambirwa</string>
-  <string name="compression_ratio">%1$.2f%% zvakambunyikidzwa</string>
-  <string name="compression_savings">%s zvachengetwa</string>
   <string name="start">Tanga</string>
   <string name="stop">Mira</string>
   <string name="home_tab_name">Pekutangira</string>
   <string name="settings_tab_name">Sarudzo</string>
   <string name="logs_tab_name">Matarwa emakare</string>
-  <string name="share_proxies_prompt_title">Kutangidza app kurikudiwa</string>
-  <string name="share_proxies_prompt_message">App irikufanirwa kutangidza kuti gadziro iyi ishandisike.</string>
-  <string name="share_proxies_prompt_positive">Tangidza izvozvi</string>
-  <string name="share_proxies_prompt_negative">Kanzura</string>
   <string name="use_proxy_settings_toggle">Kochekera kuburikidza neHTTP Proxy</string>
   <string name="use_system_proxy_settings_radio">Shandisa gadziro dzesistemu yetande</string>
   <string name="use_custom_proxy_settings_radio">Shandisa gadziro dzinotevera:</string>
@@ -88,16 +43,10 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Netherlands</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Nezve pamusoro pePsiphon</string>
   <string name="feedback">Mhinduro</string>
-  <string name="disable_timeouts">Rambidza kupera kwenguva kana paine matande anononoka</string>
-  <string name="region_selector">Sarudza nzvimbo</string>
-  <string name="network_proxy_connect_exception">Tatadza kukochekera kuHTTP Proxy yetande iri: %s</string>
-  <string name="network_proxy_connect_information">Kukochekera kuburikidza neHTTP Proxy yako: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Rambidza kupera kwenguva kana paine matande anononoka</string>
   <string name="network_proxy_connect_invalid_values">Gadziro dzeHTTP Proxy dzisingashande</string>
-  <string name="run_polipo_failed">Kushandisa Polipo kwaramba: %s</string>
-  <string name="http_prefix_toggle">Ita kunge HTTP</string>
   <string name="preference_notifications_title">Zviziviso</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -110,6 +59,9 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Ruzha</string>
   <string name="moreOptions">Sarudzo dzimwe</string>
   <string name="proxySettingsCategoryTitle">Gadziro dzeProxy</string>
@@ -123,6 +75,4 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

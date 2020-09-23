@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSHرابطہ ہو رہا ہے۔۔۔</string>
-  <string name="ssh_connected">SSH رابطہ ہوگیا ہے</string>
-  <string name="ssh_connection_failed">SSH رابطہ ناکام ہو گیا ہے</string>
-  <string name="ssh_authenticating">SSH تصدیق ہورہی ہے۔۔۔</string>
-  <string name="ssh_authentication_failed">SSH تصدیق ناکام ہو گئی ہے</string>
-  <string name="ssh_authenticated">SSH تصدیق ہو گئی ہے</string>
-  <string name="socks_starting">SOCKS ابتدا ہو رہی ہے۔۔۔</string>
   <string name="socks_running">SOCKS پورٹ %d پر چل رہی ہے</string>
-  <string name="socks_stopped">SOCKS رک گیا ہے</string>
-  <string name="ssh_stopped">SSH رک گیا ہے</string>
-  <string name="error_message">کوئی ایرر سامنے آیا ہے:</string>
-  <string name="http_proxy_starting">HTTP پراکسی شروع ہو رہی ہے۔۔۔</string>
   <string name="http_proxy_running">HTTP پراکسی پورٹ %d پر چل رہی ہے</string>
-  <string name="http_proxy_stopped">HTTP پراکسی رک گئی ہے</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP پراکسی غیر متوقع طور پر رک گئی ہے</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">محفوظ کرنے کیلئے سرور کے اندراج کی تخلیق میں ناکامی۔</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">محفوظ سرور اندراج میں ناکامی۔</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">محفوظ سرور اندراج کو دیکھنے میں ناکامی۔</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">محفوظ سرور اندراج کی تحلیل میں ناکامی۔</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">مضبوط جڑاؤ والے سرور اندراج کی تحلیل میں ناکامی۔</string>
-  <string name="ServerInterface.FailedToParseHandshake">ہینڈ شیک کی تحلیل میں ناکامی۔</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">آخری بار مربوط وقت کو محفوظ کرنے میں ناکامی۔</string>
-  <string name="ServerInterface.FailedToParseLastConnected">آخری بار مربوط وقت کی JSON ریسپانس تحلیل میں ناکامی </string>
-  <string name="ServerInterface.FailedToReadLastConnected">آخری بار مربوط وقت دیکھنے میں ناکامی۔</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">ہینڈ شیک درخواست میں ناکامی۔</string>
-  <string name="ssh_disconnected_unexpectedly">SSH رابطہ غیر متوقع طور پر منقطع ہوگیا</string>
   <string name="client_version">کلائنٹ ورژن %s</string>
-  <string name="no_server_entries">رابطے کیلئے کوئی سرور میسر نہیں</string>
-  <string name="ServerInterface.InvalidRemoteServerList">نا قابلِ شناخت ریموٹ سرور لِسٹ</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">مختلف  عوامی کلیدوں کیساتھ دستخط شدہ مصدقہ ڈیٹا پیکج </string>
   <string name="AuthenticatedDataPackage.InvalidSignature">مصدقہ ڈیٹا پیکج پہ ناقابلِ شناخت دستخط</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">مصدقہ ڈیٹا پیکج کی تحلیل میں ناکامی</string>
   <string name="AuthenticatedDataPackage.MissingValue">مصدقہ ڈیٹا پیکچ میں value غائب</string>
   <string name="starting_tunnel">Tunnel (ٹنل) شروع ہو رہا ہے۔۔۔</string>
   <string name="stopping_tunnel">Tunnel (ٹنل) رک رہا ہے۔۔۔</string>
   <string name="stopped_tunnel">Tunnel (ٹنل) رک گیا ہے</string>
-  <string name="ServerInterface.StopRequested">درخواست بند ہو گئی</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS درخواست ایرر کے ساتھ ناکام ہو گئی</string>
-  <string name="socks_ports_failed">SOCKS پراکسی شروع کرنے میں ناکام:  ports (پورٹس) دستیاب نہیں </string>
-  <string name="http_proxy_ports_failed">HTTPS شروع کرنے میں ناکام: ports (پورٹس) دستیاب نہیں</string>
   <string name="socks_port_in_use">درخواست کی گئی مقامی SOCKS پراکسی پورٹ %d پہلے ہی کسی اور ایپ کے زیر استعمال ہے۔ جاری نہیں رکھ سکتے۔</string>
-  <string name="transparent_proxy_running">Transparent ( ٹرانسپیرنٹ) پراکسی پورٹ%d پر چل رہی ہے </string>
-  <string name="transparent_proxy_ports_failed">ٹرانسپیرنٹ پراکسی شروع کرنے میں ناکام: ports (پورٹس) دستیاب نہیں</string>
-  <string name="transparent_proxy_command_failed">ٹرانسپیرنٹ پراکسی کنفگریشن کمانڈ ناکام ہو گئی: %s</string>
-  <string name="transparent_proxy_stopped">ٹرانسپیرنٹ پراکسی رک گئی ہے</string>
-  <string name="dns_proxy_running">DNS پراکسی پورٹ %d پر چل رہی ہے</string>
-  <string name="dns_proxy_ports_failed">DNS پراکسی شروع کرنے میں ناکام: ports (پورٹس) دستیاب نہیں</string>
-  <string name="dns_proxy_stopped">DNS پراکسی رک گئی ہے</string>
-  <string name="dns_proxy_failed">DNS پراکسی شروع کرنے میں ناکام</string>
-  <string name="iptables_binary_not_found">شفاف پراکسی کے لئے ضروری iptables implementation نہیں ڈھونڈ سکتا</string>
-  <string name="root_access_denied">root (روٹ) تک رسائی ممکن نہیں</string>
-  <string name="psiphon_stopped">رک گیا ہے</string>
-  <string name="psiphon_running_whole_device">تمام ڈیوائس موڈ میں چل رہی </string>
-  <string name="psiphon_running_browser_only">صرف براؤزر موڈ میں چل رہی ہے</string>
   <string name="waiting_for_network_connectivity">نیٹ ورک منسلک ہونے کا انتظار کرے۔۔۔</string>
-  <string name="checking_for_root_access">root (روٹ) تک رسائی کی جانچ کرے</string>
   <string name="psiphon_service_notification_message_connecting">رابطہ ہو رہا ہے۔۔۔</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon (سائفن) سروس کی اطلاع</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">پسندیدہ سرورز: %d</string>
-  <string name="selecting_server">سرور کا انتخاب ہو رہا ہے۔۔۔</string>
-  <string name="fetch_remote_server_list">ریموٹ سرور کی لسٹ حاصل کر رہے ہیں۔۔۔</string>
-  <string name="vpn_service_failed">VPN سروس ناکام ہو گئی: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon (سائفن) اپ گریڈ ہو گیا</string>
   <string name="vpn_service_running">VPN سروس چل رہی ہے</string>
-  <string name="vpn_service_stopped">VPN سروس رک گئی</string>
   <string name="vpn_service_revoked">VPN سروس منسوخ کر دی گئی</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN سے SOCKS ناکام ہو گئی</string>
-  <string name="tun2socks_running">VPN سے SOCKS چل رہی ہے</string>
-  <string name="tun2socks_stopped">VPN سے SOCKS رک گئی</string>
-  <string name="vpn_service_no_private_address_available">VPN سروس کے لئے کوئی خاص ایڈریس نہیں ہے</string>
-  <string name="psiphon_running_generic">چل رہی ہے۔۔۔</string>
-  <string name="data_transfer_bytes_sent">Bytes بھیجا: %1$s (%2$.2f %% compressed (کمپریسڈ))</string>
-  <string name="data_transfer_bytes_received">Bytes حاصل کیا گیا: %1$s (%2$.2f %% compressed (کمپریسڈ))</string>
-  <string name="data_transfer_elapsed_time">کنکشن کا وقت: %s</string>
-  <string name="check_tunnel_failed">tunnel (ٹنل) کی جانچ ناکام ہو گئی۔ ہو سکتا ہے ک آپ کی ڈیوائس پوری ڈیوائس کے tunnel (ٹنل) آپشن کی مدد نہ کرے۔</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">feedback کی تشخیصی فائل بنانے یا لکھنے میں ناکام</string>
   <string name="Diagnostics.EncryptedFailed">feedback کی تشخیصی معلومات کو encrypt کرنے میں ناکام۔ یہ معلومات feedback ای-میل کے ساتھ منسلک نہیں ہو گی۔</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">iptables binary نکالنے میں ناکام۔</string>
-  <string name="transparent_proxy_routing_failed">ٹرانسپیرنٹ پراکسی روٹنگ شروع کرنے میں ناکام: %s</string>
-  <string name="transparent_proxy_routing_running">ٹرانسپیرنٹ پراکسی روٹنگ چل رہی ہے</string>
-  <string name="transparent_proxy_routing_stopped">ٹرانسپیرنٹ پراکسی روٹنگ رک گئی ہے</string>
   <string name="current_network_type">موجودہ نیٹ ورک: %s</string>
-  <string name="dns_resolver">DNS حل کرنے کے لئے: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">ایکٹو نیٹ ورک حاصل کریں DNS حل کرنے والے ناکام ہوگئے۔</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">موجودہ ایپ کیلئے پیکیج کی معلومات حاصل کرنے سے قاصر ہے</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">اپ گریڈ فائل لکھنے میں ناکام</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">ڈاؤن لوڈ اپ گریڈ ناکام ہو گئی</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">اپ گریڈ ڈاؤن لوڈ ہورہا۔ اس کی مظبوط سفارش کی جاتی ہے کہ آپ اس وقت اپ گریڈ کو آگے بڑھنے دیں۔ اپ گریڈ کرنے کے بعد ، آپ کو Psiphon (سائفن) کو دوبارہ لانچ کرنا پڑے گا۔</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">اپ گریڈ ناکام ہو گئی ۔ اپ گریڈ فائل میں سے پیکچ کی معلومات نہیں نکال سکتے۔</string>
   <string name="UpgradeManager.UpgradeFileNotFound">اپ گریڈ فائل نہیں مل رہی</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">منقطع ہو گئی</string>
   <string name="label_sent">بھیجا گیا</string>
   <string name="label_received">وصول کیا گیا</string>
-  <string name="compression_ratio">%1$.2f%% کمپریسڈ</string>
-  <string name="compression_savings">%s محفوظ ہو گیا</string>
   <string name="start">شروع کیجئے</string>
   <string name="stop">روکیں</string>
   <string name="home_tab_name">ابتدائی صحفہ</string>
   <string name="settings_tab_name">آپشنز </string>
   <string name="statistics_tab_name">stats(سٹیٹس)</string>
   <string name="logs_tab_name">لاگز</string>
-  <string name="socks_proxy_address">لوکل SOCKS پراکسی %s چل رہی ہے </string>
-  <string name="http_proxy_address">لوکل HTTPS پراکسی %s چل رہی ہے</string>
-  <string name="share_proxies_toggle">نیٹ ورک کے دوسری ڈیوائس کو لوکل پراکسی استعمال کرنے کی اجازت دیں</string>
-  <string name="share_proxies_prompt_title">ایپ کو ری سٹارٹ کرنا ضروری ہے</string>
-  <string name="share_proxies_prompt_message">اس ترتیب کو لاگو کرنے کیلئے ایپ کو دوبارہ شروع کرنے کی ضرورت ہے</string>
-  <string name="share_proxies_prompt_positive">ابھی ری سٹارٹ کریں</string>
-  <string name="share_proxies_prompt_negative">تنسیخ کیجیے</string>
   <string name="use_proxy_settings_toggle">HTTPS پراکسی کے ذریعہ کنکٹ کریں</string>
   <string name="use_system_proxy_settings_radio">سسٹم نیٹ ورک کی ترتیبات کو استعمال کریں</string>
   <string name="use_custom_proxy_settings_radio">مندرجہ ذیل ترتیبات کو استعمال کریں:</string>
@@ -149,19 +69,11 @@
   <string name="region_name_se">سویڈن</string>
   <string name="region_name_pl">پولینڈ</string>
   <string name="region_name_sk">سلوواکیہ</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon (سائفن) سے متعلق</string>
   <string name="feedback">آراؑ</string>
-  <string name="tunnel_whole_device_toggle">Tunnel (ٹنل) مکمل ڈیوائس (اینڈرائیڈ +4.0 مطلوب ہے)</string>
-  <string name="disable_timeouts">سست نیٹ ورکس کے ٹائم آؤٹ کو غیر فعال کریں</string>
-  <string name="region_selector">علاقہ منتخب کریں</string>
-  <string name="network_proxy_connect_exception">نیٹ ورک کے HTTP پراکسی سے رابطہ قائم کرنے میں ناکام: %s</string>
-  <string name="network_proxy_connect_information">آپ کے HTTP پراکسی کے ذریعہ رابطہ قائم ہو ریا یے: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">سست نیٹ ورکس کے ٹائم آؤٹ کو غیر فعال کریں</string>
   <string name="network_proxy_connect_invalid_values">سسٹم پراکسی کی ترتیبات غلط ہے</string>
   <string name="tunnel_whole_device_exception">گمشدہ Vpnسروس API کی وجہ سے آپ کی ڈیوائس پوری ڈیوائس tunnel (ٹنل)  آپشن  نہیں چلا سکتا۔</string>
-  <string name="run_polipo_failed">Polopo (پولیپو) چلانا ناکام: %s</string>
-  <string name="wdm_force_iptables_toggle">پوری ڈیوائس کے طریقہ کار کو زبردستی روٹ ٹنل کریں</string>
-  <string name="http_prefix_toggle">HTTP جیسی بناوٹ</string>
   <string name="preference_notifications_title">اطلاع کرنا</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -178,13 +90,15 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">آواز</string>
   <string name="preference_notifications_with_sound_summary"> آواز چلائیں جب کنکشن کی کیفیت بدل جاتی ہے </string>
   <string name="preference_notifications_with_vibrate_title">وائبریٹ</string>
   <string name="preference_notifications_with_vibrate_summary">وائبریٹ کریں جب کنکشن کی کیفیت بدل جاتی ہے</string>
-  <string name="preference_download_wifi_only_toggle">اپ گریڈ کو صرف Wi-FI (وائی- فائی) پر ڈاؤن لوڈ کریں</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">اپ گریڈ کو صرف Wi-FI (وائی- فائی) پر ڈاؤن لوڈ کریں</string>
   <string name="moreOptions">زیادو آپشنز</string>
-  <string name="root_mode_not_supported">اینڈرائڈ کے اس ورژن پر روٹ موڈ کی سہولت نہیں ہے</string>
   <string name="proxySettingsCategoryTitle">Proxy Settings</string>
   <string name="custom_proxy_host_summary">Proxy server hostname or IP</string>
   <string name="custom_proxy_port_summary">پراکسی سرور پورٹ</string>
@@ -202,7 +116,6 @@
   <string name="untunneled_address">Untenneled (ان ٹنلڈ): %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">اپ سٹریم پراکسی ایرر: %s</string>
-  <string name="diagnostic">تشخیص: %s</string>
   <string name="start_tunnel_failed">Tunnel (ٹنل) کی ابتدا میں ناکامی: %s</string>
   <string name="tunnel_connecting">Tunnel (ٹنل) رابطہ ہو رہا ہے۔۔۔</string>
   <string name="tunnel_connected">Tunnel (ٹنل) رابطہ ہو گیا ہے</string>
@@ -212,6 +125,4 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

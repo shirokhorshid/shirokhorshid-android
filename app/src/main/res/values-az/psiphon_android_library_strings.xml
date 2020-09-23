@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH qoşulma...</string>
-  <string name="ssh_connected">SSH-lə bağlantı baş tutdu</string>
-  <string name="ssh_connection_failed">SSH-lə bağlantı baş tutmadı.</string>
-  <string name="ssh_authenticating">SSH təsdiqləyir...</string>
-  <string name="ssh_authentication_failed">SSH təsdiqləmə alınmadı</string>
-  <string name="ssh_authenticated">SSH təsdiqləmə alındı</string>
-  <string name="socks_starting">SOCKS işə başlayır...</string>
   <string name="socks_running">SOCKS %d portunda işləyir</string>
-  <string name="socks_stopped">SOCKS dayandı</string>
-  <string name="ssh_stopped">SSH dayandı</string>
-  <string name="error_message">Səhv var:</string>
-  <string name="http_proxy_starting">HTTP proksi işə başlayır</string>
   <string name="http_proxy_running">HTTP proksi %d portunda işləyr</string>
-  <string name="http_proxy_stopped">HTTP proksi dayandı</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP proksi gözlənilmədən dayandı</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Saxlamaq üçün server girişləri yaratmaq alınmadı</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Server girişlərini saxlamaq alınmadı</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Saxlanmış server girişlərini oxumaq alınmadı</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Saxlanmış server girişlərinin təhlili alınmadı </string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Daxil edilmiş server girişlərinin təhlili alınmadı.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Bağlantı haqda təsdiqin təhlili alınmadı.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Son bağlantı tarixinin saxlanması alınmadı.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">JSON-nun son bağlantı tarixinin təhlili alınmadı.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Son bağlantı tarixini oxumaq alınmadl.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Bağlantı haqda təsdiq tələbi alınmadı</string>
-  <string name="ssh_disconnected_unexpectedly">SSH ilə bağlantı gözlənilmədən kəsildi.</string>
   <string name="client_version">Proqram versiyası %s</string>
-  <string name="no_server_entries">Bağlantı üçün server yoxdur</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Kənarlaşdırılmış server siyahısı etibarsızdır</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Fərqli ümumi açarla imzalanmış təsdiqlənmiş məlumat paketi</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Təsdiqlənmiş məlumat paketi üzərindəki imza etibarsızdır </string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Təsdiqlənmiş məlumat paketinin təhlili alınmadı</string>
   <string name="AuthenticatedDataPackage.MissingValue">Təsdiqlənmiş məlumat paketində çatışmayan göstərici</string>
   <string name="starting_tunnel">Tuneli başla</string>
   <string name="stopping_tunnel">Tuneli dayandır</string>
   <string name="stopped_tunnel">Tunel dayanıb</string>
-  <string name="ServerInterface.StopRequested">Dayanmaq tələb olunur</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS qoşulması alınmadı, səhv var:</string>
-  <string name="socks_ports_failed">SOCKS proksisi başlayanda səhv oldu: boş portlar tapılmadı</string>
-  <string name="http_proxy_ports_failed">HTTP proksisi başlayanda səhv oldu: boş portlar tapılmadı</string>
   <string name="socks_port_in_use">Tələb olunan yerli SOCKS proksi portu %d artıq başqa tətbiqetmə tərəfindən istifadə olunur. Davam edə bilmirik.                                                                  </string>
-  <string name="transparent_proxy_running">%d portunda şəffaf proksi işləyir</string>
-  <string name="transparent_proxy_ports_failed">Şəffaf proksi işə başlamadı: boş port tapılmadı</string>
-  <string name="transparent_proxy_command_failed">Şəffaf proksi konfiqurasiyası tələbi alınmadı: %s</string>
-  <string name="transparent_proxy_stopped">Şəffaf proksi dayandı</string>
-  <string name="dns_proxy_running">DNS proksinin işlədiyi port %d</string>
-  <string name="dns_proxy_ports_failed">DNS proksi işə düşmədi: boş port yoxdur</string>
-  <string name="dns_proxy_stopped">DNS proksi dayandı</string>
-  <string name="dns_proxy_failed">DNS proksi işə başlamadı</string>
-  <string name="iptables_binary_not_found">Şəffaf proksi üçün gərəkən iptablelar tapılmadı</string>
-  <string name="root_access_denied">Köklü girişə imtina gəldi</string>
-  <string name="psiphon_stopped">Dayandı</string>
-  <string name="psiphon_running_whole_device">Bütün qurğu üçün qoşulmuşdur</string>
-  <string name="psiphon_running_browser_only">Yalnız səyyah üçün qoşulmuşdur</string>
   <string name="waiting_for_network_connectivity">Şəbəkənin qoşulmasını gözləyir...</string>
-  <string name="checking_for_root_access">Köklü giriş üçün yoxlama gedir.</string>
   <string name="psiphon_service_notification_message_connecting">Qoşulur...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon xidmət xəbərdarlığı</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Üstünlük verilən serverlər: %d</string>
-  <string name="selecting_server">Server seçilir...</string>
-  <string name="fetch_remote_server_list">Kənarlaşdırılmış server siyahısını seçir...</string>
-  <string name="vpn_service_failed">VPN xidmətində səhv: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon yeniləməsi</string>
   <string name="vpn_service_running">VPN xidməti işləyir                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </string>
-  <string name="vpn_service_stopped">VPN xidməti dayandı</string>
   <string name="vpn_service_revoked">VPN xidməti ləğv edildi</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN-dən SOCKS-a alınmadı</string>
-  <string name="tun2socks_running">VPN-dən SOCKS-a işləyir</string>
-  <string name="tun2socks_stopped">VPN-dən SOCKS-a dayandı</string>
-  <string name="vpn_service_no_private_address_available">VPN xidməti üçün şəxsi ünvan yoxdur</string>
-  <string name="psiphon_running_generic">İşləyir... </string>
-  <string name="data_transfer_bytes_sent">Göndərilən baytlar: %1$s (%2$.2f%% sıxılmış)                                                                                                                                                                 </string>
-  <string name="data_transfer_bytes_received">Alınan baytlar: %1$s (%2$.2f%% sıxılmış)</string>
-  <string name="data_transfer_elapsed_time">Qoşulma vaxtı: %s</string>
-  <string name="check_tunnel_failed">Tunel yoxlaması alınmadı. Sizin alətiniz bütün qurğuda tunel seçimini dəstəkləməyə bilər.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Diaqnoz faylına şərh yazılması və ya yaradılması alınmadı</string>
   <string name="Diagnostics.EncryptedFailed">Diaqnostik məlumatın şərhini şifrələmək alınmadı. Bu məlumat şərh emailinə əlavə olunmayacaq.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">iptable binar məlumatı çıxarmaq alınmadı.</string>
-  <string name="transparent_proxy_routing_failed">Şəffaf proksi köklənməsinin başlanması alınmadı: %s</string>
-  <string name="transparent_proxy_routing_running">Şəffaf proksi köklənməsi gedir</string>
-  <string name="transparent_proxy_routing_stopped">Şəffaf proksi köklənməsinin dayandı</string>
   <string name="current_network_type">Hazırkı şəbəkə:: %s</string>
-  <string name="dns_resolver">DNS açan: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Şəbəkədə aktiv DNS açanı əldə etmək alınmadı</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Hazırkı tətbiqetmə üçün məlumat paketini üzə çıxarmaq alınmadı</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Yenilənmiş faylı yazmaq alınmadı</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Yeniləmənin yüklənməsi alınmadı</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Yeniləmə yükləndi. Ciddi şəkildə məsləhət görürük ki, bu dəfə yenilənməyə icazə verəsiniz. Yeniləmədən sonra Psiphonu yenidən açmalısınız.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Yeniləmə alınmadı. Yeniləmə faylından paketi çıxara bilmədi.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Yeniləmə faylı tapılmadı</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Qoşulmayıb</string>
   <string name="label_sent">Göndərilib</string>
   <string name="label_received">Alınıb</string>
-  <string name="compression_ratio">%1$.2f%% sıxılıb</string>
-  <string name="compression_savings">%s saxlandı</string>
   <string name="start">Başla</string>
   <string name="stop">Dayan</string>
   <string name="home_tab_name">Əsas</string>
   <string name="settings_tab_name">Seçimlər</string>
   <string name="statistics_tab_name">Statistika</string>
   <string name="logs_tab_name">Girişlər</string>
-  <string name="socks_proxy_address">Yerli SOCKS proksisi %s-də işləyir</string>
-  <string name="http_proxy_address">Yerli HTTP proksisi %s-də işləyir </string>
-  <string name="share_proxies_toggle">Digər şəbəkə alətlərinə yerli proksilərdən istifadə etməyə imkan verin</string>
-  <string name="share_proxies_prompt_title">Tətbiqetmə yenidən başladılmalıdır</string>
-  <string name="share_proxies_prompt_message">Bu seçimləri təsdiqləmək üçün tətbiqetməni yenidən başlatmaq lazımdır </string>
-  <string name="share_proxies_prompt_positive">Yenidən başlat</string>
-  <string name="share_proxies_prompt_negative">Ləğv et</string>
   <string name="use_proxy_settings_toggle">HTTP proksi ilə qoş</string>
   <string name="use_system_proxy_settings_radio">Sistemin şəbəkə quraşdırmalarından istifadə et</string>
   <string name="use_custom_proxy_settings_radio">Bu quraşdırmalardan istifadə et:</string>
@@ -147,18 +67,10 @@
   <string name="region_name_no">Norveç</string>
   <string name="region_name_ro">Rumıniya</string>
   <string name="region_name_se">İsveç</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon haqda</string>
   <string name="feedback">Şərhiniz</string>
-  <string name="tunnel_whole_device_toggle">Bütün aləti tunelə qoş (Android 4.0+ tələb olunur)</string>
-  <string name="disable_timeouts">Aşağı sürətli şəbəkələr üçün dayanmaları söndür</string>
-  <string name="region_selector">Bölgəni seçin</string>
-  <string name="network_proxy_connect_exception">Şəbəkənin HTTP proksisinə qoşulma alınmadı: %s</string>
-  <string name="network_proxy_connect_information">Sizin HTTP proksinizlə qoşulur: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Aşağı sürətli şəbəkələr üçün dayanmaları söndürün</string>
   <string name="network_proxy_connect_invalid_values">HTTP proksi seçimləri səhvdir</string>
-  <string name="run_polipo_failed">Poliponu işlətmək alınmadı: %s</string>
-  <string name="wdm_force_iptables_toggle">\"Köklənmiş bütün qurğu tunel üsulunun\" işləməsinə məcbur et</string>
-  <string name="http_prefix_toggle">HTTP kimi gizlət</string>
   <string name="preference_notifications_title">Bildirişlər</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -171,12 +83,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Səs</string>
   <string name="preference_notifications_with_sound_summary">Qoşulma statusu dəyişəndə səslə bildir</string>
   <string name="preference_notifications_with_vibrate_title">Vibrasiya</string>
   <string name="preference_notifications_with_vibrate_summary">Qoşulma statusu dəyişəndə vibrasiya et</string>
   <string name="moreOptions">Əlavə opsiyalar</string>
-  <string name="root_mode_not_supported">Androidin bu versiyasında köklü üsul dəstəklənmir</string>
   <string name="proxySettingsCategoryTitle">Proksi quraşdırmaları</string>
   <string name="custom_proxy_host_summary">Proksi serverinin host adı və ya İP</string>
   <string name="custom_proxy_port_summary">Proksi server portu</string>
@@ -194,7 +108,6 @@
   <string name="untunneled_address">Tunel dayandı: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Upstream proksi səhvi: %s</string>
-  <string name="diagnostic">Diaqnostika: %s</string>
   <string name="start_tunnel_failed">Tuneli başlatmaq olmadı: %s</string>
   <string name="tunnel_connecting">Tunel qoşulur...</string>
   <string name="tunnel_connected">Tunel qoşuldu</string>
@@ -204,6 +117,4 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

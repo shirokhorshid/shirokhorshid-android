@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH протоколы қосылуда…</string>
-  <string name="ssh_connected">SSH протоколы қосылулы</string>
-  <string name="ssh_connection_failed">SSH қосылуы сәтсіз болды</string>
-  <string name="ssh_authenticating">SSH аутентификациялауда…</string>
-  <string name="ssh_authentication_failed">SSH аутентификациялау сәтсіз болды</string>
-  <string name="ssh_authenticated">SSH аутентификацияланды</string>
-  <string name="socks_starting">SOCKS іске қосылуда…</string>
   <string name="socks_running">SOCKS проксиі %d портында орындалуда</string>
-  <string name="socks_stopped">SOCKS тоқтатылды</string>
-  <string name="ssh_stopped">SSH тоқтатылды</string>
-  <string name="error_message">Қателік орын алды:</string>
-  <string name="http_proxy_starting">HTTP проксиі іске қосылуда…</string>
   <string name="http_proxy_running">HTTP проксиі %d портында орындалуда</string>
-  <string name="http_proxy_stopped">HTTP проксиі тоқтатылды</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP проксиі күтпеген жерден тоқтатылды</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Сақталатын сервер жазбаларын жасау сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Сервер жазбаларын сақтау сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Сақталған сервер жазбаларын оқу сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Сақталған сервер жазбаларын талдау сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Ендірілген сервер жазбаларын талдау сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Қол алмасуды талдау сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Соңғы байланысқан уақытты сақтау сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">JSON соңғы байланысқан уақыт жауабын талдау сәтсіз болды.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Соңғы байланысқан уақытын оқу сәтсіз болды.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Қол алысуды сұрату сәтсіз болды.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH күтпеген жерден ажыратылды</string>
   <string name="client_version">Клиент нұсқасы %s</string>
-  <string name="no_server_entries">Байланысатын серверлер жоқ</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Қашықтағы серверлер тізімі жарамсыз</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Аутентификацияланған деректер бумасына басқа ортақ кілтпен қолтаңба қойылған</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Аутентификацияланған деректер бумасының қолтаңбасы жарамсыз</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Аутентификацияланған деректер бумасын талдау сәтсіз болды</string>
   <string name="AuthenticatedDataPackage.MissingValue">Аутентификацияланған деректер бумасының мәні жоқ</string>
   <string name="starting_tunnel">Туннель іске қосылуда...</string>
   <string name="stopping_tunnel">Туннельді тоқтатылуда...</string>
   <string name="stopped_tunnel">Туннель тоқтатылды</string>
-  <string name="ServerInterface.StopRequested">Тоқтату сұратылды</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS сұратуының сәтсіз болу қатесі: </string>
-  <string name="socks_ports_failed">SOCKS проксиін іске қосу сәтсіз болды: жұмыс істейтін порттар табылмады</string>
-  <string name="http_proxy_ports_failed">HTTP проксиін іске қосу сәтсіз болды: жұмыс істейтін порттар табылмады</string>
   <string name="socks_port_in_use">Сұратылған %d SOCKS прокси портын басқа қолданба пайдалануда. Жалғастыру мүмкін емес.</string>
-  <string name="transparent_proxy_running">Айқын прокси %d портында орындалуда</string>
-  <string name="transparent_proxy_ports_failed">Мөлдір проксиін іске қосу сәтсіз болды: қолжетімді порттар табылмады</string>
-  <string name="transparent_proxy_command_failed">Айқын проксиді баптау пәрмені сәтсіз болды: %s</string>
-  <string name="transparent_proxy_stopped">Айқын прокси тоқтатылды</string>
-  <string name="dns_proxy_running">DNS проксиі %d портында орындалуда</string>
-  <string name="dns_proxy_ports_failed">DNS проксиін іске қосу сәтсіз болды: жұмыс істейтін порттар табылмады</string>
-  <string name="dns_proxy_stopped">DNS проксиі тоқтатылды</string>
-  <string name="dns_proxy_failed">DNS проксиін іске қосу сәтсіз болды</string>
-  <string name="iptables_binary_not_found">Айқын прокси үшін қажетті iptables құралын жүзеге асыруды табу мүмкін емес</string>
-  <string name="root_access_denied">Root қатынауына рұқсат берілмеді</string>
-  <string name="psiphon_stopped">Тоқтатылды</string>
-  <string name="psiphon_running_whole_device">Бүкіл құрылғы режимінде орындалуда</string>
-  <string name="psiphon_running_browser_only">Тек шолғыш режимінде орындалуда</string>
   <string name="waiting_for_network_connectivity">Интернет қосылымын күтуде...</string>
-  <string name="checking_for_root_access">Root қатынауын тексеруде...</string>
   <string name="psiphon_service_notification_message_connecting">Қосылым орнатылуда…</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon қызметтік хабарламасы</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Таңдаулы серверлер: %d</string>
-  <string name="selecting_server">Серверді таңдауда...</string>
-  <string name="fetch_remote_server_list">Қашықтағы серверлер тізімін алуда…</string>
-  <string name="vpn_service_failed">VPN қызметі сәтсіз болды: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon жаңартуы</string>
   <string name="vpn_service_running">VPN қызметі орындалуда</string>
-  <string name="vpn_service_stopped">VPN қызметі тоқтатылды</string>
   <string name="vpn_service_revoked">VPN қызметі қайта шақырылды</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN + SOCKS қосылымы сәтсіз болды</string>
-  <string name="tun2socks_running">VPN + SOCKS қосылымы орындалуда</string>
-  <string name="tun2socks_stopped">VPN + SOCKS қосылымы тоқтатылды</string>
-  <string name="vpn_service_no_private_address_available">VPN қызметі бойынша жеке мекенжай табылмады</string>
-  <string name="psiphon_running_generic">Орындалуда…</string>
-  <string name="data_transfer_bytes_sent">Жіберілген байттар: %1$s (%2$.2f%% сығылған)</string>
-  <string name="data_transfer_bytes_received">Қабылданған байттар: %1$s (%2$.2f%% сығылған)</string>
-  <string name="data_transfer_elapsed_time">Қосылым уақыты: %s</string>
-  <string name="check_tunnel_failed">Туннельді тексеру сәтсіз болды. Құрылғыңызда түгел құрылғыны туннельдеу параметрі қолданылмауы мүмкін.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Кері байланысты тексеру файлын жасау немесе жазу сәтсіз болды</string>
   <string name="Diagnostics.EncryptedFailed">Кері байланысты тексеру ақпаратын шифрлау сәтсіз болды. Бұл ақпарат кері байланыс хатына тіркелмейді.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Iptables қосарлы файлын шығарып алу сәтсіз болды.</string>
-  <string name="transparent_proxy_routing_failed">Айқын прокси маршрутын бастау сәтсіз болды: %s</string>
-  <string name="transparent_proxy_routing_running">Айқын прокси маршруты орындалуда</string>
-  <string name="transparent_proxy_routing_stopped">Айқын прокси маршруты тоқтатылды</string>
   <string name="current_network_type">Ағымдағы желі: %s</string>
-  <string name="dns_resolver">DNS түрлендіргіші: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Белсенді желілік DNS түрлендіргіштерін алу сәтсіз болды</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Ағымдағы қолданба үшін бума ақпаратын алу мүмкін емес</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Жаңарту файлын жазу сәтсіз болды</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Жаңартуды жүктеп алу сәтсіз болды</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Жаңарту жүктеліп алынды. Қазір жалғастыру үшін жаңартуға рұқсат етуді ұсынамыз. Жаңартылғаннан кейін Psiphon қолданбасын қайта іске қосу керек болады.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Жаңарту сәтсіз болды. Жаңарту файлынан бума ақпаратын шығарып алу мүмкін емес.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Жаңарту файлы табылмады</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Қосылым үзілді</string>
   <string name="label_sent">Жіберілген</string>
   <string name="label_received">Қабылданған</string>
-  <string name="compression_ratio">%1$.2f%% сығылған</string>
-  <string name="compression_savings">%s сақталған</string>
   <string name="start">Бастау</string>
   <string name="stop">Тоқтату</string>
   <string name="home_tab_name">басты бет</string>
   <string name="settings_tab_name">Таңдалатын нұсқалар</string>
   <string name="statistics_tab_name">Статистика</string>
   <string name="logs_tab_name">Журналдар</string>
-  <string name="socks_proxy_address">Жергілікті SOCKS проксиі %s портында орындалуда</string>
-  <string name="http_proxy_address">Жергілікті HTTP проксиі %s портында орындалуда</string>
-  <string name="share_proxies_toggle">Басқа желілік құрылғылардың жергілікті проксилерді пайдалануына рұқсат ету</string>
-  <string name="share_proxies_prompt_title">Қолданбаны қайта іске қосу керек</string>
-  <string name="share_proxies_prompt_message">Қолданбаның осы параметрді қолдануы үшін оны қайта іске қосу керек.</string>
-  <string name="share_proxies_prompt_positive">Қазір қайта іске қосу</string>
-  <string name="share_proxies_prompt_negative">Болдырмау</string>
   <string name="use_proxy_settings_toggle">HTTP проксиі арқылы қосылу</string>
   <string name="use_system_proxy_settings_radio">Жүйенің желілік параметрлерін пайдалану </string>
   <string name="use_custom_proxy_settings_radio">Келесі параметрлерді пайдалану:</string>
@@ -147,18 +67,10 @@
   <string name="region_name_no">Норвегия</string>
   <string name="region_name_ro">Румыния</string>
   <string name="region_name_se">Швеция</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon туралы</string>
   <string name="feedback">Кері байланыс</string>
-  <string name="tunnel_whole_device_toggle">Бүкіл құрылғыны туннельдеу (Android 4.0+ қажет)</string>
-  <string name="disable_timeouts">Баяу желілер үшін таймауттарды ажырату</string>
-  <string name="region_selector">Аймақты таңдау</string>
-  <string name="network_proxy_connect_exception">Желінің HTTP проксиіне қосылу сәтсіз болды: %s</string>
-  <string name="network_proxy_connect_information">Сіздің HTTP проксиі арқылы қосылу: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Баяу желілер үшін таймауттарды ажырату</string>
   <string name="network_proxy_connect_invalid_values">HTTP прокси параметрлері жарамсыз</string>
-  <string name="run_polipo_failed">Polipo орындау сәтсіз болды: %s</string>
-  <string name="wdm_force_iptables_toggle">Тұтас құрылғыны туннельдеудің root тәсілін орындату </string>
-  <string name="http_prefix_toggle">HTTP сияқты бүркемелеу</string>
   <string name="preference_notifications_title">Хабарламалар</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -171,12 +83,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Дыбыс</string>
   <string name="preference_notifications_with_sound_summary">Қосылым күйі өзгерген кезде дыбысты ойнату</string>
   <string name="preference_notifications_with_vibrate_title">Дірілдеу</string>
   <string name="preference_notifications_with_vibrate_summary">Қосылым күйі өзгерген кезде дірілдеу</string>
   <string name="moreOptions">Қосымша таңдалатын параметрлер</string>
-  <string name="root_mode_not_supported">Root режимі Android жүйесінің бұл нұсқасында қолданылмайды</string>
   <string name="proxySettingsCategoryTitle">Прокси параметрлері</string>
   <string name="custom_proxy_host_summary">Прокси серверінің хост атауы немесе IP мекенжайы</string>
   <string name="custom_proxy_port_summary">Прокси  серверінің порты</string>
@@ -194,7 +108,6 @@
   <string name="untunneled_address">Туннельденбеген: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Сыртқы прокси қатесі: %s</string>
-  <string name="diagnostic">Диагностика: %s</string>
   <string name="start_tunnel_failed">Туннельді іске қосу сәтсіз болды: %s</string>
   <string name="tunnel_connecting">Туннель қосылуда…</string>
   <string name="tunnel_connected">Туннель қосылулы</string>
@@ -204,6 +117,4 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

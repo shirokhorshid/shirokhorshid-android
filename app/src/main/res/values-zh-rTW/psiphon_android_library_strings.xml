@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH正在連接...</string>
-  <string name="ssh_connected">SSH連接成功</string>
-  <string name="ssh_connection_failed">SSH連接失敗</string>
-  <string name="ssh_authenticating">SSH正在進行身份驗證...</string>
-  <string name="ssh_authentication_failed">SSH身份驗證失敗</string>
-  <string name="ssh_authenticated">SSH身份驗證成功</string>
-  <string name="socks_starting">SOCKS代理啟動...</string>
   <string name="socks_running">SOCKS代理運行於%d端口</string>
-  <string name="socks_stopped">SOCKS代理已停止</string>
-  <string name="ssh_stopped">SSH已停止</string>
-  <string name="error_message">發生了錯誤：</string>
-  <string name="http_proxy_starting">HTTP代理啟動...</string>
   <string name="http_proxy_running">HTTP代理運行於%d端口</string>
-  <string name="http_proxy_stopped">HTTP代理已停止</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP代理意外停止</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">創建用來儲存的伺服器項失敗。</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">儲存伺服器項失敗。</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">讀取已儲存的伺服器項失敗。</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">解析已儲存的伺服器項失敗。</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">解析嵌入式伺服器項失敗。</string>
-  <string name="ServerInterface.FailedToParseHandshake">解析握手失敗。</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">儲存上次連接時間的失敗。</string>
-  <string name="ServerInterface.FailedToParseLastConnected">無法解析JSON最近連接時的響應。</string>
-  <string name="ServerInterface.FailedToReadLastConnected">讀取上次連接時間失敗。</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">握手請求失敗。</string>
-  <string name="ssh_disconnected_unexpectedly">SSH意外斷開連接</string>
   <string name="client_version">客戶端版本 %s</string>
-  <string name="no_server_entries">無伺服器可供連接</string>
-  <string name="ServerInterface.InvalidRemoteServerList">無效的遠程伺服器列表</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">用不同公鑰簽名的已驗證資料包</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">已驗證資料包上的無效簽名</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">解析已驗證資料包失敗</string>
   <string name="AuthenticatedDataPackage.MissingValue">已驗證資料包中缺失值</string>
   <string name="starting_tunnel">啟動通道...</string>
   <string name="stopping_tunnel">停止通道...</string>
   <string name="stopped_tunnel">通道已停止</string>
-  <string name="ServerInterface.StopRequested">請求停止</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS請求失敗且出現錯誤: </string>
-  <string name="socks_ports_failed">啟動 SOCKS 代理失敗：找不到可用的端口</string>
-  <string name="http_proxy_ports_failed">啟動 HTTP 代理失敗：找不到可用的端口</string>
   <string name="socks_port_in_use">所請求的本地 SOCKS 代理端口 %d 已被其他應用佔用。無法繼續。</string>
-  <string name="transparent_proxy_running">透明代理運行於 %d 端口</string>
-  <string name="transparent_proxy_ports_failed">透明代理運行失敗：找不到可用的端口</string>
-  <string name="transparent_proxy_command_failed">透明代理配置命令失敗：%s</string>
-  <string name="transparent_proxy_stopped">透明代理已停止</string>
-  <string name="dns_proxy_running">DNS代理在端口%d上運行</string>
-  <string name="dns_proxy_ports_failed">開啟DNS代理失敗：找不到可用的端口</string>
-  <string name="dns_proxy_stopped">DNS代理已停止</string>
-  <string name="dns_proxy_failed">開啟DNS代理失敗</string>
-  <string name="iptables_binary_not_found">找不到透明代理所需的iptables實現</string>
-  <string name="root_access_denied">獲取 root 權限被拒絕</string>
-  <string name="psiphon_stopped">已停止</string>
-  <string name="psiphon_running_whole_device">運行全局代理模式</string>
-  <string name="psiphon_running_browser_only">運行內鍵瀏覽器模式</string>
   <string name="waiting_for_network_connectivity">等待網絡連接...</string>
-  <string name="checking_for_root_access">檢查 root 權限...</string>
   <string name="psiphon_service_notification_message_connecting">連接中…</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon 服務通知</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">首選伺服器：%d</string>
-  <string name="selecting_server">選擇伺服器…</string>
-  <string name="fetch_remote_server_list">正在獲取遠程伺服器列表…</string>
-  <string name="vpn_service_failed">VPN服務失敗：%s</string>
+  <string name="psiphon_upgrade_notification_channel_name">賽風更新</string>
   <string name="vpn_service_running">VPN服務正在運行</string>
-  <string name="vpn_service_stopped">VPN服務已停止</string>
   <string name="vpn_service_revoked">VPN服務失效</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN轉接SOCKS失敗</string>
-  <string name="tun2socks_running">VPN轉接SOCKS運行中</string>
-  <string name="tun2socks_stopped">VPN轉接SOCKS已停止</string>
-  <string name="vpn_service_no_private_address_available">沒有VPN服務的專用地址可用</string>
-  <string name="psiphon_running_generic">運行中…</string>
-  <string name="data_transfer_bytes_sent">已發送位元數：%1$s（%2$.2f%% 經壓縮）</string>
-  <string name="data_transfer_bytes_received">已接收位元數：%1$s（%2$.2f%% 經壓縮）</string>
-  <string name="data_transfer_elapsed_time">連接時間：%s</string>
-  <string name="check_tunnel_failed">檢查通道失敗了。你的設備可能不支持全局代理的選項。</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">無法創建或寫入回饋診斷文件</string>
   <string name="Diagnostics.EncryptedFailed">無法加密回饋診斷資訊。此訊息將不會附加到回饋電郵中。</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">無法提取iptables程序。</string>
-  <string name="transparent_proxy_routing_failed">啟動透明代理路由失敗：%s</string>
-  <string name="transparent_proxy_routing_running">透明代理路由正在運行</string>
-  <string name="transparent_proxy_routing_stopped">透明代理路由已停止</string>
   <string name="current_network_type">當前網路：%s</string>
-  <string name="dns_resolver">DNS解析程序：%s</string>
-  <string name="get_active_network_dns_resolvers_failed">無法獲取活躍的網路DNS解析</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">無法取得當前應用的軟件包資訊</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">寫入更新文件失敗</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">更新下載失敗</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">更新已下載。強烈建議您這時進行更新。完成更新後，您需要重啟動賽風。</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">更新失敗。無法從更新文件提取軟件包資訊。</string>
   <string name="UpgradeManager.UpgradeFileNotFound">未找到更新文件</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">斷開連接</string>
   <string name="label_sent">已發送</string>
   <string name="label_received">已接收</string>
-  <string name="compression_ratio">%1$.2f%% 經壓縮</string>
-  <string name="compression_savings">%s 已保存</string>
   <string name="start">啟動</string>
   <string name="stop">停止</string>
   <string name="home_tab_name">主頁</string>
   <string name="settings_tab_name">選項</string>
   <string name="statistics_tab_name">統計</string>
   <string name="logs_tab_name">日誌</string>
-  <string name="socks_proxy_address">本地 SOCKS 代理運行於 %s 端口</string>
-  <string name="http_proxy_address">本地 HTTP 代理運行於 %s 端口</string>
-  <string name="share_proxies_toggle">允許其他網絡設備使用本地代理</string>
-  <string name="share_proxies_prompt_title">需要重新啟動應用程序</string>
-  <string name="share_proxies_prompt_message">需要重新啟動此程序以應用該設置。</string>
-  <string name="share_proxies_prompt_positive">現在重新啟動</string>
-  <string name="share_proxies_prompt_negative">取消</string>
   <string name="use_proxy_settings_toggle">通過HTTP代理連接</string>
   <string name="use_system_proxy_settings_radio">使用系統網路設置</string>
   <string name="use_custom_proxy_settings_radio">使用以下設置：</string>
@@ -151,19 +71,11 @@
   <string name="region_name_sk">斯洛伐克</string>
   <string name="region_name_rs">塞爾維亞</string>
   <string name="region_name_au">澳洲</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">關於賽風</string>
   <string name="feedback">回饋</string>
-  <string name="tunnel_whole_device_toggle">全局代理設備（適用於 Android 4.0+）</string>
-  <string name="disable_timeouts">慢速網路中禁用超時斷線</string>
-  <string name="region_selector">選擇區域</string>
-  <string name="network_proxy_connect_exception">無法連接到網絡的HTTP代理：%s</string>
-  <string name="network_proxy_connect_information">正在通過您的HTTP代理連接：%s</string>
+  <string name="disableTimeoutsPreferenceSummary">慢速網路請取消暫停功能</string>
   <string name="network_proxy_connect_invalid_values">無效的HTTP代理設置</string>
   <string name="tunnel_whole_device_exception">由於失去了VPN 服務 API，你的設備並不支援全局隧道選項</string>
-  <string name="run_polipo_failed">運行Polipo失敗: %s</string>
-  <string name="wdm_force_iptables_toggle">強制獲取最高權限進行全局代理</string>
-  <string name="http_prefix_toggle">偽裝成HTTP</string>
   <string name="preference_notifications_title">通知</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -180,13 +92,15 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">聲音</string>
   <string name="preference_notifications_with_sound_summary">當連接狀態改變時發出聲音</string>
   <string name="preference_notifications_with_vibrate_title">震動</string>
   <string name="preference_notifications_with_vibrate_summary">當連接狀態改變時震動</string>
-  <string name="preference_download_wifi_only_toggle">僅在 WiFi 環境下下載更新</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">僅在 WiFi 環境下下載更新</string>
   <string name="moreOptions">更多選項</string>
-  <string name="root_mode_not_supported">您的安卓版本不支持 root 模式</string>
   <string name="proxySettingsCategoryTitle">代理設置</string>
   <string name="custom_proxy_host_summary">代理伺服器的主機名或IP地址</string>
   <string name="custom_proxy_port_summary">代理伺服器端口</string>
@@ -204,7 +118,6 @@
   <string name="untunneled_address">未代理：%s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">上層代理錯誤：%s</string>
-  <string name="diagnostic">診斷：%s</string>
   <string name="start_tunnel_failed">啟動通道失敗：%s</string>
   <string name="tunnel_connecting">通道連接中…</string>
   <string name="tunnel_connected">通道已連接</string>
@@ -215,6 +128,6 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">確定</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">不，謝謝</string>
+  <string name="disableTimeoutsPreferenceTitle">取消逾時</string>
 </resources>

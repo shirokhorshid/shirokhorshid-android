@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH kobler til…</string>
-  <string name="ssh_connected">SSH tilkoblet</string>
-  <string name="ssh_connection_failed">SSH tilkobling feilet</string>
-  <string name="ssh_authenticating">SSH identitetsbekreftelse…</string>
-  <string name="ssh_authentication_failed">SSH identitetsbekreftelse feilet</string>
-  <string name="ssh_authenticated">SSH bekreftet identitet</string>
-  <string name="socks_starting">SOCKS starter…</string>
   <string name="socks_running">SOCKS kjører på port %d</string>
-  <string name="socks_stopped">SOCKS stoppet</string>
-  <string name="ssh_stopped">SSH stoppet</string>
-  <string name="error_message">En feil skjedde:</string>
-  <string name="http_proxy_starting">HTTP mellomlager starter…</string>
   <string name="http_proxy_running">HTTP-mellomlager kjører på port %d</string>
-  <string name="http_proxy_stopped">HTTP-mellomlager stoppet</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP-mellomlager stopper uventet</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Klarte ikke å lage tjener-felt for lagring.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Klarte ikke å lagre tjener-felt.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Klarte ikke å lese lagrede tjener-felt.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Klarte ikke å tolke lagrede tjener-felt.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Klarte ikke å tolke innebygde tjener-felt.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Klarte ikke å tolke handtrykk for tilkoblingsprosedyre</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Klarte ikke å lagre tid for siste tilkobling.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Klarte ikke å tolke JSON sist tilkoblede tidsrespons.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Klarte ikke å lese tid for siste tilkobling.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Håndtrykks-forespørsel feilet.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH koblet fra uventet</string>
   <string name="client_version">Klientversjon %s</string>
-  <string name="no_server_entries">Har ingen tjenere å koble til</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Ugyldig liste over fjerntjenere</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Identiteten til datapakken er signert med en annen offentlig nøkkel</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Ugyldig signatur på bekreftelse av identitet for datapakke</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Klarte ikke å tolke bekreftet identitet for datapakke</string>
   <string name="AuthenticatedDataPackage.MissingValue">Mangler verdi i bekreftelse av identitet for datapakke</string>
   <string name="starting_tunnel">Starter tunnel…</string>
   <string name="stopping_tunnel">Stopper tunnel…</string>
   <string name="stopped_tunnel">Tunnel stoppet</string>
-  <string name="ServerInterface.StopRequested">Stopp forespurt</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS-forespørsel feilet med følgende melding:</string>
-  <string name="socks_ports_failed">Klarte ikke å starte SOCKS-mellomtjener: ingen tilgjengelige porter funnet</string>
-  <string name="http_proxy_ports_failed">Klarte ikke å starte HTTP-mellomtjener: ingen tilgjengelige porter funnet</string>
   <string name="socks_port_in_use">Forespurt lokal SOCKS-mellomtjenerport %d er allerede i bruk av et annet program. Kan ikke fortsette.</string>
-  <string name="transparent_proxy_running">Gjennomsiktig mellomtjener kjører på port %d</string>
-  <string name="transparent_proxy_ports_failed">Klarte ikke å starte gjennomsiktig mellomtjener: ingen tilgjengelige porter funnet</string>
-  <string name="transparent_proxy_command_failed">Gjennomsiktig mellomtjenerinformmasjons-kommando feilet: %s</string>
-  <string name="transparent_proxy_stopped">Gjennomsiktig mellomtjener stoppet</string>
-  <string name="dns_proxy_running">DNS-mellomtjener kjører på port %d</string>
-  <string name="dns_proxy_ports_failed">Klarte ikke å starte DNS-mellomtjener: ingen tilgjengelige porter funnet</string>
-  <string name="dns_proxy_stopped">DNS-mellomtjener stoppet</string>
-  <string name="dns_proxy_failed">Klarte ikke å starte DNS-mellomtjener</string>
-  <string name="iptables_binary_not_found">Kan ikke finne innarbeidet iptables-konfigurasjon for gjennomsiktig mellomtjener</string>
-  <string name="root_access_denied">Superbruker-rettigheter nektet</string>
-  <string name="psiphon_stopped">Stoppet</string>
-  <string name="psiphon_running_whole_device">Kjører i hele-fjøla -modus</string>
-  <string name="psiphon_running_browser_only">Kjører i bare-nettleser -modus</string>
   <string name="waiting_for_network_connectivity">Venter på nettverkstilkobling…</string>
-  <string name="checking_for_root_access">Sjekker superbrukerrettigheter…</string>
   <string name="psiphon_service_notification_message_connecting">Kobler til…</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon tjeneste-kunngjøring</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Forvalgte tjenere: %d</string>
-  <string name="selecting_server">Velger tjener…</string>
-  <string name="fetch_remote_server_list">Henter liste over tjenere eksternt…</string>
-  <string name="vpn_service_failed">VPN-tjeneste feilet: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon-oppgradering</string>
   <string name="vpn_service_running">VPN-tjeneste kjører</string>
-  <string name="vpn_service_stopped">VNP-tjeneste stoppet</string>
   <string name="vpn_service_revoked">VPN-tjeneste tilbakedratt</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN til SOCKS feilet</string>
-  <string name="tun2socks_running">VPN til SOCKS kjører</string>
-  <string name="tun2socks_stopped">VPN til SOCKS stoppet</string>
-  <string name="vpn_service_no_private_address_available">Ingen private adresser tilgjengelig for VPN-tjeneste</string>
-  <string name="psiphon_running_generic">Kjører…</string>
-  <string name="data_transfer_bytes_sent">Byte avsendt: %1$s (%2$.2f%% komprimert)</string>
-  <string name="data_transfer_bytes_received">Byte mottatt: %1$s (%2$.2f%% komprimert)</string>
-  <string name="data_transfer_elapsed_time">Tilkoblingstid: %s</string>
-  <string name="check_tunnel_failed">Sjekk-tunnel feilet. Det kan hende din enhet mangler støtte for hele-fjøla -tunnel-modus.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Klarte ikke å lage eller skrive tilbakemeldingsfil for diagnostikk</string>
   <string name="Diagnostics.EncryptedFailed">Klarte ikke å kryptere tilbakemeldingsfil for diagnostikk. Denne informasjonen vil ikke bli tilknyttet din tilbakemeldingse-post.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Klarte ikke å pakke ut iptables-binærfil.</string>
-  <string name="transparent_proxy_routing_failed">Klarte ikke å starte gjennomsiktig mellomtjener-ruting: %s</string>
-  <string name="transparent_proxy_routing_running">Gjennomsiktig mellomtjener-ruting kjører</string>
-  <string name="transparent_proxy_routing_stopped">Gjennomsiktig nettleser-ruting stoppet</string>
   <string name="current_network_type">Gjeldende nettverk: %s</string>
-  <string name="dns_resolver">DNS oversetter: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Mottak av aktive DNS-oversettere feilet</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Klarte ikke å motta pakkeinfo for gjeldende program</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Klarte ikke å skrive oppgraderingsfil</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Nedlasting av oppgraderinger feilet</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Oppgradering nedlastet. Det anbefales på det sterkeste at du tillater oppgraderingsprosessen å fortsette denne gangen. Etter oppgradering må du kjøre omstart av Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Oppgradering feilet. Klarte ikke å pakke ut pakkeinfo fra oppgraderingsfilen.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Oppgraderingsfil ikke funnet</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Frakoblet</string>
   <string name="label_sent">Sendt</string>
   <string name="label_received">Mottatt</string>
-  <string name="compression_ratio">%1$.2f%% komprimert</string>
-  <string name="compression_savings">%s lagret</string>
   <string name="start">Start</string>
   <string name="stop">Stopp</string>
   <string name="home_tab_name">Hjem</string>
   <string name="settings_tab_name">Valg</string>
   <string name="statistics_tab_name">Statistikk</string>
   <string name="logs_tab_name">Logg</string>
-  <string name="socks_proxy_address">Lokal SOCKS-mellomtjener kjører på %s</string>
-  <string name="http_proxy_address">Lokal HTTP-mellomtjener kjører på %s</string>
-  <string name="share_proxies_toggle">Tillat andre nettverksenheter å bruke den lokale mellomtjeneren</string>
-  <string name="share_proxies_prompt_title">Omstart påkrevt</string>
-  <string name="share_proxies_prompt_message">Programmet behøver omstart før denne innstillingen trår i kraft.</string>
-  <string name="share_proxies_prompt_positive">Omstart nå</string>
-  <string name="share_proxies_prompt_negative">Avbryt</string>
   <string name="use_proxy_settings_toggle">Koble til gjennom en HTTP-mellomtjener</string>
   <string name="use_system_proxy_settings_radio">Bruk systemets nettverksinnstillinger</string>
   <string name="use_custom_proxy_settings_radio">Bruk følgende innstillinger:</string>
@@ -148,19 +68,11 @@
   <string name="region_name_ro">Romania</string>
   <string name="region_name_se">Sverige</string>
   <string name="region_name_pl">Polen</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Om Psiphon</string>
   <string name="feedback">Tilbakemeldinger</string>
-  <string name="tunnel_whole_device_toggle">Tunnel over hele fjøla (krever Android 4.0+)</string>
-  <string name="disable_timeouts">Skru av tidsavbrudd for trege nettverk</string>
-  <string name="region_selector">Velg region</string>
-  <string name="network_proxy_connect_exception">Klarte ikke å koble til nettverkets HTTP-mellomtjener: %s</string>
-  <string name="network_proxy_connect_information">Kobler til via din HTTP-mellomtjener: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Skru av tidsavbrudd for trege nettverk</string>
   <string name="network_proxy_connect_invalid_values">Ugyldige innstillinger for HTTP-mellomtjener</string>
   <string name="tunnel_whole_device_exception">Enheten din støtter ikke hele-fjøla -tunnel-modus på grunn av manglende VpnService-API.</string>
-  <string name="run_polipo_failed">Kjøring av Polipo feilet: %s</string>
-  <string name="wdm_force_iptables_toggle">Påtving tunnel-over-hele-fjøla -modus ved bruk av superbrukerrettigheter.</string>
-  <string name="http_prefix_toggle">Masker som HTTP</string>
   <string name="preference_notifications_title">Kunngjøringer</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -177,13 +89,15 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Lyd</string>
   <string name="preference_notifications_with_sound_summary">Avspill lyd når tilkoblingsstatus endres</string>
   <string name="preference_notifications_with_vibrate_title">Vibrer</string>
   <string name="preference_notifications_with_vibrate_summary">Vibrer når tilkoblingsstatus endres</string>
-  <string name="preference_download_wifi_only_toggle">Kun last ned oppgraderinger på Wi-Fi</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Kun last ned oppgraderinger på Wi-Fi</string>
   <string name="moreOptions">Flere valg</string>
-  <string name="root_mode_not_supported">Superbruker-modus er ikke støttet på denne versjonen av Android</string>
   <string name="proxySettingsCategoryTitle">Innstillinger for mellomtjener</string>
   <string name="custom_proxy_host_summary">Tjenernavn eller IP-addresse tilhørende mellomtjener</string>
   <string name="custom_proxy_port_summary">Port brukt av mellomtjener</string>
@@ -201,7 +115,6 @@
   <string name="untunneled_address">Ikke tunnelert: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Oppstrøms mellomtjenerfeil: %s</string>
-  <string name="diagnostic">Diagnostikk: %s</string>
   <string name="start_tunnel_failed">Oppstart av tunnel feilet: %s</string>
   <string name="tunnel_connecting">Kobler til tunnel</string>
   <string name="tunnel_connected">Tunnel tilkoblet</string>
@@ -212,6 +125,6 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Greit</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_proxy_settings">Mellomtjenerinnstillinger</string>
+  <string name="disableTimeoutsPreferenceTitle">Skru av tidsavbrudd</string>
 </resources>

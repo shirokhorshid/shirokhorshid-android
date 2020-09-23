@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 
@@ -51,7 +52,7 @@ public class UpstreamProxySettings {
     }
 
     public static synchronized String getCustomProxyHost(Context context) {
-        return new AppPreferences(context).getString(context.getString(R.string.useCustomProxySettingsHostPreference), "");
+        return new AppPreferences(context).getString(context.getString(R.string.useCustomProxySettingsHostPreference), "").trim();
     }
 
     public static synchronized String getCustomProxyPort(Context context) {
@@ -72,6 +73,20 @@ public class UpstreamProxySettings {
 
     public static synchronized String getProxyDomain(Context context) {
         return new AppPreferences(context).getString(context.getString(R.string.useProxyDomainPreference), "");
+    }
+
+    public static boolean isValidProxyHostName(String proxyHost) {
+        if (TextUtils.isEmpty(proxyHost)) {
+            return false;
+        }
+        if (proxyHost.contains(" ")) {
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isValidProxyPort(int proxyPort) {
+        return proxyPort >= 1 && proxyPort <= 65535;
     }
 
     public static class ProxySettings {
@@ -188,8 +203,9 @@ public class UpstreamProxySettings {
 
     // Returns a tunnel-core compatible proxy URL for the
     // current user configured proxy settings.
-    // e.g., http://NTDOMAIN\NTUser:password@proxyhost:3375,
-    //       http://user:password@proxyhost:8080", etc.
+    // e.g., http://NTDOMAIN%5CNTUser:password@proxyhost:3375,
+    //       http://user:password@proxyhost:8080",
+    //       http://user%20name:pass%20word@proxyhost:12345, etc.
     public synchronized static String getUpstreamProxyUrl(Context context) {
         ProxySettings proxySettings = getProxySettings(context);
 
@@ -204,12 +220,12 @@ public class UpstreamProxySettings {
 
         if (credentials != null) {
             if (!credentials.getDomain().equals("")) {
-                url.append(credentials.getDomain());
-                url.append("\\");
+                url.append(Uri.encode(credentials.getDomain()));
+                url.append(Uri.encode("\\"));
             }
-            url.append(credentials.getUserName());
+            url.append(Uri.encode(credentials.getUserName()));
             url.append(":");
-            url.append(credentials.getPassword());
+            url.append(Uri.encode(credentials.getPassword()));
             url.append("@");
         }
 

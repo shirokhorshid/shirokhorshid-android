@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">Bango la mdhamini; bofya kutembelea ukurasa wa nyumbani wa mdhamini</string>
+  <string name="open_browser">Kivinjari Wazi</string>
+  <string name="FeedbackActivity.DefaultText">Kama una maoni mahususi, taarifa zaidi kuhusu tovuti isiyofanya kazi, au fomu hii haifunguki kwako, tafadhari tuma baruapepe &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Asante kwa kuwasilisha mrejesho wako</string>
+  <string name="FeedbackActivity.Failure">Uwasilishwaji umefeli. Tafadhali jaribu tena.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Imefeli kuwasilisha mrejesho</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Mrejesho usio sahihi wa vigezo vya URL wakati wa kuwalisha fomu</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Imefeli kupata yaliyomo kwenye ukurasa wa mrejesho</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN imesimama</string>
+  <string name="StatusActivity.VpnRevokedMessage">VPN ya Psiphon imekatishwa na wewe au programu nyingine. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia kama programu nyingine ya VPN imesakinishwa na inafanya kazi.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN haiwezi kuanza</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon haiwezi kuanzisha VPN. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia kama programu nyingine ya VPN imesakinishwa na imepangiliwa kuwa wazi kila wakati.</string>
+  <string name="selected_region_currently_not_available">Chagua eneo ambalo kwa sasa halipatikani, tafadhari chagua tena eneo lingine.</string>
+  <string name="ads_consent_preference_category_title">Matangazo ya mtu mmoja</string>
+  <string name="ads_consent_preference_dialog_preference_message">Ni kweli unataka kufanya mpangilio wa matakwa ya mtumiaji</string>
+  <string name="ads_consent_preference_title">Pangilia upya kwa pendekezo la mtumiaji</string>
+  <string name="ads_consent_preference_dialog_title">Pangilia upya</string>
+  <string name="ads_consent_preference_summary">Set upya uteuzi wako kuruhusu mtandao wa matangazo kutumia kuki na taarifa zako binafsi</string>
+  <string name="preference_language_selection_summary">Chagua lugha</string>
+  <string name="preference_language_selection_title">Lugha</string>
+  <string name="preference_language_title">Kuchagua lugha</string>
+  <string name="preference_language_default_language">Lugha ya msingi</string>
+  <string name="preference_category_advanced_title">Iliyoboreshwa</string>
+  <string name="preference_category_info_title">Taarifa</string>
+  <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">Sawa</string>
+  <string name="preference_navigate_to_vpn_setting_title">Sikuzote VPN wazi</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Nenda kwenye mfumo wa mpangilio kuwezesha Sikuzote VPN wazi</string>
+  <!--Generic negative button label.-->
+  <string name="lbl_no">Hapana</string>
+  <!--Generic positive button label.-->
+  <string name="lbl_yes">Ndio</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Hatua inahitajika!</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Tafadhari fungua Psiphon kukamilisha kuunganisha</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Chagua eneo ambalo halipo</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Tafadhari fungua Psiphon na chagua eneo lingine.</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN imesimama</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">VPN ya Psiphon imekatwa na wewe au programu nyingine.</string>
+  <!--Description for an app icon image-->
+  <string name="description_app_icon">Alama ya programu</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Mpangilio wa VPN sio sahihi</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Unatakiwa kuwa na angalau programu moja katika modi hii!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Unatakiwa kuwa na angalau programu moja katika modi hii!</string>
+  <string name="legacy_zirco_export_pref_category_title">Urithi wa msaada wa kivinjari</string>
+  <string name="legacy_bom_alert_heading">Psiphon kivinjari haipatikani tena</string>
+  <string name="legacy_bom_alert_message">Tumeweza kugundua kua ulikua unatumia Psiphon Kivinjari katika usanifishaji wa toleo la awali la %1$s.\nKama toleo la admin yako ni yakutosha hivi karibuni (5.0 au kubwa) unaeza kuchagua wavu yeyote iliyowekwa na programu kivinjari kua imesitishwa kupitia %1$s badala yake.\nKama una alama yeyote au historia ya kivinjari kutoka Psiphon kivinjari ungependelea kuhifadhi, unaweza kuzihamisha kwa chaguo tofauti (\"msaada wa urithi wa kivinjari\"  sehemu).</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Kuhitajika kwa admin 5.0 au iliyokubwa</string>
+  <string name="vpn_always_on_preference_not_available_summary">Kuhitajika kwa admin 7.0 au iliyo kubwa</string>
+  <string name="vpn_exclusions_tip_summary">Chagua kivinjari kimoja tu kwa modi ya kivinjari ya zamani</string>
+  <string name="exportZircoPreferenceSummary">Bonyeza hapa kuhamisha urithi wa Psiphon kivinjari alamisha na historia kwa uhifadhi wa data ya nje</string>
+  <string name="exportZircoPreferenceTitle">Hamisha kivinjari data</string>
+</resources>

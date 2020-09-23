@@ -1,38 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">homiy banneri; homiy sahifasiga o‘tish uchun bosing</string>
-  <string name="start_desc">Psiphonga ulanish; ulanish uchun bosing</string>
-  <string name="message_image_success_desc">xabar yuborilganligi ikonkasi</string>
-  <string name="message_image_error_desc">xato xabar ikonkasi</string>
-  <string name="message_image_debug_desc">tuzatish xabari ikonkasi</string>
-  <string name="message_image_warning_desc">ogohlantiruvchi xabar ikonkasi</string>
-  <string name="exit">Chiqish</string>
   <string name="open_browser">Brauzerni ochish</string>
-  <string name="browser_task_label">Psiphon brauzeri</string>
   <string name="FeedbackActivity.DefaultText">Agar ishlamayotgan veb-saytlar bo‘yicha fikr-mulohazalaringiz yoki xabar qilish formasi ishlamasa, e-pochta orqali &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; manzilimizga xat yuboring.</string>
   <string name="FeedbackActivity.Success">Fikr-mulohazalaringiz uchun rahmat</string>
   <string name="FeedbackActivity.Failure">Xabar yuborilmadi. Qaytadan urinib ko‘ring.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Fikr-mulohaza yuborilmadi</string>
   <string name="FeedbackActivity.InvalidURLParameters">Fikr-mulohaza yuborishda yaroqsiz URL parametrlar kiritildi</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Fikr-mulohaza sahifasi axboroti yuklanmadi</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Butun qurilma ulanishi shifrlansinmi?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Qurilmangizda butun qurilma ulanishini shifrlasa bo‘ladi.\n\nBu funksiya yordamida barcha ilovalar va brauzerlar trafigini Psiphon tuneli orqali shifrlash mumkin.\n\nBundan tashqari, faqatgina Psiphon brauzeri ulanishi shifrlanishi mumkin, qolgan ilovalar to‘g‘ridan-to‘g‘ri birlamchi internet ulanishi orqali ishlayveradi.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Butun qurilma ulanishini shifrlash</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Faqat Psiphon brauzeri ulanishini shifrlash</string>
   <string name="ads_consent_preference_dialog_title">Сброс</string>
   <string name="preference_language_selection_title">Til</string>
   <string name="preference_language_default_language">Tilni aniqlash</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Qo‘shimcha</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <!--Generic negative button label.-->

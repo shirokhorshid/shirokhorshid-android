@@ -1,38 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">faixa do patrocinador; clique para visitar a página principal do patrocinador</string>
-  <string name="start_desc">conetar ao Psiphon; clique para conetar</string>
-  <string name="message_image_success_desc">ícone indicando uma mensagem bem sucedida</string>
-  <string name="message_image_error_desc">ícone indicando uma mensagem de erro</string>
-  <string name="message_image_debug_desc">ícone indicando uma mensagem de depuração</string>
-  <string name="message_image_warning_desc">ícone indicando uma mensagem de aviso</string>
-  <string name="exit">Sair</string>
   <string name="open_browser">Abrir Navegador</string>
-  <string name="browser_task_label">Navegador Psiphon</string>
   <string name="FeedbackActivity.DefaultText">Se tiver comentários especificos, mais informação sobre os sites da web que não funcionam, ou se este formulário não funcionar para si, por favor, envie um e-mail para &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Obrigado por submeter o seu comentário</string>
   <string name="FeedbackActivity.Failure">Falhou o envio do comentário. Por favor, tente de novo.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Não foi possível enviar o comentário</string>
   <string name="FeedbackActivity.InvalidURLParameters">Parâmetros do URL inválidos na submissão do formulário do comentário</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Não foi possível obter o conteúdo da página do comentário</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Criar passagem em todo o dispositivo?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">A opção de criar uma passagem em todo o dispositivo está disponível para o seu dispositivo.\n\nCom esta opção, todo o seu tráfego da Internet para todas as suas apps, incluindo todos os navegadores, irá ser encaminhada pela passagem através do Psiphon.\n\nAlternativamente, pode escolher para encaminhar pela passagem o navegador Psiphon empacotado o que deixará que todas as outras apps sejam direcionadas através da ligação à Internet padrão.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Criar Passagem em Todo o Dispositivo</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Só utilizar o Navegador Psiphon</string>
   <string name="ads_consent_preference_dialog_title">Reiniciar</string>
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_default_language">Idioma predefinido</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Avançado</string>
+  <string name="preference_category_info_title">Informação</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN - Sempre ligada</string>

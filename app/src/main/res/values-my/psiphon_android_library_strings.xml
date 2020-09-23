@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH ချိတ်ဆက်နေပါသည်...</string>
-  <string name="ssh_connected">SSH ချိတ်ဆက်ပြီးပါပြီ</string>
-  <string name="ssh_connection_failed">SSH ချိတ်ဆက်မှုမအောင်မြင်ပါ</string>
-  <string name="ssh_authenticating">SSH အတည်ပြုနေပါသည်...</string>
-  <string name="ssh_authentication_failed">SSH အတည်ပြုမှုမအောင်မြင်ပါ</string>
-  <string name="ssh_authenticated">SSH အတည်ပြုပြီးပါပြီ</string>
-  <string name="socks_starting">SOCKS စတင်နေပါသည်...</string>
   <string name="socks_running">SOCKS သည် port %dတွင်လည်ပတ်နေပါသည်</string>
-  <string name="socks_stopped">SOCKS ရပ်တန့်သွားပါသည်</string>
-  <string name="ssh_stopped">SSH ရပ်တန့်သွားပါသည်</string>
-  <string name="error_message">မှားယွင်းမှုတစ်ခုတွေ့ရှိပါသည် : </string>
-  <string name="http_proxy_starting">HTTP ကြားခံကို စတင်နေပါသည်...</string>
   <string name="http_proxy_running">HTTP ကြားခံသည် port %dတွင်လည်ပတ်နေပါသည်။</string>
-  <string name="http_proxy_stopped">HTTP ကြားခံ ရပ်တန့်သွားပါပြီ။</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP ကြားခံ ရုတ်တရက်ရပ်တန့်သွားပါပြီ။</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">သိမ်းဆည်းထားသည့်နေရာအတွင်းသို့ ဆာဗာထည့်သွင်းမှုများမအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">ဆာဗာထည့်သွင်းမှုများမအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">သိမ်းဆည်းထားသောဆာဗာထည့်သွင်းမှုများကို ဖတ်ရန်မအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">သိမ်းဆည်းထားသောဆာဗာထည့်သွင်းမှုများကို ခွဲခြမ်းစိတ်ဖြာမှုမအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">ပြင်ဆင်သတ်မှတ်ထားသော ဆာဗာထည့်သွင်းမှုများကို ခွဲခြမ်းစိတ်ဖြာမှုမအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToParseHandshake">အချက်အလက်များလွှဲပြောင်းရန် ခွဲခြမ်းစိတ်ဖြာမှုမအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">နောက်ဆုံးချိတ်ဆက်ထားသောအချိန်ကို သိမ်းဆည်းရန်မအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToParseLastConnected">JSON နောက်ဆုံးချိတ်ဆက်ထားသောအချိန်တုံ့ပြန်မှုကို ခွဲခြမ်းစိတ်ဖြာရန်မအောင်မြင်ပါ။</string>
-  <string name="ServerInterface.FailedToReadLastConnected">နောက်ဆုံးချိတ်ဆက်ထားသောအချိန်ကို ဖတ်ရန်မအောင်မြင်ပါ။</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">အချက်အလက်များလွှဲပြောင်းရန်တောင်းဆိုမှုမအောင်မြင်ပါ။</string>
-  <string name="ssh_disconnected_unexpectedly">SSH ချိတ်ဆက်မှု ရုတ်တရက် ပြတ်တောက်သွားပါသည်။</string>
   <string name="client_version">သုံးစွဲသူဗားရှင်း %s</string>
-  <string name="no_server_entries">ချိတ်ဆက်ရန်အတွက် ဆာဗာများတစ်ခုမျှမရှိပါ</string>
-  <string name="ServerInterface.InvalidRemoteServerList">အဝေးထိန်းဆာဗာစာရင်း ဆီလျော်မှုမရှိပါ</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">မတူညီသည့်အများသုံးကီးဖြင့်ဖော်ပြထားသော အတည်ပြုပြီးဒေတာအစုအတွဲ</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">အတည်ပြုပြီးဒေတာအစုအတွဲပေါ်တွင် ဆီလျော်မှုမရှိသောဖော်ပြမှု</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">အတည်ပြုပြီးဒေတာအစုအတွဲကို ခွဲခြမ်းစိတ်ဖြာမှုမအောင်မြင်ပါ။</string>
   <string name="AuthenticatedDataPackage.MissingValue">အတည်ပြုပြီးဒေတာအစုအတွဲတွင် တန်ဖိုးပျောက်ဆုံးနေပါသည်။</string>
   <string name="starting_tunnel">ချိတ်ဆက်မှုစတင်နေပါသည်...</string>
   <string name="stopping_tunnel">ချိတ်ဆက်မှုရပ်တန့်နေပါသည်...</string>
   <string name="stopped_tunnel">ချိတ်ဆက်မှုရပ်တန့်လိုက်ပါပြီ</string>
-  <string name="ServerInterface.StopRequested">ရပ်တန့်ရန်တောင်းဆိုပြီးပါပြီ</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS တောင်းဆိုမှု မအောင်မြင်ပါ မှားယွင်းမှု: </string>
-  <string name="socks_ports_failed">SOCKS ကြားခံကို စတင်ရန်မအောင်မြင်ပါ၊ :  အသုံးပြုနိုင်သည့် port များမတွေ့ရှိပါ။</string>
-  <string name="http_proxy_ports_failed">SOCKS ကြားခံကို စတင်ရန်မအောင်မြင်ပါ၊ : အသုံးပြုနိုင်သည့် port များမတွေ့ရှိပါ။</string>
   <string name="socks_port_in_use">တောင်းဆိုထားသည့် SOCKS ကြားခံ port %d ကိုအခြား app တစ်ခုကအသုံးပြုနေပါသည်။ ဆက်လက်မဆောင်ရွက်နိုင်ပါ။</string>
-  <string name="transparent_proxy_running">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံသည် port %dတွင်လည်ပတ်နေပါသည်။</string>
-  <string name="transparent_proxy_ports_failed">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံကို စတင်ရန် မအောင်မြင်ပါ၊ : ရရှိနိုင်သည့် port များမတွေ့ရှိပါ။</string>
-  <string name="transparent_proxy_command_failed">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံအား အသုံးပြုနိုင်အောင် ပြင်ဆင်ရန် ခိုင်းစေချက် မအောင်မြင်ပါ : %s</string>
-  <string name="transparent_proxy_stopped">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံ ရပ်တန့်သွားပါပြီ။</string>
-  <string name="dns_proxy_running">DNS ကြားခံသည် port %d တွင်လည်ပတ်နေပါသည်။</string>
-  <string name="dns_proxy_ports_failed"> DNS ကြားခံ စတင်ရန်မအောင်မြင်ပါ၊ : ရရှိနိုင်သည့် port များမတွေ့ရှိပါ။</string>
-  <string name="dns_proxy_stopped">DNS ကြားခံ ရပ်တန့်သွားပါပြီ</string>
-  <string name="dns_proxy_failed"> DNS ကြားခံ စတင်ရန်မအောင်မြင်ပါ</string>
-  <string name="iptables_binary_not_found">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံအတွက် လိုအပ်သည့် iptables အကောင်အထည်ဖော်မှု မတွေ့ရှိပါ။</string>
-  <string name="root_access_denied">Root ရယူမှုငြင်းပယ်ပါသည်။</string>
-  <string name="psiphon_stopped">ရပ်တန့်ပြီးပါပြီ</string>
-  <string name="psiphon_running_whole_device">စက်တစ်ခုလုံးပုံစံတွင် လည်ပတ်နေပါသည်</string>
-  <string name="psiphon_running_browser_only">ဘရောက်ဇာတစ်ခုတည်းပုံစံတွင် လည်ပတ်နေပါသည်</string>
   <string name="waiting_for_network_connectivity">ကွန်ယက်လိုင်းချိတ်နိုင်ရန်စောင့်နေပါသည်...</string>
-  <string name="checking_for_root_access">Root ရယူရန်အတွက် စစ်ဆေးနေသည်</string>
   <string name="psiphon_service_notification_message_connecting">ချိတ်ဆက်နေသည်...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon ဝန်ဆောင်မှုဆိုင်ရာအချက်ပြမှု</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">ကြိုက်နှစ်သက်သော ဆာဗာများ : %d</string>
-  <string name="selecting_server">ဆာဗာရွေးချယ်နေပါသည်...</string>
-  <string name="fetch_remote_server_list">အဝေးထိန်းဆာဗာစာရင်း ရယူနေပါသည်...</string>
-  <string name="vpn_service_failed">VPN ဝန်ဆောင်မှုမအောင်မြင်ပါ : %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon အဆင့်မြှင့်မှု</string>
   <string name="vpn_service_running">VPN ဝန်ဆောင်မှု လည်ပတ်နေပါသည်</string>
-  <string name="vpn_service_stopped">VPN ဝန်ဆောင်မှု ရပ်တန့်သွားပါပြီ</string>
   <string name="vpn_service_revoked">VPN ဝန်ဆောင်မှု ပယ်ချလိုက်ပါပြီ</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN မှ SOCKS သို့မအောင်မြင်ပါ</string>
-  <string name="tun2socks_running">VPN မှ SOCKS သို့ လည်ပတ်နေပါသည်</string>
-  <string name="tun2socks_stopped">VPN မှ SOCKS သို့ ရပ်တန့်သွားပါပြီ</string>
-  <string name="vpn_service_no_private_address_available">VPN ဝန်ဆောင်မှုအတွက် မည်သည့်ပုဂ္ဂလလိပ်စာ မရနိုင်ပါ</string>
-  <string name="psiphon_running_generic">လည်ပတ်နေပါသည်...</string>
-  <string name="data_transfer_bytes_sent">Bytes ပေးပို့ပြီးပါပြီ: %1$s (%2$.2f%%အရွယ်အစားချုံ့ပြီး)</string>
-  <string name="data_transfer_bytes_received">Bytes လက်ခံရရှိပြီးပါပြီ: %1$s (%2$.2f%% အရွယ်အစားချုံ့ပြီး)</string>
-  <string name="data_transfer_elapsed_time">လိုင်းချိတ်ဆက်မှုအချိန် : %s</string>
-  <string name="check_tunnel_failed">ချိတ်ဆက်မှုစစ်ဆေးခြင်းမအောင်မြင်ပါ၊ သင်၏စက်သည် စက်တစ်ခုလုံးနှင့် ချိတ်ဆက်မှုပုံစံကို အသုံးပြုနိုင်ရန် ထောက်ပံ့မပေးသောကြောင့် ဖြစ်နိုင်သည်။</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">အကြံပြုချက် နှင့် စစ်ဆေးထားသော အချက်အလက်ဖိုင်ကို ရေးသားဖန်တီးမှု မအောင်မြင်ပါ</string>
   <string name="Diagnostics.EncryptedFailed">အကြံပြုချက် နှင့် စစ်ဆေးထားသော အချက်အလက်ကို လျို့ဝှက်စာအဖြစ်ပြောင်းလဲရန် မအောင်မြင်ပါ။ ဤသတင်းအချက်အလက်သည် အကြံပြုချက်ပေးပို့သည့် အီးမေးလ်ထဲတွင် ပါဝင်မည်မဟုတ်ပါ။</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">binary iptables များကိုဆွဲထုတ်ရန်မအောင်မြင်ပါ။</string>
-  <string name="transparent_proxy_routing_failed">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံလမ်းကြောင်းကို စတင်ရန် မအောင်မြင်ပါ၊ : %s</string>
-  <string name="transparent_proxy_routing_running">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံလမ်းကြောင်း လည်ပတ်နေပါသည်</string>
-  <string name="transparent_proxy_routing_stopped">အပြင်အဆင်များ ထည့်သွင်းရန်မလိုဘဲ အင်တာနက်အသုံးပြုနိုင်သည့် ကြားခံလမ်းကြောင်း ရပ်တန့်သွားပါပြီ</string>
   <string name="current_network_type">လက်ရှိကွန်ယက် : %s</string>
-  <string name="dns_resolver">DNS resolver: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">အသုံးပြု၍ရသောကွန်ယက် DNS resolvers ရယူရန် မအောင်မြင်ပါ</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">လက်ရှိ app အတွက် အစုအတွဲ၏ သတင်းအချက်အလက်ကို ပြန်လည်မရယူနိုင်ပါ</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">အဆင့်မြှင့်ဖိုင်ကိုရေးရန် မအောင်မြင်ပါ</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">အဆင့်မြှင့်ရန် ဒေါင်းလုပ်လုပ်မှု မအောင်မြင်ပါ</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">အဆင့်မြှင့်မှုကို ဒေါင်းလုပ်လုပ်ပြီးပါပြီ။ ဤအချိန်တွင် အဆင့်မြှင့်မှုကိုဆက်လက်လုပ်ဆောင်နိုင်ရန်အတွက် ခွင့်ပြုပေးရန် အကြံပြုလိုပါသည်။ အဆင့်မြှင့်မှုပြီးဆုံးသွားပါက Psiphon ကိုနောက်တစ်ကြိမ် ပြန်ဖွင့်ရပါလိမ့်မည်။</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">အဆင့်မြှင့်မှုမအောင်မြင်ပါ။ အဆင့်မြှင့်ရန်ဖိုင်အတွင်းမှ အစုအတွဲသတင်းအချက်အလက်ကို ထုတ်မယူနိုင်ပါ။</string>
   <string name="UpgradeManager.UpgradeFileNotFound">အဆင့်မြှင့်ရန်ဖိုင်ကို မတွေ့ရှိပါ</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">ချိတ်ဆက်မှု ပြတ်တောက်သွားသည်</string>
   <string name="label_sent">ပေးပို့ပြီးပါပြီ</string>
   <string name="label_received">လက်ခံရရှိပါသည်</string>
-  <string name="compression_ratio">%1$.2f%% အရွယ်အစားချုံ့ပြီး</string>
-  <string name="compression_savings">%s သိမ်းဆည်းပြီး</string>
   <string name="start">စတင်ရန်</string>
   <string name="stop">ရပ်ရန်</string>
   <string name="home_tab_name">ပင်မစာမျက်နှာ</string>
   <string name="settings_tab_name">ရွေးချယ်စရာများ</string>
   <string name="statistics_tab_name">အသုံးပြုမှုဆိုင်ရာအချက်အလက်များ</string>
   <string name="logs_tab_name">မှတ်တမ်းများ</string>
-  <string name="socks_proxy_address">ဒေသခံ SOCKS ကြားခံသည် %s တွင်လည်ပတ်နေပါသည်</string>
-  <string name="http_proxy_address">ဒေသခံ HTTP ကြားခံသည် %s တွင်လည်ပတ်နေပါသည်</string>
-  <string name="share_proxies_toggle">အခြားကွန်ယက်နှင့်ချိတ်ဆက်နေသောစက်များကို local ကြားခံများ အသုံးပြုခွင့်ပေးရန်</string>
-  <string name="share_proxies_prompt_title">App ကိုအစမှပြန်ဖွင့်ရန် လိုအပ်သည်</string>
-  <string name="share_proxies_prompt_message">ဤအပြင်အဆင်ကိုသက်ရောက်မှုရှိရန်အတွက် app ကိုအစမှပြန်ဖွင့်ရန် လိုအပ်သည်</string>
-  <string name="share_proxies_prompt_positive">ယခုပင်အစမှပြန်ဖွင့်ရန်</string>
-  <string name="share_proxies_prompt_negative">ရပ်ဆိုင်းရန်</string>
   <string name="use_proxy_settings_toggle">HTTP ကြားခံတစ်ခုမှချိတ်ဆက်ရန်</string>
   <string name="use_system_proxy_settings_radio">စက်၏ ကွန်ယက်အပြင်အဆင်များအား အသုံးပြုရန်</string>
   <string name="use_custom_proxy_settings_radio">အောက်ပါအပြင်အဆင်များအသုံးပြုရန်</string>
@@ -151,19 +71,11 @@
   <string name="region_name_sk">ဆလိုဗာကီးယား</string>
   <string name="region_name_rs">ဆားဘီးယား</string>
   <string name="region_name_au">သြစတြေးလျ</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon အကြောင်း</string>
   <string name="feedback">အကြံပြုချက်</string>
-  <string name="tunnel_whole_device_toggle">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်ရန် (Android 4.0+ လိုအပ်သည်)</string>
-  <string name="disable_timeouts">နှေးသောကွန်ယက်များအတွက် အချိန်သတ်မှတ်ချက်များကို အသုံးပြု၍မရအောင်လုပ်ရန်</string>
-  <string name="region_selector">ဒေသရွေးရန်</string>
-  <string name="network_proxy_connect_exception">ကွန်ယက်၏ HTTP ကြားခံ %s ကိုချိတ်ဆက်ရန်မအောင်မြင်ပါ</string>
-  <string name="network_proxy_connect_information">သင်၏ HTTP ကြားခံ%s မှတဆင့်ချိတ်ဆက်နေပါသည်</string>
+  <string name="disableTimeoutsPreferenceSummary">နှေးသောကွန်ယက်များအတွက် အချိန်သတ်မှတ်ချက်များကို အသုံးပြု၍မရအောင်လုပ်ရန်</string>
   <string name="network_proxy_connect_invalid_values">ဆီလျော်မှုမရှိသည့် HTTP ကြားခံ အပြင်အဆင်များ။</string>
   <string name="tunnel_whole_device_exception">VpnService API မတွေ့ခြင်းကြောင့် စက်ပစ္စည်းတစ်ခုလုံးအတွက် မပြောင်းလဲနိုင်ပါ။</string>
-  <string name="run_polipo_failed">Polipo လည်ပတ်မှုမအောင်မြင်ပါ : %s</string>
-  <string name="wdm_force_iptables_toggle">အင်အားသုံး root လုပ်၍ စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့် ချိတ်ဆက်ရန်နည်းလမ်း</string>
-  <string name="http_prefix_toggle">HTTP ကဲ့သို့ သရုပ်သဏ္ဍန်လုပ်ရန်</string>
   <string name="preference_notifications_title">အသိပေးချက်များ</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -179,13 +91,15 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">အသံ</string>
   <string name="preference_notifications_with_sound_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းအသံထွက်ရန်</string>
   <string name="preference_notifications_with_vibrate_title">တုန်ခါမှု</string>
   <string name="preference_notifications_with_vibrate_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းတုန်ခါရန်</string>
-  <string name="preference_download_wifi_only_toggle">ဝိုင်ဖိုင်နှင့် ချိတ်ထားမှသာ အဆင့်မြှင့်ပါ။ </string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ဝိုင်ဖိုင်နှင့် ချိတ်ထားမှသာ အဆင့်မြှင့်ပါ။ </string>
   <string name="moreOptions">နောက်ထပ်ရွေးချယ်စရာများ</string>
-  <string name="root_mode_not_supported">ဤ Android ဗားရှင်းအတွက် root ပုံစံပြုလုပ်ရန် အထောက်အပံ့ မပေးပါ။</string>
   <string name="proxySettingsCategoryTitle">ကြားခံ အပြင်အဆင်များ</string>
   <string name="custom_proxy_host_summary">ကြားခံ ဆာဗာလက်ခံသိမ်းဆည်းသူအမည် သို့မဟုတ် အိုင်ပီ</string>
   <string name="custom_proxy_port_summary">ကြားခံအင်တာနက်ဆာဗာ port</string>
@@ -203,7 +117,6 @@
   <string name="untunneled_address">ဝင်ရောက်ချိတ်ဆက်မှု ဖြတ်တောက်ပြီးပါပြီ :  %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">အင်တာနက်အား ချိတ်ဆက်သည့် ကြားခံ ပြဿနာ : %s</string>
-  <string name="diagnostic">စစ်ဆေးတွေ့ရှိချက် : %s</string>
   <string name="start_tunnel_failed">ဝင်ရောက်ချိတ်ဆက်မှု မအောင်မြင်ပါ : %s</string>
   <string name="tunnel_connecting">ဝင်ရောက်ချိတ်ဆက်နေပါသည်...</string>
   <string name="tunnel_connected">ဝင်ရောက်ချိတ်ဆက်ပြီးပါပြီ</string>
@@ -213,6 +126,4 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

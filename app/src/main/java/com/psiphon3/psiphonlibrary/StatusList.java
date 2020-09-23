@@ -28,7 +28,7 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +37,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.psiphon3.R;
 
 import org.json.JSONObject;
 
@@ -413,11 +415,11 @@ public class StatusList {
             Context context = listview.getContext();
             
             m_adapter = new StatusListAdapter(
-                    context, 
-                    context.getResources().getIdentifier("message_row", "layout", context.getPackageName()),
-                    context.getResources().getIdentifier("MessageRow.Text", "id", context.getPackageName()),
-                    context.getResources().getIdentifier("MessageRow.Image", "id", context.getPackageName()),
-                    context.getResources().getIdentifier("MessageRow.Timestamp", "id", context.getPackageName()));
+                    context,
+                    R.layout.message_row,
+                    R.id.MessageRow_Text,
+                    0,
+                    R.id.MessageRow_Timestamp);
             
             m_listview = listview;
             m_listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);

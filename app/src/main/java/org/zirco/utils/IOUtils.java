@@ -29,7 +29,7 @@ import android.os.Environment;
  */
 public class IOUtils {
 	
-	private static final String APPLICATION_FOLDER = "zirco";
+	private static final String APPLICATION_FOLDER = "Psiphon";
 	private static final String DOWNLOAD_FOLDER = "downloads";
 	private static final String BOOKMARKS_EXPORT_FOLDER = "bookmarks-exports";
 	

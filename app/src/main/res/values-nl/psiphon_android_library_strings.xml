@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH Verbinden</string>
-  <string name="ssh_connected">SSH verbonden</string>
-  <string name="ssh_connection_failed">SSH verbinding mislukt</string>
-  <string name="ssh_authenticating">SSH verificatie...</string>
-  <string name="ssh_authentication_failed">SSH verificatie mislukt</string>
-  <string name="ssh_authenticated">SSH geverifieerd</string>
-  <string name="socks_starting">SOCKS starten...</string>
   <string name="socks_running">SOCK werkt op poort %d</string>
-  <string name="socks_stopped">SOCKS is gestopt</string>
-  <string name="ssh_stopped">SSH is gestopt</string>
-  <string name="error_message">Een fout opgetreden</string>
-  <string name="http_proxy_starting">HTTP proxy starten...</string>
   <string name="http_proxy_running">HTTP proxy werkt op poort %d</string>
-  <string name="http_proxy_stopped">HTTP proxy is gestopt</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP proxy stopt onverwacht</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Mislukt server items maken voor het opslaan.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Mislukt bij opslaan server inzendingen.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Mislukt bij lezen van opgeslagen server inzendingen.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Mislukt te parseren opgeslagen server inzendingen.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Mislukt te parseren ingebouwde server inzendingen.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Mislukt te parseren handdruk.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Mislukt bij opslaan laatste verbinding tijd.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Mislukt te parseren JSON laatst verbinding tijd respons.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Mislukt te lezen laatste verbinding tijd.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Handdruk verzoek mislukt</string>
-  <string name="ssh_disconnected_unexpectedly">SSH verbreekt onverwacht</string>
   <string name="client_version">Klant Versie %s</string>
-  <string name="no_server_entries">Daar zijn geen servers om verbinding maken</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Ongeldige externe server lijst</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Geverifieerde data pakket getekend met verschillende publieke sleutel</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Ongeldige handtekening op geverifieerde datapakket</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Mislukt te parseren geverifieerde data pakket</string>
   <string name="AuthenticatedDataPackage.MissingValue">Ontbrekende waarde in geauthenticeerd datapakket</string>
   <string name="starting_tunnel">Starten tunnel…</string>
   <string name="stopping_tunnel">Stoppen tunnel…</string>
   <string name="stopped_tunnel">Tunnel is gestopt </string>
-  <string name="ServerInterface.StopRequested">Stop aanvraag</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTP aanvraag mislukt met fout:</string>
-  <string name="socks_ports_failed">Mislukt te start SOCKS proxy: geen beschikbare poorten gevonden</string>
-  <string name="http_proxy_ports_failed">Mislukt te start HTTP proxy: geen beschikbare poorten gevonden</string>
   <string name="socks_port_in_use">Aangevraagd lokaal SOCKS proxy poort %d is al in gebruik bij andere app. kan niet worden voortgezet</string>
-  <string name="transparent_proxy_running">Transparant proxy werkt op poort %d</string>
-  <string name="transparent_proxy_ports_failed">Mislukt te start transparant proxy: geen beschikbare poorten gevonden</string>
-  <string name="transparent_proxy_command_failed">Transparant proxy configuratie opdracht mislukt: %s</string>
-  <string name="transparent_proxy_stopped">Transparant proxy is gestopt</string>
-  <string name="dns_proxy_running">DNS proxy werkt op poort %d</string>
-  <string name="dns_proxy_ports_failed">Mislukt te start DNS proxy: geen beschikbare poorten gevonden</string>
-  <string name="dns_proxy_stopped">HTTP proxy is gestopt</string>
-  <string name="dns_proxy_failed">Mislukt te start DNS proxy</string>
-  <string name="iptables_binary_not_found">Kan niet vinden iptables implementatie die nodig is voor transparante proxytabel</string>
-  <string name="root_access_denied">Root toegang geweigerd</string>
-  <string name="psiphon_stopped">Gestopt</string>
-  <string name="psiphon_running_whole_device">Functie werkt in gehele apparaat</string>
-  <string name="psiphon_running_browser_only">Functie werkt in browser-alleen </string>
   <string name="waiting_for_network_connectivity">Wachten op netwerkverbinding...</string>
-  <string name="checking_for_root_access">Controle voor root toegang...</string>
   <string name="psiphon_service_notification_message_connecting">Verbinden</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon Service Notificatie</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Gewenste servers: %d</string>
-  <string name="selecting_server">Selecteren Server...</string>
-  <string name="fetch_remote_server_list">Ophalen externe server lijst</string>
-  <string name="vpn_service_failed">VPN service mislukt: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon Upgrade</string>
   <string name="vpn_service_running">VPN service werkt</string>
-  <string name="vpn_service_stopped">VPN service is gestopt</string>
   <string name="vpn_service_revoked">VPN service is ingetrokken</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN naar SOCKS mislukt</string>
-  <string name="tun2socks_running">VPN naar SOCKS werkt</string>
-  <string name="tun2socks_stopped">VPN naar SOCKS is gestopt</string>
-  <string name="vpn_service_no_private_address_available">Geen privé- adres beschikbaar voor VPN service</string>
-  <string name="psiphon_running_generic">Werkt...</string>
-  <string name="data_transfer_bytes_sent">Bytes verstuurt: %1$s (%2$.2f%% gecomprimeerd)</string>
-  <string name="data_transfer_bytes_received">Bytes ontvangen: %1$s (%2$.2f%% gecomprimeerd)</string>
-  <string name="data_transfer_elapsed_time">Verbindings tijd: %s</string>
-  <string name="check_tunnel_failed">Controleer tunnel is mislukt. Het apparaat kan geen ondersteuning voor de gehele inrichting tunnel optie.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Mislukt te maken of te schrijven feedback diagnostiek bestand</string>
   <string name="Diagnostics.EncryptedFailed">Mislukt te versleutelen feedback diagnostische informatie. Deze informatie zal niet zijn bevestigd  aan de feedback e-mail.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Mislukt te extract binaire iptables.</string>
-  <string name="transparent_proxy_routing_failed">Mislukt te start transparant proxy routing: %s </string>
-  <string name="transparent_proxy_routing_running">Transparant proxy routing werkt</string>
-  <string name="transparent_proxy_routing_stopped">Transparant proxy routing gestopt</string>
   <string name="current_network_type">Huidig netwerk: %s</string>
-  <string name="dns_resolver">DNS oplosser: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Krijgen van actief netwerk DNS oplossers is mislukt</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Niet in staat om op te halen pakket informatie voor de huidige app</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Mislukt te schrijven upgrade-bestand</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Upgrade download mislukt</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Upgrade gedownload. Het wordt ten zeerste aanbevolen dat u toestaan dat de upgrade om verder te gaan op dit moment. Na het upgraden, moet u Psiphon opnieuw starten.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Upgrade is mislukt. Kan niet uitpakken pakket info vanaf upgrade-bestand.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Upgrade bestand niet gevonden</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Verbroken</string>
   <string name="label_sent">Versturen</string>
   <string name="label_received">Ontvangen</string>
-  <string name="compression_ratio">%1$.2f%% gecomprimeerd</string>
-  <string name="compression_savings">%s opslaan</string>
   <string name="start">Start</string>
   <string name="stop">Stop</string>
   <string name="home_tab_name">THUIS</string>
   <string name="settings_tab_name">OPTIE</string>
   <string name="statistics_tab_name">STATISTIEK</string>
   <string name="logs_tab_name">LOGBOEK</string>
-  <string name="socks_proxy_address">Lokale SOCKS proxy  werkt op %s</string>
-  <string name="http_proxy_address">Lokale HTTP proxy werkt op %s</string>
-  <string name="share_proxies_toggle">Toestaan andere netwerkapparaten om de lokale proxies te gebruiken</string>
-  <string name="share_proxies_prompt_title">App herstart vereist</string>
-  <string name="share_proxies_prompt_message">De app moet herstart worden om deze instelling toe te passen</string>
-  <string name="share_proxies_prompt_positive">Herstart nu</string>
-  <string name="share_proxies_prompt_negative">Annuleer</string>
   <string name="use_proxy_settings_toggle">Verbind via een HTTP proxy</string>
   <string name="use_system_proxy_settings_radio">Gebruik systeem netwerkinstellingen</string>
   <string name="use_custom_proxy_settings_radio">Gebruik de volgende instellingen:</string>
@@ -152,19 +72,11 @@
   <string name="region_name_sk">Slovakije</string>
   <string name="region_name_rs">Servië</string>
   <string name="region_name_au">Australië</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Over Psiphon</string>
   <string name="feedback">Feedback</string>
-  <string name="tunnel_whole_device_toggle">Tunnel gehele apparaat (vereist Android 4.0+)</string>
-  <string name="disable_timeouts">Uitschakelen time-outs voor trage netwerken</string>
-  <string name="region_selector">Selecteer regio</string>
-  <string name="network_proxy_connect_exception">Mislukt verbinding te maken met de netwerken HTTP Proxy: %s</string>
-  <string name="network_proxy_connect_information">Verbinden via uw HTTP Proxy: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Uitschakelen time-outs voor trage netwerken</string>
   <string name="network_proxy_connect_invalid_values">Ongeldige HTTP Proxy-instellingen</string>
   <string name="tunnel_whole_device_exception">Uw apparaat biedt geen ondersteuning voor de gehele apparaattunneloptie vanwege ontbrekende VpnService-API.</string>
-  <string name="run_polipo_failed">Uitvoeren Polipo mislukt: %s</string>
-  <string name="wdm_force_iptables_toggle">Functie Dwingen root Tunnel Gehele Apparaat </string>
-  <string name="http_prefix_toggle">Voordoen als HTTP</string>
   <string name="preference_notifications_title">Notificatie</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -181,13 +93,15 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Geluid</string>
   <string name="preference_notifications_with_sound_summary">Speel geluid wanneer status van de verbinding verandert</string>
   <string name="preference_notifications_with_vibrate_title">Trillen</string>
   <string name="preference_notifications_with_vibrate_summary">Trillen als status van de verbinding verandert</string>
-  <string name="preference_download_wifi_only_toggle">Download upgrades alleen via Wi-Fi </string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Download upgrades alleen via Wi-Fi </string>
   <string name="moreOptions">Meer Optie</string>
-  <string name="root_mode_not_supported">Root-modus wordt niet ondersteund in deze versie van Android</string>
   <string name="proxySettingsCategoryTitle">Proxy Instellingen</string>
   <string name="custom_proxy_host_summary">Proxy server hostnaam of IP</string>
   <string name="custom_proxy_port_summary">Proxy server poort</string>
@@ -205,7 +119,6 @@
   <string name="untunneled_address">Niet-getunneld: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Upstream proxy fout: %s</string>
-  <string name="diagnostic">Diagnostisch: %s</string>
   <string name="start_tunnel_failed">Start tunnel mislukt: %s</string>
   <string name="tunnel_connecting">Tunnel verbinden...</string>
   <string name="tunnel_connected">Tunnel verbonden</string>
@@ -217,6 +130,5 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Nee bedankt</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="disableTimeoutsPreferenceTitle">Uitschakelen timeouts</string>
 </resources>

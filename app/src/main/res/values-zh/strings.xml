@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">赞助商标志；点击访问赞助商主页</string>
-  <string name="start_desc">连接到赛风；点击连接</string>
-  <string name="message_image_success_desc">表示成功消息的图标</string>
-  <string name="message_image_error_desc">表示错误消息的图标</string>
-  <string name="message_image_debug_desc">表示调试消息的图标</string>
-  <string name="message_image_warning_desc">表示警告消息的图标</string>
-  <string name="exit">退出</string>
   <string name="open_browser">打开浏览器</string>
-  <string name="browser_task_label">赛风浏览器</string>
   <string name="FeedbackActivity.DefaultText">如果您有具体建议、网站无法正常运行的详情，或者该表单无法使用，请发邮件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
   <string name="FeedbackActivity.Success">谢谢您的反馈</string>
   <string name="FeedbackActivity.Failure">提交失败，请再试。</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">赛风的VPN被您或其他应用断开了。多个VPN应用无法同时运行。请检查安装的其他VPN应用是否在运行。</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">赛风VPN无法启动</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">赛风无法开启VPN。多个VPN应用无法同时运行。请检查其他VPN应用是否设置为常开模式。</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">是否启用全局代理？</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">您的设备可使用全局代理。\n\n启用该选项后，全部应用（包括浏览器）都将通过赛风连接互联网。\n\n另外，您也可以选择仅使用集成的赛风浏览器。该选项表示，除赛风浏览器之外，其他应用将正常连接。</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">仅赛风浏览器</string>
   <string name="selected_region_currently_not_available">目前选定的地区无效，请选择其他地区。</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">我们关心您的隐私和数据安全。我们通过展示广告免费提供此应用。</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">我们可以继续使用您的数据为您量身定制广告吗？</string>
-  <string name="you_can_change_your_choice_anytime">您可以随时在应用程序选项中更改 Psiphon Pro 的选择。我们的广告提供商将收集数据并使用您设备上的唯一标识符向您展示广告。</string>
-  <string name="learn_more_about_our_ad_providers"><u>详细了解我们的广告提供商</u></string>
-  <string name="yes_continue_to_see_relevant_ads">是，继续看相关广告</string>
-  <string name="no_see_ads_that_are_less_relevant">否，看的广告不太相关</string>
-  <string name="pay_for_the_ad_free_version">升级到无广告版本</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">单击广告提供商名称以查看其隐私政策</string>
   <string name="ads_consent_preference_category_title">广告个性化</string>
   <string name="ads_consent_preference_dialog_preference_message">您真的想重置广告个性化设置吗？</string>
   <string name="ads_consent_preference_title">重置广告个性化设置</string>
@@ -41,28 +22,8 @@
   <string name="preference_language_selection_title">语言</string>
   <string name="preference_language_title">语言选择</string>
   <string name="preference_language_default_language">默认语言</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">连接信息导入成功！</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">连接信息导入失败。</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">请按下开始键并重试近场通讯交流。</string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">需要帮助连接？</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">联接时需要帮助的话，找到另一位已经联接上的赛风用户；然后在他们已经联接而你正在试图联接的时候，把你们的电话背对背地靠在一起，启动联接信息传送。</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">把电话移开，开始近场通讯。</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">连接问题</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">点击，获取修复选项</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">帮助朋友连接</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">现在你可以帮助你的朋友链接赛风了！只需要把你已连接的手机和他们尚未链接的手机背对背放在一起即可。</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">把电话移开，开始近场通讯。</string>
+  <string name="preference_category_advanced_title">更多密钥详情</string>
+  <string name="preference_category_info_title">信息</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">好</string>
   <string name="preference_navigate_to_vpn_setting_title">始终连接VPN</string>
@@ -88,4 +49,12 @@
   <string name="bad_vpn_exclusion_setting_alert_title">无效的VPN设置</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">您在这个模式里至少需要选中一个应用！</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">您在这个模式里至少需要让一个应用未被选中！</string>
+  <string name="legacy_zirco_export_pref_category_title">旧版浏览器支持</string>
+  <string name="legacy_bom_alert_heading">赛风浏览器不再可用</string>
+  <string name="legacy_bom_alert_message">我们检测到您在之前安装的%1$s版本种正在使用赛风浏览器。\n如果您的安卓版本足够新（5.0或以上）您可以选择任何已经安装的网页浏览器程序通过%1$s被隧道，从而代替赛风浏览器。\n如果您在赛风浏览器中有任何书签或者浏览历史想要保留，您可以导出他们到 更多选择（“旧版浏览器支持”部分）。</string>
+  <string name="vpn_exclusions_preference_not_available_summary">需要安卓5.0或更高</string>
+  <string name="vpn_always_on_preference_not_available_summary">需要安卓7.0或更高</string>
+  <string name="vpn_exclusions_tip_summary">请只为经典浏览器模式选择一个浏览器</string>
+  <string name="exportZircoPreferenceSummary">点击这里导出旧版浏览器的书签和历史到外部数据存储</string>
+  <string name="exportZircoPreferenceTitle">导出浏览器数据</string>
 </resources>

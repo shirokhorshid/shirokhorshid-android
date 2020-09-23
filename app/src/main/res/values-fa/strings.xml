@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">بنر حامیان؛ برای دیدن صفحه اصلی  حامیان کلیک کنید</string>
-  <string name="start_desc">اتصال به Psiphon؛ برای وصل شدن کلیک کنید</string>
-  <string name="message_image_success_desc">شمایل نشانگر پیغام موفقیت است</string>
-  <string name="message_image_error_desc"> آیکون نشانگر پیام خطا است</string>
-  <string name="message_image_debug_desc"> آیکون نشانگر پیام اشکال زدایی است</string>
-  <string name="message_image_warning_desc"> آیکون نشانگر پیام هشدار است</string>
-  <string name="exit">خروج</string>
   <string name="open_browser">بازکردن مرورگر</string>
-  <string name="browser_task_label">مرورگر Psiphon</string>
   <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href="mailto:feedback@psiphon.ca"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتون رو با ما در میان گذاشتید سپاسگزاریم</string>
   <string name="FeedbackActivity.Failure">ارسال نشد. لطفآ دوباره امتحان کنید</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">وی‌پی‌ان Psiphon توسط شما یا یک اپ دیگر قطع شد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و در حال اجرا است.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon نمی‌تواند شروع به کار کند</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">امکان اجرای وی‌پی‌ان توسط Psiphon وجود ندارد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و تنظیم شده تا همیشه در حال اجراء باشد.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">می‌خواهید تمام دستگاه را از پراکسی عبور دهید؟</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">گزینه قرار دادن کل ترافیک در تونل امن برای دستگاه شما در دسترس است.\n\nبا این امکان, با این کار کل ترافیک اینترنت شما از کل برنامه ها و همین طور جست و جوهای مرورگر از طریق تونل Psiphon عبور داده می شوند.\n\nعلاوه بر این, شما می توانید انتخاب کنید که تنها ترافیک مرورگر بسته نرم افزاری Psiphon از تونل عبور داده شود و بقیه ترافیک کامپیوتر شما از مسیر استاندارد اتصال اینترنت شما عبور داده شود..</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">تمام دستگاه را پراکسی کن</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">فقط از مرورگر Psiphon استفاده کن</string>
   <string name="selected_region_currently_not_available">ناحیه‌ی انتخاب شده در حال حاضر در دسترس نیست، لطفا ناحیه‌ی دیگری را انتخاب کنید.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">ما به حریم خصوصی و امنیت شما اهمیت می‌دهیم. ما این اپلیکیشن را با نمایش تبلیغات، رایگان نگه داشته‌ایم.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">آیا می‌توانیم به استفاده از اطلاعات شما برای تعیین آگهی‌هایی که می‌بینید همچنان ادامه دهیم؟ </string>
-  <string name="you_can_change_your_choice_anytime">هر زمان که بخواهید، می‌توانید در تنظیمات اپلیکیشن اندوریدی Psiphon انتخاب خود را برای Psiphon پرو تغییر دهید. آگهی‌دهنده‌های ما اطلاعات را جمع می‌کنند و از یک شماره ویژه برای تشخیص دستگاه شما برای نشان دادن تبلیغات استفاده می‌کنند. </string>
-  <string name="learn_more_about_our_ad_providers"><u>درباره آگهی‌دهندگان ما بیشتر بدانید</u></string>
-  <string name="yes_continue_to_see_relevant_ads">بله، به دیدن آگهی‌های مرتبط ادامه دهید.</string>
-  <string name="no_see_ads_that_are_less_relevant">نه، آگهی‌هایی را ببیند که کمتر مرتبط است. </string>
-  <string name="pay_for_the_ad_free_version">به نسخه بدون آگهی ارتقا دهید. </string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">روی اسم آگهی‌دهنده کلیک کنید تا مقررات حفظ حریم‌ خصوصی آنها را ببینید. </string>
   <string name="ads_consent_preference_category_title">شخصی کردن آگهی‌ها</string>
   <string name="ads_consent_preference_dialog_preference_message">آیا تایید می‌کنید که می‌خواهید تنظیمات شخصی‌کردن آگهی‌ها را دوباره تنظیم کنید؟ </string>
   <string name="ads_consent_preference_title">ترجیحات شخصی‌شده آگهی‌ها را دوباره تنظیم کنید. </string>
@@ -41,28 +22,8 @@
   <string name="preference_language_selection_title">زبان</string>
   <string name="preference_language_title">انتخاب زبان</string>
   <string name="preference_language_default_language">زبان پیش‌فرض</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">اطلاعات اتصال با موفقیت وارد شد. </string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">اطلاعات اتصال وارد نشد. </string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">لطفا دکمه «شروع» را بزنید و تبادل NFC را دوباره امتحان کنید. </string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">آیا برای اتصال به کمک نیاز دارید؟</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">برای دریافت اتصال، یک کاربر که به Psiphon وصل هست را پیدا کنید. سپس درحالی که شما برای اتصال تلاش می‌کنید و آن کاربر متصل است، گوشی‌های تلفن همراه‌تان را پشت به پشت قرار دهید تا اطلاعات اتصال منتقل شود. </string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">تلفن‌ها برای برقراری ارتباط میدان‌نزدیک به هم خوردند. </string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">مشکل در برقراری اتصال </string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">برای پیداکردن راه‌حل کلیک کنید.</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">کمک کنید دوست‌ شما متصل شود</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">می‌توانید به یک دوست کمک کنید تا به Psiphon متصل شود. در حالی که شما وصل هستید و آنها برای اتصال تلاش می‌کنند تلفن‌تان را پشت به پشت تلفن آنها قرار دهید. </string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">تلفن‌ها برای برقراری ارتباط میدان‌نزدیک به هم خوردند. </string>
+  <string name="preference_category_advanced_title">پیشرفته </string>
+  <string name="preference_category_info_title">اطلاعات</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">تایید</string>
   <string name="preference_navigate_to_vpn_setting_title">وی‌پی‌ان همیشه روشن</string>
@@ -88,4 +49,11 @@
   <string name="bad_vpn_exclusion_setting_alert_title">تنظیمات VPN نامعتبر</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">شما باید حداقل یک برنامه را در این حالت انتخاب کنید!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">شما باید حداقل یک برنامه را در این حالت از انتخاب خارج کنید!</string>
+  <string name="legacy_zirco_export_pref_category_title">پشتیبانی مرورگر قدیمی</string>
+  <string name="legacy_bom_alert_heading">مرورگر Psiphon دیگر در دسترس نیست</string>
+  <string name="vpn_exclusions_preference_not_available_summary">به اندروید 5.0 یا بالاتر نیاز دارد</string>
+  <string name="vpn_always_on_preference_not_available_summary">به اندروید 7.0 یا بالاتر نیاز دارد</string>
+  <string name="vpn_exclusions_tip_summary">فقط یک مرورگر را برای حالت کلاسیک فقط-مرورگر انتخاب کنید</string>
+  <string name="exportZircoPreferenceSummary">برای صدور نشانک‌ها و تاریخچه مرورگر Psiphon به ذخیره‌ساز خارجی اینجا را کلیک کنید</string>
+  <string name="exportZircoPreferenceTitle">صدور داده‌های مرورگر</string>
 </resources>

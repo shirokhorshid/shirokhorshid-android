@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">banner sponsor; clicca per visitare la pagina dello sponsor</string>
-  <string name="start_desc">connettiti con Psiphon; clicca per connetterti</string>
-  <string name="message_image_success_desc">icona indicante messaggio di successo</string>
-  <string name="message_image_error_desc">icona indicante messaggio di errore</string>
-  <string name="message_image_debug_desc">icona indicante messaggio di debug</string>
-  <string name="message_image_warning_desc">icona indicante messaggio di avviso</string>
-  <string name="exit">Esci</string>
   <string name="open_browser">Apri Browser</string>
-  <string name="browser_task_label">Psiphon Browser</string>
   <string name="FeedbackActivity.DefaultText">Se hai commenti specifici, informazioni su siti Web non funzionanti o se a te non funziona questo modulo, invia un\'email a &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Grazie per averci inviato il tuo feedback</string>
   <string name="FeedbackActivity.Failure">Invio fallito. Si prega di riprovare.</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">La VPN di Psiphon è stata disconnessa da te o da un\'altra app. Non è possibile eseguire più app VPN contemporaneamente. Controllare se un\'altra app VPN è installata e attualmente in esecuzione.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN non può avviarsi</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon non può avviare la VPN. Non è possibile eseguire più app VPN contemporaneamente. Verifica se un\'altra app VPN è installata e impostata su Always-on.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Utilizzare il Tunnel per tutto il dispositivo?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">L\'opzione Tunnel Whole Device è disponibile per il tuo apparato.\n\nCon questa opzione, tutto il traffico Internet per tutte le app, inclusi tutti i browser, sarà inoltrato attraverso Psiphon.\n\nIn alternativa, è possibile scegliere di canalizzare solo il browser Psiphon in bundle, permettendo alle altre app di connettersi direttamente attraverso la connessione Internet standard.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Tunnel Whole Device</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Utilizzare solo Psiphon Browser</string>
   <string name="selected_region_currently_not_available">La regione selezionata non è attualmente disponibile, selezionare un\'altra regione.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Ci teniamo alla tua privacy e alla sicurezza dei tuoi dati. Manteniamo questa app gratuita mostrando annunci pubblicitari.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Possiamo continuare ad utilizzare i dati per personalizzare gli annunci su misura?</string>
-  <string name="you_can_change_your_choice_anytime">Puoi cambiare la tua scelta in qualsiasi momento nelle impostazioni dell\'app Psiphon Pro. I nostri fornitori di pubblicità raccoglieranno i dati e utilizzeranno un identificatore univoco sul tuo dispositivo per mostrarti annunci più rilevanti.</string>
-  <string name="learn_more_about_our_ad_providers"><u>Scopri di più sui nostri fornitori di pubblicità</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Sì, mostra annunci rilevanti</string>
-  <string name="no_see_ads_that_are_less_relevant">No, mostra annunci meno rilevanti</string>
-  <string name="pay_for_the_ad_free_version">Aggiorna alla versione senza pubblicità</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">Clicca sul nome dei fornitori dell\'annuncio per vedere la loro informativa privacy</string>
   <string name="ads_consent_preference_category_title">Personalizzazione annunci</string>
   <string name="ads_consent_preference_dialog_preference_message">Sicuro di voler ripristinare le preferenze di personalizzazione annunci?</string>
   <string name="ads_consent_preference_title">Ripristina le preferenze di personalizzazione annunci</string>
@@ -41,28 +22,8 @@
   <string name="preference_language_selection_title">Lingua</string>
   <string name="preference_language_title">Selezione Lingua</string>
   <string name="preference_language_default_language">Lingua predefinita</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">Informazioni di connessione importate con successo!</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">Impossibile importare le informazioni di connessione.</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">Premere Start e riprovare lo scambio NFC.</string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">Necessiti di aiuto per connetterti?</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">Per ottenere assistenza per la connessione, trova un altro utente Psiphon connesso; ora mentre stai provando a connetterti, posiziona i telefoni schiena contro schiena per avviare un trasferimento di informazioni sulla connessione.</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">Telefoni posizionati per NFC</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Problema di connessione</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">Clicca per potenziali correzioni</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">Aiuta qualcuno a connettersi</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">Aiuta qualcuno a connettersi con Psiphon, avvicinando i dispositivi mentre sei connesso e lui sta cercando di connettersi.</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">Telefoni posizionati per NFC</string>
+  <string name="preference_category_advanced_title">Avanzate</string>
+  <string name="preference_category_info_title">Informazioni</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN Permanente</string>

@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">банер спонсора; натисніть, щоб відвідати головну сторінку спонсора</string>
-  <string name="start_desc">під\'єднатися до Psiphon; натисніть для під\'єднання</string>
-  <string name="message_image_success_desc">піктограма із повідомленням про успішне виконання</string>
-  <string name="message_image_error_desc">піктограма із повідомленням про помилку</string>
-  <string name="message_image_debug_desc">піктограма із повідомленням про налагодження </string>
-  <string name="message_image_warning_desc">піктограма із повідомленням про попередження</string>
-  <string name="exit">Вийти</string>
   <string name="open_browser">Відкрити Браузер</string>
-  <string name="browser_task_label">Psiphon Браузер</string>
   <string name="FeedbackActivity.DefaultText">Якщо у вас є якісь конкретні зауваження, додаткова інформація про веб-сайти, які не працюють, або якщо ця форма не працює для вас, надішліть електронною поштою &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Дякуємо, що надіслали свій відгук</string>
   <string name="FeedbackActivity.Failure">Не вдалося відправити відгук. Будь ласка, спробуйте ще раз.</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN було від\'єднано вами або іншим додатком. Різні VPN-додатки не можуть працювати одночасно. Перевірте, чи не встановлено і не запущено інший VPN-додаток.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN не може запуститися</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon не може запустити VPN. Різні VPN-додатки не можуть працювати одночасно. Перевірте, чи не встановлено і не налаштовано на постійну роботу інший VPN-додаток.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Тунелювати весь пристрій?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Повний пристрій доступний для вашого пристрою.\n\n З цим параметром весь ваш Інтернет-трафік для всіх застосунків, включаючи всі веб-переглядачі, буде проходити через Psiphon.\n\n Як альтернативу, ви можете вибрати тунель лише через браузер Psiphon, що спрямує трафік всіх інших програм  через безпосереднє стандартне з\'єднання з Інтернетом.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Тунелювати весь пристрій</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Використовувати лише браузер Psiphon</string>
   <string name="selected_region_currently_not_available">Обраний регіон наразі недоступний, оберіть інший регіон.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">Ми турбуємося про вашу приватність і безпеку даних. Ця програма залишається безкоштовною завдяки показу реклами.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">Чи можемо ми продовжувати використання ваших даних для підбору реклами для вас?</string>
-  <string name="you_can_change_your_choice_anytime">Ви можете змінити ваш вибір на користь Psiphon Pro у налаштуваннях додатку. Наші постачальники реклами збиратимуть дані та використовуватимуть унікальний ідентифікатор вашого пристрою, щоб показувати вам рекламу.</string>
-  <string name="learn_more_about_our_ad_providers"><u>Дізнатися більше про наших постачальників реклами</u></string>
-  <string name="yes_continue_to_see_relevant_ads">Так, продовжити бачити подібну рекламу</string>
-  <string name="no_see_ads_that_are_less_relevant">Ні, бачити менш відповідну рекламу</string>
-  <string name="pay_for_the_ad_free_version">Оновитися до версії без реклами</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">Натисніть на назву провайдера реклами, щоб переглянути його політику приватності</string>
   <string name="ads_consent_preference_category_title">Персоналізація реклами</string>
   <string name="ads_consent_preference_dialog_preference_message">Ви справді хочете скинути ваші налаштування персоналізації реклами?</string>
   <string name="ads_consent_preference_title">Скинути налаштування персоналізації реклами</string>
@@ -41,27 +22,7 @@
   <string name="preference_language_selection_title">Мова</string>
   <string name="preference_language_title">Вибір мови</string>
   <string name="preference_language_default_language">Типова мова</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">Інформація про з\'єднання успішно імпортована!</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">Не вдалося імпортувати інформацію про з\'єднання.</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">Потрібна допомога з під\'єднанням?</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">Щоб отримати допомогу з під\'єднання, знайдіть іншого під\'єднаного користувача Psiphon, а потім, коли ви намагаєтесь під\'єднатися, а він вже під\'єднаний, розташуйте ваші телефони задніми гранями один до одного, щоб ініціювати передачу інформації про з\'єднання.</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">Телефони \"стикаються\" для NFC</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">Проблема зі з\'єднанням</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">Натисніть для отримання рекомендацій з виправлення</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">Допомогти другу під\'єднатися</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">Ви можете допомогти другу під\'єднатися до Psiphon, розташувавши ваші телефони задніми гранями один до одного, коли ви під\'єднані, а він намагається під\'єднатися.</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">Телефони \"стикаються\" для NFC</string>
+  <string name="preference_category_advanced_title">Розширений</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Гаразд</string>
   <string name="preference_navigate_to_vpn_setting_title">Завжди-VPN</string>

@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH ኣብ ምርኻብ ኣሎ...</string>
-  <string name="ssh_connected">SSH ተራኺቡ`ሎ</string>
-  <string name="ssh_connection_failed">SSH ርክብ ፈሺሉ`ሎ</string>
-  <string name="ssh_authenticating">SSH ኣብ ምርግጋጽ ኣሎ...</string>
-  <string name="ssh_authentication_failed">SSH መረጋገጺ ፈሺሉ`ሎ</string>
-  <string name="ssh_authenticated">SSH ተረጋጊጹ</string>
-  <string name="socks_starting">SOCKS ኣብ ምጅማር ኣሎ...</string>
   <string name="socks_running">SOCKS ኣብ %d ፖርት ይሰርሕ ኣሎ</string>
-  <string name="socks_stopped">SOCKS ደው ኢሉ</string>
-  <string name="ssh_stopped">SSH ደው ኢሉ</string>
-  <string name="error_message">ጌጋ ኣጋጢሙ</string>
-  <string name="http_proxy_starting">HTTP ተተካኢ ኣብ ምጅማር ኣሎ</string>
   <string name="http_proxy_running">HTTP ተተካኢ ኣብ %d ፖርት ይሰርሕ ኣሎ</string>
-  <string name="http_proxy_stopped">HTTP ተተካኢ ደው ኢሉ</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP ተተካኢ ሃንደበት ደው ኢሉ</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">ዝኽዘኑ ናብ ሰርቨር ዝኣትዉ ኣይፈጠረን፡፡</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">ናብ ሰርቨር ዝኣትዉ ኣይከዘነን፡፡</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">ናብ ሰርቨር ዝኣተዉ ክዙናት ኣይንበቡን፡፡</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">ናብ ሰርቨር ዝኣተዉ ክዙናት ምፍላይ ኣይተኻእለን፡፡</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">ኣብ ሰርቨር ኣትዮም ዝጸንሑ ምፍላይ ኣይተኻእለን፡፡</string>
-  <string name="ServerInterface.FailedToParseHandshake">ልውውጥ ምፍላይ ኣይተኻእለን፡፡</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">መወዳእታ ዝተራኸበ ምኽዛን ኣይተኻእለን፡፡</string>
-  <string name="ServerInterface.FailedToParseLastConnected">ናይ መጨረሻ ናይ JSON ርክብ ግዜ ምላሽ ምፍላይ ኣይተኻእለን፡፡</string>
-  <string name="ServerInterface.FailedToReadLastConnected">ናይ መጨረሻ ርክብ ግዜ ምንባብ ኣይተኻእለን፡፡</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">ሕቶ ልውውጥ ፈሺሉ`ሎ፡፡</string>
-  <string name="ssh_disconnected_unexpectedly">SSH ሃንደበት ተቛሪጹ`ሎ</string>
   <string name="client_version">ናይ ዓሚል ስሪት %s</string>
-  <string name="no_server_entries">ዝራኸባ ሰርቨራት የለዋን</string>
-  <string name="ServerInterface.InvalidRemoteServerList">ግጉይ ናይ ርሕቐት ሰርቨር ዝርዝር</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">ብዝተፈለየ ዕላዊ መፍትሕ ዝተፈረመ ዝተረጋገጸ ዕሹግ ዳታ</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">ግጉይ ፊርማ ኣብ ዝተረጋገጸ ዕሹግ ዳታ</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">ዝተረጋገጸ ዕሹግ ዳታ ምፍላይ ኣይተኻእለን</string>
   <string name="AuthenticatedDataPackage.MissingValue"> ኣብ ዝተረጋገጸ ዕሹግ ዳታ ዝጠፍአ ነገር</string>
   <string name="starting_tunnel">መተሓላለፊ ኣብ ምጅማር ኣሎ...</string>
   <string name="stopping_tunnel">መተሓላለፊ ደው ኣብ ምባል...</string>
   <string name="stopped_tunnel">መተሓላለፊ ደው ኢሉ</string>
-  <string name="ServerInterface.StopRequested">ደው ኣብል ተሓቲቱ`ሎ</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS ሕቶ ፈሺሉ`ሎ ብጌጋ</string>
-  <string name="socks_ports_failed"> ተተካኢ SOCKS ምጅማር ኣይተኻእለን ። ፖርት የለን </string>
-  <string name="http_proxy_ports_failed">ተተካኢ HTTP ምጅማር ኣይተኻእለን፡ ፖርትታት የለዉን </string>
   <string name="socks_port_in_use">ዝተሓተተ ናይ ከባቢ SOCKS ተተካእI ፖርት %d ብኻልእ ኣፕ ተታሒዙ`ሎ። ምቕጻል ኣይክኣልን። </string>
-  <string name="transparent_proxy_running">ግሉጽ ተተካኢ ኣብ %d ፖርት ይሰርሕ ኣሎ</string>
-  <string name="transparent_proxy_ports_failed">ግሉጽ ተተካኢ ምጅማር ኣይተኻእለን። ፖርት ኣይተረኽበን</string>
-  <string name="transparent_proxy_command_failed">ንግሉጽ ተካኢ ዘወሃህድ ትእዛዝ ኣይተዓወተን: %s </string>
-  <string name="transparent_proxy_stopped">ግሉጽ ተካኢ ደው ኢሉ</string>
-  <string name="dns_proxy_running">DNS ተካኢ ኣብ ፖርት %d ይሰርሕ ኣሎ</string>
-  <string name="dns_proxy_ports_failed">DNS ተካኢ ምጅማር ኣይተኻእለን: ዝተረኽበ ፖርት የለን። </string>
-  <string name="dns_proxy_stopped">DNS ተካኢ ደው ኢሉ`ሎ </string>
-  <string name="dns_proxy_failed">DNS ተካኢ ምጅማር ኣይተኻእለን</string>
-  <string name="iptables_binary_not_found">ንግሉጽ ተካኢ ዘድሊ መፈጸሚ ኣይፒተይብል ክርከብ ኣይተኻእለን</string>
-  <string name="root_access_denied">ዋና  መሕለፊ ተነጺጉ</string>
-  <string name="psiphon_stopped">ደው ኢሉ</string>
-  <string name="psiphon_running_whole_device">ኣብ ምሉእ መሳርሒ ኩነት ይኸይድ ኣሎ</string>
-  <string name="psiphon_running_browser_only">ኣብ መድለዩ ኩነት ጥራሕ ይኸይድ ኣሎ</string>
   <string name="waiting_for_network_connectivity">ነትዎርክ ኣብ ምርኻብ ኣሎ...</string>
-  <string name="checking_for_root_access">ዋና መሕለፊ ኣብ ምርኣይ ኣሎ...</string>
   <string name="psiphon_service_notification_message_connecting">የራኸብ ኣሎ...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">መዘኻኸሪ ኣገልግሎት ሳይፎን (Psiphon)</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">ተመረጽቲ ሰርቨራት: %d</string>
-  <string name="selecting_server">ሰርቨር ይመርጽ ኣሎ...</string>
-  <string name="fetch_remote_server_list">ርሑቕ ንዘሎ ናይ ሰርቨር ዝርዝር ይስሕብ ኣሎ...</string>
-  <string name="vpn_service_failed">ኣገልግሎት VPN ፈሺሉ: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">ምሕየሻ ሳይፎን (Psiphon)</string>
   <string name="vpn_service_running">VPN ኣብ ምስራሕ ኣሎ</string>
-  <string name="vpn_service_stopped">VPN ደው ኢሉ</string>
   <string name="vpn_service_revoked">ኣገልግሎት VPN ተመንዚዑ</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN ናብ SOCKS ፈሺሉ</string>
-  <string name="tun2socks_running">VPN ናብ SOCKS ኣብ ምስራሕ</string>
-  <string name="tun2socks_stopped">VPN ናብ SOCKS ደው ኢሉ</string>
-  <string name="vpn_service_no_private_address_available">ንኣገልግሎት VPN ናይ ብሕቲ ኣድራሻ የለን</string>
-  <string name="psiphon_running_generic">ኣብ ምስራሕ...</string>
-  <string name="data_transfer_bytes_sent">ዝተላእኩ ባይትታት: %1$s (%2$.2f%% ዝተጨበጠ)</string>
-  <string name="data_transfer_bytes_received">ዝበጽሑ ባይትታት: %1$s (%2$.2f%% ዝተጨበጡ) </string>
-  <string name="data_transfer_elapsed_time">መራኸቢ ግዜ: %s</string>
-  <string name="check_tunnel_failed">ዝፈሸለ መሕለፊ ርኣይ። መሳርሕኻ ንኣማራጺ መሕለፊ መሳርሒ ዘይድግፎ ክኸውን ይኽእል`ዩ፡፡</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed"> መመርመሪ ፍይል ዝኸውን ግብረ-መልሲ ንምፍጣር ወይ ብምጽሓፍ ኣይተኻእለን</string>
   <string name="Diagnostics.EncryptedFailed">ሓበረታ ግብረ-መልሲ መርመራ ከመስጥር ኣይኸኣለን። ኣዚ ሓበረታ ምስ ግብረ-መልሲ ኢመይል ኣይክተሓሓዝን`ዩ</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">ናይ ኣይፒቴብላት ክልቲኣዊ ምውጻእ ኣይክኣለን፡፡</string>
-  <string name="transparent_proxy_routing_failed">ግሉጽ ተካኢ ምውጻእ ምጅማር ኣይተኻእለን: %s</string>
-  <string name="transparent_proxy_routing_running">ግሉጽ ተካኢ መጀመሪ ይሰርሕ ኣሎ</string>
-  <string name="transparent_proxy_routing_stopped">ግሉጽ ተካኢ መጀመሪ ደው ኢሉ</string>
   <string name="current_network_type">ሕጂ ዘሎ ነትዎርክ: %s</string>
-  <string name="dns_resolver">DNS ፈታሒ: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">ንቑሓት ናይ DNS ነትዎርክ መተዓራረይቲ ፈሺሎም ኣለዉ </string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">ነዚ ዘሎ ኣፕ ዝኸውን ሓበረታ ጥማር ምምጻእ ኣይተኻእለን</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">ሕዱስ ፋይል ምጽሓፍ ኣይተኻእለን</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">ምሕዳስ ምውራድ ፋይል ፈሺሉ</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">ዝወረደ ኣሓድስ። ኣብዚ ግዜ`ዚ እቲ ሕዱስ ክቕጽል ክተፍቅደሉ ብጽኑዕ ትምከር። ድሕሪ ምሕዳስ ሳይፎን (Psiphon) እንደገና ምውላዕ ከድልየካ `ዩ፡፡</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ምሕዳስ ኣይተኻእለን። ጥሙር ሓበረታ ካብ ምሕዩሽ ፋይል ምውጻእ ኣይክኣልን፡፡</string>
   <string name="UpgradeManager.UpgradeFileNotFound">ምሕዩሽ ፋይል ኣይተረኽበን</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">ኣይተራኸበን</string>
   <string name="label_sent">ተላኢኹ</string>
   <string name="label_received">በጺሑ</string>
-  <string name="compression_ratio">%1$.2f%% ተጨቢጡ </string>
-  <string name="compression_savings">%s ተኸዚኑ</string>
   <string name="start">ጀምር</string>
   <string name="stop">ደው ኣብል</string>
   <string name="home_tab_name">ቤት</string>
   <string name="settings_tab_name">ኣማራጽታት</string>
   <string name="statistics_tab_name">ስታትስቲክስ</string>
   <string name="logs_tab_name">መዝገባት</string>
-  <string name="socks_proxy_address">ከባቢያዊ SOCKS ተካኢ ኣብ %s ይሰርሕ ኣሎ</string>
-  <string name="http_proxy_address">ከባቢያዊ  HTTP ተካኢ ኣብ %s ይሰርሕ ኣሎ</string>
-  <string name="share_proxies_toggle">ካልኦት መሳርሕታት ነትዎርክ ንከባቢያዊ ተካእቲ ክጥቀሙ ኣፍቅድ</string>
-  <string name="share_proxies_prompt_title">ኣፕ ዳግም ምጅማር የድሊ</string>
-  <string name="share_proxies_prompt_message">ኣብ`ዚ ባይታ ንምስራሕ ኣፕ ዳግም-ምኽፋት የድሊ</string>
-  <string name="share_proxies_prompt_positive">ከም ሓዲሽ ጀምር</string>
-  <string name="share_proxies_prompt_negative">ሰርዝ</string>
   <string name="use_proxy_settings_toggle">ብ HTTP ተካኢ ኣቢልካ ኣራኽብ</string>
   <string name="use_system_proxy_settings_radio">ስርዓት ባይታ-ውህደት ነትወርክ ተጠቐም</string>
   <string name="use_custom_proxy_settings_radio">ዝስዕብ ባይታ-ውህደት ተጠቐም፡</string>
@@ -149,19 +69,11 @@
   <string name="region_name_se">ሽወደን</string>
   <string name="region_name_pl">ፖላንድ</string>
   <string name="region_name_sk">ስሎቫክያ</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">ብዛዕባ ሳይፎን (Psiphon)</string>
   <string name="feedback">ግብረ-መልሲ</string>
-  <string name="tunnel_whole_device_toggle">ምሉእ መሳርሒ ንምትሕልላፍ (Android 4.0+ የድሊ) </string>
-  <string name="disable_timeouts">ንዝሑላት ነትዎርክታት ናይ ግዜ ዕረፍቲታት ኣደስክል</string>
-  <string name="region_selector">ዞባ ምረጽ</string>
-  <string name="network_proxy_connect_exception">ምስ HTTP ተካኢ ክራኸብ ኣይክኣለን: %s: </string>
-  <string name="network_proxy_connect_information">ብ HTTP ተካኢ ኣቢሉ ይራኸብ ኣሎ: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">ንዝሑላት ነትዎርክታት ናይ ግዜ ዕረፍቲታት ኣደስክል</string>
   <string name="network_proxy_connect_invalid_values">ዝተጋገየ HTTP ተካኢ ባይታ-ውህደት</string>
   <string name="tunnel_whole_device_exception">መሳርሕኻ ምስ ምሉእ መተሓላለፊ ምሳርሒ ኣማራጺ ኣይሰማማዕን። ምኽንያቱ VpnService API ስለዘይብሉ።</string>
-  <string name="run_polipo_failed">Polipo ኣይሰርሕን ኣሎ: %s</string>
-  <string name="wdm_force_iptables_toggle">ዋና መተሓላለፊ ሜላ ምሉእ መሳርሒ ኣገድድ</string>
-  <string name="http_prefix_toggle"> ከም HTTP ኣምስል</string>
   <string name="preference_notifications_title">መዘኻኸርታት</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -177,13 +89,15 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">ድምጺ</string>
   <string name="preference_notifications_with_sound_summary">ኩነታት ርክብ ክቕየር ከሎ ድምጺ ኣጻውት</string>
   <string name="preference_notifications_with_vibrate_title">ንዝረት</string>
   <string name="preference_notifications_with_vibrate_summary">ኩነታት ርክብ ክቕየር ከሎ ኣብ ንዝረት ግበሮ</string>
-  <string name="preference_download_wifi_only_toggle">ኣብ Wi-Fi ጥራሕ ንምሕዩሻት ጽዕነት ኣውርድ</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ኣብ Wi-Fi ጥራሕ ንምሕዩሻት ጽዕነት ኣውርድ</string>
   <string name="moreOptions">ተወሳኺ ኣማራጽታት</string>
-  <string name="root_mode_not_supported">ሱር ኩነት ኣብ ስሪት Android ኣይሕገዝን`ዩ</string>
   <string name="proxySettingsCategoryTitle">ተካኢ ባይታ-ውህደት</string>
   <string name="custom_proxy_host_summary">ተካኢ ሰርቨር ኣተኣናጋዲ ሽም ወይ ከኣ IP</string>
   <string name="custom_proxy_port_summary">ተካኢ ሰርቨር ፖርት</string>
@@ -201,7 +115,6 @@
   <string name="untunneled_address">ዘይመሓላለፍ: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">ተካኢ ዋሕዚ-ላዕሊ ጌጋ የርኢ: %s</string>
-  <string name="diagnostic">መርመራዊ: %s</string>
   <string name="start_tunnel_failed">መተሓላለፊ ምጅማር ኣይተኻእለን: %s</string>
   <string name="tunnel_connecting">መተሓላለፊ ኣብ ምርኻብ...</string>
   <string name="tunnel_connected">መተሓላለፊ ተራኺቡ`ሎ</string>
@@ -211,6 +124,5 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="disableTimeoutsPreferenceTitle">timeouts ኣደስክል</string>
 </resources>

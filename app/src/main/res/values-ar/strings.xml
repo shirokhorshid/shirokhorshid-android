@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">شعار الشركة الراعية؛ انقر لزيارة الصفحة الرئيسية للشركة الراعية</string>
-  <string name="start_desc">الاتصال بسايفون؛ انقر للاتصال</string>
-  <string name="message_image_success_desc">أيقونة تشير إلى رسالة النجاح </string>
-  <string name="message_image_error_desc">أيقونة تشير إلى رسالة خطأ</string>
-  <string name="message_image_debug_desc">أيقونة تشير إلى رسالة تصحيح الخطأ</string>
-  <string name="message_image_warning_desc">أيقونة تشير إلى رسالة تحذير</string>
-  <string name="exit">خروج</string>
   <string name="open_browser">فتح المتصفح</string>
-  <string name="browser_task_label">متصفح سايفون </string>
   <string name="FeedbackActivity.DefaultText">اذا كانت لديك أي تعليقات محدده٫ آو معلومات آخرى حول مواقع لا تعمل٫ أو إذا كانت هذه الاستماره لا تعمل٫ يرجى مراسلة:
  l &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">شكرا على إرسال الرد.</string>
@@ -20,19 +13,7 @@
   <string name="StatusActivity.VpnRevokedMessage">انقطع اتصال VPN الخاص بسايفون عن طريقك أو عن طريق تطبيق آخر. لا يمكن تشغيل أكثر من تطبيق VPN فى الوقت عينه. تحقق ما إذا كان هناك تطبيق VPN آخر مثبت و قيد التشغيل.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">تعذّر تشغيل سايفون</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">سايفون لا يستطيع تشغيل ال VPN. لا يمكن تشغيل أكثر من تطبيق VPN في الوقت عيته. تحقق ما اذا كان هناك تطبيق VPN آخر مثبت و تم ضبطه مسبقاً لـ \"تشغيل دائم\".</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">نقل الجهاز بأكمله عبر النفق؟</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage"> خيار تمرير كامل الجهاز عبر نفق متوفر لجهازك.\n\nهذا الخيار يتيح لك تمرير كل إتصالك بالإنترنت عبر نفق برنامج سايفون،  بما فيه التطبيقات والمتصفحات.\n\nيمكنك أيضا اختيار تمرير متصفح سايفون فقط عبر النفق وهذا يعني أن كل المتصفحات وألتطبيقات ألأخرى ستمر عبر إتصالك العادي بالإنترنت.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">نقل الجهاز بأكمله عبر النفق</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">استخدم متصفح سايفون فقط</string>
   <string name="selected_region_currently_not_available">المنطقة المختارة غير متوفرة حاليا ، يرجى تحديد منطقة أخرى.</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">نهتم بخصوصية وأمان البيانات الخاصة بك. نحافظ على هذا التطبيق مجاناً من خلال عرض الإعلانات.</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">هل يمكننا الاستمرار في استخدام بياناتك لتخصيص إعلانات ملائمة لك؟</string>
-  <string name="you_can_change_your_choice_anytime">يمكنك تغيير اختيارك لـ سايفون برو في خيارات التطبيق في أي وقت. سيجمع مزودي الإعلانات لدينا البيانات ويستخدموا معرفًا خاصاً على جهازك لعرض الإعلانات.</string>
-  <string name="learn_more_about_our_ad_providers">تعرف اكثر حول مزودي الإعلانات لدينا</string>
-  <string name="yes_continue_to_see_relevant_ads">نعم، استمر في عرض الإعلانات ذات الصلة</string>
-  <string name="no_see_ads_that_are_less_relevant">كلا، عرض إعلانات اقل ملائمة</string>
-  <string name="pay_for_the_ad_free_version">تحديث لنسخة خالية من الإعلانات  </string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">انقر على اسم مزود الإعلان للاطلاع على سياسة الخصوصية الخاصة به</string>
   <string name="ads_consent_preference_category_title">تخصيص الإعلانات</string>
   <string name="ads_consent_preference_dialog_preference_message">هل تريد إعادة ضبط تفضيلات تخصيص الإعلانات؟</string>
   <string name="ads_consent_preference_title">إعادة ضبط تفضيلات تخصيص الإعلانات</string>
@@ -42,28 +23,8 @@
   <string name="preference_language_selection_title">اللغة</string>
   <string name="preference_language_title">اختيار اللغة</string>
   <string name="preference_language_default_language">اللغة الافتراضية</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">تم استيراد معلومات الاتصال بنجاح!</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">لم ينجح استيراد معلومات الاتصال.</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">من فضلك اضغط على تشغيل و حاول التبادل مرة أخرى عن طربق تقنية NFC.</string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">هل تحتاج مساعدة في الاتصال؟</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">للحصول على المساعدة في الاتصال ابحث عن مستخدم آخر متصل بسايفون ، ثم أثناء محاولتك للاتصال وهو متصل قم بوضع هاتفيكم معا بحيث يكون ظهر الهاتفين متقابلين للقيام بنقل معلومات الاتصال.</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">الهواتف يتم تصادمها بتقنية NFC.</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">مشكلة فى الاتصال</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">اضغط لمحاولة المعالجة</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">ساعد صديقا في الاتصال</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">بامكانك أن تساعد صديقا في الاتصال بسايفون عن طريق وضع الهاتفين بحيث يكون الظهرين متقابلين عندما تكون متصلا و هو يحاول الاتصال.</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">الهواتف يتم تصادمها بتقنية NFC.</string>
+  <string name="preference_category_advanced_title">متقدم</string>
+  <string name="preference_category_info_title">المعلومات</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">يعمل</string>
   <string name="preference_navigate_to_vpn_setting_title">اتصال دائم بـ VPN</string>
@@ -89,4 +50,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">‫إعدادات VPN باطلة‬</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">تحتاج إلى تطبيق واحد محدد على الأقل بالنسبة لهذا الوضع !</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">تحتاج إلى تطبيق واحد غير محدد على الأقل بالنسبة لهذا الوضع !</string>
+  <string name="legacy_zirco_export_pref_category_title">دعم المتصفحات القديمة</string>
+  <string name="legacy_bom_alert_heading">متصفح Psiphon لم يعد متاحا</string>
+  <string name="legacy_bom_alert_message">لقد تبين لنا أنك تستخدم متصفح Psiphon في الإصدار المثبت السابق من %1$s.\nاذا كان إصدار الأندرويد الخاص بك حديث بما يكفي (5.0 أو أكثر) فبإمكانك أن تحدد لأى تطبيق متصفح مثبت لديك أن يتم تمرير بياناته من خلال %1$s.\nاذا كان لديك أي مواقع مفضلة أو تاريخ تصفح من متصفح Psiphon تود الإحتفاظ بها فيمكنك تصديرهم من خلال \"إعدادات أخرى \" ( في قسم \"دعم المتصفحات القديمة\")</string>
 </resources>

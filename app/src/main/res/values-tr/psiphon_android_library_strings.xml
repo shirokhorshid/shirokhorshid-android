@@ -1,98 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH bağlantısı kuruluyor...</string>
-  <string name="ssh_connected">SSH bağlantısı kuruldu</string>
-  <string name="ssh_connection_failed">SSH bağlantısı kurulamadı</string>
-  <string name="ssh_authenticating">SSH kimliği doğrulanıyor...</string>
-  <string name="ssh_authentication_failed">SSH kimliği doğrulanamadı</string>
-  <string name="ssh_authenticated">SSH kimliği doğrulandı</string>
-  <string name="socks_starting">SOCKS başlatılıyor...</string>
   <string name="socks_running">SOCKS %d numaralı kapı üzerinde çalışıyor</string>
-  <string name="socks_stopped">SOCKS durmuş</string>
-  <string name="ssh_stopped">SSH durmuş</string>
-  <string name="error_message">Bir sorun çıktı:</string>
-  <string name="http_proxy_starting">HTTP vekil sunucusu başlatılıyor...</string>
   <string name="http_proxy_running">HTTP vekil sunucusu %d numaralı kapı üzerinde çalışıyor</string>
-  <string name="http_proxy_stopped">HTTP vekil sunucusu durmuş</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP vekil sunucusu beklenmedik şekilde durdu</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Kaydedilecek sunucu kayıtları oluşturulamadı.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Sunucu kayıtları kaydedilemedi.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Kaydedilmiş sunucu kayıtları okunamadı.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Kaydedilmiş sunucu kayıtları işlenemedi.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Gömülü sunucu kayıtları işlenemedi.</string>
-  <string name="ServerInterface.FailedToParseHandshake">El sıkışma işlenemedi.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Son bağlanılan zaman kaydedilemedi.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">JSON son bağlantı zamanı yanıtı işlenemedi.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Son bağlantı zamanı okunamadı.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">El sıkışma isteği yerine getirilemedi.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH bağlantısı beklenmedik şekilde kesildi</string>
   <string name="client_version">İstemci Sürümü %s</string>
-  <string name="no_server_entries">Bağlanılacak bir sunucu bulunamadı</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Uzak sunucu listesi geçersiz</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Kimliği doğrulanmış veri paketi, farklı bir herkese açık anahtar ile imzalanmış</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Kimliği doğrulanmış veri paketinin imzası geçersiz</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Kimliği doğrulanmış veri paketi işlenemedi</string>
   <string name="AuthenticatedDataPackage.MissingValue">Kimliği doğrulanmış veri paketinde değer eksik</string>
   <string name="starting_tunnel">Tünel başlatılıyor…</string>
   <string name="stopping_tunnel">Tünel durduruluyor…</string>
   <string name="stopped_tunnel">Tünel durduruldu</string>
-  <string name="ServerInterface.StopRequested">Durdurma istendi</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS isteği şu hata ile yerine getirilemedi:</string>
-  <string name="socks_ports_failed">SOCKS vekil sunucusu başlatılamadı. Kullanılabilecek bir kapı numarası bulunamadı</string>
-  <string name="http_proxy_ports_failed">HTTP vekil sunucusu başlatılamadı. Kullanılabilecek bir kapı numarası bulunamadı</string>
   <string name="socks_port_in_use">İstenilen %d yerel SOCKS vekil sunucu kapı numarası başka bir uygulama tarafından kullanıldığından devam edilemiyor.</string>
-  <string name="transparent_proxy_running">Saydam vekil sunucu %d kapı numarasında çalışıyor</string>
-  <string name="transparent_proxy_ports_failed">Saydam vekil sunucu başlatılamadı. Kullanılabilecek bir kapı numarası bulunamadı</string>
-  <string name="transparent_proxy_command_failed">Saydam vekil sunucu yapılandırma komutu yürütülemedi: %s</string>
-  <string name="transparent_proxy_stopped">Saydam vekil sunucu durdurulmuş</string>
-  <string name="dns_proxy_running">DNS vekil sunucusu %d kapı numarasında çalışıyor</string>
-  <string name="dns_proxy_ports_failed">DNS vekil sunucusu başlatılamadı. Kullanılabilecek bir kapı numarası bulunamadı</string>
-  <string name="dns_proxy_stopped">DNS vekil sunucusu durdurulmuş</string>
-  <string name="dns_proxy_failed">DNS vekil sunucusu başlatılamadı</string>
-  <string name="iptables_binary_not_found">Saydam vekil sunucu için gerekli iptables uygulaması bulunamadı</string>
-  <string name="root_access_denied">Root erişimi reddedildi</string>
-  <string name="psiphon_stopped">Durdurulmuş</string>
-  <string name="psiphon_running_whole_device">Tüm aygıt kipinde çalışıyor</string>
-  <string name="psiphon_running_browser_only">Yalnız tarayıcı kipinde çalışıyor</string>
   <string name="waiting_for_network_connectivity">Ağ bağlantısının kurulması bekleniyor…</string>
-  <string name="checking_for_root_access">Root erişimi denetleniyor…</string>
   <string name="psiphon_service_notification_message_connecting">Bağlantı kuruluyor…</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Psiphon Hizmet Bildirimi</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_channel_name">Psiphon Durum Değişiklikleri</string>
-  <string name="preferred_servers">Yeğlenen sunucular: %d</string>
-  <string name="selecting_server">Sunucu seçiliyor…</string>
-  <string name="fetch_remote_server_list">Uzak sunucu listesi alınıyor…</string>
-  <string name="vpn_service_failed">VPN hizmeti çalıştırılamadı: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon Güncelleme</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon Sunucu Uyarıları</string>
   <string name="vpn_service_running">VPN hizmeti çalışıyor</string>
-  <string name="vpn_service_stopped">VPN hizmeti durdurulmuş</string>
   <string name="vpn_service_revoked">VPN hizmeti iptal edildi</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">SOCKS üzerinden VPN çalıştırılamadı</string>
-  <string name="tun2socks_running">SOCKS üzerinden VPN çalışıyor</string>
-  <string name="tun2socks_stopped">VPN üzerinden SOCKS durdurulmuş</string>
-  <string name="vpn_service_no_private_address_available">VPN hizmeti için kullanılabilecek bir özel adres bulunamadı</string>
-  <string name="psiphon_running_generic">Çalışıyor…</string>
-  <string name="data_transfer_bytes_sent">Gönderilen bayt: %1$s (%%%2$.2f sıkıştırılmış)</string>
-  <string name="data_transfer_bytes_received">Alınan bayt: %1$s (%%%2$.2f sıkıştırılmış)</string>
-  <string name="data_transfer_elapsed_time">Bağlantı süresi: %s</string>
-  <string name="check_tunnel_failed">Tünel denetlenemedi. Aygıtınız tüm aygıt tünelleme seçeneğini desteklemiyor olabilir.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Geri bildirim tanılama bilgileri dosyası oluşturulamadı ya da yazılamadı</string>
   <string name="Diagnostics.EncryptedFailed">Geri bildirim tanıma bilgileri şifrelenemedi. Bilgiler geri bildirim e-postasına eklenmeyecek.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Iptables uygulama dosyası ayıklanamadı.</string>
-  <string name="transparent_proxy_routing_failed">Saydam vekil sunucu yöneltmesi başlatılamadı: %s</string>
-  <string name="transparent_proxy_routing_running">Saydam vekil sunucu yöneltmesi çalışıyor</string>
-  <string name="transparent_proxy_routing_stopped">Saydam vekil sunucu yöneltmesi durdurulmuş</string>
   <string name="current_network_type">Geçerli ağ: %s</string>
-  <string name="dns_resolver">DNS çözücü: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Etkin ağ DNS çözücüleri alınamadı</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Geçerli uygulama için paket bilgileri alınamadı</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Güncelleme dosyasına yazılamadı</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Güncelleme dosyası indirilemedi</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Güncelleme dosyası indirildi. İşlemi tamamlamanız önemle önerilir. Güncelleme işleminden sonra Psiphon uygulamasını yeniden başlatmanız gerekir.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Güncelleme yapılamadı. Güncelleme dosyasından paket bilgileri ayıklanamadı.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Güncelleme dosyası bulunamadı</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -105,21 +35,12 @@
   <string name="disconnected">Bağlantı kesildi</string>
   <string name="label_sent">Gönderilen</string>
   <string name="label_received">Alınan</string>
-  <string name="compression_ratio">%%%1$.2f sıkıştırılmış</string>
-  <string name="compression_savings">%s kaydedildi</string>
   <string name="start">Başlat</string>
   <string name="stop">Durdur</string>
   <string name="home_tab_name">Ana Sayfa</string>
   <string name="settings_tab_name">Ayarlar</string>
   <string name="statistics_tab_name">İstatistikler</string>
   <string name="logs_tab_name">Günlükler</string>
-  <string name="socks_proxy_address">Yerel SOCKS vekil sunucusu %s adresinde çalışıyor</string>
-  <string name="http_proxy_address">Yerel HTTP vekil sunucusu %s adresinde çalışıyor</string>
-  <string name="share_proxies_toggle">Diğer ağ aygıtları yerel vekil sunucuları kullanabilsin</string>
-  <string name="share_proxies_prompt_title">Uygulamanın yeniden başlatılması gerekli</string>
-  <string name="share_proxies_prompt_message">Bu ayar değişikliğinin etkili olması için uygulama yeniden başlatılmalıdır.</string>
-  <string name="share_proxies_prompt_positive">Şimdi yeniden başlat</string>
-  <string name="share_proxies_prompt_negative">İptal</string>
   <string name="use_proxy_settings_toggle">HTTP vekil sunucu kullanılsın</string>
   <string name="use_system_proxy_settings_radio">Sistem ağ ayarları kullanılsın</string>
   <string name="use_custom_proxy_settings_radio">Aşağıdaki ayarlar kullanılsın:</string>
@@ -152,19 +73,12 @@
   <string name="region_name_sk">Slovakya</string>
   <string name="region_name_rs">Sırbistan</string>
   <string name="region_name_au">Avustralya</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Psiphon Hakkında</string>
   <string name="feedback">Geri Bildirim</string>
-  <string name="tunnel_whole_device_toggle">Aygıtın tamamı tünellensin (Android 4.0+ gerekir)</string>
-  <string name="disable_timeouts">Yavaş bağlantılarda zaman aşımı kullanılmasın</string>
-  <string name="region_selector">Bölge seçin</string>
-  <string name="network_proxy_connect_exception">Ağın HTTP Vekil Sunucusu ile bağlantı kurulamadı: %s</string>
-  <string name="network_proxy_connect_information">HTTP Vekil Sunucunuz üzerinden bağlantı kuruluyor: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Yavaş bağlantılarda zaman aşımı kullanılmasın</string>
+  <string name="region_selector">Sunucu bölgesini seçin</string>
   <string name="network_proxy_connect_invalid_values">HTTP Vekil Sunucu ayarları geçersiz</string>
   <string name="tunnel_whole_device_exception">Aygıtınızda VpnService API yazılımı eksik olduğundan tüm aygıt tüneli seçeneği desteklenmiyor. </string>
-  <string name="run_polipo_failed">Polipo çalıştırılamadı: %s</string>
-  <string name="wdm_force_iptables_toggle">Root ile Tüm Aygıt Tüneli yöntemi dayatılsın</string>
-  <string name="http_prefix_toggle">HTTP olarak saklansın</string>
   <string name="preference_notifications_title">Bildirimler</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -195,14 +109,25 @@
     <item quantity="one">%d uygulama VPN tüneli kullanmayacak</item>
     <item quantity="other">%d uygulama VPN tüneli kullanmayacak</item>
   </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Tüm uygulamalar tünel kullanıyor</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d uygulama tünel kullanıyor</item>
+    <item quantity="other">%d uygulama tünel kullanıyor</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d uygulama tünel kullanmayacak şekilde ayarlandı</item>
+    <item quantity="other">%d uygulama tünel kullanmayacak şekilde ayarlandı</item>
+  </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">Tüm uygulamalar VPN tüneli kullanacak</string>
   <string name="preference_notifications_with_sound_title">Ses</string>
   <string name="preference_notifications_with_sound_summary">Bağlantı durumu değiştiğinde ses çıkarılsın</string>
   <string name="preference_notifications_with_vibrate_title">Titreşim</string>
   <string name="preference_notifications_with_vibrate_summary">Bağlantı durumu değiştiğinde aygıt titresin</string>
-  <string name="preference_download_wifi_only_toggle">Güncellemeler yalnız Wi-Fi üzerinden indirilsin</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Güncellemeler yalnız Wi-Fi üzerinden indirilsin</string>
   <string name="moreOptions">Diğer Ayarlar</string>
-  <string name="root_mode_not_supported">Bu Android sürümünde root kipi desteklenmiyor</string>
   <string name="proxySettingsCategoryTitle">Vekil Sunucu Ayarları</string>
   <string name="custom_proxy_host_summary">Vekil sunucu sunucu adı ya da IP adresi</string>
   <string name="custom_proxy_port_summary">Vekil sunucu kapı numarası</string>
@@ -220,7 +145,6 @@
   <string name="untunneled_address">Tünellenmeyen: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Giden vekil sunucu hatası: %s</string>
-  <string name="diagnostic">Tanılama: %s</string>
   <string name="start_tunnel_failed">Tünel başlatılamadı: %s</string>
   <string name="tunnel_connecting">Tünel bağlantısı kuruluyor…</string>
   <string name="tunnel_connected">Tünel bağlantısı kuruldu</string>
@@ -234,6 +158,11 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Tamam</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Hayır, teşekkürler</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_vpn_settings">VPN ayarları</string>
+  <string name="label_proxy_settings">Vekil sunucu ayarları</string>
+  <string name="preference_summary_no_proxy">Vekil sunucu yok</string>
+  <string name="preference_summary_custom_proxy">Özel vekil sunucu</string>
+  <string name="preference_summary_system_proxy">Sistem vekil sunucusu</string>
+  <string name="disableTimeoutsPreferenceTitle">Zaman aşımı kullanılmasın</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Yalnız Wi-Fi</string>
 </resources>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="Commons.Ok">Sawa</string>
+  <string name="Commons.Cancel">Futa</string>
+  <string name="Commons.PleaseWait">Tafadhari subiri</string>
+  <string name="Commons.Yes">Ndio</string>
+  <string name="Commons.No">Hapana</string>
+  <string name="Commons.SDCardErrorTitle">SD Kadi haipo</string>
+  <string name="Commons.SDCardErrorNoSDMsg">Hakuna  SD Kadi iliyopatikana.</string>
+  <string name="Commons.SDCardErrorSDUnavailable">SD Kadi haipo.</string>
+  <string name="Commons.Continue">Endelea</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">Imefanikiwa kuhamisha</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">Kumbukumbu zako na alamisha zime hifathiwa kwenye %s.</string>
+  <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Hakufanikiwa kuhamisha</string>
+  <string name="Commons.HistoryBookmarksFailedMessage">Taharifa hazikufanikiwa:%s.</string>
+  <string name="Commons.PermissionRequestReasonTitle">Ruhusa omba sababu</string>
+  <string name="Commons.NeedWritePermissions">Tafadhali toa ruhusa ya kuandika na jaribu tena</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Ruhusa za kuhamisha alamisho itahifathiwa kwenye kumbukumbu ya njee.</string>
+  <string name="Commons.ExportingHistoryBookmarks">Kuhamisha historia na vialamisho</string>
+</resources>

@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">Conectando SSH...</string>
-  <string name="ssh_connected">SSH conectado</string>
-  <string name="ssh_connection_failed">Conexão SSH falhou</string>
-  <string name="ssh_authenticating">Autenticando SSH...</string>
-  <string name="ssh_authentication_failed">Autenticação SSH falhou</string>
-  <string name="ssh_authenticated">SSH autenticado</string>
-  <string name="socks_starting">Iniciando SOCKS...</string>
   <string name="socks_running">SOCKS rodando na porta %d</string>
-  <string name="socks_stopped">SOCKS parado</string>
-  <string name="ssh_stopped">SSH parado</string>
-  <string name="error_message">Um erro ocorreu:</string>
-  <string name="http_proxy_starting">Iniciando proxy HTTP...</string>
   <string name="http_proxy_running">Proxy HTTP rodando na porta %d</string>
-  <string name="http_proxy_stopped">Proxy HTTP parado</string>
-  <string name="http_proxy_stopped_unexpectedly">Proxy HTTP parou inesperadamente</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Falha ao criar registros de servidores para armazenar.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Falha ao armazenar registros de servidores.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Falha ao ler registros de servidores armazenadas.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Falha ao validar registros de servidores.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Falha ao validar registros de servidores incorporados.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Falha ao validar comunicação.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Falha ao armazenar ultimo horário conectado.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Falha ao validar tempo de resposta da última conexão JSON.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Falha ao ler último horário de conexão.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Requisição de conexão falhou.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH desconectado inesperadamente</string>
   <string name="client_version">Versão do Cliente %s</string>
-  <string name="no_server_entries">Não há servidores para se conectar.</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Lista inválida de servidores remotos</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Pacote de dados autenticado foi assinado com uma chave pública diferente</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Assinatura inválida do pacote de dados autenticado</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Falha ao validar pacote de dados autenticado</string>
   <string name="AuthenticatedDataPackage.MissingValue">Falta dado no pacote de dados autenticado</string>
   <string name="starting_tunnel">Iniciando túnel...</string>
   <string name="stopping_tunnel">Parando túnel...</string>
   <string name="stopped_tunnel">Túnel parado</string>
-  <string name="ServerInterface.StopRequested">Encerramento solicitado</string>
-  <string name="ServerInterface.HTTPSRequestFailed">Requisição HTTP falhou com erro:</string>
-  <string name="socks_ports_failed">Falha ao iniciar proxy SOCKS: não encontrada porta disponível</string>
-  <string name="http_proxy_ports_failed">Falha ao iniciar proxy HTTP: não encontrada porta disponível</string>
   <string name="socks_port_in_use">Porta loca SOCKS requisitada %d já está em uso por outra aplicação. Não consigo continuar.</string>
-  <string name="transparent_proxy_running">Proxy transparente rodando na porta %d</string>
-  <string name="transparent_proxy_ports_failed">Falha ao iniciar proxy transparente: não encontrada porta disponível</string>
-  <string name="transparent_proxy_command_failed">Comando de configuração de proxy transparente falhou: %s</string>
-  <string name="transparent_proxy_stopped">Proxy transparente parou</string>
-  <string name="dns_proxy_running">Proxy DNS rodando na porta %d</string>
-  <string name="dns_proxy_ports_failed">Falha ao inciar proxy DNS: não encotrada porta disponível</string>
-  <string name="dns_proxy_stopped">Proxy DNS parado</string>
-  <string name="dns_proxy_failed">Falha ao iniciar proxy DNS</string>
-  <string name="iptables_binary_not_found">Não foi possível encontrar implementação do IPTables, necessária para o proxy transparente</string>
-  <string name="root_access_denied">Acesso de administrador negado</string>
-  <string name="psiphon_stopped">Parado</string>
-  <string name="psiphon_running_whole_device">Rodando no modo todo dispositivo</string>
-  <string name="psiphon_running_browser_only">Rodando no modo apenas navegador</string>
   <string name="waiting_for_network_connectivity">Aguardando por conectividade de rede...</string>
-  <string name="checking_for_root_access">Verificando acesso de administrador...</string>
   <string name="psiphon_service_notification_message_connecting">Conectando...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Notificação de Serviço Psiphon</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Servidor preferido: %d</string>
-  <string name="selecting_server">Escolhendo servidor...</string>
-  <string name="fetch_remote_server_list">Buscando lista de servidores remotos...</string>
-  <string name="vpn_service_failed">Serviço de VPN falhou: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Atualização do Psiphon</string>
   <string name="vpn_service_running">Rodando serviço de VPN</string>
-  <string name="vpn_service_stopped">Serviço de VPN parado</string>
   <string name="vpn_service_revoked">Serviço de VPN revogado</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN para SOCKS falhou</string>
-  <string name="tun2socks_running">VPN para SOCKS rodando</string>
-  <string name="tun2socks_stopped">VPN para SOCKS parada</string>
-  <string name="vpn_service_no_private_address_available">Sem endereço privado disponível para serviço de VPN</string>
-  <string name="psiphon_running_generic">Rodando...</string>
-  <string name="data_transfer_bytes_sent">Bytes enviados: %1$s (%2$.2f%% comprimido)</string>
-  <string name="data_transfer_bytes_received">Bytes recebidos: %1$s (%2$.2f%% comprimido)</string>
-  <string name="data_transfer_elapsed_time">Tempo de conexão: %s</string>
-  <string name="check_tunnel_failed">Verificação do túnel falhou. Seu dispositivo pode não suportar a opção de tunelar todo o dispositivo</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Falha ao criar ou escrever no arquivo de comentários para diagnóstico</string>
   <string name="Diagnostics.EncryptedFailed">Falha ao criptografar as informações de diagnóstico. Estas informações não serão inseridas no email de comentários.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Falha ao extrair o binário do IPTables.</string>
-  <string name="transparent_proxy_routing_failed">Falha ao iniciar roteamento do proxy transparente: %s</string>
-  <string name="transparent_proxy_routing_running">Roteamento do proxy transparente rodando</string>
-  <string name="transparent_proxy_routing_stopped">Roteamento do proxy transparente parado</string>
   <string name="current_network_type">Rede atual: %s</string>
-  <string name="dns_resolver">Servidor DNS: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Erro ao adquirir lista de servidores DNS</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Não consegui pegar as informações de pacote do aplicativo atual</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Falha ao escrever arquivo de atualização</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Erro ao baixar arquivo de atualizaçã</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Arquivo de atualização baixado. É fortemente recomendado que você autorize o upgrade a acontecer agora. Após a finalização você terá que iniciar o Psiphon novamente.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Atualização falhou. Não foi possível extrair informações do arquivo de atualização.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Arquivo de atualização não encontrado.</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Desconectado</string>
   <string name="label_sent">Enviado</string>
   <string name="label_received">Recebido</string>
-  <string name="compression_ratio">%1$.2f%% comprimido</string>
-  <string name="compression_savings">%s economizado</string>
   <string name="start">Iniciar</string>
   <string name="stop">Parar</string>
   <string name="home_tab_name">Início</string>
   <string name="settings_tab_name">Opções</string>
   <string name="statistics_tab_name">Estatísticas</string>
   <string name="logs_tab_name">Logs</string>
-  <string name="socks_proxy_address">Proxy SOCKS local rodando em %s</string>
-  <string name="http_proxy_address">Proxy HTTP local rodando em %s</string>
-  <string name="share_proxies_toggle">Permitir outros dispositivos de rede a usar os proxies locais</string>
-  <string name="share_proxies_prompt_title">Reinício da aplicação necessário</string>
-  <string name="share_proxies_prompt_message">O aplicativo deve ser reiniciado para aplicar esta configuração.</string>
-  <string name="share_proxies_prompt_positive">Reinicie agora</string>
-  <string name="share_proxies_prompt_negative">Cancelar</string>
   <string name="use_proxy_settings_toggle">Conectando através de um Proxy HTTP</string>
   <string name="use_system_proxy_settings_radio">Usar configurações de rede do sistema</string>
   <string name="use_custom_proxy_settings_radio">Use as seguintes configurações:</string>
@@ -151,18 +71,10 @@
   <string name="region_name_sk">Eslováquia</string>
   <string name="region_name_rs">Sérvia</string>
   <string name="region_name_au">Austrália</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentários</string>
-  <string name="tunnel_whole_device_toggle">Tunelar todo o dispositivo (requer Android 4.0+)</string>
-  <string name="disable_timeouts">Desabilitar timeouts para redes lentas</string>
-  <string name="region_selector">Escolha a região</string>
-  <string name="network_proxy_connect_exception">Falha ao conectar ao Proxy HTTP da rede: %s</string>
-  <string name="network_proxy_connect_information">Conectando através do seu Proxy HTTP: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Desabilitar \"Expiração de tempo\" para redes lentas</string>
   <string name="network_proxy_connect_invalid_values">Configurações de Proxy HTTP Inválidas</string>
-  <string name="run_polipo_failed">Erro ao Rodar Polipo: %s</string>
-  <string name="wdm_force_iptables_toggle">Método de Forçar o Tunelamento de Todo o Dispositivo como Administrador</string>
-  <string name="http_prefix_toggle">Mascarar como HTTP</string>
   <string name="preference_notifications_title">Notificações</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -176,12 +88,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Toque um som ao mudar o estado da conexão</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>
   <string name="preference_notifications_with_vibrate_summary">Vibrar ao mudar o estado da conexão</string>
   <string name="moreOptions">Mais opções</string>
-  <string name="root_mode_not_supported">Modo de administrador não é suportado nessa versão do Android</string>
   <string name="proxySettingsCategoryTitle">Configurações de Proxy</string>
   <string name="custom_proxy_host_summary">Endereço ou IP do servidor Proxy</string>
   <string name="custom_proxy_port_summary">Porta do servidor Proxy</string>
@@ -199,7 +113,6 @@
   <string name="untunneled_address">Não tunelado: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Erro do Servidor Proxy: %s</string>
-  <string name="diagnostic">Diagnóstico: %s</string>
   <string name="start_tunnel_failed">Início do túnel falhou: %s</string>
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
@@ -211,6 +124,5 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Não, obrigado!</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_proxy_settings">Configurações do Proxy</string>
 </resources>

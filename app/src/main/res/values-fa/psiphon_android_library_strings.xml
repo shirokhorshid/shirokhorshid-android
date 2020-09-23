@@ -1,99 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">در حال اتصال اس‌اس‌اچ ...</string>
-  <string name="ssh_connected">اس‌اس‌اچ وصل شد </string>
-  <string name="ssh_connection_failed">اتصال به اس‌اس‌اچ موفقیت آمیز نبود</string>
-  <string name="ssh_authenticating">در حال تایید هوویت اس‌اس‌اچ ... </string>
-  <string name="ssh_authentication_failed">تایید هوویت اس‌اس‌اچ موفقیت آمیز نبود</string>
-  <string name="ssh_authenticated">اس‌اس‌اچ تایید شد</string>
-  <string name="socks_starting">ساکس در حال اجرا...</string>
   <string name="socks_running">ساکس روی پورت %d درحال اجرا است</string>
-  <string name="socks_stopped">ساکس متوقف شد </string>
-  <string name="ssh_stopped">اس‌اس‌اچ  متوقف شد </string>
-  <string name="error_message">یک خطا رخ داد: </string>
-  <string name="http_proxy_starting">اچ‌تی‌تی‌پی پراکسی در حالت اجرا...</string>
   <string name="http_proxy_running">پراکسی اچ‌تی‌تی‌پی روی پورت %d درحال اجرا است</string>
-  <string name="http_proxy_stopped">پراکسی اچ‌تی‌تی‌پی متوقف شد  </string>
-  <string name="http_proxy_stopped_unexpectedly">بصورت غیرمنتظره پراکسی اچ‌تی‌تی‌پی متوقف شد</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">ایجاد نوشته های سرور ناموفق بود</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">ذخیره نوشته های سرور نا موفق بود </string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">خواندن نوشته های ذخیره سرور نا موفق بود</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">تجزیه نوشته‌های ذخیره سرور نا موفق بود</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">تجزیه نوشته‌های جاسازی شده سرور نا موفق بود</string>
-  <string name="ServerInterface.FailedToParseHandshake">تجزیه‌ی ارتباط نا موفق بود </string>
-  <string name="ServerInterface.FailedToStoreLastConnected">ذخیره آخرین اتصال امکان پذیر نبود.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">پاسخ  تجزیه زمان اتصال  آخرین JSON امکان پذیر نبود</string>
-  <string name="ServerInterface.FailedToReadLastConnected">خواندن آخرین زمان اتصال امکان پذیر نبود.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">درخواست ارتباط نا موفق بود.</string>
-  <string name="ssh_disconnected_unexpectedly">اس‌اس‌اچ بصورت غیر منتظره قطع شد </string>
   <string name="client_version">نسخه مورد استفاده کاربر %s</string>
-  <string name="no_server_entries">هیچ سروری برای ارتباط موجود نیست</string>
-  <string name="ServerInterface.InvalidRemoteServerList">لیست سرور نا معتبر است</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">بسته داده‌های تصدیق شده با کلید عمومی متفاوتی امضا شده است</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">امضای نامعتبر در بسته داده های تصدیق شده </string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">تجزیه بسته داده های معتبر شکست خورده</string>
   <string name="AuthenticatedDataPackage.MissingValue">ارزش گمشده در بسته داده‌های  تصدیق شده</string>
   <string name="starting_tunnel">شروع تونل...</string>
   <string name="stopping_tunnel">توقف تونل...</string>
   <string name="stopped_tunnel">اجرای تونل متوقف شد </string>
-  <string name="ServerInterface.StopRequested">درخواست توقف</string>
-  <string name="ServerInterface.HTTPSRequestFailed">درخواست اچ‌تی‌تی‌پی‌اس به دلیل خطا نا موفق بود  </string>
-  <string name="socks_ports_failed">شروع پراکسی ساکس نا موفق بود: هیچ پورتی در دسترس نبود </string>
-  <string name="http_proxy_ports_failed">شروع پراکسی اچ‌تی‌تی‌پی نا موفق بود: هیچ پورتی در دسترس نبود </string>
   <string name="socks_port_in_use">پورت محلی ساکس %d در حال استفاده یک برنامه دیگر است. ادامه امکان پذیر نیست.</string>
-  <string name="transparent_proxy_running">پراکسی شفاف بر روی پورت %d در حال اجراست</string>
-  <string name="transparent_proxy_ports_failed">شروع پراکسی شفاف نا موفق بود: هیچ پورتی در دسترس نبود </string>
-  <string name="transparent_proxy_command_failed">دستور تنظیمات پورت شفاف ناموفق بود: %s</string>
-  <string name="transparent_proxy_stopped">پراکسی شفاف متوقف شد </string>
-  <string name="dns_proxy_running">پراکسی دی‌ان‌اس بر روی پورت %d در حال اجراست</string>
-  <string name="dns_proxy_ports_failed">شروع پراکسی دی‌ان‌اس  نا موفق بود: هیچ پورتی پیدا نشد.</string>
-  <string name="dns_proxy_stopped">پراکسی دی‌ان‌اس متوقف شد </string>
-  <string name="dns_proxy_failed">شروع پراکسی دی‌ان‌اس  ناموفق بود</string>
-  <string name="iptables_binary_not_found">آی‌‌‌پی‌تیبلز نیاز برای اجرای پراکسی شفاف پیدا نمی‌شود </string>
-  <string name="root_access_denied">دسترسی روت امکان پذیر نیست</string>
-  <string name="psiphon_stopped">متوقف شد</string>
-  <string name="psiphon_running_whole_device">تونل تمام گوشی فعال است</string>
-  <string name="psiphon_running_browser_only">فقط مرورگر Psiphon در حال اجراست</string>
   <string name="waiting_for_network_connectivity">انتظار برای اتصال به شبکه...</string>
-  <string name="checking_for_root_access">درحال بررسی دسترسی به روت...</string>
   <string name="psiphon_service_notification_message_connecting">در حال اتصال...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">اعلانات سرویس Psiphon</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_channel_name">وضعیت Psiphon تغییر می‌کند</string>
-  <string name="preferred_servers">سرورهای مورد ترجیح:  %d</string>
-  <string name="selecting_server">انتخاب سرور...</string>
-  <string name="fetch_remote_server_list">گرفتن لیست سرورهای ریموت... </string>
-  <string name="vpn_service_failed">سرویس وی پی ان نا موفق بود:%s</string>
+  <string name="psiphon_upgrade_notification_channel_name">به روز رسانی Psiphon</string>
   <string name="vpn_service_running">سرویس وی پی ان فعال است</string>
-  <string name="vpn_service_stopped">سرویس وی پی ان متوقف شد</string>
   <string name="vpn_service_revoked">سرویس وی پی ان لغو شد</string>
-  <string name="tun2socks_error">به ساکس منتقل کن:%s
-</string>
-  <string name="tun2socks_failed">وی پی ان به ساکس نا موفق بود</string>
-  <string name="tun2socks_running">وی پی ان به ساکس فعال است</string>
-  <string name="tun2socks_stopped">وی پی ان به ساکس متوقف شد</string>
-  <string name="vpn_service_no_private_address_available">آدرس خصوصی برای سرویس وی پی ان وجود ندارد</string>
-  <string name="psiphon_running_generic">در حال اجرا...</string>
-  <string name="data_transfer_bytes_sent">بایت‌های فرستاده شده: %1$s (%2$.2f%% فشرده)</string>
-  <string name="data_transfer_bytes_received">بایت‌های دریافت شده: %1$s (%2$.2f%% فشرده)</string>
-  <string name="data_transfer_elapsed_time">مدت زمان اتصال : %s</string>
-  <string name="check_tunnel_failed">بررسی تونل ناموفق بود. گوشی شما امکان تونل تمام گوشی را پشتیبانی نمی‌کند.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">پیوست فایل بازخورد امکان پذیر نبود </string>
   <string name="Diagnostics.EncryptedFailed">رمز گذاراطلاعات تشخیصی امکان پذیر نبود. اطلاعات تشخیصی به ایمیل بازخورد پیوست نمی‌شود.  </string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">باز کردن دودویی آی پی تیبلز امکان پذیر نبود </string>
-  <string name="transparent_proxy_routing_failed">شروع پراکسی شفاف ناموفق بود: %s</string>
-  <string name="transparent_proxy_routing_running">پراکسی شفاف در حال اجراست </string>
-  <string name="transparent_proxy_routing_stopped">پراکسی شفاف متوفق شد </string>
   <string name="current_network_type">شبکه کنونی: %s</string>
-  <string name="dns_resolver">تحلیلگر سامانه نام دامنه: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">دریافت تحلیلگرهای فعال نا‌موفق بود   </string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">بازیابی اطلاعات بسته برای برنامه جاری امکان پذیر نیست  </string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">خطا در نوشتن فایل ارتقا</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">دانلود بروزرسانی ناموفقیت آمیز بود</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">بسته بروزرسانی دانلود شد. به شدت توصیه می‌شود که شما اجازه‌ی به روزرسانی اپلیکیشن را همین الان بدهید. پس از بروزرسانی شما باید Psiphon را دوباره راه اندازی کنید.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">به روز رسانی ناموفقیت آمیز بود. بازکردن اطلاعات بسته از فایل ارتقا نا‌موفق بود.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">فایل بروزرسانی پیدا نشد.</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -106,21 +34,12 @@
   <string name="disconnected">قطع شد </string>
   <string name="label_sent">ارسال شد</string>
   <string name="label_received">دریافت شد </string>
-  <string name="compression_ratio">%1$.2f%% فشرده شد</string>
-  <string name="compression_savings">%s ذخیره شد</string>
   <string name="start">شروع کن</string>
   <string name="stop">متوقف کن</string>
   <string name="home_tab_name">خانه</string>
   <string name="settings_tab_name">گزینه‌ها </string>
   <string name="statistics_tab_name">آمارها</string>
   <string name="logs_tab_name">لاگ</string>
-  <string name="socks_proxy_address">ساکس محلی فعال است s%</string>
-  <string name="http_proxy_address">پراکسی اچ تی تی پی فعال است در s%</string>
-  <string name="share_proxies_toggle">به دستگاه‌های دیگر در شبکه اجازه دهید تا از پراکسی محلی استفاده کنند</string>
-  <string name="share_proxies_prompt_title">اپ نیاز به راه‌اندازی مجدد دارد</string>
-  <string name="share_proxies_prompt_message">برای اعمال این تغییرات، اپلیکیشن نیاز به راه‌اندازی مجدد دارد.</string>
-  <string name="share_proxies_prompt_positive">رستارت </string>
-  <string name="share_proxies_prompt_negative">لغو</string>
   <string name="use_proxy_settings_toggle">اتصال به Psiphon از طریق پراکسی http </string>
   <string name="use_system_proxy_settings_radio">از تنظیمات شبکه ی سیستم استفاده کن.  </string>
   <string name="use_custom_proxy_settings_radio">استفاده از این تنظیمات:</string>
@@ -153,19 +72,11 @@
   <string name="region_name_sk">اسلواکی</string>
   <string name="region_name_rs">صربستان</string>
   <string name="region_name_au">استرالیا</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">درباره Psiphon</string>
   <string name="feedback">بازخوردها</string>
-  <string name="tunnel_whole_device_toggle">تونل تمام دستگاه «نیاز به اندروید ۴.۰ به بالا دارد»</string>
-  <string name="disable_timeouts">غیر فعال کردن تایم‌آوت برای شبکه‌های کند </string>
-  <string name="region_selector">منطقۀ خود را انتخاب کنید</string>
-  <string name="network_proxy_connect_exception">اتصال به شبکه اچ‌تی‌تی‌پی پراکسی امکان پذیر نبود: %s</string>
-  <string name="network_proxy_connect_information">ایجاد اتصال از طریق http پراکسی: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">غیر فعال کردن وقفه برای شبکه‌های کم سرعت</string>
   <string name="network_proxy_connect_invalid_values">تنظمیات http پراکسی نا معتبر است. </string>
   <string name="tunnel_whole_device_exception"> به دلیل عدم وجود API VpnService دستگاه شما از تمام گزینه‌های تونل دستگاه پشتیبانی نمی کند.</string>
-  <string name="run_polipo_failed">اجرای پولیپو ناموفق بود: %s</string>
-  <string name="wdm_force_iptables_toggle">اجباری کردن استفاده از تونل در تمام گوشی</string>
-  <string name="http_prefix_toggle">ترافیک را مثل http نشان بده</string>
   <string name="preference_notifications_title">اطلاعیه ها</string>
   <string name="preference_vpn_title">وی پی ان</string>
   <!--Description of option to tunnel everything-->
@@ -196,14 +107,16 @@
     <item quantity="one">%d برنامه از VPN استثنا خواهد شد</item>
     <item quantity="other">%d برنامه از VPN استثنا خواهد شد</item>
   </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_routing_all_apps_tunnel_summary">تمام برنامه‌ها از VPN تونل خواهد شد</string>
   <string name="preference_notifications_with_sound_title">صدا </string>
   <string name="preference_notifications_with_sound_summary">وقتی وضعیت اتصال تغییر میکند صدا پخش شود</string>
   <string name="preference_notifications_with_vibrate_title">ویبره</string>
   <string name="preference_notifications_with_vibrate_summary">وقتی وضعیت اتصال تغییر میکند موبایل ویبره کند. </string>
-  <string name="preference_download_wifi_only_toggle">دانلود بروزرسانی‌ها فقط با Wi-Fi</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">دانلود بروزرسانی‌ها فقط با Wi-Fi</string>
   <string name="moreOptions">گزینه های بیشتر</string>
-  <string name="root_mode_not_supported">این نسخه اندروید از حالت روت پشتیبانی نمی کند</string>
   <string name="proxySettingsCategoryTitle">تنظیمات پروکسی</string>
   <string name="custom_proxy_host_summary">نام هاست پروکسی سرور و یا IP</string>
   <string name="custom_proxy_port_summary">پورت پروکسی سرور</string>
@@ -221,7 +134,6 @@
   <string name="untunneled_address">تونل نشده است: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">ارور پراکسی آپستریم: %s</string>
-  <string name="diagnostic">امکانات عیب شناسی %s</string>
   <string name="start_tunnel_failed">اجرای تونل امکان پذیر نبود: %s</string>
   <string name="tunnel_connecting">در حال اتصال به تونل...</string>
   <string name="tunnel_connected">متصل شد</string>
@@ -235,6 +147,5 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">قبول</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">نه، ممنون</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="disableTimeoutsPreferenceTitle">غیرفعال کردن وقفه‌ها</string>
 </resources>

@@ -1,10 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="debug_message">%s</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="disconnected">ตัดการเชื่อมต่อ</string>
@@ -15,8 +12,6 @@
   <string name="settings_tab_name">ตัวเลือก</string>
   <string name="statistics_tab_name">สถิติ</string>
   <string name="logs_tab_name">ปูม</string>
-  <string name="share_proxies_prompt_positive">เริ่มต้นใหม่เดี๋ยวนี้</string>
-  <string name="share_proxies_prompt_negative">ยกเลิก</string>
   <string name="custom_proxy_settings_port">พอร์ต</string>
   <string name="region_name_us">สหรัฐอเมริกา</string>
   <string name="region_name_gb">สหราชอาณาจักร</string>
@@ -39,7 +34,6 @@
   <string name="region_name_pl">โปแลนด์</string>
   <string name="region_name_rs">เซอร์เบีย</string>
   <string name="region_name_au">ออสเตรเลีย</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="feedback">การตอบสนอง</string>
   <string name="preference_notifications_title">การแจ้งเตือน</string>
   <!--Description of option to tunnel everything-->
@@ -53,6 +47,9 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">เสียง</string>
   <string name="preference_notifications_with_vibrate_title">สั่น</string>
   <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
@@ -65,6 +62,4 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ตกลง</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

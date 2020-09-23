@@ -20,6 +20,7 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -29,8 +30,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.content.FileProvider;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.FileProvider;
 
 import com.psiphon3.R;
 import com.psiphon3.psiphonlibrary.AuthenticatedDataPackage.AuthenticatedDataPackageException;
@@ -311,6 +312,7 @@ public interface UpgradeManager
      */
     class UpgradeInstaller
     {
+        private static final String UPGRADE_NOTIFICATION_CHANNEL_ID = "psiphon_upgrade_notification_channel";
         private static NotificationManager mNotificationManager;
         private static NotificationCompat.Builder mNotificationBuilder;
 
@@ -447,12 +449,14 @@ public interface UpgradeManager
                             PendingIntent.FLAG_UPDATE_CURRENT);
 
             if (mNotificationBuilder == null) {
-                mNotificationBuilder = new NotificationCompat.Builder(context)
+                mNotificationBuilder = new NotificationCompat.Builder(context, UPGRADE_NOTIFICATION_CHANNEL_ID)
                         .setSmallIcon(R.drawable.notification_icon_upgrade_available)
-                        .setContentTitle(context.getString(R.string.UpgradeManager_UpgradePromptTitle))
-                        .setContentText(context.getString(R.string.UpgradeManager_UpgradePromptMessage))
                         .setContentIntent(invokeUpgradeIntent);
             }
+            // Always update the text because the locale may have changed
+            mNotificationBuilder
+                    .setContentTitle(context.getString(R.string.UpgradeManager_UpgradePromptTitle))
+                    .setContentText(context.getString(R.string.UpgradeManager_UpgradePromptMessage));
 
             postNotification(context);
 
@@ -462,6 +466,14 @@ public interface UpgradeManager
         private static void postNotification(Context context) {
             if (mNotificationManager == null) {
                 mNotificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationChannel notificationChannel = new NotificationChannel(
+                            UPGRADE_NOTIFICATION_CHANNEL_ID, context.getText(R.string.psiphon_upgrade_notification_channel_name),
+                            NotificationManager.IMPORTANCE_HIGH);
+                    notificationChannel.setSound(null, null);
+                    notificationChannel.enableVibration(false);
+                    mNotificationManager.createNotificationChannel(notificationChannel);
+                }
             }
 
             if (mNotificationManager != null) {

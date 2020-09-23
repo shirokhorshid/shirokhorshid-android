@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">معاون بینر؛ معاون ابتدائیہ میں جانے کیلئے کلک کیجئے</string>
-  <string name="start_desc">Psiphon (سائفن) سے منسلک ہونے کیلئے کلک کیجئے</string>
-  <string name="message_image_success_desc">کامیاب پیغام کی نشاندہی کرنے والا آئیکن </string>
-  <string name="message_image_error_desc">غلط پیغام کی نشاندہی کرنے والا آئیکن</string>
-  <string name="message_image_debug_desc">ڈیبگ پیغام کی نشاندہی کرنے والا آئیکن</string>
-  <string name="message_image_warning_desc">انتباہی پیغام کی نشاندہی کرنے والا آئیکن</string>
-  <string name="exit">چھوڑدیجیے (Quit)</string>
   <string name="open_browser">براؤزر کھولئے</string>
-  <string name="browser_task_label">Psiphon (سائفن) براؤزر</string>
   <string name="FeedbackActivity.DefaultText">اگر آپ کے پاس کچھ مخصوص تبصرے ہیں، ان ویب سائٹس کے بارے میں جو کام نہیں کرتی ہیں ، یا اگر یہ فارم آپ کے لئے کام نہیں کررہا ہے تو ، براہ کرم ای میل کریں &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">اپنی رآئے پیش کرنے کے لئے آپ کا شکریہ</string>
   <string name="FeedbackActivity.Failure">گزارش ناکام ہو گئی ۔ مہربانی فرما کر دوبارہ کوشش کریں۔</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">Psiphon (سائفن) کا وی پی این آپ کے یا کسی اور ایپ کے ذریعے منقطع ہوگیا ہے۔ ایک ہی وقت میں متعدد وی پی این ایپس چل نہیں سکتی ہیں۔ جانچ کریں کہ کوئی اور وی پی این ایپ انسٹال ہے اور چل رہی ہے۔ </string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon (سائفن) وی پی این شروع نہیں ہو سکتا</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon (سائفن) وی پی این شروع نہیں کرسکتا۔ ایک ہی وقت میں کئی وی پی این ایپس چل نہیں سکتی ہیں۔ جانچ کریں کہ  کوئی دوسرا وی پی این ایپ انسٹال ہوا ہے اور وہ آلویز-ٰن پر سیٹ ہے۔</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">تمام ڈیوائس کو ٹنل کریں؟</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">آپ کی ڈیوائس کیلئے پوری ڈیوائس ٹنل کا آپشن دستیاب ہے۔/n/n اس آپشن کے ساتھ، آپکی تمام براؤزر سمیت تمام ایپس آپ کے تمام انٹرنیٹ ٹریفکPsiphon (سائفن) کے ذریعہ ٹنل کر دیا جائے گا۔ /n/n متبادل کے طور پر ، آپ صرف بنڈل شدہ Psiphon (سائفن) براؤزر کو ٹنل کرنے انتخاب کرسکتے ہیں جو آپ کے معیاری انٹرنیٹ کنیکشن کے ذریعہ دوسری تمام ایپس کو براہ راست جانا چھوڑ دے گا۔</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">پوری ڈیوائس ٹنل کریں</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">صرفPsiphon (سائفن) براؤزر استعمال کریں</string>
   <string name="selected_region_currently_not_available">منتخب شدہ علاقہ ابھی دستیاب نہیں ہے، مہربانی کر کے کوئی دوسرا علاقہ منتخب کریں۔</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">ہم آپ کی پرائیویسی اور ڈیٹا سیکورٹی کے بارے میں فکر کرتے ہیں۔ ہم ایڈز دکھا کر اس ایپ کو مفت رکھتے ہیں۔</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">کیا آپ کےلئے اشتہارات بنانے کے لئے ہم آپ کے ڈیٹا کا استعمال جاری رکھ سکتے ہیں؟</string>
-  <string name="you_can_change_your_choice_anytime">آپ کسی بھی وقت اپلیکیشن کے انتخاب میں Psiphon (سائفن) Pro کے لئے اپنی پسند کو تبدیل کرسکتے ہیں۔ ہمارے اشتہار فراہم کرنے والے ڈیٹا اکٹھا کریں گے اور آپ کےلئے اشتہارات دکھانے کیلئے آپ کے آلے پر ایک انوکھا شناخت کار استعمال کریں گے۔</string>
-  <string name="learn_more_about_our_ad_providers"><u>ہمارے اشتہارات بنانے والوں کے لئے مزید معلومات حاصل کر لیں</u></string>
-  <string name="yes_continue_to_see_relevant_ads">ہاں، متعلقہ اشتہارات دیکھنا جاری رکھے</string>
-  <string name="no_see_ads_that_are_less_relevant">نہیں، وہ اشتہارات دیکھیں جو کم متعلقہ ہیں</string>
-  <string name="pay_for_the_ad_free_version">اشتہارات سے آزاد version (ورژن) میں اپ گریڈ کریں</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">اشتہار فراہم کنندہ کے نام پر ان کی رازداری کی پالیسی کو دیکھنے کے لئے کلک کریں.</string>
   <string name="ads_consent_preference_category_title">اشتہارات کی پرسنلائزیشن</string>
   <string name="ads_consent_preference_dialog_preference_message">کیا آپ واقعی میں اپنے اشتہارات کی شخصی ترجیح کو دوبارہ ترتیب دینا چاہتے ہیں؟</string>
   <string name="ads_consent_preference_title"> اشتہارات کی شخصی ترجیح کو دوبارہ ترتیب دیں</string>
@@ -41,28 +22,7 @@
   <string name="preference_language_selection_title">زبان</string>
   <string name="preference_language_title">زبان کا انتخاب</string>
   <string name="preference_language_default_language">طے شدہ زبان</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_success">رابطے کی معلومات کامیابی کے ساتھ درآمد کی گئیں!</string>
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <string name="nfc_connection_info_import_failure">رابطہ کی معلومات درآمد کرنے میں ناکام۔</string>
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <string name="nfc_connection_info_press_start">براہِ کرم سٹارٹ کو دبائیں اور دوبارہ این ایف سی تبادلہ کی کوشش کریں۔</string>
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <string name="need_help_connecting">رابطہ قائم کرنے میں مدد کی ضرورت ہے؟</string>
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <string name="get_help_connecting_text">منسلک ہونے میں مدد حاصل کرنے کے لئے ، دوسرا Psiphon (سائفن) استعمال کرنے والا تلاش کریں جو منسلک ہے ، پھر ، جب آپ رابطہ قائم کرنے کی کوشش کر رہے ہیں اور وہ منسلک ہو گئے ،</string>
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <string name="get_help_connecting_image_description">این ایف سی کیلئے فون ٹکرانا ہے۔</string>
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_title">کنکشن کا مسئلہ</string>
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <string name="get_help_connecting_notification_message">ممکن اصلاحات کیلئے کلک کریں۔</string>
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <string name="how_to_help">رابطے کے لئے دوست کی مدد کریں۔</string>
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <string name="how_to_help_connect_text">آپ اپنے فونز کو Psiphon (سائفن) سے منسلک کر کے اپنے دوست کی مدد کرسکتے ہیں چاہے آپ مربوط ہوگئے ہوں اور آپ کا دوست رابطے کی کوشش کر رہا ہو۔</string>
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
-  <string name="how_to_help_connect_image_description">این ایف سی کیلئے فون ٹکرانا ہے۔</string>
+  <string name="preference_category_advanced_title">ترقی یافتہ</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ٹھیک ہے</string>
   <string name="preference_navigate_to_vpn_setting_title">Always-on VPN (ہمیشہ آن VPN)</string>

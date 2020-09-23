@@ -9,6 +9,8 @@ import android.os.Build;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 
+import androidx.core.os.ConfigurationCompat;
+
 import net.grandcentrix.tray.AppPreferences;
 
 import java.util.Locale;
@@ -114,11 +116,7 @@ public class LocaleManager {
     private static Context updateResources(Context context, String language) {
         Locale locale;
         if (language.equals(USE_SYSTEM_LANGUAGE_VAL)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                locale = context.getResources().getConfiguration().getLocales().get(0);
-            } else {
-                locale = context.getResources().getConfiguration().locale;
-            }
+            locale = ConfigurationCompat.getLocales(Resources.getSystem().getConfiguration()).get(0);
         } else {
             locale = fromLanguageCode(language);
         }

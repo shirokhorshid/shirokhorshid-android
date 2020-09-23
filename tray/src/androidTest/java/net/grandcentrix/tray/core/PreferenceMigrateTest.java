@@ -21,7 +21,7 @@ import junit.framework.TestCase;
 import net.grandcentrix.tray.BuildConfig;
 import net.grandcentrix.tray.mock.MockTrayStorage;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.Date;
 import java.util.HashMap;

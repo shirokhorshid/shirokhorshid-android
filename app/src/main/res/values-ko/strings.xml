@@ -1,38 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">스폰서 배너; 클릭하면 스폰서의 홈페이지로 이동합니다</string>
-  <string name="start_desc">Psiphon에 접속; 클릭하면 접속합니다</string>
-  <string name="message_image_success_desc">성공 메시지를 나타내는 아이콘</string>
-  <string name="message_image_error_desc">에러 메시지를 나타내는 아이콘</string>
-  <string name="message_image_debug_desc">디버그 메시지를 나타내는 아이콘</string>
-  <string name="message_image_warning_desc">경고 메시지를 나타내는 아이콘</string>
-  <string name="exit">나가기</string>
   <string name="open_browser">브라우저 열기</string>
-  <string name="browser_task_label">Psiphon 브라우저</string>
   <string name="FeedbackActivity.DefaultText">만약 우리에게 남길 코멘트가 있는데, 웹 사이트가 작동하지 않거나, 이 폼이 작동하지 않을 경우, 다음의 이메일로 코멘트를 남겨주시면 됩니다: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">피드백을 주셔서 감사합니다</string>
   <string name="FeedbackActivity.Failure">작업을 실패했습니다. 다시 시도해 주세요.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">피드백을 보내는데 실패했습니다</string>
   <string name="FeedbackActivity.InvalidURLParameters">URL 파라미터가 잘못 되어 피드백 전송에 실패했습니다</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">피드백 페이지의 콘텐츠를 가져오는 데 실패하였습니다</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">모든 브라우저에 우회를 적용합니까?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">이 디바이스의 모든 브라우저에 우회를 적용시킵니다.\n\n이 옵션을 사용할 시, 당신의 모든 인터넷 트래픽은 모든 브라우저 앱을 포함하여 Psiphon 터널을 사용하게 됩니다.\n\n다른 방법으로는, 다른 브라우저의 인터넷 연결을 변경하지 않고 표준 연결을 사용하되 본 Psiphon 앱에 포함된 Psiphon 브라우저만을 사용할 수도 있습니다.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">모든 브라우저에 적용</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Psiphon 브라우저만 사용</string>
   <string name="ads_consent_preference_dialog_title">초기화</string>
   <string name="preference_language_selection_title">언어</string>
   <string name="preference_language_default_language">기본 언어</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">고급</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">확인</string>
   <!--Generic negative button label.-->

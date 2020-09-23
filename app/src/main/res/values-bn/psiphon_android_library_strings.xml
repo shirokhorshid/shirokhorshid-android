@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting"> এসএসএইচ সংযুক্ত হচ্ছে ...</string>
-  <string name="ssh_connected"> এসএসএইচ সংযুক্ত</string>
-  <string name="ssh_connection_failed"> এসএসএইচ সংযোগ ব্যর্থ হয়েছে</string>
-  <string name="ssh_authenticating">এসএসএইচ প্রমাণীকরণ করা হচ্ছে ...</string>
-  <string name="ssh_authentication_failed">এসএসএইচ প্রমাণীকরণ ব্যর্থ</string>
-  <string name="ssh_authenticated">এসএসএইচ প্রমাণীকরণ করা হয়েছে</string>
-  <string name="socks_starting">সক্স শুরু হচ্ছে ...</string>
   <string name="socks_running">সক্স পোর্ট টি চলমান %d</string>
-  <string name="socks_stopped">সক্স বন্ধ</string>
-  <string name="ssh_stopped">এসএসএইচ বন্ধ</string>
-  <string name="error_message">একটি ত্রুটি ঘটেছে:</string>
-  <string name="http_proxy_starting">HTTP প্রক্সি শুরু হচ্ছে ...</string>
   <string name="http_proxy_running">HTTP প্রক্সি পোর্ট চলমান  %d</string>
-  <string name="http_proxy_stopped">HTTP প্রক্সি বন্ধ হয়েছে</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP প্রক্সি অপ্রত্যাশিতভাবে বন্ধ হয়েছে</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">সংরক্ষণ করতে সার্ভার এন্ট্রি তৈরি ব্যর্থ হয়েছে।</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">সার্ভার এন্ট্রি সংরক্ষণ করতে ব্যর্থ হয়েছে</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">সংরক্ষিত সার্ভার এন্ট্রি পড়তে ব্যর্থ।</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">সঞ্চিত সার্ভার এন্ট্রি বিশ্লেষণ ব্যর্থ হয়েছে।</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">এম্বেড করা সার্ভার এন্ট্রিগুলিকে বিশ্লেষণ করতে ব্যর্থ হয়েছে।</string>
-  <string name="ServerInterface.FailedToParseHandshake">হ্যান্ডশেক বিশ্লেষণ ব্যর্থ হয়েছে।</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">শেষ সংযুক্ত সময় সংরক্ষণ করতে ব্যর্থ হয়েছে।</string>
-  <string name="ServerInterface.FailedToParseLastConnected">JSON শেষ সংযুক্ত সময় প্রতিক্রিয়া পার্স করতে ব্যর্থ।</string>
-  <string name="ServerInterface.FailedToReadLastConnected">শেষ সংযুক্ত সময়টি পড়তে ব্যর্থ হয়েছে।</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">হ্যান্ডশেক অনুরোধ ব্যর্থ হয়েছে।</string>
-  <string name="ssh_disconnected_unexpectedly">SSH অপ্রত্যাশিতভাবে সংযোগ বিচ্ছিন্ন</string>
   <string name="client_version">ক্লায়েন্ট সংস্করণ %s</string>
-  <string name="no_server_entries">সংযোগ করতে কোনও সার্ভার নেই</string>
-  <string name="ServerInterface.InvalidRemoteServerList">অবৈধ দূরবর্তী সার্ভার তালিকা</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">বিভিন্ন পাবলিক কী সঙ্গে স্বাক্ষরিত প্রমাণীকৃত ডেটা প্যাকেজ </string>
   <string name="AuthenticatedDataPackage.InvalidSignature">প্রমাণীকৃত ডেটা প্যাকেজে অবৈধ স্বাক্ষর</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">প্রমাণীকৃত ডেটা প্যাকেজ বিশ্লেষণ করতে ব্যর্থ</string>
   <string name="AuthenticatedDataPackage.MissingValue">প্রমাণীকৃত ডেটা প্যাকেজে অনুপস্থিত মান</string>
   <string name="starting_tunnel">টানেল শুরু হচ্ছে ...</string>
   <string name="stopping_tunnel">টানেল থামানো হচ্ছে ...</string>
   <string name="stopped_tunnel">টানেল বন্ধ হয়ে গেছে </string>
-  <string name="ServerInterface.StopRequested">বন্ধ করুন অনুরোধ</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS দ্বারা অনুরোধ ত্রুটি সহ ব্যর্থ হয়েছে:</string>
-  <string name="socks_ports_failed">SOCKS প্রক্সি শুরু করতে ব্যর্থ হয়েছে: কোনও উপলব্ধ পোর্ট পাওয়া যায়নি</string>
-  <string name="http_proxy_ports_failed">HTTP প্রক্সি শুরু করতে ব্যর্থ: কোনও উপলব্ধ পোর্ট পাওয়া যায়নি</string>
   <string name="socks_port_in_use">অনুরোধ করা স্থানীয় SOCKS প্রক্সি পোর্ট %d ইতিমধ্যে অন্য অ্যাপ্লিকেশান দ্বারা ব্যবহার করা হয়েছে। চালিয়ে যেতে পারবেন না</string>
-  <string name="transparent_proxy_running">ট্রান্সপারেন্ট প্রক্সি চলছে পোর্ট %d এ </string>
-  <string name="transparent_proxy_ports_failed">স্বচ্ছ প্রক্সি শুরু করতে ব্যর্থ: কোনও উপলব্ধ পোর্ট পাওয়া যায়নি</string>
-  <string name="transparent_proxy_command_failed">ট্রান্সপারেন্ট প্রক্সি কনফিগারেশন কমান্ড ব্যর্থ হয়েছে:  %s</string>
-  <string name="transparent_proxy_stopped">ট্রান্সপারেন্ট প্রক্সি বন্ধ</string>
-  <string name="dns_proxy_running">DNS প্রক্সি চলছে পোর্ট %d এ</string>
-  <string name="dns_proxy_ports_failed">DNS প্রক্সি শুরু করতে ব্যর্থ: কোনও উপলব্ধ পোর্ট পাওয়া যায়নি</string>
-  <string name="dns_proxy_stopped">DNS প্রক্সি বন্ধ</string>
-  <string name="dns_proxy_failed">DNS প্রক্সি শুরু করতে ব্যর্থ হয়েছে</string>
-  <string name="iptables_binary_not_found">স্বচ্ছ প্রক্সির জন্য iptables বাস্তবায়ন খুঁজে পাওয়া যাচ্ছে না</string>
-  <string name="root_access_denied">রুট অ্যাক্সেস অস্বীকৃত</string>
-  <string name="psiphon_stopped">বন্ধ</string>
-  <string name="psiphon_running_whole_device">পুরো ডিভাইস মোডে চলমান</string>
-  <string name="psiphon_running_browser_only">শুধুমাত্র-ব্রাউজার মোডে চলমান</string>
   <string name="waiting_for_network_connectivity">নেটওয়ার্ক সংযোগের জন্য অপেক্ষা করা হচ্ছে ...</string>
-  <string name="checking_for_root_access">রুট অ্যাক্সেসের জন্য চেক করা হচ্ছে ...</string>
   <string name="psiphon_service_notification_message_connecting">সংযুক্ত হচ্ছে ...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">সাইফন সার্ভিস বিজ্ঞপ্তি</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">পছন্দের সার্ভার: %d</string>
-  <string name="selecting_server">সার্ভার নির্বাচন করা হচ্ছে ...</string>
-  <string name="fetch_remote_server_list">দূরবর্তী সার্ভারে তালিকা আনা হচ্ছে ...</string>
-  <string name="vpn_service_failed">ভিপিএন সেবা ব্যর্থ হয়েছে : %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">সাইফন আপগ্রেড</string>
   <string name="vpn_service_running">ভিপিএন সেবা চলমান</string>
-  <string name="vpn_service_stopped">ভিপিএন সেবা বন্ধ</string>
   <string name="vpn_service_revoked">ভিপিএন সেবা বাতিল করা হয়েছে</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">ভিপিএন থেকে SOCKS ব্যর্থ হয়েছে</string>
-  <string name="tun2socks_running">ভিপিএন থেকে SOCK  চলমান</string>
-  <string name="tun2socks_stopped">ভিপিএন থেকে SOCKS বন্ধ</string>
-  <string name="vpn_service_no_private_address_available">ভিপিএন সেবার জন্য কোন ব্যক্তিগত ঠিকানা উপলব্ধ নয়</string>
-  <string name="psiphon_running_generic">চলছে ...</string>
-  <string name="data_transfer_bytes_sent">বাইট পাঠানো হয়েছে: %1$s (%2$.2f %% সঙ্কুচিত)</string>
-  <string name="data_transfer_bytes_received">প্রাপ্ত বাইট : %1$s(%2$.2f%%সঙ্কুচিত)</string>
-  <string name="data_transfer_elapsed_time">সংযোগ সময়:%s</string>
-  <string name="check_tunnel_failed">চেক টানেল ব্যর্থ হয়েছে।আপনার ডিভাইস পুরো ডিভাইস সুড়ঙ্গ বিকল্প সমর্থন নাও করতে পারে।</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">প্রতিক্রিয়া ডায়গনিস্টিক ফাইল তৈরি বা লিখতে ব্যর্থ হয়েছে</string>
   <string name="Diagnostics.EncryptedFailed">প্রতিক্রিয়া ডায়গনিস্টিক তথ্য এনক্রিপ্ট করতে ব্যর্থ হয়েছে।এই তথ্য প্রতিক্রিয়া ই-মেইলের সাথে সংযুক্ত করা হবে না।</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Iptables বাইনারি বের করতে ব্যর্থ হয়েছে</string>
-  <string name="transparent_proxy_routing_failed">স্বচ্ছ প্রক্সি রাউটিং শুরু করতে ব্যর্থ হয়েছে: %s</string>
-  <string name="transparent_proxy_routing_running">স্বচ্ছ প্রক্সি রাউটিং চলমান</string>
-  <string name="transparent_proxy_routing_stopped">ট্রান্সপারেন্ট প্রক্সি রাউটিং বন্ধ হয়েছে</string>
   <string name="current_network_type">বর্তমান নেটওয়ার্ক:%s</string>
-  <string name="dns_resolver">DNS রিসলভার:%s</string>
-  <string name="get_active_network_dns_resolvers_failed">সক্রিয় নেটওয়ার্ক পেতে ডিএনএস রিসলভার ব্যর্থ হয়েছে</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">বর্তমান অ্যাপ্লিকেশনের জন্য প্যাকেজ তথ্য পুনরুদ্ধার করতে অক্ষম</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">আপগ্রেড ফাইল লিখতে ব্যর্থ হয়েছে</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">আপগ্রেড ডাউনলোড ব্যর্থ হয়েছে</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">ডাউনলোড করা অ্যাপ্লিকেশন আপগ্রেড করুন, এটি জোরালোভাবে সুপারিশ করা হয় যে আপনি আপগ্রেড এই সময়ে এগিয়ে যাওয়ার অনুমতি দিন।আপগ্রেড করার পরে আপনাকে আবার সাইফনটি চালু করতে হবে।</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">আপগ্রেড ব্যর্থ হয়েছে ।আপগ্রেড ফাইল থেকে প্যাকেজ তথ্য সরানো যাবে না</string>
   <string name="UpgradeManager.UpgradeFileNotFound">আপগ্রেড ফাইল পাওয়া যায় নি</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">সংযোগ বিচ্ছিন্ন</string>
   <string name="label_sent">পাঠানো হয়েছে</string>
   <string name="label_received">গৃহীত হয়েছে</string>
-  <string name="compression_ratio">%1$.2f%% সঙ্কুচিত</string>
-  <string name="compression_savings">%sসংরক্ষিত</string>
   <string name="start">শুরু</string>
   <string name="stop">থামুন</string>
   <string name="home_tab_name">মূল</string>
   <string name="settings_tab_name">বিকল্প</string>
   <string name="statistics_tab_name">পরিসংখ্যান</string>
   <string name="logs_tab_name">কার্যবিবরণীগুলি</string>
-  <string name="socks_proxy_address">স্থানীয় SOCKS প্রক্সি  %s এ চলছে</string>
-  <string name="http_proxy_address">স্থানীয় HTTP প্রক্সি %s এ চলছে </string>
-  <string name="share_proxies_toggle">স্থানীয় প্রক্সি ব্যবহার করতে অন্যান্য নেটওয়ার্ক ডিভাইসগুলিকে অনুমতি দিন</string>
-  <string name="share_proxies_prompt_title">অ্যাপ্লিকেশন পুনরারম্ভ প্রয়োজন</string>
-  <string name="share_proxies_prompt_message">অ্যাপ্লিকেশন এই সেটিং প্রয়োগ করার জন্য পুনরায় চালু করা প্রয়োজন।</string>
-  <string name="share_proxies_prompt_positive">এখনই পুনরায় চালু করুন</string>
-  <string name="share_proxies_prompt_negative">বাতিল</string>
   <string name="use_proxy_settings_toggle">একটি HTTP প্রক্সির মাধ্যমে সংযোগ করুন</string>
   <string name="use_system_proxy_settings_radio">সিস্টেম নেটওয়ার্ক সেটিংস ব্যবহার করুন</string>
   <string name="use_custom_proxy_settings_radio">নিম্নলিখিত সেটিংস ব্যবহার করুন:</string>
@@ -149,19 +69,11 @@
   <string name="region_name_se">সুইডেন</string>
   <string name="region_name_pl">পোল্যান্ড</string>
   <string name="region_name_sk">Slovakia</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">সাইফন সম্পর্কে</string>
   <string name="feedback">প্রতিক্রিয়া</string>
-  <string name="tunnel_whole_device_toggle">টানেল সমগ্র ডিভাইস (অ্যান্ড্রয়েড 4.0+ প্রয়োজন)</string>
-  <string name="disable_timeouts">ধীর গতির নেটওয়ার্কগুলির জন্য সময়সীমা অক্ষম করুন</string>
-  <string name="region_selector">অঞ্চল নির্বাচন করুন</string>
-  <string name="network_proxy_connect_exception">নেটওয়ার্ক এর HTTP প্রক্সির সাথে সংযোগ করতে ব্যর্থ:%s</string>
-  <string name="network_proxy_connect_information">আপনার HTTP প্রক্সির মাধ্যমে সংযুক্ত হচ্ছে:%s</string>
+  <string name="disableTimeoutsPreferenceSummary">ধীর গতির নেটওয়ার্কগুলির জন্য সময়সীমা অক্ষম করুন</string>
   <string name="network_proxy_connect_invalid_values">অবৈধ HTTP প্রক্সি সেটিংস</string>
   <string name="tunnel_whole_device_exception">আপনার ডিভাইস-এ অনুপস্থিত VpnService API এর কারণে এটি পুরো ডিভাইসের টানেল বিকল্পটি সমর্থন করে না</string>
-  <string name="run_polipo_failed">চালানো Polipo ব্যর্থ হয়েছে: %s</string>
-  <string name="wdm_force_iptables_toggle">ফোর্স মূল টানেল সমগ্র ডিভাইস পদ্ধতি</string>
-  <string name="http_prefix_toggle">HTTP হিসাবে মুখোমুখি</string>
   <string name="preference_notifications_title">প্রজ্ঞাপন</string>
   <string name="preference_vpn_title">ভিপিএন</string>
   <!--Description of option to tunnel everything-->
@@ -178,13 +90,15 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">শব্দ</string>
   <string name="preference_notifications_with_sound_summary">সংযোগ স্থিতি পরিবর্তন হলে শব্দটি প্লে করুন</string>
   <string name="preference_notifications_with_vibrate_title">কম্পন</string>
   <string name="preference_notifications_with_vibrate_summary">কম্পন যখন সংযোগ স্থিতি পরিবর্তন </string>
-  <string name="preference_download_wifi_only_toggle">শুধুমাত্র Wi-Fi এ আপগ্রেড ডাউনলোড করুন</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">শুধুমাত্র Wi-Fi এ আপগ্রেড ডাউনলোড করুন</string>
   <string name="moreOptions">আরো বিকল্প</string>
-  <string name="root_mode_not_supported">অ্যান্ড্রয়েড এর এ সংস্করণে রুট মোডটি সমর্থিত নয়</string>
   <string name="proxySettingsCategoryTitle">প্রক্সি সেটিংস</string>
   <string name="custom_proxy_host_summary">প্রক্সি সার্ভার হোস্টনাম বা আইপি</string>
   <string name="custom_proxy_port_summary">প্রক্সি সার্ভার পোর্ট</string>
@@ -202,7 +116,6 @@
   <string name="untunneled_address">টানেল নয়: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">আপস্ট্রিম প্রক্সি ত্রুটি:%s</string>
-  <string name="diagnostic">ডায়াগনস্টিক:%s</string>
   <string name="start_tunnel_failed">টানেল শুরু করা ব্যর্থ হয়েছে:%s</string>
   <string name="tunnel_connecting">টানেল সংযুক্ত হচ্ছে ...</string>
   <string name="tunnel_connected">টানেল সংযুক্ত</string>
@@ -213,6 +126,5 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ঠিক আছে</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="disableTimeoutsPreferenceTitle">সময়সীমা অক্ষম করুন</string>
 </resources>

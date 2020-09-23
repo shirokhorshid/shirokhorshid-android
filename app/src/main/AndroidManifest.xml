@@ -12,18 +12,18 @@
                   android:xlargeScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.NFC" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
-    <uses-feature android:name="android.hardware.nfc" android:required="false" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:name=".PsiphonApplication"
         android:hardwareAccelerated="true"
         android:allowBackup="false"
@@ -31,9 +31,14 @@
         android:theme="@style/Theme.AppCompat"
         android:supportsRtl="true"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- Required for newer devices -->
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
         <activity
-            android:name=".StatusActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask">
             <intent-filter>
@@ -44,27 +49,14 @@
         <activity-alias
             android:name="com.psiphon3.psiphonlibrary.TunnelIntentsHandler"
             android:exported="false"
-            android:targetActivity="com.psiphon3.StatusActivity" />
-
-        <activity android:name=".psiphonlibrary.NfcActivity" />
-        <activity-alias
-            android:name=".psiphonlibrary.NfcActivity"
-            android:targetActivity=".StatusActivity"
-            android:enabled="false">
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="psiphon://nfc" />
-            </intent-filter>
-        </activity-alias>
-
+            android:targetActivity="com.psiphon3.MainActivity" />
         <activity
             android:name=".FeedbackActivity"
-            android:parentActivityName=".StatusActivity"
+            android:parentActivityName=".MainActivity"
             android:label="@string/app_name">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".StatusActivity" />
+                android:value=".MainActivity" />
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -77,24 +69,34 @@
         </activity>
         <activity
             android:name=".psiphonlibrary.MoreOptionsPreferenceActivity"
-            android:parentActivityName=".StatusActivity"
+            android:parentActivityName=".MainActivity"
             android:label="@string/app_name">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".StatusActivity" />
+                android:value=".MainActivity" />
         </activity>
-        <service
-            android:name=".psiphonlibrary.TunnelService"
-            android:label="@string/app_name"
-            android:exported="false"
-            android:process=":TunnelService" >
-        </service>
+        <activity
+            android:name=".psiphonlibrary.VpnOptionsPreferenceActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/app_name">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".psiphonlibrary.ProxyOptionsPreferenceActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/app_name">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <service
             android:name=".psiphonlibrary.TunnelVpnService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_VPN_SERVICE"
             android:exported="false"
-            android:process=":TunnelService" >
+            android:process=":TunnelVpnService" >
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
@@ -123,11 +125,12 @@
             android:name=".psiphonlibrary.UpgradeChecker$UpgradeCheckerService"
             android:label="@string/upgrade_checker_service_name"
             android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
             android:process=":UpgradeChecker" >
         </service>
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.psiphon3.UpgradeFileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -135,37 +138,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"/>
         </provider>
-
-        <activity
-            android:name="org.zirco.ui.activities.MainActivity"
-            android:label="@string/browser_task_label"
-            android:launchMode="singleTask"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:taskAffinity=":PsiphonBrowserTask"
-            android:theme="@style/ZircoTheme"
-            android:exported="false">
-        </activity>
-        <activity android:name="org.zirco.ui.activities.AboutActivity" />
-        <activity android:name="org.zirco.ui.activities.EditBookmarkActivity"/>
-        <activity android:name="org.zirco.ui.activities.BookmarksListActivity"/>
-        <activity android:name="org.zirco.ui.activities.HistoryListActivity"/>
-        <activity android:name="org.zirco.ui.activities.DownloadsListActivity"/>
-        <activity android:name="org.zirco.ui.activities.AdBlockerWhiteListActivity"/>
-        <activity android:name="org.zirco.ui.activities.BookmarksHistoryActivity"/>
-        <activity android:name="org.zirco.ui.activities.ChangelogActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.PreferencesActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.HomepagePreferenceActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.SearchUrlPreferenceActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.UserAgentPreferenceActivity"/>
-        <activity android:name="org.zirco.ui.activities.MobileViewListActivity"/>
-        <activity android:name="org.zirco.ui.activities.DesktopViewListActivity"/>
-        <activity android:name="org.zirco.ui.activities.WeaveBookmarksListActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.WeavePreferencesActivity"/>
-        <activity android:name="org.zirco.ui.activities.preferences.WeaveServerPreferenceActivity"/>
-
         <provider android:name="org.zirco.providers.ZircoBookmarksContentProvider" android:exported="false" android:authorities="org.zirco.providers.psiphonzircobookmarkscontentprovider"/>
-        <provider android:name="org.zirco.providers.WeaveContentProvider" android:exported="false" android:authorities="org.zirco.providers.psiphonweavecontentprovider"/>
-
     </application>
 
 </manifest>

@@ -47,6 +47,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.lifecycle.ViewModelProvider;
+
 import com.psiphon3.psiphonlibrary.Diagnostics;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
@@ -62,6 +64,11 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
         final Activity activity = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
+
+        MainActivityViewModel viewModel = new ViewModelProvider(this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication()))
+                .get(MainActivityViewModel.class);
+        getLifecycle().addObserver(viewModel);
 
         Intent intent = getIntent();
         if (isDeepLinkIntent(intent)) {

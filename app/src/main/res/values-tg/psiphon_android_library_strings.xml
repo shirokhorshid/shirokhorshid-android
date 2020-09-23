@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH пайваст карда мешавад…</string>
-  <string name="ssh_connected">SSH пайваст карда шуд</string>
-  <string name="ssh_connection_failed">Пайвасти SSH барор наёфт</string>
-  <string name="ssh_authenticating">Санҷиши SSH иҷро мешавад…</string>
-  <string name="ssh_authentication_failed">Санҷиши SSH барор наёфт</string>
-  <string name="ssh_authenticated">Санҷиши SSH иҷро шуд</string>
-  <string name="socks_starting">SOCKS ба кор медарояд…</string>
   <string name="socks_running">SOCKS дар порти %d кор мекунад</string>
-  <string name="socks_stopped">SOCKS қатъ карда шуд</string>
-  <string name="ssh_stopped">SSH қатъ карда шуд</string>
-  <string name="error_message">Хатогӣ ба миён омад:</string>
-  <string name="http_proxy_starting">HTTP-прокси ба кор медарояд…</string>
   <string name="http_proxy_running">HTTP-прокси дар порти %d кор мекунад</string>
-  <string name="http_proxy_stopped">HTTP-прокси қатъ карда шуд</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP-прокси ба таври тасодуфӣ аз кор монд</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Эҷод кардани воридаҳои сервер барои нигоҳдорӣ барор наёфт</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Захира кардани воридаҳои сервер барор наёфт.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Хондани воридаҳои захирашудаи сервер барор наёфт.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Коркарди воридаҳои захирашудаи сервер барор наёфт.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Коркарди воридаҳои дарунсохти сервер барор наёфт.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Коркарди тасдиқи пайваст барор наёфт.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Захира кардани вақти пайвасти охирин барор наёфт.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Коркарди посухи вақти пайвасти охирини JSON барор наёфт.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Хондани вақти пайвасти охирин барор наёфт.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Дархости тасдиқи пайваст барор наёфт.</string>
-  <string name="ssh_disconnected_unexpectedly">Пайвасти SSH тасодуфан пароканда шуд</string>
   <string name="client_version">Версияи нармафзори муштарӣ %s</string>
-  <string name="no_server_entries">Ягон сервери барои пайваст шудан нест</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Рӯйхати серверҳои дурдаст нодуруст мебошад</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Бастаи санҷидашудаи иттилоот бо калиди кушоди дигар имзо гузошта шудааст</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Бастаи санҷидашудаи иттилоот имзои беэътибор дорад</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Коркарди бастаи санҷидашудаи иттилоот барор наёфт</string>
   <string name="AuthenticatedDataPackage.MissingValue">Дар бастаи санҷидашудаи иттилоот арзише намерасад</string>
   <string name="starting_tunnel">Нақб ба кор дароварда мешавад...</string>
   <string name="stopping_tunnel">Кори нақб қатъ карда мешавад...</string>
   <string name="stopped_tunnel">Кори нақб қатъ карда шуд</string>
-  <string name="ServerInterface.StopRequested">Қатъи кор дархост карда шуд</string>
-  <string name="ServerInterface.HTTPSRequestFailed">Дархости HTTPS хатогӣ баргардонд:</string>
-  <string name="socks_ports_failed">Ба кор даровардани SOCKS-прокси барор наёфт: ягон порти холӣ ёфт нашуд</string>
-  <string name="http_proxy_ports_failed">Ба кор даровардани HTTP-прокси барор наёфт: ягон порти холӣ ёфт нашуд</string>
   <string name="socks_port_in_use">Порти маҳаллии дархостшудаи SOCKS-прокси %d аллакай аз ҷониби барномаи дигаре истифода бурда мешавад.  Идома ғайриимкон аст.</string>
-  <string name="transparent_proxy_running">Прокси шаффоф дар порти %d кор мекунад</string>
-  <string name="transparent_proxy_ports_failed">Ба кор даровардани проксии шаффоф барор наёфт: ягон порти холӣ ёфт нашуд</string>
-  <string name="transparent_proxy_command_failed">Фармони танзимкунии проксии шаффоф барор наёфт: %s</string>
-  <string name="transparent_proxy_stopped">Проксии шаффоф қатъ карда шуд</string>
-  <string name="dns_proxy_running">DNS-прокси дар порти %d кор мекунад</string>
-  <string name="dns_proxy_ports_failed">Ба кор даровардани DNS-прокси барор наёфт: ягон порти холӣ ёфт нашуд</string>
-  <string name="dns_proxy_stopped">DNS-прокси қатъ карда шуд</string>
-  <string name="dns_proxy_failed">Ба кор даровардани DNS-прокси барор наёфт</string>
-  <string name="iptables_binary_not_found">Ёфтани амалигардонии iptables барои проксии шаффоф ғайриимкон аст</string>
-  <string name="root_access_denied">Root-дастрасӣ рад карда шуд</string>
-  <string name="psiphon_stopped">Қатъ карда шуд</string>
-  <string name="psiphon_running_whole_device">Дар реҷаи тамоми дастгоҳ кор мекунам</string>
-  <string name="psiphon_running_browser_only">Дар реҷаи танҳо браузер кор мекунам</string>
   <string name="waiting_for_network_connectivity">Интизори пайвасти шабака...</string>
-  <string name="checking_for_root_access">Тафтиши root-дастрасӣ иҷро мешавад…</string>
   <string name="psiphon_service_notification_message_connecting">Пайваст мешавем...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Огоҳии хизматии Psiphon</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">Серверҳои афзал: %d</string>
-  <string name="selecting_server">Сервер интихоб карда мешавад...</string>
-  <string name="fetch_remote_server_list">Рӯйхати серверҳои дурдаст ба даст оварда мешавад...</string>
-  <string name="vpn_service_failed">Хидмати VPN аз кор монд: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Такмили Psiphon</string>
   <string name="vpn_service_running">Хидмати VPN кор мекунад</string>
-  <string name="vpn_service_stopped">Кори хидмати VPN қатъ шуд</string>
   <string name="vpn_service_revoked">Хидмати VPN бозхонда шуд</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN ба SOCKS барор наёфт</string>
-  <string name="tun2socks_running">VPN ба SOCKS кор мекунад</string>
-  <string name="tun2socks_stopped">Кори VPN ба SOCKS қатъ шуд</string>
-  <string name="vpn_service_no_private_address_available">Барои хидмати VPN ягон суроғаи махфӣ дастрас нест</string>
-  <string name="psiphon_running_generic">Кор мекунам...</string>
-  <string name="data_transfer_bytes_sent">Байтҳои ирсолшуда: %1$s (%2$.2f%% фишурда)</string>
-  <string name="data_transfer_bytes_received">Байтҳои қабулшуда: %1$s (%2$.2f%% фишурда)</string>
-  <string name="data_transfer_elapsed_time">Давомнокии алоқа: %s</string>
-  <string name="check_tunnel_failed">Тафтиши нақб барор наёфт. Эҳтимол аст, ки дастгоҳи шумо имкони нақб барои тамоми дастгоҳро дастгирӣ намекунад.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Эҷод кардан ё навиштани файли маълумоти ташхисии изҳори назар барор наёфт</string>
   <string name="Diagnostics.EncryptedFailed">Рамзбандӣ кардани маълумоти ташхисии изҳори назар барор наёфт. Ин маълумот ба мактуб бо изҳори назари шумо зам карда намешавад.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Истихроҷи файли бинарии iptables барор наёфт.</string>
-  <string name="transparent_proxy_routing_failed">Ба кор даровардани маршрутизатсияи проксии шаффоф барор наёфт: %s</string>
-  <string name="transparent_proxy_routing_running">Маршрутизатсияи проксии шаффоф кор мекунад</string>
-  <string name="transparent_proxy_routing_stopped">Кори маршрутизатсияи проксии шаффоф қатъ шуд</string>
   <string name="current_network_type">Шабакаи ҷорӣ: %s</string>
-  <string name="dns_resolver">DNS-қарордиҳанда: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Дарёфти DNS-қарордиҳандаҳои фаъоли шабака барор наёфт</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Гирифтани маълумот оиди баста барои барномаи ҷорӣ ғайриимкон аст</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Навиштани файли такмил барор наёфт</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Боргирии такмил барор наёфт</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Такмил боргирӣ карда шуд. Қатъиян тавсия дода мешавад, ки шумо дарҳол барои иҷрои такмил иҷозат диҳед. Баъди насб шудани такмил, шумо бояд Psiphon-ро аз нав ба кор дароред.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Такмилдиҳӣ барор наёфт. Истихроҷи маълумоти баста аз файли такмил ғайриимкон аст.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Файли такмил ёфт нашуд</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">Ҷудо шудем</string>
   <string name="label_sent">Фиристодашуда</string>
   <string name="label_received">Гирифташуда</string>
-  <string name="compression_ratio">%1$.2f%% фишурда</string>
-  <string name="compression_savings">Сарфа %s</string>
   <string name="start">Оғоз кардан</string>
   <string name="stop">Қатъ кардан</string>
   <string name="home_tab_name">Асосӣ</string>
   <string name="settings_tab_name">Имконот</string>
   <string name="statistics_tab_name">Омор</string>
   <string name="logs_tab_name">Дафтарҳои қайд</string>
-  <string name="socks_proxy_address">SOCKS-проксии маҳаллӣ дар %s кор мекунад</string>
-  <string name="http_proxy_address">HTTPS-проксии маҳаллӣ дар %s кор мекунад</string>
-  <string name="share_proxies_toggle">Ба дастгоҳҳои дигари шабака барои проксиҳои маҳаллиро истифода бурдан иҷозат додан</string>
-  <string name="share_proxies_prompt_title">Барнома бояд аз нав ба кор дароварда шавад</string>
-  <string name="share_proxies_prompt_message">Барои ин танзимро татбиқ кардан, барнома бояд аз нав ба кор дароварда шавад.</string>
-  <string name="share_proxies_prompt_positive">Ҳозир аз нав ба кор даровардан</string>
-  <string name="share_proxies_prompt_negative">Бекор кардан</string>
   <string name="use_proxy_settings_toggle">Тавассути HTTP-прокси пайваст шудан</string>
   <string name="use_system_proxy_settings_radio">Танзимоти шабакавии системаро истифода бурдан</string>
   <string name="use_custom_proxy_settings_radio">Танзимоти зеринро истифода баред:</string>
@@ -147,18 +67,10 @@
   <string name="region_name_no">Норвегия</string>
   <string name="region_name_ro">Руминия</string>
   <string name="region_name_se">Шветсия</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">Оиди Psiphon</string>
   <string name="feedback">Изҳори назар</string>
-  <string name="tunnel_whole_device_toggle">Тамоми трафики дастгоҳро тавассути нақб равона кардан (Android 4.0 ё навтар лозим аст)</string>
-  <string name="disable_timeouts">Меъёрҳои интизориро барои шабакаҳои суст ғайрифаъол кардан</string>
-  <string name="region_selector">Минтақаи интихоб кардан</string>
-  <string name="network_proxy_connect_exception">Пайваст ба HTTP-проксии шабака барор наёфт: %s</string>
-  <string name="network_proxy_connect_information">Тавассути HTTP-проксии шумо пайваст мешавем: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Меъёрҳои интизориро барои шабакаҳои суст ғайрифаъол кардан</string>
   <string name="network_proxy_connect_invalid_values">Танзимоти HTTP-прокси нодуруст мебошад</string>
-  <string name="run_polipo_failed">Иҷрои Polipo барор наёфт: %s</string>
-  <string name="wdm_force_iptables_toggle">Истифодаи маҷбурии усули Тамоми трафики дастгоҳро тавассути нақб равона кардан</string>
-  <string name="http_prefix_toggle">Ҳамчун HTTP ниқоб пӯшондан</string>
   <string name="preference_notifications_title">Огоҳиҳо</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -171,12 +83,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Садо</string>
   <string name="preference_notifications_with_sound_summary">Вақте ки ҳолати пайваст иваз мешавад, садо пахш карда мешавад</string>
   <string name="preference_notifications_with_vibrate_title">Ларзиш</string>
   <string name="preference_notifications_with_vibrate_summary">Вақте ки ҳолати пайваст иваз мешавад, ларзиш дода мешавад</string>
   <string name="moreOptions">Имконоти бештар</string>
-  <string name="root_mode_not_supported">Реҷаи root дар ин версияи Android дастгирӣ карда намешавад</string>
   <string name="proxySettingsCategoryTitle">Танзимоти прокси</string>
   <string name="custom_proxy_host_summary">Номи хост ё IP-суроғаи прокси-сервер</string>
   <string name="custom_proxy_port_summary">Порти прокси-сервер</string>
@@ -194,7 +108,6 @@
   <string name="untunneled_address">Бе нақб: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Хатогии проксии баромад: %s</string>
-  <string name="diagnostic">Маълумоти ташхисӣ: %s</string>
   <string name="start_tunnel_failed">Ба кор даровардани нақб барор наёфт: %s</string>
   <string name="tunnel_connecting">Нақб пайваст карда мешавад...</string>
   <string name="tunnel_connected">Нақб пайваст карда шуд</string>
@@ -204,6 +117,5 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="disableTimeoutsPreferenceTitle">Танаффузҳоро бекор кардан</string>
 </resources>

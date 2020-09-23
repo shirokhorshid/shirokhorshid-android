@@ -2,14 +2,9 @@
 <resources>
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="start">Mula</string>
   <string name="stop">Henti</string>
   <string name="home_tab_name">Rumah</string>
-  <string name="share_proxies_prompt_negative">Batal</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_title">Notifications</string>
   <string name="preference_vpn_title">Apps</string>
   <!--Description of option to tunnel everything-->
@@ -23,6 +18,9 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">Bunyi</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
   <string name="proxySettingsCategoryTitle">Tetapan proxy</string>
@@ -35,6 +33,4 @@
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

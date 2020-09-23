@@ -1,98 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH spajanje...</string>
-  <string name="ssh_connected">SSH spojen</string>
-  <string name="ssh_connection_failed">SSH spajanje neuspjelo</string>
-  <string name="ssh_authenticating">SSH autentikacija...</string>
-  <string name="ssh_authentication_failed">SSH autentikacija neuspjela</string>
-  <string name="ssh_authenticated">SSH autenticiran</string>
-  <string name="socks_starting">SOCKS se pokreće...</string>
   <string name="socks_running">SOCKS je pokrenut na portu %d</string>
-  <string name="socks_stopped">SOCKS zaustavljen</string>
-  <string name="ssh_stopped">SSH zaustavljen</string>
-  <string name="error_message">Došlo je do pogreške:</string>
-  <string name="http_proxy_starting">HTTP proxy se pokreće...</string>
   <string name="http_proxy_running">HTTP proxy je pokrenut na portu %d</string>
-  <string name="http_proxy_stopped">HTTP proxy zaustavljen</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP proxy zaustavljen neočekivano</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">Stvaranje unosa za pohranu na poslužitelju nije uspjelo.</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">Pohrana unosa poslužitelja nije uspjela.</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">Čitanje pohranjenih unosa poslužitelja nije uspjelo.</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">Raščlamba pohranjenih unosa poslužitelja nije uspjela.</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">Raščlamba ugrađenih unosa poslužitelja nije uspjela.</string>
-  <string name="ServerInterface.FailedToParseHandshake">Raščlamba rukovanja nije uspjela.</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">Pohrana zapisa o posljednjem spajanju nije uspjela.</string>
-  <string name="ServerInterface.FailedToParseLastConnected">Raščlamba JSON odgovora posljednjeg spajanja nije uspjela.</string>
-  <string name="ServerInterface.FailedToReadLastConnected">Nije uspjelo čitanje zadnjeg vremena spajanja.</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">Zahtjev za rukovanjem nije uspio.</string>
-  <string name="ssh_disconnected_unexpectedly">SSH veza prekinuta neočekivano</string>
   <string name="client_version">%s verzija klijenta</string>
-  <string name="no_server_entries">Nema poslužitelja za spajanje</string>
-  <string name="ServerInterface.InvalidRemoteServerList">Neispravan popis udaljenih poslužitelja</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Autenticirani paket podataka potpisan drugačijim javnim ključem</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Neispravan potpis na autenticiranom paketu podataka</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">Raščlanjivanje autenticiranog paketa podataka nije uspjelo</string>
   <string name="AuthenticatedDataPackage.MissingValue">Nedostaje vrijednost u autenticiranom paketu podataka</string>
   <string name="starting_tunnel">Pokrećem tunel...</string>
   <string name="stopping_tunnel">Zaustavljam tunel...</string>
   <string name="stopped_tunnel">Tunel zaustavljen</string>
-  <string name="ServerInterface.StopRequested">Zaustavljanje zahtjevano</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS zahtjev nije uspio, pogreška:</string>
-  <string name="socks_ports_failed">Pokretanje SOCKS proxy-a nije uspjelo: nisu pronađeni dostupni portovi</string>
-  <string name="http_proxy_ports_failed">Pokretanje HTTP proxy-a nije uspjelo: nisu pronađeni dostupni portovi</string>
   <string name="socks_port_in_use">Zahtjevani lokalni SOCKS proxy port %d već koristi druga aplikacija. Ne može se nastaviti.</string>
-  <string name="transparent_proxy_running">Transparentni proxy pokrenut na portu %d</string>
-  <string name="transparent_proxy_ports_failed">Pokretanje transparentnog proxy-a nije uspjelo: nisu pronađeni dostupni portovi</string>
-  <string name="transparent_proxy_command_failed">Naredba konfiguracije transparentnog proxy-a nije uspjela: %s</string>
-  <string name="transparent_proxy_stopped">Transparentni proxy zaustavljen</string>
-  <string name="dns_proxy_running">DNS proxy pokrenut na portu %d</string>
-  <string name="dns_proxy_ports_failed">Pokretanje DNS proxy-a nije uspjelo: nisu pronađeni dostupni portovi</string>
-  <string name="dns_proxy_stopped">DNS proxy zaustavljen</string>
-  <string name="dns_proxy_failed">Pokretanje DNS proxy-a nije uspjelo</string>
-  <string name="iptables_binary_not_found">Implementacija iptablica potrebna za transparentno proxy-ranje nije pronađena</string>
-  <string name="root_access_denied">Pristup root-u odbijen</string>
-  <string name="psiphon_stopped">Zaustavljeno</string>
-  <string name="psiphon_running_whole_device">Pokrenuto u načinu rada cijeli uređaj</string>
-  <string name="psiphon_running_browser_only">Pokrenuto u načinu rada samo preglednik</string>
   <string name="waiting_for_network_connectivity">Čekam povezivost s mrežom...</string>
-  <string name="checking_for_root_access">Provjeravam pristup root-u...</string>
   <string name="psiphon_service_notification_message_connecting">Spajam...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">Obavijesti o Psiphon usluzi</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_channel_name">Promjene Psiphon statusa</string>
-  <string name="preferred_servers">Preferirani poslužitelji: %d</string>
-  <string name="selecting_server">Biram poslužitelje...</string>
-  <string name="fetch_remote_server_list">Dobavljam popis udaljenih poslužitelja...</string>
-  <string name="vpn_service_failed">VPN usluga nije uspjela: %s</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon nadogradnja</string>
   <string name="vpn_service_running">VPN usluga pokrenuta</string>
-  <string name="vpn_service_stopped">VPN usluga zaustavljena</string>
   <string name="vpn_service_revoked">VPN usluga odbijena</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN prema SOCKS nije uspio</string>
-  <string name="tun2socks_running">VPN prema SOCKS pokrenut</string>
-  <string name="tun2socks_stopped">VPN prema SOCKS zaustavljen</string>
-  <string name="vpn_service_no_private_address_available">Nema privatne adrese dostupne za VPN uslugu</string>
-  <string name="psiphon_running_generic">Pokrenuto...</string>
-  <string name="data_transfer_bytes_sent">Poslano %1$s (%2$.2f%% komprimirano) bajta</string>
-  <string name="data_transfer_bytes_received">Primljeno %1$s (%2$.2f%% komprimirano) bajta</string>
-  <string name="data_transfer_elapsed_time">Vrijeme spojenosti: %s</string>
-  <string name="check_tunnel_failed">Provjera tunela nije uspjela. Vaš uređaj možda ne podržava opciju tuneliranja cijelog uređaja.</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">Stvaranje ili zapisivanje u datoteku dijagnostičkih povratnih podataka nije uspjelo</string>
   <string name="Diagnostics.EncryptedFailed">Enkripcija dijagnostičkih povratnih informacija nije uspjela. Ove informacije neće biti dodane mail-u povratnih informacija.</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">Raspakiravanje iptables izvršnih datoteka nije uspjelo.</string>
-  <string name="transparent_proxy_routing_failed">Pokretanje transparentnog proxy usmjerivanja nije uspjelo: %s</string>
-  <string name="transparent_proxy_routing_running">Transparentno proxy usmjerivanje pokrenuto</string>
-  <string name="transparent_proxy_routing_stopped">Transparentno proxy usmjerivanje zaustavljeno</string>
   <string name="current_network_type">Trenutna mreža: %s</string>
-  <string name="dns_resolver">DNS rješavač: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">Dobavljanje aktivnih mrežnih DNS rješavača nije uspjelo</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">Nije moguće dohvatiti informacije o paketu za trenutnu aplikaciju</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Pisanje datoteke nadogradnje nije uspjelo</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">Preuzimanje nadogradnje nije uspjelo</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">Nadogradnja preuzeta. Preporuča se da dozvolite nadogradnju u ovom trenu. Nakon nadogradnje morati ćete ponovno pokrenuti Psiphon.</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Nadogradnja nije uspjela. Izvlačenje informacija o paketu iz datoteke nadogradnje nije moguće.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Datoteka nadogradnje nije nađena</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -105,21 +34,12 @@
   <string name="disconnected">Odspojeno</string>
   <string name="label_sent">Poslano</string>
   <string name="label_received">Primljeno</string>
-  <string name="compression_ratio">%1$.2f%% komprimirano</string>
-  <string name="compression_savings">%s pohranjeno</string>
   <string name="start">Start</string>
   <string name="stop">Stop</string>
   <string name="home_tab_name">Početak</string>
   <string name="settings_tab_name">Opcije</string>
   <string name="statistics_tab_name">Statistika</string>
   <string name="logs_tab_name">Dnevnici</string>
-  <string name="socks_proxy_address">Lokalni SOCKS proxy je pokrenut na %s</string>
-  <string name="http_proxy_address">Lokalni HTTP proxy je pokrenut na %s</string>
-  <string name="share_proxies_toggle">Dopusti ostalim mrežnim uređajima da koriste lokalne proxy-e</string>
-  <string name="share_proxies_prompt_title">Ponovno pokretanje aplikacije je potrebno</string>
-  <string name="share_proxies_prompt_message">Aplikacija se mora ponovno pokrenuti kako bi se primjenile postavke.</string>
-  <string name="share_proxies_prompt_positive">Ponovno pokreni odmah</string>
-  <string name="share_proxies_prompt_negative">Otkaži</string>
   <string name="use_proxy_settings_toggle">Spoji kroz HTTP proxy</string>
   <string name="use_system_proxy_settings_radio">Koristi mrežne postavke sustava</string>
   <string name="use_custom_proxy_settings_radio">Koristi sljedeće postavke:</string>
@@ -152,19 +72,11 @@
   <string name="region_name_sk">Slovačka</string>
   <string name="region_name_rs">Srbija</string>
   <string name="region_name_au">Australija</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
-  <string name="tunnel_whole_device_toggle">Tuneliraj cjeli uređaj (zahtjeva Android 4.0+)</string>
-  <string name="disable_timeouts">Onemogući istek vremena za spore mreže</string>
-  <string name="region_selector">Odaberite regiju</string>
-  <string name="network_proxy_connect_exception">Spajanje na mrežni HTTP proxy nije uspjelo: %s</string>
-  <string name="network_proxy_connect_information">Spajanje preko Vašeg HTTP proxy-a: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">Onemogući pauze za spore mreže</string>
   <string name="network_proxy_connect_invalid_values">Neispravane postavke HTTP proxy-a</string>
   <string name="tunnel_whole_device_exception">Vaš uređaj ne podržava tuneliranje cijelog uređaja jer nema VpnService API.</string>
-  <string name="run_polipo_failed">Pokretanje Polipo-a nije uspjelo: %s</string>
-  <string name="wdm_force_iptables_toggle">Prisili root metodu  tuneliranja cijelog uređaja</string>
-  <string name="http_prefix_toggle">Ponašaj se kao HTTP</string>
   <string name="preference_notifications_title">Obavijesti</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
@@ -197,14 +109,16 @@
     <item quantity="few">%d aplikacije će biti isključene iz VPN-a</item>
     <item quantity="other">%d aplikacija će biti isključeno iz VPN-a</item>
   </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_routing_all_apps_tunnel_summary">Sve aplikacije će biti tunelirane kroz VPN</string>
   <string name="preference_notifications_with_sound_title">Zvuk</string>
   <string name="preference_notifications_with_sound_summary">Sviraj zvuk kad se status veze promjeni</string>
   <string name="preference_notifications_with_vibrate_title">Vibriraj</string>
   <string name="preference_notifications_with_vibrate_summary">Vibriraj kad se status veze promjeni</string>
-  <string name="preference_download_wifi_only_toggle">Preuzmi nadogradnje samo preko Wi-Fi mreže</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Preuzmi nadogradnje samo preko Wi-Fi mreže</string>
   <string name="moreOptions">Više opcija</string>
-  <string name="root_mode_not_supported">Root način nije podržan na ovoj verziji Android-a</string>
   <string name="proxySettingsCategoryTitle">Postavke proxy-a</string>
   <string name="custom_proxy_host_summary">Ime domaćina ili IP proxy poslužitelja</string>
   <string name="custom_proxy_port_summary">Port proxy poslužitelja</string>
@@ -222,7 +136,6 @@
   <string name="untunneled_address">Netunelirano: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Greška uzvodnog proxy-a: %s</string>
-  <string name="diagnostic">Dijagnostika: %s</string>
   <string name="start_tunnel_failed">Pokretanje tunela nije uspjelo: %s</string>
   <string name="tunnel_connecting">Tunel se spaja...</string>
   <string name="tunnel_connected">Tunel spojen</string>
@@ -236,6 +149,6 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">U redu</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Ne, hvala</string>
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
+  <string name="label_proxy_settings">Postavke proxy-a</string>
+  <string name="disableTimeoutsPreferenceTitle">Onemogući pauze</string>
 </resources>

@@ -1,97 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="ssh_connecting">SSH ལ་མཐུད་བཞིན་པ།</string>
-  <string name="ssh_connected">SSH ལ་མཐུད་ཚར་སོང་།</string>
-  <string name="ssh_connection_failed">SSH་ལ་མཐུད་ཀ་རྒྱབ་ཐུབ་མ་སོང་།</string>
-  <string name="ssh_authenticating">SSH ཁུངས་ལྡན།</string>
-  <string name="ssh_authentication_failed">SSH ཁུངས་ཐུབ་མ་སོང་།</string>
-  <string name="ssh_authenticated">SSH ཁུངས་ལྡན་ཚར་སོང་།</string>
-  <string name="socks_starting">SOCKS འགོ་འཛུགས་བཞིན་པ།</string>
   <string name="socks_running">SOCKS འདི་མཐུད་ཀ་%d སྒང་ལ་འགྲོ་བཞིན་པ།</string>
-  <string name="socks_stopped">SOCKS བཀག་ཟིན།</string>
-  <string name="ssh_stopped">SSHབཀག་ཟིན།</string>
-  <string name="error_message">སྐྱོན་ཞིག་ལྷག་འདུག</string>
-  <string name="http_proxy_starting">HTTP ངོ་ཚབ་འགོ་འཛུགས།</string>
   <string name="http_proxy_running">མཐུད་ཁ་%dསྒང་ལ་HTTP ངོ་ཚབ་ལས་ཀ་བྱེད་བཞིན་པ།</string>
-  <string name="http_proxy_stopped">HTTP ངོ་ཚབ་མཚམས་འཇོག</string>
-  <string name="http_proxy_stopped_unexpectedly">HTTP ངོ་ཚབ་གློ་བུར་དུ་མཚམས་འཇོག</string>
-  <string name="ServerInterface.FailedToCreateServerEntries">གསོག་ཉར་ཁང་གི་ནང་ལ་ཞབས་ཞུ་འཕྲུལ་ཆས་ནང་ཞུགས་བྱེད་ཐུབ་མ་སོང་།</string>
-  <string name="ServerInterface.FailedToStoreServerEntries">ཞབས་ཞུ་འཕྲུལ་ཆས་ནང་འཇུག་ཉར་ཚགས་ཐུབ་མ་སོང་།</string>
-  <string name="ServerInterface.FailedToReadStoredServerEntries">ཞབས་ཞུ་འཕྲུལ་ཆས་ནང་འཇུག་ཉར་ཚགས་ཀློག་ཐུབ་མ་སོང་།</string>
-  <string name="ServerInterface.FailedToParseStoredServerEntries">གསོག་ཉར་ཞབས་ཞུ་འཕྲུལ་ཆས་ནང་འཛུལ་དབྱེ་ཞིབ་མི་ཐུབ་པ།</string>
-  <string name="ServerInterface.FailedToParseEmbeddedServerEntries">ཞབས་ཞུ་འཕྲུལ་ཆས་ནང་འཛུལ་བྱས་པའི་སྐབས་དབྱེ་ཞེབ་བརྟན་པོ་བཅུག་ཐུབ་མ་སོང་།</string>
-  <string name="ServerInterface.FailedToParseHandshake">གསང་འབྲེལ་དབྱེ་ཞིབ་བྱེད་ཐུབ་མ་སོང</string>
-  <string name="ServerInterface.FailedToStoreLastConnected">མཐུད་ཀའི་དུས་ཚོད་མཐའ་མ་དེ་ཉར་ཚགས་ཐུབ་མ་སོང་།</string>
-  <string name="ServerInterface.FailedToParseLastConnected">JSONམཐུད་སྦྱོར་གྱི་དུས་ཚོད་མཐའ་མའི་ལན་འདེབས་ལ་དབྱེ་ཞིབ་ཐུབ་མ་སོང་།</string>
-  <string name="ServerInterface.FailedToReadLastConnected">མཐུད་སྦྱོར་གྱི་དུས་ཚོད་མཐའ་མ་དེ་ར་སྤྲོད་ཐུབ་མ་སོང་།</string>
-  <string name="PsiphonAndroidService.HandshakeRequestFailed">གསང་འབྲེལ་རེ་འདུན་སྒྲུབ་ཐུབ་མ་སོང་།</string>
-  <string name="ssh_disconnected_unexpectedly">SSH གློ་བུར་དུ་མཐུད་ཁ་ཆད་སོང་།</string>
   <string name="client_version">མཉེན་ཆས་ཐོན་རིམ།།%s</string>
-  <string name="no_server_entries">འདིར་ཞབས་ཞུ་འཕྲུལ་ཆས་མཐུད་ཁ་རྒྱབ་ས་མིན་འདུག</string>
-  <string name="ServerInterface.InvalidRemoteServerList">རྒྱང་རིང་གི་ཞབས་ཞུ་འཕྲུལ་ཆས་ཐོ་འགོད་ཁུངས་ལྡན་མིན་འདུག</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">ཡིག་ཚགས་ར་སྤྲོད་བྱས་པ་དེ་ཐུན་མོང་བའི་ལྡེ་མིག་གཞན་དག་ཞིག་བེད་སྤྱོད་བྱས་འདུག</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">ཡིག་ཚགས་ར་སྤྲོད་བྱས་པའི་སྒང་ལ་མིང་རྟགས་ནོར་བ་བཀོད་འདུག</string>
-  <string name="AuthenticatedDataPackage.FailedToParseRemoteServerEntry">ཡིག་ཚགས་ར་སྤྲོད་བྱས་པ་འདི་དབྱེ་ཞིབ་ཐུབ་མ་སོང་།</string>
   <string name="AuthenticatedDataPackage.MissingValue">ཡིག་ཚགས་ཐུམ་སྒྲིལ་ར་སྤྲོད་བྱས་པའི་ཆ་རྐྱེན་ཚང་མིན་འདུག</string>
   <string name="starting_tunnel">ཡུར་བ་སྒོ་འཛུགས།</string>
   <string name="stopping_tunnel">ཡུར་བ་མཚམས་འཇོག་བཞིན་པ།</string>
   <string name="stopped_tunnel">ཡུར་བ་མཚམས་འཇོག</string>
-  <string name="ServerInterface.StopRequested">མཚམས་འཇོག་རེ་སྐུལ།</string>
-  <string name="ServerInterface.HTTPSRequestFailed">HTTPS རེ་འདུན་སྒྲུབ་ཐུབ་མ་སོང་།</string>
-  <string name="socks_ports_failed">SOCKSངོ་ཚབ་འགོ་འཛུགས་ཐུབ་མ་སོང་།: མཐུད་ཀ་རྒྱབ་ས་རྙེད་ཀྱི་མིན་འདུག</string>
-  <string name="http_proxy_ports_failed">HTTPམཐུད་ཁ་འགོ་འཛུགས་ཐུབ་མ་སོང་།: མཐུད་ཀ་རྒྱབ་ས་རྙེད་མ་སོང་།</string>
   <string name="socks_port_in_use">SOCKSབསྟི་གནས་ངོ་ཚབ་མཐུད་སྒོར་འབོད་སྐུལ་%d འདི་མཉེན་ཆས་གཞན་ཞིག་གིས་་བེད་སྤྱོད་བཏང་གི་འདུག མུ་མཐུད་ཐུབ་མ་སོང་།</string>
-  <string name="transparent_proxy_running">ངོ་ཚབ་བརྒྱུད་ལམ་མཐུད་སྒོ་འདིའི་སྒང་ལ་འཁོར་སྐྱོར་བྱེད་བཞིན་པ།%d </string>
-  <string name="transparent_proxy_ports_failed">ངོ་ཚབ་བརྒྱུད་ལམ་འགོ་འཛུགས་ཐུབ་མ་སོང་། མཐུད་སྒོ་རྒྱབ་ས་རྙེད་མ་སོང་།</string>
-  <string name="transparent_proxy_command_failed">ངོ་ཚབ་བརྒྱུད་ལམ་སྒྲིག་བཀོད་བྱེད་ཐུབ་མ་སོང།%s</string>
-  <string name="transparent_proxy_stopped">ངོ་ཚབ་བརྒྱུད་ལམ་བཀག་པ།</string>
-  <string name="dns_proxy_running">DNS ངོ་ཚབ་མཐུད་སྒོ་འདིའི་སྒང་ལ་འཁོར་སྐྱོད་བྱེད་བཞིན་པ།%d</string>
-  <string name="dns_proxy_ports_failed">DSN མཐུད་སྒོ་འགོ་འཛུགས་ཐུབ་མ་སོང་།: མཐུད་སྒོ་རྒྱབ་ས་རྙེད་མ་སོང་།</string>
-  <string name="dns_proxy_stopped">DNS ངོ་ཚབ་བཀག་པ།</string>
-  <string name="dns_proxy_failed">DNS ངོ་ཚབ་འགོ་འཛུགས་ཐུབ་མ་སོང་།</string>
-  <string name="iptables_binary_not_found">རྒྱུད་ལམ་ངོ་ཚབ་ཀྱི་ཆེད་དུ་ཉེ་བར་མཁོ་བའི་IP རེའུ་མིག་ལག་བསྟར་རྙེད་སོན་བྱུང་མ་སོང</string>
-  <string name="root_access_denied">ཨ་མ་ནས་ཆོག་མཆན་ཐོབ་མ་སོང།</string>
-  <string name="psiphon_stopped">མཚམས་འཇོག</string>
-  <string name="psiphon_running_whole_device">སྒྲིག་ཆས་ཡོངས་རྫོགས་འཁོར་བསྐྱོད་བྱེད་བཞིན་པའི་ཚུལ།</string>
-  <string name="psiphon_running_browser_only">བལྟ་ཆས་ཁོ་ན་འཁོར་བསྐྱོད་བྱེད་བཞིན་པའི་ཚུལ།</string>
   <string name="waiting_for_network_connectivity">དྲྭ་རྒྱ་མཐུད་ཐབས་བྱེད་བཞིན་པ།...</string>
-  <string name="checking_for_root_access">ཆོག་མཆན་ཨ་མ་འདི་འཚོལ་བཞིན་པ།...</string>
   <string name="psiphon_service_notification_message_connecting">མཐུད་བཞིན་པ།...</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="psiphon_service_notification_id">སཡི་ཕོན་ཞབས་ཞུའི་སྔོན་བརྡ།</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="preferred_servers">ཞབས་ཞུ་འཕྲུལ་ཆས་གདམ་ག:%d</string>
-  <string name="selecting_server">ཞབས་ཞུ་འཕྲུལ་ཆས་འདེམས་བཞིན་པ།...</string>
-  <string name="fetch_remote_server_list">རྒྱང་བཀོལ་ཞབས་ཞུ་འཕྲུལ་ཆས་ཐོ་གཞུང་ལེན་པ།</string>
-  <string name="vpn_service_failed">VPN ཞབས་ཞུ་ཐུབ་མ་སོང་།:%s</string>
+  <string name="psiphon_upgrade_notification_channel_name">སཡི་ཕོན་རིམ་སྤར།</string>
   <string name="vpn_service_running">VPN ཞབས་ཞུ་འཁོར་སྐྱོད་བྱེད་བཞིན་པ།</string>
-  <string name="vpn_service_stopped">VPN ཞབས་ཞུ་བཀག་པ།</string>
   <string name="vpn_service_revoked">VPN ཞབས་ཞུ་འཕྲུལ་ཆས་ཕྱིར་བསྡུ།</string>
-  <string name="tun2socks_error">tun2socks: %s</string>
-  <string name="tun2socks_failed">VPN ནས་SOCKSམཐུད་ཐུབ་མ་སོང་།</string>
-  <string name="tun2socks_running">VPN ནས་SOCKS འཁོར་བསྐྱོད་བྱེད་བཞིན་པ།</string>
-  <string name="tun2socks_stopped">VPN ནས་SOCKS མཚམས་འཇོག</string>
-  <string name="vpn_service_no_private_address_available">VPN ཞབས་ཞུ་བའི་སྒེར་གྱི་ཁ་བྱང་མིན་འདུག</string>
-  <string name="psiphon_running_generic">འཁོར་བསྐྱོད་བྱེད་བཞིན་པ།...</string>
-  <string name="data_transfer_bytes_sent">Bytes གཏོང་།: %1$s (%2$.2f%% བཙིར།)</string>
-  <string name="data_transfer_bytes_received">Bytes འབྱོར་སོང་།: %1$s (%2$.2f%% བཙིར)</string>
-  <string name="data_transfer_elapsed_time">འབྲེལ་མཐུད་ཀྱི་དུས་ཡུན།: %s</string>
-  <string name="check_tunnel_failed">ཡུར་བ་ལ་དོ་དམ་བྱེད་ཐུབ་མ་སོང་། ཁྱེད་རང་གི་ཡོ་བྱད་དེ་ཡོ་བྱད་ཆ་ཚང་ཡུར་བའི་ནང་བཅུག་པའི་གདམ་ཀ་བྱེད་རྒྱུར་རྒྱབ་སྐྱོར་བྱེད་ཐུབ་ཀྱི་མིན་འདུག</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.AttachmentWriteFailed">བཟོ་བཅོས་དང་དྲྭ་ནད་ཅན་གྱི་ཡིག་ཆ་ཁག་ལ་དགོངས་འཆར་བྲིས་ཐུབ་མ་སོང་།</string>
   <string name="Diagnostics.EncryptedFailed">ཉེན་སྐྱོན་ཅན་གྱི་གནས་དོན་རྣམས་ཀྱི་དགོངས་འཆར་གསང་སྡོམ་བྱེད་ཐུབ་མ་སོང་། གནས་དོན་འདི་དག་་དགོངས་འཆར་གློག་འཕྲིན་ལ་མཐུད་སྦྱོར་བྱེད་ཐུབ་མ་སོང་།</string>
-  <string name="TransparentProxyConfig.iptablesExtractFailed">IP རེའུ་མིག་ཨང་གྲངས་ལེན་ཐུབ་མ་སོང་།</string>
-  <string name="transparent_proxy_routing_failed">ངོ་ཚབ་བརྒྱུད་ལམ་གྱི་འགྲོ་ལུགས་འགོ་འཛུགས་ཐུབ་མ་སོང་།%s</string>
-  <string name="transparent_proxy_routing_running">ངོ་ཚབ་བརྒྱུད་ཀྱི་འགྲོ་ལུགས་འཁོར་བསྐྱོད་བྱེད་བཞིན་པ།</string>
-  <string name="transparent_proxy_routing_stopped">ངོ་ཚབ་བརྒྱུད་ལམ་འགྲོ་ལུགས་མཚམས་འཇོག</string>
   <string name="current_network_type">ད་ལྟའི་དྲྭ་ལམ།: %s</string>
-  <string name="dns_resolver">DNS སྟོན་མཁན།: %s</string>
-  <string name="get_active_network_dns_resolvers_failed">འགུལ་ལྡན་དྲྭ་རྒྱ་DNS སྟོན་ཐུབ་མ་སོང་།</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">ད་ལྟའི་མཉེན་ཆས་ཀྱི་ཆེད་དུ་ཐུམ་བུའི་གནས་ཚུལ་སྐྱར་བཟོ་ཐུབ་མ་སོང་།</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">རིམ་སྤར་ཡིག་ཚགས་བྲིས་ཐུབ་མ་སོང་།</string>
-  <string name="UpgradeManager.UpgradeDownloadFailed">རིམ་སྤར་ཕབ་ལེན་བྱུང་མ་སོང་།</string>
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradeDownloaded">རིམ་སྤར་ཕབ་ལེན་ཚར་སོང་། ཁྱེད་རང་གིས་རིམ་སྤར་འདི་ད་ལྟའི་དུས་སུ་རྒྱུན་སྐྱོང་ངེས་པར་དུ་བྱེད་དགོས་ཀྱི་འདུག རིམ་སྤར་བྱས་ཟིན་པའི་རྗེས་སུ་སཡི་ཕོན་ཡང་སྐྱར་འགོ་འཛུགས་དགོས་ཀྱི་རེད།</string>
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">རིམ་སྤར་ཐུབ་མ་སོང་། རིམ་སྤར་གྱི་ཡིག་ཚགས་ནས་ཐུམ་སྒྲིལ་བྱས་པའི་གནས་ཚུལ་སྟོན་ཐུབ་མ་སོང་།</string>
   <string name="UpgradeManager.UpgradeFileNotFound">རིམ་སྤར་ཡིག་ཆ་རྙེད་སོན་བྱུང་མ་སོང་།</string>
   <!--Do not translate or transliterate "Psiphon"-->
@@ -104,21 +33,12 @@
   <string name="disconnected">མཐུད་ཀ།</string>
   <string name="label_sent">གཏོང་།</string>
   <string name="label_received">འབྱོར་སོང་།</string>
-  <string name="compression_ratio">%1$.2f%% བཙིར།</string>
-  <string name="compression_savings">%s ཉར་ཚགས།</string>
   <string name="start">འགོ་འཛུགས།</string>
   <string name="stop">མཚམས་འཇོག</string>
   <string name="home_tab_name">མདུན་ངོས།</string>
   <string name="settings_tab_name">གདམ་ཀ།</string>
   <string name="statistics_tab_name">གྲངས་ཐོ།</string>
   <string name="logs_tab_name">ཉིན་ཐོ།</string>
-  <string name="socks_proxy_address">socks བསྟི་གནས་ངོ་ཚབ་འདི་འཁོར་སྐྱོད་བྱེད་ས།%s</string>
-  <string name="http_proxy_address">HTTPབསྟི་གནས་ངོ་ཚབ་འདི་འཁོར་སྐྱོད་བྱེད་ས།%s </string>
-  <string name="share_proxies_toggle">དྲྭ་རྒྱའི་ཡོ་བྱད་གཞན་རྣམས་ཀྱིས་ངོ་ཚབ་བསྟི་གནས་འདི་བེད་སྤྱོད་བྱེད་དུ་བཅུག</string>
-  <string name="share_proxies_prompt_title">མཉིན་ཆས་འདི་སྐྱར་དུ་འགོ་འཛུགས་དགོས་ཀྱི་འདུག</string>
-  <string name="share_proxies_prompt_message">མཉེན་ཆས་འདི་སྐྱར་དུ་འགོ་འཛུགས་ཐུབ་པའི་ཆེད་དུ་སྒྲིག་བཀོད་བྱེད།</string>
-  <string name="share_proxies_prompt_positive">ད་ལྟ་སྐྱར་དུ་འགོ་འཛུགས་གནང་རོགས།</string>
-  <string name="share_proxies_prompt_negative">བཀག་པ།</string>
   <string name="use_proxy_settings_toggle">HTTP ངོ་ཚབ་རྒྱུད་དེ་འབྲེལ་མཐུད་གནང་རོགས།</string>
   <string name="use_system_proxy_settings_radio">དྲྭ་རྒྱའི་འགྲོ་ལུགས་སྒྲིག་བཀོད་བེད་སྤྱོད་གནང་རོགས།</string>
   <string name="use_custom_proxy_settings_radio">གཤམ་གྱི་སྒྲིག་ཤོམ་དེ་དག་བེད་སྤྱོད་གནང་རོགས།</string>
@@ -147,18 +67,10 @@
   <string name="region_name_no">ནོར་ཝེ།</string>
   <string name="region_name_ro">རོ་མ་ནི་ཡ།</string>
   <string name="region_name_se">སི་ཝི་ཌན།</string>
-  <!--Do not translate or transliterate "Psiphon"-->
   <string name="about">སཡི་ཕོན་གྱི་ངོ་སྤྲོད།</string>
   <string name="feedback">དགོངས་འཆར།</string>
-  <string name="tunnel_whole_device_toggle">ཡོ་བྱད་ཆ་ཚང་ཡུར་བའི་ནང་བཅུག (Android 4.0+ དགོས།)</string>
-  <string name="disable_timeouts">དྲྭ་རྒྱ་དལ་པོ་ཡོད་སྐབས་་དུས་བརྒལ་གྱི་ཚད་གཞི་མེད་བ་བཟོས།</string>
-  <string name="region_selector">ས་གནས་གདམ་ག</string>
-  <string name="network_proxy_connect_exception">དྲྭ་རྒྱའི་HTTP ངོ་ཚབ་མཐུད་ཐུབ་མ་སོང་།: %s</string>
-  <string name="network_proxy_connect_information">HTTP ངོ་ཚབ་རྒྱུད་དེ་མཐུད་བཞིན་པ།: %s</string>
+  <string name="disableTimeoutsPreferenceSummary">དྲྭ་རྒྱ་དལ་པོ་ཡོད་ཚེ་དུས་རྫོགས་མེད་པ་བཟོས།</string>
   <string name="network_proxy_connect_invalid_values">HTTP ངོ་ཚབ་སྒྲིག་བཀོད་ཁུངས་མེད།</string>
-  <string name="run_polipo_failed">polipo འཁོར་བསྐྱོད་ཐུབ་མ་སོང་།%s</string>
-  <string name="wdm_force_iptables_toggle">ཡུར་བ་ཨ་མའི་ནང་གི་ཡོ་བྱད་ཤུགས་ལྡན་ཆ་ཚང་བའི་ཐབས་ལམ།</string>
-  <string name="http_prefix_toggle">HTTPལས་མོ།</string>
   <string name="preference_notifications_title">བརྡ་ཐོ།</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
@@ -171,12 +83,14 @@
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_notifications_with_sound_title">སྒྲ།</string>
   <string name="preference_notifications_with_sound_summary">འབྲེལ་མཐུད་བརྗེས་སྐབས་སྐད་བརྡ་བཏང་རོགས།</string>
   <string name="preference_notifications_with_vibrate_title">འབེར་རྒྱབ་པ།</string>
   <string name="preference_notifications_with_vibrate_summary">འབྲེལ་གཏུགས་ཀྱི་གནས་བབ་འགྱུར་ཚེ་འབེར་རྒྱབ།</string>
   <string name="moreOptions">གདམ་ག་མང་པོ།</string>
-  <string name="root_mode_not_supported">Andriod ཐོན་གསར་ནང་ཨ་མ་འདི་རྒྱབ་སྐྱོར་བྱེད་ཐུབ་ཀྱི་མིན་འདུག</string>
   <string name="proxySettingsCategoryTitle">ངོ་ཚབ་སྒྲིག་བཀོད།</string>
   <string name="custom_proxy_host_summary">ཞབས་ཞུ་འཕྲུལ་ཆས་ངོ་ཚབ་གྱི་ངོས་འཛིན་ཐུབ་པའི་མིང་ངམ་IP</string>
   <string name="custom_proxy_port_summary">ཞབས་ཞུ་འཕྲུལ་ཆས་ངོ་ཚབ་མཐུད་སྒོ།</string>
@@ -194,7 +108,6 @@
   <string name="untunneled_address">ཡུར་བ་མེད།:%s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">ངོ་ཚབ་ཡར་འཇུག་ནོར་བ་།:%s</string>
-  <string name="diagnostic">བརྟག་དཔྱད།%s</string>
   <string name="start_tunnel_failed">ཡུར་བ་འགོ་འཛུགས་ཐུབ་མ་སོང།%s</string>
   <string name="tunnel_connecting">ཡུར་བ་ལ་མཐུད་བཞིན་པ།...</string>
   <string name="tunnel_connected">ཡུར་བར་མཐུད་ཚར་སོང་།</string>
@@ -204,6 +117,4 @@
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Empty string array to initialize things that will be programatically populated later-->
-  <string-array name="empty_array"></string-array>
 </resources>

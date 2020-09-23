@@ -1,38 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">ငွေကြးထောက်ပံ့သူ၏ နဖူးစည်းစာတမ်း; ငွေကြးထောက်ပံ့သူ၏ မူလစာမျက်နှာကို သွားရန် ကလစ်နှိပ်ပါ</string>
-  <string name="start_desc">Psiphon သို့ချိတ်ဆက်ပါ; ချိတ်ဆက်ရန်အတွက် ကလစ်နှိပ်ပါ</string>
-  <string name="message_image_success_desc">အောင်မြင်ကြောင်း ရေးသားထားသည့် မက်ဆေ့ကိုဖော်ပြနေသည့်ပုံ</string>
-  <string name="message_image_error_desc">မှားယွင်းကြောင်း ရေးသားထားသည့် မက်ဆေ့ကို ဖော်ပြနေသည့်ပုံ</string>
-  <string name="message_image_debug_desc">အမှားဖယ်ရှားကြောင်း ရေးသားထားသည့် မက်ဆေ့ကို ဖော်ပြနေသည့်ပုံ</string>
-  <string name="message_image_warning_desc">သတိပေးကြောင်းသတင်းစကားကိုဖော်ပြနေသည့်ရုပ်ပုံ</string>
-  <string name="exit">ထွက်မည်</string>
   <string name="open_browser">Browser ဖွင့်ရန်</string>
-  <string name="browser_task_label">Psiphon Browser</string>
   <string name="FeedbackActivity.DefaultText">အကယ်၍ သင့်ထံတွင် အကြံပြုချက်များ၊ ဝက်ဆိုက်ဒ်များဝင်ရောက်ခြင်းနှင့်ပါတ်သက်ပြီး အဆင်မပြေမှုများရှိလျှင် သို့မဟုတ် လက်ရှိပုံစံသည် သင်နှင့် ကိုက်ညီမှုမရှိသေးလျှင် ကျေးဇူးပြု၍ &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;. သို့ အီးမေးလ် ပေးပို့ဆက်သွယ်ပေးပါ။</string>
   <string name="FeedbackActivity.Success">ယခုကဲ့သို့ သင်၏မှတ်ချက်များ ပြန်လည်ပေးပို့သည့်အတွက် ကျေးဇူးတင်ပါသည်။</string>
   <string name="FeedbackActivity.Failure">တင်သွင်းမှုမအောင်မြင်ပါ။ ကျေးဇူးပြု၍ နောက်တစ်ကြိမ်ထပ်မံကြိုးစားပေးပါ။</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">သင်၏မှတ်ချက်များ ပြန်လည်ပေးပို့ခြင်း မအောင်မြင်ပါ။</string>
   <string name="FeedbackActivity.InvalidURLParameters">မှတ်ချက်ဖောင် ပြန်လည်ပေးပို့ရာတွင် ဆီလျော်မှုမရှိသော URL Parameters များပါဝင်နေသည်</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">မှတ်ချက်ရေးရသည့် စာမျက်နှာရှိ အကြောင်းအရာများကို ရယူမှုမအောင်မြင်ပါ။</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်မည်လား။</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">သင့်စက်တွင် Psiphon ကို စက်တစ်ခုလုံးရှိ အသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်မည်ဟု ရွေးချယ်နိုင်ပါသည်။ \n\nဤကဲ့သို့ ရွေးချယ်ခြင်းအားဖြင့် Browserများအပါအဝင် app များအားလုံး၏ အင်တာနက်ချိတ်ဆက်မှုများသည် Psiphon မှတဆင့် ဖြတ်သန်းသွားစေမည်ဖြစ်သည်။ \n\nအခြားရွေးချယ်စရာအနေဖြင့် app များအားလုံးကို ပုံမှန်အင်တာနက်လိုင်းများဖြင့် ချိတ်ဆက်စေပြီး Psiphon ကို Psiphon Browser တစ်ခုတည်းအတွက်သာ ချိတ်ဆက်အသုံးပြုနိုင်အောင် ပြုလုပ်ထားနိုင်ပါသည်။</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">သင့်စက်တစ်ခုလုံးရှိအသုံးပြုမှုအားလုံးနှင့်ချိတ်ဆက်ရန်</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Psiphon Browser တစ်မျိုးတည်းသာ အသုံးပြုမည်</string>
   <string name="ads_consent_preference_dialog_title">ပြန်ချိန်ရန်</string>
   <string name="preference_language_selection_title">ဘာသာစကား</string>
   <string name="preference_language_default_language">ကြိုတင်သတ်မှတ်ထားသည့် ဘာသာစကား</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">အဆင့်မြင့်</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ကောင်းပြီ</string>
   <!--Generic negative button label.-->

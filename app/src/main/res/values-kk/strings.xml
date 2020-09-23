@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">демеуші баннері; демеушінің басты бетіне бару үшін шерту</string>
-  <string name="start_desc">Psiphon қызметіне қосылу; қосылу үшін шерту</string>
-  <string name="message_image_success_desc">сәттілік хабарын көрсететін белгіше</string>
-  <string name="message_image_error_desc">қателік хабарын көрсететін белгіше</string>
-  <string name="message_image_debug_desc">жөндеу хабарын көрсететін белгіше</string>
-  <string name="message_image_warning_desc">ескерту хабарын көрсететін белгіше</string>
-  <string name="exit">Жүйеден шығу</string>
   <string name="open_browser">Шолғышты ашу</string>
-  <string name="browser_task_label">Psiphon шолғышы</string>
   <string name="FeedbackActivity.DefaultText">Егер сізде жұмыс істемейтін сайттар туралы нақты пікірлер, толығырақ ақпарат болса немесе бұл пішін сізде жұмыс істемесе, онда мына эл. поштаға жазыңыз: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Пікір жібергеніңіз үшін размет</string>
   <string name="FeedbackActivity.Failure">ңыз.</string>
@@ -19,24 +12,10 @@
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN сіз немесе басқа қолданба тоқтатқан. Бірнеше VPN қолданбасы бір уақытта бірге жұмыс істей алмайды. Басқа VPN қолданбасы орнатылып, жұмыс істеп тұрғанын тексеріңіз.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN іске қосыла алмайды</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN іске қоса алмады. Бірнеше VPN қолданбасы бір уақытта бірге жұмыс істей алмайды. Басқа VPN қолданбасы орнатылып, әрқашан жұмыс істейтіндей етіп бапталғанын тексеріңіз.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">Құрылғыны түгел туннельдеу керек пе?</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">Құрылғыңызда толық туннельдеу мүмкіндігі бар.\n\nБұл мүмкіндіктің көмегімен барлық қолданбалар, соның ішінде барлық шолғыштар қолданатын интернет трафигі Psiphon арқылы туннельделеді.\n\nБолмаса, сіз тек құрамдас Psiphon шолғышын туннельдеуді таңдай аласыз, басқа қолданбалар сіздің интернетпен байланысыңыз арқылы тікелей өтеді.</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">Құрылғыны түгел туннельдеу</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">Тек Psiphon шолғышын пайдалану </string>
   <string name="ads_consent_preference_dialog_title">Қалпына келтіру</string>
   <string name="preference_language_selection_title">Тіл</string>
   <string name="preference_language_default_language">әдепкі бойынша тіл</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">Кеңейтілген</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ОК</string>
   <!--Generic negative button label.-->

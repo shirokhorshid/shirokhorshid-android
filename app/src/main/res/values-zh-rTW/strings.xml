@@ -1,14 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">贊助商標誌；點擊訪問贊助商主頁</string>
-  <string name="start_desc">連接到  Psiphon；點擊連接</string>
-  <string name="message_image_success_desc">表示成功消息的圖標</string>
-  <string name="message_image_error_desc">表示錯誤消息的圖標</string>
-  <string name="message_image_debug_desc">表示調試消息的圖標</string>
-  <string name="message_image_warning_desc">表示警告消息的圖標</string>
-  <string name="exit">退出</string>
   <string name="open_browser">打開瀏覽器</string>
-  <string name="browser_task_label"> Psiphon 瀏覽器</string>
   <string name="FeedbackActivity.DefaultText">如果您有任何具體建議，有任何網站失效的訊息或者此表單無法使用的情況，請寄郵件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
   <string name="FeedbackActivity.Success">感謝您提供回饋意見</string>
   <string name="FeedbackActivity.Failure">送出失敗。請再試一次。</string>
@@ -19,19 +12,7 @@
   <string name="StatusActivity.VpnRevokedMessage">用戶或其它應用程關閉了 Psiphon\'s VPN，不可同時運行多個 VPN 應用程式。檢查是否正在運行其它已安裝的 VPN 應用。</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN 無法啟動</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon 無法啟動 VPN. 不能同時運行多個 VPN 應用，請先檢查是否曾安裝其它 VPN 應用與其開啟設定。</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptTitle">全局代理本設備？</string>
-  <string name="StatusActivity.WholeDeviceTunnelPromptMessage">全局代理模式在您的設備上可用。\n\n打開此選項後， Psiphon 將代理所有程序的網路流量，包括所有瀏覽器。\n\n另外，您也可以選擇只代理附帶的 Psiphon 瀏覽器，讓其他程序通過平常的網路連接。</string>
-  <string name="StatusActivity.WholeDeviceTunnelPositiveButton">全局代理設備</string>
-  <string name="StatusActivity.WholeDeviceTunnelNegativeButton">只使用 Psiphon 瀏覽器</string>
   <string name="selected_region_currently_not_available">目前無法選擇此地區，請換其它地方。</string>
-  <string name="we_care_about_your_privacy_and_data_security_we_keep_this_app_free_by_showing_ads">我們在意用戶的隱私和數據安全，但免費應用須要提供廣告以維持營運。</string>
-  <string name="can_we_continue_to_use_your_data_to_tailor_ads_for_you">我們可以繼續使用您的數據來提供您所需的廣告嗎？</string>
-  <string name="you_can_change_your_choice_anytime">用戶可隨時在應用選項中變更 Psipho  專業版選定，我們的廣告啇利用每支手機的獨特識別碼來收集用戶數據以投放廣告。</string>
-  <string name="learn_more_about_our_ad_providers"><u>進一步了解我們的廣告商</u></string>
-  <string name="yes_continue_to_see_relevant_ads">是的，允許繼續收到相關的廣告</string>
-  <string name="no_see_ads_that_are_less_relevant">否，不願看到相關廣告&lt;br data-mce-bogus="1"&gt;</string>
-  <string name="pay_for_the_ad_free_version">昇級到無廣告版</string>
-  <string name="click_ad_provider_name_to_see_privacy_policy">點擊廣告商名稱來檢視其隱私政策</string>
   <string name="ads_consent_preference_category_title">廣告個人化</string>
   <string name="ads_consent_preference_dialog_preference_message">確定要重置個人廣告偏好設定嗎？</string>
   <string name="ads_consent_preference_title">重置個別廣告偏好</string>
@@ -39,17 +20,7 @@
   <string name="ads_consent_preference_summary">重置個人惼好以便讓廣告商可以使用 cookies 與用戶個資</string>
   <string name="preference_language_selection_title">語言</string>
   <string name="preference_language_default_language">預設語系</string>
-  <!--A toast message which appears upon successful NFC bump & connection info transfer-->
-  <!--A toast message which appears upon a failed NFC bump & connection info transfer-->
-  <!--A toast message which appears when an NFC bump is attempted but the user hasn't pressed Start yet so we cannot import the data-->
-  <!--Text for a button which appears to the user if they have been trying, but unable to connect for an extended period of time. Brings forward a dialog which explains how to get help from another Psiphon user to connect.-->
-  <!--Text shown to the user to explain steps to take when unable to connect and there is someone around who has Psiphon and can help them connect-->
-  <!--Description of the image which appears along with get help connecting text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connecting state.-->
-  <!--Title shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Message shown in a notification to the user if they have been trying, but unable to connect for an extended period of time-->
-  <!--Text for a button which appears to the user when they are connected. Brings forward a dialog which explains how to help another Psiphon user connect.-->
-  <!--Text shown to the user to explain steps to take when able to connect and there is someone around who has Psiphon and requires help connecting-->
-  <!--Description of the image which appears along with how to help connect text. Depicts two phones being placed back to back in order to transfer NFC data. The screen of the visible phone shows Psiphon in a connected state.-->
+  <string name="preference_category_advanced_title">進階的</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <!--Generic negative button label.-->

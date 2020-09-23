@@ -157,6 +157,7 @@ html {{
   <option value="pt_PT">Português (Portugal)</option>
   <option value="ru">Русский</option>
   <option value="sn">chiShona</option>
+  <option value="sw">Kiswahili</option>
   <option value="tg">Тоҷикӣ</option>
   <!--<option value="th">ภาษาไทย</option>-->
   <option value="ti">ትግርኛ</option>
