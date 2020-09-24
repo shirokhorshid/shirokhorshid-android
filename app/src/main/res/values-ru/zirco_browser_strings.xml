@@ -6,15 +6,15 @@
   <string name="Commons.Yes">Да</string>
   <string name="Commons.No">Нет</string>
   <string name="Commons.SDCardErrorTitle">SD-карта недоступна</string>
-  <string name="Commons.SDCardErrorNoSDMsg">SD-карта не найдена</string>
-  <string name="Commons.SDCardErrorSDUnavailable">SD-карта недоступна</string>
+  <string name="Commons.SDCardErrorNoSDMsg">SD-карта не найдена.</string>
+  <string name="Commons.SDCardErrorSDUnavailable">SD-карта недоступна.</string>
   <string name="Commons.Continue">Продолжить</string>
   <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">Экспорт завершен</string>
   <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">Ваша история и закладки сохранены в %s.</string>
-  <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Ошибка экспортирования</string>
+  <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Ошибка экспорта</string>
   <string name="Commons.HistoryBookmarksFailedMessage">Сообщение об ошибке: %s.</string>
   <string name="Commons.PermissionRequestReasonTitle">Почему требуется разрешение</string>
   <string name="Commons.NeedWritePermissions">Пожалуйста, разрешите запись и попробуйте снова</string>
   <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">Экспорт закладок требует разрешения записи. Закладки сохраняются во внешнем хранилище.</string>
-  <string name="Commons.ExportingHistoryBookmarks">Экспортирование истории и закладок…</string>
+  <string name="Commons.ExportingHistoryBookmarks">Экспорт истории и закладок…</string>
 </resources>

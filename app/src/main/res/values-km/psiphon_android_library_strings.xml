@@ -75,6 +75,7 @@
   <string name="about">អំពី Psiphon</string>
   <string name="feedback">មតិយោបល់</string>
   <string name="disableTimeoutsPreferenceSummary">បិទ ការហួសម៉ោង សម្រាប់បណ្តាញយឺត</string>
+  <string name="region_selector">ជ្រើសរើសតំបន់ម៉ាស៊ីនមេ</string>
   <string name="network_proxy_connect_invalid_values">ការកំណត់ប្រូកស៊ី HTTP មិនត្រឹមត្រូវ</string>
   <string name="tunnel_whole_device_exception">ឧបករណ៍របស់អ្នក មិនគាំទ្រការតភ្ជាប់តាមច្រកទាំងអស់ ដោយសារបាត់បង់ VpnService API។</string>
   <string name="preference_notifications_title">ការជូនដំណឹង</string>

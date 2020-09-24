@@ -4,10 +4,10 @@
   <string name="open_browser">Открыть браузер</string>
   <string name="FeedbackActivity.DefaultText">Если у вас есть комментарии, дополнительная информация о сайтах, которые не загружаются, или эта форма не работает для вас, пожалуйста, напишите нам на &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Спасибо за ваш отзыв</string>
-  <string name="FeedbackActivity.Failure">Сбой отправки. Попробуйте еще раз.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Сбой отправки отзыва.</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Неверные параметры ссылки при отправке формы отзыва</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Сбой загрузки формы отзыва</string>
+  <string name="FeedbackActivity.Failure">Сбой отправки. Пожалуйста, попробуйте снова.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Не удалось отправить отзыв</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Неверные параметры ссылки в форме отзыва</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Не удалось загрузить страницу отзыва</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN остановлен</string>
   <string name="StatusActivity.VpnRevokedMessage">Вы или какое-то приложение отключили Psiphon VPN. Нельзя запускать несколько VPN одновременно. Убедитесь, что другое VPN-приложение не установлено/не запущено.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Ошибка старта Psiphon VPN</string>
@@ -22,7 +22,7 @@
   <string name="preference_language_selection_title">Язык</string>
   <string name="preference_language_title">Выбор языка</string>
   <string name="preference_language_default_language">Язык по умолчанию</string>
-  <string name="preference_category_advanced_title">Расширенный</string>
+  <string name="preference_category_advanced_title">Дополнительно</string>
   <string name="preference_category_info_title">Информация</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
@@ -35,7 +35,7 @@
   <!--"Please open Psiphon to keep connecting" notification title-->
   <string name="notification_title_action_required">Требуется действие!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
-  <string name="notification_text_open_psiphon_to_finish_connecting">Пожалуйста, откройте Psiphon и завершите подключение.</string>
+  <string name="notification_text_open_psiphon_to_finish_connecting">Чтобы подключиться, пожалуйста, откройте Psiphon.</string>
   <!--"Selected region is not available" notification title-->
   <string name="notification_title_region_not_available">Выбранный регион недоступен</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->

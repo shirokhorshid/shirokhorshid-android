@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="socks_running">SOCKS запущен (порт %d)</string>
-  <string name="http_proxy_running">HTTP прокси запущен %d</string>
+  <string name="http_proxy_running">HTTP-прокси запущен (порт %d)</string>
   <string name="client_version">Версия клиента %s</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Неверный публичный ключ в подписи пакета данных, прошедшего проверку </string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Неверная цифровая подпись пакета данных</string>
@@ -9,9 +9,9 @@
   <string name="starting_tunnel">Запуск туннеля...</string>
   <string name="stopping_tunnel">Остановка туннеля...</string>
   <string name="stopped_tunnel">Туннель остановлен</string>
-  <string name="socks_port_in_use">Запрошенный порт локального SOCKS прокси %d используется другим приложением. Продолжение невозможно.</string>
-  <string name="waiting_for_network_connectivity">Ждём подключения к сети...</string>
-  <string name="psiphon_service_notification_message_connecting">Идет соединение...</string>
+  <string name="socks_port_in_use">Запрошенный порт локального SOCKS-прокси %d используется другим приложением. Продолжение невозможно.</string>
+  <string name="waiting_for_network_connectivity">Ждем подключения к сети...</string>
+  <string name="psiphon_service_notification_message_connecting">Соединение...</string>
   <string name="psiphon_service_notification_id">Сообщения сервиса Psiphon </string>
   <string name="psiphon_service_notification_channel_name">Статус Psiphon изменен</string>
   <string name="psiphon_upgrade_notification_channel_name">Обновление Psiphon </string>
@@ -19,11 +19,11 @@
   <string name="vpn_service_running">VPN сервис запущен</string>
   <string name="vpn_service_revoked">VPN сервис удален</string>
   <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Ошибка шифрования диагностических данных. Диагностические данные не будут прикреплены к отзыву</string>
+  <string name="Diagnostics.EncryptedFailed">Ошибка шифрования диагностических данных. Эти данные не будут прикреплены к отзыву.</string>
   <string name="current_network_type">Текущая сеть: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Ошибка чтения информации о пакете данного приложения</string>
+  <string name="UpgradeManager.CanNotRetrievePackageInfo">Ошибка чтения данных о пакете приложения</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">Ошибка записи файла обновления</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Ошибка обновления. Ошибка чтения информации о файле обновления.</string>
+  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Обновление невозможно. Ошибка чтения данных из файла обновления.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Файл обновления не найден</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Обновление Psiphon </string>
@@ -41,7 +41,7 @@
   <string name="settings_tab_name">Настройки</string>
   <string name="statistics_tab_name">Статистика</string>
   <string name="logs_tab_name">Журналы</string>
-  <string name="use_proxy_settings_toggle">Подключение через HTTP прокси</string>
+  <string name="use_proxy_settings_toggle">Подключение через HTTP-прокси</string>
   <string name="use_system_proxy_settings_radio">Использовать системные настройки сети</string>
   <string name="use_custom_proxy_settings_radio">Использовать настройки:</string>
   <string name="custom_proxy_settings_host">Адрес узла</string>
@@ -77,7 +77,7 @@
   <string name="feedback">Отзыв</string>
   <string name="disableTimeoutsPreferenceSummary">Отключить таймауты для медленных сетей</string>
   <string name="region_selector">Выбор региона сервера</string>
-  <string name="network_proxy_connect_invalid_values">Неверные настройки HTTP прокси</string>
+  <string name="network_proxy_connect_invalid_values">Неверные настройки HTTP-прокси</string>
   <string name="tunnel_whole_device_exception">Ваше устройство не поддерживает полное туннелирование: отсутствует VpnService API.</string>
   <string name="preference_notifications_title">Уведомления</string>
   <string name="preference_vpn_title">VPN</string>
@@ -131,13 +131,13 @@
   </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">Все приложения будут пропущены через VPN</string>
   <string name="preference_notifications_with_sound_title">Звук</string>
-  <string name="preference_notifications_with_sound_summary">Оповестить звуковым сигналом при изменении статуса подключения</string>
+  <string name="preference_notifications_with_sound_summary">Сигнал при изменении статуса подключения</string>
   <string name="preference_notifications_with_vibrate_title">Вибрация</string>
-  <string name="preference_notifications_with_vibrate_summary">Вибрировать при изменении статуса подключения</string>
+  <string name="preference_notifications_with_vibrate_summary">Вибрация при изменении статуса подключения</string>
   <string name="downloadWiFiOnlyPreferenceSummary">Скачивать обновления только по wi-fi</string>
   <string name="moreOptions">Другие настройки</string>
   <string name="proxySettingsCategoryTitle">Настройки прокси</string>
-  <string name="custom_proxy_host_summary">Имя прокси-сервера или его IP адрес</string>
+  <string name="custom_proxy_host_summary">Имя прокси-сервера или его IP-адрес</string>
   <string name="custom_proxy_port_summary">Порт прокси-сервера</string>
   <string name="use_proxy_authentication_title">Использовать аутентификацию прокси</string>
   <string name="proxy_username_title">Имя пользователя для прокси</string>
@@ -146,7 +146,7 @@
   <string name="proxy_password_summary">Пароль для аутентификации прокси</string>
   <string name="proxy_domain_title">Домен прокси</string>
   <string name="proxy_domain_summary">Домен для аутентификации прокси</string>
-  <string name="http_proxy_port_in_use">Запрошенный локальный HTTP прокси порт %d уже используется другим приложением. Продолжение невозможно.</string>
+  <string name="http_proxy_port_in_use">Продолжение невозможно. Локальный порт HTTP-прокси %d используется другим приложением. </string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <string name="split_tunnel_region">Регион раздельного туннелирования: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
@@ -154,14 +154,14 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Ошибка внешнего прокси: %s</string>
   <string name="start_tunnel_failed">Запуск туннеля не удался: %s</string>
-  <string name="tunnel_connecting">Идет соединение туннеля…</string>
-  <string name="tunnel_connected">Соединение туннеля установлено</string>
+  <string name="tunnel_connecting">Подключение туннеля…</string>
+  <string name="tunnel_connected">Туннель подключен</string>
   <string name="waiting">Ожидание…</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Запрос разрешения</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Можно позволить Psiphon принимать оптимальные решения о работе в вашей сети, если открыть Psiphon доступ к вашему местонахождению.\n\nВнимание: эта информация используется только на вашем устройстве и не передается ни на наши серверы, ни третьим лицам.</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Чтобы Psiphon принимал оптимальные решения о работе в вашей сети, откройте ему доступ к вашему местонахождению.\n\nВнимание: эти данные используются только на вашем устройстве. Они не передаются ни на наши серверы, ни третьим сторонам.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->

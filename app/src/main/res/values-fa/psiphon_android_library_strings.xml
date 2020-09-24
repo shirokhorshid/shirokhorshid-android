@@ -75,6 +75,7 @@
   <string name="about">درباره Psiphon</string>
   <string name="feedback">بازخوردها</string>
   <string name="disableTimeoutsPreferenceSummary">غیر فعال کردن وقفه برای شبکه‌های کم سرعت</string>
+  <string name="region_selector">منطقه سرور را انتخاب کنید</string>
   <string name="network_proxy_connect_invalid_values">تنظمیات http پراکسی نا معتبر است. </string>
   <string name="tunnel_whole_device_exception"> به دلیل عدم وجود API VpnService دستگاه شما از تمام گزینه‌های تونل دستگاه پشتیبانی نمی کند.</string>
   <string name="preference_notifications_title">اطلاعیه ها</string>
