@@ -326,11 +326,6 @@ public class Utils
             MyLog.logger = new WeakReference<>(logger);
         }
         
-        static public void unsetLogger()
-        {
-            MyLog.logger.clear();
-        }
-
         // TODO: Add sensitivity to debug logs
         static public void d(String msg)
         {

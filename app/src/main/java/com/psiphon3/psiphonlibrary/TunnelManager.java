@@ -78,7 +78,7 @@ import io.reactivex.schedulers.Schedulers;
 
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
-public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
+public class TunnelManager implements PsiphonTunnel.HostService {
     // Android IPC messages
     // Client -> Service
     enum ClientToServiceMessage {
@@ -203,7 +203,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         m_tunnelState.isRunning = true;
         // This service runs as a separate process, so it needs to initialize embedded values
         EmbeddedValues.initialize(getContext());
-        MyLog.setLogger(this);
 
         m_compositeDisposable.clear();
         m_compositeDisposable.add(connectionStatusUpdaterDisposable());
@@ -333,7 +332,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         cancelOpenAppToFinishConnectingNotification();
 
         stopAndWaitForTunnel();
-        MyLog.unsetLogger();
         m_compositeDisposable.dispose();
     }
 

@@ -21,7 +21,6 @@ import io.reactivex.Flowable;
 public class MainActivityViewModel extends AndroidViewModel implements LifecycleObserver {
     private final TunnelServiceInteractor tunnelServiceInteractor;
     private final PublishRelay<Boolean> customProxyValidationResultRelay = PublishRelay.create();
-    private final Context context;
     private final PublishRelay<Object> availableRegionsSelectionRelay = PublishRelay.create();
     private final PublishRelay<Object> openVpnSettingsRelay = PublishRelay.create();
     private PublishRelay<String> externalBrowserUrlRelay = PublishRelay.create();
@@ -30,13 +29,11 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
-        context = application.getApplicationContext();
-        tunnelServiceInteractor = new TunnelServiceInteractor(application.getApplicationContext(), true);
-        Utils.MyLog.setLogger(() -> context);
+        tunnelServiceInteractor = new TunnelServiceInteractor(getApplication(), true);
 
         // remove logs from previous sessions if tunnel service is not running.
-        if (!tunnelServiceInteractor.isServiceRunning(application.getApplicationContext())) {
-            LoggingProvider.LogDatabaseHelper.truncateLogs(context, true);
+        if (!tunnelServiceInteractor.isServiceRunning(getApplication())) {
+            LoggingProvider.LogDatabaseHelper.truncateLogs(getApplication(), true);
         }
     }
 
@@ -53,8 +50,7 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     @Override
     protected void onCleared() {
         super.onCleared();
-        Utils.MyLog.unsetLogger();
-        tunnelServiceInteractor.onDestroy(context);
+        tunnelServiceInteractor.onDestroy(getApplication());
     }
 
     public Flowable<TunnelState> tunnelStateFlowable() {
@@ -70,11 +66,11 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     }
 
     public void startTunnelService() {
-        tunnelServiceInteractor.startTunnelService(context);
+        tunnelServiceInteractor.startTunnelService(getApplication());
     }
 
     public void restartTunnelService() {
-        tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(context);
+        tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(getApplication());
     }
 
     public void sendLocaleChangedMessage() {
@@ -83,14 +79,14 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
 
     // Basic check of proxy settings values
     public boolean validateCustomProxySettings() {
-        boolean useHTTPProxyPreference = UpstreamProxySettings.getUseHTTPProxy(context);
-        boolean useCustomProxySettingsPreference = UpstreamProxySettings.getUseCustomProxySettings(context);
+        boolean useHTTPProxyPreference = UpstreamProxySettings.getUseHTTPProxy(getApplication());
+        boolean useCustomProxySettingsPreference = UpstreamProxySettings.getUseCustomProxySettings(getApplication());
 
         if (!useHTTPProxyPreference ||
                 !useCustomProxySettingsPreference) {
             return true;
         }
-        UpstreamProxySettings.ProxySettings proxySettings = UpstreamProxySettings.getProxySettings(context);
+        UpstreamProxySettings.ProxySettings proxySettings = UpstreamProxySettings.getProxySettings(getApplication());
         boolean isValid = proxySettings != null &&
                 UpstreamProxySettings.isValidProxyHostName(proxySettings.proxyHost) &&
                 UpstreamProxySettings.isValidProxyPort(proxySettings.proxyPort);
