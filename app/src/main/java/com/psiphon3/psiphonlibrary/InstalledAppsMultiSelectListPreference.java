@@ -86,7 +86,7 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
 
     public int getInstalledAppsCount() {
         Objects.requireNonNull(adapter);
-       return adapter.getItemCount();
+       return adapter.getUnfilteredItemsCount();
     }
 
     private void loadInstalledAppsView(Context context) {

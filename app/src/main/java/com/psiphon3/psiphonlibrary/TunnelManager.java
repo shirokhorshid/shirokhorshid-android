@@ -855,7 +855,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             if (connectivityManager == null) {
                 return;
             }
-            connectivityManager.unregisterNetworkCallback(networkCallback);
+            try {
+                connectivityManager.unregisterNetworkCallback(networkCallback);
+            } catch (IllegalArgumentException ignored) {
+                // Ignore "java.lang.IllegalArgumentException: NetworkCallback was not registered"
+            }
         }
     }
 
