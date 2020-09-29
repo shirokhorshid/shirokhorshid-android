@@ -895,6 +895,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
         }
 
         Context context = getContext();
+        PackageManager pm = context.getPackageManager();
 
         switch (VpnAppsUtils.getVpnAppsExclusionMode(context)) {
             case ALL_APPS:
@@ -907,12 +908,17 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 Set<String> includedApps = VpnAppsUtils.getCurrentAppsIncludedInVpn(context);
                 int includedAppsCount = includedApps.size();
                 // allow the selected apps
-                for (String packageId : includedApps) {
+                for (Iterator<String> iterator = includedApps.iterator(); iterator.hasNext(); ) {
+                    String packageId = iterator.next();
                     try {
+                        // VpnBuilder.addAllowedApplication() is supposed to throw NameNotFoundException
+                        // in case the app is no longer available but we observed this is not the case.
+                        // Therefore we will perform our own check first.
+                        pm.getApplicationInfo(packageId, 0);
                         vpnBuilder.addAllowedApplication(packageId);
                         MyLog.v(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
                     } catch (PackageManager.NameNotFoundException e) {
-                        includedApps.remove(packageId);
+                        iterator.remove();
                     }
                 }
                 // If some packages are no longer installed, updated persisted set
@@ -941,12 +947,17 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 Set<String> excludedApps = VpnAppsUtils.getCurrentAppsExcludedFromVpn(context);
                 int excludedAppsCount = excludedApps.size();
                 // disallow the selected apps
-                for (String packageId : excludedApps) {
+                for (Iterator<String> iterator = excludedApps.iterator(); iterator.hasNext(); ) {
+                    String packageId = iterator.next();
                     try {
+                        // VpnBuilder.addDisallowedApplication() is supposed to throw NameNotFoundException
+                        // in case the app is no longer available but we observed this is not the case.
+                        // Therefore we will perform our own check first.
+                        pm.getApplicationInfo(packageId, 0);
                         vpnBuilder.addDisallowedApplication(packageId);
                         MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
                     } catch (PackageManager.NameNotFoundException e) {
-                        excludedApps.remove(packageId);
+                        iterator.remove();
                     }
                 }
                 // If some packages are no longer installed update persisted set
