@@ -838,10 +838,15 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
                 }
             };
             NetworkRequest networkRequest = new NetworkRequest.Builder()
-                    .addTransportType(android.net.NetworkCapabilities.TRANSPORT_CELLULAR)
-                    .addTransportType(android.net.NetworkCapabilities.TRANSPORT_WIFI)
+                    .addCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET)
                     .build();
-            connectivityManager.registerNetworkCallback(networkRequest, networkCallback);
+            try {
+                connectivityManager.registerNetworkCallback(networkRequest, networkCallback);
+            } catch (RuntimeException e) {
+                // Could be a security exception or any other runtime exception on customized firmwares.
+                MyLog.g("TunnelManager: failed to register network callback: " + e);
+                networkCallback = null;
+            }
         }
     }
 
@@ -855,11 +860,13 @@ public class TunnelManager implements PsiphonTunnel.HostService, MyLog.ILogger {
             if (connectivityManager == null) {
                 return;
             }
-            try {
-                connectivityManager.unregisterNetworkCallback(networkCallback);
-            } catch (IllegalArgumentException ignored) {
-                // Ignore "java.lang.IllegalArgumentException: NetworkCallback was not registered"
-            }
+            // Note: ConnectivityManager.unregisterNetworkCallback may throw
+            // "java.lang.IllegalArgumentException: NetworkCallback was not registered"
+            // but this scenario should be handled in the startNetworkStateMonitoring() above.
+            //
+            // Crash if any other error condition encountered, the service is getting stopped at
+            // this point, so it is less of a concern.
+            connectivityManager.unregisterNetworkCallback(networkCallback);
         }
     }
 
