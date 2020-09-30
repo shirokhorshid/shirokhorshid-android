@@ -1064,7 +1064,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             json.put("EmitDiagnosticNetworkParameters", true);
 
             json.put("FeedbackUploadURLs", new JSONArray(EmbeddedValues.FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_URLS_JSON));
-            json.put("FeedbackEncryptionPublicKey", EmbeddedValues.FEEDBACK_DIAGNOSTIC_INFO_ENCRYPTION_PUBLIC_KEY);
+            json.put("FeedbackEncryptionPublicKey", EmbeddedValues.FEEDBACK_ENCRYPTION_PUBLIC_KEY);
 
             // If this is a temporary tunnel (like for UpgradeChecker) we need to override some of
             // the implicit config values.
