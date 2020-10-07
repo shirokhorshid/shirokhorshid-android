@@ -37,14 +37,30 @@ import androidx.annotation.Nullable;
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
 public class Diagnostics {
+
+    /**
+     * Create a random feedback ID.
+     *
+     * @return 8 random bytes encoded as a 16 character hex String.
+     */
+    static public String generateFeedbackId() {
+        SecureRandom rnd = new SecureRandom();
+        byte[] id = new byte[8];
+        rnd.nextBytes(id);
+        return Utils.byteArrayToHexString(id);
+    }
+
     /**
      * Create the diagnostic info package.
      *
      * @param context
-     * @param sendDiagnosticInfo
-     * @param email
-     * @param feedbackText
-     * @param surveyResponsesJson
+     * @param sendDiagnosticInfo If true, the user has opted in to including diagnostics with their
+     *                           feedback and diagnostics will be included in diagnostic info
+     *                           package. Otherwise, diagnostics will be omitted.
+     * @param email User email address.
+     * @param feedbackText User feedback comment.
+     * @param surveyResponsesJson User feedback responses.
+     * @param feedbackId Random feedback ID created with generateFeedbackId().
      * @param diagnosticsBefore Optional Date which, if provided, results in only diagnostics which
      *                          occurred before it being including in the resulting diagnostics
      *                          package. This is determined by checking the timestamp of each
@@ -58,6 +74,7 @@ public class Diagnostics {
             @NonNull String email,
             @NonNull String feedbackText,
             @NonNull String surveyResponsesJson,
+            @NonNull String feedbackId,
             @Nullable Date diagnosticsBefore) throws Exception {
         // Our attachment is JSON, which is then encrypted, and the
         // encryption elements stored in JSON.
@@ -73,11 +90,7 @@ public class Diagnostics {
 
             metadata.put("platform", "android");
             metadata.put("version", 4);
-
-            SecureRandom rnd = new SecureRandom();
-            byte[] id = new byte[8];
-            rnd.nextBytes(id);
-            metadata.put("id", Utils.byteArrayToHexString(id));
+            metadata.put("id", feedbackId);
 
             /*
              * System Information

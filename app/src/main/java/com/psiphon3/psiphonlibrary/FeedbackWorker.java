@@ -3,6 +3,7 @@ package com.psiphon3.psiphonlibrary;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.work.Data;
 import androidx.work.RxWorker;
 import androidx.work.WorkerParameters;
 
@@ -24,6 +25,8 @@ import net.grandcentrix.tray.AppPreferences;
 /**
  * Feedback worker which securely uploads user submitted feedback to Psiphon Inc.
  *
+ * FeedbackWorker.generateInputData(..) should be used to generate the input data for any work requests.
+ *
  * Note: if an exception is thrown, then the work request will be marked as failed and will not be
  * rescheduled.
  */
@@ -34,9 +37,35 @@ public class FeedbackWorker extends RxWorker {
     private final String email;
     private final String feedbackText;
     private final String surveyResponsesJson;
+    private final String feedbackId;
     private final long feedbackSubmitTimeMillis;
 
     private Thread shutdownHook;
+
+    /**
+     * Create the input data for a feedback upload work request.
+     *
+     * @param sendDiagnosticInfo If true, the user has opted in to including diagnostics with their
+     *                           feedback and diagnostics will be included in uploaded feedback.
+     *                           Otherwise, diagnostics will be omitted.
+     * @param email User email address.
+     * @param feedbackText User feedback comment.
+     * @param surveyResponsesJson User feedback responses.
+     * @return Input data for a work request to FeedbackWorker.
+     */
+    public static @NonNull Data generateInputData(boolean sendDiagnosticInfo,
+                                                  @NonNull String email,
+                                                  @NonNull String feedbackText,
+                                                  @NonNull String surveyResponsesJson) {
+        Data.Builder dataBuilder = new Data.Builder();
+        dataBuilder.putBoolean("sendDiagnosticInfo", sendDiagnosticInfo);
+        dataBuilder.putString("email", email);
+        dataBuilder.putString("feedbackText", feedbackText);
+        dataBuilder.putString("surveyResponsesJson", surveyResponsesJson);
+        dataBuilder.putLong("submitTimeMillis", new Date().getTime());
+        dataBuilder.putString("feedbackId", Diagnostics.generateFeedbackId());
+        return dataBuilder.build();
+    }
 
     /**
      * @param appContext   The application {@link Context}
@@ -63,6 +92,16 @@ public class FeedbackWorker extends RxWorker {
             throw new AssertionError("survey response null");
         }
         feedbackSubmitTimeMillis = workerParams.getInputData().getLong("submitTimeMillis", new Date().getTime());
+
+        // Using the same feedback ID for each upload attempt makes it easier to identify when a
+        // feedback has been uploaded more than once. E.g. the upload succeeds but is retried
+        // because: the connection with the server is disrupted before the response is received by
+        // the client; or WorkManager reschedules the work and disposes of the signal returned by
+        // createWork() before it can emit its result.
+        feedbackId = workerParams.getInputData().getString("feedbackId");
+        if (feedbackId == null) {
+            throw new AssertionError("feedback ID null");
+        }
     }
 
     @Override
@@ -213,6 +252,7 @@ public class FeedbackWorker extends RxWorker {
                                 email,
                                 feedbackText,
                                 surveyResponsesJson,
+                                feedbackId,
                                 // Only include diagnostics logged before the feedback was submitted
                                 new Date(feedbackSubmitTimeMillis));
 
@@ -231,6 +271,14 @@ public class FeedbackWorker extends RxWorker {
                             return Flowable.error(new Exception("tunnel-core config null"));
                         }
 
+                        // Note: It is possible that the upload could succeed at the same moment one
+                        // of the trigger signals (VPN state change, etc.) changes or the work
+                        // request is rescheduled by WorkManager. Then there would be a race between
+                        // this signal emitting a value and it being disposed of, which would result
+                        // in the value being ignored. If this happens, the feedback upload will be
+                        // attempted again even though it already succeeded. The same feedback ID is
+                        // used for all upload attempts, which provides visibility into these
+                        // occurrences and allows for mitigation.
                         return startSendFeedback(context, tunnelCoreConfig, diagnosticData,
                                 "", "", Utils.getClientPlatformSuffix())
                                 .andThen(Flowable.just(Result.success()));

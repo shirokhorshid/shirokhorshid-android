@@ -29,7 +29,6 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Date;
 import java.util.Locale;
 
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
@@ -178,12 +177,8 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
 
                 // Schedule user feedback for upload
 
-                Data.Builder dataBuilder = new Data.Builder();
-                dataBuilder.putBoolean("sendDiagnosticInfo", sendDiagnosticInfo);
-                dataBuilder.putString("email", email);
-                dataBuilder.putString("feedbackText", feedbackText);
-                dataBuilder.putString("surveyResponsesJson", surveyResponsesJson);
-                dataBuilder.putLong("submitTimeMillis", new Date().getTime());
+                Data inputData = FeedbackWorker.generateInputData(
+                        sendDiagnosticInfo, email, feedbackText, surveyResponsesJson);
 
                 Constraints.Builder constraintsBuilder = new Constraints.Builder();
                 constraintsBuilder.setRequiredNetworkType(NetworkType.CONNECTED);
@@ -191,7 +186,7 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
                 OneTimeWorkRequest feedbackUpload =
                         new OneTimeWorkRequest.Builder(FeedbackWorker.class)
                                 .setInputData(
-                                        dataBuilder.build()
+                                        inputData
                                 )
                                 .setConstraints(
                                         constraintsBuilder.build()
