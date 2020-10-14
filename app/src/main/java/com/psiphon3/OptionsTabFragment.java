@@ -95,6 +95,13 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
             }
             return true;
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // onResume is called after onCreatePreferences and after onActivityResult
+        // so this is a pretty good place to update displayed preferences summaries
         setSummaryFromPreferences();
     }
 
@@ -196,8 +203,6 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
             default:
                 super.onActivityResult(request, result, data);
         }
-        // Update preferences summaries
-        setSummaryFromPreferences();
 
         if (shouldRestart) {
             viewModel.tunnelStateFlowable()

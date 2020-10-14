@@ -101,7 +101,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     public static final String INTENT_ACTION_SELECTED_REGION_NOT_AVAILABLE = "com.psiphon3.psiphonlibrary.TunnelManager.SELECTED_REGION_NOT_AVAILABLE";
     public static final String INTENT_ACTION_VPN_REVOKED = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_VPN_REVOKED";
     public static final String INTENT_ACTION_STOP_TUNNEL = "com.psiphon3.psiphonlibrary.TunnelManager.ACTION_STOP_TUNNEL";
-    public static final String IS_CLIENT_AN_ACTIVITY = "IS_CLIENT_AN_ACTIVITY";
+    public static final String IS_CLIENT_AN_ACTIVITY = "com.psiphon3.psiphonlibrary.TunnelManager.IS_CLIENT_AN_ACTIVITY";
 
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
