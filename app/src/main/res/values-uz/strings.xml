@@ -8,16 +8,16 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Fikr-mulohaza yuborilmadi</string>
   <string name="FeedbackActivity.InvalidURLParameters">Fikr-mulohaza yuborishda yaroqsiz URL parametrlar kiritildi</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Fikr-mulohaza sahifasi axboroti yuklanmadi</string>
-  <string name="ads_consent_preference_dialog_title">Сброс</string>
+  <string name="ads_consent_preference_dialog_title">Tushirish</string>
   <string name="preference_language_selection_title">Til</string>
-  <string name="preference_language_default_language">Tilni aniqlash</string>
+  <string name="preference_language_default_language">Standart til</string>
   <string name="preference_category_advanced_title">Qo‘shimcha</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Yoʻq</string>
   <!--Generic positive button label.-->
-  <string name="lbl_yes">Да</string>
+  <string name="lbl_yes">Ha</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
   <!--"Selected region is not available" notification title-->

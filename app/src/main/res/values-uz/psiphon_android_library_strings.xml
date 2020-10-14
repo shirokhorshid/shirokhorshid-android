@@ -67,6 +67,10 @@
   <string name="region_name_no">Norvegiya</string>
   <string name="region_name_ro">Ruminiya</string>
   <string name="region_name_se">Shvetsiya</string>
+  <string name="region_name_pl">Polsha</string>
+  <string name="region_name_sk">Slovakiya</string>
+  <string name="region_name_rs">Serbiya</string>
+  <string name="region_name_au">Avstraliya</string>
   <string name="about">Psiphon haqida</string>
   <string name="feedback">Fikr-mulohaza</string>
   <string name="disableTimeoutsPreferenceSummary">Tezligi past tarmoqlar uchun kutish vaqtini o‘chirib qo‘yish</string>

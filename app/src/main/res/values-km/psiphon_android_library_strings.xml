@@ -107,6 +107,7 @@
     <item quantity="other">កម្មវិធី %d នឹងត្រូវលើកលែងចេញពី VPN</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">ធ្វើថូនែលគ្រប់កម្មវិធី</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <string name="preference_routing_all_apps_tunnel_summary">គ្រប់កម្មវិធីទាំងអស់នឹងត្រូវបើកច្រកតាម VPN</string>
@@ -146,5 +147,7 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">យល់ព្រម</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">ទេ អរគុណ</string>
+  <string name="label_vpn_settings">ការកំណត់VPN</string>
   <string name="disableTimeoutsPreferenceTitle">បិទ ការកំណត់ពេល</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">មានតែWiFi</string>
 </resources>
