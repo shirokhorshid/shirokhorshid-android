@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="socks_running">SOCKS выконваецца праз порт %d</string>
-  <string name="http_proxy_running">HTTP проксі выконваецца  праз порт %d</string>
+  <string name="http_proxy_running">HTTP проксі выконваецца праз порт %d</string>
   <string name="client_version">Версія кліента %s</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Правераны на сапраўднасць пакет даных падпісаны іншым публічным ключом</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Памылковы подпіс на правераным на сапраўднасць пакеце даных</string>
   <string name="AuthenticatedDataPackage.MissingValue">Брак значэння ў правераным на сапраўднасць пакеце даных</string>
   <string name="starting_tunnel">Запуск тунэлявання...</string>
-  <string name="stopping_tunnel">Спыненне  тунэлявання...</string>
+  <string name="stopping_tunnel">Спыненне тунэлявання...</string>
   <string name="stopped_tunnel"> Тунэляванне спыпыненае</string>
-  <string name="socks_port_in_use">Запытаны лакальны порт проксі-сервера SOCKS %d ужо ўжываецца іншай праграмай. Немагчыма працягваць.</string>
+  <string name="socks_port_in_use">Запытаны лакальны порт проксі-сервера SOCKS %d ужо ўжываецца іншай праграмай. Немагчыма працягваць.</string>
   <string name="waiting_for_network_connectivity">Чаканне злучэння з сеткай...</string>
   <string name="psiphon_service_notification_message_connecting">Ідзе злучэнне...</string>
   <string name="psiphon_service_notification_id">Апавяшчэнне Psiphon</string>
@@ -41,7 +41,7 @@
   <string name="settings_tab_name">Параметры</string>
   <string name="statistics_tab_name">Статыстыка</string>
   <string name="logs_tab_name">Журналы</string>
-  <string name="use_proxy_settings_toggle">Падключыцца праз проксі-сервер HTTP </string>
+  <string name="use_proxy_settings_toggle">Падключыцца праз проксі-сервер HTTP</string>
   <string name="use_system_proxy_settings_radio">Ужываць сістэмны налады сеткі</string>
   <string name="use_custom_proxy_settings_radio">Ужываць наступныя налады:</string>
   <string name="custom_proxy_settings_host">Адрас вузла</string>
@@ -77,7 +77,7 @@
   <string name="feedback">Зваротная сувязь</string>
   <string name="disableTimeoutsPreferenceSummary">Адключыць час чакання для павольных злучэнняў</string>
   <string name="region_selector">Выбраць рэгіён серверу</string>
-  <string name="network_proxy_connect_invalid_values">Няправільныя налады проксі-сервера HTTP </string>
+  <string name="network_proxy_connect_invalid_values">Няправільныя налады проксі-сервера HTTP</string>
   <string name="tunnel_whole_device_exception">Ваша прылада не падтрымлівае опцыю тунэлявання ўсёй прылады з прычыны браку прыкладання VpnService.</string>
   <string name="preference_notifications_title">Апавяшчэнні</string>
   <string name="preference_vpn_title">VPN</string>
@@ -101,33 +101,33 @@
   <string name="preference_routing_select_apps_title">Выберыце праграмы</string>
   <!--Description of option to select apps to exclusively tunnel-->
   <plurals name="preference_routing_select_apps_to_include_summary">
-    <item quantity="one">%dпраграма будзе тунелявацца праз VPN</item>
-    <item quantity="few">%dпраграмы будуць тунелявацца праз VPN</item>
-    <item quantity="many">%dпраграм будзе тунелявацца праз VPN</item>
-    <item quantity="other">%dпраграмы будуць тунэлявацца праз VPN</item>
+    <item quantity="one">%d праграма будзе тунелявацца праз VPN</item>
+    <item quantity="few">%d праграмы будуць тунелявацца праз VPN</item>
+    <item quantity="many">%d праграм будзе тунелявацца праз VPN</item>
+    <item quantity="other">%d праграмы будуць тунэлявацца праз VPN</item>
   </plurals>
   <!--Description of option to select apps to not tunnel-->
   <plurals name="preference_routing_select_apps_to_exclude_summary">
-    <item quantity="one">%dпраграма не будзе тунелявацца</item>
-    <item quantity="few">%dпраграмы не будуць тунелявацца</item>
-    <item quantity="many">%dпраграм не будуць тунелявацца</item>
+    <item quantity="one">%d праграма не будзе тунелявацца</item>
+    <item quantity="few">%d праграмы не будуць тунелявацца</item>
+    <item quantity="many">%d праграм не будуць тунелявацца</item>
     <item quantity="other">%d</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">Тунэляваць усе праграмы</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_include_apps">
-    <item quantity="one">Тунеляванне %d праграмы</item>
-    <item quantity="few">Тунеляванне %d праграм</item>
-    <item quantity="many">Тунеляванне%d праграм</item>
+    <item quantity="one">Тунэляванне %d праграмы</item>
+    <item quantity="few">Тунэляванне %d праграм</item>
+    <item quantity="many">Тунэляванне %d праграм</item>
     <item quantity="other">Тунэляванне %d праграм</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
-    <item quantity="one">%dпраграма не тунелюецца</item>
+    <item quantity="one">%d праграма не тунелюецца</item>
     <item quantity="few">%d праграмы не тунелююцца</item>
-    <item quantity="many">%dпраграм не тунелюецца</item>
-    <item quantity="other">%dпраграм не тунэлюецца</item>
+    <item quantity="many">%d праграм не тунелюецца</item>
+    <item quantity="other">%d праграм не тунэлюецца</item>
   </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">Усе праграмы будуць тунэлявацца праз VPN</string>
   <string name="preference_notifications_with_sound_title">Гук</string>
@@ -146,7 +146,7 @@
   <string name="proxy_password_summary">Пароль для праверкі сапраўднасці проксі-сервера</string>
   <string name="proxy_domain_title">Дамен проксі-сервера</string>
   <string name="proxy_domain_summary">Дамен для праверкі сапраўднасці проксі-сервера</string>
-  <string name="http_proxy_port_in_use">Запытаны лакальны  HTTP порт проксі-сервера %d  ужо ўжываецца іншай праграмай. Немагчыма працягваць.</string>
+  <string name="http_proxy_port_in_use">Запытаны лакальны  HTTP порт проксі-сервера %d ужо ўжываецца іншай праграмай. Немагчыма працягваць.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <string name="split_tunnel_region">Разбіць вобласць тунэлявання: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
@@ -161,7 +161,7 @@
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Запыт на дазвол</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Адкрыйце доступ да геалакацыі і дазвольце Psiphon лепш наладжваць працу з вашай сеткай. Увага, гэтая інфармацыя выкарыстоўваецца толькі лакальна на вашай прыладзе, яна не перадаецца серверам 3-х бакоў.</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Адкрыйце доступ да геалакацыі і дазвольце Psiphon лепш наладжваць працу з вашай сеткай.\n\nУвага, гэтая інфармацыя выкарыстоўваецца толькі лакальна на вашай прыладзе, яна не перадаецца серверам 3-х бакоў.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
