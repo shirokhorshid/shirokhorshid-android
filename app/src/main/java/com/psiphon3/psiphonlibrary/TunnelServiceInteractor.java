@@ -30,6 +30,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
@@ -63,9 +64,11 @@ public class TunnelServiceInteractor {
 
     private Rx2ServiceBindingFactory serviceBindingFactory;
     private boolean isStopped = true;
+    private boolean shouldRegisterAsActivity = false;
     private Disposable serviceMessengerDisposable;
 
-    public TunnelServiceInteractor(Context context) {
+    public TunnelServiceInteractor(Context context, boolean registerAsActivity) {
+        this.shouldRegisterAsActivity = registerAsActivity;
         // Listen to SERVICE_STARTING_BROADCAST_INTENT broadcast that may be sent by another instance
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(SERVICE_STARTING_BROADCAST_INTENT);
@@ -193,7 +196,9 @@ public class TunnelServiceInteractor {
                 .doOnComplete(() -> tunnelStateRelay.accept(TunnelState.stopped()))
                 .doOnComplete(() -> dataStatsRelay.accept(Boolean.FALSE))
                 .subscribe();
-        sendServiceMessage(TunnelManager.ClientToServiceMessage.REGISTER.ordinal(), null);
+        Bundle data = new Bundle();
+        data.putBoolean(TunnelManager.IS_CLIENT_AN_ACTIVITY, shouldRegisterAsActivity);
+        sendServiceMessage(TunnelManager.ClientToServiceMessage.REGISTER.ordinal(), data);
     }
 
     private void sendServiceMessage(int what, Bundle data) {
@@ -256,6 +261,7 @@ public class TunnelServiceInteractor {
 
 
         IncomingMessageHandler(TunnelServiceInteractor serviceInteractor) {
+            super(Looper.getMainLooper());
             this.weakServiceInteractor = new WeakReference<>(serviceInteractor);
         }
 

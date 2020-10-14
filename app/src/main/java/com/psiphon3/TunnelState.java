@@ -106,4 +106,8 @@ public abstract class TunnelState {
     public boolean isUnknown() {
         return status() == Status.UNKNOWN;
     }
+
+    public boolean isStopped() {
+        return status() == Status.STOPPED;
+    }
 }

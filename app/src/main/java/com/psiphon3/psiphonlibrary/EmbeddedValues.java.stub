@@ -33,9 +33,7 @@ cog.outl('public static final String CLIENT_VERSION = "%s";' % utils.get_embedde
 cog.outl('public static final String EMBEDDED_SERVER_LIST[] = {"%s"};' % utils.get_embedded_value(buildname, 'EMBEDDED_SERVER_LIST'))
 cog.outl('public static final boolean IGNORE_NON_EMBEDDED_SERVER_ENTRIES = %s;' % ('true' if utils.get_embedded_value(buildname, 'IGNORE_NON_EMBEDDED_SERVER_ENTRIES') else 'false'))
 cog.outl('public static final String FEEDBACK_ENCRYPTION_PUBLIC_KEY = "%s";' % utils.get_embedded_value(buildname, 'FEEDBACK_ENCRYPTION_PUBLIC_KEY'))
-cog.outl('public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER = "%s";' % utils.get_embedded_value(buildname, 'FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER'))
-cog.outl('public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_PATH = "%s";' % utils.get_embedded_value(buildname, 'FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_PATH'))
-cog.outl('public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER_HEADERS = "%s";' % utils.get_embedded_value(buildname, 'FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER_HEADERS'))
+cog.outl('public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_URLS_JSON = "%s";' % utils.get_embedded_value(buildname, 'FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_URLS_JSON'))
 cog.outl('public static final String PROXIED_WEB_APP_HTTP_AUTH_USERNAME = "%s";' % utils.get_embedded_value(buildname, 'PROXIED_WEB_APP_HTTP_AUTH_USERNAME'))
 cog.outl('public static final String PROXIED_WEB_APP_HTTP_AUTH_PASSWORD = "%s";' % utils.get_embedded_value(buildname, 'PROXIED_WEB_APP_HTTP_AUTH_PASSWORD'))
 cog.outl('public static final boolean IS_PLAY_STORE_BUILD = %s;' % ('true' if utils.get_embedded_value(buildname, 'IS_PLAY_STORE_BUILD') else 'false'))
@@ -71,9 +69,7 @@ cog.outl('public static String DATA_COLLECTION_INFO_URL = "%s";' % utils.get_emb
 
     // These values are used when uploading diagnostic info
     public static final String FEEDBACK_ENCRYPTION_PUBLIC_KEY = "";
-    public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER = "";
-    public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_PATH = "";
-    public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER_HEADERS = "";
+    public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_URLS_JSON = "";
 
     public static final String PROPAGATION_CHANNEL_ID = "";
 

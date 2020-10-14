@@ -31,8 +31,13 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Locale;
 
+import com.psiphon3.psiphonlibrary.EmbeddedValues;
+import com.psiphon3.psiphonlibrary.FeedbackWorker;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.LoggingProvider;
+import com.psiphon3.psiphonlibrary.Utils;
+import com.psiphon3.psiphonlibrary.Utils.MyLog;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,10 +53,12 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProvider;
-
-import com.psiphon3.psiphonlibrary.Diagnostics;
-import com.psiphon3.psiphonlibrary.EmbeddedValues;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
+import androidx.work.Constraints;
+import androidx.work.Data;
+import androidx.work.ExistingWorkPolicy;
+import androidx.work.NetworkType;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 
 public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
 {
@@ -168,12 +175,31 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
                     return false;
                 }
 
-                Diagnostics.send(
-                    activity,
-                    sendDiagnosticInfo,
-                    email,
-                    feedbackText,
-                    surveyResponsesJson);
+                // Schedule user feedback for upload
+
+                Data inputData = FeedbackWorker.generateInputData(
+                        sendDiagnosticInfo, email, feedbackText, surveyResponsesJson);
+
+                Constraints.Builder constraintsBuilder = new Constraints.Builder();
+                constraintsBuilder.setRequiredNetworkType(NetworkType.CONNECTED);
+
+                OneTimeWorkRequest feedbackUpload =
+                        new OneTimeWorkRequest.Builder(FeedbackWorker.class)
+                                .setInputData(
+                                        inputData
+                                )
+                                .setConstraints(
+                                        constraintsBuilder.build()
+                                )
+                                .addTag("feedback_upload_user_form")
+                                .build();
+
+                Utils.MyLog.d("FeedbackActivity: user submitted feedback");
+
+                WorkManager.getInstance(getApplication()).beginUniqueWork(
+                        "feedback_upload",
+                        ExistingWorkPolicy.APPEND_OR_REPLACE,
+                        feedbackUpload).enqueue();
 
                 return true;
             }
