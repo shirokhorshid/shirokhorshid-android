@@ -19,14 +19,9 @@
 
 package com.psiphon3.psiphonlibrary;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
+import java.util.Date;
 import java.util.Locale;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,36 +31,57 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
-import com.psiphon3.R;
+public class Diagnostics {
 
-public class Diagnostics
-{
+    /**
+     * Create a random feedback ID.
+     *
+     * @return 8 random bytes encoded as a 16 character hex String.
+     */
+    static public String generateFeedbackId() {
+        SecureRandom rnd = new SecureRandom();
+        byte[] id = new byte[8];
+        rnd.nextBytes(id);
+        return Utils.byteArrayToHexString(id);
+    }
+
     /**
      * Create the diagnostic info package.
+     *
      * @param context
-     * @param sendDiagnosticInfo
-     * @param email
-     * @param feedbackText
-     * @param surveyResponsesJson
+     * @param sendDiagnosticInfo If true, the user has opted in to including diagnostics with their
+     *                           feedback and diagnostics will be included in diagnostic info
+     *                           package. Otherwise, diagnostics will be omitted.
+     * @param email User email address.
+     * @param feedbackText User feedback comment.
+     * @param surveyResponsesJson User feedback responses.
+     * @param feedbackId Random feedback ID created with generateFeedbackId().
+     * @param diagnosticsBefore Optional Date which, if provided, results in only diagnostics which
+     *                          occurred before it being including in the resulting diagnostics
+     *                          package. This is determined by checking the timestamp of each
+     *                          diagnostic entry.
      * @return A String containing the diagnostic info, or `null` if there is
-     *         an error.
+     * an error.
      */
-    static public String create(
-                            Context context,
-                            boolean sendDiagnosticInfo,
-                            String email,
-                            String feedbackText,
-                            String surveyResponsesJson)
-    {
+    static final public String create(
+            @NonNull Context context,
+            @NonNull boolean sendDiagnosticInfo,
+            @NonNull String email,
+            @NonNull String feedbackText,
+            @NonNull String surveyResponsesJson,
+            @NonNull String feedbackId,
+            @Nullable Date diagnosticsBefore) throws Exception {
         // Our attachment is JSON, which is then encrypted, and the
         // encryption elements stored in JSON.
 
         String diagnosticJSON;
 
-        try
-        {
+        try {
             /*
              * Metadata
              */
@@ -74,11 +90,7 @@ public class Diagnostics
 
             metadata.put("platform", "android");
             metadata.put("version", 4);
-
-            SecureRandom rnd = new SecureRandom();
-            byte[] id = new byte[8];
-            rnd.nextBytes(id);
-            metadata.put("id", Utils.byteArrayToHexString(id));
+            metadata.put("id", feedbackId);
 
             /*
              * System Information
@@ -114,8 +126,10 @@ public class Diagnostics
 
             JSONArray diagnosticHistory = new JSONArray();
 
-            for (StatusList.DiagnosticEntry item : StatusList.cloneDiagnosticHistory())
-            {
+            for (StatusList.DiagnosticEntry item : StatusList.cloneDiagnosticHistory()) {
+                if (diagnosticsBefore != null && item.timestamp().after(diagnosticsBefore)) {
+                    continue;
+                }
                 JSONObject entry = new JSONObject();
                 entry.put("timestamp!!timestamp", Utils.getISO8601String(item.timestamp()));
                 entry.put("msg", item.msg() == null ? JSONObject.NULL : item.msg());
@@ -129,12 +143,14 @@ public class Diagnostics
 
             JSONArray statusHistory = new JSONArray();
 
-            for (StatusList.StatusEntry internalEntry : StatusList.cloneStatusHistory())
-            {
+            for (StatusList.StatusEntry internalEntry : StatusList.cloneStatusHistory()) {
                 // Don't send any sensitive logs or debug logs
                 if (internalEntry.sensitivity() == MyLog.Sensitivity.SENSITIVE_LOG
-                    || internalEntry.priority() == Log.DEBUG)
-                {
+                        || internalEntry.priority() == Log.DEBUG) {
+                    continue;
+                }
+
+                if (diagnosticsBefore != null && internalEntry.timestamp().after(diagnosticsBefore)) {
                     continue;
                 }
 
@@ -148,26 +164,22 @@ public class Diagnostics
                 statusEntry.put("throwable", JSONObject.NULL);
 
                 if (internalEntry.formatArgs() != null && internalEntry.formatArgs().length > 0
-                    // Don't send any sensitive format args
-                    && internalEntry.sensitivity() != MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS)
-                {
+                        // Don't send any sensitive format args
+                        && internalEntry.sensitivity() != MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS) {
                     JSONArray formatArgs = new JSONArray();
-                    for (Object o : internalEntry.formatArgs())
-                    {
+                    for (Object o : internalEntry.formatArgs()) {
                         formatArgs.put(o);
                     }
                     statusEntry.put("formatArgs", formatArgs);
                 }
 
-                if (internalEntry.throwable() != null)
-                {
+                if (internalEntry.throwable() != null) {
                     JSONObject throwable = new JSONObject();
 
                     throwable.put("message", internalEntry.throwable().toString());
 
                     JSONArray stack = new JSONArray();
-                    for (StackTraceElement element : internalEntry.throwable().getStackTrace())
-                    {
+                    for (StackTraceElement element : internalEntry.throwable().getStackTrace()) {
                         stack.put(element.toString());
                     }
                     throwable.put("stack", stack);
@@ -190,13 +202,11 @@ public class Diagnostics
             JSONObject diagnosticObject = new JSONObject();
             diagnosticObject.put("Metadata", metadata);
 
-            if (sendDiagnosticInfo)
-            {
+            if (sendDiagnosticInfo) {
                 diagnosticObject.put("DiagnosticInfo", diagnosticInfo);
             }
 
-            if (feedbackText.length() > 0 || surveyResponsesJson.length() > 0)
-            {
+            if (feedbackText.length() > 0 || surveyResponsesJson.length() > 0) {
                 JSONObject feedbackInfo = new JSONObject();
                 feedbackInfo.put("email", email);
 
@@ -208,220 +218,18 @@ public class Diagnostics
                 feedbackSurveyInfo.put("json", surveyResponsesJson);
                 feedbackInfo.put("Survey", feedbackSurveyInfo);
 
-                diagnosticObject.put("Feedback",  feedbackInfo);
+                diagnosticObject.put("Feedback", feedbackInfo);
             }
 
             diagnosticJSON = diagnosticObject.toString();
-        }
-        catch (JSONException e)
-        {
+        } catch (JSONException e) {
             throw new RuntimeException(e);
         }
 
-        assert(diagnosticJSON != null);
-
-        // Encrypt the file contents
-        Utils.RSAEncryptOutput rsaEncryptOutput = null;
-        boolean encryptedOkay = false;
-        try
-        {
-            rsaEncryptOutput = Utils.encryptWithRSA(
-                    diagnosticJSON.getBytes("UTF-8"),
-                    EmbeddedValues.FEEDBACK_ENCRYPTION_PUBLIC_KEY);
-            encryptedOkay = true;
-        }
-        catch (GeneralSecurityException | UnsupportedEncodingException e)
-        {
-            MyLog.e(R.string.Diagnostics_EncryptedFailed, MyLog.Sensitivity.NOT_SENSITIVE, e);
+        if (diagnosticJSON == null) {
+            throw new AssertionError("diagnostics JSON null");
         }
 
-        String result = null;
-        if (encryptedOkay)
-        {
-            StringBuilder encryptedContent = new StringBuilder();
-            encryptedContent.append("{\n");
-            encryptedContent.append("  \"contentCiphertext\": \"").append(Utils.Base64.encode(rsaEncryptOutput.mContentCiphertext)).append("\",\n");
-            encryptedContent.append("  \"iv\": \"").append(Utils.Base64.encode(rsaEncryptOutput.mIv)).append("\",\n");
-            encryptedContent.append("  \"wrappedEncryptionKey\": \"").append(Utils.Base64.encode(rsaEncryptOutput.mWrappedEncryptionKey)).append("\",\n");
-            encryptedContent.append("  \"contentMac\": \"").append(Utils.Base64.encode(rsaEncryptOutput.mContentMac)).append("\",\n");
-            encryptedContent.append("  \"wrappedMacKey\": \"").append(Utils.Base64.encode(rsaEncryptOutput.mWrappedMacKey)).append("\"\n");
-            encryptedContent.append("}");
-
-            result = encryptedContent.toString();
-        }
-
-        return result;
-    }
-
-    /**
-     * Create the diagnostic data package and upload it.
-     * @param context
-     * @param sendDiagnosticInfo
-     * @param email
-     * @param feedbackText
-     * @param surveyResponsesJson
-     * @return
-     */
-    static public void send(
-            Context context,
-            boolean sendDiagnosticInfo,
-            String email,
-            String feedbackText,
-            String surveyResponsesJson)
-    {
-        // Fire-and-forget thread.
-        class FeedbackRequestThread extends Thread
-        {
-            private final Context mContext;
-            private final boolean mSendDiagnosticInfo;
-            private final String mEmail;
-            private final String mFeedbackText;
-            private final String mSurveyResponsesJson;
-
-            FeedbackRequestThread(
-                    Context context,
-                    boolean sendDiagnosticInfo,
-                    String email,
-                    String feedbackText,
-                    String surveyResponsesJson)
-            {
-                mContext = context;
-                mSendDiagnosticInfo = sendDiagnosticInfo;
-                mEmail = email;
-                mFeedbackText = feedbackText;
-                mSurveyResponsesJson = surveyResponsesJson;
-            }
-
-            @Override
-            public void run()
-            {
-                String diagnosticData = Diagnostics.create(
-                        mContext,
-                        mSendDiagnosticInfo,
-                        mEmail,
-                        mFeedbackText,
-                        mSurveyResponsesJson);
-
-                if (diagnosticData == null)
-                {
-                    return;
-                }
-
-                byte[] diagnosticDataBytes;
-                try
-                {
-                    diagnosticDataBytes = diagnosticData.getBytes("UTF-8");
-                    diagnosticData = null;
-                }
-                catch (UnsupportedEncodingException e)
-                {
-                    MyLog.d("diagnosticData.getBytes failed", e);
-                    // unrecoverable
-                    return;
-                }
-
-                // Retry uploading data up to 5 times
-                for (int i = 0; i < 5; i++)
-                {
-                    if (doFeedbackUpload(diagnosticDataBytes))
-                    {
-                        break;
-                    }
-
-                    // The upload request failed, so sleep and try again.
-                    try
-                    {
-                        MyLog.g("Diagnostic data send fail; sleeping");
-                        Thread.sleep(5 * 60 * 1000);
-                    }
-                    catch (InterruptedException e)
-                    {
-                        // Bail out of this thread if sleep is interrupted.
-                        return;
-                    }
-                }
-            }
-        }
-
-        FeedbackRequestThread thread = new FeedbackRequestThread(
-                                            context,
-                                            sendDiagnosticInfo,
-                                            email,
-                                            feedbackText,
-                                            surveyResponsesJson);
-        thread.start();
-    }
-    
-    public final static int FEEDBACK_UPLOAD_TIMEOUT_MS = 30000;
-    
-    static private boolean doFeedbackUpload(byte[] feedbackData)
-    {
-        // NOTE: Won't succeed while VpnService routing is enabled but tunnel
-        // is not connected.
-        // TODO: In that situation, use the tunnel-core UrlProxy/direct mode.
-
-        SecureRandom rnd = new SecureRandom();
-        byte[] uploadId = new byte[8];
-        rnd.nextBytes(uploadId);
-
-        StringBuilder url = new StringBuilder();
-        url.append("https://");
-        url.append(EmbeddedValues.FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER);
-        url.append(EmbeddedValues.FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_PATH);
-        url.append(Utils.byteArrayToHexString(uploadId));
-
-        HttpsURLConnection httpsConn = null;
-        boolean success = false;
-        try
-        {
-            httpsConn = (HttpsURLConnection) new URL(url.toString()).openConnection();
-
-            // URLConnection timeouts are insufficient may be unreliable, so run a timeout
-            // thread to ensure HTTPS connection is terminated after 30 seconds if it
-            // has not already completed.
-            // E.g., http://stackoverflow.com/questions/11329277/why-timeout-value-is-not-respected-by-android-httpurlconnection
-            final HttpsURLConnection finalHttpsConn = httpsConn;
-            new Thread(new Runnable()
-            {
-                public void run()
-                {
-                    try
-                    {
-                        Thread.sleep(FEEDBACK_UPLOAD_TIMEOUT_MS);
-                    }
-                    catch (InterruptedException e)
-                    {
-                    }
-                    finalHttpsConn.disconnect();
-                }
-            }).start();
-            
-            httpsConn.setDoOutput(true);
-            httpsConn.setRequestMethod("PUT");
-            // Note: assumes this is only a single header
-            String[] headerPieces = EmbeddedValues.FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_SERVER_HEADERS.split(": ");
-            httpsConn.setRequestProperty(headerPieces[0], headerPieces[1]);
-            httpsConn.setFixedLengthStreamingMode(feedbackData.length);
-
-            httpsConn.connect();
-            httpsConn.getOutputStream().write(feedbackData);
-            
-            // getInputStream() checks response status code
-            httpsConn.getInputStream();
-            
-            success = true;
-        } catch (IOException e)
-        {
-            MyLog.g(String.format("Diagnostic doFeedbackUpload failed: %s", e.getMessage()));
-        }
-        finally
-        {
-            if (httpsConn != null)
-            {
-                httpsConn.disconnect();
-            }
-        }
-
-        return success;
+        return diagnosticJSON;
     }
 }
