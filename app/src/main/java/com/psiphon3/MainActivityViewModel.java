@@ -30,11 +30,6 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
         tunnelServiceInteractor = new TunnelServiceInteractor(getApplication(), true);
-
-        // remove logs from previous sessions if tunnel service is not running.
-        if (!tunnelServiceInteractor.isServiceRunning(getApplication())) {
-            LoggingProvider.LogDatabaseHelper.truncateLogs(getApplication(), true);
-        }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
@@ -138,5 +133,9 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
 
     public void setFirstRun(boolean firstRun) {
         isFirstRun = firstRun;
+    }
+
+    public boolean isServiceRunning(Context context) {
+        return tunnelServiceInteractor.isServiceRunning(context);
     }
 }

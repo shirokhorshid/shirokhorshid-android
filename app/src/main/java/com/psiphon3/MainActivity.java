@@ -24,7 +24,6 @@ import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -107,6 +106,11 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 new ViewModelProvider.AndroidViewModelFactory(getApplication()))
                 .get(MainActivityViewModel.class);
         getLifecycle().addObserver(viewModel);
+
+        // On first run remove logs from previous sessions if tunnel service is not running.
+        if (viewModel.isFirstRun() && !viewModel.isServiceRunning(getApplication())) {
+            LoggingProvider.LogDatabaseHelper.truncateLogs(getApplication(), true);
+        }
 
         // The LoggingObserver will run in a separate thread
         HandlerThread loggingObserverThread = new HandlerThread("LoggingObserverThread");
