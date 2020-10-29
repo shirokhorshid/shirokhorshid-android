@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">Bango la mdhamini; bofya kutembelea ukurasa wa nyumbani wa mdhamini</string>
+  <string name="banner_desc">bendera ya mdhamini; bonyeza kutembelea ukurasa wa wafadhili wa nyumbani</string>
   <string name="open_browser">Kivinjari Wazi</string>
-  <string name="FeedbackActivity.DefaultText">Kama una maoni mahususi, taarifa zaidi kuhusu tovuti isiyofanya kazi, au fomu hii haifunguki kwako, tafadhari tuma baruapepe &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
-  <string name="FeedbackActivity.Success">Asante kwa kuwasilisha mrejesho wako</string>
-  <string name="FeedbackActivity.Failure">Uwasilishwaji umefeli. Tafadhali jaribu tena.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Imefeli kuwasilisha mrejesho</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Mrejesho usio sahihi wa vigezo vya URL wakati wa kuwalisha fomu</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Imefeli kupata yaliyomo kwenye ukurasa wa mrejesho</string>
+  <string name="FeedbackActivity.DefaultText">Ikiwa una maoni maalum, habari zaidi juu ya wavuti ambazo hazifanyi kazi, au ikiwa fomu hii haifanyi kazi kwako, tafadhali tuma barua pepe &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Asante kwa kuwasilisha maoni yako</string>
+  <string name="FeedbackActivity.Failure">Uwasilishaji umeshindwa. Tafadhali jaribu tena.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">Imeshindwa kuwasilisha maoni</string>
+  <string name="FeedbackActivity.InvalidURLParameters">Vigezo vya URL batili katika uwasilishaji wa fomu ya maoni</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">Imeshindwa kupata yaliyomo kwenye ukurasa wa maoni</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN imesimama</string>
-  <string name="StatusActivity.VpnRevokedMessage">VPN ya Psiphon imekatishwa na wewe au programu nyingine. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia kama programu nyingine ya VPN imesakinishwa na inafanya kazi.</string>
+  <string name="StatusActivity.VpnRevokedMessage">VPN ya Psiphon imetengwa na wewe au na programu nyingine. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia ikiwa programu nyingine ya VPN imewekwa na inaendelea.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN haiwezi kuanza</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon haiwezi kuanzisha VPN. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia kama programu nyingine ya VPN imesakinishwa na imepangiliwa kuwa wazi kila wakati.</string>
   <string name="selected_region_currently_not_available">Chagua eneo ambalo kwa sasa halipatikani, tafadhari chagua tena eneo lingine.</string>

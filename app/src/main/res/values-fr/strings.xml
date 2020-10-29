@@ -14,7 +14,7 @@
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas démarrer le RPV. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et réglée sur RPV permanent.</string>
   <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
   <string name="ads_consent_preference_category_title">Personnalisation de la publicité</string>
-  <string name="ads_consent_preference_dialog_preference_message">Souhaitez-vous vraiment réinitialiser vos préférences de personnalisation des publicités ?</string>
+  <string name="ads_consent_preference_dialog_preference_message">Voulez-vous vraiment réinitialiser vos préférences de personnalisation des publicités ?</string>
   <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
   <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
   <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>

@@ -46,6 +46,10 @@ public class InstalledAppsRecyclerViewAdapter extends RecyclerView.Adapter<Insta
         return selectedApps;
     }
 
+    public int getUnfilteredItemsCount() {
+        return data.size();
+    }
+
     private final Set<String> selectedApps;
 
     private ItemClickListener clickListener;

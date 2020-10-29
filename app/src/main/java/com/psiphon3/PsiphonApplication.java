@@ -38,7 +38,7 @@ import java.io.IOException;
 import io.reactivex.exceptions.UndeliverableException;
 import io.reactivex.plugins.RxJavaPlugins;
 
-public class PsiphonApplication extends Application {
+public class PsiphonApplication extends Application implements Utils.MyLog.ILogger {
     @Override
     protected void attachBaseContext(Context base) {
         // We need to make all classes available prior to calling LocaleManager by installing all
@@ -89,6 +89,7 @@ public class PsiphonApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Utils.MyLog.setLogger(this);
         // Make sure VPN service is ALWAYS enabled because app upgrade will not automatically re-enable it
         PackageManager packageManager = getPackageManager();
         ComponentName componentName = new ComponentName(getPackageName(), TunnelVpnService.class.getName());
@@ -117,5 +118,10 @@ public class PsiphonApplication extends Application {
             }
             Utils.MyLog.g("RxJava undeliverable exception received: " + e);
         });
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }
