@@ -803,7 +803,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 Thread.currentThread().interrupt();
             }
         } catch (PsiphonTunnel.Exception e) {
-            MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
+            String errorMessage = e.getMessage();
+            MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, errorMessage);
+            if ((errorMessage.startsWith("get package uid:") || errorMessage.startsWith("getPackageUid:"))
+                    && errorMessage.endsWith("android.permission.INTERACT_ACROSS_USERS.")) {
+                MyLog.v(R.string.vpn_exclusions_conflict, MyLog.Sensitivity.NOT_SENSITIVE);
+            }
         } finally {
             MyLog.v(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
