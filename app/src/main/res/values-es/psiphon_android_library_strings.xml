@@ -146,6 +146,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Error del proxy de subida: %s</string>
   <string name="start_tunnel_failed">Fallo al iniciar el túnel: %s</string>
+  <string name="vpn_exclusions_conflict">Hay una o más aplicaciones causando conflictos en tu lista actual de exclusiones de VPN. Por favor, vé hacia la configuración de VPN y selecciona el modo \'Túnel para todas las aplicaciones\' para conectar.</string>
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
   <string name="waiting">Esperando...</string>

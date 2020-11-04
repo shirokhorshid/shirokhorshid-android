@@ -13,7 +13,9 @@
   <string name="waiting_for_network_connectivity">Wachten op netwerkverbinding...</string>
   <string name="psiphon_service_notification_message_connecting">Verbinden</string>
   <string name="psiphon_service_notification_id">Psiphon Service Notificatie</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon\'s status verandert</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon Upgrade</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon Server waarschuwingen</string>
   <string name="vpn_service_running">VPN service werkt</string>
   <string name="vpn_service_revoked">VPN service is ingetrokken</string>
   <string name="debug_message">%s</string>
@@ -75,27 +77,52 @@
   <string name="about">Over Psiphon</string>
   <string name="feedback">Feedback</string>
   <string name="disableTimeoutsPreferenceSummary">Uitschakelen time-outs voor trage netwerken</string>
+  <string name="region_selector">Selecteer een server regio</string>
   <string name="network_proxy_connect_invalid_values">Ongeldige HTTP Proxy-instellingen</string>
   <string name="tunnel_whole_device_exception">Uw apparaat biedt geen ondersteuning voor de gehele apparaattunneloptie vanwege ontbrekende VpnService-API.</string>
   <string name="preference_notifications_title">Notificatie</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tunnel alle apps</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Voeg apps toe</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Tunnel alleen geselecteerde apps</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Uitsluiten Apps</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Tunnel geselecteerde apps niet</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Tunneling app: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">App uitsluiten van tunnel: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Geen applicaties werden uitgesloten van de tunnel</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Selecteer Apps</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d app zal worden getunneld via VPN</item>
+    <item quantity="other"> %dapps zullen worden getunneld via VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d app zal worden uitgesloten van VPN</item>
+    <item quantity="other">%d apps zullen worden uitgesloten van VPN</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">tunneling alle apps</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Tunneling %d app</item>
+    <item quantity="other">Tunneling %d apps</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d app uitgezonderd van de tunnel</item>
+    <item quantity="other">%d apps uitgezonderd van de tunnel</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">Alle apps zullen worden getunneld via VPN</string>
   <string name="preference_notifications_with_sound_title">Geluid</string>
   <string name="preference_notifications_with_sound_summary">Speel geluid wanneer status van de verbinding verandert</string>
   <string name="preference_notifications_with_vibrate_title">Trillen</string>
@@ -124,11 +151,19 @@
   <string name="tunnel_connected">Tunnel verbonden</string>
   <string name="waiting">Wachten...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Toestemmingsverzoek</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Sta Psiphon toe om betere beslissingen te nemen over hoe u aan uw netwerk werkt door toegang te verlenen tot uw locatie.\n\nMerk op, dat deze informatie alleen lokaal op uw apparaat wordt gebruikt en niet wordt verzonden naar onze servers of aan derden.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Nee bedankt</string>
+  <string name="label_vpn_settings">VPN instellingen</string>
+  <string name="label_proxy_settings">Proxy instellingen</string>
+  <string name="preference_summary_no_proxy">Geen proxy</string>
+  <string name="preference_summary_custom_proxy">Aangepaste proxy</string>
+  <string name="preference_summary_system_proxy">Systeem proxy</string>
   <string name="disableTimeoutsPreferenceTitle">Uitschakelen timeouts</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Alleen WiFi</string>
 </resources>
