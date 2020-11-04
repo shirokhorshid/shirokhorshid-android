@@ -51,8 +51,7 @@
   <string name="region_name_gb">United Kingdom</string>
   <string name="region_name_ca">Canada</string>
   <string name="region_name_de">Germany</string>
-  <string name="region_name_jp">Japan
-</string>
+  <string name="region_name_jp">Japan</string>
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Nederlands</string>
@@ -103,7 +102,7 @@
   <!--Description of option to select apps to exclusively tunnel-->
   <plurals name="preference_routing_select_apps_to_include_summary">
     <item quantity="one">%d app zal worden getunneld via VPN</item>
-    <item quantity="other"> %dapps zullen worden getunneld via VPN</item>
+    <item quantity="other">%d apps zullen worden getunneld via VPN</item>
   </plurals>
   <!--Description of option to select apps to not tunnel-->
   <plurals name="preference_routing_select_apps_to_exclude_summary">
