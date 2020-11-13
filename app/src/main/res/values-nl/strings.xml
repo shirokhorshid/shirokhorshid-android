@@ -33,11 +33,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">Ja</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Actie vereist!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Open de Psiphon-app om de verbinding te voltooien.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">De geselecteerde regio is niet beschikbaar</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Open Psiphon en select een andere regio.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon VPN is gestopt</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">De verbinding met Psiphon VPN is door u of een andere app verbroken.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">App pictogram</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Ongeldige VPN instelling</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">U moet in deze modus ten minste één app hebben geselecteerd!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">In deze modus moet ten minste één app niet zijn geselecteerd!</string>
+  <string name="legacy_zirco_export_pref_category_title">Ondersteuning voor oudere browsers</string>
+  <string name="legacy_bom_alert_heading">Psiphon browser is niet langer beschikbaar</string>
+  <string name="legacy_bom_alert_message">Wij hebben vastgesteld dat u Psiphon Browser gebruikte in de eerder geïnstalleerde versie van %1$s.\nAls uw Android-versie recent genoeg is (5.0 of hoger), kunt u elke geïnstalleerde webbrowser-app selecteren om in plaats daarvan door %1$s heen te tunnelen.\nAls u bladwijzers of de browse geschiedenis van Psiphon Browser heeft die u wilt behouden, kunt u deze exporteren in Meer opties (sectie \"Ondersteuning voor oudere browsers\").</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Vereist Android 5.0 of hoger</string>
+  <string name="vpn_always_on_preference_not_available_summary">Vereist Android 7.0 of hoger</string>
+  <string name="vpn_exclusions_tip_summary">Selecteer maar één browser voor klassieke alleeen-browser modus</string>
+  <string name="exportZircoPreferenceSummary">Klik hier om verouderde Psiphon Browser-bladwijzers en geschiedenis te exporteren naar externe gegevensopslag</string>
+  <string name="exportZircoPreferenceTitle">Exporteer browser gegevens</string>
 </resources>
