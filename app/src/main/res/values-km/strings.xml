@@ -23,6 +23,7 @@
   <string name="preference_language_title">ការជ្រើសរើស​ភាសា</string>
   <string name="preference_language_default_language">ភាសាដើម</string>
   <string name="preference_category_advanced_title">កម្រិតខ្ពស់</string>
+  <string name="preference_category_info_title">ព័ត៌មាន</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">យល់ព្រម</string>
   <string name="preference_navigate_to_vpn_setting_title">តែងតែបើក VPN</string>
