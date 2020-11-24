@@ -151,6 +151,7 @@
     <string name="upstream_proxy_error">Upstream proxy error: %s</string>
 
     <string name="start_tunnel_failed">Start tunnel failed: %s</string>
+    <string name="vpn_exclusions_conflict">There are one or more conflicting applications in your current VPN exclusions. Please go to the VPN settings and switch to \'Tunnel all apps\' mode to connect.</string>
     <string name="tunnel_connecting">Tunnel connecting…</string>
     <string name="tunnel_connected">Tunnel connected</string>
     <string name="waiting">Waiting…</string>
