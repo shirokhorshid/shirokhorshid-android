@@ -277,16 +277,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION) {
-            proceedStartTunnel();
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
-
-    @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         HandleCurrentIntent(intent);
@@ -449,52 +439,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     }
 
     private void startTunnel() {
-        // Tunnel core needs this dangerous permission to obtain the WiFi BSSID, which is used
-        // as a key for applying tactics
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED) {
-            proceedStartTunnel();
-        } else {
-            AppPreferences mpPreferences = new AppPreferences(this);
-            if (mpPreferences.getBoolean(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, false)) {
-                proceedStartTunnel();
-            } else if (!this.isFinishing()) {
-                final Context context = this;
-                runOnUiThread(() -> new AlertDialog.Builder(context)
-                        .setCancelable(false)
-                        .setOnKeyListener(
-                                new DialogInterface.OnKeyListener() {
-                                    @Override
-                                    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                                        // Don't dismiss when hardware search button is clicked (Android 2.3 and earlier)
-                                        return keyCode == KeyEvent.KEYCODE_SEARCH;
-                                    }
-                                })
-                        .setTitle(R.string.MainBase_AccessCoarseLocationPermissionPromptTitle)
-                        .setMessage(R.string.MainBase_AccessCoarseLocationPermissionPromptMessage)
-                        .setPositiveButton(R.string.MainBase_AccessCoarseLocationPermissionPositiveButton,
-                                (dialog, whichButton) -> {
-                                    multiProcessPreferences.put(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, true);
-                                    ActivityCompat.requestPermissions(MainActivity.this,
-                                            new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                                            REQUEST_CODE_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION);
-                                })
-                        .setNegativeButton(R.string.MainBase_AccessCoarseLocationPermissionNegativeButton,
-                                (dialog, whichButton) -> {
-                                    multiProcessPreferences.put(ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION, true);
-                                    proceedStartTunnel();
-                                })
-                        .setOnCancelListener(
-                                dialog -> {
-                                    // Do nothing (this prompt may reappear)
-                                })
-                        .show());
-            }
-        }
-    }
-
-    private void proceedStartTunnel() {
         // Don't start if custom proxy settings is selected and values are invalid
         if (!viewModel.validateCustomProxySettings()) {
             return;

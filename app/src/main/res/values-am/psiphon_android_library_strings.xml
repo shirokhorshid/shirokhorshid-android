@@ -146,6 +146,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">የላይ ወኪል ስህተት፡-%s</string>
   <string name="start_tunnel_failed">ማስተላለፊይ ዋሻን ማስጀመር አልተቻለም፡-%s</string>
+  <string name="vpn_exclusions_conflict">አንድ ወይም ከአንድ በላይ የሚጋጩ መተግበሪያዎች በምናባዊ የግል አውታረ መረብ (ቪፒኤን) ቅንብርዎች ውስጥ አሉ። እባክዎትን  ወደ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) ቅንብርዎች ይሂዱና \'ሁሉንም መተግበሪያ ቦርቡር\' ወደ ሚለው ሁነታ  ይቀይሩ ፤ ለመገናኘት።</string>
   <string name="tunnel_connecting">ማስተላለፊያ ዋሻ በመገናኘት ላይ...</string>
   <string name="tunnel_connected">ማስተላለፊያ ዋሻው ተገናኝቷል</string>
   <string name="waiting">በመጠበቅ ላይ...</string>

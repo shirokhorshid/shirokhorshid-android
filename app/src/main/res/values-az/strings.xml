@@ -8,21 +8,53 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Şərh göndərilmədi.</string>
   <string name="FeedbackActivity.InvalidURLParameters">Şərh üçün verilmiş formadakı URL parametrləri etibarsızdır.</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Şərh səhifəsinin məzmununa baxmaq mümkün olmadı.</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN dayandırıldı</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN sizin və ya başqa bir tətbiq tərəfindən dayandırıldı. Eyni vaxtda birdən çox VPN başladıla bilməz. Başqa VPN tətbiqinin quraşdırıldığını və işlək vəziyətdə olduğunu yoxlayın.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başladıla bilmədi</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN\'i başlada bilmir. Eyni vaxta birdən çox VPN tətbiqləri başladıla bilməz. Başqa VPN tətbiqinin quraşdırıldığını və aktiv olduğunu yoxlayın.</string>
+  <string name="selected_region_currently_not_available">Seçilmiş bplgə hal-hazırda əlçatan deyil, lütfən başqa bölgə seçin.</string>
+  <string name="ads_consent_preference_category_title">Reklamların fərdiləşdirilməsi</string>
+  <string name="ads_consent_preference_dialog_preference_message">Reklamların fərdiləşdirilməsi ayarlarını sıfırlamaq istəyirsiniz?</string>
+  <string name="ads_consent_preference_title">Reklamların fərdiləşdirilməsi ayarlarını sıfırlamaq</string>
   <string name="ads_consent_preference_dialog_title">Dəyiş</string>
+  <string name="ads_consent_preference_summary">Reklam şəbəkəsinə sizin şəxsi məlumatlarınızı və kuki fayllarını istifadə etməsinə icazə vermək üçün ayarları sıfırlayın</string>
+  <string name="preference_language_selection_summary">Dil seçin</string>
   <string name="preference_language_selection_title">Dil</string>
+  <string name="preference_language_title">Dil Seçimi</string>
   <string name="preference_language_default_language">Əsas dil</string>
   <string name="preference_category_advanced_title">Əlavə</string>
+  <string name="preference_category_info_title">Məlumat</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Oldu</string>
+  <string name="preference_navigate_to_vpn_setting_title">VPN\'i həmişə aktiv saxlamaq</string>
+  <string name="preference_navigate_to_vpn_setting_summary">VPN\'i həmişəaktiv saxlamaq üçün sistem ayarlarına keçin</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Xeyr</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">Bəli</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Bir əməl tələb olunur!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Bağlantını sonlandırmaq üçün Psiphon\'u açın.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Seçilmiş bölgə əlçatan deyil</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Lütfən, Psiphon\'u açın və başqa bölgə seçin.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN dayandırıldı</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN siz və ya başqa bir tətbiq tərəfindən dayandırıldı.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Tətbiq nişanı</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Səhv VPN ayarı</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Bu rejimdə ən azı bir tətbiq seçməniz lazımdır!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Bu rejimdə ən azı bir tətbiqin seçimini ləğv etməlisiniz!</string>
+  <string name="legacy_zirco_export_pref_category_title">Köhnə Veb-Bələdçi Dəstəyi</string>
+  <string name="legacy_bom_alert_heading">Psiphon Veb_bələdçisi artıq mövcud deyil</string>
+  <string name="legacy_bom_alert_message">Biz aşkar etdik ki, siz Psiphon Veb-Bələdçinin əvvəllər quraşırılmış %1$sversiyasından isifadə etmisiniz.\nƏgər Androidinizin versiyası daha yenidirsə (5.0 və yuxarı) %1$s üzərindən tunellənəcək hər hansı quraşdırılmış veb-bələdçinizi seçə bilərsiniz.\nƏgər Psiphon Veb-bələdçisindən saxlamaq istədiyiniz əlfəcin və ya tarixçə varsa onu Digər Ayarlar (\"Köhnə Veb_Bələdçi Dəstəyi\") bolməsində ixrac edə bilərsiniz.</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 və ya yuxarı versiya tətləb olunur</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 və ya yuxarı versiya tələb olunur</string>
+  <string name="vpn_exclusions_tip_summary">\"Yalnız klassik veb_bələdçi\" rejimi üçün yalnız bir veb bələdçi seçin</string>
+  <string name="exportZircoPreferenceSummary">Psiphon veb bələdçisi əlfəcinlərini və tarixçəsini xarici yaddaşa ixrac etmək üçün buraya vurun</string>
+  <string name="exportZircoPreferenceTitle">Veb-bələdçi verilənlərinin ixracı</string>
 </resources>

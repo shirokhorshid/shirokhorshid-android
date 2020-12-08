@@ -146,6 +146,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Giden vekil sunucu hatası: %s</string>
   <string name="start_tunnel_failed">Tünel başlatılamadı: %s</string>
+  <string name="vpn_exclusions_conflict">Geçerli VPN istisnaları ile çakışan bir ya da daha fazla uygulama var. Bağlantı kurmak için lütfen VPN ayarlarına gidin ve \'Tüm uygulamalar tünel kullansın\' kipine geçin.</string>
   <string name="tunnel_connecting">Tünel bağlantısı kuruluyor…</string>
   <string name="tunnel_connected">Tünel bağlantısı kuruldu</string>
   <string name="waiting">Bekleniyor…</string>
