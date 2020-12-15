@@ -1,7 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="Commons.Ok">ठीक</string>
   <string name="Commons.Cancel">रद्द करना</string>
+  <string name="Commons.PleaseWait">कृपया प्रतीक्षा कीजिये</string>
   <string name="Commons.Yes">हाँ</string>
   <string name="Commons.No">नहीं</string>
+  <string name="Commons.SDCardErrorTitle">SD कार्ड अनुपलब्ध</string>
+  <string name="Commons.SDCardErrorNoSDMsg">कोई SD कार्ड नहीं मिला.</string>
+  <string name="Commons.SDCardErrorSDUnavailable">SD कार्ड उपलब्ध नहीं है.</string>
   <string name="Commons.Continue">जारी रहना</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">निर्यात सफलतापूर्वक समाप्त हो गया है</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">आपके इतिहास और बुकमार्क %s में सहेजें जा चुके है.</string>
+  <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">निर्यात असफल रहा</string>
+  <string name="Commons.HistoryBookmarksFailedMessage">त्रुटि का संदेश: %s.</string>
+  <string name="Commons.PermissionRequestReasonTitle">अनुमति का अनुरोध का कारण</string>
+  <string name="Commons.NeedWritePermissions">कृपया लेखन की अनुमति प्रदान करने के बाद फिरसे कोशिश करें</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">बुकमार्क निर्यात करने के लिए लेखन की अनुमति जरूरी है क्युकी वे बाह्य संग्रहण में संग्रहित करे जायेंगे</string>
+  <string name="Commons.ExportingHistoryBookmarks">इतिहास और बुकमार्क निर्यात हो रहे है…</string>
 </resources>

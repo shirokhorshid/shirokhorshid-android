@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="Commons.Ok">ശരി</string>
+  <string name="Commons.Cancel">റദ്ദാക്കുക </string>
+  <string name="Commons.PleaseWait">ദയവായി കാത്തിരിക്കുക</string>
+  <string name="Commons.Yes">ശരി</string>
+  <string name="Commons.No">വേണ്ട</string>
+  <string name="Commons.SDCardErrorTitle">എസ്ഡി കാര്‍ഡ്  ലഭ്യമല്ല</string>
+  <string name="Commons.SDCardErrorNoSDMsg">ഒരു എസ്ഡി കാര്‍‍ഡും കണ്ടുകിട്ടിയില്ല.</string>
+  <string name="Commons.SDCardErrorSDUnavailable">എസ്ഡി കാര്‍ഡ് ലഭ്യമല്ല</string>
+  <string name="Commons.Continue">തുടരുക</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">എക്സ്പോർട്ട് ചെയ്യ്ത് കഴിഞ്ഞു</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">നിങ്ങളുടെ ചരിത്രവും അടയാളക്കുറിപ്പുകളും %s ലേക്ക് സംരക്ഷിക്കപ്പെട്ടു.</string>
+  <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">എക്സ്പോർട്ട് ചെയ്യുന്നത് പരാജയപ്പെട്ടു</string>
+  <string name="Commons.HistoryBookmarksFailedMessage">പിശകിനെകുറിച്ചുള്ള സന്ദേശം : %s.</string>
+  <string name="Commons.PermissionRequestReasonTitle">അനുമതി അഭ്യർത്ഥനയുടെ കാരണം</string>
+  <string name="Commons.NeedWritePermissions">ദയവായി എഴുതല്‍ അനുമതികൾ നല്‍കിയ ശേഷം വീണ്ടും ശ്രമിക്കുക</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">അടയാളക്കുറിപ്പുകള്‍ എക്സ്പോര്‍ട്ട് ചെയ്യുമ്പോള്‍ അവ ബാഹ്യ സംഭരണിയില്‍ സംരക്ഷിക്കപ്പെടുന്നതിനാല്‍ എഴുതല്‍ അനുമതികൾ ആവശ്യമാണ്.</string>
+  <string name="Commons.ExportingHistoryBookmarks">ചരിത്രവും അടയാളക്കുറിപ്പുകളും എക്സ്പോര്‍ട്ട് ചെയ്യുന്നു...</string>
+</resources>

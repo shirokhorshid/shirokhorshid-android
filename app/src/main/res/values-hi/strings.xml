@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">प्रायोजक बैनर; प्रायोजक मुख पृष्ठ पर जाएं क्लिक करें</string>
-  <string name="open_browser">खुला ब्राउज़र</string>
-  <string name="FeedbackActivity.DefaultText">यदि आपके पास कोई विशिष्ट टिप्पणी है, वे वेब साइट्स के बारे में अधिक जानकारी जो काम नहीं करती है, या यदि यह फ़ॉर्म आपके लिए काम नहीं कर रहा है, तो कृपया ईमेल करें और &amp; lt; a href = "mailto: feedback@psiphon.ca" &amp; gt; feedback@psiphon.ca&amp;lt ; / a &amp; gt ;.</string>
+  <string name="open_browser">ब्राउज़र खोलें</string>
+  <string name="FeedbackActivity.DefaultText">यदि आपके पास कोई विशिष्ट टिप्पणी है, वे वेब साइट्स के बारे में अधिक जानकारी जो काम नहीं करती है, या यदि यह फ़ॉर्म आपके लिए काम नहीं कर रहा है, तो कृपया ईमेल करें और &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">अपना फीडबैक देने के लिए धन्यवाद</string>
   <string name="FeedbackActivity.Failure">सबमिशन असफल रहा कृपया पुन: प्रयास करें।</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">फ़ीडबैक सबमिट करने में विफल</string>
@@ -18,21 +18,43 @@
   <string name="ads_consent_preference_title">विज्ञापन वैयक्तिकरण वरीयता को रीसेट करें</string>
   <string name="ads_consent_preference_dialog_title">रीसेट करें</string>
   <string name="ads_consent_preference_summary">कुकीज़ और अपने व्यक्तिगत डेटा का उपयोग करने के लिए विज्ञापन नेटवर्क की अनुमति देने के लिए अपनी प्राथमिकता को रीसेट करें</string>
+  <string name="preference_language_selection_summary">भाषा का चयन करें</string>
   <string name="preference_language_selection_title">भाषा</string>
+  <string name="preference_language_title">भाषा का चयन</string>
+  <string name="preference_language_default_language">डिफ़ॉल्ट भाषा</string>
   <string name="preference_category_advanced_title">उन्नत</string>
   <string name="preference_category_info_title">जानकारी</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ठीक है </string>
+  <string name="preference_navigate_to_vpn_setting_title">ऑल्वेज़-ऑन VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">ऑल्वेज़-ऑन VPN सक्षम करने के लिए सिस्टम सेटिंग्स में जाएँ</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">नहीं</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">हाँ</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">कार्रवाई जरूरी है!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">कनेक्ट करने के लिए कृपया Psiphon एप को खोले</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">चयनित क्षेत्र अनुपलब्ध है </string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available"> कृपया Psiphon को खोलें और अन्य क्षेत्र चुने.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon VPN बंद हो गया है</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">आपके, या फिर किसी अन्य ऍप के द्वारा Psiphon VPN किया गया है</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">ऍप आइकॉन </string>
+  <string name="bad_vpn_exclusion_setting_alert_title">अमान्य VPN सेटिंग</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">आपको इस मोड में कम से कम एक ऐप का चयन करना होगा!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">आपको इस मोड में कम से कम एक ऐप अचयनित करना होगा!</string>
+  <string name="legacy_zirco_export_pref_category_title">विरासत ब्राउज़र का समर्थन</string>
+  <string name="legacy_bom_alert_heading">Psiphon ब्राउज़र अब उपलब्ध नहीं है</string>
+  <string name="legacy_bom_alert_message">हमें पता लगा है कि आप %1$sके पिछले इंस्टॉल किए गए संस्करण में Psiphon ब्राउज़र का इस्तेमाल कर रहे थे.\n अगर आपका Android संस्करण हाल ही में अपडेट किया गया है (Android 5.0 या अधिक), तोह फिर %1$s के द्वारा टनलिंग के लिए आप किसी भी इंस्टॉल किये गए वेब ब्राउज़र एप को चुन सकते हैं. \n यदि आपके पास Psiphon ब्राउज़र से कोई बुकमार्क या ब्राउज़िंग इतिहास है जिसको आप रखना चाहते हैं, तो आप उन्हें \"अधिक विकल्प\" (\"विरासत ब्राउज़र समर्थन\") वाले सेक्शन से निर्यात कर सकते है</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 या अधिक की आवश्यकता है</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 या अधिक की आवश्यकता है</string>
+  <string name="vpn_exclusions_tip_summary">क्लासिक ब्राउज़र-ओनली मोड के लिए केवल एक ब्राउज़र का चयन करें</string>
+  <string name="exportZircoPreferenceSummary">विरासत Psiphon ब्राउज़र बुकमार्क और इतिहास को बाहरी डेटा स्टोरेज में निर्यात करने के लिए यहाँ क्लिक करें </string>
+  <string name="exportZircoPreferenceTitle">ब्राउज़र डेटा निर्यात करें</string>
 </resources>

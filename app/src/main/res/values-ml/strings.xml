@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">സ്പോൺസർ ബാനർ;സ്പോൺസർ ഹോം പേജ് സന്ദർശിക്കാൻ ക്ലിക്കുചെയ്യുക</string>
+  <string name="open_browser">ബ്രൗസർ തുറക്കുക</string>
+  <string name="FeedbackActivity.DefaultText">നിങ്ങൾക്ക് എന്തെങ്കിലും പ്രത്യേക അഭിപ്രായങ്ങളുണ്ടെങ്കിൽ,പ്രവർത്തിക്കാത്ത വെബ് സൈറ്റുകളെക്കുറിച്ചുള്ള കൂടുതൽ വിവരങ്ങൾ, അല്ലെങ്കിൽ ഈ ഫോം നിങ്ങൾക്ക് പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ, ദയവായി ഇമെയിൽ ചെയ്യുക &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">താങ്കളുടെ പ്രതികരണം സമര്‍പ്പിച്ചതിന് നന്ദി</string>
+  <string name="FeedbackActivity.Failure">സമര്‍പ്പിയ്ക്കല്‍ പരാജയപ്പെട്ടു. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">പ്രതികരണം സമർപ്പിക്കുന്നത് പരാജയപ്പെട്ടു</string>
+  <string name="FeedbackActivity.InvalidURLParameters">പ്രതികരണ ഫോം സമർപ്പണത്തില്‍ അസാധുവായ യുആര്‍എല്‍ ഘടകങ്ങൾ</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">‌പ്രതികരണ താളിന്റെ ഉള്ളടക്കം നേടുന്നത് പരാജയപ്പെട്ടു</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN നിർത്തി</string>
+  <string name="StatusActivity.VpnRevokedMessage">നിങ്ങൾ‌ അല്ലെങ്കിൽ‌ മറ്റൊരു അപ്ലിക്കേഷൻ‌ വഴി Psiphon VPN വിച്ഛേദിക്കപ്പെട്ടു. ഒന്നിലധികം VPN ആപ്പുകൾക്ക് ഒരേ സമയം പ്രവർത്തിക്കാൻ കഴിയില്ല. മറ്റൊരു VPN ആപ്പ് ഇൻസ്റ്റാളുചെയ്‌ത് പ്രവർത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുക.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN ആരംഭിക്കാൻ കഴിയില്ല</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphonന് VPN ആരംഭിക്കാന്‍ കഴിയുന്നില്ല. ഒന്നിലധികം VPN ആപ്പുകൾ ഒരേ സമയം പ്രവർത്തിപ്പിക്കാൻ കഴിയില്ല. മറ്റൊരു VPN ആപ്പ് ഇൻസ്റ്റാളുചെയ്‌ത് എല്ലായിപ്പോഴും പ്രവര്‍ത്തിക്കാന്‍ സജ്ജമാക്കിയിട്ടുണ്ടോയെന്ന് പരിശോധിക്കുക.</string>
+  <string name="selected_region_currently_not_available">തിരഞ്ഞെടുത്ത പ്രദേശം ഇപ്പോള്‍ ലഭ്യമല്ല, ദയവായി മറ്റൊരു പ്രദേശം തിരഞ്ഞെടുക്കുക.</string>
+  <string name="ads_consent_preference_category_title">പരസ്യങ്ങള്‍ വ്യക്തിഗതമാക്കൽ</string>
+  <string name="ads_consent_preference_dialog_preference_message">നിങ്ങളുടെ പരസ്യങ്ങള്‍ വ്യക്തിഗതമാക്കുന്ന മുൻ‌ഗണന പുനസജ്ജമാക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?</string>
+  <string name="ads_consent_preference_title">പരസ്യങ്ങള്‍ വ്യക്തിഗതമാക്കുന്ന മുൻ‌ഗണന പുനസജ്ജമാക്കുക</string>
+  <string name="ads_consent_preference_dialog_title">പുനസജ്ജമാക്കു</string>
+  <string name="ads_consent_preference_summary">കുക്കികളും നിങ്ങളുടെ സ്വകാര്യ ഡാറ്റയും ഉപയോഗിക്കാൻ പരസ്യ നെറ്റ്‌വർക്കുകളെ അനുവദിക്കുന്നതിന് നിങ്ങളുടെ മുൻഗണന പുനസജ്ജമാക്കുക</string>
+  <string name="preference_language_selection_summary">ഭാഷ തിരഞ്ഞെടുക്കുക</string>
+  <string name="preference_language_selection_title">ഭാഷ</string>
+  <string name="preference_language_title">ഭാഷാ തിരഞ്ഞെടുപ്പ്</string>
+  <string name="preference_language_default_language">സ്ഥിര ഭാഷ</string>
+  <string name="preference_category_advanced_title">സങ്കീര്‍ണ്ണമായവ</string>
+  <string name="preference_category_info_title">വിവരങ്ങൾ</string>
+  <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">ശരി</string>
+  <string name="preference_navigate_to_vpn_setting_title">എല്ലായ്പ്പോഴും -VPN-ല്‍ തുടരുക</string>
+  <string name="preference_navigate_to_vpn_setting_summary">എല്ലായ്‌പ്പോഴും VPN ല്‍ തുടരുന്നത് പ്രവർത്തനക്ഷമമാക്കുന്നതിന് സിസ്റ്റം ക്രമീകരണങ്ങളിലേക്ക് പോകുക</string>
+  <!--Generic negative button label.-->
+  <string name="lbl_no">വേണ്ട</string>
+  <!--Generic positive button label.-->
+  <string name="lbl_yes">ശരി</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">പ്രവർത്തി ആവശ്യമാണ്!</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">ബന്ധപ്പെടുന്നത് പൂർത്തിയാക്കാൻ ദയവായി Psiphon തുറക്കുക.</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">തിരഞ്ഞെടുത്ത പ്രദേശം ലഭ്യമല്ല</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">ദയവായി Psiphon തുറന്ന് മറ്റൊരു പ്രദേശം തിരഞ്ഞെടുക്കുക.</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN നിർത്തി</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">നിങ്ങൾ‌ അല്ലെങ്കിൽ‌ മറ്റൊരു അപ്ലിക്കേഷൻ‌ വഴി Psiphon VPN വിച്ഛേദിച്ചു.</string>
+  <!--Description for an app icon image-->
+  <string name="description_app_icon">ആപ്പ് ഐകണ്‍</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">VPN ക്രമീകരണം അസാധുവാണ്</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">ഈ മോഡിൽ കുറഞ്ഞത് ഒരു ആപ്പെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതുണ്ട്!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">ഈ മോഡിൽ കുറഞ്ഞത് ഒരു ആപ്പെങ്കിലും തിരഞ്ഞെടുക്കാതെ ഇരിക്കേണ്ടതുണ്ട്!</string>
+  <string name="legacy_zirco_export_pref_category_title">ലെഗസി ബ്രൌസർ പിന്തുണ</string>
+  <string name="legacy_bom_alert_heading">Psiphon ബ്രൌസർ ഇനി ലഭ്യമല്ല</string>
+  <string name="legacy_bom_alert_message">മുമ്പ് ഇൻസ്റ്റാളുചെയ്‌ത %1$s എന്ന പതിപ്പിലാണ് നിങ്ങൾ Psiphon ബ്രൗസർ ഉപയോഗിക്കുന്നതെന്ന് ഞങ്ങൾ കണ്ടെത്തി.\nനിങ്ങളുടെ ആന്‍ഡ്രോയിഡ് പതിപ്പ് അടുത്തിടെയുള്ളതാണെങ്കില്‍ (5.0 അല്ലെങ്കിൽ അതിൽ കൂടുതൽ) പകരമായി നിങ്ങൾക്ക് ഇൻസ്റ്റാൾ ചെയ്തിട്ടുള്ള ഏതെങ്കിലും വെബ് ബ്രൌസർ ആപ്പ് തിരഞ്ഞെടുത്ത് %1$sലൂടെ  ടണല്‍ ചെയ്യാവുന്നതാണ്.‌\nനിങ്ങൾ സൂക്ഷിക്കാൻ ആഗ്രഹിക്കുന്ന എന്തെങ്കിലും അടയാളകുറിപ്പുകളോ ബ്രൗസിംഗ് ചരിത്രമോ Psiphon ബ്രൗസറിൽ ഉണ്ടെങ്കിൽ, നിങ്ങൾക്ക് അവ കൂടുതൽ ഐച്ഛികങ്ങളിൽ നിന്ന് എക്സ്പോര്‍ട്ട് ചെയ്യാൻ കഴിയും(\"ലെഗസി ബ്രൌസർ പിന്തുണ\" വിഭാഗം).</string>
+  <string name="vpn_exclusions_preference_not_available_summary">ആന്‍ഡ്രോയിഡ് 5.0ഓ അതില്‍ കൂടിയതോ ആവശ്യമാണ്</string>
+  <string name="vpn_always_on_preference_not_available_summary">ആന്‍ഡ്രോയിഡ് 7.0ഓ അതില്‍ കൂടിയതോ ആവശ്യമാണ്</string>
+  <string name="vpn_exclusions_tip_summary">ക്ലാസിക് ബ്രൌസർ മാത്രമുള്ള മോഡിനായി ഒരു ബ്രൌസർ മാത്രം തിരഞ്ഞെടുക്കുക</string>
+  <string name="exportZircoPreferenceSummary">ലെഗസി Psiphon ബ്രൌസർ അടയാളക്കുറിപ്പുകളും ചരിത്രവും ബാഹ്യ ഡാറ്റ സംഭരണിയിലേക്ക് എക്സ്പോര്‍ട്ട് ചെയ്യുന്നതിന് ഇവിടെ ക്ലിക്കുചെയ്യുക</string>
+  <string name="exportZircoPreferenceTitle">ബ്രൌസര്‍ ഡാറ്റ എക്‌സ്‌പോർട്ടു ചെയ്യുക</string>
+</resources>

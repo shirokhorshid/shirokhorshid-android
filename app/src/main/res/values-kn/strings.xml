@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">ಪ್ರಾಯೋಜಕ ಬ್ಯಾನರ್; ಪ್ರಾಯೋಜಕರ ಮುಖಪುಟವನ್ನು ನೋಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ</string>
+  <string name="open_browser">ಬ್ರೌಸರ್ ತೆರೆಯಿರಿ</string>
+  <string name="FeedbackActivity.DefaultText">ನಿಮಗೆ ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ಕಾಮೆಂಟ್‌ಗಳು ಇದ್ದರೇ, ಕಾರ್ಯನಿರ್ವಹಿಸದ ವೆಬ್‌ಸೈಟ್‌ಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿ, ಅಥವಾ ಈ ಫಾರ್ಮ್ ನಿಮಗಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸದಿದ್ದರೆ, ದಯವಿಟ್ಟು \"feedback@psiphon.ca\" ಗೆ ಇಮೇಲ್ ಮಾಡಿ</string>
+  <string name="FeedbackActivity.Success">ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ನೀಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು</string>
+  <string name="FeedbackActivity.Failure">ಸಲ್ಲಿಕೆ ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">ಪ್ರತಿಕ್ರಿಯೆ ಸಲ್ಲಿಸುವ ಪ್ರಯತ್ನ ವಿಫಲವಾಗಿದೆ</string>
+  <string name="FeedbackActivity.InvalidURLParameters">ಪ್ರತಿಕ್ರಿಯೆ ಫಾರ್ಮ್ ಸಲ್ಲಿಕೆಯಲ್ಲಿ ಅಮಾನ್ಯ URL ನಿಯತಾಂಕಗಳು ಒಳಗೊಂಡಿದೆ</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">ಪ್ರತಿಕ್ರಿಯೆ ಪುಟ ವಿಷಯವನ್ನು ಪಡೆಯಲು ವಿಫಲವಾಗಿದೆ</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon ವಿಪಿಎನ್ ಸ್ಥಗಿತಗೊಂಡಿದೆ</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon ನ VPN ಅನ್ನು ನಿಮ್ಮಿಂದ ಅಥವಾ ಇನ್ನೊಂದು ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲಾಗಿದೆ. ಒಂದೇ ಸಮಯದಲ್ಲಿ ಹಲವು ವಿಪಿಎನ್ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಚಾಲನೆಯಲ್ಲಿರಲು ಸಾಧ್ಯವಿಲ್ಲ. ಮತ್ತೊಂದು ವಿಪಿಎನ್ ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಲಾಗಿದೆಯೇ ಮತ್ತು ಚಾಲನೆಯಲ್ಲಿದೆ ಎಂದು ಪರಿಶೀಲಿಸಿ.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN ಅನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಒಂದೇ ಸಮಯದಲ್ಲಿ ಬಹು VPN ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಚಾಲನೆಯಲ್ಲಿಲ್ಲ. ಮತ್ತೊಂದು VPN ಅಪ್ಲಿಕೇಶನ್ ಸ್ಥಾಪಿಸಲಾಗಿದೆಯೇ ಮತ್ತು ಯಾವಾಗಲೂ-ಆನ್ ಆಗಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ.</string>
+  <string name="selected_region_currently_not_available">ಆಯ್ದ ಪ್ರದೇಶವು ಪ್ರಸ್ತುತ ಲಭ್ಯವಿಲ್ಲ, ದಯವಿಟ್ಟು ಇನ್ನೊಂದು ಪ್ರದೇಶವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.</string>
+  <string name="ads_consent_preference_category_title">ಜಾಹೀರಾತು ವೈಯಕ್ತೀಕರಣ</string>
+  <string name="ads_consent_preference_dialog_preference_message">ನಿಮ್ಮ ಜಾಹೀರಾತುಗಳ ವೈಯಕ್ತೀಕರಣ ಆದ್ಯತೆಯನ್ನು ಮರುಹೊಂದಿಸಲು ನೀವು ನಿಜವಾಗಿಯೂ ಬಯಸುವಿರಾ?</string>
+  <string name="ads_consent_preference_title">ಜಾಹೀರಾತುಗಳ ವೈಯಕ್ತೀಕರಣ ಆದ್ಯತೆಯನ್ನು ಮರುಹೊಂದಿಸಿ</string>
+  <string name="ads_consent_preference_dialog_title">ಮರುಹೊಂದಿಸಿ</string>
+  <string name="ads_consent_preference_summary">ಜಾಹೀರಾತು ನೆಟ್‌ವರ್ಕ್‌ಗಳು ಕುಕೀಗಳನ್ನು ಮತ್ತು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಡೇಟಾವನ್ನು ಬಳಸಲು ಅನುಮತಿಸಲು ನಿಮ್ಮ ಆದ್ಯತೆಯನ್ನು ಮರುಹೊಂದಿಸಿ</string>
+  <string name="preference_language_selection_summary">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <string name="preference_language_selection_title">ಭಾಷೆ</string>
+  <string name="preference_language_title">ಭಾಷೆಯ ಆಯ್ಕೆ</string>
+  <string name="preference_language_default_language">ಪೂರ್ವನಿಯೋಜಿತ ಭಾಷೆ</string>
+  <string name="preference_category_advanced_title">ಮುಂದುವರೆದ</string>
+  <string name="preference_category_info_title">ಮಾಹಿತಿ</string>
+  <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">ಸರಿ</string>
+  <string name="preference_navigate_to_vpn_setting_title">ಯಾವಾಗಲೂ-ಆನ್ VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">ಯಾವಾಗಲೂ-ಆನ್ VPN ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಸಿಸ್ಟಮ್ ಸಿದ್ಧತೆಗಳಿಗೆ ಹೋಗಿ</string>
+  <!--Generic negative button label.-->
+  <string name="lbl_no">ಇಲ್ಲ</string>
+  <!--Generic positive button label.-->
+  <string name="lbl_yes">ಹೌದು</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">ಕ್ರಿಯೆಯ ಅಗತ್ಯವಿದೆ!</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">ಸಂಪರ್ಕವನ್ನು ಮುಗಿಸಲು ದಯವಿಟ್ಟು Psiphon ತೆರೆಯಿರಿ.</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">ಆಯ್ಕೆ ಮಾಡಿದ ಪ್ರದೇಶ ಲಭ್ಯವಿಲ್ಲ</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">ದಯವಿಟ್ಟು Psiphon ತೆರೆಯಿರಿ ಮತ್ತು ಇನ್ನೊಂದು ಪ್ರದೇಶವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN ಸ್ಥಗಿತಗೊಂಡಿದೆ</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN ಅನ್ನು ನಿಮ್ಮಿಂದ ಅಥವಾ ಇನ್ನೊಂದು ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲಾಗಿದೆ.</string>
+  <!--Description for an app icon image-->
+  <string name="description_app_icon">ಆ್ಯಪ್ ಐಕಾನ್</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">ಅಮಾನ್ಯ VPN ಸಿದ್ಧತೆ</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">ಈ ಮೋಡ್‌ನಲ್ಲಿ ನೀವು ಕನಿಷ್ಟ ಒಂದು ಆ್ಯಪ್ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿಕೊಳ್ಳಬೇಕು!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">ಈ ಮೋಡ್‌ನಲ್ಲಿ ನೀವು ಆಯ್ಕೆ ಮಾಡದ ಕನಿಷ್ಠ ಒಂದು ಆ್ಯಪ್ ಹೊಂದಿರಬೇಕು!</string>
+  <string name="legacy_zirco_export_pref_category_title">ಹಳೆಯ ಬ್ರೌಸರ್ ಬೆಂಬಲ</string>
+  <string name="legacy_bom_alert_heading">Psiphon ಬ್ರೌಸರ್ ಇನ್ನು ಲಭ್ಯವಿಲ್ಲ</string>
+  <string name="legacy_bom_alert_message">ಈ ಹಿಂದೆ ಸ್ಥಾಪಿಸಲಾದ %1$s ಆವೃತ್ತಿಯಲ್ಲಿ ನೀವು Psiphon ಬ್ರೌಸರ್ ಅನ್ನು ಬಳಸುತ್ತಿರುವಿರಿ ಎಂದು ನಾವು ಪತ್ತೆ ಮಾಡಿದ್ದೇವೆ.
+ನಿಮ್ಮ ಆಂಡ್ರಾಯ್ಡ್ ಆವೃತ್ತಿಯು ಸಾಕಷ್ಟು ಇತ್ತೀಚಿನದಾಗಿದ್ದರೆ (5.0 ಅಥವಾ ಹೆಚ್ಚಿನದು) ನೀವು %1$s ಮೂಲಕ ಟನಲ್ ಮಾಡಲು ಯಾವುದೇ ವೆಬ್ ಬ್ರೌಸರ್ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು.
+ನೀವು ಇರಿಸಿಕೊಳ್ಳಲು ಬಯಸುವ Psiphon ಬ್ರೌಸರ್‌ನಿಂದ ನೀವು ಯಾವುದೇ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಹೊಂದಿದ್ದರೆ, ನೀವು ಅವುಗಳನ್ನು ಹೆಚ್ಚಿನ ಆಯ್ಕೆಗಳಲ್ಲಿ (\"ಹಳೆಯ ಬ್ರೌಸರ್ ಬೆಂಬಲ\" ವಿಭಾಗ) ರಫ್ತು ಮಾಡಬಹುದು.</string>
+  <string name="vpn_exclusions_preference_not_available_summary">ಆಂಡ್ರಾಯ್ಡ್ 5.0 ಅಥವಾ ಹೆಚ್ಚಿನ ಅಗತ್ಯವಿದೆ</string>
+  <string name="vpn_always_on_preference_not_available_summary">ಆಂಡ್ರಾಯ್ಡ್ 7.0 ಅಥವಾ ಹೆಚ್ಚಿನ ಅಗತ್ಯವಿದೆ</string>
+  <string name="vpn_exclusions_tip_summary">ಕ್ಲಾಸಿಕ್ ಬ್ರೌಸರ್-ಮಾತ್ರ ಮೋಡ್‌ಗಾಗಿ ಕೇವಲ ಒಂದೇ ಬ್ರೌಸರ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <string name="exportZircoPreferenceSummary">ಹಳೆಯ Psiphon ಬ್ರೌಸರ್ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಮತ್ತು ಇತಿಹಾಸವನ್ನು ಬಾಹ್ಯ ಡೇಟಾ ಸಂಗ್ರಹಣೆಗೆ ರಫ್ತು ಮಾಡಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</string>
+  <string name="exportZircoPreferenceTitle">ಬ್ರೌಸರ್ ಡೇಟಾವನ್ನು ರಫ್ತು ಮಾಡಿ</string>
+</resources>

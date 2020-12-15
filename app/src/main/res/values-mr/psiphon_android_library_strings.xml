@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="socks_running">%d पोर्टवर चालू असलेले SOCKS</string>
+  <string name="http_proxy_running">%d पोर्टवर चालू असलेले HTTP प्रॉक्सी</string>
+  <string name="client_version">क्लायंट आवृत्ती %s</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">भिन्न सार्वजनिक की सह स्वाक्षरीकृत डेटा पॅकेज</string>
+  <string name="AuthenticatedDataPackage.InvalidSignature">प्रमाणीकृत डेटा पॅकेजवर अवैध स्वाक्षरी</string>
+  <string name="AuthenticatedDataPackage.MissingValue">प्रमाणित डेटा पॅकेजमधील मूल्य गहाळ आहे</string>
+  <string name="starting_tunnel">टनेल चालू करीत आहे</string>
+  <string name="stopping_tunnel">टनेल थांबवित आहे...</string>
+  <string name="stopped_tunnel">टनेल थांबवित आहे</string>
+  <string name="socks_port_in_use">विनंती केलेला स्थानिक SOCKS (सॉकेट सिक्युअर) प्रॉक्सी पोर्ट %d दुसर्‍या अ‍ॅप द्वारे आधीपासून वापरात आहे. सुरू ठेवू शकत नाही.</string>
+  <string name="waiting_for_network_connectivity">नेटवर्क कनेक्टिव्हिटीची प्रतीक्षा करीत आहे ...</string>
+  <string name="psiphon_service_notification_message_connecting">कनेक्ट करीत आहे...</string>
+  <string name="psiphon_service_notification_id">Psiphon सेवा सूचना</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon स्थिती बदल</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon सुधारणा</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon सर्व्हर अलर्ट</string>
+  <string name="vpn_service_running">चालू असलेली VPN सेवा </string>
+  <string name="vpn_service_revoked">VPN सेवा रद्द केली</string>
+  <string name="debug_message">%s</string>
+  <string name="Diagnostics.EncryptedFailed">प्रतिक्रिया निदान माहिती कूटबद्ध करण्यात अयशस्वी. ही माहिती प्रतिक्रिया ईमेलशी संलग्न केली जाणार नाही.</string>
+  <string name="current_network_type">वर्तमान नेटवर्क: %s</string>
+  <string name="UpgradeManager.CanNotRetrievePackageInfo">वर्तमान अ‍ॅप साठी पॅकेज माहिती पुनर्प्राप्त करण्यात अक्षम</string>
+  <string name="UpgradeManager.UpgradeFileWriteFailed">सुधारित फाईल लिहिण्यात अयशस्वी</string>
+  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">सुधारणा अयशस्वी. सुधारित फाईल मधून पॅकेज माहिती काढू शकत नाही.</string>
+  <string name="UpgradeManager.UpgradeFileNotFound">सुधारित फाईल सापडली नाही</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptTitle">Psiphon सुधारणा</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptMessage">Psiphon साठी सुधारणा स्थापित करण्यास सज्ज आहे.</string>
+  <string name="UpgradeManager.UpgradeFileReadFailed">सुधारित फाईल वाचण्यात अयशस्वी</string>
+  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">सुधारित फाईल प्रमाणीकरण करण्यात अयशस्वी</string>
+  <string name="connected_elapsed_time">जोडले: %s</string>
+  <string name="disconnected">डिस्कनेक्ट केले </string>
+  <string name="label_sent">पाठविलेले</string>
+  <string name="label_received">मिळालेले</string>
+  <string name="start">सुरु</string>
+  <string name="stop">सुरु</string>
+  <string name="home_tab_name">मुख्य पृष्ठ</string>
+  <string name="settings_tab_name">पर्याय</string>
+  <string name="statistics_tab_name">आकडेवारी</string>
+  <string name="logs_tab_name">नोंदी</string>
+  <string name="use_proxy_settings_toggle">HTTP प्रॉक्सी द्वारे कनेक्ट करा</string>
+  <string name="use_system_proxy_settings_radio">सिस्टम नेटवर्क सेटिंग्ज वापरा</string>
+  <string name="use_custom_proxy_settings_radio">पुढील सेटिंग्ज वापरा:</string>
+  <string name="custom_proxy_settings_host">होस्ट पत्ता</string>
+  <string name="custom_proxy_settings_port">पोर्ट</string>
+  <string name="region_name_any">उत्कृष्ट कामगिरी</string>
+  <string name="region_name_us">संयुक्त राष्ट्र</string>
+  <string name="region_name_gb">युनायटेड किंगडम</string>
+  <string name="region_name_ca">कॅनडा</string>
+  <string name="region_name_de">जर्मनी</string>
+  <string name="region_name_jp">जपान</string>
+  <string name="region_name_hk">हॉंगकॉंग</string>
+  <string name="region_name_sg">सिंगापुर</string>
+  <string name="region_name_nl">नेदर्लंड्स</string>
+  <string name="region_name_in">भारत </string>
+  <string name="region_name_es">स्पेन </string>
+  <string name="region_name_at">ऑस्ट्रिया </string>
+  <string name="region_name_be">बेल्जीयम </string>
+  <string name="region_name_bg">बल्गेरिया</string>
+  <string name="region_name_ch">स्वित्झर्लंड </string>
+  <string name="region_name_cz">चेक प्रजासत्ताक</string>
+  <string name="region_name_dk">डेन्मार्क </string>
+  <string name="region_name_fr">फ्रान्स </string>
+  <string name="region_name_hu">हंगेरी</string>
+  <string name="region_name_it">इटली</string>
+  <string name="region_name_no">नॉर्वे</string>
+  <string name="region_name_ro">रोमेनिया</string>
+  <string name="region_name_se">स्वीडन</string>
+  <string name="region_name_pl">पोलंड</string>
+  <string name="region_name_sk"> स्लोवाकिया</string>
+  <string name="region_name_rs">सर्बिया</string>
+  <string name="region_name_au">ऑस्ट्रेलिया</string>
+  <string name="about">Psiphon बद्दल</string>
+  <string name="feedback">प्रतिक्रिया</string>
+  <string name="disableTimeoutsPreferenceSummary">स्लो नेटवर्कसाठी टाइमआउट अक्षम करा</string>
+  <string name="region_selector">सर्व्हर प्रदेश निवडा</string>
+  <string name="network_proxy_connect_invalid_values">अवैध HTTP प्रॉक्सी सेटिंग्ज</string>
+  <string name="tunnel_whole_device_exception">गहाळ झालेल्या VpnService API मुळे आपले डिव्हाइस संपूर्ण डिव्हाईस टनेल पर्यायास समर्थन देत नाही.</string>
+  <string name="preference_notifications_title">सूचना</string>
+  <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">सर्व अ‍ॅप्स टनेल करा</string>
+  <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">अ‍ॅप्स समाविष्ट करा</string>
+  <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">केवळ निवडलेले अ‍ॅप्स टनेल करा </string>
+  <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">अ‍ॅप्स वगळा</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">निवडलेले अ‍ॅप्स टनेल करू नका</string>
+  <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">अ‍ॅप :%s चे टनेलिंग करीत आहे</string>
+  <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">अ‍ॅप टनेल :%s मधून वगळला:</string>
+  <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">कोणतेही अप्लिकेशन टनेल मधून वगळले नाही</string>
+  <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">अ‍ॅप्स निवडा</string>
+  <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%dअ‍ॅप VPN द्वारे टनेल केले जाईल </item>
+    <item quantity="other">%d अ‍ॅप्स VPN द्वारे टनेल केले जातील </item>
+  </plurals>
+  <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d अ‍ॅप्स VPN मधून वगळले जाईल</item>
+    <item quantity="other">%d अ‍ॅप्स VPN द्वारे मधून वगळले जातील </item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">सर्व अ‍ॅप्स चे टनेलिंग केले जात आहे </string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d अ‍ॅप चे टनेलिंग केले जात आहे </item>
+    <item quantity="other">%d अ‍ॅप्स चे टनेलिंग केले जात आहे </item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d अ‍ॅप टनेल मधून वगळले</item>
+    <item quantity="other">%d अ‍ॅप्स टनेल मधून वगळले</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">सर्व अ‍ॅप्स VPN द्वारे टनेल केले जातील </string>
+  <string name="preference_notifications_with_sound_title">आवाज</string>
+  <string name="preference_notifications_with_sound_summary">जेव्हा कनेक्शनची स्थिती बदलते तेव्हा आवाज प्ले करा</string>
+  <string name="preference_notifications_with_vibrate_title">कंपन </string>
+  <string name="preference_notifications_with_vibrate_summary">जेव्हा कनेक्शनची स्थिती बदलते तेव्हा कंपन करा</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">केवळ वायफाय वर सुधारणा डाउनलोड करा </string>
+  <string name="moreOptions">अधिक पर्याय</string>
+  <string name="proxySettingsCategoryTitle">प्रॉक्सी सेटिंग्ज</string>
+  <string name="custom_proxy_host_summary">प्रॉक्सी सर्व्हर होस्टनाव किंवा आयपी</string>
+  <string name="custom_proxy_port_summary">प्रॉक्सी सर्व्हर पोर्ट</string>
+  <string name="use_proxy_authentication_title">प्रॉक्सी प्रमाणीकरण वापरा</string>
+  <string name="proxy_username_title">प्रॉक्सी  वापरकर्ता नाव </string>
+  <string name="proxy_username_summary">प्रॉक्सी प्रमाणीकरणासाठी वापरकर्ता नाव </string>
+  <string name="proxy_password_title">प्रॉक्सी  पासवर्ड</string>
+  <string name="proxy_password_summary">प्रॉक्सी प्रमाणीकरणासाठी पासवर्ड</string>
+  <string name="proxy_domain_title">प्रॉक्सी डोमेन</string>
+  <string name="proxy_domain_summary">प्रॉक्सी प्रमाणीकरणासाठी डोमेन</string>
+  <string name="http_proxy_port_in_use">विनंती केलेला स्थानिक HTTP प्रॉक्सी पोर्ट %d आधीपासून दुसर्‍या अ‍ॅप द्वारे वापरात आहे. सुरू ठेवू शकत नाही.</string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">टनेल प्रदेश: %s विभाजित करा</string>
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">अनटनेल केले: %s</string>
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">अपस्ट्रीम प्रॉक्सी त्रुटी: %s</string>
+  <string name="start_tunnel_failed">टनेल चालू करणे अयशस्वी झाले: %s</string>
+  <string name="vpn_exclusions_conflict">आपल्या सध्याच्या VPN बहिष्कारामध्ये एक किंवा अधिक विरोधी अनुप्रयोग आहेत. कृपया VPN सेटिंग्ज वर जा आणि कनेक्ट करण्यासाठी \'सर्व अ‍ॅप्स टनेल\' मोडवर स्विच करा.</string>
+  <string name="tunnel_connecting">टनेल कनेक्ट करीत आहे...</string>
+  <string name="tunnel_connected">टनेल जोडले</string>
+  <string name="waiting">प्रतीक्षा करीत आहे...</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">परवानगी विनंती</string>
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">आपल्या स्थानावर प्रवेश देऊन आपल्या नेटवर्कवर कसे कार्य करावे याबद्दल Psiphon ला चांगले निर्णय घेण्याची परवानगी द्या. \n\n लक्षात ठेवा ही माहिती केवळ आपल्या डिव्हाइसवर वापरली जाते आणि आमच्या सर्व्हरमध्ये किंवा कोणत्याही तृतीय पक्षाकडे ती प्रसारित केली जात नाही.</string>
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ठीक</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">नाही धन्यवाद</string>
+  <string name="label_vpn_settings">VPN सेटिंग्ज</string>
+  <string name="label_proxy_settings">प्रॉक्सी सेटिंग्ज</string>
+  <string name="preference_summary_no_proxy">प्रॉक्सी शिवाय</string>
+  <string name="preference_summary_custom_proxy">सानुकूल प्रॉक्सी</string>
+  <string name="preference_summary_system_proxy">सिस्टम प्रॉक्सी</string>
+  <string name="disableTimeoutsPreferenceTitle">टाइम आउट अक्षम करा</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">केवळ वायफाय</string>
+</resources>

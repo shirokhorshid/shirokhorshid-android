@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="socks_running">SOCKS (സോക്സ്) പോര്‍ട്ട് %d -ൽ പ്രവർത്തിക്കുന്നു</string>
+  <string name="http_proxy_running">HTTP/എച്ടിടിപി പ്രോക്സി പോര്‍ട്ട്%d-ൽ ഓടുന്നു</string>
+  <string name="client_version">ക്ലയന്‍റ്  വേർഷൻ/പതിപ്പ് %s</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">വ്യത്യസ്‌ത പബ്ലിക് കീ ഉപയോഗിച്ച് ഒപ്പിട്ട ഡാറ്റ പാക്കേജ് പ്രമാണീകരിച്ചിരിക്കുന്നു</string>
+  <string name="AuthenticatedDataPackage.InvalidSignature">പ്രാമാണീകരിച്ച ഡാറ്റ പാക്കേജിൽ അസാധുവായ ഒപ്പാണ്</string>
+  <string name="AuthenticatedDataPackage.MissingValue">പ്രാമാണീകരിച്ച ഡാറ്റ പാക്കേജിലെ ഒരു വാല്യൂ/മൂല്യം കാണുന്നില്ല </string>
+  <string name="starting_tunnel">ടണൽ തുടങ്ങുന്നു...</string>
+  <string name="stopping_tunnel">ടണൽ നിർത്തുന്നു...</string>
+  <string name="stopped_tunnel">ട്ടണൽ നിർത്തി</string>
+  <string name="socks_port_in_use">അഭ്യർത്ഥിച്ച പ്രാദേശിക SOCKS (സോക്സ്) പ്രോക്സി പോര്‍ട്ട് %d ഇതിനകം മറ്റൊരു അപ്ലിക്കേഷൻ  ഉപയോഗിച്ചുകൊണ്ട് ഇരിക്കുകയാണ്. തുടരാനാവില്ല.</string>
+  <string name="waiting_for_network_connectivity">നെറ്റ്‌വർക്ക് കണക്റ്റിവിറ്റിക്കായി / ബന്ധനത്തിനായി കാത്തിരിക്കുന്നു…</string>
+  <string name="psiphon_service_notification_message_connecting">കണ്ണെക്റ്റിംഗ് / ബന്ധിപ്പിക്കുന്നു ..</string>
+  <string name="psiphon_service_notification_id">Psiphon (സൈഫൺ) സേവന അറിയിപ്പ്</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon (സൈഫൺ) സ്റ്റാറ്റസ് / നില മാറ്റങ്ങൾ</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon (സൈഫൺ) അപ്‌ഗ്രേഡ് / നവീകരണം</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon (സൈഫൺ) സെര്‍വര്‍ അലേർട്ടുകൾ / അറിയിപ്പുകൾ</string>
+  <string name="vpn_service_running">VPN (വിപിഎന്‍) സേവനം പ്രവർത്തിക്കുന്നു</string>
+  <string name="vpn_service_revoked">VPN (വിപിഎന്‍) സേവനം റദ്ധാക്കിയിരിക്കുന്നു</string>
+  <string name="debug_message">%s</string>
+  <string name="Diagnostics.EncryptedFailed">ഫീഡ്‌ബാക്ക് ഡയഗ്നോസ്റ്റിക് വിവരങ്ങൾ എൻ‌ക്രിപ്റ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു. ഈ വിവരങ്ങൾ ഫീഡ്‌ബാക്ക് ഇമെയിലിലേക്ക് അറ്റാച്ചുചെയ്യില്ല.</string>
+  <string name="current_network_type">നിലവിലെ നെറ്റ്‌വർക്ക്: %s</string>
+  <string name="UpgradeManager.CanNotRetrievePackageInfo">നിലവിലെ അപ്പ്ലിക്കേഷന്റെ പാക്കേജ് വിവരങ്ങൾ വീണ്ടെടുക്കാനായില്ല.</string>
+  <string name="UpgradeManager.UpgradeFileWriteFailed">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ എഴുതുന്നതിൽ പരാജയപ്പെട്ടു</string>
+  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">അപ്‌ഗ്രേഡ് / നവീകരണം പരാജയപ്പെട്ടു. അപ്‌ഗ്രേഡ് ഫയലിൽ നിന്ന് പാക്കേജ് വിവരങ്ങൾ എക്‌സ്‌ട്രാക്റ്റു ചെയ്യാനായില്ല.</string>
+  <string name="UpgradeManager.UpgradeFileNotFound">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ കണ്ടെത്താനായില്ല</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptTitle">Psiphon (സൈഫൺ) അപ്‌ഗ്രേഡ് / നവീകരണം</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptMessage">Psiphon (സൈഫൺ) അപ്പ്ലിക്കേഷന്റെ ഒരു നവീകരിച്ച വേർഷൻ / പതിപ്പ് ഇൻസ്റ്റാൾ ചെയ്യാൻ തയ്യാറാണ്.</string>
+  <string name="UpgradeManager.UpgradeFileReadFailed">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ വായിക്കുന്നതിൽ പരാജയപ്പെട്ടു</string>
+  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ പ്രാമാണീകരിക്കുന്നതിൽ പരാജയപ്പെട്ടു</string>
+  <string name="connected_elapsed_time">കണ്ണെക്റ്റഡ് / ബന്ധിപ്പിച്ചു: %s</string>
+  <string name="disconnected">ഡിസ്കണ്ണെക്റ്റഡ് / വിച്ഛേദിച്ചു</string>
+  <string name="label_sent">അയച്ചു</string>
+  <string name="label_received">ലഭിച്ചു</string>
+  <string name="start">ആരംഭിക്കുക</string>
+  <string name="stop">നിർത്തുക</string>
+  <string name="home_tab_name">ഹോം</string>
+  <string name="settings_tab_name">ഓപ്ഷനുകൾ</string>
+  <string name="statistics_tab_name">സ്റ്റാറ്റ്സ് / സ്ഥിതിവിവരക്കണക്കുകൾ</string>
+  <string name="logs_tab_name">ലോഗുകൾ / കുറിപ്പുകൾ</string>
+  <string name="use_proxy_settings_toggle">ഒരു HTTP(എച്ടിടിപി) പ്രോക്സി വഴി കണക്റ്റുചെയ്യുക / ബന്ധിക്കുക</string>
+  <string name="use_system_proxy_settings_radio">സിസ്റ്റം നെറ്റ്‌വർക്ക് സെറ്റിങ്‌സ് / ക്രമീകരണങ്ങൾ ഉപയോഗിക്കുക</string>
+  <string name="use_custom_proxy_settings_radio">ഇനിപ്പറയുന്ന സെറ്റിങ്‌സ് / ക്രമീകരണങ്ങൾ ഉപയോഗിക്കുക:</string>
+  <string name="custom_proxy_settings_host">ഹോസ്റ്റ് അഡ്രസ്സ് / വിലാസം </string>
+  <string name="custom_proxy_settings_port">പോര്‍ട്ട്</string>
+  <string name="region_name_any">മികച്ച പ്രകടനം</string>
+  <string name="region_name_us">അമേരിക്ക</string>
+  <string name="region_name_gb">യുണൈറ്റഡ് കിംഗ്ഡം</string>
+  <string name="region_name_ca">കാനഡ</string>
+  <string name="region_name_de">ജർമ്മനി</string>
+  <string name="region_name_jp">ജപ്പാൻ</string>
+  <string name="region_name_hk">ഹോങ്കോംഗ്</string>
+  <string name="region_name_sg">സിംഗപ്പൂർ</string>
+  <string name="region_name_nl">നെതർലാന്റ്സ്</string>
+  <string name="region_name_in">ഇന്ത്യ</string>
+  <string name="region_name_es">സ്പെയിൻ</string>
+  <string name="region_name_at">ഓസ്ട്രിയ</string>
+  <string name="region_name_be">ബെൽജിയം</string>
+  <string name="region_name_bg">ബൾഗേറിയ</string>
+  <string name="region_name_ch">സ്വിറ്റ്സർലൻഡ്</string>
+  <string name="region_name_cz">ചെക്ക് റിപ്പബ്ലിക്</string>
+  <string name="region_name_dk">ഡെൻമാർക്ക്</string>
+  <string name="region_name_fr">ഫ്രാൻസ്</string>
+  <string name="region_name_hu">ഹംഗറി</string>
+  <string name="region_name_it">ഇറ്റലി</string>
+  <string name="region_name_no">നോർവേ</string>
+  <string name="region_name_ro">റൊമാനിയ</string>
+  <string name="region_name_se">സ്വീഡൻ</string>
+  <string name="region_name_pl">പോളണ്ട്</string>
+  <string name="region_name_sk">സ്ലൊവാക്യ</string>
+  <string name="region_name_rs">സെർബിയ</string>
+  <string name="region_name_au">ഓസ്‌ട്രേലിയ</string>
+  <string name="about">Psiphon (സൈഫൺ) - നെ കുറിച്ച് </string>
+  <string name="feedback">ഫീഡ്‌ബാക്ക് </string>
+  <string name="disableTimeoutsPreferenceSummary">മന്ദഗതിയിലുള്ള നെറ്റ്വർക്കുകൾക്കായുള്ള ടൈംഔട്ട് (കാലഹരണപ്പെടൽ) പ്രവർത്തനരഹിതമാക്കുക</string>
+  <string name="region_selector">സെർവർ പ്രദേശം തിരഞ്ഞെടുക്കുക</string>
+  <string name="network_proxy_connect_invalid_values">HTTP(എച്ടിടിപി) പ്രോക്സി ക്രമീകരണങ്ങൾ അസാധുവാണ്</string>
+  <string name="tunnel_whole_device_exception">VpnService API കാണുവാനില്ലാത്തതിനാൽ നിങ്ങളുടെ ഉപകരണം ഹോൾ ഡിവൈസ് ട്ടണൽ ഓപ്ഷൻ പിന്തുണയ്ക്കില്ല</string>
+  <string name="preference_notifications_title">അറിയിപ്പുകൾ</string>
+  <string name="preference_vpn_title">VPN(വിപിഎന്‍)</string>
+  <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">എല്ലാ ആപ്ലിക്കേഷനുകളും ടണൽ ചെയ്യുക</string>
+  <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">ഉൾപെടുത്താവുന്ന ആപ്ലിക്കേഷനുകൾ </string>
+  <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">തിരഞ്ഞെടുത്ത ആപ്ലിക്കേഷനുകൾ മാത്രം ടണൽ ചെയ്യുക</string>
+  <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">ഒഴിവാക്കാവുന്ന ആപ്ലിക്കേഷനുകൾ</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">തിരഞ്ഞെടുത്ത ആപ്ലിക്കേഷനുകൾ ടണൽ ചെയ്യരുത്</string>
+  <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">%s ആപ്ലിക്കേഷൻ  ടണലിംഗ് ചെയ്യപെട്ടുകൊണ്ടിരിക്കുന്നു</string>
+  <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">%s ആപ്ലിക്കേഷൻ  ട്ടണൽ ചെയ്യുന്നതിൽനിന്ന് ഒഴിവാക്കിയിരിക്കുന്നു</string>
+  <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">ടണൽ ചെയ്യുന്നതിൽനിന്ന് ഒരു ആപ്ലിക്കേഷനും ഒഴിവാക്കപ്പെട്ടിട്ടില്ല</string>
+  <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">ആപ്ലിക്കേഷനുകൾ തിരഞ്ഞെടുക്കുക</string>
+  <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">VPN (വിപിഎന്‍) വഴി %d ആപ്ലിക്കേഷൻ  ടണൽ ചെയ്യപ്പെടും</item>
+    <item quantity="other">VPN (വിപിഎന്‍) വഴി%d ആപ്ലിക്കേഷനുകൾ ടണൽ ചെയ്യപ്പെടും</item>
+  </plurals>
+  <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d ആപ്ലിക്കേഷൻ VPN(വിപിഎന്‍) - ൽ നിന്ന് ഒഴിവാക്കപ്പെടും </item>
+    <item quantity="other">%d ആപ്ലിക്കേഷനുകൾ VPN (വിപിഎന്‍) -ൽ നിന്ന് ഒഴിവാക്കപ്പെടും</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">എല്ലാ ആപ്ലിക്കേഷനും ടണലിംഗ് ചെയ്യപെട്ടുകൊണ്ടിരിക്കുന്നു</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d ആപ്ലിക്കേഷൻ ടണലിംഗ് ചെയ്യപെട്ടുകൊണ്ടിരിക്കുന്നു</item>
+    <item quantity="other">%d ആപ്ലിക്കേഷനുകൾ ടണലിംഗ് ചെയ്യപെട്ടുകൊണ്ടിരിക്കുന്നു</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d ആപ്ലിക്കേഷൻ ടണൽ ചെയ്യപ്പെടുന്നില്ല</item>
+    <item quantity="other">%d ആപ്ലിക്കേഷനുകൾ ടണൽ ചെയ്യപ്പെടുന്നില്ല</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">എല്ലാ ആപ്ലിക്കേഷനും VPN(വിപിഎന്‍) വഴി ടണൽ ചെയ്യപ്പെടും</string>
+  <string name="preference_notifications_with_sound_title">ശബ്ദം</string>
+  <string name="preference_notifications_with_sound_summary">കണക്ഷൻ നില മാറുമ്പോൾ ശബ്‌ദം പ്ലേ ചെയ്യുക</string>
+  <string name="preference_notifications_with_vibrate_title">വൈബ്രേറ്റ് ചെയ്യുക</string>
+  <string name="preference_notifications_with_vibrate_summary">കണക്ഷൻ നില മാറുമ്പോൾ വൈബ്രേറ്റുചെയ്യുക</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">അപ്‌ഗ്രേഡുകൾ / നവീകരിക്കൽ വൈഫൈയിൽ മാത്രം ഡൗൺലോഡുചെയ്യുക</string>
+  <string name="moreOptions">കൂടുതൽ ഓപ്ഷനുകൾ / ഐച്ഛികങ്ങള്‍</string>
+  <string name="proxySettingsCategoryTitle">പ്രോക്സി ക്രമീകരണങ്ങൾ</string>
+  <string name="custom_proxy_host_summary">പ്രോക്സി സെർവറിന്റെ ഹോസ്റ്റ് നാമം അഥവാ IP </string>
+  <string name="custom_proxy_port_summary">പ്രോക്സി സെർവർ പോര്‍ട്ട്</string>
+  <string name="use_proxy_authentication_title">പ്രോക്സിയുടെ പ്രാമാണീകരണം ഉപയോഗിയ്ക്കുക </string>
+  <string name="proxy_username_title">പ്രോക്സി യൂസർനാമം</string>
+  <string name="proxy_username_summary">പ്രോക്സി പ്രാമാണീകരണത്തിനുവേണ്ടി യൂസർനാമം </string>
+  <string name="proxy_password_title">പ്രോക്സി രഹസ്യവാക്ക് </string>
+  <string name="proxy_password_summary">പ്രോക്സി പ്രാമാണീകരണത്തിനുവേണ്ടി രഹസ്യവാക്ക്</string>
+  <string name="proxy_domain_title">പ്രോക്സി ഡൊമെയ്‌ൻ</string>
+  <string name="proxy_domain_summary">പ്രോക്സി പ്രാമാണീകരണത്തിനുവേണ്ടി ഡൊമെയ്‌ൻ</string>
+  <string name="http_proxy_port_in_use">അഭ്യർത്ഥിച്ച പ്രാദേശിക HTTP(എച്ടിടിപി) പ്രോക്സി പോര്‍ട്ട് %d ഇതിനകം മറ്റൊരു അപ്ലിക്കേഷൻ  ഉപയോഗിച്ചുകൊണ്ട് ഇരിക്കുകയാണ്. തുടരാനാവില്ല.</string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">ടണൽ വിഭജിക്കപ്പെടുന്ന പ്രദേശം: %s</string>
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">ടണൽ ചെയ്യപ്പെടാത്തത് : %s</string>
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">അപ്‌സ്‌ട്രീം പ്രോക്സി പിഴവു്: %s</string>
+  <string name="start_tunnel_failed">%s ടണൽ തുടങ്ങുന്നതിൽ പരാജയപെട്ടു </string>
+  <string name="vpn_exclusions_conflict">നിങ്ങളുടെ നിലവിലെ VPN(വിപിഎന്‍) ഒഴിവാക്കലുകളിൽ ഒന്നോ അതിലധികമോ വൈരുദ്ധ്യമുള്ള അപ്ലിക്കേഷനുകൾ ഉണ്ട്. കണക്റ്റുചെയ്യുന്നതിന് ദയവായി VPN(വിപിഎന്‍) ക്രമീകരണങ്ങളിലേക്ക് പോയി \'എല്ലാ അപ്ലിക്കേഷനുകളും ടണൽ ചെയ്യുക\' മോഡിലേക്ക് മാറുക.</string>
+  <string name="tunnel_connecting">ടണൽ ബന്ധിപ്പിക്കുന്നു...</string>
+  <string name="tunnel_connected">ടണൽ ബന്ധിപ്പിച്ചു</string>
+  <string name="waiting">കാത്തിരിക്കുന്നു…</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">അനുമതിക്കായുള്ള അഭ്യർത്ഥന</string>
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">നിങ്ങളുടെ ലൊക്കേഷനിലേക്ക് ആക്‌സസ് നൽകിക്കൊണ്ട് നിങ്ങളുടെ നെറ്റ്‌വർക്കിൽ എങ്ങനെ പ്രവർത്തിക്കാമെന്നതിനെക്കുറിച്ച് മികച്ച തീരുമാനങ്ങളെടുക്കാൻ Psiphon (സൈഫൺ) - നെ അനുവദിക്കുക.\n\nഈ വിവരങ്ങൾ നിങ്ങളുടെ ഉപകരണത്തിൽ പ്രാദേശികമായി മാത്രമേ ഉപയോഗിക്കുന്നുള്ളൂവെന്നും ഞങ്ങളുടെ സെർവറുകളിലേക്കോ ഏതെങ്കിലും മൂന്നാം കക്ഷികളിലേക്കോ ഇത് കൈമാറ്റം ചെയ്യപ്പെടുന്നില്ലെന്നും ശ്രദ്ധിക്കുക.</string>
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ശരി</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">വേണ്ട, നന്ദി!</string>
+  <string name="label_vpn_settings">VPN(വിപിഎന്‍) ക്രമീകരണം</string>
+  <string name="label_proxy_settings">പ്രോക്സി ക്രമീകരണം</string>
+  <string name="preference_summary_no_proxy">പ്രോക്സി ഇല്ല</string>
+  <string name="preference_summary_custom_proxy">ഇച്ഛാനുസൃത പ്രോക്സി</string>
+  <string name="preference_summary_system_proxy">സിസ്റ്റം പ്രോക്സി</string>
+  <string name="disableTimeoutsPreferenceTitle">കാലഹരണപ്പെടൽ പ്രവർത്തനരഹിതമാക്കുക</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">വൈഫൈ മാത്രം</string>
+</resources>
