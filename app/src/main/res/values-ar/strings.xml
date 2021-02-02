@@ -53,4 +53,9 @@
   <string name="legacy_zirco_export_pref_category_title">دعم المتصفحات القديمة</string>
   <string name="legacy_bom_alert_heading">متصفح Psiphon لم يعد متاحا</string>
   <string name="legacy_bom_alert_message">لقد تبين لنا أنك تستخدم متصفح Psiphon في الإصدار المثبت السابق من %1$s.\nاذا كان إصدار الأندرويد الخاص بك حديث بما يكفي (5.0 أو أكثر) فبإمكانك أن تحدد لأى تطبيق متصفح مثبت لديك أن يتم تمرير بياناته من خلال %1$s.\nاذا كان لديك أي مواقع مفضلة أو تاريخ تصفح من متصفح Psiphon تود الإحتفاظ بها فيمكنك تصديرهم من خلال \"إعدادات أخرى \" ( في قسم \"دعم المتصفحات القديمة\")</string>
+  <string name="vpn_exclusions_preference_not_available_summary">يتطلب الإصدار 5.0 من أندرويد أو ما بعده</string>
+  <string name="vpn_always_on_preference_not_available_summary">يتطلب الإصدار 7.0 من أندرويد أو ما بعده</string>
+  <string name="vpn_exclusions_tip_summary">عليك بتحديد متصفح واحد لاستخدام وضع التصفح العادي فقط</string>
+  <string name="exportZircoPreferenceSummary">يجب عليك الضغط هنا للتصدير نحو وحدة التخزين الخارجية، كل علامات متصفح Psiphon، وكذا تواريخ تصفحك.</string>
+  <string name="exportZircoPreferenceTitle">تصدير بيانات التصفح</string>
 </resources>
