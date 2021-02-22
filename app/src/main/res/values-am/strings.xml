@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">የስፖንሰሩ ሰንደቅን፣ የስፖንሰሩን መነሻ ገጽ ለመጎብኘት ጠቅ ያድርጉ</string>
+  <string name="banner_desc">የስፖንሰሩ ሰንደቅ፤ የስፖንሰሩን መነሻ ገጽ ለመጎብኘት ጠቅ ያድርጉ</string>
   <string name="open_browser">ማሰሻ ክፈት</string>
   <string name="FeedbackActivity.DefaultText"> ውስን-ጉዳይ ተኮር አስተያየትዎች ካለዎት፣  ስለማይሠሩ ድር ጣቢያዎች ተጨማሪ መረጃ  ካለዎት ወይም ይህ ቅጽ ለእርስዎ የማይሰራ ከሆነ እባክዎትን ወደ &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; ኤፖስታ ይላኩ።</string>
   <string name="FeedbackActivity.Success">ግብረመልስዎን ስላስገቡ እናመሰግናለን</string>
   <string name="FeedbackActivity.Failure">ለማስገባት አልተቻለም። እባክዎ እንደገና ይሞክሩ።</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">ግብረመልስ ማስገባት አልተቻለም።</string>
-  <string name="FeedbackActivity.InvalidURLParameters">በግብረመልስ  ማስገቢያ ቅጽ ላይ የማይሰሩ የURL (የድር አድራሻዎች) ግቤቶች አሉ</string>
+  <string name="FeedbackActivity.InvalidURLParameters">በግብረመልስ  ማስገቢያ ቅጽ ላይ ተቀባይነት የሌላቸው የURL (የድር አድራሻዎች) ግቤቶች አሉ</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">የግብረመልስ ገጽ ይዘትን ማግኘት አልተቻለም</string>
-  <string name="StatusActivity.VpnRevokedTitle">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) ቆሟል።</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) አቁሟል።</string>
   <string name="StatusActivity.VpnRevokedMessage">የPsiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) ግንኙነት በእርስዎ ወይም በሌላ መተግበሪያ ተቋርጧል። ከአንድ በላይ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ በአንድ ግዜ ንቁ ሊሆን አይችልም። ሌላ የምናባዊ የግል አውታረ መረብ (ቪፒኤን) መተግበሪያ መጫኑን እና ንቁ መሆን አለመሆኑን ያጣሩ።</string>
-  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን)ን መጀመር አልቻለም።</string>
-  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን)ኡን ማስጀመር አልቻለም። ከአንድ በላይ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) በአንድ ግዜ መሄድ አይችልም። ሌላ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) የተጫነ እና ሁሌም ብራ ሁነታ ወስጥ መሆን አለመሆኑን ያረጋግጡ።</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) መጀመር አልቻለም።</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን)ኡን ማስጀመር አልቻለም። ከአንድ በላይ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) በአንድ ግዜ መሄድ አይችልም። ሌላ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) የተጫነ እና ሁሌም የበራ ሁነታ ወስጥ መሆን አለመሆኑን ያረጋግጡ።</string>
   <string name="selected_region_currently_not_available">የተመረጠው ቀጠና ለጊዜው አይገኝም ፣  እባክዎትን ሌላ ቀጠና ይምረጡ።</string>
   <string name="ads_consent_preference_category_title">ማስታወቂያን ግላዊነት ማላበስ</string>
   <string name="ads_consent_preference_dialog_preference_message">የማስታወቂያ ግላዊነት ማላበስ ምርጫዎን ዳግም ማቀናበር እውን ይፈልጋሉ?</string>

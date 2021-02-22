@@ -6,9 +6,9 @@
   <string name="AuthenticatedDataPackage.WrongPublicKey">በተለየ የይፋ ቁልፍ የተፈረመ የተረጋገጠ የውሂብ እሽግ</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">በተረጋገጠው የውሂብ እሽግ ላይ የተሳሳተ ፊርማ</string>
   <string name="AuthenticatedDataPackage.MissingValue">በተረጋገጠው የውሂብ እሽግ ውስጥ የጠፋ ዕሴት</string>
-  <string name="starting_tunnel">ማስተላለፊያ በመጀመር ላይ...</string>
-  <string name="stopping_tunnel">ማስተላለፊያ በማቆም ላይ...</string>
-  <string name="stopped_tunnel">ማስተላለፊያ አቁሟል</string>
+  <string name="starting_tunnel">ማስተላለፊያ ዋሻን በማስጀመር ላይ...</string>
+  <string name="stopping_tunnel">ማስተላለፊያ ዋሻን በማቆም ላይ...</string>
+  <string name="stopped_tunnel">ማስተላለፊያ ዋሻን አስቆመ</string>
   <string name="socks_port_in_use">የተጠየቀው የአካባቢ SOCKS ወኪል ወደብ %d በሌላ መተግበሪያ ጥቅም ላይ እየዋለ ነው። መቀጠል አይቻልም።</string>
   <string name="waiting_for_network_connectivity">የአውታረመረብ ግንኙነትን በመጠበቅ ላይ...</string>
   <string name="psiphon_service_notification_message_connecting">በመገናኘት ላይ...</string>
@@ -140,7 +140,7 @@
   <string name="proxy_domain_summary">ለወኪል ማረጋገጫ ጎራ</string>
   <string name="http_proxy_port_in_use">የተጠየቀው የአካባቢ HTTP (ኤችቲቲፒ) ወኪል ወደብ %d በሌላ መተግበሪያ ጥቅም ላይ እየዋለ ነው። መቀጠል አይቻልም።</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
-  <string name="split_tunnel_region">የማስተላለፊ ዋሻ ቀጠናን  ክፈል፡-%s</string>
+  <string name="split_tunnel_region">የማስተላለፊያ ዋሻ ቀጠናን  ክፈል፡-%s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <string name="untunneled_address">ያልተቦረቦረ፡-%s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
