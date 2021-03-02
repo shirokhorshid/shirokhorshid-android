@@ -146,6 +146,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Upstream proxy fout: %s</string>
   <string name="start_tunnel_failed">Start tunnel mislukt: %s</string>
+  <string name="vpn_exclusions_conflict">Er zijn 1 of meerdere tegenstrijdige apps in je huidige VPN uitgesloten. Ga naar je VPN settings en seleteer \'Tunnel alle apps\' om te verbinden.</string>
   <string name="tunnel_connecting">Tunnel verbinden...</string>
   <string name="tunnel_connected">Tunnel verbonden</string>
   <string name="waiting">Wachten...</string>

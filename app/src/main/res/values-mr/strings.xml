@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">प्रायोजक बॅनर; प्रायोजकांच्या मुख्यपृष्ठास भेट देण्यासाठी क्लिक करा </string>
+  <string name="open_browser">ब्राउझर उघडा </string>
+  <string name="FeedbackActivity.DefaultText">आपल्या काही विशिष्ट टिप्पण्या असल्यास, ज्या वेबसाइट्स कार्य करत नाहीत त्याबद्दल पुढील माहिती असल्यास किंवा हा फॉर्म आपल्यासाठी कार्य करत नसेल तर कृपया &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; ला ईमेल करा.</string>
+  <string name="FeedbackActivity.Success">आपला अभिप्राय सबमिट केल्याबद्दल धन्यवाद</string>
+  <string name="FeedbackActivity.Failure">सबमिशन अयशस्वी. कृपया पुन्हा प्रयत्न करा</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">अभिप्राय सबमिट करण्यात अयशस्वी</string>
+  <string name="FeedbackActivity.InvalidURLParameters">अभिप्राय फॉर्म सबमिशनमधील अवैध URL पॅरामीटर्स</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">अभिप्राय पृष्ठ सामग्री मिळविण्यात अयशस्वी</string>
+  <string name="StatusActivity.VpnRevokedTitle">सायफोन व्हीपीएन थांबला आहे</string>
+  <string name="StatusActivity.VpnRevokedMessage">सायफोनचे व्हीपीएन आपल्याद्वारे किंवा दुसर्‍या अ‍ॅपद्वारे डिस्कनेक्ट केले गेले आहे. एकाधिक व्हीपीएन अ‍ॅप्स  एकाच वेळी चालू शकत नाहीत. दुसरा व्हीपीएन अँप स्थापित आणि चालू आहे का ते तपासा.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">सायफोन व्हीपीएन प्रारंभ करू शकत नाही</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">सायफोन व्हीपीएन सुरू करू शकत नाही. एकाधिक व्हीपीएन अ‍ॅप्स एकाच वेळी चालू शकत नाहीत. दुसरे व्हीपीएन अ‍ॅप स्थापित आणि तो नेहमी-चालू वर सेट केले आहे का ते तपासा.</string>
+  <string name="selected_region_currently_not_available">निवडलेला प्रदेश सध्या उपलब्ध नाही, कृपया दुसरा प्रदेश निवडा.</string>
+  <string name="ads_consent_preference_category_title">जाहिरातिचे वैयक्तिकरण</string>
+  <string name="ads_consent_preference_dialog_preference_message">आपण खरोखर आपल्या जाहिराती वैयक्तिकरण प्राधान्य रीसेट करू इच्छिता?</string>
+  <string name="ads_consent_preference_title">जाहिराती वैयक्तिकरण प्राधान्य रीसेट करा </string>
+  <string name="ads_consent_preference_dialog_title">रीसेट</string>
+  <string name="ads_consent_preference_summary">कुकीज आणि आपला वैयक्तिक डेटा वापरण्यास जाहिरात नेटवर्कला अनुमती देण्यासाठी आपले प्राधान्य रीसेट करा</string>
+  <string name="preference_language_selection_summary">भाषा निवडा</string>
+  <string name="preference_language_selection_title">भाषा</string>
+  <string name="preference_language_title">भाषा निवड</string>
+  <string name="preference_language_default_language">डीफॉल्ट भाषा</string>
+  <string name="preference_category_advanced_title">प्रगत</string>
+  <string name="preference_category_info_title">माहिती</string>
+  <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">ठीक आहे</string>
+  <string name="preference_navigate_to_vpn_setting_title">नेहेमी चालू </string>
+  <string name="preference_navigate_to_vpn_setting_summary">व्हीपीएन सदैव सक्षम करण्यासाठी सिस्टम सेटिंग्जवर जा</string>
+  <!--Generic negative button label.-->
+  <string name="lbl_no">नाही </string>
+  <!--Generic positive button label.-->
+  <string name="lbl_yes">हो </string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">कारवाई आवश्यक</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">कनेक्ट होण्यासाठी कृपया सायफोन उघडा.</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">निवडलेला प्रदेश उपलब्ध नाही</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">कृपया सायफोन उघडा आणि दुसरा प्रदेश निवडा.</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">सायफोन व्हीपीएन थांबला आहे</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">आपल्याद्वारे किंवा दुसर्‍या अ‍ॅपद्वारे सायफोन व्हीपीएन डिस्कनेक्ट झाला आहे.</string>
+  <!--Description for an app icon image-->
+  <string name="description_app_icon">अ‍ॅपचा आयकॉन</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">अवैध व्हीपीएन सेटिंग</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">या मोडमध्ये आपल्याला कमीतकमी एक अँप निवडणे आवश्यक आहे! </string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">या मोडमध्ये कमीतकमी एक अँपची निवड रद्द करणे आवश्यक आहे!</string>
+  <string name="legacy_zirco_export_pref_category_title">लेगसी ब्राउझर समर्थन</string>
+  <string name="legacy_bom_alert_heading">सायफोन ब्राउझर यापुढे उपलब्ध नाही</string>
+  <string name="legacy_bom_alert_message">आम्हाला आढळले आहे की आपण पूर्वी स्थापित केलेल्या 1%1$s आवृत्तीमध्ये सायफोन ब्राउझर वापरत आहात.
+आपली अँड्रॉइड आवृत्ती अलिकडील (5.0 किंवा अधिक) असेल तर त्याऐवजी आपण कोणतेही स्थापित वेब ब्राउझर अ‍ॅप 1%1$sतून टनेल करण्यासाठी  निवडू शकता.
+साईफॉन ब्राउझर कडून कोणतेही इच्छित बुकमार्क किंवा ब्राउझिंग इतिहास असल्यास आपण त्यास अधिक पर्यायांमध्ये जाऊन निर्यात करू शकता (\"लीगेसी ब्राउझर समर्थन\" विभागात).</string>
+  <string name="vpn_exclusions_preference_not_available_summary">अँड्रॉइड 5.0 किंवा अधिक आवश्यक आहे.</string>
+  <string name="vpn_always_on_preference_not_available_summary">अँड्रॉइड 7.0 किंवा अधिक आवश्यक आहे. </string>
+  <string name="vpn_exclusions_tip_summary">केवळ क्लासिक ब्राउझर-मोडसाठी फक्त एक ब्राउझर निवडा</string>
+  <string name="exportZircoPreferenceSummary">बाह्य डेटा संचयनावर लेगसी सायफोन ब्राउझर बुकमार्क आणि इतिहास निर्यात करण्यासाठी येथे क्लिक करा</string>
+  <string name="exportZircoPreferenceTitle">ब्राउझर डेटा निर्यात करा</string>
+</resources>

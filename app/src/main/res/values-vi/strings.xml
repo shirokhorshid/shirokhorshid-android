@@ -8,7 +8,16 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Không thể gửi thông tin phản hồi</string>
   <string name="FeedbackActivity.InvalidURLParameters">Liên kết không hợp lệ trong quá trình gửi mẫu đơn phản hồi</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Không thể lấy nội dung trang thông tin phản hồi</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN đã ngừng hoạt động</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN đã bị hoãn kết nối bởi quý khách hoặc một chương trình khác. Nhiều chương trình VPN không thể hoạt động cùng lúc được. Xin kiểm tra nếu có chương trình VPN khác đã cài đặt và đang hoạt động.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN không mở được</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon không kích hoạt VPN được. Nhiều chương trình VPN không thể hoạt động cùng lúc. Xin kiểm tra xem nếu đã cài đặt chương trình VPN khác với dạng \"Luôn Bật\".</string>
+  <string name="selected_region_currently_not_available">Vùng được chọn hiện không có sẵn, xin vui lòng chọn vùng khác.</string>
+  <string name="ads_consent_preference_category_title">Cá nhân hóa quảng cáo</string>
+  <string name="ads_consent_preference_dialog_preference_message">Quý khách có muốn đặt lại quảng cáo theo sở thích cá nhân không?</string>
+  <string name="ads_consent_preference_title">Đặt lại quảng cáo theo sở thích cá nhân</string>
   <string name="ads_consent_preference_dialog_title">Đặt lại</string>
+  <string name="preference_language_selection_summary">Chọn ngôn ngữ</string>
   <string name="preference_language_selection_title">Ngôn ngữ</string>
   <string name="preference_language_default_language">Ngôn ngữ mặc định</string>
   <string name="preference_category_advanced_title">Nâng cao</string>
@@ -23,6 +32,7 @@
   <!--"Selected region is not available" notification title-->
   <!--Message shown in notification informing the user that selected region is not currently available-->
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN đã ngừng hoạt động.</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <!--Description for an app icon image-->
 </resources>

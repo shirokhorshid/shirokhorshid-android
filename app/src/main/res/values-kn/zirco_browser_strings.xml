@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="Commons.Ok">ಸರಿ</string>
+  <string name="Commons.Cancel">ರದ್ದುಮಾಡಿ</string>
+  <string name="Commons.PleaseWait"> ದಯವಿಟ್ಟು ನಿರೀಕ್ಷಿಸಿ</string>
+  <string name="Commons.Yes">ಹೌದು</string>
+  <string name="Commons.No">ಇಲ್ಲ</string>
+  <string name="Commons.SDCardErrorTitle">ಎಸ್‌ಡಿ ಕಾರ್ಡ್ ಲಭ್ಯವಿಲ್ಲ</string>
+  <string name="Commons.SDCardErrorNoSDMsg">ಎಸ್‌ಡಿ ಕಾರ್ಡ್ ಕಂಡುಬಂದಿಲ್ಲ</string>
+  <string name="Commons.SDCardErrorSDUnavailable">ಎಸ್‌ಡಿ ಕಾರ್ಡ್ ಲಭ್ಯವಿಲ್ಲ</string>
+  <string name="Commons.Continue">ಮುಂದುವರಿಸಿ</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">ರಫ್ತು ಮಾಡಲಾಗಿದೆ</string>
+  <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">ನಿಮ್ಮ ಇತಿಹಾಸ ಮತ್ತು ಪುಟಗುರುತು %s ಇಲ್ಲಿ  ಉಳಿಸಲಾಗಿದೆ</string>
+  <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">ರಫ್ತು ವಿಫಲವಾಗಿದೆ</string>
+  <string name="Commons.HistoryBookmarksFailedMessage">ದೋಷ ಸಂದೇಶ: %s</string>
+  <string name="Commons.PermissionRequestReasonTitle">ಅನುಮತಿ ಕೋರಿಕೆ ಕಾರಣ</string>
+  <string name="Commons.NeedWritePermissions">ಬರೆದ ಅನುಮತಿ ದಯವಿತ್ತು ನೀಡಿ ಆನಂತರ ಪ್ರಯತ್ನಿಸಿ</string>
+  <string name="PreferencesActivity.ExportHistoryBookmarksPermissionRequestReason">ಪುಟಗುರುತು ರಫ್ತುಗೊಳಿಸಲು ಬರೆಯುವ ಅನುಮತಿ ಬೇಕು ಯಾಕಂದರೆ ಇವು  ಬಾಹ್ಯ ಸ್ಟೊರೇಜ್‌ ನಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗುವುದು</string>
+  <string name="Commons.ExportingHistoryBookmarks">ಇತಿಹಾಸ ಮತ್ತು ಪುಟಗುರುತು ರಫ್ತು ಗೊಳಿಸಲಾಗಿದೆ</string>
+</resources>

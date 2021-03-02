@@ -60,8 +60,11 @@ APP_LANGS = {
     'it': 'it',         # Italian
     'kk': 'kk',         # Kazak
     'km': 'km',         # Khmer
+    'kn': 'kn',         # Kannada
     'ko': 'ko',         # Korean
     'ky': 'ky',         # Kyrgyz
+    'ml': 'ml',         # Malayalam
+    'mr': 'mr',         # Marathi
     'ms': 'ms',         # Malay
     'my': 'my',         # Burmese
     'nb_NO': 'nb',      # Norwegian

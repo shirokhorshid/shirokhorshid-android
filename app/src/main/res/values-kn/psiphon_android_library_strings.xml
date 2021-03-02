@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="socks_running">ಪೋರ್ಟ್ %d ರಲ್ಲಿ SOCKS ಚಾಲನೆಯಲ್ಲಿದೆ</string>
+  <string name="http_proxy_running">ಪೋರ್ಟ್ %dರಲ್ಲಿ HTTP ಪ್ರಾಕ್ಸಿ ಚಾಲನೆಯಲ್ಲಿದೆ</string>
+  <string name="client_version">ಕ್ಲೈಂಟ್ ಆವೃತ್ತಿ %s</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">ವಿಭಿನ್ನ ಸಾರ್ವಜನಿಕ ಕೀಲಿಯೊಂದಿಗೆ ಸಹಿ ಮಾಡಲಾದ ಪ್ರಮಾಣೀಕೃತ ಡೇಟಾ ಪ್ಯಾಕೇಜ್</string>
+  <string name="AuthenticatedDataPackage.InvalidSignature">ಪ್ರಮಾಣೀಕರಿಸಿದ ಡೇಟಾ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲಿ ಅಮಾನ್ಯ ಸಹಿ</string>
+  <string name="AuthenticatedDataPackage.MissingValue">ಪ್ರಮಾಣೀಕರಿಸಿದ ಡೇಟಾ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲಿ ಮೌಲ್ಯ ಕಾಣೆಯಾಗಿದೆ</string>
+  <string name="starting_tunnel">ಸುರಂಗ ಪ್ರಾರಂಭವಾಗುತ್ತಿದೆ...</string>
+  <string name="stopping_tunnel">ಸುರಂಗ ಸ್ಥಗಿತಗೊಳಿಸಲಾಗುತ್ತಿದೆ...</string>
+  <string name="stopped_tunnel">ಸುರಂಗ ಸ್ಥಗಿತಗೊಂಡಿದೆ</string>
+  <string name="socks_port_in_use">ವಿನಂತಿಸಿದ ಸ್ಥಳೀಯ SOCKS ಪ್ರಾಕ್ಸಿ %d ಪೋರ್ಟ್ ಈಗಾಗಲೇ ಮತ್ತೊಂದು ಆ್ಯಪ್‌ನಲ್ಲಿ ಬಳಕೆಯಲ್ಲಿದೆ. ಮುಂದುವರಿಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
+  <string name="waiting_for_network_connectivity">ನೆಟ್‌ವರ್ಕ್ ಸಂಪರ್ಕಕ್ಕಾಗಿ ಕಾಯಲಾಗುತ್ತಿದೆ…</string>
+  <string name="psiphon_service_notification_message_connecting">ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ…</string>
+  <string name="psiphon_service_notification_id">Psiphon ಸೇವೆ ಅಧಿಸೂಚನೆ</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon ಸ್ಥಿತಿಗತಿ ಬದಲಾವಣೆಗಳು</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon ಅಪ್‌ಗ್ರೇಡ್</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon ಸರ್ವರ್ ಎಚ್ಚರಿಕೆಗಳು</string>
+  <string name="vpn_service_running">VPN ಸೇವೆ ಚಾಲ್ತಿಯಲ್ಲಿದೆ</string>
+  <string name="vpn_service_revoked">VPN ಸೇವೆಯನ್ನು ರದ್ದುಪಡಿಸಲಾಗಿದೆ</string>
+  <string name="debug_message">%s</string>
+  <string name="Diagnostics.EncryptedFailed">ಪ್ರತಿಕ್ರಿಯೆ ಡೈಗ್ನೊಸ್ಟಿಕ್‌ನ ಮಾಹಿತಿಯನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ. ಈ ಮಾಹಿತಿಯನ್ನು ಪ್ರತಿಕ್ರಿಯೆ ಈಮೇಲ್‌ನಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದಿಲ್ಲ.</string>
+  <string name="current_network_type">ಪ್ರಸ್ತುತ ನೆಟ್‌ವರ್ಕ್: %s</string>
+  <string name="UpgradeManager.CanNotRetrievePackageInfo">ಪ್ರಸ್ತುತ ಅಪ್ಲಿಕೇಶನ್‌ಗಾಗಿ ಪ್ಯಾಕೇಜ್ ಮಾಹಿತಿಯನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
+  <string name="UpgradeManager.UpgradeFileWriteFailed">ಅಪ್‌ಗ್ರೇಡ್ ಫೈಲ್ ಬರೆಯಲು ವಿಫಲವಾಗಿದೆ</string>
+  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ಅಪ್‌ಗ್ರೇಡ್‌ ವಿಫಲಗೊಂಡಿದೆ. ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್‌ನಿಂದ ಪ್ಯಾಕೇಜ್ ಮಾಹಿತಿಯನ್ನು ಹೊರತೆಗೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
+  <string name="UpgradeManager.UpgradeFileNotFound">ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್ ಸಿಗುತ್ತಿಲ್ಲ</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptTitle">Psiphon ಅಪ್‌ಗ್ರೇಡ್</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptMessage">Psiphon ಗಾಗಿ ಅಪ್‌ಗ್ರೇಡ್‌ಅನ್ನು ಸ್ಥಾಪಿಸಲು ಸಿದ್ಧವಾಗಿದೆ.</string>
+  <string name="UpgradeManager.UpgradeFileReadFailed">ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್ಅನ್ನು ಓದಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ</string>
+  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್ಅನ್ನು ಧೃಡಿಕರಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ</string>
+  <string name="connected_elapsed_time">%s: ಸಂಪರ್ಕಗೊಂಡಿದೆ</string>
+  <string name="disconnected"> ಸಂಪರ್ಕ ಕಡಿತಗೊಂಡಿದೆ</string>
+  <string name="label_sent">ಕಳುಹಿಸಲಾಗಿದೆ</string>
+  <string name="label_received">ಸ್ವೀಕರಿಸಿದೆ</string>
+  <string name="start">ಪ್ರಾರಂಭ</string>
+  <string name="stop">ನಿಲ್ಲಿಸಿ</string>
+  <string name="home_tab_name"> ಹೋಮ್</string>
+  <string name="settings_tab_name">ಆಯ್ಕೆಗಳು</string>
+  <string name="statistics_tab_name">ಅಂಕಿಅಂಶಗಳು</string>
+  <string name="logs_tab_name">ಲಾಗ್‌ಗಳು</string>
+  <string name="use_proxy_settings_toggle">HTTP ಪ್ರಾಕ್ಸಿ ಮೂಲಕ ಸಂಪರ್ಕಿಸಿ</string>
+  <string name="use_system_proxy_settings_radio">ಸಿಸ್ಟಮ್ ನೆಟ್‌ವರ್ಕ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಬಳಸಿ</string>
+  <string name="use_custom_proxy_settings_radio">ಕೆಳಗಿನ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಬಳಸಿ:</string>
+  <string name="custom_proxy_settings_host">ಹೋಸ್ಟ್ ವಿಳಾಸ</string>
+  <string name="custom_proxy_settings_port">ಪೋರ್ಟ್</string>
+  <string name="region_name_any">ಅತ್ಯುತ್ತಮ ಪ್ರದರ್ಶನ</string>
+  <string name="region_name_us">ಅಮೇರಿಕ ಸಂಯುಕ್ತ ಸಂಸ್ಥಾನ</string>
+  <string name="region_name_gb">ಯುನೈಟೆಡ್ ಕಿಂಗ್‌ಡಂ</string>
+  <string name="region_name_ca">ಕೆನಡಾ</string>
+  <string name="region_name_de">ಜರ್ಮನಿ</string>
+  <string name="region_name_jp">ಜಪಾನ್</string>
+  <string name="region_name_hk">ಹಾಂಗ್ ಕಾಂಗ್</string>
+  <string name="region_name_sg">ಸಿಂಗಪುರ</string>
+  <string name="region_name_nl">ನೆದರ್ಲ್ಯಾಂಡ್ಸ್</string>
+  <string name="region_name_in">ಭಾರತ</string>
+  <string name="region_name_es">ಸ್ಪೇನ್</string>
+  <string name="region_name_at">ಆಸ್ಟ್ರಿಯ</string>
+  <string name="region_name_be">ಬೆಲ್ಜಿಯಂ</string>
+  <string name="region_name_bg">ಬಲ್ಗೆರಿಯ</string>
+  <string name="region_name_ch">ಸ್ವಿಜರ್ಲ್ಯಾಂಡ್</string>
+  <string name="region_name_cz">ಜೆಕ್ ಗಣರಾಜ್ಯ</string>
+  <string name="region_name_dk">ಡೆನ್ಮಾರ್ಕ್</string>
+  <string name="region_name_fr">ಫ್ರಾನ್ಸ್</string>
+  <string name="region_name_hu">ಹಂಗರಿ</string>
+  <string name="region_name_it">ಇಟಲಿ</string>
+  <string name="region_name_no">ನಾರ್ವೆ</string>
+  <string name="region_name_ro">ರೊಮಾನಿಯ</string>
+  <string name="region_name_se">ಸ್ವಿಡನ್</string>
+  <string name="region_name_pl">ಪೊಲ್ಯಾಂಡ್</string>
+  <string name="region_name_sk">ಸ್ಲೊವಕಿಯ</string>
+  <string name="region_name_rs">ಸೆರ್ಬಿಯ</string>
+  <string name="region_name_au">ಆಸ್ಟ್ರೇಲಿಯ</string>
+  <string name="about">Psiphon ಬಗ್ಗೆ</string>
+  <string name="feedback">ಅಭಿಪ್ರಾಯ</string>
+  <string name="disableTimeoutsPreferenceSummary">ನಿಧಾನಗತಿಯ ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗಾಗಿ ಸಮಯ ಮೀರುವಿಕೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="region_selector">ಸರ್ವರ್ ಪ್ರದೇಶವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <string name="network_proxy_connect_invalid_values">ಅಮಾನ್ಯ HTTP ಪ್ರಾಕ್ಸಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+  <string name="tunnel_whole_device_exception">ವಿಪಿಎನ್ ಸೇವೆ API ಕಾಣೆಯಾದ ಕಾರಣ ನಿಮ್ಮ ಸಾಧನವು ಸಂಪೂರ್ಣ ಸಾಧನ ಸುರಂಗ ಆಯ್ಕೆಯನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ.</string>
+  <string name="preference_notifications_title">ಅಧಿಸೂಚನೆಗಳು</string>
+  <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">ಎಲ್ಲ ಆ್ಯಪ್‌ಗಳನ್ನು ಸುರಂಗಿಸಿ</string>
+  <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">ಆ್ಯಪ್‌ಗಳನ್ನು ಸೇರಿಸಿ</string>
+  <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">ಆಯ್ಕೆ ಮಾಡಿದ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಮಾತ್ರ ಸುರಂಗ ಮಾಡಿ</string>
+  <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಹೊರತುಪಡಿಸಿ</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">ಆಯ್ದ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗ ಮಾಡಬೇಡಿ</string>
+  <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">%s ಅಪ್ಲಿಕೇಶನನ್ನು ಸುರಂಗಮಾರ್ಗಗೊಳಿಸಲಾಗುತ್ತಿದೆ</string>
+  <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">%s ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಸುರಂಗದಿಂದ ಹೊರಗಿಡಲಾಗಿದೆ</string>
+  <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">ಯಾವುದೇ ಅಪ್ಲಿಕೇಶನನ್ನು ಸುರಂಗದಿಂದ ಹೊರತುಪಡಿಸಿಲ್ಲ</string>
+  <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ವಿಪಿಎನ್ ಮೂಲಕ ಸುರಂಗ ಮಾಡಲಾಗುತ್ತದೆ</item>
+    <item quantity="other">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ವಿಪಿಎನ್ ಮೂಲಕ ಸುರಂಗ ಮಾಡಲಾಗುತ್ತದೆ</item>
+  </plurals>
+  <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು VPN ನಿಂದ ಹೊರತುಪಡಿಸಲಾಗಿದೆ</item>
+    <item quantity="other">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು VPN ನಿಂದ ಹೊರತುಪಡಿಸಲಾಗಿದೆ</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">ಎಲ್ಲಾ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗಮಾರ್ಗ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗ ಮಾಡಲಾಗುತ್ತದೆ</item>
+    <item quantity="other">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗ ಮಾಡಲಾಗುತ್ತದೆ</item>
+  </plurals>
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗದಿಂದ ಹೊರಗಿಡಲಾಗಿದೆ</item>
+    <item quantity="other">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗದಿಂದ ಹೊರಗಿಡಲಾಗಿದೆ</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">ಎಲ್ಲಾ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು VPN ಮೂಲಕ ಸುರಂಗ ಮಾಡಲಾಗುತ್ತದೆ</string>
+  <string name="preference_notifications_with_sound_title">ಧ್ವನಿ</string>
+  <string name="preference_notifications_with_sound_summary"> ಸಂಪರ್ಕ ಸ್ಥಿತಿ ಬದಲಾದಾಗ ಧ್ವನಿ ಪ್ಲೇ ಮಾಡಿ</string>
+  <string name="preference_notifications_with_vibrate_title"> ವೈಬ್ರೇಟ್</string>
+  <string name="preference_notifications_with_vibrate_summary"> ಸಂಪರ್ಕ ಸ್ಥಿತಿ ಬದಲಾದಾಗ ವೈಬ್ರೇಟ್ ಮಾಡಿ</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ನವೀಕರಣಗಳು ಡೌನ್‌ಲೋಡ  ವೈಫೈನಲ್ಲಿ ಮಾತ್ರ ಮಾಡಿ</string>
+  <string name="moreOptions">ಇನ್ನಷ್ಟು ಆಯ್ಕೆಗಳು</string>
+  <string name="proxySettingsCategoryTitle">ಪ್ರಾಕ್ಸಿ ಸೆಟ್ಟಿಂಗ್ಸ್ </string>
+  <string name="custom_proxy_host_summary">ಪ್ರಾಕ್ಸಿ ಸರ್ವರ್ ಹೋಸ್ಟ್ ಹೆಸರು ಅಥವಾ ಐಪಿ</string>
+  <string name="custom_proxy_port_summary">ಪ್ರಾಕ್ಸಿ ಸರ್ವರ್ ಪೋರ್ಟ್</string>
+  <string name="use_proxy_authentication_title">ಪ್ರಾಕ್ಸಿ ಪ್ರಮಾಣೀಕರಣ ಉಪಯೋಗಿಸಿ</string>
+  <string name="proxy_username_title">ಪ್ರಾಕ್ಸಿ  ಬಳಕೆದಾರಹೆಸರು</string>
+  <string name="proxy_username_summary"> ಬಳಕೆದಾರಹೆಸರು ಪ್ರಮಾಣೀಕರಣ ಪ್ರಾಕ್ಸಿ ಗಾಗಿ</string>
+  <string name="proxy_password_title">ಪ್ರಾಕ್ಸಿ ಪಾಸ್‌ವರ್ಡ್</string>
+  <string name="proxy_password_summary">ಪಾಸ್‌ವರ್ಡ್ ಪ್ರಾಕ್ಸಿ ಪ್ರಮಾಣೀಕರಣಕ್ಕಾಗಿ</string>
+  <string name="proxy_domain_title">ಪ್ರಾಕ್ಸಿ ಡೊಮೇನ್</string>
+  <string name="proxy_domain_summary">ಪ್ರಾಕ್ಸಿ  ಪ್ರಮಾಣೀಕರಣಕ್ಕಾಗಿ ಡೊಮೇನ್</string>
+  <string name="http_proxy_port_in_use">ಸ್ಥಳೀಯ HTTP ಪ್ರಾಕ್ಸಿ ಪೋರ್ಟ್ ಅನ್ನು ಕೋರಿಕೆಗೊಳಲಾಗಿದೆ  %d ಬೇರೆ ಆಪ್ ನಿಂದ ಉಪಯೋಗದಲ್ಲಿದೆ. ಮುಂದುವರಿಯಲು ಸಾಧ್ಯವಿಲ್ಲ </string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">%s ಸುರಂಗ ಪ್ರದೇಶವನ್ನು ವಿಭಜಿಸಲಾಗುತ್ತಿದೆ</string>
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">ಸುರಂಗಮಾರ್ಗ ಅಲ್ಲ: %s</string>
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">ಅಪ್‌ಸ್ಟ್ರೀಮ್ ಪ್ರಾಕ್ಸಿ ದೋಷ: %s</string>
+  <string name="start_tunnel_failed">ಸುರಂಗ ಪ್ರಾರಂಭ ವಿಫಲವಾಗಿದೆ: %s</string>
+  <string name="vpn_exclusions_conflict">ನಿಮ್ಮ ಪ್ರಸ್ತುತ VPN ಹೊರಗಿಡುವಿಕೆಗಳಲ್ಲಿ ಒಂದು ಅಥವಾ ಹೆಚ್ಚಿನ ಸಂಘರ್ಷದ ಅಪ್ಲಿಕೇಶನ್‌ಗಳಿವೆ. ದಯವಿಟ್ಟು VPN ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ ಮತ್ತು \'ಎಲ್ಲಾ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗಗೊಳಿಸಿ\' ಮೋಡ್‌ಗೆ ಬದಲಾಯಿಸಿ.</string>
+  <string name="tunnel_connecting">ಸುರಂಗ ಕ್ಕೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ..</string>
+  <string name="tunnel_connected">ಸುರಂಗ ಸಂಪರ್ಕಗೊಂಡಿದೆ</string>
+  <string name="waiting">ನಿರೀಕ್ಷಿಸಲಾಗುತ್ತಿದೆ..</string>
+  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ಅನುಮತಿಯ ಕೋರಿಕೆ</string>
+  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">ನಿಮ್ಮ  ಸ್ಥಳ ಮಾಹಿತಿಯನ್ನು ನೀಡುವ ಮೂಲಕ ನಿಮ್ಮ ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿ ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸಬೇಕು ಎಂಬುದರ ಕುರಿತು ಉತ್ತಮ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು Psiphon ಗೆ ಅನುಮತಿಸಿ.\n\nಈ ಮಾಹಿತಿಯನ್ನು ಸ್ಥಳೀಯವಾಗಿ ಮಾತ್ರ ಬಳಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಮ್ಮ ಸರ್ವರ್‌ಗಳಿಗೆ ಅಥವಾ ಯಾವುದೇ 3 ನೇ ಪಕ್ಷಗಳಿಗೆ ರವಾನಿಸುವುದಿಲ್ಲ ಎಂಬುದನ್ನು ಗಮನಿಸಿ</string>
+  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton"> ಸರಿ</string>
+  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton"> ಇಲ್ಲ, ಧನ್ಯವಾದಗಳು</string>
+  <string name="label_vpn_settings">VPN ಸೆಟ್ಟಿಂಗ್ಸ್</string>
+  <string name="label_proxy_settings">ಪ್ರಾಕ್ಸಿ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
+  <string name="preference_summary_no_proxy">ಪ್ರಾಕ್ಸಿ ಇಲ್ಲ</string>
+  <string name="preference_summary_custom_proxy"> ಕಸ್ಟಮ್ ಪ್ರಾಕ್ಸಿ</string>
+  <string name="preference_summary_system_proxy">ಸಿಸ್ಟಂ ಪ್ರಾಕ್ಸಿ</string>
+  <string name="disableTimeoutsPreferenceTitle">ಟೈಮ್‌ಔಟ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">ಕೇವಲ ವೈಫೈ</string>
+</resources>

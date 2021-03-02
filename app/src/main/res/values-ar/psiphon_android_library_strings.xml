@@ -15,6 +15,7 @@
   <string name="psiphon_service_notification_id">إعلام خدمة  برنامج سايفون</string>
   <string name="psiphon_service_notification_channel_name">تغييرات حالات Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">تحديث برنامج سايفون</string>
+  <string name="psiphon_server_alert_notification_channel_name">تنبيهات خوادم Psiphon</string>
   <string name="vpn_service_running">تشغيل خدمة الشبكة الافتراضية الخاصة</string>
   <string name="vpn_service_revoked">إلغاء خدمة الشبكة الافتراضية الخاصة </string>
   <string name="debug_message">نسبة %s</string>
@@ -99,10 +100,43 @@
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">حدد التطبيقات</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="zero">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="one">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="two">سوف تُمرَّر %d تطبيقات عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="few">سوف تُمرَّر %d تطبيقات عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="many">سوف يُمرَّر %d تطبيقا عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="other">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="zero">سوف يُستثنى %d تطبيق من الشبكة الخاصة الافتراضية</item>
+    <item quantity="one">سوف يُستثنى %d تطبيق من الشبكة الخاصة الافتراضية</item>
+    <item quantity="two">سوف تُستثنى %d تطبيقات من الشبكة الخاصة الافتراضية</item>
+    <item quantity="few">سوف تُستثنى %d تطبيقات من الشبكة الخاصة الافتراضية</item>
+    <item quantity="many">سوف يُستثنى %d تطبيقا من الشبكة الخاصة الافتراضية</item>
+    <item quantity="other">سوف يُستثنى %d تطبيق من الشبكة الخاصة الافتراضية</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">تمرير كل التطبيقات عبر النفق</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="zero">تمرير %d تطبيق عبر النفق</item>
+    <item quantity="one">تمرير %d تطبيق عبر النفق</item>
+    <item quantity="two">تمرير %d تطبيقات عبر النفق</item>
+    <item quantity="few">تمرير %d تطبيقات عبر النفق</item>
+    <item quantity="many">تمرير %d تطبيقا عبر النفق</item>
+    <item quantity="other">تمرير %d تطبيق عبر النفق</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="zero">%d  تطبيق مستثنى من النفق</item>
+    <item quantity="one">%d  تطبيق مستثنى من النفق</item>
+    <item quantity="two">%d تطبيقات مستثنى من النفق</item>
+    <item quantity="few">%d  تطبيقات مستثناة من النفق</item>
+    <item quantity="many">%d  تطبيقا مستثنى من النفق</item>
+    <item quantity="other">%d تطبيق مستثنى من النفق</item>
+  </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">‫كل التطبيقات سوف تُمرَّر نفقيا بواسطة VPN ‬</string>
   <string name="preference_notifications_with_sound_title">صوت </string>
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
@@ -128,6 +162,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">خطأ في الأبستريم بروكسي: %s</string>
   <string name="start_tunnel_failed">فشل في تشغيل النفق: %s</string>
+  <string name="vpn_exclusions_conflict">هناك تداخل بين التطبيقات المستثناة في لائحة استثناءات شبكتك الخاصة الافتراضية، يُرجى الذهاب إلى إعدادات الشبكة الخاصة الافتراضية ثم تبديل نحو وضع ’مرّر كل التطبيقات نفَقيا‘ للاتصال.</string>
   <string name="tunnel_connecting">النفق يحاول الإتصال... </string>
   <string name="tunnel_connected">النفق متصل </string>
   <string name="waiting">جاري الإنتظار ...</string>
@@ -140,6 +175,11 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">موافق</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">لا شكراً</string>
+  <string name="label_vpn_settings">إعدادات الشبكة الخاصة الافتراضية</string>
   <string name="label_proxy_settings">إعدادات البروكسي</string>
+  <string name="preference_summary_no_proxy">لا وجود لأي وكيل</string>
+  <string name="preference_summary_custom_proxy">الوكيل المخصص</string>
+  <string name="preference_summary_system_proxy">وكيل النظام</string>
   <string name="disableTimeoutsPreferenceTitle">إلغاء الإنقطاع عند نفاذ المهلة</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">فقط Wi-Fi</string>
 </resources>
