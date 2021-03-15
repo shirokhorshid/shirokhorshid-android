@@ -1,28 +1,62 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">ငွေကြးထောက်ပံ့သူ၏ နဖူးစည်းစာတမ်း; ငွေကြးထောက်ပံ့သူ၏ မူလစာမျက်နှာကို သွားရန် ကလစ်နှိပ်ပါ</string>
-  <string name="open_browser">Browser ဖွင့်ရန်</string>
-  <string name="FeedbackActivity.DefaultText">အကယ်၍ သင့်ထံတွင် အကြံပြုချက်များ၊ ဝက်ဆိုက်ဒ်များဝင်ရောက်ခြင်းနှင့်ပါတ်သက်ပြီး အဆင်မပြေမှုများရှိလျှင် သို့မဟုတ် လက်ရှိပုံစံသည် သင်နှင့် ကိုက်ညီမှုမရှိသေးလျှင် ကျေးဇူးပြု၍ &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;. သို့ အီးမေးလ် ပေးပို့ဆက်သွယ်ပေးပါ။</string>
-  <string name="FeedbackActivity.Success">ယခုကဲ့သို့ သင်၏မှတ်ချက်များ ပြန်လည်ပေးပို့သည့်အတွက် ကျေးဇူးတင်ပါသည်။</string>
+  <string name="banner_desc">ငွေကြးထောက်ပံ့သူ၏ နဖူးစည်းစာတမ်း၊ ငွေကြးထောက်ပံ့သူ၏ မူလစာမျက်နှာကို သွားရန် ကလစ်နှိပ်ပါ</string>
+  <string name="open_browser">ဘရောင်ဇာ ဖွင့်မယ်</string>
+  <string name="FeedbackActivity.DefaultText">အကယ်၍ သင့်ထံတွင် မှတ်ချက်များ၊ ဝက်ဆိုက်ဒ်များဝင်ရောက်ခြင်းနှင့်ပါတ်သက်ပြီး အဆင်မပြေမှုများရှိလျှင် သို့မဟုတ် လက်ရှိဖောင်သည် သင်နှင့် ကိုက်ညီမှုမရှိသေးလျှင် ကျေးဇူးပြု၍ &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; သို့ အီးမေးလ် ပေးပို့ဆက်သွယ်ပေးပါ။</string>
+  <string name="FeedbackActivity.Success">ယခုကဲ့သို့ သင်၏အကြံပြုချက်များ ပြန်လည်ပေးပို့သည့်အတွက် ကျေးဇူးတင်ပါသည်။</string>
   <string name="FeedbackActivity.Failure">တင်သွင်းမှုမအောင်မြင်ပါ။ ကျေးဇူးပြု၍ နောက်တစ်ကြိမ်ထပ်မံကြိုးစားပေးပါ။</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">သင်၏မှတ်ချက်များ ပြန်လည်ပေးပို့ခြင်း မအောင်မြင်ပါ။</string>
-  <string name="FeedbackActivity.InvalidURLParameters">မှတ်ချက်ဖောင် ပြန်လည်ပေးပို့ရာတွင် ဆီလျော်မှုမရှိသော URL Parameters များပါဝင်နေသည်</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">မှတ်ချက်ရေးရသည့် စာမျက်နှာရှိ အကြောင်းအရာများကို ရယူမှုမအောင်မြင်ပါ။</string>
+  <string name="FeedbackActivity.SubmitFeedbackFailed">သင်၏အကြံပြုချက်များ ပြန်လည်ပေးပို့ခြင်း မအောင်မြင်ပါ။</string>
+  <string name="FeedbackActivity.InvalidURLParameters">အကြံပြုချက်ဖောင် ပြန်လည်ပေးပို့ရာတွင် ဆီလျော်မှုမရှိသော URL သတ်မှတ်ချက်များ (parameters) များပါဝင်နေသည်</string>
+  <string name="FeedbackActivity.GetHTMLContentFailed">အကြံပြုချက်ရေးသည့် စာမျက်နှာရှိ အကြောင်းအရာများကို ရယူမှုမအောင်မြင်ပါ။</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN ရပ်ဆိုင်းသွားပါသည်</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN သည် သင့်ကြောင့် သို့မဟုတ် တခြားအပ္ပလီကေးရှင်းကြောင့် ချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်။ VPN အပ္ပလီကေးရှင်း တစ်ခုထက်ပို၍ တစ်ပြိုင်တည်း ဖွင့်ထားလို့မရပါ။ VPN အပ္ပလီကေးရှင်း နောက်တစ်ခုများ တပ်ဆင်ထားပြီး ပွင့်နေသလားဆိုတာ တစ်ချက်စစ်ဆေးပေးပါ။</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN စတင်လို့ အရပါ</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon မှ VPN ဖွင့်၍မရပါ။ VPN အပ္ပလီကေးရှင်း တစ်ခုထက်ပို၍ တစ်ပြိုင်တည်း ဖွင့်ထားလို့မရပါ။ VPN အပ္ပလီကေးရှင်း နောက်တစ်ခုကို တပ်ဆင်ထားပြီး အမြဲပွင့်နေသလားဆိုတာ တစ်ချက်စစ်ဆေးပေးပါ။</string>
+  <string name="selected_region_currently_not_available">လက်ရှိရွေးချယ်ထားသော ဒေသကို မရရှိနိုင်ပါ ၊ အခြားဒေသကို ရွေးပေးပါ။</string>
+  <string name="ads_consent_preference_category_title">ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်း</string>
+  <string name="ads_consent_preference_dialog_preference_message">သင်သည် ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်း ကို ပြောင်းလဲချိန်ဆမှုများ ပြုလုပ်စေချင်ပါသလား?</string>
+  <string name="ads_consent_preference_title">ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်းကို ပြောင်းလဲချိန်ဆမယ်</string>
   <string name="ads_consent_preference_dialog_title">ပြန်ချိန်ရန်</string>
+  <string name="ads_consent_preference_summary">ကြော်ငြာကွန်ရက်များ ကို ကွတ်ကီးမှတ်တမ်းများ (cookies) နှင့် သင့်ကိုယ်ပိုင်ဒေတာများအား အသုံးပြုနိုင်ရန် သင့် စိတ်ကြိုက်ပြင်ဆင်ခြင်းများကို ပြောင်းလဲချိန်ဆပါ။</string>
+  <string name="preference_language_selection_summary">ဘာသာစကား ရွေးချယ်ပါ</string>
   <string name="preference_language_selection_title">ဘာသာစကား</string>
+  <string name="preference_language_title">ဘာသာစကား ရွေးချယ်ခြင်း</string>
   <string name="preference_language_default_language">ကြိုတင်သတ်မှတ်ထားသည့် ဘာသာစကား</string>
   <string name="preference_category_advanced_title">အဆင့်မြင့်</string>
+  <string name="preference_category_info_title">သတင်းအချက်အလက်</string>
   <!--Generic string to say OK or acknowledge-->
-  <string name="label_ok">ကောင်းပြီ</string>
+  <string name="label_ok">အိုကေ</string>
+  <string name="preference_navigate_to_vpn_setting_title">အမြဲတမ်းပွင့် VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">စနစ် အပြင်အဆင်များသို့ သွား၍ \"အမြဲတမ်းပွင့် VPN\" အားဖွင့်ပေးပါ။</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">မဟုတ်ပါ</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">ဟုတ်ကဲ့</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">လုပ်ဆောင်ချက် လိုအပ်ပါသည်!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">ကျေးဇူးပြု၍ ချိတ်ဆက်မှုပြီးဆုံးရန် Psiphon အားဖွင့်ပေးပါ။</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">ရွေးချယ်ထားသော ဒေသကို မရရှိနိုင်ပါ</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">ကျေးဇူးပြု၍ Psiphon အားဖွင့်ပြီး အခြားဒေသကို ရွေးချယ်ပေးပါ။</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN သည်ရပ်ဆိုင်းသွားပါသည်</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN သည် သင့်ကြောင့် သို့မဟုတ် တခြားအပ္ပလီကေးရှင်းကြောင့် ချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်။</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">အပ္ပလီကေးရှင်း သင်္ကေတ</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">VPN အပြင်အဆင် အကြုံးမဝင်ပါ</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">ဤအသုံးပြုနည်းကို သုံးနေလျှင် သင်သည် အပ္ပလီကေးရှင်း အနည်းဆုံး ၁ ခုအား ရွေးထားရပါမည်။</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">ဤအသုံးပြုနည်းကို သုံးနေလျှင် သင်သည် အပ္ပလီကေးရှင်း အနည်းဆုံး ၁ ခုအား မရွေးထားရပါ။</string>
+  <string name="legacy_zirco_export_pref_category_title">ဗားရှင်းဟောင်း ဘရောင်ဇာ ပံ့ပိုးမှု</string>
+  <string name="legacy_bom_alert_heading">Psiphon ဘရောင်ဇာသည် မရရှိနိုင်တော့ပါ</string>
+  <string name="legacy_bom_alert_message">ယခင် တင်သွင်းထားသော %1$s ဗားရှင်းနှင့် သင်သည် Psiphon ဘရောင်ဇာကို သုံးခဲ့သည်ကို တွေ့ရှိရပါသည်။
+အကယ်၍သင့် Android ဗားရှင်းသည် မကြာသေးမီက (5.0 သို့ ဒီထက်မြင့်သော) ဗားရှင်းဖြစ်လျှင် သင်သည် တင်သွင်းထားသော web ဘရောင်ဇာ အပ္ပလီကေးရှင်း တခုခုကို ရွေးကာ %1$s နှင့် လိုဏ်လိုင်းချိတ်ဆက်မှုပြုလုပ်လို့ ရပါသည်။
+အကယ်၍ သင်သည် Psiphon ဘရောင်ဇာနှင့် စာမျက်နှာမှတ်ချက်များ သို့မဟုတ် သုံးခဲ့သည့်မှတ်တမ်းများကို သိမ်းဆည်းထားချင်လျှင် ဤအရာများကို More Options (\"Legacy Browser Support\") အပိုင်းသို့ ထုတ်တင်ထားနိုင်ပါသည်။</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android ဗားရှင်း  5.0 နှင့် အထက်လိုအပ်ပါသည်</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android ဗားရှင်း 7.0 နှင့် အထက်လိုအပ်ပါသည်</string>
+  <string name="vpn_exclusions_tip_summary">မှုလလက်ဟောင်း ဘရောင်ဇာ သီးသန့် mode အတွက် ဘရောင်ဇာတစ်ခုကိုသာ ရွေးချယ်ပါ</string>
+  <string name="exportZircoPreferenceSummary">Psiphon ဘရောင်ဇာမှ ဆက်လက်အသုံးပြုမည့် စာမျက်နှာမှတ်ထားမှုများ နှင့် သုံးစွဲမှုရာဇဝင်များကို ပြင်ပသိမ်းဆည်းနေရာသို့ ထုတ်တင်ရန် ဤနေရာကို နှိပ်ပါ။</string>
+  <string name="exportZircoPreferenceTitle">ဘရောင်ဇာဒေတာ ထုတ်တင်မယ်</string>
 </resources>

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="socks_running">SOCKS သည် port %dတွင်လည်ပတ်နေပါသည်</string>
-  <string name="http_proxy_running">HTTP ကြားခံသည် port %dတွင်လည်ပတ်နေပါသည်။</string>
+  <string name="socks_running">SOCKS သည် port %d တွင်လည်ပတ်နေပါသည်</string>
+  <string name="http_proxy_running">HTTP ကြားခံသည့် port %d တွင်လည်ပတ်နေပါသည်</string>
   <string name="client_version">သုံးစွဲသူဗားရှင်း %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">မတူညီသည့်အများသုံးကီးဖြင့်ဖော်ပြထားသော အတည်ပြုပြီးဒေတာအစုအတွဲ</string>
+  <string name="AuthenticatedDataPackage.WrongPublicKey">မတူညီသည့်အများသုံးကီးဖြင့် ဖော်ပြထားသော အတည်ပြုပြီးဒေတာအစုအတွဲ</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">အတည်ပြုပြီးဒေတာအစုအတွဲပေါ်တွင် ဆီလျော်မှုမရှိသောဖော်ပြမှု</string>
   <string name="AuthenticatedDataPackage.MissingValue">အတည်ပြုပြီးဒေတာအစုအတွဲတွင် တန်ဖိုးပျောက်ဆုံးနေပါသည်။</string>
   <string name="starting_tunnel">ချိတ်ဆက်မှုစတင်နေပါသည်...</string>
@@ -13,7 +13,9 @@
   <string name="waiting_for_network_connectivity">ကွန်ယက်လိုင်းချိတ်နိုင်ရန်စောင့်နေပါသည်...</string>
   <string name="psiphon_service_notification_message_connecting">ချိတ်ဆက်နေသည်...</string>
   <string name="psiphon_service_notification_id">Psiphon ဝန်ဆောင်မှုဆိုင်ရာအချက်ပြမှု</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon အခြေအနေ ပြောင်းလဲချက်များ</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon အဆင့်မြှင့်မှု</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon ဆာဗာ သတိပေးချက်များ</string>
   <string name="vpn_service_running">VPN ဝန်ဆောင်မှု လည်ပတ်နေပါသည်</string>
   <string name="vpn_service_revoked">VPN ဝန်ဆောင်မှု ပယ်ချလိုက်ပါပြီ</string>
   <string name="debug_message">%s</string>
@@ -55,7 +57,7 @@
   <string name="region_name_nl">နယ်သာလန်</string>
   <string name="region_name_in">အိန္ဒိယ</string>
   <string name="region_name_es">စပိန်</string>
-  <string name="region_name_at">ဩစတီးရီးယား</string>
+  <string name="region_name_at">သြစတြီးယား</string>
   <string name="region_name_be">ဘယ်လ်ဂျီယံ</string>
   <string name="region_name_bg">ဘူဂေးရီးယား</string>
   <string name="region_name_ch">ဆွစ်ဇာလန်</string>
@@ -74,37 +76,59 @@
   <string name="about">Psiphon အကြောင်း</string>
   <string name="feedback">အကြံပြုချက်</string>
   <string name="disableTimeoutsPreferenceSummary">နှေးသောကွန်ယက်များအတွက် အချိန်သတ်မှတ်ချက်များကို အသုံးပြု၍မရအောင်လုပ်ရန်</string>
-  <string name="network_proxy_connect_invalid_values">ဆီလျော်မှုမရှိသည့် HTTP ကြားခံ အပြင်အဆင်များ။</string>
-  <string name="tunnel_whole_device_exception">VpnService API မတွေ့ခြင်းကြောင့် စက်ပစ္စည်းတစ်ခုလုံးအတွက် မပြောင်းလဲနိုင်ပါ။</string>
+  <string name="region_selector">ဆာဗာဒေသ ရွေးပါ</string>
+  <string name="network_proxy_connect_invalid_values">ဆီလျော်မှုမရှိသည့် HTTP ကြားခံ အပြင်အဆင်များ</string>
+  <string name="tunnel_whole_device_exception">VpnService API မတွေ့ရှိခြင်းကြောင့်  စက်ပစ္စည်းတစ်ခုလုံး မပြောင်းလဲနိုင်ပါ။</string>
   <string name="preference_notifications_title">အသိပေးချက်များ</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">အပ္ပလီကေးရှင်းများအားလုံးကို လိုဏ်လိုင်းနှင့် ချိတ်မယ်</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">အပ္ပလီကေးရှင်းများ ပါဝင်မယ်</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">ရွေးထားသောအပ္ပလီကေးရှင်းများကိုသာ လိုဏ်လိုင်းနှင့် ချိတ်မယ်</string>
   <!--Title for selecting apps to be excluded-->
-  <string name="preference_routing_exclude_apps_title">ချန်ထားသော အပ်ပလီကေးရှင်းများ</string>
+  <string name="preference_routing_exclude_apps_title">ချန်ထားသော အပ္ပလီကေးရှင်းများ</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">ရွေးထားသောအပ္ပလီကေးရှင်းများကို လိုဏ်လိုင်းနှင့် မချိတ်ပါ</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">အပ္ပလီကေးရှင်းများ လိုဏ်လိုင်းနှင့် ချိတ်နေပါသည် - %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Tunnel မှ ချန်ထားသော အပ်ပလီကေးရှင်း %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Tunnel သည် မည်သည့် အပ်ပလီကေးရှင်းကိုမှ မချန်ထားပါ။</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">အပ္ပလီကေးရှင်းများ ရွေးပါ</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">%d အပ္ပလီကေးရှင်းများသည် VPN နှင့် လိုဏ်လိုင်း ချိတ်ဆက်ထားပါမည်</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">%d အပ္ပလီကေးရှင်းများကို VPN မှ ပယ်ထားပါမည်</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">အပ္ပလီကေးရှင်းများအားလုံးကို လိုဏ်လိုင်းနှင့်ချိတ်မယ်</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">%d အပ္ပလီကေးရှင်းများကို လိုဏ်လိုင်းနှင့်ချိတ်နေပါသည်</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">အပ္ပလီကေးရှင်း %d များသည် လိုဏ်လိုင်းနှင့် ချိတ်ဆက်မှုမှ ပယ်ထားပါသည်</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">အပ္ပလီကေးရှင်းများအားလုံးကို VPN လိုဏ်လိုင်းနှင့် ချိတ်ထားပါမည်</string>
   <string name="preference_notifications_with_sound_title">အသံ</string>
   <string name="preference_notifications_with_sound_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းအသံထွက်ရန်</string>
   <string name="preference_notifications_with_vibrate_title">တုန်ခါမှု</string>
   <string name="preference_notifications_with_vibrate_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းတုန်ခါရန်</string>
-  <string name="downloadWiFiOnlyPreferenceSummary">ဝိုင်ဖိုင်နှင့် ချိတ်ထားမှသာ အဆင့်မြှင့်ပါ။ </string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ဝိုင်ဖိုင်နှင့် ချိတ်ထားမှသာ အဆင့်မြှင့်ပါ</string>
   <string name="moreOptions">နောက်ထပ်ရွေးချယ်စရာများ</string>
   <string name="proxySettingsCategoryTitle">ကြားခံ အပြင်အဆင်များ</string>
-  <string name="custom_proxy_host_summary">ကြားခံ ဆာဗာလက်ခံသိမ်းဆည်းသူအမည် သို့မဟုတ် အိုင်ပီ</string>
+  <string name="custom_proxy_host_summary">ကြားခံ ဆာဗာလက်ခံသိမ်းဆည်းသူအမည် သို့မဟုတ် IP</string>
   <string name="custom_proxy_port_summary">ကြားခံအင်တာနက်ဆာဗာ port</string>
   <string name="use_proxy_authentication_title">ကြားခံအတည်ပြုမှုကို သုံးရန်</string>
-  <string name="proxy_username_title">ကြားခံ၏ အမည်</string>
+  <string name="proxy_username_title">ကြားခံ၏ သုံးသူအမည်</string>
   <string name="proxy_username_summary">ကြားခံအတည်ပြုမှုအတွက် အသုံးပြုသူအမည်</string>
   <string name="proxy_password_title">ကြားခံ၏စကားဝှက်</string>
   <string name="proxy_password_summary">ကြားခံအတည်ပြုမှုအတွက် စကားဝှက်</string>
@@ -118,12 +142,26 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">အင်တာနက်အား ချိတ်ဆက်သည့် ကြားခံ ပြဿနာ : %s</string>
   <string name="start_tunnel_failed">ဝင်ရောက်ချိတ်ဆက်မှု မအောင်မြင်ပါ : %s</string>
+  <string name="vpn_exclusions_conflict">ယခု VPN ဖယ်ရှားခြင်းများတွင် အပ္ပလီကေးရှင်း တစ်ခုခုနှင့် ပြဿနာ တက်နေပါသည်။ VPN အပြင်အဆင်များသို့သွားပြီး \"အပ္ပလီကေးရှင်းများအားလုံးကို လိုဏ်လိုင်းနှင့်ချိတ်မယ်\" ဆိုသည့် အရာကို ရွေးချယ်ထား၍ ချိတ်ပေးပါ။</string>
   <string name="tunnel_connecting">ဝင်ရောက်ချိတ်ဆက်နေပါသည်...</string>
   <string name="tunnel_connected">ဝင်ရောက်ချိတ်ဆက်ပြီးပါပြီ</string>
   <string name="waiting">စောင့်နေပါသည်...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ခွင့်ပြုချက် တောင်းခံခြင်း</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Psiphon အား သင်၏တည်နေရာကိုခွင့်ပြုခြင်းဖြင့် သင်၏ကွန်ယက်တွင် မည်သို့လုပ်ကိုင်ရမည်ကို ပိုမိုကောင်းမွန်သောဆုံးဖြတ်ချက်များချရန် ခွင့်ပြုပါ။
+
+ဤအချက်အလက်များသည် သင်၏စက်ပစ္စည်းပေါ်တွင်သာ အသုံးပြုပြီး ကျွန်ုပ်တို့၏ဆာဗာများ သို့မဟုတ် တတိယပါတီများသို့ မပို့ပါ။</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">အိုကေ</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
+  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">ရပါတယ်၊ ကျေးဇူးပါ။</string>
+  <string name="label_vpn_settings">VPN အပြင်အဆင်များ</string>
+  <string name="label_proxy_settings">ကြားခံ အပြင်အဆင်များ</string>
+  <string name="preference_summary_no_proxy">ကြားခံ မရှိ</string>
+  <string name="preference_summary_custom_proxy">ကိုယ်ပိုင် ကြားခံ</string>
+  <string name="preference_summary_system_proxy">စနစ်၏ကြားခံ</string>
+  <string name="disableTimeoutsPreferenceTitle">ခေတ္တရပ်ဆိုင်းခြင်းအား ပိတ်မယ်</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">ဝိုင်ဖိုင်သာ</string>
 </resources>
