@@ -71,6 +71,17 @@
   <string name="region_name_sk">斯洛伐克</string>
   <string name="region_name_rs">塞爾維亞</string>
   <string name="region_name_au">澳洲</string>
+  <string name="region_name_ae">阿拉伯聯合大公國</string>
+  <string name="region_name_ar">阿根廷</string>
+  <string name="region_name_br">巴西</string>
+  <string name="region_name_cl">智利</string>
+  <string name="region_name_fi">芬蘭</string>
+  <string name="region_name_is">冰島</string>
+  <string name="region_name_ie">愛爾蘭</string>
+  <string name="region_name_ke">肯亞</string>
+  <string name="region_name_mx">墨西哥</string>
+  <string name="region_name_tw">台灣</string>
+  <string name="region_name_za">南非</string>
   <string name="about">關於賽風</string>
   <string name="feedback">回饋</string>
   <string name="disableTimeoutsPreferenceSummary">慢速網路請取消暫停功能</string>

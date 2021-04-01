@@ -51,6 +51,7 @@
   <string name="bad_vpn_exclusion_blacklist_alert_message">شما باید حداقل یک برنامه را در این حالت از انتخاب خارج کنید!</string>
   <string name="legacy_zirco_export_pref_category_title">پشتیبانی مرورگر قدیمی</string>
   <string name="legacy_bom_alert_heading">مرورگر Psiphon دیگر در دسترس نیست</string>
+  <string name="legacy_bom_alert_message">ما متوجه شدیم که شما از مرورگر Psiphon در نسخه نصب‌شده قبلی %1$s استفاده می‌کنید. \n اگر نسخه Android شما به اندازه کافی جدید است (5.0 یا بالاتر)، می‌توانید هر برنامه نصب شده مرورگر وب را انتخاب کنید تااز طریق %1$s تونل شود. \n اگر نشانک دارید یا سابقه مرور از مرورگر Psiphon، که می‌خواهید نگه دارید، می‌توانید آنها را در گزینه‌های بیشتر (بخش \"پشتیبانی از مرورگر قدیمی\") صادر کنید.</string>
   <string name="vpn_exclusions_preference_not_available_summary">به اندروید 5.0 یا بالاتر نیاز دارد</string>
   <string name="vpn_always_on_preference_not_available_summary">به اندروید 7.0 یا بالاتر نیاز دارد</string>
   <string name="vpn_exclusions_tip_summary">فقط یک مرورگر را برای حالت کلاسیک فقط-مرورگر انتخاب کنید</string>

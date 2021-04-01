@@ -72,6 +72,17 @@
   <string name="region_name_sk">Slowakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
+  <string name="region_name_ae">Uni Emirat Arab</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Brazil</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_fi">Finlandia</string>
+  <string name="region_name_is">Islandia</string>
+  <string name="region_name_ie">Irlandia</string>
+  <string name="region_name_ke">Kenya</string>
+  <string name="region_name_mx">Meksiko</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">Afrika Selatan</string>
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
   <string name="disableTimeoutsPreferenceSummary">Nonaktifkan batasan waktu (timeout) untuk jaringan lambat</string>

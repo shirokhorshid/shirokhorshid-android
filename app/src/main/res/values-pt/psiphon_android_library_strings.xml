@@ -61,6 +61,8 @@
   <string name="region_name_no">Noruega</string>
   <string name="region_name_ro">Roménia</string>
   <string name="region_name_se">Suécia</string>
+  <string name="region_name_br">Brasil</string>
+  <string name="region_name_ie">Irlanda</string>
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentário</string>
   <string name="disableTimeoutsPreferenceSummary">Desativar \'expiração\' para redes lentas</string>

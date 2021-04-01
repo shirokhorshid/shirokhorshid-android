@@ -72,6 +72,8 @@
   <string name="region_name_sk">ស្លូវ៉ាគី</string>
   <string name="region_name_rs">ស៊ែប៊ី</string>
   <string name="region_name_au">អូស្ត្រាលី</string>
+  <string name="region_name_br">ប្រេស៊ីល</string>
+  <string name="region_name_ie">អៀរឡង់</string>
   <string name="about">អំពី Psiphon</string>
   <string name="feedback">មតិយោបល់</string>
   <string name="disableTimeoutsPreferenceSummary">បិទ ការហួសម៉ោង សម្រាប់បណ្តាញយឺត</string>
