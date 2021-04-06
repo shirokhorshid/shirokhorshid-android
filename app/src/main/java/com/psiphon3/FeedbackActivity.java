@@ -52,6 +52,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.work.Constraints;
 import androidx.work.Data;
@@ -80,6 +81,14 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
         Intent intent = getIntent();
         if (isDeepLinkIntent(intent)) {
             LoggingProvider.LogDatabaseHelper.retrieveLogs(this);
+        }
+
+        // Do not display the home button as arrow if the activity is running in a standalone mode
+        if (isTaskRoot()) {
+            ActionBar actionBar = getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(false);
+            }
         }
 
         webView = (WebView)findViewById(R.id.feedbackWebView);
