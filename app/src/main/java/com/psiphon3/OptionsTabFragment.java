@@ -119,7 +119,8 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 .doOnNext(__ -> regionListPreference.setCurrentRegionFromPreferences())
                 .subscribe();
 
-        // Observe 'Open VPN settings' button clicks from BOM legacy alert dialog.
+        // Observe 'Open VPN settings' signal from legacy BOM dialog clicks or from
+        // deep link intent handler
         viewModel.openVpnSettingsFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(__ -> {
@@ -127,6 +128,30 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                     if (activity != null && !activity.isFinishing()) {
                         startActivityForResult(new Intent(getActivity(),
                                 VpnOptionsPreferenceActivity.class), REQUEST_CODE_VPN_PREFERENCES);
+                    }
+                })
+                .subscribe();
+
+        // Observe 'Open Proxy settings' signal from deep link intent handler
+        viewModel.openProxySettingsFlowable()
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(__ -> {
+                    final FragmentActivity activity = getActivity();
+                    if (activity != null && !activity.isFinishing()) {
+                        startActivityForResult(new Intent(getActivity(),
+                                ProxyOptionsPreferenceActivity.class), REQUEST_CODE_PROXY_PREFERENCES);
+                    }
+                })
+                .subscribe();
+
+        // Observe 'More Options' signal from deep link intent handler
+        viewModel.openMoreOptionsFlowable()
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(__ -> {
+                    final FragmentActivity activity = getActivity();
+                    if (activity != null && !activity.isFinishing()) {
+                        startActivityForResult(new Intent(getActivity(),
+                                MoreOptionsPreferenceActivity.class), REQUEST_CODE_MORE_PREFERENCES);
                     }
                 })
                 .subscribe();
