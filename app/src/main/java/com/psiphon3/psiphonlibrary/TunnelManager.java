@@ -1069,7 +1069,11 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             json.put("ExchangeObfuscationKey", EmbeddedValues.SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY);
 
             if (useUpstreamProxy) {
-                json.put("UpstreamProxyUrl", UpstreamProxySettings.getUpstreamProxyUrl(context));
+                if (UpstreamProxySettings.getUseHTTPProxy(context)) {
+                    if (UpstreamProxySettings.getProxySettings(context) != null) {
+                        json.put("UpstreamProxyUrl", UpstreamProxySettings.getUpstreamProxyUrl(context));
+                    }
+                }
             }
 
             json.put("EmitDiagnosticNotices", true);
