@@ -52,12 +52,7 @@
     <string name="bad_vpn_exclusion_setting_alert_title">Invalid VPN setting</string>
     <string name="bad_vpn_exclusion_whitelist_alert_message">You need to have at least one app selected in this mode!</string>
     <string name="bad_vpn_exclusion_blacklist_alert_message">You need to have at least one app unselected in this mode!</string>
-    <string name="legacy_zirco_export_pref_category_title">Legacy Browser Support</string>
-    <string name="legacy_bom_alert_heading">Psiphon Browser is no longer available</string>
-    <string name="legacy_bom_alert_message">We have detected that you were using Psiphon Browser in the previously installed version of %1$s.\nIf your Android version is recent enough (5.0 or greater) you can select any installed web browser app to be tunneled through %1$s instead.\nIf you have any bookmarks or browsing history from Psiphon Browser that you would like to keep, you can export them in More Options ("Legacy Browser Support" section).</string>
     <string name="vpn_exclusions_preference_not_available_summary">Requires Android 5.0 or greater</string>
     <string name="vpn_always_on_preference_not_available_summary">Requires Android 7.0 or greater</string>
     <string name="vpn_exclusions_tip_summary" >Select only one browser for classic browser-only mode</string>
-    <string name="exportZircoPreferenceSummary">Click here to export legacy Psiphon Browser bookmarks and history to external data storage</string>
-    <string name="exportZircoPreferenceTitle">Export browser data</string>
 </resources>
