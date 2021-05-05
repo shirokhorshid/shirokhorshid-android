@@ -1,12 +1,9 @@
 package com.psiphon3;
 
-import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -21,7 +18,6 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -33,8 +29,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -74,15 +68,14 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     }
 
     public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainActivity.PREVENT_AUTO_START";
-    private static final String ASKED_TO_ACCESS_COARSE_LOCATION_PERMISSION = "askedToAccessCoarseLocationPermission";
     private static final String CURRENT_TAB = "currentTab";
     private static final String BANNER_FILE_NAME = "bannerImage";
 
     private static final int REQUEST_CODE_PREPARE_VPN = 100;
-    private static final int REQUEST_CODE_PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 101;
 
     private LoggingObserver loggingObserver;
-    private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private CompositeDisposable uiUpdatesCompositeDisposable;
     private Button toggleButton;
     private ProgressBar connectionProgressBar;
     private Button openBrowserButton;
@@ -170,7 +163,14 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         viewPager.post(() ->
                 viewPager.setCurrentItem(multiProcessPreferences.getInt(CURRENT_TAB, 0), false));
 
-        HandleCurrentIntent(getIntent());
+        // Schedule handling current intent when the main view is fully inflated
+        getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
+    }
+
+    @Override
+    public void onDestroy() {
+        compositeDisposable.dispose();
+        super.onDestroy();
     }
 
     @Override
@@ -178,7 +178,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         super.onPause();
         getContentResolver().unregisterContentObserver(loggingObserver);
         cancelInvalidProxySettingsToast();
-        compositeDisposable.clear();
+        uiUpdatesCompositeDisposable.dispose();
     }
 
     @Override
@@ -193,14 +193,15 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         // Load new logs from the logging provider when it changes
         getContentResolver().registerContentObserver(LoggingProvider.INSERT_URI, true, loggingObserver);
 
+        uiUpdatesCompositeDisposable = new CompositeDisposable();
         // Observe tunnel state changes to update UI
-        compositeDisposable.add(viewModel.tunnelStateFlowable()
+        uiUpdatesCompositeDisposable.add(viewModel.tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(this::updateServiceStateUI)
                 .subscribe());
 
         // Observe custom proxy validation results to show a toast for invalid ones
-        compositeDisposable.add(viewModel.customProxyValidationResultFlowable()
+        uiUpdatesCompositeDisposable.add(viewModel.customProxyValidationResultFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(isValidResult -> {
                     if (!isValidResult) {
@@ -213,7 +214,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .subscribe());
 
         // Observe link clicks in the embedded web view to open in the external browser
-        compositeDisposable.add(viewModel.externalBrowserUrlFlowable()
+        uiUpdatesCompositeDisposable.add(viewModel.externalBrowserUrlFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(url -> displayBrowser(this, url))
                 .subscribe());
@@ -221,45 +222,9 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         boolean shouldAutoStart = shouldAutoStart();
         preventAutoStart();
 
-        // Check if user previously ran in browser-only mode
-        boolean wantVPN = multiProcessPreferences
-                .getBoolean(getString(R.string.tunnelWholeDevicePreference),
-                        true);
-        if (wantVPN) {
-            // Auto-start on app first run
-            if (shouldAutoStart) {
-                startTunnel();
-            }
-        } else {
-            // Legacy case: do not auto-start if last preference was BOM
-            // Instead switch to the options tab and display a dialog with the help information
-            selectTabByTag("settings");
-            LayoutInflater inflater = this.getLayoutInflater();
-            View dialogView = inflater.inflate(R.layout.legacy_bom_alert_view_layout, null);
-            TextView tv = dialogView.findViewById(R.id.legacy_mode_alert_tv);
-            String text = getString(R.string.legacy_bom_alert_message, getString(R.string.app_name));
-            String formattedText = text.replaceAll("\n", "\n\n");
-            SpannableString spannableString = new SpannableString(formattedText);
-
-            Matcher matcher = Pattern.compile("\n\n").matcher(formattedText);
-            while (matcher.find()) {
-                spannableString.setSpan(new AbsoluteSizeSpan(10, true), matcher.start() + 1, matcher.end(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            }
-            tv.setText(spannableString);
-            AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                    .setView(dialogView)
-                    // We are displaying important information to the user, so make sure the dialog
-                    // is not dismissed accidentally as it won't be shown again.
-                    .setCancelable(false)
-                    .setPositiveButton(R.string.label_ok, null)
-                    .setOnDismissListener(dialog ->
-                            multiProcessPreferences.remove(getString(R.string.tunnelWholeDevicePreference)));
-            // Add 'VPN settings' button if VPN exclusions are supported
-            if (Utils.supportsVpnExclusions()) {
-                builder.setNegativeButton(R.string.label_vpn_settings, (dialog, which) ->
-                        viewModel.signalOpenVpnSettings());
-            }
-            builder.show();
+        // Auto-start on app first run
+        if (shouldAutoStart) {
+            startTunnel();
         }
     }
 
@@ -382,6 +347,14 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         if (intent == null || intent.getAction() == null) {
             return;
         }
+        // Handle external deep links first
+        // Examples:
+        // psiphon://settings
+        // psiphon://settings/vpn
+        if (handleDeepLinkIntent(intent)) {
+            return;
+        }
+
         // MainActivity is exposed to other apps because it is declared as an entry point activity of the app in the manifest.
         // For the purpose of handling internal intents, such as handshake, etc., from the tunnel service we have declared a not
         // exported activity alias 'com.psiphon3.psiphonlibrary.TunnelIntentsHandler' that should act as a proxy for MainActivity.
@@ -426,6 +399,49 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_VPN_REVOKED)) {
             showVpnAlertDialog(R.string.StatusActivity_VpnRevokedTitle, R.string.StatusActivity_VpnRevokedMessage);
         }
+    }
+
+    private boolean handleDeepLinkIntent(@NonNull Intent intent) {
+        final String FWD_SLASH = "/";
+
+        final String PSIPHON_SCHEME = "psiphon";
+
+        final String SETTINGS_HOST = "settings";
+        final String SETTINGS_PATH_VPN = "/vpn";
+        final String SETTINGS_PATH_PROXY = "/proxy";
+        final String SETTINGS_PATH_MORE_OPTIONS = "/more-options";
+
+        Uri intentUri = intent.getData();
+        // Check if this is a deep link intent we can handle
+        if (!Intent.ACTION_VIEW.equals(intent.getAction()) ||
+                intentUri == null ||
+                !PSIPHON_SCHEME.equals(intentUri.getScheme())) {
+            // Intent not handled
+            return false;
+        }
+
+        String path = intentUri.getPath();
+
+        switch (intentUri.getHost()) {
+            case SETTINGS_HOST:
+                selectTabByTag("settings");
+                if (path != null) {
+                    // If uri path is "/vpn" or "/vpn/.*" then signal to navigate to VPN settings screen.
+                    // If the path is "/proxy" or "/proxy/.*" then signal to navigate to Proxy settings screen.
+                    // If the path is "/more-options" or "/more-options/.*" then signal to navigate to More Options screen.
+                    if (path.equals(SETTINGS_PATH_VPN) || path.startsWith(SETTINGS_PATH_VPN + FWD_SLASH)) {
+                        viewModel.signalOpenVpnSettings();
+                    } else if (path.equals(SETTINGS_PATH_PROXY) || path.startsWith(SETTINGS_PATH_PROXY + FWD_SLASH)) {
+                        viewModel.signalOpenProxySettings();
+                    } else if (path.equals(SETTINGS_PATH_MORE_OPTIONS) || path.startsWith(SETTINGS_PATH_MORE_OPTIONS)) {
+                        viewModel.signalOpenMoreOptions();
+                    }
+                }
+                // intent handled
+                return true;
+        }
+        // intent not handled
+        return false;
     }
 
     private void showVpnAlertDialog(int titleId, int messageId) {

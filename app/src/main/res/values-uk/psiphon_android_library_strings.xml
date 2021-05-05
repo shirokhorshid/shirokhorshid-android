@@ -70,6 +70,12 @@
   <string name="region_name_pl">Польща</string>
   <string name="region_name_sk">Словаччина</string>
   <string name="region_name_au">Австралія</string>
+  <string name="region_name_ae">Об\'єднані Арабські Емірати</string>
+  <string name="region_name_ar">Аргентина</string>
+  <string name="region_name_br">Бразилія</string>
+  <string name="region_name_cl">Чилі</string>
+  <string name="region_name_ke">Кенія</string>
+  <string name="region_name_mx">Мексика</string>
   <string name="about">Про Psiphon</string>
   <string name="feedback">Відгуки</string>
   <string name="disableTimeoutsPreferenceSummary">Вимкнути час очікування для повільних мереж</string>

@@ -73,6 +73,17 @@
   <string name="region_name_sk">स्लोवाकिया</string>
   <string name="region_name_rs">सर्बिआ</string>
   <string name="region_name_au">ऑस्ट्रेलिया</string>
+  <string name="region_name_ae">संयुक्त अरब अमीरात</string>
+  <string name="region_name_ar">अर्जेंटीना</string>
+  <string name="region_name_br">ब्राज़िल</string>
+  <string name="region_name_cl">चिली</string>
+  <string name="region_name_fi">फ़िनलैंड</string>
+  <string name="region_name_is">आइसलैंड</string>
+  <string name="region_name_ie">आयरलैंड</string>
+  <string name="region_name_ke">केन्या</string>
+  <string name="region_name_mx">मेक्सिको</string>
+  <string name="region_name_tw">ताइवान</string>
+  <string name="region_name_za">दक्षिण अफ्रीका</string>
   <string name="about">Psiphon के बारे में</string>
   <string name="feedback">प्रतिक्रिया</string>
   <string name="disableTimeoutsPreferenceSummary">धीमे नेटवर्क के लिए टाइमआउट अक्षम करें</string>

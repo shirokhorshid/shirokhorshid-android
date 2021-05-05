@@ -150,23 +150,32 @@ public class RegionListPreference extends Preference {
         allRegions = new HashMap<>();
         allRegions.put(PsiphonConstants.REGION_CODE_ANY, new Region(PsiphonConstants.REGION_CODE_ANY,
                 R.string.region_name_any, R.drawable.flag_unknown));
+        allRegions.put("AE", new Region("AE", R.string.region_name_ae, R.drawable.flag_ae));
+        allRegions.put("AR", new Region("AR", R.string.region_name_ar, R.drawable.flag_ar));
         allRegions.put("AT", new Region("AT", R.string.region_name_at, R.drawable.flag_at));
         allRegions.put("AU", new Region("AU", R.string.region_name_au, R.drawable.flag_au));
         allRegions.put("BE", new Region("BE", R.string.region_name_be, R.drawable.flag_be));
         allRegions.put("BG", new Region("BG", R.string.region_name_bg, R.drawable.flag_bg));
+        allRegions.put("BR", new Region("BR", R.string.region_name_br, R.drawable.flag_br));
         allRegions.put("CA", new Region("CA", R.string.region_name_ca, R.drawable.flag_ca));
         allRegions.put("CH", new Region("CH", R.string.region_name_ch, R.drawable.flag_ch));
+        allRegions.put("CL", new Region("CL", R.string.region_name_cl, R.drawable.flag_cl));
         allRegions.put("CZ", new Region("CZ", R.string.region_name_cz, R.drawable.flag_cz));
         allRegions.put("DE", new Region("DE", R.string.region_name_de, R.drawable.flag_de));
         allRegions.put("DK", new Region("DK", R.string.region_name_dk, R.drawable.flag_dk));
         allRegions.put("ES", new Region("ES", R.string.region_name_es, R.drawable.flag_es));
+        allRegions.put("FI", new Region("FI", R.string.region_name_fi, R.drawable.flag_fi));
         allRegions.put("FR", new Region("FR", R.string.region_name_fr, R.drawable.flag_fr));
         allRegions.put("GB", new Region("GB", R.string.region_name_gb, R.drawable.flag_gb));
-        allRegions.put("HK", new Region("HK", R.string.region_name_hk, R.drawable.flag_hk));
         allRegions.put("HU", new Region("HU", R.string.region_name_hu, R.drawable.flag_hu));
+        allRegions.put("IE", new Region("IE", R.string.region_name_ie, R.drawable.flag_ie));
         allRegions.put("IN", new Region("IN", R.string.region_name_in, R.drawable.flag_in));
+        allRegions.put("IS", new Region("IS", R.string.region_name_is, R.drawable.flag_is));
         allRegions.put("IT", new Region("IT", R.string.region_name_it, R.drawable.flag_it));
         allRegions.put("JP", new Region("JP", R.string.region_name_jp, R.drawable.flag_jp));
+        allRegions.put("KE", new Region("KE", R.string.region_name_ke, R.drawable.flag_ke));
+        allRegions.put("KR", new Region("KR", R.string.region_name_kr, R.drawable.flag_kr));
+        allRegions.put("MX", new Region("MX", R.string.region_name_mx, R.drawable.flag_mx));
         allRegions.put("NL", new Region("NL", R.string.region_name_nl, R.drawable.flag_nl));
         allRegions.put("NO", new Region("NO", R.string.region_name_no, R.drawable.flag_no));
         allRegions.put("PL", new Region("PL", R.string.region_name_pl, R.drawable.flag_pl));
@@ -175,7 +184,9 @@ public class RegionListPreference extends Preference {
         allRegions.put("SE", new Region("SE", R.string.region_name_se, R.drawable.flag_se));
         allRegions.put("SG", new Region("SG", R.string.region_name_sg, R.drawable.flag_sg));
         allRegions.put("SK", new Region("SK", R.string.region_name_sk, R.drawable.flag_sk));
+        allRegions.put("TW", new Region("TW", R.string.region_name_tw, R.drawable.flag_tw));
         allRegions.put("US", new Region("US", R.string.region_name_us, R.drawable.flag_us));
+        allRegions.put("ZA", new Region("ZA", R.string.region_name_za, R.drawable.flag_za));
     }
 
 

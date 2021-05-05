@@ -71,6 +71,17 @@
   <string name="region_name_sk">슬로바키아</string>
   <string name="region_name_rs">세르비아</string>
   <string name="region_name_au">오스트레일리아</string>
+  <string name="region_name_ae">아랍 에미리트 연합</string>
+  <string name="region_name_ar">아르헨티나</string>
+  <string name="region_name_br">브라질</string>
+  <string name="region_name_cl">칠레</string>
+  <string name="region_name_fi">필란드</string>
+  <string name="region_name_is">아이스란드</string>
+  <string name="region_name_ie">아일랜드</string>
+  <string name="region_name_ke">케냐</string>
+  <string name="region_name_mx">멕시코</string>
+  <string name="region_name_tw">대마</string>
+  <string name="region_name_za">남아프리카</string>
   <string name="about">Psiphon에 대하여</string>
   <string name="feedback">피드백</string>
   <string name="network_proxy_connect_invalid_values">유효하지 않은 HTTP Proxy 설정</string>

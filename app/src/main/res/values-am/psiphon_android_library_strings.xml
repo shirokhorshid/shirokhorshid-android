@@ -73,6 +73,9 @@
   <string name="region_name_sk">ስሎቫኪያ</string>
   <string name="region_name_rs">ሰርቢያ</string>
   <string name="region_name_au">አውስትራሊያ</string>
+  <string name="region_name_ae">የተባበሩት አረብ ኤምሬቶች</string>
+  <string name="region_name_br">ብራዚል</string>
+  <string name="region_name_mx">ሜክሲኮ</string>
   <string name="about">ስለ Psiphon</string>
   <string name="feedback">ግብረመልስ</string>
   <string name="disableTimeoutsPreferenceSummary">ለዝግተኛ አውታረመረቦች የጊዜ እረፍቶችን አቦዝን</string>

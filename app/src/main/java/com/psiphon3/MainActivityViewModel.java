@@ -10,10 +10,8 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import com.jakewharton.rxrelay2.PublishRelay;
-import com.psiphon3.psiphonlibrary.LoggingProvider;
 import com.psiphon3.psiphonlibrary.TunnelServiceInteractor;
 import com.psiphon3.psiphonlibrary.UpstreamProxySettings;
-import com.psiphon3.psiphonlibrary.Utils;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -23,6 +21,8 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     private final PublishRelay<Boolean> customProxyValidationResultRelay = PublishRelay.create();
     private final PublishRelay<Object> availableRegionsSelectionRelay = PublishRelay.create();
     private final PublishRelay<Object> openVpnSettingsRelay = PublishRelay.create();
+    private final PublishRelay<Object> openProxySettingsRelay = PublishRelay.create();
+    private final PublishRelay<Object> openMoreOptionsRelay = PublishRelay.create();
     private PublishRelay<String> externalBrowserUrlRelay = PublishRelay.create();
     private PublishRelay<String> lastLogEntryRelay = PublishRelay.create();
     private boolean isFirstRun = true;
@@ -109,6 +109,22 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
 
     public Flowable<Object> openVpnSettingsFlowable() {
         return openVpnSettingsRelay.toFlowable(BackpressureStrategy.LATEST);
+    }
+
+    public void signalOpenProxySettings() {
+        openProxySettingsRelay.accept(new Object());
+    }
+
+    public Flowable<Object> openProxySettingsFlowable() {
+        return openProxySettingsRelay.toFlowable(BackpressureStrategy.LATEST);
+    }
+
+    public void signalOpenMoreOptions() {
+        openMoreOptionsRelay.accept(new Object());
+    }
+
+    public Flowable<Object> openMoreOptionsFlowable() {
+        return openMoreOptionsRelay.toFlowable(BackpressureStrategy.LATEST);
     }
 
     public void signalExternalBrowserUrl(String url) {

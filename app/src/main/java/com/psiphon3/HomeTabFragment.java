@@ -31,9 +31,11 @@ import java.util.TimerTask;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 
 public class HomeTabFragment extends Fragment {
     private MainActivityViewModel viewModel;
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private ViewFlipper sponsorViewFlipper;
     private ScrollView statusLayout;
     private ImageButton statusViewImage;
@@ -68,7 +70,7 @@ public class HomeTabFragment extends Fragment {
 
         // This Rx subscription observes tunnel state changes and updates the status UI,
         // it also loads sponsor home pages in the embedded web view if needed.
-        viewModel.tunnelStateFlowable()
+        compositeDisposable.add(viewModel.tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 // Update the connection status UI
                 .doOnNext(this::updateStatusUI)
@@ -108,19 +110,20 @@ public class HomeTabFragment extends Fragment {
                     return Flowable.just(url);
                 })
                 .doOnNext(this::loadEmbeddedWebView)
-                .subscribe();
+                .subscribe());
 
         // Observe last log entry to display.
         final TextView lastLogEntryTv = view.findViewById(R.id.lastlogline);
-        viewModel.lastLogEntryFlowable()
+        compositeDisposable.add(viewModel.lastLogEntryFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(lastLogEntryTv::setText)
-                .subscribe();
+                .subscribe());
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        compositeDisposable.dispose();
         if (sponsorHomePage != null) {
             sponsorHomePage.stop();
         }

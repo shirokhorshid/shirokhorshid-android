@@ -71,6 +71,17 @@
   <string name="region_name_sk">Slovakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Úc</string>
+  <string name="region_name_ae">United Arab Emirates</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Ba Tây</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_fi">Phần Lan</string>
+  <string name="region_name_is">Iceland</string>
+  <string name="region_name_ie">Ireland</string>
+  <string name="region_name_ke">Kenya</string>
+  <string name="region_name_mx">Mexico</string>
+  <string name="region_name_tw">Đài Loan</string>
+  <string name="region_name_za">Nam Phi</string>
   <string name="about">Giới thiệu về Psiphon</string>
   <string name="feedback">Ý kiến phản hồi</string>
   <string name="disableTimeoutsPreferenceSummary">Tắt hạn chờ cho mạng chậm</string>
