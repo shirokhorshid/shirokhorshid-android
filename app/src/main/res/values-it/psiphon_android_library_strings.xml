@@ -150,5 +150,6 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Ok</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No grazie</string>
+  <string name="preference_summary_no_proxy">Nessun proxy</string>
   <string name="disableTimeoutsPreferenceTitle">Disattiva timeout</string>
 </resources>

@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Pengaturan VPN salah</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Anda perlu memilih setidaknya satu aplikasi dalam mode ini!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Anda perlu setidaknya tidak memilih satu aplikasi dalam mode ini!</string>
-  <string name="legacy_zirco_export_pref_category_title">Pendukung Peremban Warisan</string>
-  <string name="legacy_bom_alert_heading">Peremban Psiphon tidak lagi tersedia</string>
-  <string name="legacy_bom_alert_message">Kami mendeteksi bahwa Anda menggunakan Peremban Psiphon yang terinstal dengan versi sebelumnya %1$s.\nIf versi Android Anda masih cukup baru (5.0 atau lebih) Anda dapat memilih peremban aplikasi jaringan yang sudah terinstal untuk tersambung melalui %1$s daripada.\nIf yang Anda markai atau riwayat peremban dari Peremban Psiphon yang mau Anda pertahankan, Anda dapat mengespor dalam Pilihan Lain (bagian \"Pendukung Peremban Warisan\" section).</string>
   <string name="vpn_exclusions_preference_not_available_summary">Perlu Android 5.0 atau lebih</string>
   <string name="vpn_always_on_preference_not_available_summary">Perlu Android 7.0 atau lebih</string>
   <string name="vpn_exclusions_tip_summary">Pilih hanya peremban saja untuk moda peremban klasik saja</string>
-  <string name="exportZircoPreferenceSummary">Klik disini untuk mengekspor marka Pendukung Peremban Warisan Psiphon dan riwayat ke penyimpanan data eksternal</string>
-  <string name="exportZircoPreferenceTitle">Expor data peremban</string>
 </resources>

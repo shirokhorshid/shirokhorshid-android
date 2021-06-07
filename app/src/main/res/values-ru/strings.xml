@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Ошибка в настройках VPN</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">В этом режиме нужно выбрать хотя бы одно приложение!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">В этом режиме нужно отменить выбор хотя бы одного приложения!</string>
-  <string name="legacy_zirco_export_pref_category_title">Поддержка устаревшего браузера</string>
-  <string name="legacy_bom_alert_heading">Psiphon Browser более недоступен</string>
-  <string name="legacy_bom_alert_message">Мы обнаружили, что вы использовали Psiphon Browser в прошлой версии %1$s.\nЕсли у вас свежая версия Android (5.0 или новее), можете выбрать любой установленный браузер для туннелирования через %1$s.\nЕсли от Psiphon Browser у вас остались закладки или история браузера и вы хотели бы их сохранить, можете воспользоваться экспортом в дополнительных настройках (раздел \"Поддержка устаревшего браузера\").</string>
   <string name="vpn_exclusions_preference_not_available_summary">Нужен Android 5.0 или новее</string>
   <string name="vpn_always_on_preference_not_available_summary">Нужен Android 7.0 или новее</string>
   <string name="vpn_exclusions_tip_summary">Выберите только один браузер для классического браузерного режима</string>
-  <string name="exportZircoPreferenceSummary">Нажмите, чтобы экспортировать закладки и историю Psiphon Browser во внешнее хранилище</string>
-  <string name="exportZircoPreferenceTitle">Экспорт данных браузера</string>
 </resources>

@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Mpangilio wa VPN sio sahihi</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Unatakiwa kuwa na angalau programu moja katika modi hii!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Unatakiwa kuwa na angalau programu moja katika modi hii!</string>
-  <string name="legacy_zirco_export_pref_category_title">Urithi wa msaada wa kivinjari</string>
-  <string name="legacy_bom_alert_heading">Psiphon kivinjari haipatikani tena</string>
-  <string name="legacy_bom_alert_message">Tumeweza kugundua kua ulikua unatumia Psiphon Kivinjari katika usanifishaji wa toleo la awali la %1$s.\nKama toleo la admin yako ni yakutosha hivi karibuni (5.0 au kubwa) unaeza kuchagua wavu yeyote iliyowekwa na programu kivinjari kua imesitishwa kupitia %1$s badala yake.\nKama una alama yeyote au historia ya kivinjari kutoka Psiphon kivinjari ungependelea kuhifadhi, unaweza kuzihamisha kwa chaguo tofauti (\"msaada wa urithi wa kivinjari\"  sehemu).</string>
   <string name="vpn_exclusions_preference_not_available_summary">Kuhitajika kwa admin 5.0 au iliyokubwa</string>
   <string name="vpn_always_on_preference_not_available_summary">Kuhitajika kwa admin 7.0 au iliyo kubwa</string>
   <string name="vpn_exclusions_tip_summary">Chagua kivinjari kimoja tu kwa modi ya kivinjari ya zamani</string>
-  <string name="exportZircoPreferenceSummary">Bonyeza hapa kuhamisha urithi wa Psiphon kivinjari alamisha na historia kwa uhifadhi wa data ya nje</string>
-  <string name="exportZircoPreferenceTitle">Hamisha kivinjari data</string>
 </resources>

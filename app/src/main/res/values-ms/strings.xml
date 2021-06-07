@@ -8,6 +8,7 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Gagal untuk menghantar maklumbalas</string>
   <string name="FeedbackActivity.InvalidURLParameters">Parameter URL adalah ralat di dalam borang maklumbalas</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Gagal untuk mendapatkan halaman maklumbalas</string>
+  <string name="ads_consent_preference_dialog_title">Tetap Semula</string>
   <string name="preference_language_selection_title">Bahasa</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Baiklah</string>

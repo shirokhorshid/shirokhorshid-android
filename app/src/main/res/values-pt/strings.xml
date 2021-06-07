@@ -8,6 +8,8 @@
   <string name="FeedbackActivity.SubmitFeedbackFailed">Não foi possível enviar o comentário</string>
   <string name="FeedbackActivity.InvalidURLParameters">Parâmetros do URL inválidos na submissão do formulário do comentário</string>
   <string name="FeedbackActivity.GetHTMLContentFailed">Não foi possível obter o conteúdo da página do comentário</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN parou</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN não consegue iniciar</string>
   <string name="ads_consent_preference_dialog_title">Reiniciar</string>
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_default_language">Idioma predefinido</string>
@@ -25,6 +27,7 @@
   <!--"Selected region is not available" notification title-->
   <!--Message shown in notification informing the user that selected region is not currently available-->
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN parou</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <!--Description for an app icon image-->
 </resources>

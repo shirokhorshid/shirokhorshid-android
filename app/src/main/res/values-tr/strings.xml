@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">VPN ayarı geçersiz</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Bu model için en az bir uygulama seçmeniz gerekir</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Bu model için en az bir uygulamayı bırakmanız gerekir</string>
-  <string name="legacy_zirco_export_pref_category_title">Eski Tarayıcı Desteği</string>
-  <string name="legacy_bom_alert_heading">Psiphon Tarayıcı artık kullanılamıyor</string>
-  <string name="legacy_bom_alert_message">Önceden kurulmuş %1$s sürümünde Psiphon Tarayıcı kullandığınız algılandı.\nAndroid sürümünüz yeterince yeniyse (5.0 ya da üzeri), kurulu herhangi bir web tarayıcısını seçerek %1$s üzerinden tünel kullanmasını sağlayabilirsiniz.\nPhiphon Tarayıcıdaki yer imlerini ve göz atma geçmişini korumak istiyorsanız, bunları Diğer Ayarlar bölümünden (\"Eski Tarayıcı Desteği\") dışa aktarabilirsiniz.</string>
   <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ya da üzeri bir sürüm gerekiyor</string>
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ya da üzeri bir sürüm gerekiyor</string>
   <string name="vpn_exclusions_tip_summary">Klasik salt-tarayıcı kipi için yalnız bir tarayıcı seçin</string>
-  <string name="exportZircoPreferenceSummary">Eski Psiphon Tarayıcı yer imleri ve geçmişini bir dış depolamaya aktarmak için buraya tıklayın</string>
-  <string name="exportZircoPreferenceTitle">Tarayıcı verilerini dışa aktar</string>
 </resources>
