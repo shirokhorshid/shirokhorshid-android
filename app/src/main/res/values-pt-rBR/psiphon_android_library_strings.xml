@@ -71,6 +71,17 @@
   <string name="region_name_sk">Eslováquia</string>
   <string name="region_name_rs">Sérvia</string>
   <string name="region_name_au">Austrália</string>
+  <string name="region_name_ae">Emirados Árabes Unidos</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Brasil</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_fi">Finlândia</string>
+  <string name="region_name_is">Islândia</string>
+  <string name="region_name_ie">Irlanda</string>
+  <string name="region_name_ke">Quênia</string>
+  <string name="region_name_mx">México</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">África do Sul</string>
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentários</string>
   <string name="disableTimeoutsPreferenceSummary">Desabilitar \"Expiração de tempo\" para redes lentas</string>
@@ -125,4 +136,5 @@
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Não, obrigado!</string>
   <string name="label_proxy_settings">Configurações do Proxy</string>
+  <string name="preference_summary_no_proxy">Sem proxy</string>
 </resources>

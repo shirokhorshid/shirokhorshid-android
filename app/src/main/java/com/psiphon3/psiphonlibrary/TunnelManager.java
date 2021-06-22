@@ -28,10 +28,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkInfo;
-import android.net.NetworkRequest;
 import android.net.VpnService;
 import android.net.VpnService.Builder;
 import android.os.Build;
@@ -75,8 +71,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public class TunnelManager implements PsiphonTunnel.HostService {
     // Android IPC messages
@@ -170,8 +164,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     private BehaviorRelay<Boolean> m_tunnelConnectedBehaviorRelay = BehaviorRelay.create();
     private PublishRelay<Object> m_newClientPublishRelay = PublishRelay.create();
     private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
-    private ConnectivityManager.NetworkCallback networkCallback;
-    private AtomicBoolean m_waitingForConnectivity = new AtomicBoolean(false);
     private VpnAppsUtils.VpnAppsExclusionSetting vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
     private int vpnAppsExclusionCount = 0;
 
@@ -796,7 +788,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             m_tunnel.startTunneling(getServerEntries(m_parentService));
             m_startedTunneling.set(true);
-            startNetworkStateMonitoring();
             try {
                 m_tunnelThreadStopSignal.await();
             } catch (InterruptedException e) {
@@ -812,7 +803,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         } finally {
             MyLog.v(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
-            stopNetworkStateMonitoring();
             m_isStopping.set(true);
             m_tunnelConnectedBehaviorRelay.accept(false);
             m_tunnel.stop();
@@ -844,67 +834,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         });
     }
 
-    private void startNetworkStateMonitoring() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ConnectivityManager connectivityManager =
-                    (ConnectivityManager) m_parentService.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (connectivityManager == null) {
-                return;
-            }
-            networkCallback = new ConnectivityManager.NetworkCallback() {
-                @Override
-                public void onLost(Network network) {
-                    if (m_waitingForConnectivity.get()) {
-                        // Already waiting for connectivity, do not restart
-                        return;
-                    }
-                    NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-                    boolean needRestart = networkInfo == null || !networkInfo.isConnected();
-                    if (needRestart) {
-                        m_Handler.post(() -> {
-                            try {
-                                m_tunnel.restartPsiphon();
-                            } catch (PsiphonTunnel.Exception e) {
-                                MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
-                            }
-                        });
-                    }
-                }
-            };
-            NetworkRequest networkRequest = new NetworkRequest.Builder()
-                    .addCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                    .build();
-            try {
-                connectivityManager.registerNetworkCallback(networkRequest, networkCallback);
-            } catch (RuntimeException e) {
-                // Could be a security exception or any other runtime exception on customized firmwares.
-                MyLog.g("TunnelManager: failed to register network callback: " + e);
-                networkCallback = null;
-            }
-        }
-    }
-
-    private void stopNetworkStateMonitoring() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (networkCallback == null) {
-                return;
-            }
-            ConnectivityManager connectivityManager =
-                    (ConnectivityManager) m_parentService.getSystemService(Context.CONNECTIVITY_SERVICE);
-            if (connectivityManager == null) {
-                return;
-            }
-            // Note: ConnectivityManager.unregisterNetworkCallback may throw
-            // "java.lang.IllegalArgumentException: NetworkCallback was not registered"
-            // but this scenario should be handled in the startNetworkStateMonitoring() above.
-            //
-            // Crash if any other error condition encountered, the service is getting stopped at
-            // this point, so it is less of a concern.
-            connectivityManager.unregisterNetworkCallback(networkCallback);
-        }
-    }
-
-
     @Override
     public String getAppName() {
         return m_parentService.getString(R.string.app_name);
@@ -924,8 +853,18 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     public Builder newVpnServiceBuilder() {
         Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
         // only can control tunneling post lollipop
-        if (Build.VERSION.SDK_INT < LOLLIPOP) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             return vpnBuilder;
+        }
+
+//        Added on API 29:
+//        Marks the VPN network as metered. A VPN network is classified as metered when the user is
+//        sensitive to heavy data usage due to monetary costs and/or data limitations. In such cases,
+//        you should set this to true so that apps on the system can avoid doing large data transfers.
+//        Otherwise, set this to false. Doing so would cause VPN network to inherit its meteredness
+//        from its underlying networks.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            vpnBuilder.setMetered(false);
         }
 
         Context context = getContext();
@@ -1061,7 +1000,11 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             json.put("ExchangeObfuscationKey", EmbeddedValues.SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY);
 
             if (useUpstreamProxy) {
-                json.put("UpstreamProxyUrl", UpstreamProxySettings.getUpstreamProxyUrl(context));
+                if (UpstreamProxySettings.getUseHTTPProxy(context)) {
+                    if (UpstreamProxySettings.getProxySettings(context) != null) {
+                        json.put("UpstreamProxyUrl", UpstreamProxySettings.getUpstreamProxyUrl(context));
+                    }
+                }
             }
 
             json.put("EmitDiagnosticNotices", true);
@@ -1391,15 +1334,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             @Override
             public void run() {
                 MyLog.v(R.string.waiting_for_network_connectivity, MyLog.Sensitivity.NOT_SENSITIVE);
-
                 sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
-                m_waitingForConnectivity.set(true);
             }
         });
     }
 
     @Override
     public void onStoppedWaitingForNetworkConnectivity() {
-        m_waitingForConnectivity.set(false);
     }
 }

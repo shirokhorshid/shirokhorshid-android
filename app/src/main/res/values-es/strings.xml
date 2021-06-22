@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Ajuste de VPN inválido</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">¡Necesita tener al menos una aplicación seleccionada en este modo!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">¡Necesita tener al menos una aplicación deseleccionada en este modo!</string>
-  <string name="legacy_zirco_export_pref_category_title">Soporte para Navegador Obsoleto</string>
-  <string name="legacy_bom_alert_heading">Navegador Psiphon ya no está disponible</string>
-  <string name="legacy_bom_alert_message">Hemos detectado que estabas usando Psiphon Browser en la versión previamente instalada de %1$s.\nIf Tu versión de Android es suficientemente reciente (5.0 o superior), por lo que en vez puedes seleccionar cualquier aplicación de navegador web instalada para ser dirigida a través de %1$s.\n Si tienes cualquier marcador o historial de navegación de Psiphon Browser que quisieras mantener, puedes exportarlos en Más Opciones (sección \"Soporte para Navegador Obsoleto\").</string>
   <string name="vpn_exclusions_preference_not_available_summary">Requiere Android 5.0 o superior</string>
   <string name="vpn_always_on_preference_not_available_summary">Requiere Android 7.0 o superior</string>
   <string name="vpn_exclusions_tip_summary">Selecciona solo un navegador para el modo clásico solo-navegador</string>
-  <string name="exportZircoPreferenceSummary">Haz clic aquí para exportar marcadores obsoletos e historial de Psiphon Browser a almacenamiento de datos externo</string>
-  <string name="exportZircoPreferenceTitle">Exportar datos de navegador</string>
 </resources>

@@ -71,6 +71,17 @@
   <string name="region_name_sk">Slowakiýa</string>
   <string name="region_name_rs">Serbiýa</string>
   <string name="region_name_au">Awstraliýa</string>
+  <string name="region_name_ae">Birleşen Arap Emirlikleri</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Braziliýa</string>
+  <string name="region_name_cl">Çili</string>
+  <string name="region_name_fi">Finlýandiýa</string>
+  <string name="region_name_is">Islandiýa</string>
+  <string name="region_name_ie">Irlandiýa</string>
+  <string name="region_name_ke">Keniýa</string>
+  <string name="region_name_mx">Meksika</string>
+  <string name="region_name_tw">Taýwan</string>
+  <string name="region_name_za">Günorta Afrika</string>
   <string name="about">Psiphon hakynda</string>
   <string name="feedback">Seslenme</string>
   <string name="disableTimeoutsPreferenceSummary">Yuwaş network üçin goşmaça wagtalmalary öçür </string>

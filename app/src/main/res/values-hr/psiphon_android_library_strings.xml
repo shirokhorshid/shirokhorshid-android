@@ -72,6 +72,17 @@
   <string name="region_name_sk">Slovačka</string>
   <string name="region_name_rs">Srbija</string>
   <string name="region_name_au">Australija</string>
+  <string name="region_name_ae">Ujedinjeni Arapski Emirati</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Brazil</string>
+  <string name="region_name_cl">Čile</string>
+  <string name="region_name_fi">Finska</string>
+  <string name="region_name_is">Island</string>
+  <string name="region_name_ie">Irska</string>
+  <string name="region_name_ke">Kenija</string>
+  <string name="region_name_mx">Meksiko</string>
+  <string name="region_name_tw">Tajvan</string>
+  <string name="region_name_za">Južna Afrika</string>
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
   <string name="disableTimeoutsPreferenceSummary">Onemogući pauze za spore mreže</string>

@@ -34,6 +34,17 @@
   <string name="region_name_pl">โปแลนด์</string>
   <string name="region_name_rs">เซอร์เบีย</string>
   <string name="region_name_au">ออสเตรเลีย</string>
+  <string name="region_name_ae">สหรัฐอาหรับเอมิเรสต์</string>
+  <string name="region_name_ar">อาร์เจนตินา</string>
+  <string name="region_name_br">บราซิล</string>
+  <string name="region_name_cl">ชิลี</string>
+  <string name="region_name_fi">ฟินแลนด์</string>
+  <string name="region_name_is">ไอซ์แลนด์</string>
+  <string name="region_name_ie">ไอร์แลนด์</string>
+  <string name="region_name_ke">เคนยา</string>
+  <string name="region_name_mx">เม็กซิโก</string>
+  <string name="region_name_tw">ไต้หวัน</string>
+  <string name="region_name_za">แอฟริกาใต้</string>
   <string name="feedback">การตอบสนอง</string>
   <string name="preference_notifications_title">การแจ้งเตือน</string>
   <!--Description of option to tunnel everything-->

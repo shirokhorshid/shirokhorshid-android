@@ -155,14 +155,6 @@ def pull_app_translations():
     print(f'android-library-strings: DONE')
 
     transifexlib.process_resource(
-        'android-app-browser-strings',
-        APP_LANGS,
-        '../app/src/main/res/values/zirco_browser_strings.xml',
-        lambda lang: f'../app/src/main/res/values-{lang}/zirco_browser_strings.xml',
-        None) # no mutator
-    print(f'android-app-browser-strings: DONE')
-
-    transifexlib.process_resource(
         'psiphon-pro-android-strings',
         APP_LANGS,
         '../app/src/main/res/values/pro-strings.xml',

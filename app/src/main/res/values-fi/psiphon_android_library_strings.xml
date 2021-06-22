@@ -44,6 +44,8 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Hollanti</string>
+  <string name="region_name_br">Brasilia</string>
+  <string name="region_name_ie">Irlanti</string>
   <string name="about">Psiphon-ohjelmasta</string>
   <string name="feedback">Palaute</string>
   <string name="network_proxy_connect_invalid_values">Virheelliset HTTP-välityspalvelinasetukset</string>

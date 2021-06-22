@@ -15,6 +15,7 @@
   <string name="psiphon_service_notification_id">Notifikasi Layanan Psiphon</string>
   <string name="psiphon_service_notification_channel_name">Status Perubahan Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Pembaruan Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Peringatan Server Psiphon</string>
   <string name="vpn_service_running">Layanan VPN beroperasi</string>
   <string name="vpn_service_revoked">Layanan VPN dibatalkan</string>
   <string name="debug_message">%s</string>
@@ -72,9 +73,22 @@
   <string name="region_name_sk">Slowakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
+  <string name="region_name_ae">Uni Emirat Arab</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Brazil</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_fi">Finlandia</string>
+  <string name="region_name_is">Islandia</string>
+  <string name="region_name_ie">Irlandia</string>
+  <string name="region_name_ke">Kenya</string>
+  <string name="region_name_kr">Korea</string>
+  <string name="region_name_mx">Meksiko</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">Afrika Selatan</string>
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
   <string name="disableTimeoutsPreferenceSummary">Nonaktifkan batasan waktu (timeout) untuk jaringan lambat</string>
+  <string name="region_selector">Pilih wilayah server</string>
   <string name="network_proxy_connect_invalid_values">Setelan Proksi HTTP tak berlaku</string>
   <string name="tunnel_whole_device_exception">Perangkat Anda tidak mendukung pengalihan sambungan seluruh perangkat dikarenakan hilangnya VpnService API.</string>
   <string name="preference_notifications_title">Notifikasi</string>
@@ -106,8 +120,15 @@
     <item quantity="other">%d aplikasi tidak akan disertakan dalam VPN</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Mengalihkan semua aplikasi</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">Mengalihkan %d aplikasi</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d aplikasi dikeluarkan dari saluran</item>
+  </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">Semua aplikasi akan dialihkan lewat VPN</string>
   <string name="preference_notifications_with_sound_title">Suara</string>
   <string name="preference_notifications_with_sound_summary">Beri tanda suara saat status sambungan berubah</string>
@@ -145,6 +166,8 @@
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Oke</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Tidak makasih</string>
+  <string name="label_vpn_settings">Pengaturan VPN</string>
   <string name="label_proxy_settings">Seting proxy</string>
+  <string name="preference_summary_no_proxy">Tanpa proksi</string>
   <string name="disableTimeoutsPreferenceTitle">Menonaktifkan waktu habis</string>
 </resources>

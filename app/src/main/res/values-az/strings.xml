@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Səhv VPN ayarı</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Bu rejimdə ən azı bir tətbiq seçməniz lazımdır!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Bu rejimdə ən azı bir tətbiqin seçimini ləğv etməlisiniz!</string>
-  <string name="legacy_zirco_export_pref_category_title">Köhnə Veb-Bələdçi Dəstəyi</string>
-  <string name="legacy_bom_alert_heading">Psiphon Veb_bələdçisi artıq mövcud deyil</string>
-  <string name="legacy_bom_alert_message">Biz aşkar etdik ki, siz Psiphon Veb-Bələdçinin əvvəllər quraşırılmış %1$sversiyasından isifadə etmisiniz.\nƏgər Androidinizin versiyası daha yenidirsə (5.0 və yuxarı) %1$s üzərindən tunellənəcək hər hansı quraşdırılmış veb-bələdçinizi seçə bilərsiniz.\nƏgər Psiphon Veb-bələdçisindən saxlamaq istədiyiniz əlfəcin və ya tarixçə varsa onu Digər Ayarlar (\"Köhnə Veb_Bələdçi Dəstəyi\") bolməsində ixrac edə bilərsiniz.</string>
   <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 və ya yuxarı versiya tətləb olunur</string>
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 və ya yuxarı versiya tələb olunur</string>
   <string name="vpn_exclusions_tip_summary">\"Yalnız klassik veb_bələdçi\" rejimi üçün yalnız bir veb bələdçi seçin</string>
-  <string name="exportZircoPreferenceSummary">Psiphon veb bələdçisi əlfəcinlərini və tarixçəsini xarici yaddaşa ixrac etmək üçün buraya vurun</string>
-  <string name="exportZircoPreferenceTitle">Veb-bələdçi verilənlərinin ixracı</string>
 </resources>
