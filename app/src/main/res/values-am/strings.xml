@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">ተቀባይነት የሌለው የምናባዊ የግል አውታረ መረብ (ቪፒኤን) ቅንብር</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">በዚህ ሁነታ ቢያንስ አንድ መተግበሪያ መምረጥ ይገባዎታል!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">በዚህ ሁነታ ቢያንስ አንድ መተግበሪያ አለመምረጥ ይገባዎታል!</string>
-  <string name="legacy_zirco_export_pref_category_title">ለቅርስ አሳሽ ድጋፍ</string>
-  <string name="legacy_bom_alert_heading">Psiphon አሳሽ ከዚህ በኋላ አይገኝም።</string>
-  <string name="legacy_bom_alert_message">Psiphon አሳሽ ከዚህ በፊት የተጫነው %1$s ሥሪት ላይ እይተጠቀሙ እንደነበር ደርሰንበታል።\nየAndroid (አንድሮይድ)ዎ ሥሪት የቅርብ ግዜ ከሆነ (5.0 ወይም ከዚያ በላይ) ማንኛውንም የድር ማሰሻ መተግበሪያ በመምረጥ በ%1$s እንዲቦረቦር ማድረግ ይችላሉ።\n ከPsiphon አሳሽ ሊያስቀሩ የሚፈልጉት እልባቶች ወይም የአሰሳ ታሪክ ካለ ተጨማሪ ምርጫዎች (\"ቅርስ አሳሽ እገዛ\") ከሚለው ወደ ውጭ መላክ ይችላሉ።</string>
   <string name="vpn_exclusions_preference_not_available_summary">Android (አንድሮይድ) 5.0 ወይም ከዚያ በላይ ይጠይቃል</string>
   <string name="vpn_always_on_preference_not_available_summary">Android (አንድሮይድ) 7.0 ወይም ከዚያ በላይ ይጠይቃል</string>
   <string name="vpn_exclusions_tip_summary">አንድ አሳሽ ብቻ ይምረጡ ለዘመን አይሽሬ አሳሽ ሁነታ</string>
-  <string name="exportZircoPreferenceSummary">ቅርስ ከሆነው Psiphon አሳሽ ዕልባቶች እና ታሪክ ወደ ውጫዊ ውሂብ ክምችት ለመላክ እዚህ ጋር ጠቅ ያድርጉ።</string>
-  <string name="exportZircoPreferenceTitle">የአሳሽ ውሂብ ወደ ውጭ ላክ</string>
 </resources>

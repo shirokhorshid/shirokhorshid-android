@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">अमान्य VPN सेटिंग</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">आपको इस मोड में कम से कम एक ऐप का चयन करना होगा!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">आपको इस मोड में कम से कम एक ऐप अचयनित करना होगा!</string>
-  <string name="legacy_zirco_export_pref_category_title">विरासत ब्राउज़र का समर्थन</string>
-  <string name="legacy_bom_alert_heading">Psiphon ब्राउज़र अब उपलब्ध नहीं है</string>
-  <string name="legacy_bom_alert_message">हमें पता लगा है कि आप %1$sके पिछले इंस्टॉल किए गए संस्करण में Psiphon ब्राउज़र का इस्तेमाल कर रहे थे.\n अगर आपका Android संस्करण हाल ही में अपडेट किया गया है (Android 5.0 या अधिक), तोह फिर %1$s के द्वारा टनलिंग के लिए आप किसी भी इंस्टॉल किये गए वेब ब्राउज़र एप को चुन सकते हैं. \n यदि आपके पास Psiphon ब्राउज़र से कोई बुकमार्क या ब्राउज़िंग इतिहास है जिसको आप रखना चाहते हैं, तो आप उन्हें \"अधिक विकल्प\" (\"विरासत ब्राउज़र समर्थन\") वाले सेक्शन से निर्यात कर सकते है</string>
   <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 या अधिक की आवश्यकता है</string>
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 या अधिक की आवश्यकता है</string>
   <string name="vpn_exclusions_tip_summary">क्लासिक ब्राउज़र-ओनली मोड के लिए केवल एक ब्राउज़र का चयन करें</string>
-  <string name="exportZircoPreferenceSummary">विरासत Psiphon ब्राउज़र बुकमार्क और इतिहास को बाहरी डेटा स्टोरेज में निर्यात करने के लिए यहाँ क्लिक करें </string>
-  <string name="exportZircoPreferenceTitle">ब्राउज़र डेटा निर्यात करें</string>
 </resources>

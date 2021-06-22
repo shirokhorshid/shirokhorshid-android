@@ -136,4 +136,5 @@
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Não, obrigado!</string>
   <string name="label_proxy_settings">Configurações do Proxy</string>
+  <string name="preference_summary_no_proxy">Sem proxy</string>
 </resources>

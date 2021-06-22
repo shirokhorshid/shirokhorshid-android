@@ -49,14 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">ಅಮಾನ್ಯ VPN ಸಿದ್ಧತೆ</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">ಈ ಮೋಡ್‌ನಲ್ಲಿ ನೀವು ಕನಿಷ್ಟ ಒಂದು ಆ್ಯಪ್ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿಕೊಳ್ಳಬೇಕು!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">ಈ ಮೋಡ್‌ನಲ್ಲಿ ನೀವು ಆಯ್ಕೆ ಮಾಡದ ಕನಿಷ್ಠ ಒಂದು ಆ್ಯಪ್ ಹೊಂದಿರಬೇಕು!</string>
-  <string name="legacy_zirco_export_pref_category_title">ಹಳೆಯ ಬ್ರೌಸರ್ ಬೆಂಬಲ</string>
-  <string name="legacy_bom_alert_heading">Psiphon ಬ್ರೌಸರ್ ಇನ್ನು ಲಭ್ಯವಿಲ್ಲ</string>
-  <string name="legacy_bom_alert_message">ಈ ಹಿಂದೆ ಸ್ಥಾಪಿಸಲಾದ %1$s ಆವೃತ್ತಿಯಲ್ಲಿ ನೀವು Psiphon ಬ್ರೌಸರ್ ಅನ್ನು ಬಳಸುತ್ತಿರುವಿರಿ ಎಂದು ನಾವು ಪತ್ತೆ ಮಾಡಿದ್ದೇವೆ.
-ನಿಮ್ಮ ಆಂಡ್ರಾಯ್ಡ್ ಆವೃತ್ತಿಯು ಸಾಕಷ್ಟು ಇತ್ತೀಚಿನದಾಗಿದ್ದರೆ (5.0 ಅಥವಾ ಹೆಚ್ಚಿನದು) ನೀವು %1$s ಮೂಲಕ ಟನಲ್ ಮಾಡಲು ಯಾವುದೇ ವೆಬ್ ಬ್ರೌಸರ್ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದು.
-ನೀವು ಇರಿಸಿಕೊಳ್ಳಲು ಬಯಸುವ Psiphon ಬ್ರೌಸರ್‌ನಿಂದ ನೀವು ಯಾವುದೇ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಅಥವಾ ಬ್ರೌಸಿಂಗ್ ಇತಿಹಾಸವನ್ನು ಹೊಂದಿದ್ದರೆ, ನೀವು ಅವುಗಳನ್ನು ಹೆಚ್ಚಿನ ಆಯ್ಕೆಗಳಲ್ಲಿ (\"ಹಳೆಯ ಬ್ರೌಸರ್ ಬೆಂಬಲ\" ವಿಭಾಗ) ರಫ್ತು ಮಾಡಬಹುದು.</string>
   <string name="vpn_exclusions_preference_not_available_summary">ಆಂಡ್ರಾಯ್ಡ್ 5.0 ಅಥವಾ ಹೆಚ್ಚಿನ ಅಗತ್ಯವಿದೆ</string>
   <string name="vpn_always_on_preference_not_available_summary">ಆಂಡ್ರಾಯ್ಡ್ 7.0 ಅಥವಾ ಹೆಚ್ಚಿನ ಅಗತ್ಯವಿದೆ</string>
   <string name="vpn_exclusions_tip_summary">ಕ್ಲಾಸಿಕ್ ಬ್ರೌಸರ್-ಮಾತ್ರ ಮೋಡ್‌ಗಾಗಿ ಕೇವಲ ಒಂದೇ ಬ್ರೌಸರ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
-  <string name="exportZircoPreferenceSummary">ಹಳೆಯ Psiphon ಬ್ರೌಸರ್ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು ಮತ್ತು ಇತಿಹಾಸವನ್ನು ಬಾಹ್ಯ ಡೇಟಾ ಸಂಗ್ರಹಣೆಗೆ ರಫ್ತು ಮಾಡಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</string>
-  <string name="exportZircoPreferenceTitle">ಬ್ರೌಸರ್ ಡೇಟಾವನ್ನು ರಫ್ತು ಮಾಡಿ</string>
 </resources>

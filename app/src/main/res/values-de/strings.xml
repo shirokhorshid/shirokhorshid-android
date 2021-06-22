@@ -42,6 +42,4 @@
   <!--Description for an app icon image-->
   <string name="description_app_icon">App-Symbol</string>
   <string name="bad_vpn_exclusion_setting_alert_title">Ungültige VPN-Einstellungen</string>
-  <string name="legacy_bom_alert_heading">Psiphon Browser ist nicht mehr verfügbar</string>
-  <string name="exportZircoPreferenceTitle">Browserdaten exportieren</string>
 </resources>

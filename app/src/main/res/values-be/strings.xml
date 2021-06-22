@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Памылковыя налады VPN</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">У гэтым рэжыме трэба выбраць прынамсі адну праграму!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">У гэтым рэжыме трэба пакінуць невыбранай прынамсі адну праграму!</string>
-  <string name="legacy_zirco_export_pref_category_title">Падтрымка Legacy Browser</string>
-  <string name="legacy_bom_alert_heading">Браўзер Psiphon больш не даступны</string>
-  <string name="legacy_bom_alert_message">Мы заўважылі, што ў папярэдняй версіі %1$s вы карысталіся браўзерам Psiphon. Android (5.0 і наступныя версіі) цяпер дазвале тунеляваць любы з усталяваных вэб-браўзераў %1$s. Калі ў браўзеры Psiphon засталіся закладкі ці гісторыя, што вы хацелі б захаваць, іх можна экспартаваць праз меню \"Больш параметраў\" (раздзел \"падтрымка Legacy Browser\").</string>
   <string name="vpn_exclusions_preference_not_available_summary">Патрабуецца Android 5.0 ці наступныя версіі</string>
   <string name="vpn_always_on_preference_not_available_summary">Патрабуецца Android 7.0 ці наступныя версіі</string>
   <string name="vpn_exclusions_tip_summary">Для класічнага рэжыму (толькі браўзер) выберыце адзін браўзер</string>
-  <string name="exportZircoPreferenceSummary">Націсніце, каб экспартаваць закладкі і гісторыю з браўзера Psiphon на знешні носьбіт</string>
-  <string name="exportZircoPreferenceTitle">Экспартаваць дадзеныя браўзера</string>
 </resources>

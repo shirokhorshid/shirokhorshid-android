@@ -5,6 +5,8 @@
   <string name="start">Mula</string>
   <string name="stop">Henti</string>
   <string name="home_tab_name">Rumah</string>
+  <string name="settings_tab_name">Pilihan</string>
+  <string name="statistics_tab_name">Stat</string>
   <string name="preference_notifications_title">Notifications</string>
   <string name="preference_vpn_title">Apps</string>
   <!--Description of option to tunnel everything-->

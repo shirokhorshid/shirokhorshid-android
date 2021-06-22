@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">VPN ക്രമീകരണം അസാധുവാണ്</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">ഈ മോഡിൽ കുറഞ്ഞത് ഒരു ആപ്പെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതുണ്ട്!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">ഈ മോഡിൽ കുറഞ്ഞത് ഒരു ആപ്പെങ്കിലും തിരഞ്ഞെടുക്കാതെ ഇരിക്കേണ്ടതുണ്ട്!</string>
-  <string name="legacy_zirco_export_pref_category_title">ലെഗസി ബ്രൌസർ പിന്തുണ</string>
-  <string name="legacy_bom_alert_heading">Psiphon ബ്രൌസർ ഇനി ലഭ്യമല്ല</string>
-  <string name="legacy_bom_alert_message">മുമ്പ് ഇൻസ്റ്റാളുചെയ്‌ത %1$s എന്ന പതിപ്പിലാണ് നിങ്ങൾ Psiphon ബ്രൗസർ ഉപയോഗിക്കുന്നതെന്ന് ഞങ്ങൾ കണ്ടെത്തി.\nനിങ്ങളുടെ ആന്‍ഡ്രോയിഡ് പതിപ്പ് അടുത്തിടെയുള്ളതാണെങ്കില്‍ (5.0 അല്ലെങ്കിൽ അതിൽ കൂടുതൽ) പകരമായി നിങ്ങൾക്ക് ഇൻസ്റ്റാൾ ചെയ്തിട്ടുള്ള ഏതെങ്കിലും വെബ് ബ്രൌസർ ആപ്പ് തിരഞ്ഞെടുത്ത് %1$sലൂടെ  ടണല്‍ ചെയ്യാവുന്നതാണ്.‌\nനിങ്ങൾ സൂക്ഷിക്കാൻ ആഗ്രഹിക്കുന്ന എന്തെങ്കിലും അടയാളകുറിപ്പുകളോ ബ്രൗസിംഗ് ചരിത്രമോ Psiphon ബ്രൗസറിൽ ഉണ്ടെങ്കിൽ, നിങ്ങൾക്ക് അവ കൂടുതൽ ഐച്ഛികങ്ങളിൽ നിന്ന് എക്സ്പോര്‍ട്ട് ചെയ്യാൻ കഴിയും(\"ലെഗസി ബ്രൌസർ പിന്തുണ\" വിഭാഗം).</string>
   <string name="vpn_exclusions_preference_not_available_summary">ആന്‍ഡ്രോയിഡ് 5.0ഓ അതില്‍ കൂടിയതോ ആവശ്യമാണ്</string>
   <string name="vpn_always_on_preference_not_available_summary">ആന്‍ഡ്രോയിഡ് 7.0ഓ അതില്‍ കൂടിയതോ ആവശ്യമാണ്</string>
   <string name="vpn_exclusions_tip_summary">ക്ലാസിക് ബ്രൌസർ മാത്രമുള്ള മോഡിനായി ഒരു ബ്രൌസർ മാത്രം തിരഞ്ഞെടുക്കുക</string>
-  <string name="exportZircoPreferenceSummary">ലെഗസി Psiphon ബ്രൌസർ അടയാളക്കുറിപ്പുകളും ചരിത്രവും ബാഹ്യ ഡാറ്റ സംഭരണിയിലേക്ക് എക്സ്പോര്‍ട്ട് ചെയ്യുന്നതിന് ഇവിടെ ക്ലിക്കുചെയ്യുക</string>
-  <string name="exportZircoPreferenceTitle">ബ്രൌസര്‍ ഡാറ്റ എക്‌സ്‌പോർട്ടു ചെയ്യുക</string>
 </resources>

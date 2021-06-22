@@ -49,12 +49,7 @@
   <string name="bad_vpn_exclusion_setting_alert_title">Un paramètre RPV est invalide</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Au moins une appli doit être sélectionnée dans ce mode</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Au moins une appli doit être dessélectionnée dans ce mode</string>
-  <string name="legacy_zirco_export_pref_category_title">Prise en charge de l’ancien navigateur</string>
-  <string name="legacy_bom_alert_heading">Le Navigateur Psiphon n’est plus proposé</string>
-  <string name="legacy_bom_alert_message">Nous avons détecté que vous utilisez le Navigateur Psiphon dans la version de %1$s installée précédemment.\nSi votre version d’Android est assez récente (5.0 ou ultérieure), vous pouvez plutôt sélectionner n’importe quelle appli de navigateur Web installée pour qu’elle soit tunnellisée par %1$s.\nSi vous souhaitez conserver des marque-pages ou l’historique de navigation du Navigateur Psiphon, vous pouvez les exporter dans &gt; Plus d’options &gt; Prise en charge de l’ancien navigateur.</string>
   <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ou ultérieur est exigé</string>
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ou ultérieur est exigé</string>
   <string name="vpn_exclusions_tip_summary">Ne sélectionnez qu’un navigateur pour le mode classique « navigateur seulement »</string>
-  <string name="exportZircoPreferenceSummary">Cliquez ici pour exporter les marque-pages et l’historique de l’ancien Navigateur Psiphon vers une unité externe de stockage des données</string>
-  <string name="exportZircoPreferenceTitle">Exporter les données du navigateur</string>
 </resources>
