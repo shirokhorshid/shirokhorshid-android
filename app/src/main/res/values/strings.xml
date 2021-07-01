@@ -55,4 +55,15 @@
     <string name="vpn_exclusions_preference_not_available_summary">Requires Android 5.0 or greater</string>
     <string name="vpn_always_on_preference_not_available_summary">Requires Android 7.0 or greater</string>
     <string name="vpn_exclusions_tip_summary" >Select only one browser for classic browser-only mode</string>
+    <!-- Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic -->
+    <string name="unsafe_traffic_alert_notification_title">Unsafe traffic</string>
+
+    <!-- Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic -->
+    <string name="unsafe_traffic_alert_notification_message">Unsafe traffic detected! Click to learn more.</string>
+
+    <!-- Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic -->
+    <string name="unsafe_traffic_alert_dialog_title">Unsafe traffic</string>
+
+    <!-- Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic -->
+    <string name="unsafe_traffic_alert_dialog_message">Psiphon server has detected a potentially unsafe Internet activity originating from your device. Please, follow the links below to learn more</string>
 </resources>
