@@ -102,7 +102,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             //  VpnOptionsPreferenceActivity
             CheckBoxPreference unsafeTrafficAlertsCheckBox =
                     (CheckBoxPreference) preferences.findPreference(getString(R.string.unsafeTrafficAlertsOptInPreference));
-            unsafeTrafficAlertsCheckBox.setChecked(preferenceGetter.getBoolean(getString(R.string.unsafeTrafficAlertsOptInPreference), false));
+            unsafeTrafficAlertsCheckBox.setChecked(preferenceGetter.getBoolean(getString(R.string.unsafeTrafficAlertsOptInPreference), true));
 
             setupLanguageSelector(preferences);
             setupAbout(preferences);
