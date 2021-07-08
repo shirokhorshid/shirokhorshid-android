@@ -397,12 +397,14 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC)) {
             // Unsafe traffic intent from service notification
             if (!isFinishing()) {
-                 // Get action URLs from the intent
+                // Get subject and action URLs from the intent
                 Bundle extras = intent.getExtras();
-                ArrayList<String> actionUrls = null;
+                String unsafeTrafficSubject = "";
+                ArrayList<String> unsafeTrafficActionUrls = null;
                 if (extras != null ) {
-                    actionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
-                    if (actionUrls == null || actionUrls.isEmpty()) {
+                    unsafeTrafficSubject = extras.getString(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECT);
+                    unsafeTrafficActionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
+                    if (unsafeTrafficActionUrls == null || unsafeTrafficActionUrls.isEmpty()) {
                         // The list is null or empty, nothing to show.
                         // TODO: is this check necessary?
                         //  In TunnelManager we do not post a notification if the action links list is empty.
@@ -413,8 +415,9 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 LayoutInflater inflater = this.getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.unsafe_traffic_alert_layout, null);
                 TextView tv = dialogView.findViewById(R.id.textView);
-                for (String actionLinkUrl : actionUrls) {
-                    tv.append(String.format(Locale.US, "\n%s", actionLinkUrl));
+                tv.append(String.format(Locale.US, " %s\n", unsafeTrafficSubject));
+                for (String unsafeTrafficActionUrl : unsafeTrafficActionUrls) {
+                    tv.append(String.format(Locale.US, "\n%s", unsafeTrafficActionUrl));
                 }
 
                 new AlertDialog.Builder(this)

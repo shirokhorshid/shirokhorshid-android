@@ -113,7 +113,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     static final String DATA_TRANSFER_STATS_SLOW_BUCKETS_LAST_START_TIME = "dataTransferStatsSlowBucketsLastStartTime";
     static final String DATA_TRANSFER_STATS_FAST_BUCKETS = "dataTransferStatsFastBuckets";
     static final String DATA_TRANSFER_STATS_FAST_BUCKETS_LAST_START_TIME = "dataTransferStatsFastBucketsLastStartTime";
-    public static final String DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST = "actionUrls";
+    public static final String DATA_UNSAFE_TRAFFIC_SUBJECT = "dataUnsafeTrafficSubject";
+    public static final String DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST = "dataUnsafeTrafficActionUrls";
 
     void updateNotifications() {
         postServiceNotification(false, m_tunnelState.isConnected);
@@ -1076,6 +1077,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 json.put("NetworkLatencyMultiplierLambda", 0.1);
             }
 
+            json.put("EmitServerAlerts", true);
+
             return json.toString();
         } catch (JSONException e) {
             return null;
@@ -1371,8 +1374,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 // Display unsafe traffic alert notification
                 m_Handler.post(() -> {
                     // Create a bundle with action urls to add to the notification's pending intent
-                    final Bundle actionUrlsExtras = new Bundle();
-                    actionUrlsExtras.putStringArrayList(DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST, new ArrayList<>(actionURLs));
+                    final Bundle unsafeTrafficAlertExtras = new Bundle();
+                    unsafeTrafficAlertExtras.putString(DATA_UNSAFE_TRAFFIC_SUBJECT, subject);
+                    unsafeTrafficAlertExtras.putStringArrayList(DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST, new ArrayList<>(actionURLs));
 
                     // TODO: use a different notification icon for unsafe traffic alerts?
                     String notificationMessage = context.getString(R.string.unsafe_traffic_alert_notification_message);
@@ -1382,7 +1386,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                             .setContentText(notificationMessage)
                             .setStyle(new NotificationCompat.BigTextStyle().bigText(notificationMessage))
                             .setPriority(NotificationCompat.PRIORITY_MAX)
-                            .setContentIntent(getPendingIntent(m_parentService, INTENT_ACTION_UNSAFE_TRAFFIC, actionUrlsExtras))
+                            .setContentIntent(getPendingIntent(m_parentService, INTENT_ACTION_UNSAFE_TRAFFIC, unsafeTrafficAlertExtras))
                             .setAutoCancel(true)
                             .build();
 
