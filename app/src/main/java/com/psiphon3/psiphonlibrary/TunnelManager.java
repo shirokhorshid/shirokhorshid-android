@@ -1370,7 +1370,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             // Leave empty block for potentially easier merging
         } else if ("unsafe-traffic".equals(reason)) {
             final Context context = getContext();
-            if (Utils.getUnsafeTrafficAlertsOptInState(context) && actionURLs != null && !actionURLs.isEmpty()) {
+            if (Utils.getUnsafeTrafficAlertsOptInState(context)) {
                 // Display unsafe traffic alert notification
                 m_Handler.post(() -> {
                     // Create a bundle with action urls to add to the notification's pending intent

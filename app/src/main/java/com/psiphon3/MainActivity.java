@@ -404,20 +404,16 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 if (extras != null ) {
                     unsafeTrafficSubject = extras.getString(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECT);
                     unsafeTrafficActionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
-                    if (unsafeTrafficActionUrls == null || unsafeTrafficActionUrls.isEmpty()) {
-                        // The list is null or empty, nothing to show.
-                        // TODO: is this check necessary?
-                        //  In TunnelManager we do not post a notification if the action links list is empty.
-                        return;
-                    }
                 }
 
                 LayoutInflater inflater = this.getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.unsafe_traffic_alert_layout, null);
                 TextView tv = dialogView.findViewById(R.id.textView);
                 tv.append(String.format(Locale.US, " %s\n", unsafeTrafficSubject));
-                for (String unsafeTrafficActionUrl : unsafeTrafficActionUrls) {
-                    tv.append(String.format(Locale.US, "\n%s", unsafeTrafficActionUrl));
+                if (unsafeTrafficActionUrls != null) {
+                    for (String unsafeTrafficActionUrl : unsafeTrafficActionUrls) {
+                        tv.append(String.format(Locale.US, "\n%s", unsafeTrafficActionUrl));
+                    }
                 }
 
                 new AlertDialog.Builder(this)
