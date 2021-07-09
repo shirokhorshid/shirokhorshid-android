@@ -113,7 +113,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     static final String DATA_TRANSFER_STATS_SLOW_BUCKETS_LAST_START_TIME = "dataTransferStatsSlowBucketsLastStartTime";
     static final String DATA_TRANSFER_STATS_FAST_BUCKETS = "dataTransferStatsFastBuckets";
     static final String DATA_TRANSFER_STATS_FAST_BUCKETS_LAST_START_TIME = "dataTransferStatsFastBucketsLastStartTime";
-    public static final String DATA_UNSAFE_TRAFFIC_SUBJECT = "dataUnsafeTrafficSubject";
+    public static final String DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST = "dataUnsafeTrafficSubjects";
     public static final String DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST = "dataUnsafeTrafficActionUrls";
 
     void updateNotifications() {
@@ -170,6 +170,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
     private VpnAppsUtils.VpnAppsExclusionSetting vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
     private int vpnAppsExclusionCount = 0;
+    private ArrayList<String> unsafeTrafficSubjects;
+
 
     TunnelManager(Service parentService) {
         m_parentService = parentService;
@@ -177,6 +179,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_startedTunneling = new AtomicBoolean(false);
         m_isReconnect = new AtomicBoolean(false);
         m_isStopping = new AtomicBoolean(false);
+        unsafeTrafficSubjects = new ArrayList<>();
         // Note that we are requesting manual control over PsiphonTunnel.routeThroughTunnel() functionality.
         m_tunnel = PsiphonTunnel.newPsiphonTunnel(this, false);
     }
@@ -1375,7 +1378,14 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 m_Handler.post(() -> {
                     // Create a bundle with action urls to add to the notification's pending intent
                     final Bundle unsafeTrafficAlertExtras = new Bundle();
-                    unsafeTrafficAlertExtras.putString(DATA_UNSAFE_TRAFFIC_SUBJECT, subject);
+                    // Add the subject to the subjects list, but limit the size
+                    if (!unsafeTrafficSubjects.contains(subject)) {
+                        if (unsafeTrafficSubjects.size() >= 5) {
+                            unsafeTrafficSubjects.remove(0);
+                        }
+                        unsafeTrafficSubjects.add(subject);
+                    }
+                    unsafeTrafficAlertExtras.putStringArrayList(DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST, new ArrayList<>(unsafeTrafficSubjects));
                     unsafeTrafficAlertExtras.putStringArrayList(DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST, new ArrayList<>(actionURLs));
 
                     // TODO: use a different notification icon for unsafe traffic alerts?
@@ -1391,9 +1401,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                             .build();
 
                     if (mNotificationManager != null) {
-                        // TODO: Do not overwrite old action link urls with new ones, instead cache
-                        //  the list once per tunnel run and append new, non-duplicate ones?
-                        //  Also make sure the list is of finite, sane size.
                         mNotificationManager.notify(R.id.notification_id_unsafe_traffic_alert, notification);
                     }
                 });

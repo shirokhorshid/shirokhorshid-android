@@ -399,17 +399,22 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             if (!isFinishing()) {
                 // Get subject and action URLs from the intent
                 Bundle extras = intent.getExtras();
-                String unsafeTrafficSubject = "";
+                ArrayList<String> unsafeTrafficSubjects = null;
                 ArrayList<String> unsafeTrafficActionUrls = null;
                 if (extras != null ) {
-                    unsafeTrafficSubject = extras.getString(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECT);
+                    unsafeTrafficSubjects = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST);
                     unsafeTrafficActionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
                 }
 
                 LayoutInflater inflater = this.getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.unsafe_traffic_alert_layout, null);
                 TextView tv = dialogView.findViewById(R.id.textView);
-                tv.append(String.format(Locale.US, " %s\n", unsafeTrafficSubject));
+                if (unsafeTrafficSubjects != null) {
+                    tv.append(String.format(Locale.US, "\n"));
+                    for (String unsafeTrafficSubject : unsafeTrafficSubjects) {
+                        tv.append(String.format(Locale.US, "%s\n", unsafeTrafficSubject));
+                    }
+                }
                 if (unsafeTrafficActionUrls != null) {
                     for (String unsafeTrafficActionUrl : unsafeTrafficActionUrls) {
                         tv.append(String.format(Locale.US, "\n%s", unsafeTrafficActionUrl));
