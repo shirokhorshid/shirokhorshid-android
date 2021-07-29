@@ -77,11 +77,13 @@
   <string name="region_name_ar"> አርጀንቲና</string>
   <string name="region_name_br">ብራዚል</string>
   <string name="region_name_cl">ቺሊ</string>
+  <string name="region_name_ee">ኤስቶኒያ</string>
   <string name="region_name_fi">ፊንላንድ</string>
   <string name="region_name_is">አይስላንድ</string>
   <string name="region_name_ie">አየርላንድ</string>
   <string name="region_name_ke">ኬንያ</string>
   <string name="region_name_kr">ኮሪያ</string>
+  <string name="region_name_lv">ላትቪያ</string>
   <string name="region_name_mx">ሜክሲኮ</string>
   <string name="region_name_tw">ታይዋን</string>
   <string name="region_name_za">ደቡብ አፍሪካ</string>

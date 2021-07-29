@@ -23,6 +23,7 @@
   <string name="preference_category_advanced_title">Nâng cao</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Đồng ý</string>
+  <string name="preference_navigate_to_vpn_setting_title">VPN luôn bật</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Không</string>
   <!--Generic positive button label.-->

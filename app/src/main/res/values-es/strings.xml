@@ -2,7 +2,7 @@
 <resources>
   <string name="banner_desc">anuncio del patrocinador; haga clic para visitar la página principal del patrocinador</string>
   <string name="open_browser">Abrir navegador</string>
-  <string name="FeedbackActivity.DefaultText">Si tiene comentarios específicos, mayor información de sitios que no funcionan, o si este formulario no está funcionando para usted, por favor, mande un mensaje a &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Si tiene comentarios específicos, más información de sitios que no funcionan, o si este formulario no está funcionando para usted, por favor, mande un mensaje a &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Gracias por enviar sus comentarios</string>
   <string name="FeedbackActivity.Failure">Fallo del envío. Por favor inténtelo de nuevo.</string>
   <string name="FeedbackActivity.SubmitFeedbackFailed">Fallo al enviar sus comentarios</string>

@@ -73,6 +73,8 @@
   <string name="region_name_sk">Slovakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
+  <string name="region_name_ar">Ajentina</string>
+  <string name="region_name_br">Brazili</string>
   <string name="about">Kuhusu Psiphon</string>
   <string name="feedback">Mrejesho</string>
   <string name="disableTimeoutsPreferenceSummary">Lemaza umalizikaji wa mtandao polepole</string>

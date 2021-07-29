@@ -75,10 +75,12 @@
   <string name="region_name_ar">아르헨티나</string>
   <string name="region_name_br">브라질</string>
   <string name="region_name_cl">칠레</string>
+  <string name="region_name_ee">에스토니아</string>
   <string name="region_name_fi">필란드</string>
   <string name="region_name_is">아이스란드</string>
   <string name="region_name_ie">아일랜드</string>
   <string name="region_name_ke">케냐</string>
+  <string name="region_name_lv">라트비아</string>
   <string name="region_name_mx">멕시코</string>
   <string name="region_name_tw">대마</string>
   <string name="region_name_za">남아프리카</string>
