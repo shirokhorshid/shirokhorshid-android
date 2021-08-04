@@ -13,10 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,10 +51,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -398,6 +394,41 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             toast.show();
         } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_VPN_REVOKED)) {
             showVpnAlertDialog(R.string.StatusActivity_VpnRevokedTitle, R.string.StatusActivity_VpnRevokedMessage);
+        } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC)) {
+            // Unsafe traffic intent from service notification
+            if (!isFinishing()) {
+                // Get subject and action URLs from the intent
+                Bundle extras = intent.getExtras();
+                ArrayList<String> unsafeTrafficSubjects = null;
+                ArrayList<String> unsafeTrafficActionUrls = null;
+                if (extras != null ) {
+                    unsafeTrafficSubjects = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST);
+                    unsafeTrafficActionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
+                }
+
+                LayoutInflater inflater = this.getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.unsafe_traffic_alert_layout, null);
+                TextView tv = dialogView.findViewById(R.id.textView);
+                if (unsafeTrafficSubjects != null) {
+                    tv.append(String.format(Locale.US, "\n"));
+                    for (String unsafeTrafficSubject : unsafeTrafficSubjects) {
+                        tv.append(String.format(Locale.US, "%s\n", unsafeTrafficSubject));
+                    }
+                }
+                if (unsafeTrafficActionUrls != null) {
+                    for (String unsafeTrafficActionUrl : unsafeTrafficActionUrls) {
+                        tv.append(String.format(Locale.US, "\n%s", unsafeTrafficActionUrl));
+                    }
+                }
+
+                new AlertDialog.Builder(this)
+                        .setCancelable(true)
+                        .setIcon(R.drawable.ic_psiphon_alert_notification)
+                        .setTitle(R.string.unsafe_traffic_alert_dialog_title)
+                        .setView(dialogView)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show();
+            }
         }
     }
 

@@ -33,6 +33,8 @@ import android.util.Log;
 
 import com.psiphon3.R;
 
+import net.grandcentrix.tray.AppPreferences;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -778,5 +780,11 @@ public class Utils
         wrappedMacKey = rsaCipher.wrap(macKey);
         
         return new RSAEncryptOutput(contentCiphertext, iv, wrappedEncryptionKey, contentMac, wrappedMacKey);
+    }
+
+    public static boolean getUnsafeTrafficAlertsOptInState(Context context) {
+        return new AppPreferences(context)
+                .getBoolean(context.getString(R.string.unsafeTrafficAlertsOptInPreference),
+                        true);
     }
 }

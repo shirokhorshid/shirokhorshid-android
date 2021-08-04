@@ -96,6 +96,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     public static final String INTENT_ACTION_VPN_REVOKED = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_VPN_REVOKED";
     public static final String INTENT_ACTION_STOP_TUNNEL = "com.psiphon3.psiphonlibrary.TunnelManager.ACTION_STOP_TUNNEL";
     public static final String IS_CLIENT_AN_ACTIVITY = "com.psiphon3.psiphonlibrary.TunnelManager.IS_CLIENT_AN_ACTIVITY";
+    public static final String INTENT_ACTION_UNSAFE_TRAFFIC = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC";
 
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
@@ -112,6 +113,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     static final String DATA_TRANSFER_STATS_SLOW_BUCKETS_LAST_START_TIME = "dataTransferStatsSlowBucketsLastStartTime";
     static final String DATA_TRANSFER_STATS_FAST_BUCKETS = "dataTransferStatsFastBuckets";
     static final String DATA_TRANSFER_STATS_FAST_BUCKETS_LAST_START_TIME = "dataTransferStatsFastBucketsLastStartTime";
+    public static final String DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST = "dataUnsafeTrafficSubjects";
+    public static final String DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST = "dataUnsafeTrafficActionUrls";
 
     void updateNotifications() {
         postServiceNotification(false, m_tunnelState.isConnected);
@@ -146,6 +149,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     private NotificationManager mNotificationManager = null;
     private final static String NOTIFICATION_CHANNEL_ID = "psiphon_notification_channel";
+    private final static String NOTIFICATION_SERVER_ALERT_CHANNEL_ID = "psiphon_server_alert_new_notification_channel";
     private Service m_parentService;
 
     private Context m_context;
@@ -166,6 +170,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
     private VpnAppsUtils.VpnAppsExclusionSetting vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
     private int vpnAppsExclusionCount = 0;
+    private ArrayList<String> unsafeTrafficSubjects;
+
 
     TunnelManager(Service parentService) {
         m_parentService = parentService;
@@ -173,6 +179,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_startedTunneling = new AtomicBoolean(false);
         m_isReconnect = new AtomicBoolean(false);
         m_isStopping = new AtomicBoolean(false);
+        unsafeTrafficSubjects = new ArrayList<>();
         // Note that we are requesting manual control over PsiphonTunnel.routeThroughTunnel() functionality.
         m_tunnel = PsiphonTunnel.newPsiphonTunnel(this, false);
     }
@@ -186,6 +193,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 NotificationChannel notificationChannel = new NotificationChannel(
                         NOTIFICATION_CHANNEL_ID, getContext().getText(R.string.psiphon_service_notification_channel_name),
                         NotificationManager.IMPORTANCE_LOW);
+                mNotificationManager.createNotificationChannel(notificationChannel);
+
+                notificationChannel = new NotificationChannel(
+                        NOTIFICATION_SERVER_ALERT_CHANNEL_ID, getContext().getText(R.string.psiphon_server_alert_notification_channel_name),
+                        NotificationManager.IMPORTANCE_HIGH);
+
                 mNotificationManager.createNotificationChannel(notificationChannel);
             }
         }
@@ -391,6 +404,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     private PendingIntent getPendingIntent(Context ctx, final String actionString) {
+        return getPendingIntent(ctx, actionString, null);
+    }
+
+    private PendingIntent getPendingIntent(Context ctx, final String actionString, final Bundle extras) {
         // This comment is copied from MainActivity::HandleCurrentIntent
         //
         // MainActivity is exposed to other apps because it is declared as an entry point activity of the app in the manifest.
@@ -403,6 +420,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         intent.setComponent(intentComponentName);
         intent.setAction(actionString);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if (extras != null) {
+            intent.putExtras(extras);
+        }
 
         return PendingIntent.getActivity(
                 ctx,
@@ -1059,6 +1080,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 json.put("NetworkLatencyMultiplierLambda", 0.1);
             }
 
+            json.put("EmitServerAlerts", true);
+
             return json.toString();
         } catch (JSONException e) {
             return null;
@@ -1341,5 +1364,47 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     @Override
     public void onStoppedWaitingForNetworkConnectivity() {
+    }
+
+    @Override
+    public void onServerAlert(String reason, String subject, List<String> actionURLs) {
+        MyLog.g("Server alert", "reason", reason, "subject", subject);
+        if ("disallowed-traffic".equals(reason)) {
+            // Leave empty block for potentially easier merging
+        } else if ("unsafe-traffic".equals(reason)) {
+            final Context context = getContext();
+            if (Utils.getUnsafeTrafficAlertsOptInState(context)) {
+                // Display unsafe traffic alert notification
+                m_Handler.post(() -> {
+                    // Create a bundle with action urls to add to the notification's pending intent
+                    final Bundle unsafeTrafficAlertExtras = new Bundle();
+                    // Add the subject to the subjects list, but limit the size
+                    if (!unsafeTrafficSubjects.contains(subject)) {
+                        if (unsafeTrafficSubjects.size() >= 5) {
+                            unsafeTrafficSubjects.remove(0);
+                        }
+                        unsafeTrafficSubjects.add(subject);
+                    }
+                    unsafeTrafficAlertExtras.putStringArrayList(DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST, new ArrayList<>(unsafeTrafficSubjects));
+                    unsafeTrafficAlertExtras.putStringArrayList(DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST, new ArrayList<>(actionURLs));
+
+                    // TODO: use a different notification icon for unsafe traffic alerts?
+                    String notificationMessage = context.getString(R.string.unsafe_traffic_alert_notification_message);
+                    Notification notification = new NotificationCompat.Builder(context, NOTIFICATION_SERVER_ALERT_CHANNEL_ID)
+                            .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                            .setContentTitle(context.getString(R.string.unsafe_traffic_alert_notification_title))
+                            .setContentText(notificationMessage)
+                            .setStyle(new NotificationCompat.BigTextStyle().bigText(notificationMessage))
+                            .setPriority(NotificationCompat.PRIORITY_MAX)
+                            .setContentIntent(getPendingIntent(m_parentService, INTENT_ACTION_UNSAFE_TRAFFIC, unsafeTrafficAlertExtras))
+                            .setAutoCancel(true)
+                            .build();
+
+                    if (mNotificationManager != null) {
+                        mNotificationManager.notify(R.id.notification_id_unsafe_traffic_alert, notification);
+                    }
+                });
+            }
+        }
     }
 }
