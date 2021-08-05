@@ -103,7 +103,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
-    static final String DATA_TUNNEL_STATE_NETWORK_CONNECTED = "networkConnectedState";
+    static final String DATA_TUNNEL_STATE_NETWORK_CONNECTION_STATE = "networkConnectionState";
     static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT = "listeningLocalSocksProxyPort";
     static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT = "listeningLocalHttpProxyPort";
     static final String DATA_TUNNEL_STATE_CLIENT_REGION = "clientRegion";
@@ -173,7 +173,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     private PendingIntent m_notificationPendingIntent;
 
-    private BehaviorRelay<TunnelState.ConnectionData.NetworkConnectionState> m_networkConnectionBehaviorRelay = BehaviorRelay.create();
+    private BehaviorRelay<TunnelState.ConnectionData.NetworkConnectionState> m_networkConnectionStateBehaviorRelay = BehaviorRelay.create();
     private PublishRelay<Object> m_newClientPublishRelay = PublishRelay.create();
     private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
     private VpnAppsUtils.VpnAppsExclusionSetting vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
@@ -742,7 +742,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         data.putBoolean(DATA_TUNNEL_STATE_IS_RUNNING, m_tunnelState.isRunning);
         data.putInt(DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT, m_tunnelState.listeningLocalSocksProxyPort);
         data.putInt(DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT, m_tunnelState.listeningLocalHttpProxyPort);
-        data.putSerializable(DATA_TUNNEL_STATE_NETWORK_CONNECTED, m_tunnelState.networkConnectionState);
+        data.putSerializable(DATA_TUNNEL_STATE_NETWORK_CONNECTION_STATE, m_tunnelState.networkConnectionState);
         data.putString(DATA_TUNNEL_STATE_CLIENT_REGION, m_tunnelState.clientRegion);
         data.putString(DATA_TUNNEL_STATE_SPONSOR_ID, m_tunnelState.sponsorId);
         data.putStringArrayList(DATA_TUNNEL_STATE_HOME_PAGES, m_tunnelState.homePages);
@@ -805,7 +805,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_isReconnect.set(false);
         m_isStopping.set(false);
         m_startedTunneling.set(false);
-        m_networkConnectionBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+        m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
 
         // Notify if an upgrade has already been downloaded and is waiting for install
         UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext(), PsiphonTunnel.getDefaultUpgradeDownloadFilePath(getContext()));
@@ -844,7 +844,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             MyLog.v(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_isStopping.set(true);
-            m_networkConnectionBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+            m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
             m_tunnel.stop();
 
             periodicMaintenanceHandler.removeCallbacks(periodicMaintenance);
@@ -1111,7 +1111,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     // value. The result is additionally filtered to output only distinct consecutive values.
     // Emits its current value to every new subscriber.
     private Observable<TunnelState.ConnectionData.NetworkConnectionState> connectionObservable() {
-        return m_networkConnectionBehaviorRelay
+        return m_networkConnectionStateBehaviorRelay
                 .hide()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -1277,7 +1277,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_networkConnectionBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+                m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
                 DataTransferStats.getDataTransferStatsForService().stop();
                 m_tunnelState.homePages.clear();
 
@@ -1298,7 +1298,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
                 MyLog.v(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
 
-                m_networkConnectionBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
+                m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
             }
         });
     }
@@ -1377,7 +1377,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             public void run() {
                 MyLog.v(R.string.waiting_for_network_connectivity, MyLog.Sensitivity.NOT_SENSITIVE);
                 sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
-                m_networkConnectionBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK);
+                m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK);
             }
         });
     }

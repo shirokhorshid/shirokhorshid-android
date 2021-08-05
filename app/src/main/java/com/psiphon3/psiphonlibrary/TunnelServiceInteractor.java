@@ -229,7 +229,7 @@ public class TunnelServiceInteractor {
         }
         tunnelState.isRunning = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_IS_RUNNING);
         tunnelState.networkConnectionState =
-                (TunnelState.ConnectionData.NetworkConnectionState) data.getSerializable(TunnelManager.DATA_TUNNEL_STATE_NETWORK_CONNECTED);
+                (TunnelState.ConnectionData.NetworkConnectionState) data.getSerializable(TunnelManager.DATA_TUNNEL_STATE_NETWORK_CONNECTION_STATE);
         tunnelState.listeningLocalSocksProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT);
         tunnelState.listeningLocalHttpProxyPort = data.getInt(TunnelManager.DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT);
         tunnelState.clientRegion = data.getString(TunnelManager.DATA_TUNNEL_STATE_CLIENT_REGION);
