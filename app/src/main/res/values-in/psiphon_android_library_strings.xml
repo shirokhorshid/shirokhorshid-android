@@ -77,11 +77,13 @@
   <string name="region_name_ar">Argentina</string>
   <string name="region_name_br">Brazil</string>
   <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Estonia</string>
   <string name="region_name_fi">Finlandia</string>
   <string name="region_name_is">Islandia</string>
   <string name="region_name_ie">Irlandia</string>
   <string name="region_name_ke">Kenya</string>
   <string name="region_name_kr">Korea</string>
+  <string name="region_name_lv">Latvia</string>
   <string name="region_name_mx">Meksiko</string>
   <string name="region_name_tw">Taiwan</string>
   <string name="region_name_za">Afrika Selatan</string>

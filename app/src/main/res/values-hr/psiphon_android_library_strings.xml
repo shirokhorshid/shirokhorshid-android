@@ -76,10 +76,12 @@
   <string name="region_name_ar">Argentina</string>
   <string name="region_name_br">Brazil</string>
   <string name="region_name_cl">Čile</string>
+  <string name="region_name_ee">Estonija</string>
   <string name="region_name_fi">Finska</string>
   <string name="region_name_is">Island</string>
   <string name="region_name_ie">Irska</string>
   <string name="region_name_ke">Kenija</string>
+  <string name="region_name_lv">Latvija</string>
   <string name="region_name_mx">Meksiko</string>
   <string name="region_name_tw">Tajvan</string>
   <string name="region_name_za">Južna Afrika</string>

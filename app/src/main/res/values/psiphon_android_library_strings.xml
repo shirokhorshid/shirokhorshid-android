@@ -186,4 +186,7 @@
     <string name="preference_summary_system_proxy">System proxy</string>
     <string name="disableTimeoutsPreferenceTitle">Disable timeouts</string>
     <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi only</string>
+
+    <string name="unsafeTrafficAlertsOptInPreferenceTitle">Show MalAware alerts</string>
+    <string name="unsafeTrafficAlertsOptInPreferenceSummary">Get notified when Psiphon detects malware traffic originating from your device.</string>
 </resources>

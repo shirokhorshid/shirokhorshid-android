@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">destekçi başlığı; destekçi ana sayfasını açmak için tıklayın</string>
-  <string name="open_browser">Tarayıcıyı Aç</string>
+  <string name="open_browser">Tarayıcıyı aç</string>
   <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan web siteleri hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
   <string name="FeedbackActivity.Success">Geri bildiriminiz için teşekkür ederiz</string>
   <string name="FeedbackActivity.Failure">Form gönderilemedi. Lütfen yeniden deneyin.</string>
@@ -13,14 +13,14 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlatılamadı</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN bağlantısını başlatamadı. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
   <string name="selected_region_currently_not_available">Seçtiğiniz bölge şu anda kullanılamıyor, lütfen başka bir bölge seçin.</string>
-  <string name="ads_consent_preference_category_title">Reklamları Kişiselleştirme</string>
+  <string name="ads_consent_preference_category_title">Reklamları kişiselleştirme</string>
   <string name="ads_consent_preference_dialog_preference_message">Reklam kişiselleştirme ayarlarınızı sıfırlamak istediğinize emin misiniz?</string>
   <string name="ads_consent_preference_title">Reklamları kişiselleştirme ayarlarını sıfırla</string>
   <string name="ads_consent_preference_dialog_title">Sıfırla</string>
   <string name="ads_consent_preference_summary">Reklam ağlarının çerez kullanmasına ve kişisel verilerinize erişmesine izin veren ayarları sıfırlayın</string>
   <string name="preference_language_selection_summary">Kullanılacak dili seçin</string>
   <string name="preference_language_selection_title">Dil</string>
-  <string name="preference_language_title">Dil Seçimi</string>
+  <string name="preference_language_title">Dil seçimi</string>
   <string name="preference_language_default_language">Varsayılan dil</string>
   <string name="preference_category_advanced_title">Gelişmiş</string>
   <string name="preference_category_info_title">Bilgiler</string>
@@ -45,7 +45,7 @@
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <string name="notification_text_vpn_revoked">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kesildi.</string>
   <!--Description for an app icon image-->
-  <string name="description_app_icon">Uygulama Simgesi</string>
+  <string name="description_app_icon">Uygulama simgesi</string>
   <string name="bad_vpn_exclusion_setting_alert_title">VPN ayarı geçersiz</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">Bu model için en az bir uygulama seçmeniz gerekir</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">Bu model için en az bir uygulamayı bırakmanız gerekir</string>
