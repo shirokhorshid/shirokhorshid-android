@@ -36,7 +36,13 @@ public abstract class TunnelState {
 
     @AutoValue
     public static abstract class ConnectionData {
-        public abstract boolean isConnected();
+        public enum NetworkConnectionState {
+            CONNECTED,
+            CONNECTING,
+            WAITING_FOR_NETWORK,
+        }
+
+        public abstract NetworkConnectionState networkConnectionState();
 
         public abstract String clientRegion();
 
@@ -53,7 +59,7 @@ public abstract class TunnelState {
 
         public static Builder builder() {
             return new AutoValue_TunnelState_ConnectionData.Builder()
-                    .setIsConnected(false)
+                    .setNetworkConnectionState(NetworkConnectionState.CONNECTING)
                     .setClientRegion("")
                     .setClientVersion("")
                     .setPropagationChannelId("")
@@ -64,7 +70,7 @@ public abstract class TunnelState {
 
         @AutoValue.Builder
         public static abstract class Builder {
-            public abstract Builder setIsConnected(boolean value);
+            public abstract Builder setNetworkConnectionState(NetworkConnectionState networkConnectionState);
 
             public abstract Builder setClientRegion(String value);
 
@@ -79,6 +85,10 @@ public abstract class TunnelState {
             public abstract Builder setHomePages(@Nullable ArrayList<String> homePages);
 
             public abstract ConnectionData build();
+        }
+
+        public boolean isConnected() {
+            return networkConnectionState() == NetworkConnectionState.CONNECTED;
         }
     }
 
