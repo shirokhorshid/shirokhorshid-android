@@ -1,0 +1,7 @@
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item android:drawable="@drawable/connection_progress_bar_01" android:duration="600" />
+    <item android:drawable="@drawable/connection_progress_bar_02" android:duration="600" />
+</animation-list>
