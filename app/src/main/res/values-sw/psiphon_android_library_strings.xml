@@ -144,6 +144,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Kosa la proxy ya juu:%s</string>
   <string name="start_tunnel_failed">Kushindwa kuanza kwa ficho: %s</string>
+  <string name="vpn_exclusions_conflict">Kuna programu moja au zaidi zinazopingana katika kutengwa kwako kwa sasa kwa VPN. Tafadhali nenda kwenye mipangilio ya VPN na ubadili njia ya \'Tunnel programu zote\' ili kuungana.</string>
   <string name="tunnel_connecting">Kunganisha ficho…</string>
   <string name="tunnel_connected">Ficho imeunganishwa</string>
   <string name="waiting">Kusubiri</string>
