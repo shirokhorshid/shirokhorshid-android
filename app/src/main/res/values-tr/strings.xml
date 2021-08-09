@@ -52,4 +52,12 @@
   <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ya da üzeri bir sürüm gerekiyor</string>
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ya da üzeri bir sürüm gerekiyor</string>
   <string name="vpn_exclusions_tip_summary">Klasik salt-tarayıcı kipi için yalnız bir tarayıcı seçin</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Zararlı yazılım trafiği algılandı! Ayrıntılı bilgi almak için tıklayın.</string>
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon aygıtınızdan kaynaklanan zararlı yazılım trafiği algıladı. Ayrıntılı bilgi almak için aşağıdaki bağlantıları izleyin.\n\nAlgılanan zararlı yazılım:</string>
 </resources>

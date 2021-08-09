@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="socks_running">SOCKS ikikimbia bandarini %d</string>
+  <string name="socks_running">SOCKS ikikimbia bandarini %d </string>
   <string name="http_proxy_running">HTTP wakala anaekimbia bandarini %d</string>
   <string name="client_version">Toleo la wateja %s</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Kuhalisisha mfuko wa data kusaini kwa funguo huria tofauti</string>

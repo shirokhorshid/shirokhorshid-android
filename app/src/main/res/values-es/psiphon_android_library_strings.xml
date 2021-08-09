@@ -180,4 +180,6 @@
   <string name="preference_summary_system_proxy">Proxy del sistema</string>
   <string name="disableTimeoutsPreferenceTitle">Deshabilitar tiempos de espera</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Sólo Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Mostrar alertas de malware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Reciba notificaciones cuando Psiphon detecte tráfico de malware que se origina en su dispositivo.</string>
 </resources>

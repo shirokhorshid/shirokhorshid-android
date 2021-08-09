@@ -180,4 +180,6 @@
   <string name="preference_summary_system_proxy">Sistem vekil sunucusu</string>
   <string name="disableTimeoutsPreferenceTitle">Zaman aşımı kullanılmasın</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Yalnız Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware uyarıları görüntülensin</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon, aygıtnızdan kaynaklanan zararlı yazılım trafiği algıladığında bildirim alın.</string>
 </resources>

@@ -24,4 +24,8 @@
   <!--"VPN stopped" notification title-->
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <!--Description for an app icon image-->
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
 </resources>

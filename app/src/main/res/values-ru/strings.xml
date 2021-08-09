@@ -52,4 +52,8 @@
   <string name="vpn_exclusions_preference_not_available_summary">Нужен Android 5.0 или новее</string>
   <string name="vpn_always_on_preference_not_available_summary">Нужен Android 7.0 или новее</string>
   <string name="vpn_exclusions_tip_summary">Выберите только один браузер для классического браузерного режима</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
 </resources>

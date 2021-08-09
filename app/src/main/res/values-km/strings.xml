@@ -49,4 +49,8 @@
   <string name="bad_vpn_exclusion_setting_alert_title">ការកំណត់ VPN មិនត្រឹមត្រូវ</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">អ្នកត្រូវមានកម្មវិធីយ៉ាងហោចណាស់មួយ ត្រូវបានជ្រើសរើសនៅក្នុងទម្រង់នេះ!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">អ្នកត្រូវមានកម្មវិធីយ៉ាងហោចណាស់មួយ ត្រូវមិនបានជ្រើសរើសនៅក្នុងទម្រង់នេះ!</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
 </resources>

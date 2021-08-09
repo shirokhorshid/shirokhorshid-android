@@ -52,4 +52,12 @@
   <string name="vpn_exclusions_preference_not_available_summary">Kuhitajika kwa admin 5.0 au iliyokubwa</string>
   <string name="vpn_always_on_preference_not_available_summary">Kuhitajika kwa admin 7.0 au iliyo kubwa</string>
   <string name="vpn_exclusions_tip_summary">Chagua kivinjari kimoja tu kwa modi ya kivinjari ya zamani</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Tumegundua malware trafiki! Bofya ili ujifunze zaidi.</string>
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message"> Psiphon imegundua malware trafiki  zinazotoka kwenye kifaa chako. Tafadhali fuata viungo hapa chini ili ujifunze zaidi.nnDetected zisizo:</string>
 </resources>
