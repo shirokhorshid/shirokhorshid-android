@@ -784,7 +784,7 @@ public class Utils
 
     public static boolean getUnsafeTrafficAlertsOptInState(Context context) {
         return new AppPreferences(context)
-                .getBoolean(context.getString(R.string.unsafeTrafficAlertsOptInPreference),
-                        true);
+                .getBoolean(context.getString(R.string.unsafeTrafficAlertsPreference),
+                        false);
     }
 }
