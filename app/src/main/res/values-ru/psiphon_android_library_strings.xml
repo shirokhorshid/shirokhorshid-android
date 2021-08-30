@@ -77,10 +77,12 @@
   <string name="region_name_ar">Аргентина</string>
   <string name="region_name_br">Бразилия</string>
   <string name="region_name_cl">Чили</string>
+  <string name="region_name_ee">Эстония</string>
   <string name="region_name_fi">Финляндия</string>
   <string name="region_name_is">Исландия</string>
   <string name="region_name_ie">Ирландия</string>
   <string name="region_name_ke">Кения</string>
+  <string name="region_name_lv">Латвия</string>
   <string name="region_name_mx">Мексика</string>
   <string name="region_name_tw">Тайвань</string>
   <string name="region_name_za">Южная Африка</string>

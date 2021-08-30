@@ -42,4 +42,8 @@
   <!--Description for an app icon image-->
   <string name="description_app_icon">App-Symbol</string>
   <string name="bad_vpn_exclusion_setting_alert_title">Ungültige VPN-Einstellungen</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
 </resources>

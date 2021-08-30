@@ -43,6 +43,12 @@
             android:key="@string/downloadWifiOnlyPreference"
             android:title="@string/downloadWiFiOnlyPreferenceTitle"
             android:summary="@string/downloadWiFiOnlyPreferenceSummary" />
+        <CheckBoxPreference
+            app:isPreferenceVisible="false"
+            android:icon="@drawable/baseline_gpp_maybe_white_24"
+            android:key="@string/unsafeTrafficAlertsPreference"
+            android:title="@string/unsafeTrafficAlertsOptInPreferenceTitle"
+            android:summary="@string/unsafeTrafficAlertsOptInPreferenceSummary" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preference_category_info_title">

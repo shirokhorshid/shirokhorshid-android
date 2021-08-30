@@ -77,11 +77,13 @@
   <string name="region_name_ar">阿根廷</string>
   <string name="region_name_br">巴西</string>
   <string name="region_name_cl">智利</string>
+  <string name="region_name_ee">爱沙尼亚</string>
   <string name="region_name_fi">芬兰</string>
   <string name="region_name_is">冰岛</string>
   <string name="region_name_ie">爱尔兰</string>
   <string name="region_name_ke">肯尼亚</string>
   <string name="region_name_kr">韩国</string>
+  <string name="region_name_lv">拉脱维亚</string>
   <string name="region_name_mx">墨西哥</string>
   <string name="region_name_tw">中国台湾</string>
   <string name="region_name_za">南非</string>

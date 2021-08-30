@@ -18,21 +18,46 @@
   <string name="ads_consent_preference_title">重置個別廣告偏好</string>
   <string name="ads_consent_preference_dialog_title">重設</string>
   <string name="ads_consent_preference_summary">重置個人惼好以便讓廣告商可以使用 cookies 與用戶個資</string>
+  <string name="preference_language_selection_summary">選擇語言</string>
   <string name="preference_language_selection_title">語言</string>
+  <string name="preference_language_title">語言選取</string>
   <string name="preference_language_default_language">預設語系</string>
   <string name="preference_category_advanced_title">進階的</string>
+  <string name="preference_category_info_title">資訊</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
+  <string name="preference_navigate_to_vpn_setting_title">一直啟用 VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">到系統設置底下開啟全程 VPN 模式</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">否</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">是</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">需作調整</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">請開啟 Psiphon 完成連接</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">無法選擇區域</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">請開啟 Psiphon 選擇其它地區</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon VPN 已停止</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN 已斷線</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">App 圖標</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">無效的 VPN 設置</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">此模式下至少須選取一種應用 </string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">此模式下至少須取消一項應用選取</string>
+  <string name="vpn_exclusions_preference_not_available_summary">系統需求 Android 5.0 以上</string>
+  <string name="vpn_always_on_preference_not_available_summary">系統需求 Android 7.0 以上</string>
+  <string name="vpn_exclusions_tip_summary">選擇瀏覽器應用以作純瀏覽器模式使用</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon 惡意軟體</string>
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">偵測到惡意流量! 點此了解詳情</string>
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon 惡意軟體</string>
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon 偵測到設備裏有潛在的惡意軟體，可透由下方連結了解詳情. \n\n 偵測到的惡意體體:</string>
 </resources>

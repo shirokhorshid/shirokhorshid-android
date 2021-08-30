@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="socks_running">SOCKS ikikimbia bandarini %d</string>
+  <string name="socks_running">SOCKS ikikimbia bandarini %d </string>
   <string name="http_proxy_running">HTTP wakala anaekimbia bandarini %d</string>
   <string name="client_version">Toleo la wateja %s</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Kuhalisisha mfuko wa data kusaini kwa funguo huria tofauti</string>
@@ -73,6 +73,20 @@
   <string name="region_name_sk">Slovakia</string>
   <string name="region_name_rs">Serbia</string>
   <string name="region_name_au">Australia</string>
+  <string name="region_name_ae">Falme za Kiarabu</string>
+  <string name="region_name_ar">Ajentina</string>
+  <string name="region_name_br">Brazili</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Estonia</string>
+  <string name="region_name_fi">Finlandi</string>
+  <string name="region_name_is">Iceland</string>
+  <string name="region_name_ie">Ireland</string>
+  <string name="region_name_ke">Kenya</string>
+  <string name="region_name_kr">Korea</string>
+  <string name="region_name_lv">Latvia</string>
+  <string name="region_name_mx">Mexico</string>
+  <string name="region_name_tw">Taiwani</string>
+  <string name="region_name_za"> Afrika Kusini</string>
   <string name="about">Kuhusu Psiphon</string>
   <string name="feedback">Mrejesho</string>
   <string name="disableTimeoutsPreferenceSummary">Lemaza umalizikaji wa mtandao polepole</string>
@@ -130,6 +144,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Kosa la proxy ya juu:%s</string>
   <string name="start_tunnel_failed">Kushindwa kuanza kwa ficho: %s</string>
+  <string name="vpn_exclusions_conflict">Kuna programu moja au zaidi zinazopingana katika kutengwa kwako kwa sasa kwa VPN. Tafadhali nenda kwenye mipangilio ya VPN na ubadili njia ya \'Tunnel programu zote\' ili kuungana.</string>
   <string name="tunnel_connecting">Kunganisha ficho…</string>
   <string name="tunnel_connected">Ficho imeunganishwa</string>
   <string name="waiting">Kusubiri</string>

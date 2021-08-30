@@ -2,7 +2,7 @@
 <resources>
   <string name="socks_running">SOCKS %d numaralı kapı üzerinde çalışıyor</string>
   <string name="http_proxy_running">HTTP vekil sunucusu %d numaralı kapı üzerinde çalışıyor</string>
-  <string name="client_version">İstemci Sürümü %s</string>
+  <string name="client_version">Uygulama sürümü %s</string>
   <string name="AuthenticatedDataPackage.WrongPublicKey">Kimliği doğrulanmış veri paketi, farklı bir herkese açık anahtar ile imzalanmış</string>
   <string name="AuthenticatedDataPackage.InvalidSignature">Kimliği doğrulanmış veri paketinin imzası geçersiz</string>
   <string name="AuthenticatedDataPackage.MissingValue">Kimliği doğrulanmış veri paketinde değer eksik</string>
@@ -12,10 +12,10 @@
   <string name="socks_port_in_use">İstenilen %d yerel SOCKS vekil sunucu kapı numarası başka bir uygulama tarafından kullanıldığından devam edilemiyor.</string>
   <string name="waiting_for_network_connectivity">Ağ bağlantısının kurulması bekleniyor…</string>
   <string name="psiphon_service_notification_message_connecting">Bağlantı kuruluyor…</string>
-  <string name="psiphon_service_notification_id">Psiphon Hizmet Bildirimi</string>
-  <string name="psiphon_service_notification_channel_name">Psiphon Durum Değişiklikleri</string>
-  <string name="psiphon_upgrade_notification_channel_name">Psiphon Güncelleme</string>
-  <string name="psiphon_server_alert_notification_channel_name">Psiphon Sunucu Uyarıları</string>
+  <string name="psiphon_service_notification_id">Psiphon hizmet bildirimi</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon durum değişiklikleri</string>
+  <string name="psiphon_upgrade_notification_channel_name">Psiphon güncelleme</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon sunucu uyarıları</string>
   <string name="vpn_service_running">VPN hizmeti çalışıyor</string>
   <string name="vpn_service_revoked">VPN hizmeti iptal edildi</string>
   <string name="debug_message">%s</string>
@@ -26,7 +26,7 @@
   <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Güncelleme yapılamadı. Güncelleme dosyasından paket bilgileri ayıklanamadı.</string>
   <string name="UpgradeManager.UpgradeFileNotFound">Güncelleme dosyası bulunamadı</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptTitle">Psiphon Güncelleme</string>
+  <string name="UpgradeManager.UpgradePromptTitle">Psiphon güncelleme</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon için kurulmaya hazır bir güncelleme var.</string>
   <string name="UpgradeManager.UpgradeFileReadFailed">Güncelleme dosyası okunamadı</string>
@@ -37,15 +37,15 @@
   <string name="label_received">Alınan</string>
   <string name="start">Başlat</string>
   <string name="stop">Durdur</string>
-  <string name="home_tab_name">Ana Sayfa</string>
+  <string name="home_tab_name">Ana sayfa</string>
   <string name="settings_tab_name">Ayarlar</string>
   <string name="statistics_tab_name">İstatistikler</string>
   <string name="logs_tab_name">Günlükler</string>
   <string name="use_proxy_settings_toggle">HTTP vekil sunucu kullanılsın</string>
   <string name="use_system_proxy_settings_radio">Sistem ağ ayarları kullanılsın</string>
   <string name="use_custom_proxy_settings_radio">Aşağıdaki ayarlar kullanılsın:</string>
-  <string name="custom_proxy_settings_host">Sunucu Adresi</string>
-  <string name="custom_proxy_settings_port">Kapı Numarası</string>
+  <string name="custom_proxy_settings_host">Sunucu adresi</string>
+  <string name="custom_proxy_settings_port">Kapı numarası</string>
   <string name="region_name_any">En iyi başarım</string>
   <string name="region_name_us">Birleşik Devletler</string>
   <string name="region_name_gb">Birleşik Krallık</string>
@@ -77,26 +77,28 @@
   <string name="region_name_ar">Arjantin</string>
   <string name="region_name_br">Brezilya</string>
   <string name="region_name_cl">Şili</string>
+  <string name="region_name_ee">Estonya</string>
   <string name="region_name_fi">Finlandiya</string>
   <string name="region_name_is">Izlanda</string>
   <string name="region_name_ie">Irlanda</string>
   <string name="region_name_ke">Kenya</string>
   <string name="region_name_kr">Kore</string>
+  <string name="region_name_lv">Letonya</string>
   <string name="region_name_mx">Meksika</string>
   <string name="region_name_tw">Tayvan</string>
   <string name="region_name_za">Güney Afrika</string>
-  <string name="about">Psiphon Hakkında</string>
-  <string name="feedback">Geri Bildirim</string>
+  <string name="about">Psiphon hakkında</string>
+  <string name="feedback">Geri bildirim</string>
   <string name="disableTimeoutsPreferenceSummary">Yavaş bağlantılarda zaman aşımı kullanılmasın</string>
   <string name="region_selector">Sunucu bölgesini seçin</string>
-  <string name="network_proxy_connect_invalid_values">HTTP Vekil Sunucu ayarları geçersiz</string>
+  <string name="network_proxy_connect_invalid_values">HTTP vekil sunucu ayarları geçersiz</string>
   <string name="tunnel_whole_device_exception">Aygıtınızda VpnService API yazılımı eksik olduğundan tüm aygıt tüneli seçeneği desteklenmiyor. </string>
   <string name="preference_notifications_title">Bildirimler</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
   <string name="preference_routing_include_all_apps_summary">Tüm uygulamalar tünel kullansın</string>
   <!--Title for selecting apps to be tunneled-->
-  <string name="preference_routing_include_apps_title">Katılacak Uygulamalar</string>
+  <string name="preference_routing_include_apps_title">Katılacak uygulamalar</string>
   <!--Description of option to tunnel only selected apps-->
   <string name="preference_routing_include_apps_summary">Seçilmiş uygulamalar tünel kullansın</string>
   <!--Title for selecting apps to be excluded-->
@@ -139,8 +141,8 @@
   <string name="preference_notifications_with_vibrate_title">Titreşim</string>
   <string name="preference_notifications_with_vibrate_summary">Bağlantı durumu değiştiğinde aygıt titresin</string>
   <string name="downloadWiFiOnlyPreferenceSummary">Güncellemeler yalnız Wi-Fi üzerinden indirilsin</string>
-  <string name="moreOptions">Diğer Ayarlar</string>
-  <string name="proxySettingsCategoryTitle">Vekil Sunucu Ayarları</string>
+  <string name="moreOptions">Diğer ayarlar</string>
+  <string name="proxySettingsCategoryTitle">Vekil sunucu ayarları</string>
   <string name="custom_proxy_host_summary">Vekil sunucu sunucu adı ya da IP adresi</string>
   <string name="custom_proxy_port_summary">Vekil sunucu kapı numarası</string>
   <string name="use_proxy_authentication_title">Kimlik doğrulaması kullanılsın</string>
@@ -163,7 +165,7 @@
   <string name="tunnel_connected">Tünel bağlantısı kuruldu</string>
   <string name="waiting">Bekleniyor…</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">İzin İsteği</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">İzin isteği</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Konum bilgisine erişme izni verdiğinizde, Psiphon bulunduğunuz ağda nasıl çalışması gerektiği hakkında daha iyi karar verebilir.\n\nKonum bilgisi yalnız aygıtınızda kalır ve yerel olarak kullanılır. Sunucularımıza ya da üçüncü taraflara aktarılmaz.</string>
@@ -178,4 +180,6 @@
   <string name="preference_summary_system_proxy">Sistem vekil sunucusu</string>
   <string name="disableTimeoutsPreferenceTitle">Zaman aşımı kullanılmasın</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Yalnız Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware uyarıları görüntülensin</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon, aygıtnızdan kaynaklanan zararlı yazılım trafiği algıladığında bildirim alın.</string>
 </resources>

@@ -52,4 +52,8 @@
   <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 və ya yuxarı versiya tətləb olunur</string>
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 və ya yuxarı versiya tələb olunur</string>
   <string name="vpn_exclusions_tip_summary">\"Yalnız klassik veb_bələdçi\" rejimi üçün yalnız bir veb bələdçi seçin</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
 </resources>

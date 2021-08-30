@@ -29,6 +29,7 @@
     <string name="useProxyDomainPreference">useProxyDomainPreference</string>
     <string name="downloadWifiOnlyPreference">downloadWifiOnlyPreference</string>
     <string name="disableTimeoutsPreference">disableTimeoutsPreference</string>
+    <string name="unsafeTrafficAlertsPreference" translatable="false">unsafeTrafficAlertsPreference</string>
     <string name="egressRegionPreference">egressRegionPreference</string>
     <string name="moreOptionsPreferencesName">moreOptionsPreferencesName</string>
 

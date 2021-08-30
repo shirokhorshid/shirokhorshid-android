@@ -77,11 +77,13 @@
   <string name="region_name_ar">Argentina</string>
   <string name="region_name_br">Brasil</string>
   <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Estonia</string>
   <string name="region_name_fi">Finlandia</string>
   <string name="region_name_is">Islandia</string>
   <string name="region_name_ie">Irlanda</string>
   <string name="region_name_ke">Kenia</string>
   <string name="region_name_kr">Corea</string>
+  <string name="region_name_lv">Letonia</string>
   <string name="region_name_mx">México</string>
   <string name="region_name_tw">Taiwán</string>
   <string name="region_name_za">Sudáfrica</string>
@@ -178,4 +180,6 @@
   <string name="preference_summary_system_proxy">Proxy del sistema</string>
   <string name="disableTimeoutsPreferenceTitle">Deshabilitar tiempos de espera</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Sólo Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Mostrar alertas de malware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Reciba notificaciones cuando Psiphon detecte tráfico de malware que se origina en su dispositivo.</string>
 </resources>

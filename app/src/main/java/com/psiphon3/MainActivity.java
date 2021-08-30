@@ -7,16 +7,15 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.net.VpnService;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +28,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -54,10 +54,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -78,6 +77,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private CompositeDisposable uiUpdatesCompositeDisposable;
     private Button toggleButton;
     private ProgressBar connectionProgressBar;
+    private Drawable defaultProgressBarDrawable;
     private Button openBrowserButton;
     private MainActivityViewModel viewModel;
     private Toast invalidProxySettingsToast;
@@ -116,6 +116,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
 
         toggleButton = findViewById(R.id.toggleButton);
         connectionProgressBar = findViewById(R.id.connectionProgressBar);
+        defaultProgressBarDrawable = connectionProgressBar.getIndeterminateDrawable();
         openBrowserButton = findViewById(R.id.openBrowserButton);
         toggleButton.setOnClickListener(v ->
                 compositeDisposable.add(viewModel.tunnelStateFlowable()
@@ -271,6 +272,15 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             } else {
                 openBrowserButton.setEnabled(false);
                 connectionProgressBar.setVisibility(View.VISIBLE);
+                connectionProgressBar.setIndeterminate(false);
+                Rect bounds = connectionProgressBar.getIndeterminateDrawable().getBounds();
+                Drawable drawable =
+                        (tunnelState.connectionData().networkConnectionState() == TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK) ?
+                                ContextCompat.getDrawable(this, R.drawable.connection_progress_bar_animation) :
+                                defaultProgressBarDrawable;
+                connectionProgressBar.setIndeterminateDrawable(drawable);
+                connectionProgressBar.getIndeterminateDrawable().setBounds(bounds);
+                connectionProgressBar.setIndeterminate(true);
             }
         } else {
             // Service not running
@@ -398,6 +408,41 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             toast.show();
         } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_VPN_REVOKED)) {
             showVpnAlertDialog(R.string.StatusActivity_VpnRevokedTitle, R.string.StatusActivity_VpnRevokedMessage);
+        } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC)) {
+            // Unsafe traffic intent from service notification
+            if (!isFinishing()) {
+                // Get subject and action URLs from the intent
+                Bundle extras = intent.getExtras();
+                ArrayList<String> unsafeTrafficSubjects = null;
+                ArrayList<String> unsafeTrafficActionUrls = null;
+                if (extras != null ) {
+                    unsafeTrafficSubjects = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST);
+                    unsafeTrafficActionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
+                }
+
+                LayoutInflater inflater = this.getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.unsafe_traffic_alert_layout, null);
+                TextView tv = dialogView.findViewById(R.id.textView);
+                if (unsafeTrafficSubjects != null) {
+                    tv.append(String.format(Locale.US, "\n"));
+                    for (String unsafeTrafficSubject : unsafeTrafficSubjects) {
+                        tv.append(String.format(Locale.US, "%s\n", unsafeTrafficSubject));
+                    }
+                }
+                if (unsafeTrafficActionUrls != null) {
+                    for (String unsafeTrafficActionUrl : unsafeTrafficActionUrls) {
+                        tv.append(String.format(Locale.US, "\n%s", unsafeTrafficActionUrl));
+                    }
+                }
+
+                new AlertDialog.Builder(this)
+                        .setCancelable(true)
+                        .setIcon(R.drawable.ic_psiphon_alert_notification)
+                        .setTitle(R.string.unsafe_traffic_alert_dialog_title)
+                        .setView(dialogView)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show();
+            }
         }
     }
 
