@@ -224,7 +224,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         boolean shouldAutoStart = shouldAutoStart();
         preventAutoStart();
 
-        if (unsafeTrafficAlertsPrompt()) {
+        if (unsafeTrafficAlertsPrompt(shouldAutoStart)) {
             shouldAutoStart = false;
         }
 
@@ -234,7 +234,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         }
     }
 
-    private boolean unsafeTrafficAlertsPrompt() {
+    private boolean unsafeTrafficAlertsPrompt(boolean startTunnelAfterPrompt) {
         // Prompt the user only once to choose to enable unsafe traffic alerts.
         // Returns true if the prompt is shown.
         try {
@@ -252,6 +252,12 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                     .setNegativeButton(R.string.lbl_no,
                             (dialog, whichButton) -> {
                                 multiProcessPreferences.put(getString(R.string.unsafeTrafficAlertsPreference), false);
+                            })
+                    .setOnDismissListener(
+                            dialog -> {
+                                if (startTunnelAfterPrompt) {
+                                    startTunnel();
+                                }
                             })
                     .show();
         }
