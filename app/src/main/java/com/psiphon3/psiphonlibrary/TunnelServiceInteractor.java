@@ -199,8 +199,14 @@ public class TunnelServiceInteractor {
         return null;
     }
 
-    public void commandTunnelRestart() {
-        sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_TUNNEL.ordinal(), null);
+    /**
+     * @param resetReconnectFlag If true then a home page intent will fire after the reconnect,
+     *                           Otherwise the tunnel should reconnect without opening a home page.
+     */
+    public void commandTunnelRestart(boolean resetReconnectFlag) {
+        Bundle data = new Bundle();
+        data.putBoolean(TunnelManager.RESET_RECONNECT_FLAG, resetReconnectFlag);
+        sendServiceMessage(TunnelManager.ClientToServiceMessage.RESTART_TUNNEL.ordinal(), data);
     }
 
     private void bindTunnelService(Context context, Intent intent) {

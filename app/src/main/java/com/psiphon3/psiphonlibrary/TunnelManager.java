@@ -101,6 +101,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     public static final String IS_CLIENT_AN_ACTIVITY = "com.psiphon3.psiphonlibrary.TunnelManager.IS_CLIENT_AN_ACTIVITY";
     public static final String INTENT_ACTION_UNSAFE_TRAFFIC = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC";
 
+    // Client -> Service bundle parameter names
+    static final String RESET_RECONNECT_FLAG = "resetReconnectFlag";
+
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
     static final String DATA_TUNNEL_STATE_NETWORK_CONNECTION_STATE = "networkConnectionState";
@@ -651,9 +654,19 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
                 case RESTART_TUNNEL:
                     if (manager != null) {
+                        final boolean resetReconnectFlag;
+                        Bundle data = msg.getData();
+                        if (data != null) {
+                            resetReconnectFlag = data.getBoolean(RESET_RECONNECT_FLAG, true);
+                        } else {
+                            resetReconnectFlag = true;
+                        }
                         manager.m_compositeDisposable.add(
                                 manager.getTunnelConfigSingle()
                                         .doOnSuccess(config -> {
+                                            if (resetReconnectFlag) {
+                                                manager.m_isReconnect.set(false);
+                                            }
                                             manager.setTunnelConfig(config);
                                             manager.onRestartTunnel();
                                         })
@@ -863,7 +876,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_isReconnect.set(false);
                 try {
                     m_tunnel.restartPsiphon();
                 } catch (PsiphonTunnel.Exception e) {

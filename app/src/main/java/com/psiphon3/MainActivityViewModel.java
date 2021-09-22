@@ -71,7 +71,8 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
                 break;
 
             case TUNNEL:
-                tunnelServiceInteractor.commandTunnelRestart();
+                // Note resetReconnectFlag == true to open a sponsor page after reconnect
+                tunnelServiceInteractor.commandTunnelRestart(true);
                 break;
         }
     }
