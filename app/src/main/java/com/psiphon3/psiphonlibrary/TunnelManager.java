@@ -1112,6 +1112,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             json.put("EmitServerAlerts", true);
 
+            if (Utils.getUnsafeTrafficAlertsOptInState(context)) {
+                json.put("ClientFeatures", new JSONArray("[\"unsafe-traffic-alerts\"]"));
+            }
+
             return json.toString();
         } catch (JSONException e) {
             return null;
