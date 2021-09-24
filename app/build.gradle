@@ -28,6 +28,7 @@ android {
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+                vectorDrawables.useSupportLibrary = true
             }
         } else {
             throw new GradleException('version.properties found but entries are missing')
