@@ -18,6 +18,7 @@ import com.psiphon3.psiphonlibrary.ProxyOptionsPreferenceActivity;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.PsiphonPreferenceFragmentCompat;
 import com.psiphon3.psiphonlibrary.RegionListPreference;
+import com.psiphon3.psiphonlibrary.TunnelServiceInteractor;
 import com.psiphon3.psiphonlibrary.UpstreamProxySettings;
 import com.psiphon3.psiphonlibrary.Utils;
 import com.psiphon3.psiphonlibrary.VpnAppsUtils;
@@ -172,7 +173,7 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
 
         // NOTE: reconnects even when Any is selected: we could select a
         // faster server
-        viewModel.restartTunnelService();
+        viewModel.restartPsiphon(TunnelServiceInteractor.RestartMode.TUNNEL);
     }
 
     private void setSummaryFromPreferences() {
@@ -210,35 +211,37 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
 
     @Override
     public void onActivityResult(int request, int result, Intent data) {
-        boolean shouldRestart = false;
+        final TunnelServiceInteractor.RestartMode restartMode;
         switch (request) {
             case REQUEST_CODE_VPN_PREFERENCES:
-                shouldRestart = vpnSettingsRestartRequired();
+                restartMode = vpnSettingsRestartRequired() ? TunnelServiceInteractor.RestartMode.VPN : null;
                 updateVpnSettingsFromPreferences();
                 break;
 
             case REQUEST_CODE_PROXY_PREFERENCES:
-                shouldRestart = proxySettingsRestartRequired();
+                restartMode = proxySettingsRestartRequired() ? TunnelServiceInteractor.RestartMode.TUNNEL : null;
                 updateProxySettingsFromPreferences();
                 break;
 
             case REQUEST_CODE_MORE_PREFERENCES:
-                shouldRestart = moreSettingsRestartRequired();
+                restartMode = moreSettingsRestartRequired() ? TunnelServiceInteractor.RestartMode.TUNNEL : null;
                 updateMoreSettingsFromPreferences();
                 break;
 
             default:
+                restartMode = null;
                 super.onActivityResult(request, result, data);
+                break;
         }
 
-        if (shouldRestart) {
+        if (restartMode != null) {
             compositeDisposable.add(viewModel.tunnelStateFlowable()
                     .filter(tunnelState -> !tunnelState.isUnknown())
                     .firstOrError()
                     .doOnSuccess(state -> {
                         if (state.isRunning()) {
                             if (viewModel.validateCustomProxySettings()) {
-                                viewModel.restartTunnelService();
+                                viewModel.restartPsiphon(restartMode);
                             } else {
                                 viewModel.stopTunnelService();
                             }
@@ -253,14 +256,14 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
             // This is a bit of a weird hack to cause a restart, but it works
             // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
             // before the activity would relaunch. This *seems* to provide the best functionality across phones.
-            // Add a 1 second delay to give activity chance to restart the service if needed
+            // Add a 1 second delay to give activity chance to restart VPN service or command tunnel restart if needed.
             new Handler().postDelayed(() -> {
                 requireActivity().finish();
                 Intent intent = new Intent(requireActivity(), MainActivity.class);
                 intent.putExtra(MainActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
                 startActivity(intent);
                 System.exit(1);
-            }, shouldRestart ? 1000 : 0);
+            }, restartMode != null ? 1000 : 0);
         }
     }
 

@@ -64,8 +64,17 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
         tunnelServiceInteractor.startTunnelService(getApplication());
     }
 
-    public void restartTunnelService() {
-        tunnelServiceInteractor.scheduleRunningTunnelServiceRestart(getApplication());
+    public void restartPsiphon(TunnelServiceInteractor.RestartMode restartMode) {
+        switch (restartMode) {
+            case VPN:
+                tunnelServiceInteractor.scheduleVpnServiceRestart(getApplication());
+                break;
+
+            case TUNNEL:
+                // Note resetReconnectFlag == true to open a sponsor page after reconnect
+                tunnelServiceInteractor.commandTunnelRestart(true);
+                break;
+        }
     }
 
     public void sendLocaleChangedMessage() {

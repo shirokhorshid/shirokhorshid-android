@@ -82,7 +82,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         REGISTER,
         UNREGISTER,
         STOP_SERVICE,
-        RESTART_SERVICE,
+        RESTART_TUNNEL,
         CHANGED_LOCALE,
     }
 
@@ -100,6 +100,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     public static final String INTENT_ACTION_STOP_TUNNEL = "com.psiphon3.psiphonlibrary.TunnelManager.ACTION_STOP_TUNNEL";
     public static final String IS_CLIENT_AN_ACTIVITY = "com.psiphon3.psiphonlibrary.TunnelManager.IS_CLIENT_AN_ACTIVITY";
     public static final String INTENT_ACTION_UNSAFE_TRAFFIC = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC";
+
+    // Client -> Service bundle parameter names
+    static final String RESET_RECONNECT_FLAG = "resetReconnectFlag";
 
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
@@ -649,13 +652,23 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     }
                     break;
 
-                case RESTART_SERVICE:
+                case RESTART_TUNNEL:
                     if (manager != null) {
+                        final boolean resetReconnectFlag;
+                        Bundle data = msg.getData();
+                        if (data != null) {
+                            resetReconnectFlag = data.getBoolean(RESET_RECONNECT_FLAG, true);
+                        } else {
+                            resetReconnectFlag = true;
+                        }
                         manager.m_compositeDisposable.add(
                                 manager.getTunnelConfigSingle()
                                         .doOnSuccess(config -> {
+                                            if (resetReconnectFlag) {
+                                                manager.m_isReconnect.set(false);
+                                            }
                                             manager.setTunnelConfig(config);
-                                            manager.onRestartCommand();
+                                            manager.onRestartTunnel();
                                         })
                                         .subscribe());
                     }
@@ -859,14 +872,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         }
     }
 
-    private void onRestartCommand() {
+    private void onRestartTunnel() {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_isReconnect.set(false);
                 try {
-                    Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
-                    m_tunnel.seamlessVpnRestart(vpnBuilder);
+                    m_tunnel.restartPsiphon();
                 } catch (PsiphonTunnel.Exception e) {
                     MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
                 }
