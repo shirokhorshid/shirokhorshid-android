@@ -36,7 +36,8 @@
         android:supportsRtl="true"
         android:label="@string/app_name"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:fullBackupContent">
 
         <!-- Required for newer devices -->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
