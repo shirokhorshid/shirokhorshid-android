@@ -176,4 +176,6 @@
   <string name="preference_summary_system_proxy">系统代理</string>
   <string name="disableTimeoutsPreferenceTitle">禁用超时</string>
   <string name="downloadWiFiOnlyPreferenceTitle">只用Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">显示恶意软件警告</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon 发现设备上有恶意软件时会提醒您。</string>
 </resources>
