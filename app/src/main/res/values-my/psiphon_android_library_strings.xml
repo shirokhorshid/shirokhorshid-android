@@ -178,4 +178,6 @@
   <string name="preference_summary_system_proxy">စနစ်၏ကြားခံ</string>
   <string name="disableTimeoutsPreferenceTitle">ခေတ္တရပ်ဆိုင်းခြင်းအား ပိတ်မယ်</string>
   <string name="downloadWiFiOnlyPreferenceTitle">ဝိုင်ဖိုင်သာ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware သတိပေးချက်များ ပြပါ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">သင့်စက်ပစ္စည်းမှ malware အသွားအလာကို Psiphon မှ ထောက်လှမ်းတွေ့ရှိသောအခါ သတိပေးချက် ရယူပါ။</string>
 </resources>
