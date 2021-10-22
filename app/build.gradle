@@ -1,14 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     useLibrary 'org.apache.http.legacy'
-
-    repositories{
-        flatDir{
-            dirs 'libs'
-        }
-    }
 
     def versionPropsFile = new File('version.properties')
 
@@ -24,7 +18,7 @@ android {
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
                 minSdkVersion 14
-                targetSdkVersion 29
+                targetSdkVersion 30
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -70,7 +64,6 @@ android {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
-    buildToolsVersion = '29.0.3'
 
     if (propFile.canRead()) {
         def Properties props = new Properties()
@@ -95,7 +88,7 @@ dependencies {
     implementation files('libs/jackson-core-2.2.0.jar')
     implementation files('libs/achartengine-1.0.0.jar')
     implementation files('libs/snakeyaml-1.10-android.jar')
-    implementation(name: 'ca.psiphon', ext: 'aar')
+    implementation files('libs/ca.psiphon.aar')
 
     implementation project(':tray')
 
