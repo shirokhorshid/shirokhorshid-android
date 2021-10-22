@@ -67,4 +67,6 @@
     <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
     <!-- Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts -->
     <string name="unsafe_traffic_alert_prompt_message">Psiphon automatically blocks access to potentially malicious sites on the Internet. Would you like to be notified when this occurs?\n\nThis setting can be changed later in More Options.</string>
+    <!-- More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts -->
+    <string name="unsafe_traffic_alert_prompt_message_more_info">Learn more about MalAware here:</string>
 </resources>

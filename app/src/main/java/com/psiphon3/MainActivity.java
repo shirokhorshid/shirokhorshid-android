@@ -241,10 +241,15 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             multiProcessPreferences.getBoolean(getString(R.string.unsafeTrafficAlertsPreference));
             return false;
         } catch (ItemNotFoundException e) {
+            LayoutInflater inflater = this.getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.unsafe_traffic_alert_prompt_layout, null);
+            TextView tv = dialogView.findViewById(R.id.textViewMore);
+            tv.append(String.format(Locale.US, "\n%s", getString(R.string.AboutMalAwareLink)));
+
             new AlertDialog.Builder(this)
                     .setCancelable(false)
                     .setTitle(R.string.unsafe_traffic_alert_prompt_title)
-                    .setMessage(R.string.unsafe_traffic_alert_prompt_message)
+                    .setView(dialogView)
                     .setPositiveButton(R.string.lbl_yes,
                             (dialog, whichButton) -> {
                                 multiProcessPreferences.put(getString(R.string.unsafeTrafficAlertsPreference), true);
