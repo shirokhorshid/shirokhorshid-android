@@ -52,7 +52,7 @@
     <PreferenceCategory
         android:title="@string/preference_category_info_title">
         <Preference
-            android:icon="@drawable/baseline_info_white_24"
+            android:icon="@drawable/baseline_privacy_tip_white_24"
             android:key="@string/preferenceAboutMalAware"
             android:title="@string/aboutMalAware" />
         <Preference
