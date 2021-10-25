@@ -105,7 +105,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             unsafeTrafficAlertsCheckBox.setChecked(preferenceGetter.getBoolean(getString(R.string.unsafeTrafficAlertsPreference), false));
 
             setupLanguageSelector(preferences);
-            setupAbout(preferences);
+            setupAbouts(preferences);
         }
 
         @Override
@@ -201,9 +201,13 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             }
         }
 
-        private void setupAbout(PreferenceScreen preferences) {
-            final Preference pref = preferences.findPreference(getString(R.string.preferenceAbout));
-            final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(EmbeddedValues.INFO_LINK_URL));
+        private void setupAbouts(PreferenceScreen preferences) {
+            setupAbout(preferences.findPreference(getString(R.string.preferenceAbout)), EmbeddedValues.INFO_LINK_URL);
+            setupAbout(preferences.findPreference(getString(R.string.preferenceAboutMalAware)), getString(R.string.AboutMalAwareLink));
+        }
+
+        private void setupAbout(Preference pref, String aboutURL) {
+            final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(aboutURL));
             pref.setOnPreferenceClickListener(preference -> {
                 try {
                     requireContext().startActivity(browserIntent);
