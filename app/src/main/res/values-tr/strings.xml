@@ -64,4 +64,6 @@
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message">Psiphon, İnternet üzerindeki zararlı olabilecek bir site trafiğini engelledi. Benzer durumların bildirilmesini ister misiniz?\n\nSeçiminizi daha sonra diğer ayarlar bölümünden değiştirebilirsiniz:</string>
+  <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware hakkında ayrıntılı bilgi almak için şuraya bakabilirsiniz:</string>
 </resources>

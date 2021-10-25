@@ -55,13 +55,14 @@
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
-  <string name="unsafe_traffic_alert_notification_message">Malware အသွားအလာကို ထောက်လှမ်းတွေ့ရှိထားသည်။ ပိုမိုလေ့လာရန် ကလစ်နှိပ်ပါ။</string>
+  <string name="unsafe_traffic_alert_notification_message">အန္တရာယ်ပြုဆော့ဖ်ဝဲ (malware) အသွားအလာကို ထောက်လှမ်းတွေ့ရှိထားသည်။ ပိုမိုလေ့လာရန် ကလစ်နှိပ်ပါ။</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
-  <string name="unsafe_traffic_alert_dialog_message">Psiphon သည် အင်တာနက်ပေါ်တွင် သံသယဖြစ်စရာကောင်းသော ဝက်ဘ်ဆိုဒ်များကို ထောက်လှမ်းတွေ့ရှိထား၍ ချိတ်ဆက်ခြင်းကို ပိတ်ထားသည်။ ပိုမိုလေ့လာရန် အောက်ပါလင့်ခ်များအတိုင်း လိုက်ပါ၍ သွားရောက်ပါ။\n\n ထောက်လှမ်းတွေ့ရှိထားသော malware-</string>
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon သည် အင်တာနက်ပေါ်တွင် သံသယဖြစ်စရာကောင်းသော ဝက်ဘ်ဆိုဒ်များကို ထောက်လှမ်းတွေ့ရှိထား၍ ချိတ်ဆက်ခြင်းကို ပိတ်ထားသည်။ ပိုမိုလေ့လာရန် အောက်ပါလင့်ခ်များအတိုင်း လိုက်ပါ၍ သွားရောက်ပါ။\n\n ထောက်လှမ်းတွေ့ရှိထားသော အန္တရာယ်ပြုဆော့ဖ်ဝဲ (malware)-</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
-  <string name="unsafe_traffic_alert_prompt_message">Psiphon သည် အင်တာနက်ပေါ်တွင် သံသယဖြစ်စရာကောင်းသော ဝက်ဘ်ဆိုဒ်များအား ဝင်ရောက်ကြည့်ရှုခွင့်ကို အလိုအလျောက် ပိတ်ထားသည်။ ထိုသို့ဖြစ်ပွားခဲ့ပါက သတိပေးစေလိုပါသလား။\n\nဤဆက်တင်များကို နောက်ထပ် ရွေးချယ်မှုများတွင် နောက်ပိုင်း၌ ပြောင်းလဲနိုင်သည်။</string>
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon သည် အင်တာနက်ပေါ်တွင် သံသယဖြစ်စရာကောင်းသော ဝက်ဘ်ဆိုဒ်များအား ဝင်ရောက်ကြည့်ရှုခွင့်ကို အလိုအလျောက် ပိတ်ထားသည်။ ထိုသို့ဖြစ်ပွားခဲ့ပါက သင့်အား သတိပေးစေလိုပါသလား။\n\nဤဆက်တင်ကို နောက်ထပ် ရွေးချယ်မှုများတွင် နောက်ပိုင်း၌ ပြောင်းလဲနိုင်သည်။</string>
+  <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
 </resources>

@@ -182,4 +182,5 @@
   <string name="downloadWiFiOnlyPreferenceTitle">Yalnız Wi-Fi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware uyarıları görüntülensin</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon, aygıtnızdan kaynaklanan zararlı yazılım trafiği algıladığında bildirim alın.</string>
+  <string name="aboutMalAware">MalAware hakkında</string>
 </resources>

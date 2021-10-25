@@ -182,4 +182,5 @@
   <string name="downloadWiFiOnlyPreferenceTitle">Sólo Wi-Fi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">Mostrar alertas de MalAware</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Reciba notificaciones cuando Psiphon detecte tráfico de malware que se origina en su dispositivo.</string>
+  <string name="aboutMalAware">Acerca de MalAware</string>
 </resources>

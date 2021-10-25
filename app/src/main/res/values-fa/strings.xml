@@ -66,4 +66,5 @@
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message">سایفون دسترسی به بدافزارها را به صورت خودکار مسدود می‌کند. آیا تمایل دارید در این مورد پیام هشدار دریافت کنید؟
 این تنظیمات بعدا در «گزینه‌های بیشتر» قابل تغییر است. </string>
+  <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
 </resources>
