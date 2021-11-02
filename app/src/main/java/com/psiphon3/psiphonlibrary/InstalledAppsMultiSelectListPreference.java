@@ -125,6 +125,8 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
                     final SearchView searchView = view.findViewById(R.id.search_view);
                     searchView.setVisibility(View.VISIBLE);
                     searchView.setOnQueryTextListener(this);
+                    // Make whole search view area clickable.
+                    searchView.setOnClickListener(v -> searchView.setIconified(false));
 
                     view.findViewById(R.id.recycler_view).setVisibility(View.VISIBLE);
                     view.findViewById(R.id.progress_overlay).setVisibility(View.GONE);

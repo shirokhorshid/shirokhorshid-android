@@ -57,13 +57,16 @@
     <string name="vpn_exclusions_tip_summary" >Select only one browser for classic browser-only mode</string>
     <!-- Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic -->
     <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
-
     <!-- Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic -->
     <string name="unsafe_traffic_alert_notification_message">Malware traffic detected! Click to learn more.</string>
-
     <!-- Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic -->
     <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
-
     <!-- Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic -->
-    <string name="unsafe_traffic_alert_dialog_message">Psiphon has detected potential malware traffic originating from your device. Please follow the links below to learn more.\n\nDetected malware:</string>
+    <string name="unsafe_traffic_alert_dialog_message">Psiphon has detected and blocked access to potentially malicious sites on the Internet. Please follow the links below to learn more.\n\nDetected malware:</string>
+    <!-- Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts -->
+    <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
+    <!-- Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts -->
+    <string name="unsafe_traffic_alert_prompt_message">Psiphon automatically blocks access to potentially malicious sites on the Internet. Would you like to be notified when this occurs?\n\nThis setting can be changed later in More Options.</string>
+    <!-- More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts -->
+    <string name="unsafe_traffic_alert_prompt_message_more_info">Learn more about MalAware here:</string>
 </resources>

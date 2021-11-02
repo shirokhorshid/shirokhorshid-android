@@ -45,6 +45,7 @@ import com.psiphon3.psiphonlibrary.Utils;
 import com.psiphon3.psiphonlibrary.VpnAppsUtils;
 
 import net.grandcentrix.tray.AppPreferences;
+import net.grandcentrix.tray.core.ItemNotFoundException;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -223,10 +224,49 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         boolean shouldAutoStart = shouldAutoStart();
         preventAutoStart();
 
+        if (unsafeTrafficAlertsPrompt(shouldAutoStart)) {
+            shouldAutoStart = false;
+        }
+
         // Auto-start on app first run
         if (shouldAutoStart) {
             startTunnel();
         }
+    }
+
+    private boolean unsafeTrafficAlertsPrompt(boolean startTunnelAfterPrompt) {
+        // Prompt the user only once to choose to enable unsafe traffic alerts.
+        // Returns true if the prompt is shown.
+        try {
+            multiProcessPreferences.getBoolean(getString(R.string.unsafeTrafficAlertsPreference));
+            return false;
+        } catch (ItemNotFoundException e) {
+            LayoutInflater inflater = this.getLayoutInflater();
+            View dialogView = inflater.inflate(R.layout.unsafe_traffic_alert_prompt_layout, null);
+            TextView tv = dialogView.findViewById(R.id.textViewMore);
+            tv.append(String.format(Locale.US, "\n%s", getString(R.string.AboutMalAwareLink)));
+
+            new AlertDialog.Builder(this)
+                    .setCancelable(false)
+                    .setTitle(R.string.unsafe_traffic_alert_prompt_title)
+                    .setView(dialogView)
+                    .setPositiveButton(R.string.lbl_yes,
+                            (dialog, whichButton) -> {
+                                multiProcessPreferences.put(getString(R.string.unsafeTrafficAlertsPreference), true);
+                            })
+                    .setNegativeButton(R.string.lbl_no,
+                            (dialog, whichButton) -> {
+                                multiProcessPreferences.put(getString(R.string.unsafeTrafficAlertsPreference), false);
+                            })
+                    .setOnDismissListener(
+                            dialog -> {
+                                if (startTunnelAfterPrompt) {
+                                    startTunnel();
+                                }
+                            })
+                    .show();
+        }
+        return true;
     }
 
     @Override

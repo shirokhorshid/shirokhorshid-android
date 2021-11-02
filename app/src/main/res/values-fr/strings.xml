@@ -14,7 +14,7 @@
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas démarrer le RPV. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et réglée sur RPV permanent.</string>
   <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
   <string name="ads_consent_preference_category_title">Personnalisation de la publicité</string>
-  <string name="ads_consent_preference_dialog_preference_message">Voulez-vous vraiment réinitialiser vos préférences de personnalisation des publicités ?</string>
+  <string name="ads_consent_preference_dialog_preference_message">Voulez-vous vraiment réinitialiser vos préférences de personnalisation des publicités?</string>
   <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
   <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
   <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>
@@ -56,4 +56,7 @@
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
 </resources>

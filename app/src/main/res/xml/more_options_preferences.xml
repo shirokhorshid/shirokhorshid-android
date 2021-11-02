@@ -44,7 +44,6 @@
             android:title="@string/downloadWiFiOnlyPreferenceTitle"
             android:summary="@string/downloadWiFiOnlyPreferenceSummary" />
         <CheckBoxPreference
-            app:isPreferenceVisible="false"
             android:icon="@drawable/baseline_gpp_maybe_white_24"
             android:key="@string/unsafeTrafficAlertsPreference"
             android:title="@string/unsafeTrafficAlertsOptInPreferenceTitle"
@@ -52,6 +51,10 @@
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preference_category_info_title">
+        <Preference
+            android:icon="@drawable/baseline_privacy_tip_white_24"
+            android:key="@string/preferenceAboutMalAware"
+            android:title="@string/aboutMalAware" />
         <Preference
             android:icon="@drawable/baseline_info_white_24"
             android:key="@string/preferenceAbout"

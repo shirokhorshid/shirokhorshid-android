@@ -82,6 +82,7 @@
   <string name="region_name_is">أيسلندا</string>
   <string name="region_name_ie">أيرلاندا</string>
   <string name="region_name_ke">كينيا</string>
+  <string name="region_name_kr">كوريا</string>
   <string name="region_name_lv">لاتفيا</string>
   <string name="region_name_mx">المكسيك</string>
   <string name="region_name_tw">تايوان</string>
@@ -195,4 +196,6 @@
   <string name="preference_summary_system_proxy">وكيل النظام</string>
   <string name="disableTimeoutsPreferenceTitle">إلغاء الإنقطاع عند نفاذ المهلة</string>
   <string name="downloadWiFiOnlyPreferenceTitle">فقط Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">‫إظهار تنبيهات MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">الحصول على الإشعار عندما يكتشف Psiphon حركات مرور ناجمة عن برمجيات خبيثة منشؤها جهازك.</string>
 </resources>

@@ -37,7 +37,7 @@
   <string name="stop">روکیں</string>
   <string name="home_tab_name">ابتدائی صحفہ</string>
   <string name="settings_tab_name">آپشنز </string>
-  <string name="statistics_tab_name">stats(سٹیٹس)</string>
+  <string name="statistics_tab_name">Stats (سٹیٹس)</string>
   <string name="logs_tab_name">لاگز</string>
   <string name="use_proxy_settings_toggle">HTTPS پراکسی کے ذریعہ کنکٹ کریں</string>
   <string name="use_system_proxy_settings_radio">سسٹم نیٹ ورک کی ترتیبات کو استعمال کریں</string>

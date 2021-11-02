@@ -189,4 +189,5 @@
 
     <string name="unsafeTrafficAlertsOptInPreferenceTitle">Show MalAware alerts</string>
     <string name="unsafeTrafficAlertsOptInPreferenceSummary">Get notified when Psiphon detects malware traffic originating from your device.</string>
+    <string name="aboutMalAware">About MalAware</string>
 </resources>

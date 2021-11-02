@@ -35,25 +35,36 @@
   <!--"Please open Psiphon to keep connecting" notification title-->
   <string name="notification_title_action_required">اقدامی لازم است!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
-  <string name="notification_text_open_psiphon_to_finish_connecting">لطفا برای کامل کردن اتصال، Psiphon را باز کنید.</string>
+  <string name="notification_text_open_psiphon_to_finish_connecting">لطفا برای برقراری ارتباط، سایفون را باز کنید.</string>
   <!--"Selected region is not available" notification title-->
   <string name="notification_title_region_not_available">منطقه انتخاب‌شده در دسترس نمی‌باشد</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
-  <string name="notification_text_region_not_available">لطفا Psiphon را باز کرده و منطقه دیگری را انتخاب کنید.</string>
+  <string name="notification_text_region_not_available">لطفا سایفون را باز و منطقه دیگری را انتخاب کنید.</string>
   <!--"VPN stopped" notification title-->
-  <string name="notification_title_vpn_revoked">VPN Psiphon متوقف شده است</string>
+  <string name="notification_title_vpn_revoked">وی‌پی‌ان سایفون متوقف شده است</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
-  <string name="notification_text_vpn_revoked">اتصال VPN Psiphon توسط شما یا برنامه دیگری قطع شد.</string>
+  <string name="notification_text_vpn_revoked">وی‌پی‌ان سایفون توسط شما یا برنامه دیگری قطع شد.</string>
   <!--Description for an app icon image-->
   <string name="description_app_icon">آیکون برنامه</string>
-  <string name="bad_vpn_exclusion_setting_alert_title">تنظیمات VPN نامعتبر</string>
-  <string name="bad_vpn_exclusion_whitelist_alert_message">شما باید حداقل یک برنامه را در این حالت انتخاب کنید!</string>
-  <string name="bad_vpn_exclusion_blacklist_alert_message">شما باید حداقل یک برنامه را در این حالت از انتخاب خارج کنید!</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">تنظیمات وی‌پی‌ معتبر نیست</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">در این حالت باید حداقل یک برنامه را انتخاب کنید!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">در این حالت باید حداقل یک برنامه را از انتخاب خارج کنید!</string>
   <string name="vpn_exclusions_preference_not_available_summary">به اندروید 5.0 یا بالاتر نیاز دارد</string>
   <string name="vpn_always_on_preference_not_available_summary">به اندروید 7.0 یا بالاتر نیاز دارد</string>
-  <string name="vpn_exclusions_tip_summary">فقط یک مرورگر را برای حالت کلاسیک فقط-مرورگر انتخاب کنید</string>
+  <string name="vpn_exclusions_tip_summary">برای حالت کلاسیک فقط-مرورگر، تنها یک مرورگر را انتخاب کنید</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">ترافیک Malware شناسایی شد! برای اطلاعات بیشتر کلیک کنید. </string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">سایفون دسترسی به بدافزار را شناسایی و مسدود کرده است. لطفا لینک‌های زیر را برای اطلاعات بیشتر دنبال کنید. 
+بدافزار شناسایی شد. </string>
+  <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
+  <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">سایفون دسترسی به بدافزارها را به صورت خودکار مسدود می‌کند. آیا تمایل دارید در این مورد پیام هشدار دریافت کنید؟
+این تنظیمات بعدا در «گزینه‌های بیشتر» قابل تغییر است. </string>
+  <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
 </resources>

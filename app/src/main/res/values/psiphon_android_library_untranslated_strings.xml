@@ -16,6 +16,8 @@
     <string name="preferenceExcludeAppsFromVpnString" translatable="false">preferenceExcludeAppsFromVpnString</string>
     <string name="preferenceSelectApps" translatable="false">preferenceSelectApps</string>
     <string name="preferenceAbout" translatable="false">preferenceAbout</string>
+    <string name="preferenceAboutMalAware" translatable="false">preferenceAboutMalAware</string>
+    <string name="AboutMalAwareLink" translatable="false">https://s3.amazonaws.com/psiphon/web/malaware.io/index.html</string>
     <!-- backwards compatible shared preferences names for new 'More Options' screen with proxy settings  -->
     <string name="proxySettingsCategoryKey">proxySettingsCategoryKey</string>
     <string name="useProxySettingsPreference">useProxySettingsPreference</string>

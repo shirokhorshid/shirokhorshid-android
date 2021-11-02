@@ -14,6 +14,8 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- required for targetSdk 30+ to show all apps in the VPN exclusions dialog -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
     <!-- instruct manifest merger to remove any location permissions from the final manifest -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" tools:node="remove"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" tools:node="remove"/>
@@ -30,12 +32,14 @@
         android:name=".PsiphonApplication"
         android:hardwareAccelerated="true"
         android:allowBackup="false"
+        android:fullBackupContent="false"
         android:icon="@drawable/ic_launcher"
         android:theme="@style/Theme.AppCompat"
         android:supportsRtl="true"
         android:label="@string/app_name"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:fullBackupContent">
 
         <!-- Required for newer devices -->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>

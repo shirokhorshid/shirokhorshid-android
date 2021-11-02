@@ -13,9 +13,9 @@
   <string name="waiting_for_network_connectivity">انتظار برای اتصال به شبکه...</string>
   <string name="psiphon_service_notification_message_connecting">در حال اتصال...</string>
   <string name="psiphon_service_notification_id">اعلانات سرویس Psiphon</string>
-  <string name="psiphon_service_notification_channel_name">وضعیت Psiphon تغییر می‌کند</string>
-  <string name="psiphon_upgrade_notification_channel_name">به روز رسانی Psiphon</string>
-  <string name="psiphon_server_alert_notification_channel_name">هشدارهای سرور Psiphon (سایفون)</string>
+  <string name="psiphon_service_notification_channel_name">تغییرات وضعیت سایفون</string>
+  <string name="psiphon_upgrade_notification_channel_name">به روز رسانی سایفون</string>
+  <string name="psiphon_server_alert_notification_channel_name">هشدارهای سرور سایفون</string>
   <string name="vpn_service_running">سرویس وی پی ان فعال است</string>
   <string name="vpn_service_revoked">سرویس وی پی ان لغو شد</string>
   <string name="debug_message">%s</string>
@@ -98,9 +98,9 @@
   <!--Description of option to tunnel everything-->
   <string name="preference_routing_include_all_apps_summary">تونل همه برنامه‌ها</string>
   <!--Title for selecting apps to be tunneled-->
-  <string name="preference_routing_include_apps_title">شامل شدن برنامه‌ها</string>
+  <string name="preference_routing_include_apps_title">شامل این برنامه‌ها</string>
   <!--Description of option to tunnel only selected apps-->
-  <string name="preference_routing_include_apps_summary">تونل تنها برنامه‌های انتخاب شده</string>
+  <string name="preference_routing_include_apps_summary">تونل برنامه‌های انتخاب شده</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">حذف برنامه‌ها</string>
   <!--Description of option to tunnel everything but selected apps-->
@@ -116,26 +116,26 @@
   <!--Description of option to select apps to exclusively tunnel-->
   <plurals name="preference_routing_select_apps_to_include_summary">
     <item quantity="one">%d برنامه با VPN تونل خواهد شد</item>
-    <item quantity="other">%d برنامه با VPN تونل خواهد شد</item>
+    <item quantity="other">%d برنامه با وی‌پی‌ان تونل خواهد شد</item>
   </plurals>
   <!--Description of option to select apps to not tunnel-->
   <plurals name="preference_routing_select_apps_to_exclude_summary">
     <item quantity="one">%d برنامه از VPN استثنا خواهد شد</item>
-    <item quantity="other">%d برنامه از VPN استثنا خواهد شد</item>
+    <item quantity="other">%d برنامه از وی‌پی‌ان مستثنا خواهد شد</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">در حال تونل کردن همه برنامه‌ها</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_include_apps">
     <item quantity="one">در حال تونل کردن %d برنامه</item>
-    <item quantity="other">در حال تونل کردن %d برنامه</item>
+    <item quantity="other">در حال تونل کردن %d برنامه‌ها</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
     <item quantity="one">%d برنامه از تونل مستثنی شدند.</item>
-    <item quantity="other">%d برنامه از تونل مستثنی شدند.</item>
+    <item quantity="other">%d برنامه‌ها از تونل مستثنی شدند.</item>
   </plurals>
-  <string name="preference_routing_all_apps_tunnel_summary">تمام برنامه‌ها از VPN تونل خواهد شد</string>
+  <string name="preference_routing_all_apps_tunnel_summary">تمام برنامه‌ها ازوی‌پی‌ان تونل خواهد شد</string>
   <string name="preference_notifications_with_sound_title">صدا </string>
   <string name="preference_notifications_with_sound_summary">وقتی وضعیت اتصال تغییر میکند صدا پخش شود</string>
   <string name="preference_notifications_with_vibrate_title">ویبره</string>
@@ -160,24 +160,27 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">ارور پراکسی آپستریم: %s</string>
   <string name="start_tunnel_failed">اجرای تونل امکان پذیر نبود: %s</string>
-  <string name="vpn_exclusions_conflict">یک و یا چند برنامه متناقض در استثناهای VPN فعلی شما وجود دارند. لطفا به تنظیمات VPN رفته و حالت تونل کردن همه برنامه‌ها را انتخاب کنید.</string>
+  <string name="vpn_exclusions_conflict">یک یا چند برنامه متناقض در استثناهای وی‌پی‌ان فعلی شما وجود دارند. لطفا به تنظیمات وی‌پی‌ان رفته و حالت تونل کردن همه برنامه‌ها را انتخاب کنید.</string>
   <string name="tunnel_connecting">در حال اتصال به تونل...</string>
   <string name="tunnel_connected">متصل شد</string>
   <string name="waiting">منتظر...</string>
   <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">درخواست مجوز</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">درخواست اجازه</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">با اعطای دسترسی به مکان خودتان، به Psiphon اجازه دهید تصمیمات بهتری در مورد چگونگی عملکرد روی شبکه شما بگیرد.\n\nبه یاد داشته باشید که این اطلاعات تنها به صورت محلی در دستگاه خود شما مورد استفاده قرار می‌گیرد، و به سرورهای ما یا هیچ شخص ثالثی انتقال نمی‌یابد.</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">با دادن دسترسی به مکان خودتان، به سایفون اجازه دهید تصمیمات بهتری در مورد چگونگی عملکرد روی شبکه شما بگیرد.\n\n
+ این اطلاعات تنها روی دستگاه شما مورد استفاده قرار می‌گیرد، و به سرورهای ما یا هیچ شخص ثالثی انتقال نمی‌یابد.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">قبول</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">نه، ممنون</string>
-  <string name="label_vpn_settings">تنظیمات VPN</string>
+  <string name="label_vpn_settings">تنظیمات وی‌پی‌ان</string>
   <string name="label_proxy_settings">تنظیمات پروکسی</string>
   <string name="preference_summary_no_proxy">بدون پروکسی</string>
   <string name="preference_summary_custom_proxy">پروکسی سفارشی</string>
   <string name="preference_summary_system_proxy">پروکسی سیستم</string>
   <string name="disableTimeoutsPreferenceTitle">غیرفعال کردن وقفه‌ها</string>
   <string name="downloadWiFiOnlyPreferenceTitle">فقط Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">هشدارهای MalAware را نشان بده</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">وقتی سایفون ترافیک به بدافزارها را روی دستگاه شما شناسایی می‌کند، پیام هشدار دریافت کنید. </string>
 </resources>

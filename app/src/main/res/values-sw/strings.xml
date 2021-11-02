@@ -59,5 +59,8 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
-  <string name="unsafe_traffic_alert_dialog_message"> Psiphon imegundua malware trafiki  zinazotoka kwenye kifaa chako. Tafadhali fuata viungo hapa chini ili ujifunze zaidi.nnDetected zisizo:</string>
+  <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
+  <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
 </resources>
