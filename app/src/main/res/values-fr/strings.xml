@@ -53,10 +53,17 @@
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ou ultérieur est exigé</string>
   <string name="vpn_exclusions_tip_summary">Ne sélectionnez qu’un navigateur pour le mode classique « navigateur seulement »</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">MalAware de Psiphon</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Trafic de logiciel malveillant détecté!\nCliquez ici pour en apprendre davantage.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">MalAware de Psiphon</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon a détecté et bloqué l\'accès à des sites potentiellement malveillants sur Internet. Veuillez suivre les liens ci-dessous pour en apprendre davantage.\n\nLogiciels malveillants détectés :</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">MalAware de Psiphon</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon bloque automatiquement l’accès à des sites potentiellement malveillants sur Internet. Voulez-vous que de tels cas vous soient signalés?\n\nCe paramètre peut être changé ultérieurement dans Plus d’options.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Apprenez-en plus sur MalAware ici :</string>
 </resources>
