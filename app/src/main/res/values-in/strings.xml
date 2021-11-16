@@ -53,10 +53,17 @@
   <string name="vpn_always_on_preference_not_available_summary">Perlu Android 7.0 atau lebih</string>
   <string name="vpn_exclusions_tip_summary">Pilih hanya peremban saja untuk moda peremban klasik saja</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Lalu lintas malware terdeteksi! Klik untuk mempelajari lebih lanjut.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon telah mendeteksi dan memblokir akses ke situs yang berpotensi berbahaya di Internet. Ikuti tautan di bawah untuk mempelajari lebih lanjut.\n\nMalware yang terdeteksi:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon secara otomatis memblokir akses ke situs yang berpotensi berbahaya di Internet. Apakah Anda ingin diberi tahu saat ini terjadi?\n\nSetelan ini dapat diubah kapan saja di Opsi Lainnya.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Pelajari lebih lanjut tentang MalAware di sini:</string>
 </resources>
