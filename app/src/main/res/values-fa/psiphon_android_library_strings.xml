@@ -183,4 +183,5 @@
   <string name="downloadWiFiOnlyPreferenceTitle">فقط Wi-Fi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">هشدارهای MalAware را نشان بده</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">وقتی سایفون ترافیک به بدافزارها را روی دستگاه شما شناسایی می‌کند، پیام هشدار دریافت کنید. </string>
+  <string name="aboutMalAware">درباره MalAware</string>
 </resources>
