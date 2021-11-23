@@ -26,8 +26,6 @@
             android:lineSpacingExtra="8dp"
             android:padding="4dp"
             android:layout_marginTop="18dp"
-            android:linksClickable="true"
-            android:autoLink="web"
             android:text="@string/unsafe_traffic_alert_prompt_message_more_info" />
 
     </LinearLayout>
