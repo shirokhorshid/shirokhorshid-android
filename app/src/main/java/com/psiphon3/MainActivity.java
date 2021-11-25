@@ -344,20 +344,21 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         // disabled due to the case where users haven't set a default browser
         // and will get the prompt once per home page.
 
-        // If URL is not empty we will try to load in an external browser, otherwise we will
-        // try our best to open an external browser instance without specifying URL to load
-        // or will load "about:blank" URL if that fails.
-
         // Prepare browser starting intent.
-        Intent browserIntent;
+        Intent browserIntent = new Intent();
+        browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        // Try and start a browser that is not excluded from VPN tunneling with an explicit intent
+        // first.
+
         if (TextUtils.isEmpty(urlString)) {
             // If URL is empty, just start the app.
-            browserIntent = new Intent(Intent.ACTION_MAIN);
+            browserIntent.setAction(Intent.ACTION_MAIN);
         } else {
-            // If URL is not empty, start the app with URL load intent.
-            browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+            // If URL is not empty, start the app and load the URL
+            browserIntent.setAction(Intent.ACTION_VIEW);
+            browserIntent.setData(Uri.parse(urlString));
         }
-        browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         // LinkedHashSet maintains FIFO order and does not allow duplicates.
         Set<String> browserIdsSet = new LinkedHashSet<>();
@@ -374,6 +375,8 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         // If we have a candidate then set the app package ID for the browser intent and try to
         // start the app with the intent right away.
         for (String id : browserIdsSet) {
+            // Note that VpnAppsUtils.isTunneledAppId(...) will return true as long as the app is not
+            // excluded from VPN in the settings, even if the app is not installed!
             if (VpnAppsUtils.isTunneledAppId(context, id)) {
                 browserIntent.setPackage(id);
                 try {
@@ -386,15 +389,24 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             }
         }
 
-        // Last effort - let the system handle it.
+        // We don't have an explicit package ID for the browser intent at this point - let the
+        // system handle it with an implicit intent.
         // Note that the browser picked by the system will be most likely not tunneled.
+
+        // Remove the package ID and set intent's action to ACTION_VIEW.
+        browserIntent.setPackage(null);
+        browserIntent.setAction(Intent.ACTION_VIEW);
+
+        // Specify the URL to load.
+        // Since there is no explicit package ID the URL cannot be empty. In this case try loading
+        // a special URL 'about:blank'.
+        if (!TextUtils.isEmpty(urlString)) {
+            browserIntent.setData(Uri.parse(urlString));
+        } else {
+            browserIntent.setData(Uri.parse("about:blank"));
+        }
+
         try {
-            // We don't have explicit package ID for the browser intent, so the URL cannot be empty.
-            // In this case try loading a special URL 'about:blank'.
-            if (TextUtils.isEmpty(urlString)) {
-                browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("about:blank"));
-                browserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            }
             context.startActivity(browserIntent);
         } catch (ActivityNotFoundException | SecurityException ignored) {
             // Fail silently.
