@@ -156,6 +156,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Galat proksi hulu: %s</string>
   <string name="start_tunnel_failed">Gagal memulai pengalihan: %s</string>
+  <string name="vpn_exclusions_conflict">Ada satu atau lebih aplikasi yang saling bertentangan dalam pengecualian VPN Anda saat ini. Silakan buka pengaturan VPN dan alihkan ke mode \'Alihkan semua aplikasi\' untuk terhubung.</string>
   <string name="tunnel_connecting">Pengalihan tersambung...</string>
   <string name="tunnel_connected">Pengalihan tersambung</string>
   <string name="waiting">Menunggu...</string>
@@ -171,5 +172,11 @@
   <string name="label_vpn_settings">Pengaturan VPN</string>
   <string name="label_proxy_settings">Seting proxy</string>
   <string name="preference_summary_no_proxy">Tanpa proksi</string>
+  <string name="preference_summary_custom_proxy">Proksi khusus</string>
+  <string name="preference_summary_system_proxy">Sistem Proksi</string>
   <string name="disableTimeoutsPreferenceTitle">Menonaktifkan waktu habis</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Hanya Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Tampilkan peringatan MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Dapatkan pemberitahuan saat Psiphon mendeteksi lalu lintas malware yang berasal dari perangkat Anda.</string>
+  <string name="aboutMalAware">Tentang MalAware</string>
 </resources>

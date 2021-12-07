@@ -53,10 +53,17 @@
   <string name="vpn_always_on_preference_not_available_summary">需要安卓7.0或更高</string>
   <string name="vpn_exclusions_tip_summary">请只为经典浏览器模式选择一个浏览器</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">恶意流量被检测！点击这里了解更多。</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon检测到并屏蔽了在网络上对有可能有恶意的网站的访问。请从如下链接了解更多详情。\n\n 检测到的恶意软件：</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon自动屏蔽在网络上针对有可能有恶意的网站的访问。当屏蔽发生时，您想收到通知吗？\n\n 这个设置可以之后在更多选项里被更改。</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">从这里了解关于更多MalAware：</string>
 </resources>

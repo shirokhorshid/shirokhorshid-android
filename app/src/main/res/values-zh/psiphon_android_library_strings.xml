@@ -178,4 +178,5 @@
   <string name="downloadWiFiOnlyPreferenceTitle">只用Wi-Fi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">显示恶意软件警告</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon 发现设备上有恶意软件时会提醒您。</string>
+  <string name="aboutMalAware">关于MalAware</string>
 </resources>
