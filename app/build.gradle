@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 30
-    useLibrary 'org.apache.http.legacy'
 
     def versionPropsFile = new File('version.properties')
 
