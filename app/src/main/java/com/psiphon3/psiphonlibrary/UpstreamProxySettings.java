@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Psiphon Inc.
+ * Copyright (c) 2021, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,12 +27,6 @@ import android.text.TextUtils;
 import com.psiphon3.R;
 
 import net.grandcentrix.tray.AppPreferences;
-
-import org.apache.http.auth.Credentials;
-import org.apache.http.auth.NTCredentials;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 public class UpstreamProxySettings {
 
@@ -126,7 +120,7 @@ public class UpstreamProxySettings {
         }
 
         if (getUseSystemProxySettings(context)) {
-            if(m_isSystemProxySaved) {
+            if (m_isSystemProxySaved) {
                 settings = m_savedProxySettings;
             } else {
                 settings = getSystemProxySettings(context);
@@ -136,49 +130,14 @@ public class UpstreamProxySettings {
         return settings;
     }
 
-    public synchronized static Credentials getProxyCredentials(Context context) {
-        if (!getUseProxyAuthentication(context)) {
-            return null;
-        }
-
-        String username = getProxyUsername(context);
-        String password = getProxyPassword(context);
-        String domain = getProxyDomain(context);
-
-        if (username == null || username.trim().equals("")) {
-            return null;
-        }
-        if (password == null || password.trim().equals("")) {
-            return null;
-        }
-        if (domain == null || domain.trim().equals("")) {
-            return new NTCredentials(username, password, "", "");
-        }
-
-        String localHost;
-        try {
-            localHost = InetAddress.getLocalHost().getHostName();
-        } catch (UnknownHostException e) {
-            localHost = "localhost";
-        }
-
-        return new NTCredentials(username, password, localHost, domain);
-    }
-
     private static ProxySettings getSystemProxySettings(Context context) {
         ProxySettings settings = new ProxySettings();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            settings.proxyHost = System.getProperty("http.proxyHost");
-            String port = System.getProperty("http.proxyPort");
-            try {
-                settings.proxyPort = Integer.parseInt(port);
-            } catch (NumberFormatException e) {
-                settings.proxyPort = 0;
-            }
-        } else {
-            settings.proxyHost = android.net.Proxy.getHost(context);
-            settings.proxyPort = android.net.Proxy.getPort(context);
+        settings.proxyHost = System.getProperty("http.proxyHost");
+        String port = System.getProperty("http.proxyPort");
+        try {
+            settings.proxyPort = Integer.parseInt(port);
+        } catch (NumberFormatException e) {
+            settings.proxyPort = 0;
         }
 
         if (TextUtils.isEmpty(settings.proxyHost) ||
@@ -213,19 +172,18 @@ public class UpstreamProxySettings {
             return "";
         }
 
-        StringBuilder url = new StringBuilder();
-        url.append("http://");
+        StringBuilder url = new StringBuilder("http://");
 
-        NTCredentials credentials = (NTCredentials) getProxyCredentials(context);
-
-        if (credentials != null) {
-            if (!credentials.getDomain().equals("")) {
-                url.append(Uri.encode(credentials.getDomain()));
+        if (getUseProxyAuthentication(context)) {
+            String domain = getProxyDomain(context);
+            if (!TextUtils.isEmpty(domain)) {
+                url.append(Uri.encode(domain));
                 url.append(Uri.encode("\\"));
             }
-            url.append(Uri.encode(credentials.getUserName()));
+
+            url.append(Uri.encode(getProxyUsername(context)));
             url.append(":");
-            url.append(Uri.encode(credentials.getPassword()));
+            url.append(Uri.encode(getProxyPassword(context)));
             url.append("@");
         }
 
