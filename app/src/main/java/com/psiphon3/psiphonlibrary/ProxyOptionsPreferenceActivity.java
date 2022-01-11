@@ -22,6 +22,7 @@ package com.psiphon3.psiphonlibrary;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -80,6 +81,11 @@ public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompa
 
             proxyHost = (EditTextPreference) preferences
                     .findPreference(getString(R.string.useCustomProxySettingsHostPreference));
+            proxyHost.setOnBindEditTextListener(editText -> {
+                editText.setSingleLine(true);
+                editText.setSelection(editText.length());
+            });
+
             proxyPort = (EditTextPreference) preferences
                     .findPreference(getString(R.string.useCustomProxySettingsPortPreference));
             proxyPort.setOnBindEditTextListener(editText -> {
@@ -257,12 +263,12 @@ public class ProxyOptionsPreferenceActivity extends LocalizedActivities.AppCompa
             for (EditTextPreference editTextPref : editTextPreferences) {
                 if (editTextPref != null) {
                     String summary = editTextPref.getText();
-                    if (summary != null && !summary.trim().equals("")) {
+                    if (!TextUtils.isEmpty(summary)) {
                         boolean isPassword = editTextPref.getKey().equals(getString(R.string.useProxyPasswordPreference));
                         if (isPassword) {
-                            editTextPref.setSummary(editTextPref.getText().replaceAll(".", "*"));
+                            editTextPref.setSummary(summary.replaceAll(".", "*"));
                         } else {
-                            editTextPref.setSummary(editTextPref.getText());
+                            editTextPref.setSummary(summary.replace(" ", "␣").replace("\n", "⏎\n"));
                         }
                     } else {
                         editTextPref.setSummary((CharSequence) defaultSummaryBundle.get(editTextPref.getKey()));
