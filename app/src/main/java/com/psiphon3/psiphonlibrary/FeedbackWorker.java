@@ -1,26 +1,54 @@
+/*
+ * Copyright (c) 2022, Psiphon Inc.
+ * All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package com.psiphon3.psiphonlibrary;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.work.Data;
 import androidx.work.RxWorker;
 import androidx.work.WorkerParameters;
 
+import com.psiphon3.R;
+import com.psiphon3.log.LogEntry;
+import com.psiphon3.log.LoggingRoomDatabase;
+import com.psiphon3.log.MyLog;
+
+import net.grandcentrix.tray.AppPreferences;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.security.SecureRandom;
+import java.util.Date;
+import java.util.Locale;
+
 import ca.psiphon.PsiphonTunnel;
 import ca.psiphon.PsiphonTunnel.PsiphonTunnelFeedback;
-
-import com.psiphon3.R;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
-
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
-
-import java.util.Date;
-
-import net.grandcentrix.tray.AppPreferences;
 
 /**
  * Feedback worker which securely uploads user submitted feedback to Psiphon Inc.
@@ -31,6 +59,9 @@ import net.grandcentrix.tray.AppPreferences;
  * rescheduled.
  */
 public class FeedbackWorker extends RxWorker {
+    // log JSON max size to read from logs DB
+    private final static int MAX_LOG_SOURCE_JSON_SIZE_BYTES = 1 << 20; // 1MB
+
     private final TunnelServiceInteractor tunnelServiceInteractor;
     private final PsiphonTunnelFeedback psiphonTunnelFeedback;
     private final boolean sendDiagnosticInfo;
@@ -63,8 +94,15 @@ public class FeedbackWorker extends RxWorker {
         dataBuilder.putString("feedbackText", feedbackText);
         dataBuilder.putString("surveyResponsesJson", surveyResponsesJson);
         dataBuilder.putLong("submitTimeMillis", new Date().getTime());
-        dataBuilder.putString("feedbackId", Diagnostics.generateFeedbackId());
+        dataBuilder.putString("feedbackId", generateFeedbackId());
         return dataBuilder.build();
+    }
+
+    private static String generateFeedbackId() {
+        SecureRandom rnd = new SecureRandom();
+        byte[] id = new byte[8];
+        rnd.nextBytes(id);
+        return Utils.byteArrayToHexString(id);
     }
 
     /**
@@ -106,7 +144,7 @@ public class FeedbackWorker extends RxWorker {
 
     @Override
     public void onStopped() {
-        MyLog.g("FeedbackUpload: worker stopped by system");
+        MyLog.i("FeedbackUpload: worker stopped by system");
         super.onStopped();
     }
 
@@ -126,7 +164,7 @@ public class FeedbackWorker extends RxWorker {
         return Completable.create(emitter -> {
 
             emitter.setCancellable(() -> {
-                MyLog.g("FeedbackUpload: disposed");
+                MyLog.i("FeedbackUpload: disposed");
                 psiphonTunnelFeedback.stopSendFeedback();
                 // Remove the shutdown hook since the underlying resources have been cleaned up by
                 // stopSendFeedback.
@@ -134,7 +172,7 @@ public class FeedbackWorker extends RxWorker {
                     boolean removed = Runtime.getRuntime().removeShutdownHook(this.shutdownHook);
                     if (!removed) {
                         // Hook was either never registered or already de-registered
-                        MyLog.g("FeedbackUpload: shutdown hook not de-registered");
+                        MyLog.i("FeedbackUpload: shutdown hook not de-registered");
                     }
                     this.shutdownHook = null;
                 }
@@ -148,7 +186,7 @@ public class FeedbackWorker extends RxWorker {
                 public void run() {
                     super.run();
                     psiphonTunnelFeedback.stopSendFeedback();
-                    MyLog.g("FeedbackUpload: shutdown hook done");
+                    MyLog.i("FeedbackUpload: shutdown hook done");
                 }
             };
             Runtime.getRuntime().addShutdownHook(this.shutdownHook);
@@ -158,7 +196,7 @@ public class FeedbackWorker extends RxWorker {
                     new PsiphonTunnel.HostFeedbackHandler() {
                         public void sendFeedbackCompleted(java.lang.Exception e) {
                             if (!emitter.isDisposed()) {
-                                MyLog.g("FeedbackUpload: completed");
+                                MyLog.i("FeedbackUpload: completed");
                                 if (e != null) {
                                     emitter.onError(e);
                                     return;
@@ -167,18 +205,17 @@ public class FeedbackWorker extends RxWorker {
                                 emitter.onComplete();
                             } else {
                                 if (e != null) {
-                                    MyLog.g("FeedbackUpload: completed with error but emitter disposed: "
-                                            + e.getMessage());
+                                    MyLog.w("FeedbackUpload: completed with error but emitter disposed: " + e);
                                     return;
                                 }
-                                MyLog.g("FeedbackUpload: completed but emitter disposed");
+                                MyLog.i("FeedbackUpload: completed but emitter disposed");
                             }
                         }
                     },
                     new PsiphonTunnel.HostLogger() {
                         public void onDiagnosticMessage(String message) {
                             if (!emitter.isDisposed()) {
-                                MyLog.g("FeedbackUpload: " + message);
+                                MyLog.i("FeedbackUpload: tunnel diagnostic: " + message);
                             }
                         }
                     },
@@ -194,11 +231,11 @@ public class FeedbackWorker extends RxWorker {
         // Guard against the upload being retried indefinitely if it continues to exceed the max
         // execution time limit of 10 minutes.
         if (this.getRunAttemptCount() > 10) {
-            MyLog.g("FeedbackUpload: failed, exceeded 10 attempts");
+            MyLog.i("FeedbackUpload: failed, exceeded 10 attempts");
             return Single.just(Result.failure());
         }
 
-        MyLog.g(String.format("FeedbackUpload: starting feedback upload work, attempt %d", this.getRunAttemptCount()));
+        MyLog.i(String.format(Locale.US, "FeedbackUpload: starting feedback upload work, attempt %d", this.getRunAttemptCount()));
 
         // Note: this method is called on the main thread despite documentation stating that work
         // will be scheduled on a background thread. All work should be done off the main thread in
@@ -242,11 +279,10 @@ public class FeedbackWorker extends RxWorker {
                     if (tunnelState.isStopped() || (tunnelState.isRunning() && tunnelState.connectionData().isConnected())) {
                         // Send feedback.
 
-                        MyLog.g("FeedbackUpload: uploading feedback");
+                        MyLog.i("FeedbackUpload: uploading feedback");
 
                         Context context = getApplicationContext();
-
-                        String diagnosticData = Diagnostics.create(
+                        String feedbackJsonString = createFeedbackData(
                                 context,
                                 sendDiagnosticInfo,
                                 email,
@@ -254,7 +290,7 @@ public class FeedbackWorker extends RxWorker {
                                 surveyResponsesJson,
                                 feedbackId,
                                 // Only include diagnostics logged before the feedback was submitted
-                                new Date(feedbackSubmitTimeMillis));
+                                feedbackSubmitTimeMillis);
 
                         // Build a temporary tunnel config to use
                         TunnelManager.Config tunnelManagerConfig = new TunnelManager.Config();
@@ -279,19 +315,163 @@ public class FeedbackWorker extends RxWorker {
                         // attempted again even though it already succeeded. The same feedback ID is
                         // used for all upload attempts, which provides visibility into these
                         // occurrences and allows for mitigation.
-                        return startSendFeedback(context, tunnelCoreConfig, diagnosticData,
+                        return startSendFeedback(context, tunnelCoreConfig, feedbackJsonString,
                                 "", "", Utils.getClientPlatformSuffix())
                                 .andThen(Flowable.just(Result.success()));
                     }
 
-                    MyLog.g("FeedbackUpload: waiting for tunnel to be disconnected or connected");
+                    MyLog.i("FeedbackUpload: waiting for tunnel to be disconnected or connected");
                     return Flowable.empty();
                 })
                 .firstOrError()
-                .doOnSuccess(__ -> MyLog.g("FeedbackUpload: upload succeeded"))
+                .doOnSuccess(__ -> MyLog.i("FeedbackUpload: upload succeeded"))
                 .onErrorReturn(error -> {
-                    MyLog.g("FeedbackUpload: upload failed: " + error.getMessage());
+                    MyLog.w("FeedbackUpload: upload failed: " + error.getMessage());
                     return Result.failure();
                 });
+    }
+
+    private static @NonNull String createFeedbackData(Context context,
+                              boolean shouldIncludeDiagnostics,
+                              String email,
+                              String feedbackText,
+                              String surveyResponsesJson,
+                              String feedbackId,
+                              long beforeTimeMillis) throws JSONException {
+        // Top level json object
+        JSONObject feedbackJsonObject = new JSONObject();
+
+        // Add metadata
+        JSONObject metadata = new JSONObject();
+
+        metadata.put("platform", "android");
+        metadata.put("version", 4);
+        metadata.put("id", feedbackId);
+
+        feedbackJsonObject.put("Metadata", metadata);
+
+
+        // Add feedback text and / or surveyResponses
+        if (feedbackText.length() > 0 || surveyResponsesJson.length() > 0) {
+            JSONObject feedbackInfo = new JSONObject();
+            feedbackInfo.put("email", email);
+
+            JSONObject feedbackMessageInfo = new JSONObject();
+            feedbackMessageInfo.put("text", feedbackText);
+            feedbackInfo.put("Message", feedbackMessageInfo);
+
+            JSONObject feedbackSurveyInfo = new JSONObject();
+            feedbackSurveyInfo.put("json", surveyResponsesJson);
+            feedbackInfo.put("Survey", feedbackSurveyInfo);
+
+            feedbackJsonObject.put("Feedback", feedbackInfo);
+        }
+
+        if (shouldIncludeDiagnostics) {
+            JSONObject diagnosticInfo = new JSONObject();
+
+            JSONObject sysInfo = new JSONObject();
+            sysInfo.put("isRooted", Utils.isRooted());
+            sysInfo.put("isPlayStoreBuild", EmbeddedValues.IS_PLAY_STORE_BUILD);
+            sysInfo.put("language", Locale.getDefault().getLanguage());
+            sysInfo.put("networkTypeName", Utils.getNetworkTypeName(context));
+
+            JSONObject sysInfo_Build = new JSONObject();
+            sysInfo_Build.put("BRAND", Build.BRAND);
+            sysInfo_Build.put("CPU_ABI", Build.CPU_ABI);
+            sysInfo_Build.put("MANUFACTURER", Build.MANUFACTURER);
+            sysInfo_Build.put("MODEL", Build.MODEL);
+            sysInfo_Build.put("DISPLAY", Build.DISPLAY);
+            sysInfo_Build.put("TAGS", Build.TAGS);
+            sysInfo_Build.put("VERSION__CODENAME", Build.VERSION.CODENAME);
+            sysInfo_Build.put("VERSION__RELEASE", Build.VERSION.RELEASE);
+            sysInfo_Build.put("VERSION__SDK_INT", Build.VERSION.SDK_INT);
+
+            sysInfo.put("Build", sysInfo_Build);
+
+            JSONObject sysInfo_psiphonEmbeddedValues = new JSONObject();
+            sysInfo_psiphonEmbeddedValues.put("PROPAGATION_CHANNEL_ID", EmbeddedValues.PROPAGATION_CHANNEL_ID);
+            sysInfo_psiphonEmbeddedValues.put("SPONSOR_ID", EmbeddedValues.SPONSOR_ID);
+            sysInfo_psiphonEmbeddedValues.put("CLIENT_VERSION", EmbeddedValues.CLIENT_VERSION);
+
+            sysInfo.put("PsiphonInfo", sysInfo_psiphonEmbeddedValues);
+
+            diagnosticInfo.put("SystemInformation", sysInfo);
+
+
+            JSONArray diagnosticHistory = new JSONArray();
+            JSONArray statusHistory = new JSONArray();
+
+            int totalBytesRead = 0;
+
+            // Read up to MAX_LOG_SOURCE_JSON_SIZE_BYTES from the logs database
+            // and add to diagnostic / status info
+            try (Cursor cursor = LoggingRoomDatabase.getDatabase(context)
+                    .getLogsBeforeDate(beforeTimeMillis)) {
+                final int cursorIndexOfId = cursor.getColumnIndexOrThrow("_ID");
+                final int cursorIndexOfLogJson = cursor.getColumnIndexOrThrow("logjson");
+                final int cursorIndexOfIsDiagnostic = cursor.getColumnIndexOrThrow("is_diagnostic");
+                final int cursorIndexOfPriority = cursor.getColumnIndexOrThrow("priority");
+                final int cursorIndexOfTimestamp = cursor.getColumnIndexOrThrow("timestamp");
+                while (totalBytesRead < MAX_LOG_SOURCE_JSON_SIZE_BYTES && cursor.moveToNext()) {
+                    final LogEntry item;
+                    final String tmpLogJson;
+                    if (cursor.isNull(cursorIndexOfLogJson)) {
+                        continue;
+                    } else {
+                        tmpLogJson = cursor.getString(cursorIndexOfLogJson);
+                    }
+                    final boolean tmpIsDiagnostic;
+                    final int tmp;
+                    tmp = cursor.getInt(cursorIndexOfIsDiagnostic);
+                    tmpIsDiagnostic = tmp != 0;
+                    final int tmpPriority;
+                    tmpPriority = cursor.getInt(cursorIndexOfPriority);
+                    final long tmpTimestamp;
+                    tmpTimestamp = cursor.getLong(cursorIndexOfTimestamp);
+                    item = new LogEntry(tmpLogJson, tmpIsDiagnostic, tmpPriority, tmpTimestamp);
+                    final int tmpId;
+                    tmpId = cursor.getInt(cursorIndexOfId);
+                    item.setId(tmpId);
+                    totalBytesRead += item.getLogJson().length();
+
+                    JSONObject entry = new JSONObject();
+                    entry.put("timestamp!!timestamp", Utils.getISO8601String(new Date(item.getTimestamp())));
+
+                    JSONObject logJsonObject = new JSONObject(item.getLogJson());
+
+                    if (item.isDiagnostic()) {
+                        Object msg = logJsonObject.opt("msg");
+                        Object data = logJsonObject.opt("data");
+                        entry.put("msg", msg == null ? JSONObject.NULL : msg);
+                        entry.put("data", data == null ? JSONObject.NULL : data);
+
+                        diagnosticHistory.put(entry);
+                    } else {
+                        int sensitivity = logJsonObject.optInt("sensitivity", 0);
+                        if (sensitivity == MyLog.Sensitivity.SENSITIVE_LOG) {
+                            // Skip sensitive logs
+                            continue;
+                        }
+                        int resourceID = context.getResources().getIdentifier(logJsonObject
+                                .getString("stringResourceName"), null, null);
+                        entry.put("id", resourceID == 0 ?
+                                "" : context.getResources().getResourceEntryName(resourceID));
+
+                        entry.put("priority", item.getPriority());
+                        entry.put("formatArgs", sensitivity == MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS
+                                ? JSONObject.NULL : logJsonObject.getString("formatArgs"));
+                        entry.put("throwable", JSONObject.NULL);
+
+                        statusHistory.put(entry);
+                    }
+                }
+                diagnosticInfo.put("DiagnosticHistory", diagnosticHistory);
+                diagnosticInfo.put("StatusHistory", statusHistory);
+            }
+            feedbackJsonObject.put("DiagnosticInfo", diagnosticInfo);
+        }
+
+        return feedbackJsonObject.toString();
     }
 }

@@ -19,28 +19,6 @@
 
 package com.psiphon3;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.Locale;
-
-import com.psiphon3.psiphonlibrary.EmbeddedValues;
-import com.psiphon3.psiphonlibrary.FeedbackWorker;
-import com.psiphon3.psiphonlibrary.LocalizedActivities;
-import com.psiphon3.psiphonlibrary.LoggingProvider;
-import com.psiphon3.psiphonlibrary.Utils;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -61,14 +39,32 @@ import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
-public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
-{
+import com.psiphon3.log.MyLog;
+import com.psiphon3.psiphonlibrary.EmbeddedValues;
+import com.psiphon3.psiphonlibrary.FeedbackWorker;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.Locale;
+
+public class FeedbackActivity extends LocalizedActivities.AppCompatActivity {
     private WebView webView;
 
     @Override
     @SuppressLint("SetJavaScriptEnabled")
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         final Activity activity = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
@@ -78,11 +74,6 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
                 .get(MainActivityViewModel.class);
         getLifecycle().addObserver(viewModel);
 
-        Intent intent = getIntent();
-        if (isDeepLinkIntent(intent)) {
-            LoggingProvider.LogDatabaseHelper.retrieveLogs(this);
-        }
-
         // Do not display the home button as arrow if the activity is running in a standalone mode
         if (isTaskRoot()) {
             ActionBar actionBar = getSupportActionBar();
@@ -91,44 +82,33 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
             }
         }
 
-        webView = (WebView)findViewById(R.id.feedbackWebView);
+        webView = (WebView) findViewById(R.id.feedbackWebView);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient()
-        {
+        webView.setWebViewClient(new WebViewClient() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url)
-            {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 final String feedbackUrl = "feedback?";
 
-                if (url.startsWith("mailto:"))
-                {
+                if (url.startsWith("mailto:")) {
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("message/rfc822");
-                    intent.putExtra(Intent.EXTRA_EMAIL, new String[] {MailTo.parse(url).getTo()});
+                    intent.putExtra(Intent.EXTRA_EMAIL, new String[]{MailTo.parse(url).getTo()});
 
-                    try
-                    {
+                    try {
                         startActivity(intent);
-                    }
-                    catch (ActivityNotFoundException e)
-                    {
+                    } catch (ActivityNotFoundException e) {
                         // Do nothing
                     }
 
                     return true;
-                }
-                else if (url.contains(feedbackUrl))
-                {
+                } else if (url.contains(feedbackUrl)) {
                     if (submitFeedback(url.substring(
-                            url.indexOf(feedbackUrl) + feedbackUrl.length())))
-                    {
+                            url.indexOf(feedbackUrl) + feedbackUrl.length()))) {
                         Toast.makeText(activity,
                                 getString(R.string.FeedbackActivity_Success),
                                 Toast.LENGTH_SHORT).show();
                         activity.finish();
-                    }
-                    else
-                    {
+                    } else {
                         Toast.makeText(activity,
                                 getString(R.string.FeedbackActivity_Failure),
                                 Toast.LENGTH_SHORT).show();
@@ -140,31 +120,25 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
                 // in a standard browser. The feedback WebView is not useful
                 // for normal webpages (and doesn't seem to support download).
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                try
-                {
+                try {
                     startActivity(browserIntent);
-                }
-                catch (ActivityNotFoundException e)
-                {
+                } catch (ActivityNotFoundException e) {
                     // Do nothing
                 }
 
                 return true;
             }
 
-            private boolean submitFeedback(String urlParameters)
-            {
+            private boolean submitFeedback(String urlParameters) {
                 final String formDataParameterName = "formdata=";
-                if (!urlParameters.startsWith(formDataParameterName))
-                {
-                    MyLog.w(R.string.FeedbackActivity_InvalidURLParameters, MyLog.Sensitivity.NOT_SENSITIVE);
+                if (!urlParameters.startsWith(formDataParameterName)) {
+                    MyLog.w("Invalid URL Parameters in feedback form submission");
                     return false;
                 }
 
                 String email, feedbackText, surveyResponsesJson;
                 boolean sendDiagnosticInfo;
-                try
-                {
+                try {
                     String formDataJson = URLDecoder.decode(urlParameters.substring(formDataParameterName.length()), "utf-8");
 
                     JSONObject jsonObj = new JSONObject(formDataJson);
@@ -172,15 +146,11 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
                     email = jsonObj.getString("email");
                     surveyResponsesJson = jsonObj.getString("responses");
                     sendDiagnosticInfo = jsonObj.getBoolean("sendDiagnosticInfo");
-                }
-                catch (UnsupportedEncodingException e)
-                {
-                    MyLog.w(R.string.FeedbackActivity_SubmitFeedbackFailed, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                } catch (UnsupportedEncodingException e) {
+                    MyLog.w("Failed to submit feedback: " + e);
                     return false;
-                }
-                catch (JSONException e)
-                {
-                    MyLog.w(R.string.FeedbackActivity_SubmitFeedbackFailed, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                } catch (JSONException e) {
+                    MyLog.w("Failed to submit feedback: " + e);
                     return false;
                 }
 
@@ -203,7 +173,7 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
                                 .addTag("feedback_upload_user_form")
                                 .build();
 
-                Utils.MyLog.d("FeedbackActivity: user submitted feedback");
+                MyLog.i("FeedbackActivity: user submitted feedback");
 
                 WorkManager.getInstance(getApplication()).beginUniqueWork(
                         "feedback_upload",
@@ -228,8 +198,7 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
         // These links, if followed, can be used to side-load upgrade the app, bypassing the Play Store upgrade
         // mechanism.  While it is arguable that this is in conflict with the Play Store policy, we are removing
         // these links to be cautious and to avoid any possible disruptions.
-        if (EmbeddedValues.hasEverBeenSideLoaded(this))
-        {
+        if (EmbeddedValues.hasEverBeenSideLoaded(this)) {
             argsBuilder.append("\"newVersionURL\":\"").append(EmbeddedValues.GET_NEW_VERSION_URL).append("\", ");
             argsBuilder.append("\"newVersionEmail\": \"").append(EmbeddedValues.GET_NEW_VERSION_EMAIL).append("\", ");
         }
@@ -240,13 +209,12 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
             args = URLEncoder.encode(argsBuilder.toString(), "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-            assert(false);
+            assert (false);
         }
 
         StringBuilder urlBuilder = new StringBuilder();
         urlBuilder.append("file:///");
-        if (args != null)
-        {
+        if (args != null) {
             urlBuilder.append("?").append(args);
         }
         // Java uses "in" for Indonesian language, rather than the more standard "id"
@@ -258,28 +226,14 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
         webView.loadDataWithBaseURL(urlBuilder.toString(), html, "text/html", "utf-8", null);
     }
 
-    private boolean isDeepLinkIntent(Intent intent) {
-        Uri data = intent.getData();
-        if (data == null) {
-            return false;
-        }
-
-        String dataString = data.toString();
-        return dataString.equals("psiphon://feedback");
-    }
-
-    private String getHTMLContent()
-    {
+    private String getHTMLContent() {
         String html = "";
 
-        try
-        {
+        try {
             InputStream stream = getAssets().open("feedback.html");
             html = streamToString(stream);
-        }
-        catch (IOException e)
-        {
-            MyLog.w(R.string.FeedbackActivity_GetHTMLContentFailed, MyLog.Sensitivity.NOT_SENSITIVE, e);
+        } catch (IOException e) {
+            MyLog.w("Failed to get feedback page content: " + e);
 
             // Render the default text
             html = "<body>" + getString(R.string.FeedbackActivity_DefaultText) + "</body>";
@@ -288,23 +242,18 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity
         return html;
     }
 
-    private String streamToString(InputStream stream) throws IOException
-    {
-        try
-        {
+    private String streamToString(InputStream stream) throws IOException {
+        try {
             Reader reader = new BufferedReader(new InputStreamReader(stream));
             Writer writer = new StringWriter();
 
             int n;
             char[] buffer = new char[2048];
-            while ((n = reader.read(buffer)) != -1)
-            {
+            while ((n = reader.read(buffer)) != -1) {
                 writer.write(buffer, 0, n);
             }
             return writer.toString();
-        }
-        finally
-        {
+        } finally {
             stream.close();
         }
     }

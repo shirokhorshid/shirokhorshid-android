@@ -1,3 +1,22 @@
+/*
+ * Copyright (c) 2022, Psiphon Inc.
+ * All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package com.psiphon3;
 
 import android.content.ActivityNotFoundException;
@@ -11,10 +30,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.VpnService;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.text.TextUtils;
 import android.text.util.Linkify;
 import android.view.Gravity;
@@ -37,10 +53,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.psiphon3.log.LogsMaintenanceWorker;
+import com.psiphon3.log.MyLog;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
-import com.psiphon3.psiphonlibrary.LoggingObserver;
-import com.psiphon3.psiphonlibrary.LoggingProvider;
 import com.psiphon3.psiphonlibrary.TunnelManager;
 import com.psiphon3.psiphonlibrary.Utils;
 import com.psiphon3.psiphonlibrary.VpnAppsUtils;
@@ -76,9 +92,8 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
 
     private static final int REQUEST_CODE_PREPARE_VPN = 100;
 
-    private LoggingObserver loggingObserver;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private CompositeDisposable uiUpdatesCompositeDisposable;
+    private final CompositeDisposable uiUpdatesCompositeDisposable = new CompositeDisposable();
     private Button toggleButton;
     private ProgressBar connectionProgressBar;
     private Drawable defaultProgressBarDrawable;
@@ -104,16 +119,8 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .get(MainActivityViewModel.class);
         getLifecycle().addObserver(viewModel);
 
-        // On first run remove logs from previous sessions if tunnel service is not running.
-        if (viewModel.isFirstRun() && !viewModel.isServiceRunning(getApplication())) {
-            LoggingProvider.LogDatabaseHelper.truncateLogs(getApplication(), true);
-        }
-
-        // The LoggingObserver will run in a separate thread
-        HandlerThread loggingObserverThread = new HandlerThread("LoggingObserverThread");
-        loggingObserverThread.start();
-        loggingObserver = new LoggingObserver(getApplicationContext(),
-                new Handler(loggingObserverThread.getLooper()));
+        // Schedule db maintenance
+        LogsMaintenanceWorker.schedule(getApplicationContext());
 
         banner = findViewById(R.id.banner);
         setUpBanner();
@@ -181,24 +188,13 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        getContentResolver().unregisterContentObserver(loggingObserver);
         cancelInvalidProxySettingsToast();
-        uiUpdatesCompositeDisposable.dispose();
+        uiUpdatesCompositeDisposable.clear();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // Load new logs from the logging provider now
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            loggingObserver.dispatchChange(false, LoggingProvider.INSERT_URI);
-        } else {
-            loggingObserver.dispatchChange(false);
-        }
-        // Load new logs from the logging provider when it changes
-        getContentResolver().registerContentObserver(LoggingProvider.INSERT_URI, true, loggingObserver);
-
-        uiUpdatesCompositeDisposable = new CompositeDisposable();
         // Observe tunnel state changes to update UI
         uiUpdatesCompositeDisposable.add(viewModel.tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
@@ -591,7 +587,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             }
             return false;
         } catch (Exception e) {
-            Utils.MyLog.e(R.string.tunnel_whole_device_exception, Utils.MyLog.Sensitivity.NOT_SENSITIVE);
+            MyLog.e(R.string.tunnel_whole_device_exception, MyLog.Sensitivity.NOT_SENSITIVE);
             // true = waiting for prompt, although we can't start the
             // activity so onActivityResult won't be called
             return true;

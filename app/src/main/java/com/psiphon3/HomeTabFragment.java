@@ -1,3 +1,22 @@
+/*
+ * Copyright (c) 2022, Psiphon Inc.
+ * All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package com.psiphon3;
 
 import android.annotation.TargetApi;
@@ -12,7 +31,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -42,6 +60,8 @@ public class HomeTabFragment extends Fragment {
     private View mainView;
     private SponsorHomePage sponsorHomePage;
     private boolean isWebViewLoaded = false;
+    private final CompositeDisposable uiCompositeDisposable = new CompositeDisposable();
+    private TextView lastLogEntryTv;
 
     @Nullable
     @Override
@@ -63,6 +83,8 @@ public class HomeTabFragment extends Fragment {
 
         statusLayout = view.findViewById(R.id.statusLayout);
         statusViewImage = view.findViewById(R.id.statusViewImage);
+
+        lastLogEntryTv = view.findViewById(R.id.lastlogline);
 
         viewModel = new ViewModelProvider(requireActivity(),
                 new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()))
@@ -111,10 +133,19 @@ public class HomeTabFragment extends Fragment {
                 })
                 .doOnNext(this::loadEmbeddedWebView)
                 .subscribe());
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        uiCompositeDisposable.clear();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         // Observe last log entry to display.
-        final TextView lastLogEntryTv = view.findViewById(R.id.lastlogline);
-        compositeDisposable.add(viewModel.lastLogEntryFlowable()
+        uiCompositeDisposable.add(viewModel.lastLogEntryFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(lastLogEntryTv::setText)
                 .subscribe());

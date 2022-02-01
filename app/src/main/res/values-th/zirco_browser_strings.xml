@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources>
-  <string name="Commons.Cancel">ยกเลิก</string>
-  <string name="Commons.PleaseWait">โปรดรอสักครู่</string>
-  <string name="Commons.Yes">ใช่</string>
-  <string name="Commons.No">ไม่ใช่</string>
-  <string name="Commons.Continue">ต่อไป</string>
-</resources>

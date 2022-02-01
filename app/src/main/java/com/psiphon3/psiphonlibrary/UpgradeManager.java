@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Psiphon Inc.
+ * Copyright (c) 2022, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -30,12 +30,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Build;
+import android.text.method.MultiTapKeyListener;
+
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.FileProvider;
 
 import com.psiphon3.R;
+import com.psiphon3.log.MyLog;
 import com.psiphon3.psiphonlibrary.AuthenticatedDataPackage.AuthenticatedDataPackageException;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -149,12 +151,12 @@ public interface UpgradeManager
                 // "If the file exists but is a directory rather than a regular 
                 //  file, does not exist but cannot be created, or cannot be 
                 //  opened for any other reason then a FileNotFoundException is thrown."
-                MyLog.w(R.string.UpgradeManager_UpgradeFileNotFound, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                MyLog.e("Upgrade file not found: " + e);
                 return false;
             }
             catch (IOException e)
             {
-                MyLog.w(R.string.UpgradeManager_UpgradeFileWriteFailed, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                MyLog.e("Failed to write upgrade file: " + e);
                 return false;
             }
             finally
@@ -284,17 +286,17 @@ public interface UpgradeManager
             }
             catch (FileNotFoundException e)
             {
-                MyLog.w(R.string.UpgradeManager_UpgradeFileNotFound, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                MyLog.e("Upgrade file not found: " + e);
                 return false;
             }
             catch (IOException e)
             {
-                MyLog.w(R.string.UpgradeManager_UpgradeFileReadFailed, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                MyLog.e("Failed to read upgrade file: " + e);
                 return false;
             }
             catch (AuthenticatedDataPackageException e)
             {
-                MyLog.w(R.string.UpgradeManager_UpgradeFileAuthenticateFailed, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                MyLog.e("Failed to authenticate upgrade file: " + e);
                 return false;
             }
             finally
@@ -364,7 +366,7 @@ public interface UpgradeManager
             {
                 // There's probably something wrong with the upgrade file.
                 file.delete();
-                MyLog.w(R.string.UpgradeManager_CannotExtractUpgradePackageInfo, MyLog.Sensitivity.NOT_SENSITIVE);
+                MyLog.e("Upgrade failed. Cannot extract package info from upgrade file.");
                 return null;
             }
 
@@ -380,7 +382,7 @@ public interface UpgradeManager
             {
                 // This really shouldn't happen -- we're getting info about the 
                 // current package, which clearly exists.
-                MyLog.w(R.string.UpgradeManager_CanNotRetrievePackageInfo, MyLog.Sensitivity.NOT_SENSITIVE, e);
+                MyLog.e("Unable to retrieve package info for current app: " + e);
                 return null;
             }
 

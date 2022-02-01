@@ -4,9 +4,6 @@
     <string name="socks_running">SOCKS running on port %d</string>
     <string name="http_proxy_running">HTTP proxy running on port %d</string>
     <string name="client_version">Client Version %s</string>
-    <string name="AuthenticatedDataPackage.WrongPublicKey">Authenticated data package signed with different public key</string>
-    <string name="AuthenticatedDataPackage.InvalidSignature">Invalid signature on authenticated data package</string>
-    <string name="AuthenticatedDataPackage.MissingValue">Missing value in authenticated data package</string>
     <string name="starting_tunnel">Starting tunnel…</string>
     <string name="stopping_tunnel">Stopping tunnel…</string>
     <string name="stopped_tunnel">Stopped tunnel</string>
@@ -19,19 +16,11 @@
     <string name="psiphon_server_alert_notification_channel_name">Psiphon Server Alerts</string>
     <string name="vpn_service_running">VPN service running</string>
     <string name="vpn_service_revoked">VPN service revoked</string>
-    <string name="debug_message">%s</string>
-    <string name="Diagnostics.EncryptedFailed">Failed to encrypt feedback diagnostic information. This information will not be attached to the feedback email.</string>
     <string name="current_network_type">Current network: %s</string>
-    <string name="UpgradeManager.CanNotRetrievePackageInfo">Unable to retrieve package info for current app</string>
-    <string name="UpgradeManager.UpgradeFileWriteFailed">Failed to write upgrade file</string>
-    <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Upgrade failed. Cannot extract package info from upgrade file.</string>
-    <string name="UpgradeManager.UpgradeFileNotFound">Upgrade file not found</string>
     <!-- Do not translate or transliterate "Psiphon" -->
     <string name="UpgradeManager.UpgradePromptTitle">Psiphon Upgrade</string>
     <!-- Do not translate or transliterate "Psiphon" -->
     <string name="UpgradeManager.UpgradePromptMessage">An upgrade for Psiphon is ready to be installed.</string>
-    <string name="UpgradeManager.UpgradeFileReadFailed">Failed to read upgrade file</string>
-    <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Failed to authenticate upgrade file</string>
     <string name="connected_elapsed_time">Connected: %s</string>
     <string name="disconnected">Disconnected</string>
     <string name="label_sent">Sent</string>
@@ -170,15 +159,6 @@
     <string name="tunnel_connected">Tunnel connected</string>
     <string name="waiting">Waiting…</string>
 
-    <!-- Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
-    <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Permission Request</string>
-    <!-- Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
-    <!-- Do not translate or transliterate "Psiphon" -->
-    <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Allow Psiphon to make better decisions about how to work on your network by granting access to your location.\n\nNote that this information is only used locally on your device, and is not transmitted to our servers or any 3rd parties.</string>
-    <!-- Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
-    <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
-    <!-- Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission -->
-    <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No thanks</string>
     <string name="label_vpn_settings">VPN settings</string>
     <string name="label_proxy_settings">Proxy settings</string>
     <string name="preference_summary_no_proxy">No proxy</string>
