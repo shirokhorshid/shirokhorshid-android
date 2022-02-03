@@ -39,11 +39,16 @@ public class LogsMaintenanceWorker extends Worker {
 
 
     static public void schedule(Context context) {
+        // This new work request will run immediately when enqueued and then repeat every
+        // REPEAT_INTERVAL_HOURS hours replacing any existing scheduled DB maintenance request.
+        // See https://developer.android.com/reference/androidx/work/PeriodicWorkRequest
         PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(
                 LogsMaintenanceWorker.class, REPEAT_INTERVAL_HOURS, TimeUnit.HOURS)
                 .build();
+
         WorkManager.getInstance(context.getApplicationContext())
                 .enqueueUniquePeriodicWork(TAG_WORK,
+                        // Replace previously scheduled TAG_WORK work request
                         ExistingPeriodicWorkPolicy.REPLACE,
                         workRequest);
     }

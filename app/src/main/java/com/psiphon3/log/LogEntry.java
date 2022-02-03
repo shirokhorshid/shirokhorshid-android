@@ -21,7 +21,6 @@ package com.psiphon3.log;
 
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
@@ -68,7 +67,7 @@ public class LogEntry {
         return logJson;
     }
 
-    public void setLogJson(@Nullable String logJson) {
+    public void setLogJson(@NonNull String logJson) {
         this.logJson = logJson;
     }
 

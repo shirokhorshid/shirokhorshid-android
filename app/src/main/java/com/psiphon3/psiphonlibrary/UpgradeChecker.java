@@ -22,14 +22,13 @@ package com.psiphon3.psiphonlibrary;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
-import android.util.Log;
 
 import com.psiphon3.R;
 import com.psiphon3.log.MyLog;
@@ -37,7 +36,6 @@ import com.psiphon3.log.MyLog;
 import net.grandcentrix.tray.AppPreferences;
 
 import java.io.File;
-import java.util.Date;
 import java.util.Locale;
 
 import ca.psiphon.PsiphonTunnel;
@@ -129,7 +127,7 @@ public class UpgradeChecker extends BroadcastReceiver {
         if (multiProcessPreferences.getBoolean(
                 context.getString(R.string.downloadWifiOnlyPreference), PsiphonConstants.DOWNLOAD_WIFI_ONLY_PREFERENCE_DEFAULT) &&
                 !Utils.isOnWiFi(appContext)) {
-            MyLog.i("UpgradeChecker.upgradeCheckNeeded: WiFi only user preference");
+            MyLog.i("UpgradeChecker.upgradeCheckNeeded: not checking due to WiFi only user preference");
             return false;
         }
 

@@ -35,7 +35,7 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class LogsTabFragment extends Fragment {
     private LogsListAdapter pagingAdapter;
-    private final CompositeDisposable uiCompositeDisposable = new CompositeDisposable();
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private MainActivityViewModel viewModel;
     private int lastItemCount;
 
@@ -94,14 +94,20 @@ public class LogsTabFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        uiCompositeDisposable.add(viewModel.logsPagedListFlowable()
+        compositeDisposable.add(viewModel.logsPagedListFlowable()
                 .doOnNext(logEntries -> pagingAdapter.submitList(logEntries))
                 .subscribe());
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
-        uiCompositeDisposable.clear();
+        compositeDisposable.clear();
     }
 }

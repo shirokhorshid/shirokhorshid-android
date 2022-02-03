@@ -57,30 +57,30 @@ public abstract class LoggingRoomDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-        public void insertLog(String logjson, boolean isDiagnostic, int priority, long timestamp) {
-            // Performance optimization
-            if (isDiagnostic) {
-                // We DO NOT want to trigger the log view update in case we are inserting a
-                // diagnostic log since the users do not see them anyway; bypass the DAO insert
-                // method and use underlying SupportSQLiteDatabase.insert() directly.
+    public void insertLog(String logjson, boolean isDiagnostic, int priority, long timestamp) {
+        // Performance optimization
+        if (isDiagnostic) {
+            // We DO NOT want to trigger the log view update in case we are inserting a
+            // diagnostic log since the users do not see them anyway; bypass the DAO insert
+            // method and use underlying SupportSQLiteDatabase.insert() directly.
 
-                ContentValues values = new ContentValues();
-                values.put("logjson", logjson);
-                values.put("is_diagnostic", true);
-                values.put("priority", priority);
-                values.put("timestamp", timestamp);
+            ContentValues values = new ContentValues();
+            values.put("logjson", logjson);
+            values.put("is_diagnostic", true);
+            values.put("priority", priority);
+            values.put("timestamp", timestamp);
 
-                SupportSQLiteDatabase db = getOpenHelper().getWritableDatabase();
+            SupportSQLiteDatabase db = getOpenHelper().getWritableDatabase();
 
-                db.insert("log", SQLiteDatabase.CONFLICT_NONE, values);
-            } else {
-                // For status log entry use Room DAO insert method to trigger Rx emission in the log
-                // view adapter, this is done via internal use of
-                // https://developer.android.com/reference/androidx/room/InvalidationTracker
+            db.insert("log", SQLiteDatabase.CONFLICT_NONE, values);
+        } else {
+            // For status log entry use Room DAO insert method to trigger Rx emission in the log
+            // view adapter, this is done via internal use of
+            // https://developer.android.com/reference/androidx/room/InvalidationTracker
 
-                logEntryDao().insert(new LogEntry(logjson, false, priority, timestamp));
-            }
+            logEntryDao().insert(new LogEntry(logjson, false, priority, timestamp));
         }
+    }
 
     public void deleteLogEntriesBefore(long beforeDateMillis) {
         logEntryDao().deleteLogsBefore(beforeDateMillis);

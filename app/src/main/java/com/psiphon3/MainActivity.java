@@ -93,7 +93,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private static final int REQUEST_CODE_PREPARE_VPN = 100;
 
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private final CompositeDisposable uiUpdatesCompositeDisposable = new CompositeDisposable();
     private Button toggleButton;
     private ProgressBar connectionProgressBar;
     private Drawable defaultProgressBarDrawable;
@@ -131,6 +130,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         openBrowserButton = findViewById(R.id.openBrowserButton);
         toggleButton.setOnClickListener(v ->
                 compositeDisposable.add(viewModel.tunnelStateFlowable()
+                        .filter(state -> !state.isUnknown())
                         .take(1)
                         .doOnNext(state -> {
                             if (state.isRunning()) {
@@ -189,20 +189,20 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     protected void onPause() {
         super.onPause();
         cancelInvalidProxySettingsToast();
-        uiUpdatesCompositeDisposable.clear();
+        compositeDisposable.clear();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         // Observe tunnel state changes to update UI
-        uiUpdatesCompositeDisposable.add(viewModel.tunnelStateFlowable()
+        compositeDisposable.add(viewModel.tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(this::updateServiceStateUI)
                 .subscribe());
 
         // Observe custom proxy validation results to show a toast for invalid ones
-        uiUpdatesCompositeDisposable.add(viewModel.customProxyValidationResultFlowable()
+        compositeDisposable.add(viewModel.customProxyValidationResultFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(isValidResult -> {
                     if (!isValidResult) {
@@ -215,7 +215,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .subscribe());
 
         // Observe link clicks in the embedded web view to open in the external browser
-        uiUpdatesCompositeDisposable.add(viewModel.externalBrowserUrlFlowable()
+        compositeDisposable.add(viewModel.externalBrowserUrlFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(url -> displayBrowser(this, url))
                 .subscribe());

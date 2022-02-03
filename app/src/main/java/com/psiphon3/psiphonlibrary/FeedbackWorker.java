@@ -231,7 +231,7 @@ public class FeedbackWorker extends RxWorker {
         // Guard against the upload being retried indefinitely if it continues to exceed the max
         // execution time limit of 10 minutes.
         if (this.getRunAttemptCount() > 10) {
-            MyLog.i("FeedbackUpload: failed, exceeded 10 attempts");
+            MyLog.e("FeedbackUpload: failed, exceeded 10 attempts");
             return Single.just(Result.failure());
         }
 
