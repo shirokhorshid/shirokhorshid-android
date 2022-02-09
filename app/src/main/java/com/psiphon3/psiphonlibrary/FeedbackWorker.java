@@ -459,9 +459,15 @@ public class FeedbackWorker extends RxWorker {
                                 "" : context.getResources().getResourceEntryName(resourceID));
 
                         entry.put("priority", item.getPriority());
-                        entry.put("formatArgs", sensitivity == MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS
-                                ? JSONObject.NULL : logJsonObject.getString("formatArgs"));
+                        entry.put("formatArgs", JSONObject.NULL);
                         entry.put("throwable", JSONObject.NULL);
+
+                        if (sensitivity != MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS) {
+                            JSONArray formatArgsJsonArray = logJsonObject.optJSONArray("formatArgs");
+                            if (formatArgsJsonArray != null && formatArgsJsonArray.length() > 0) {
+                                entry.put("formatArgs", formatArgsJsonArray);
+                            }
+                        }
 
                         statusHistory.put(entry);
                     }

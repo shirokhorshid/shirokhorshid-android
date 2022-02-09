@@ -141,7 +141,8 @@ public class MyLog {
                 formatArgsJsonArray.put(arg);
             }
 
-            logJsonObject.put("formatArgs", formatArgsJsonArray);
+            logJsonObject.put("formatArgs", formatArgsJsonArray.length() == 0 ?
+                    JSONObject.NULL : formatArgsJsonArray);
 
             storeLog(logJsonObject.toString(), false, priority, timestamp.getTime());
         } catch (JSONException ignored) {
@@ -193,10 +194,13 @@ public class MyLog {
     public static String getStatusLogMessageForDisplay(String logjson, Context context) {
         try {
             JSONObject jsonObject = new JSONObject(logjson);
-            JSONArray formatArgsJSONArray = jsonObject.getJSONArray("formatArgs");
-            Object[] formatArgs = new Object[formatArgsJSONArray.length()];
-            for (int i = 0; i < formatArgsJSONArray.length(); i++) {
-                formatArgs[i] = formatArgsJSONArray.get(i);
+            JSONArray formatArgsJSONArray = jsonObject.optJSONArray("formatArgs");
+            Object[] formatArgs = null;
+            if (formatArgsJSONArray != null) {
+                formatArgs = new Object[formatArgsJSONArray.length()];
+                for (int i = 0; i < formatArgsJSONArray.length(); i++) {
+                    formatArgs[i] = formatArgsJSONArray.get(i);
+                }
             }
 
             int resourceID = context.getResources().getIdentifier(jsonObject.getString("stringResourceName"), null, null);
