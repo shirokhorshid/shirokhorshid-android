@@ -50,7 +50,6 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     private final PublishRelay<String> externalBrowserUrlRelay = PublishRelay.create();
     private final Flowable<LogEntry> lastLogEntryFlowable;
     private final Flowable<PagedList<LogEntry>> logsPagedListFlowable;
-    private boolean isFirstRun = true;
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
@@ -197,14 +196,6 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     public Flowable<String> lastLogEntryFlowable() {
         return lastLogEntryFlowable
                 .map(logEntry -> MyLog.getStatusLogMessageForDisplay(logEntry.getLogJson(), getApplication()));
-    }
-
-    public boolean isFirstRun() {
-        return isFirstRun;
-    }
-
-    public void setFirstRun(boolean firstRun) {
-        isFirstRun = firstRun;
     }
 
     public boolean isServiceRunning(Context context) {
