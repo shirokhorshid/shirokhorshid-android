@@ -23,9 +23,8 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     private final PublishRelay<Object> openVpnSettingsRelay = PublishRelay.create();
     private final PublishRelay<Object> openProxySettingsRelay = PublishRelay.create();
     private final PublishRelay<Object> openMoreOptionsRelay = PublishRelay.create();
-    private PublishRelay<String> externalBrowserUrlRelay = PublishRelay.create();
-    private PublishRelay<String> lastLogEntryRelay = PublishRelay.create();
-    private boolean isFirstRun = true;
+    private final PublishRelay<String> externalBrowserUrlRelay = PublishRelay.create();
+    private final PublishRelay<String> lastLogEntryRelay = PublishRelay.create();
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
@@ -150,14 +149,6 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
 
     public Flowable<String> lastLogEntryFlowable() {
         return lastLogEntryRelay.toFlowable(BackpressureStrategy.LATEST);
-    }
-
-    public boolean isFirstRun() {
-        return isFirstRun;
-    }
-
-    public void setFirstRun(boolean firstRun) {
-        isFirstRun = firstRun;
     }
 
     public boolean isServiceRunning(Context context) {
