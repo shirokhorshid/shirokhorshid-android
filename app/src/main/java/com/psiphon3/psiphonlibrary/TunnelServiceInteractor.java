@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Psiphon Inc.
+ * Copyright (c) 2022, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,6 +43,7 @@ import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
 import com.jakewharton.rxrelay2.Relay;
 import com.psiphon3.TunnelState;
+import com.psiphon3.log.MyLog;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -139,7 +140,7 @@ public class TunnelServiceInteractor {
             // Send tunnel starting service broadcast to all instances so they all bind
             LocalBroadcastManager.getInstance(context).sendBroadcast(intent.setAction(SERVICE_STARTING_BROADCAST_INTENT));
         } catch (SecurityException | IllegalStateException e) {
-            Utils.MyLog.g("startTunnelService failed with error: " + e);
+            MyLog.e("startTunnelService failed with error: " + e);
             tunnelStateRelay.accept(TunnelState.stopped());
         }
     }
@@ -235,7 +236,7 @@ public class TunnelServiceInteractor {
                         }
                         messenger.send(msg);
                     } catch (RemoteException e) {
-                        Utils.MyLog.g(String.format("sendServiceMessage failed: %s", e.getMessage()));
+                        MyLog.e(String.format("sendServiceMessage failed: " + e));
                     }
                 })
                 .subscribe();

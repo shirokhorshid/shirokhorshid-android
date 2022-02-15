@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Psiphon Inc.
+ * Copyright (c) 2022, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -27,16 +27,18 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.SearchView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.psiphon3.R;
+import com.psiphon3.log.MyLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -196,7 +198,7 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
             }
         })
                 // shouldn't ever get an error but handle it just in case
-                .doOnError(e -> Utils.MyLog.g("failed to load icon for " + applicationInfo.packageName + " " + e))
+                .doOnError(e -> MyLog.w("failed to load icon for " + applicationInfo.packageName + ": " + e))
                 // run on io as we're reading off disk
                 .subscribeOn(Schedulers.io())
                 // observe on ui

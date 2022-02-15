@@ -111,4 +111,12 @@ dependencies {
 
     testImplementation "androidx.test.ext:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.junitVersion"
+
+    implementation "androidx.room:room-runtime:$rootProject.ext.roomVersion"
+    implementation "androidx.room:room-rxjava2:$rootProject.ext.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.ext.roomVersion"
+
+
+    implementation "androidx.paging:paging-runtime:$rootProject.ext.pagingVersion"
+    implementation "androidx.paging:paging-rxjava2:$rootProject.ext.pagingVersion"
 }

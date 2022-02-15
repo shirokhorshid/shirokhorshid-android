@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020, Psiphon Inc.
+ * Copyright (c) 2022, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,6 +18,8 @@
  */
 
 package com.psiphon3.psiphonlibrary;
+
+import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -46,7 +48,7 @@ import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
 import com.psiphon3.R;
 import com.psiphon3.TunnelState;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
+import com.psiphon3.log.MyLog;
 
 import net.grandcentrix.tray.AppPreferences;
 
@@ -72,8 +74,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
 public class TunnelManager implements PsiphonTunnel.HostService {
     // Android IPC messages
@@ -238,7 +238,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         }
 
         if (m_firstStart) {
-            MyLog.v(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
+            MyLog.i(R.string.client_version, MyLog.Sensitivity.NOT_SENSITIVE, EmbeddedValues.CLIENT_VERSION);
             m_firstStart = false;
             m_tunnelThreadStopSignal = new CountDownLatch(1);
             m_compositeDisposable.add(
@@ -366,7 +366,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             try {
                 vpnRevokedPendingIntent.send(m_parentService, 0, null);
             } catch (PendingIntent.CanceledException e) {
-                MyLog.g(String.format("vpnRevokedPendingIntent failed: %s", e.getMessage()));
+                MyLog.w("vpnRevokedPendingIntent send failed: " + e);
             }
         } else {
             if (mNotificationManager == null) {
@@ -611,7 +611,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 case REGISTER:
                     if (manager != null) {
                         if (msg.replyTo == null) {
-                            MyLog.d("Error registering a client: client's messenger is null.");
+                            MyLog.w("Error registering a client: client's messenger is null.");
                             return;
                         }
                         MessengerWrapper client = new MessengerWrapper(msg.replyTo, msg.getData());
@@ -743,7 +743,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         try {
             handshakePendingIntent.send(m_parentService, 0, fillInExtras);
         } catch (PendingIntent.CanceledException e) {
-            MyLog.g(String.format("sendHandshakeIntent failed: %s", e.getMessage()));
+            MyLog.w("handshakePendingIntent send failed: " + e);
         }
     }
 
@@ -800,16 +800,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         }
     };
 
-    private Handler periodicMaintenanceHandler = new Handler();
-    private final long periodicMaintenanceIntervalMs = 12 * 60 * 60 * 1000;
-    private final Runnable periodicMaintenance = new Runnable() {
-        @Override
-        public void run() {
-            LoggingProvider.LogDatabaseHelper.truncateLogs(getContext(), false);
-            periodicMaintenanceHandler.postDelayed(this, periodicMaintenanceIntervalMs);
-        }
-    };
-
     private void runTunnel() {
         Utils.initializeSecureRandom();
         // Also set locale
@@ -823,19 +813,18 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // Notify if an upgrade has already been downloaded and is waiting for install
         UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext(), PsiphonTunnel.getDefaultUpgradeDownloadFilePath(getContext()));
 
-        MyLog.v(R.string.starting_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
+        MyLog.i(R.string.starting_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
         m_tunnelState.homePages.clear();
 
         DataTransferStats.getDataTransferStatsForService().startSession();
         sendDataTransferStatsHandler.postDelayed(sendDataTransferStats, sendDataTransferStatsIntervalMs);
-        periodicMaintenanceHandler.postDelayed(periodicMaintenance, periodicMaintenanceIntervalMs);
 
         try {
             if (!m_tunnel.startRouting()) {
                 throw new PsiphonTunnel.Exception("application is not prepared or revoked");
             }
-            MyLog.v(R.string.vpn_service_running, MyLog.Sensitivity.NOT_SENSITIVE);
+            MyLog.i(R.string.vpn_service_running, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_tunnel.startTunneling(getServerEntries(m_parentService));
             m_startedTunneling.set(true);
@@ -849,20 +838,19 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, errorMessage);
             if ((errorMessage.startsWith("get package uid:") || errorMessage.startsWith("getPackageUid:"))
                     && errorMessage.endsWith("android.permission.INTERACT_ACROSS_USERS.")) {
-                MyLog.v(R.string.vpn_exclusions_conflict, MyLog.Sensitivity.NOT_SENSITIVE);
+                MyLog.i(R.string.vpn_exclusions_conflict, MyLog.Sensitivity.NOT_SENSITIVE);
             }
         } finally {
-            MyLog.v(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
+            MyLog.i(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_isStopping.set(true);
             m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
             m_tunnel.stop();
 
-            periodicMaintenanceHandler.removeCallbacks(periodicMaintenance);
             sendDataTransferStatsHandler.removeCallbacks(sendDataTransferStats);
             DataTransferStats.getDataTransferStatsForService().stop();
 
-            MyLog.v(R.string.stopped_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
+            MyLog.i(R.string.stopped_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
             // Stop service
             m_parentService.stopForeground(true);
@@ -923,7 +911,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             case ALL_APPS:
                 vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
                 vpnAppsExclusionCount = 0;
-                MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+                MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 break;
 
             case INCLUDE_APPS:
@@ -938,7 +926,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         // Therefore we will perform our own check first.
                         pm.getApplicationInfo(packageId, 0);
                         vpnBuilder.addAllowedApplication(packageId);
-                        MyLog.v(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                        MyLog.i(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
                     } catch (PackageManager.NameNotFoundException e) {
                         iterator.remove();
                     }
@@ -961,7 +949,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // There's no included apps, we're tunnelling all
                     vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
                     vpnAppsExclusionCount = 0;
-                    MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+                    MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 }
                 break;
 
@@ -977,7 +965,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         // Therefore we will perform our own check first.
                         pm.getApplicationInfo(packageId, 0);
                         vpnBuilder.addDisallowedApplication(packageId);
-                        MyLog.v(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
+                        MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
                     } catch (PackageManager.NameNotFoundException e) {
                         iterator.remove();
                     }
@@ -988,7 +976,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     excludedAppsCount = excludedApps.size();
                 }
                 if (excludedAppsCount == 0) {
-                    MyLog.v(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+                    MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 }
                 vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.EXCLUDE_APPS;
                 vpnAppsExclusionCount = excludedAppsCount;
@@ -1098,13 +1086,13 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 json.put("EgressRegion", "");
             } else {
                 String egressRegion = tunnelConfig.egressRegion;
-                MyLog.g("EgressRegion", "regionCode", egressRegion);
+                MyLog.i("EgressRegion", "regionCode", egressRegion);
                 json.put("EgressRegion", egressRegion);
             }
 
             if (tunnelConfig.disableTimeouts) {
                 //disable timeouts
-                MyLog.g("DisableTimeouts", "disableTimeouts", true);
+                MyLog.i("DisableTimeouts", "disableTimeouts", true);
                 json.put("NetworkLatencyMultiplierLambda", 0.1);
             }
 
@@ -1162,7 +1150,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                MyLog.g(message, "msg", message);
+                MyLog.i(message);
             }
         });
     }
@@ -1194,7 +1182,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         try {
                             regionNotAvailablePendingIntent.send(m_parentService, 0, null);
                         } catch (PendingIntent.CanceledException e) {
-                            MyLog.g(String.format("regionNotAvailablePendingIntent failed: %s", e.getMessage()));
+                            MyLog.w("regionNotAvailablePendingIntent send failed: " + e);
                         }
                     } else {
                         if (mNotificationManager == null) {
@@ -1248,7 +1236,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                MyLog.v(R.string.socks_running, MyLog.Sensitivity.NOT_SENSITIVE, port);
+                MyLog.i(R.string.socks_running, MyLog.Sensitivity.NOT_SENSITIVE, port);
                 m_tunnelState.listeningLocalSocksProxyPort = port;
             }
         });
@@ -1259,7 +1247,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                MyLog.v(R.string.http_proxy_running, MyLog.Sensitivity.NOT_SENSITIVE, port);
+                MyLog.i(R.string.http_proxy_running, MyLog.Sensitivity.NOT_SENSITIVE, port);
                 m_tunnelState.listeningLocalHttpProxyPort = port;
 
                 final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
@@ -1278,7 +1266,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 // Display the error message only once, and continue trying to connect in
                 // case the issue is temporary.
                 if (m_lastUpstreamProxyErrorMessage == null || !m_lastUpstreamProxyErrorMessage.equals(message)) {
-                    MyLog.v(R.string.upstream_proxy_error, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, message);
+                    MyLog.w(R.string.upstream_proxy_error, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, message);
                     m_lastUpstreamProxyErrorMessage = message;
                 }
             }
@@ -1296,7 +1284,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
                 // Do not log "Connecting" if tunnel is stopping
                 if (!m_isStopping.get()) {
-                    MyLog.v(R.string.tunnel_connecting, MyLog.Sensitivity.NOT_SENSITIVE);
+                    MyLog.i(R.string.tunnel_connecting, MyLog.Sensitivity.NOT_SENSITIVE);
                 }
             }
         });
@@ -1309,7 +1297,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             public void run() {
                 DataTransferStats.getDataTransferStatsForService().startConnected();
 
-                MyLog.v(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
+                MyLog.i(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
 
                 m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
             }
@@ -1356,7 +1344,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                MyLog.v(R.string.untunneled_address, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, address);
+                MyLog.i(R.string.untunneled_address, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, address);
             }
         });
     }
@@ -1379,7 +1367,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             @Override
             public void run() {
                 m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK);
-                MyLog.v(R.string.waiting_for_network_connectivity, MyLog.Sensitivity.NOT_SENSITIVE);
+                MyLog.i(R.string.waiting_for_network_connectivity, MyLog.Sensitivity.NOT_SENSITIVE);
             }
         });
     }
@@ -1392,7 +1380,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
                 // Do not log "Connecting" if tunnel is stopping
                 if (!m_isStopping.get()) {
-                    MyLog.v(R.string.tunnel_connecting, MyLog.Sensitivity.NOT_SENSITIVE);
+                    MyLog.i(R.string.tunnel_connecting, MyLog.Sensitivity.NOT_SENSITIVE);
                 }
             }
         });
@@ -1400,7 +1388,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     @Override
     public void onServerAlert(String reason, String subject, List<String> actionURLs) {
-        MyLog.g("Server alert", "reason", reason, "subject", subject);
+        MyLog.i("Server alert", "reason", reason, "subject", subject);
         if ("disallowed-traffic".equals(reason)) {
             // Leave empty block for potentially easier merging
         } else if ("unsafe-traffic".equals(reason)) {

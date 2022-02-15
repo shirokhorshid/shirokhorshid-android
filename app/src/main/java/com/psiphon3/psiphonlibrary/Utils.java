@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Psiphon Inc.
+ * Copyright (c) 2022, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -64,23 +64,20 @@ import javax.crypto.spec.IvParameterSpec;
 import de.schildbach.wallet.util.LinuxSecureRandom;
 
 
-public class Utils
-{
+public class Utils {
     private static boolean m_initializedSecureRandom = false;
 
-    public static void initializeSecureRandom()
-    {
+    public static void initializeSecureRandom() {
         // Installs a new SecureRandom SPI which directly uses /dev/urandom. This addresses a flaw in the default
         // SecureRandom documented here: http://armoredbarista.blogspot.com.au/2013/03/randomly-failed-weaknesses-in-java.html
         // NOTE: this is now the SPI for all versions of Android, including 4.2+ where the flaw was addressed.
-        
-        if (!m_initializedSecureRandom)
-        {
+
+        if (!m_initializedSecureRandom) {
             new LinuxSecureRandom();
             m_initializedSecureRandom = true;
         }
     }
-    
+
     // from:
     // http://stackoverflow.com/questions/140131/convert-a-string-representation-of-a-hex-dump-to-a-byte-array-using-java
     public static byte[] hexStringToByteArray(String s) {
@@ -98,16 +95,14 @@ public class Utils
 
     // from:
     // http://stackoverflow.com/questions/332079/in-java-how-do-i-convert-a-byte-array-to-a-string-of-hex-digits-while-keeping-l
-    public static String byteArrayToHexString(byte[] bytes) 
-    {
-        char[] hexArray = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+    public static String byteArrayToHexString(byte[] bytes) {
+        char[] hexArray = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         char[] hexChars = new char[bytes.length * 2];
         int v;
-        for ( int j = 0; j < bytes.length; j++ ) 
-        {
+        for (int j = 0; j < bytes.length; j++) {
             v = bytes[j] & 0xFF;
-            hexChars[j*2] = hexArray[v/16];
-            hexChars[j*2 + 1] = hexArray[v%16];
+            hexChars[j * 2] = hexArray[v / 16];
+            hexChars[j * 2 + 1] = hexArray[v % 16];
         }
         return new String(hexChars);
     }
@@ -118,16 +113,16 @@ public class Utils
      * terms of the GNU Library General Public License as published by the Free
      * Software Foundation; either version 2 of the License, or (at your option)
      * any later version.
-     * 
+     *
      * This library is distributed in the hope that it will be useful, but
      * WITHOUT ANY WARRANTY; without even the implied warranty of
      * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Library
      * General Public License for more details.
-     * 
+     *
      * You should have received a copy of the GNU Library General Public License
      * along with this library; if not, write to the Free Software Foundation,
      * Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-     * 
+     *
      * Contact support@protomatter.com with your questions, comments, gripes,
      * praise, etc...
      ***************************************************************/
@@ -141,7 +136,7 @@ public class Utils
     /**
      * Base64 encoder/decoder. Does not stream, so be careful with using large
      * amounts of data
-     * 
+     *
      * @author Nate Sammons
      * @author Daniel Matuschek
      * @version $Id: Base64.java,v 1.4 2001/04/17 10:09:27 matuschd Exp $
@@ -250,272 +245,7 @@ public class Utils
             return dest;
         }
     }
-    
-    /**
-     * URL-encodes a string. This is largely redundant with URLEncoder.encode,
-     * but it tries to avoid using the deprecated URLEncoder.encode(String) while not
-     * throwing the exception of URLEncoder.encode(String, String).
-     * @param s  The string to URL encode.
-     * @return The URL encoded version of s. 
-     */
-    static public String urlEncode(String s)
-    {
-        if (s == null)
-        {
-            return "";
-        }
-        try
-        {
-            return URLEncoder.encode(s, "UTF-8");
-        } 
-        catch (UnsupportedEncodingException e)
-        {
-            MyLog.d("urlEncode failed", e);
 
-            // Call the deprecated form of the function, which doesn't throw.
-            return URLEncoder.encode(s);
-        }                    
-    }
-
-    /**
-     * Wrapper around Android's Log functionality. This should be used so that
-     * LogCat messages will be turned off in production builds. For the reason
-     * why we want this, see the link below.
-     * If the logger member variable is set, messages will also be logged to 
-     * that facility (except debug messages).
-     * @see <a href="http://blog.parse.com/2012/04/10/discovering-a-major-security-hole-in-facebooks-android-sdk/">Discovering a Major Security Hole in Facebook's Android SDK</a>
-     */
-    static public class MyLog
-    {
-        public interface ILogger
-        {
-            Context getContext();
-        }
-        
-        // It is expected that the logger implementation will be an Activity, so
-        // we're only going to hold a weak reference to it -- we don't want to
-        // interfere with it being destroyed in low memory situations. This class
-        // can cope with the logger going away and being re-set later on.
-        static private WeakReference<ILogger> logger = new WeakReference<>(null);
-        
-        /**
-         * Used to indicate the sensitivity level of the log. This will affect
-         * log handling in some situations (like sending as diagnostic info).
-         * "Sensitive" refers to info that might identify the user or their 
-         * activities.
-         */
-        public enum Sensitivity
-        {
-            /**
-             * The log does not contain sensitive information.
-             */
-            NOT_SENSITIVE,
-            
-            /**
-             * The log message itself is sensitive information.
-             */
-            SENSITIVE_LOG,
-            
-            /**
-             * The format arguments to the log messages are sensitive, but the 
-             * log message itself is not. 
-             */
-            SENSITIVE_FORMAT_ARGS
-        }
-        
-        static public void setLogger(ILogger logger)
-        {
-            MyLog.logger = new WeakReference<>(logger);
-        }
-        
-        // TODO: Add sensitivity to debug logs
-        static public void d(String msg)
-        {
-            Object[] formatArgs = {msg};
-            MyLog.println(R.string.debug_message, Sensitivity.NOT_SENSITIVE, formatArgs, null, Log.DEBUG);
-        }
-
-        static public void d(String msg, Throwable throwable)
-        {
-            Object[] formatArgs = { msg };
-            MyLog.println(R.string.debug_message, Sensitivity.NOT_SENSITIVE, formatArgs, throwable, Log.DEBUG);
-        }
-
-        /**
-         * Log a diagnostic entry. This is the same as a debug ({@link #d(String)}) entry,
-         * except it will also be included in the feedback diagnostic attachment.
-         * @param msg The message to log.
-         */
-        static public void g(String msg, JSONObject data)
-        {
-            if (logger.get() != null) {
-                String logJSON = LoggingProvider.makeDiagnosticLogJSON(new Date(), msg, data);
-                if (logJSON == null) {
-                    // Fail silently
-                    return;
-                }
-
-                ContentValues values = new ContentValues();
-                values.put(LoggingProvider.LogDatabaseHelper.COLUMN_NAME_LOGJSON, logJSON);
-                values.put(LoggingProvider.LogDatabaseHelper.COLUMN_NAME_IS_DIAGNOSTIC, true);
-
-                logger.get().getContext().getContentResolver().insert(
-                        LoggingProvider.INSERT_URI,
-                        values);
-            }
-
-            // We're not logging the `data` at all. In the future we may want to.
-            MyLog.d(msg);
-        }
-
-        static public void g(String msg, Object... nameValuePairs)
-        {
-            assert(nameValuePairs.length%2 == 0);
-            JSONObject diagnosticData = new JSONObject();
-            try 
-            {
-                for (int i = 0; i < nameValuePairs.length/2; i++)
-                diagnosticData.put(nameValuePairs[i*2].toString(), nameValuePairs[i*2+1]);
-            } 
-            catch (JSONException e) 
-            {
-                throw new RuntimeException(e);
-            }
-            MyLog.g(msg, diagnosticData);
-        }
-        
-        static public void e(int stringResID, Sensitivity sensitivity, Object... formatArgs)
-        {
-            MyLog.println(stringResID, sensitivity, formatArgs, null, Log.ERROR);
-        }
-
-        static public void e(int stringResID, Sensitivity sensitivity, Throwable throwable)
-        {
-            MyLog.println(stringResID, sensitivity, null, throwable, Log.ERROR);
-        }
-        
-        static public void w(int stringResID, Sensitivity sensitivity, Object... formatArgs)
-        {
-            MyLog.println(stringResID, sensitivity, formatArgs, null, Log.WARN);
-        }
-
-        static public void w(int stringResID, Sensitivity sensitivity, Throwable throwable)
-        {
-            MyLog.println(stringResID, sensitivity, null, throwable, Log.WARN);
-        }
-        
-        static public void i(int stringResID, Sensitivity sensitivity, Object... formatArgs)
-        {
-            MyLog.println(stringResID, sensitivity, formatArgs, null, Log.INFO);
-        }
-
-        static public void i(int stringResID, Sensitivity sensitivity, Throwable throwable)
-        {
-            MyLog.println(stringResID, sensitivity, null, throwable, Log.INFO);
-        }
-        
-        static public void v(int stringResID, Sensitivity sensitivity, Object... formatArgs)
-        {
-            MyLog.println(stringResID, sensitivity, formatArgs, null, Log.VERBOSE);
-        }
-
-        static public void v(int stringResID, Sensitivity sensitivity, Throwable throwable)
-        {
-            MyLog.println(stringResID, sensitivity, null, throwable, Log.VERBOSE);
-        }
-
-        private static void println(
-                int stringResID, 
-                Sensitivity sensitivity, 
-                Object[] formatArgs, 
-                Throwable throwable, 
-                int priority)
-        {
-            println(
-                stringResID,
-                sensitivity,
-                formatArgs,
-                throwable,
-                priority,
-                new Date());
-        }
-
-        private static void println(
-                int stringResID, 
-                Sensitivity sensitivity, 
-                Object[] formatArgs, 
-                Throwable throwable, 
-                int priority,
-                Date timestamp)
-        {
-            if (logger.get() != null) {
-                String logJSON = LoggingProvider.makeStatusLogJSON(
-                        logger.get().getContext(),
-                        timestamp,
-                        stringResID,
-                        sensitivity,
-                        formatArgs,
-                        priority);
-                if (logJSON == null) {
-                    // Fail silently
-                    return;
-                }
-
-                ContentValues values = new ContentValues();
-                values.put(LoggingProvider.LogDatabaseHelper.COLUMN_NAME_LOGJSON, logJSON);
-                values.put(LoggingProvider.LogDatabaseHelper.COLUMN_NAME_IS_DIAGNOSTIC, false);
-
-                logger.get().getContext().getContentResolver().insert(
-                        LoggingProvider.INSERT_URI,
-                        values);
-            }
-
-            // Log to LogCat only if we're in debug mode and not restoring.
-            if (PsiphonConstants.DEBUG)
-            {
-                String msg = "";
-                if (logger.get() != null)
-                {
-                    msg = Utils.safeGetResourceString(logger.get().getContext(), stringResID, formatArgs);
-                }
-                
-                // Log to LogCat
-                // Note that this is basically identical to how Log.e, etc., are implemented.
-                if (throwable != null)
-                {
-                    msg = msg + '\n' + Log.getStackTraceString(throwable);
-                }
-                Log.println(priority, PsiphonConstants.TAG, msg);
-            }
-        }
-    }
-
-    /**
-     * Safely wraps the string resource extraction function. If an error 
-     * occurs with the format specifiers (as can happen in a bad translation),
-     * the raw string will be returned.
-     * @param context The context providing the resource lookup.
-     * @param stringID The string resource ID.
-     * @param formatArgs The format arguments. May be empty or null.
-     * @return The requested string, possibly formatted.
-     */
-    static private String safeGetResourceString(Context context, int stringID, Object[] formatArgs)
-    {
-        if (context == null) {
-            assert(false);
-            return "";
-        }
-        
-        try
-        {
-            return context.getString(stringID, formatArgs);
-        }
-        catch (IllegalFormatException e)
-        {
-            return context.getString(stringID);
-        }
-    }
-    
     // From:
     // http://abhinavasblog.blogspot.ca/2011/06/check-for-debuggable-flag-in-android.html
     /*
@@ -533,58 +263,50 @@ public class Utils
     See the License for the specific language governing permissions and
     limitations under the License.
     */
-    public static boolean isDebugMode(Context context)
-    {
+    public static boolean isDebugMode(Context context) {
         boolean debug = false;
         PackageInfo packageInfo = null;
-        try
-        {
+        try {
             packageInfo = context.getPackageManager().getPackageInfo(
                     context.getApplicationContext().getPackageName(),
                     PackageManager.GET_CONFIGURATIONS);
-        } 
-        catch (NameNotFoundException e)
-        {
+        } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
-        if (packageInfo != null)
-        {
+        if (packageInfo != null) {
             int flags = packageInfo.applicationInfo.flags;
-            if ((flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0)
-            {
+            if ((flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
                 debug = true;
-            } 
-            else
-            {
+            } else {
                 debug = false;
             }
         }
         return debug;
     }
 
-    public static boolean isRooted()
-    {
+    public static boolean isRooted() {
         //Method 1 check for presence of 'test-keys' in the build tags 
         String buildTags = android.os.Build.TAGS;
         if (buildTags != null && buildTags.contains("test-keys")) {
             return true;
         }
-        
+
         //Method 2 check for presence of Superuser app
         try {
             File file = new File("/system/app/Superuser.apk");
             if (file.exists()) {
                 return true;
             }
-        } catch (Exception e) { }
-        
+        } catch (Exception e) {
+        }
+
         //Method 3 check for presence of 'su' in the PATH
         String path = null;
-        Map<String,String> env = System.getenv();
+        Map<String, String> env = System.getenv();
 
         if (env != null && (path = env.get("PATH")) != null) {
-            String [] dirs = path.split(":");
-            for (String dir : dirs){
+            String[] dirs = path.split(":");
+            for (String dir : dirs) {
                 String suPath = dir + "/" + "su";
                 File suFile = new File(suPath);
                 if (suFile != null && suFile.exists()) {
@@ -623,15 +345,13 @@ public class Utils
         return Build.VERSION.SDK_INT < 26;
     }
 
-    public static String getLocalTimeString(Date date)
-    {
+    public static String getLocalTimeString(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.US);
         String dateStr = sdf.format(date);
         return dateStr;
     }
 
-    public static String getISO8601String(Date date)
-    {
+    public static String getISO8601String(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US);
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         String dateStr = sdf.format(date);
@@ -639,8 +359,7 @@ public class Utils
         return dateStr;
     }
 
-    public static String getISO8601String()
-    {
+    public static String getISO8601String() {
         return getISO8601String(new Date());
     }
 
@@ -654,47 +373,41 @@ public class Utils
         return networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI;
     }
 
-    public static String getNetworkTypeName(Context context)
-    {
+    public static String getNetworkTypeName(Context context) {
         ConnectivityManager connectivityManager =
-                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return networkInfo == null ? "" : networkInfo.getTypeName();
     }
 
-    public static String byteCountToDisplaySize(long bytes, boolean si)
-    {
+    public static String byteCountToDisplaySize(long bytes, boolean si) {
         // http://stackoverflow.com/questions/3758606/how-to-convert-byte-size-into-human-readable-format-in-java/3758880#3758880
         int unit = si ? 1000 : 1024;
         if (bytes < unit) return bytes + " B";
         int exp = (int) (Math.log(bytes) / Math.log(unit));
-        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp-1) + (si ? "" : "i");
+        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1) + (si ? "" : "i");
         return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
-    public static String elapsedTimeToDisplay(long elapsedTimeMilliseconds)
-    {
+    public static String elapsedTimeToDisplay(long elapsedTimeMilliseconds) {
         long hours = 0;
         long minutes = 0;
         long seconds = 0;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
             // http://stackoverflow.com/questions/6710094/how-to-format-an-elapsed-time-interval-in-hhmmss-sss-format-in-java/6710604#6710604
             hours = TimeUnit.MILLISECONDS.toHours(elapsedTimeMilliseconds);
             minutes = TimeUnit.MILLISECONDS.toMinutes(elapsedTimeMilliseconds - TimeUnit.HOURS.toMillis(hours));
             seconds = TimeUnit.MILLISECONDS.toSeconds(elapsedTimeMilliseconds - TimeUnit.HOURS.toMillis(hours) - TimeUnit.MINUTES.toMillis(minutes));
-        }
-        else
-        {
+        } else {
             hours = elapsedTimeMilliseconds / (1000 * 60 * 60);
             minutes = (elapsedTimeMilliseconds / (1000 * 60)) % 60;
             seconds = (elapsedTimeMilliseconds / (1000)) % 60;
         }
-        
+
         return String.format("%02dh %02dm %02ds", hours, minutes, seconds);
     }
-    
+
     public static class RSAEncryptOutput {
         public final byte[] mContentCiphertext;
         public final byte[] mIv;
@@ -709,12 +422,12 @@ public class Utils
             mIv = iv;
             mWrappedEncryptionKey = wrappedEncryptionKey;
             mContentMac = contentMac;
-            mWrappedMacKey = wrappedMacKey;            
+            mWrappedMacKey = wrappedMacKey;
         }
     }
-    
+
     public static RSAEncryptOutput encryptWithRSA(byte[] data, String rsaPublicKey)
-        throws GeneralSecurityException, UnsupportedEncodingException {
+            throws GeneralSecurityException, UnsupportedEncodingException {
 
         byte[] contentCiphertext = null;
         byte[] iv = null;
@@ -778,7 +491,7 @@ public class Utils
 
         wrappedEncryptionKey = rsaCipher.wrap(encryptionKey);
         wrappedMacKey = rsaCipher.wrap(macKey);
-        
+
         return new RSAEncryptOutput(contentCiphertext, iv, wrappedEncryptionKey, contentMac, wrappedMacKey);
     }
 

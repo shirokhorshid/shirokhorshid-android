@@ -1,3 +1,22 @@
+/*
+ * Copyright (c) 2022, Psiphon Inc.
+ * All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 package com.psiphon3;
 
 import android.annotation.TargetApi;
@@ -12,7 +31,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -35,13 +53,14 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class HomeTabFragment extends Fragment {
     private MainActivityViewModel viewModel;
-    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private ViewFlipper sponsorViewFlipper;
     private ScrollView statusLayout;
     private ImageButton statusViewImage;
     private View mainView;
     private SponsorHomePage sponsorHomePage;
     private boolean isWebViewLoaded = false;
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private TextView lastLogEntryTv;
 
     @Nullable
     @Override
@@ -64,12 +83,30 @@ public class HomeTabFragment extends Fragment {
         statusLayout = view.findViewById(R.id.statusLayout);
         statusViewImage = view.findViewById(R.id.statusViewImage);
 
+        lastLogEntryTv = view.findViewById(R.id.lastlogline);
+
         viewModel = new ViewModelProvider(requireActivity(),
                 new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()))
                 .get(MainActivityViewModel.class);
+    }
 
-        // This Rx subscription observes tunnel state changes and updates the status UI,
-        // it also loads sponsor home pages in the embedded web view if needed.
+    @Override
+    public void onPause() {
+        super.onPause();
+        compositeDisposable.clear();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Observe last log entry to display.
+        compositeDisposable.add(viewModel.lastLogEntryFlowable()
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext(lastLogEntryTv::setText)
+                .subscribe());
+
+        // Observes tunnel state changes and updates the status UI,
+        // also loads sponsor home pages in the embedded web view if needed.
         compositeDisposable.add(viewModel.tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 // Update the connection status UI
@@ -91,32 +128,28 @@ public class HomeTabFragment extends Fragment {
                         isWebViewLoaded = false;
                     }
                 })
-                // Only pass through if tunnel is running and connected
-                .filter(tunnelState -> tunnelState.isRunning() && tunnelState.connectionData().isConnected())
-                .flatMap(tunnelState -> {
+                // Load the embedded web view if needed
+                .switchMap(tunnelState -> {
+                    // Check if tunnel is connected
+                    if (!tunnelState.isRunning() || !tunnelState.connectionData().isConnected()) {
+                        return Flowable.empty();
+                    }
+                    // Check if there is a URL to load
                     ArrayList<String> homePages = tunnelState.connectionData().homePages();
                     if (homePages == null || homePages.size() == 0) {
-                        // There's no URL to load
-                        return Flowable.empty();
+                       return Flowable.empty();
                     }
                     String url = homePages.get(0);
 
+                    // Check if the web view has loaded the URL already or the URL should not
+                    // be loaded in the embedded view
                     if (isWebViewLoaded || !MainActivity.shouldLoadInEmbeddedWebView(url)) {
-                        // The embedded view has loaded the URL already or the URL should not
-                        // be loaded in the embedded view
                         return Flowable.empty();
                     }
                     // Pass the URL downstream to be loaded in the embedded web view
                     return Flowable.just(url);
                 })
                 .doOnNext(this::loadEmbeddedWebView)
-                .subscribe());
-
-        // Observe last log entry to display.
-        final TextView lastLogEntryTv = view.findViewById(R.id.lastlogline);
-        compositeDisposable.add(viewModel.lastLogEntryFlowable()
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(lastLogEntryTv::setText)
                 .subscribe());
     }
 

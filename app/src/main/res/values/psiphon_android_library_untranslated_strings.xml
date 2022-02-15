@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="AuthenticatedDataPackage.InvalidEncoding">Invalid encoding for authenticated data package</string>
     <string name="UpgradeManager.UpgradeAvailableNotificationId">Psiphon Upgrade Available Notification</string>
     <string name="preferencesNotifications">preferencesNotifications</string>
     <string name="preferenceNotificationsWithSound">preferenceNotificationsWithSoundDefaultOff</string>
@@ -35,32 +34,9 @@
     <string name="egressRegionPreference">egressRegionPreference</string>
     <string name="moreOptionsPreferencesName">moreOptionsPreferencesName</string>
 
-    <!-- When Psiphon disconnects it sends a one last ("final") status request. This message is shown if that request fails. -->
     <string name="upgrade_checker_service_name">Psiphon:UpgradeChecker</string>
-    <string name="upgrade_checker_no_upgrading">UpgradeChecker.upgradeCheckNeeded: install does not support upgrading</string>
-    <string name="upgrade_checker_upgrade_file_exists">UpgradeChecker.upgradeCheckNeeded: upgrade file already exists</string>
-    <string name="upgrade_checker_check_needed">UpgradeChecker.upgradeCheckNeeded: upgrade check needed</string>
-    <string name="upgrade_checker_upgrade_wifi_only">UpgradeChecker.upgradeCheckNeeded: WiFi only user preference</string>
-    <string name="upgrade_checker_alarm_intent_received">UpgradeChecker.onReceive: ALARM_INTENT_ACTION received</string>
-    <string name="upgrade_checker_upgrade_file_available_intent_received">UpgradeChecker.onReceive: UPGRADE_FILE_AVAILABLE_INTENT_ACTION received</string>
-    <string name="upgrade_checker_boot_completed_intent_received">UpgradeChecker.onReceive: ACTION_BOOT_COMPLETED received</string>
-    <string name="upgrade_checker_create_alarm_intent_received">UpgradeChecker.onReceive: CREATE_ALARM_INTENT_ACTION received</string>
-    <string name="upgrade_checker_alarm_exists">UpgradeChecker.createAlarm: alarmExists; aborting</string>
-    <string name="upgrade_checker_creating_alarm">UpgradeChecker.createAlarm: creating alarm</string>
-    <string name="upgrade_checker_no_alarm_no_selfupgrading">UpgradeChecker.createAlarm: build does not allow self-upgrading; not creating alarm</string>
-    <string name="upgrade_checker_start_service">UpgradeChecker.checkForUpgrade: starting service for upgrade check</string>
-    <string name="upgrade_checker_start_tunnel_failed">UpgradeCheckerService: start tunnel failed: %s</string>
-    <string name="upgrade_checker_check_start">UpgradeCheckerService: check starting</string>
-    <string name="upgrade_checker_already_in_progress">UpgradeCheckerService: check already in progress</string>
-    <string name="upgrade_checker_done">UpgradeCheckerService: check done</string>
-    <string name="upgrade_checker_client_is_latest_version">UpgradeCheckerService: client is latest version</string>
-    <string name="upgrade_checker_client_upgrade_downloaded">UpgradeCheckerService: client upgrade downloaded</string>
-    <string name="upgrade_checker_tunnel_exiting">UpgradeCheckerService: tunnel exiting</string>
-    <string name="upgrade_checker_tunnel_diagnostic_message">UpgradeCheckerService: tunnel diagnostic: %s</string>
 
     <string name="current_local_http_proxy_port">currentLocalHttpProxyPort</string>
-    <string name="exportZircoPreference" translatable="false">exportZircoPref</string>
-    <string name="exportZircoPreferenceCategory" translatable="false">exportZircoPreferenceCategory</string>
     <string name="proxyOptionsPreferenceKey" translatable="false">proxyOptionsPreferenceKey</string>
     <string name="vpnOptionsPreferenceKey" translatable="false">vpnOptionsPreferenceKey</string>
     <string name="feedbackPreferenceKey" translatable="false">feedbackPreferenceKey</string>
