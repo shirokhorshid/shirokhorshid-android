@@ -59,6 +59,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -1147,10 +1148,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     @Override
     public void onDiagnosticMessage(final String message) {
+        // Get timestamp ASAP for improved accuracy.
+        final Date now = new Date();
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                MyLog.i(message);
+                MyLog.i(now, message);
             }
         });
     }
