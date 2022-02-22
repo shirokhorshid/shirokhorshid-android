@@ -93,6 +93,13 @@ public class MyLog {
         storeStatusLog(resId, formatArgs, sensitivity, Log.INFO, new Date());
     }
 
+    // Diagnostic log with priority Log.INFO that also takes timestamp
+    // Temporarily used for tunnel core notices logging in the TunnelManager.onDiagnosticMessage
+    // for the purpose of getting a more accurate timestamp.
+    static public void i(Date timestamp, String msg, Object... nameValuePairs) {
+        storeDiagnosticLog(msg, nameValuePairs, Log.INFO, timestamp);
+    }
+
     // Diagnostic log with priority Log.INFO
     // Internal only and included in feedback if the user consents
     static public void i(String msg, Object... nameValuePairs) {
