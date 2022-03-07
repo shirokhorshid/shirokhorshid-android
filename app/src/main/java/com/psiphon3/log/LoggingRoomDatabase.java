@@ -49,7 +49,8 @@ public abstract class LoggingRoomDatabase extends RoomDatabase {
                             // table is fully truncated every time the app starts fresh.
                             .fallbackToDestructiveMigration()
                             .enableMultiInstanceInvalidation()
-                            .setQueryExecutor(Executors.newFixedThreadPool(4))
+                            .setQueryExecutor(Executors.newSingleThreadExecutor())
+                            .setJournalMode(JournalMode.TRUNCATE)
                             .build();
                 }
             }
