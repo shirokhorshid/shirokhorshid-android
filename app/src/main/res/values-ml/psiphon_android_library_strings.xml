@@ -38,7 +38,7 @@
   <string name="start">ആരംഭിക്കുക</string>
   <string name="stop">നിർത്തുക</string>
   <string name="home_tab_name">ഹോം</string>
-  <string name="settings_tab_name">ഓപ്ഷനുകൾ</string>
+  <string name="settings_tab_name">ഐച്ഛികങ്ങള്‍</string>
   <string name="statistics_tab_name">സ്റ്റാറ്റ്സ് / സ്ഥിതിവിവരക്കണക്കുകൾ</string>
   <string name="logs_tab_name">ലോഗുകൾ / കുറിപ്പുകൾ</string>
   <string name="use_proxy_settings_toggle">ഒരു HTTP(എച്ടിടിപി) പ്രോക്സി വഴി കണക്റ്റുചെയ്യുക / ബന്ധിക്കുക</string>
@@ -127,7 +127,7 @@
   <string name="preference_notifications_with_vibrate_title">വൈബ്രേറ്റ് ചെയ്യുക</string>
   <string name="preference_notifications_with_vibrate_summary">കണക്ഷൻ നില മാറുമ്പോൾ വൈബ്രേറ്റുചെയ്യുക</string>
   <string name="downloadWiFiOnlyPreferenceSummary">അപ്‌ഗ്രേഡുകൾ / നവീകരിക്കൽ വൈഫൈയിൽ മാത്രം ഡൗൺലോഡുചെയ്യുക</string>
-  <string name="moreOptions">കൂടുതൽ ഓപ്ഷനുകൾ / ഐച്ഛികങ്ങള്‍</string>
+  <string name="moreOptions">കൂടുതൽ ഐച്ഛികങ്ങള്‍</string>
   <string name="proxySettingsCategoryTitle">പ്രോക്സി ക്രമീകരണങ്ങൾ</string>
   <string name="custom_proxy_host_summary">പ്രോക്സി സെർവറിന്റെ ഹോസ്റ്റ് നാമം അഥവാ IP </string>
   <string name="custom_proxy_port_summary">പ്രോക്സി സെർവർ പോര്‍ട്ട്</string>
@@ -166,4 +166,7 @@
   <string name="preference_summary_system_proxy">സിസ്റ്റം പ്രോക്സി</string>
   <string name="disableTimeoutsPreferenceTitle">കാലഹരണപ്പെടൽ പ്രവർത്തനരഹിതമാക്കുക</string>
   <string name="downloadWiFiOnlyPreferenceTitle">വൈഫൈ മാത്രം</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware മുന്നറിയിപ്പുകൾ കാണിക്കുക</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">നിങ്ങളുടെ ഉപകരണത്തിൽ നിന്ന് ഉത്ഭവിക്കുന്ന മാല്‍വെയര്‍ ട്രാഫിക് Psiphon (സൈഫൺ) കണ്ടെത്തുമ്പോൾ അറിയിപ്പ് ലഭിക്കുക.</string>
+  <string name="aboutMalAware">MalAware-നെ കുറിച്ച്</string>
 </resources>
