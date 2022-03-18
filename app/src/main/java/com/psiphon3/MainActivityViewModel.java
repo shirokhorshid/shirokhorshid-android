@@ -66,7 +66,7 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
             @Override
             public void onChange(boolean selfChange) {
                 logsDataSourceFactory.invalidateDataSource();
-                logsLastEntryHelper.refresh();
+                logsLastEntryHelper.fetchLatest();
             }
         };
 
@@ -91,6 +91,9 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
         lastLogEntryFlowable = logsLastEntryHelper.getFlowable()
                 .replay(1)
                 .autoConnect(0);
+
+        // Also fetch last log entry right away
+        logsLastEntryHelper.fetchLatest();
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)

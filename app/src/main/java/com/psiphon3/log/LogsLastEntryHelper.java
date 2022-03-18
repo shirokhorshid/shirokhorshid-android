@@ -36,7 +36,7 @@ public class LogsLastEntryHelper {
         this.contentResolver = contentResolver;
     }
 
-    public void refresh() {
+    public void fetchLatest() {
         Uri uri = LoggingContentProvider.CONTENT_URI.buildUpon()
                 .appendPath("status")
                 .appendPath("last")
