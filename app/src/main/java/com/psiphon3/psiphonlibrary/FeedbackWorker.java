@@ -19,8 +19,10 @@
 
 package com.psiphon3.psiphonlibrary;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 
 import androidx.annotation.NonNull;
@@ -30,7 +32,7 @@ import androidx.work.WorkerParameters;
 
 import com.psiphon3.R;
 import com.psiphon3.log.LogEntry;
-import com.psiphon3.log.LoggingRoomDatabase;
+import com.psiphon3.log.LoggingContentProvider;
 import com.psiphon3.log.MyLog;
 
 import net.grandcentrix.tray.AppPreferences;
@@ -406,41 +408,22 @@ public class FeedbackWorker extends RxWorker {
 
             // Read up to MAX_LOG_SOURCE_JSON_SIZE_BYTES from the logs database
             // and add to diagnostic / status info
-            try (Cursor cursor = LoggingRoomDatabase.getDatabase(context)
-                    .getLogsBeforeDate(beforeTimeMillis)) {
-                final int cursorIndexOfId = cursor.getColumnIndexOrThrow("_ID");
-                final int cursorIndexOfLogJson = cursor.getColumnIndexOrThrow("logjson");
-                final int cursorIndexOfIsDiagnostic = cursor.getColumnIndexOrThrow("is_diagnostic");
-                final int cursorIndexOfPriority = cursor.getColumnIndexOrThrow("priority");
-                final int cursorIndexOfTimestamp = cursor.getColumnIndexOrThrow("timestamp");
+            Uri uri = LoggingContentProvider.CONTENT_URI.buildUpon()
+                    .appendPath("all")
+                    .appendPath(String.valueOf(beforeTimeMillis))
+                    .build();
+            ContentResolver contentResolver = context.getContentResolver();
+            try (Cursor cursor = contentResolver.query(uri, null, null, null, null)) {
                 while (totalBytesRead < MAX_LOG_SOURCE_JSON_SIZE_BYTES && cursor.moveToNext()) {
-                    final LogEntry item;
-                    final String tmpLogJson;
-                    if (cursor.isNull(cursorIndexOfLogJson)) {
-                        continue;
-                    } else {
-                        tmpLogJson = cursor.getString(cursorIndexOfLogJson);
-                    }
-                    final boolean tmpIsDiagnostic;
-                    final int tmp;
-                    tmp = cursor.getInt(cursorIndexOfIsDiagnostic);
-                    tmpIsDiagnostic = tmp != 0;
-                    final int tmpPriority;
-                    tmpPriority = cursor.getInt(cursorIndexOfPriority);
-                    final long tmpTimestamp;
-                    tmpTimestamp = cursor.getLong(cursorIndexOfTimestamp);
-                    item = new LogEntry(tmpLogJson, tmpIsDiagnostic, tmpPriority, tmpTimestamp);
-                    final int tmpId;
-                    tmpId = cursor.getInt(cursorIndexOfId);
-                    item.setId(tmpId);
-                    totalBytesRead += item.getLogJson().length();
+                    final LogEntry logEntry = LoggingContentProvider.convertRows(cursor);
+                    totalBytesRead += logEntry.getLogJson().length();
 
                     JSONObject entry = new JSONObject();
-                    entry.put("timestamp!!timestamp", Utils.getISO8601String(new Date(item.getTimestamp())));
+                    entry.put("timestamp!!timestamp", Utils.getISO8601String(new Date(logEntry.getTimestamp())));
 
-                    JSONObject logJsonObject = new JSONObject(item.getLogJson());
+                    JSONObject logJsonObject = new JSONObject(logEntry.getLogJson());
 
-                    if (item.isDiagnostic()) {
+                    if (logEntry.isDiagnostic()) {
                         Object msg = logJsonObject.opt("msg");
                         Object data = logJsonObject.opt("data");
                         entry.put("msg", msg == null ? JSONObject.NULL : msg);
@@ -458,7 +441,7 @@ public class FeedbackWorker extends RxWorker {
                         entry.put("id", resourceID == 0 ?
                                 "" : context.getResources().getResourceEntryName(resourceID));
 
-                        entry.put("priority", item.getPriority());
+                        entry.put("priority", logEntry.getPriority());
                         entry.put("formatArgs", JSONObject.NULL);
                         entry.put("throwable", JSONObject.NULL);
 
