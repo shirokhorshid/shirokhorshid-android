@@ -19,7 +19,10 @@
 
 package com.psiphon3.log;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.work.ExistingPeriodicWorkPolicy;
@@ -60,9 +63,11 @@ public class LogsMaintenanceWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        LoggingRoomDatabase db = LoggingRoomDatabase.getDatabase(getApplicationContext());
-        db.getQueryExecutor().execute(() ->
-                db.deleteLogEntriesBefore(new Date().getTime() - DELETE_LOGS_AFTER_DAYS * DAY_IN_MS));
+        Uri uri = LoggingContentProvider.CONTENT_URI.buildUpon()
+                .appendPath("delete")
+                .appendPath(String.valueOf(new Date().getTime() - DELETE_LOGS_AFTER_DAYS * DAY_IN_MS))
+                .build();
+        getApplicationContext().getContentResolver().delete(uri, null, null);
         return Result.success();
     }
 }

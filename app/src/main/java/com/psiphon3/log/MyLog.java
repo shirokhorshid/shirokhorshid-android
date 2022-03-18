@@ -19,6 +19,7 @@
 
 package com.psiphon3.log;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
 
@@ -32,9 +33,12 @@ import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MyLog {
     private static final String TAG = "Psiphon";
+    private static final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     // It is expected that the logger implementation will be an Activity, so
     // we're only going to hold a weak reference to it -- we don't want to
@@ -184,11 +188,16 @@ public class MyLog {
         if (logger.get() == null) {
             return;
         }
-        LoggingRoomDatabase db =
-                LoggingRoomDatabase.getDatabase(logger.get().getContext().getApplicationContext());
-        db.getQueryExecutor().execute(() -> {
-            db.insertLog(logjson, isDiagnostic, priority, timestamp);
-        });
+        ContentValues values = new ContentValues();
+        values.put("logjson", logjson);
+        values.put("is_diagnostic", isDiagnostic);
+        values.put("priority", priority);
+        values.put("timestamp", timestamp);
+
+        executorService.execute(() ->
+                logger.get().getContext().getContentResolver()
+                        .insert(LoggingContentProvider.CONTENT_URI, values));
+
         if (BuildConfig.DEBUG) {
             if (isDiagnostic) {
                 Log.println(priority, TAG, logjson.replaceAll("\\\\", ""));

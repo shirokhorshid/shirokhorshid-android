@@ -23,30 +23,24 @@ import android.database.Cursor;
 
 import androidx.paging.DataSource;
 import androidx.room.Dao;
-import androidx.room.Insert;
 import androidx.room.Query;
-
-import java.util.List;
 
 import io.reactivex.Flowable;
 
 @Dao
 public abstract class LogEntryDao {
-    @Query("SELECT * FROM log WHERE is_diagnostic=:isDiagnostic ORDER BY timestamp DESC")
-    abstract DataSource.Factory<Integer, LogEntry> getPagedLogs(boolean isDiagnostic);
+    @Query("SELECT COUNT(*) FROM log WHERE is_diagnostic = 0")
+    abstract Cursor getStatusLogsCount();
 
     @Query("SELECT * FROM log WHERE timestamp < :beforeDateMillis ORDER BY timestamp DESC")
     abstract Cursor getLogsBeforeDate(long beforeDateMillis);
 
-    @Query("SELECT * FROM log WHERE timestamp < :beforeDateMillis ORDER BY timestamp DESC")
-    abstract List<LogEntry> getLogsBeforeDateList(long beforeDateMillis);
-
     @Query("DELETE FROM log WHERE timestamp < :beforeDateMillis")
-    abstract void deleteLogsBefore(long beforeDateMillis);
-
-    @Insert
-    abstract void insert(LogEntry statusLogEntry);
+    abstract int deleteLogsBefore(long beforeDateMillis);
 
     @Query("SELECT * FROM log WHERE is_diagnostic = 0 ORDER BY timestamp DESC LIMIT 1")
-    public abstract Flowable<LogEntry> getLastStatusLogEntry();
+    public abstract Cursor getLastStatusLogEntry();
+
+    @Query("SELECT * FROM log WHERE is_diagnostic = 0 ORDER BY timestamp DESC LIMIT :limit OFFSET :offset")
+    public abstract Cursor getStatusLogs(int offset, int limit);
 }
