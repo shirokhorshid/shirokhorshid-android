@@ -28,6 +28,7 @@ import androidx.paging.DataSource;
 import androidx.paging.PositionalDataSource;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LogsDataSourceFactory extends DataSource.Factory<Integer, LogEntry> {
@@ -79,7 +80,7 @@ public class LogsDataSourceFactory extends DataSource.Factory<Integer, LogEntry>
                     .build();
 
             try (Cursor cursor = contentResolver.query(uri, null, null, null, null)) {
-                if (cursor.moveToFirst()) {
+                if (cursor != null && cursor.moveToFirst()) {
                     count = cursor.getInt(0);
                 }
             }
@@ -100,6 +101,9 @@ public class LogsDataSourceFactory extends DataSource.Factory<Integer, LogEntry>
                     .appendPath(String.valueOf(limit))
                     .build();
             try (Cursor cursor = contentResolver.query(uri, null, null, null, null)) {
+                if (cursor == null) {
+                    return Collections.emptyList();
+                }
                 final List<LogEntry> logEntryList = new ArrayList<>(cursor.getCount());
                 while (cursor.moveToNext()) {
                     final LogEntry logEntry = LoggingContentProvider.convertRows(cursor);

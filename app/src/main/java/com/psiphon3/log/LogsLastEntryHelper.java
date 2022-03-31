@@ -42,7 +42,7 @@ public class LogsLastEntryHelper {
                 .appendPath("last")
                 .build();
         try (Cursor cursor = contentResolver.query(uri, null, null, null, null)) {
-            if (cursor.moveToFirst()) {
+            if (cursor != null && cursor.moveToFirst()) {
                 final LogEntry logEntry = LoggingContentProvider.convertRows(cursor);
                 lastLogEntryRelay.accept(logEntry);
             }
