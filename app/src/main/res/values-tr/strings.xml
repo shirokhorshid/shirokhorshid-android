@@ -51,7 +51,7 @@
   <string name="bad_vpn_exclusion_blacklist_alert_message">Bu model için en az bir uygulamayı bırakmanız gerekir</string>
   <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ya da üzeri bir sürüm gerekiyor</string>
   <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ya da üzeri bir sürüm gerekiyor</string>
-  <string name="vpn_exclusions_tip_summary">Klasik salt-tarayıcı kipi için yalnız bir tarayıcı seçin</string>
+  <string name="vpn_exclusions_tip_summary">Klasik salt-tarayıcı kipi için yalnızca bir tarayıcı seçin</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->

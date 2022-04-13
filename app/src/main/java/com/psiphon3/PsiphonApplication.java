@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 
 import androidx.multidex.MultiDex;
 
+import com.psiphon3.log.MyLog;
 import com.psiphon3.psiphonlibrary.LocaleManager;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
 import com.psiphon3.psiphonlibrary.TunnelVpnService;
@@ -35,10 +36,11 @@ import com.psiphon3.psiphonlibrary.Utils;
 
 import java.io.IOException;
 
+import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.exceptions.UndeliverableException;
 import io.reactivex.plugins.RxJavaPlugins;
 
-public class PsiphonApplication extends Application implements Utils.MyLog.ILogger {
+public class PsiphonApplication extends Application implements MyLog.ILogger {
     @Override
     protected void attachBaseContext(Context base) {
         // We need to make all classes available prior to calling LocaleManager by installing all
@@ -89,7 +91,7 @@ public class PsiphonApplication extends Application implements Utils.MyLog.ILogg
     @Override
     public void onCreate() {
         super.onCreate();
-        Utils.MyLog.setLogger(this);
+        MyLog.setLogger(this);
         // Make sure VPN service is ALWAYS enabled because app upgrade will not automatically re-enable it
         PackageManager packageManager = getPackageManager();
         ComponentName componentName = new ComponentName(getPackageName(), TunnelVpnService.class.getName());
@@ -116,7 +118,13 @@ public class PsiphonApplication extends Application implements Utils.MyLog.ILogg
                 // fine, some blocking code was interrupted by a dispose call
                 return;
             }
-            Utils.MyLog.g("RxJava undeliverable exception received: " + e);
+            MyLog.w("RxJava undeliverable exception received: " + e);
+
+            // Also crash if OnErrorNotImplementedException
+            if (e instanceof OnErrorNotImplementedException) {
+                Thread currentThread = Thread.currentThread();
+                currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, e);
+            }
         });
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Psiphon Inc.
+ * Copyright (c) 2022, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,22 +22,21 @@ package com.psiphon3.psiphonlibrary;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.SystemClock;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
-import android.util.Log;
 
 import com.psiphon3.R;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
+import com.psiphon3.log.MyLog;
 
 import net.grandcentrix.tray.AppPreferences;
 
 import java.io.File;
-import java.util.Date;
+import java.util.Locale;
 
 import ca.psiphon.PsiphonTunnel;
 
@@ -74,53 +73,6 @@ public class UpgradeChecker extends BroadcastReceiver {
     public static final String UPGRADE_FILE_AVAILABLE_INTENT_EXTRA_FILENAME = UpgradeChecker.class.getName()+":UPGRADE_FILENAME";
 
     /**
-     * Provides loggging functionality to the :UpgradeChecker process. Utilizes LoggingProvider.
-     * May be called from any process or thread.
-     * @param context
-     * @param stringResID String resource ID.
-     * @param sensitivity Log sensitivity level.
-     * @param priority One of the log priority levels supported by MyLog. Like: Log.DEBUG, Log.INFO, Log.WARN, Log.ERROR, Log.VERBOSE
-     * @param formatArgs Arguments to be formatted into the log string.
-     */
-    private static void log(Context context, int stringResID, MyLog.Sensitivity sensitivity, int priority, Object... formatArgs) {
-
-        /*
-        //TODO: use MyLog?
-        if(!MyLog.isSetLogger()) {
-            final Context loggerCtx = context;
-            MyLog.ILogger logger = new MyLog.ILogger() {
-                @Override
-                public Context getContext() {
-                    return loggerCtx;
-                }
-            };
-            MyLog.setLogger(logger);
-        }
-        */
-
-        String logJSON = LoggingProvider.makeStatusLogJSON(
-                context,
-                new Date(),
-                stringResID,
-                sensitivity,
-                formatArgs,
-                priority);
-        if (logJSON == null) {
-            // Fail silently
-            return;
-        }
-
-        ContentValues values = new ContentValues();
-        values.put(LoggingProvider.LogDatabaseHelper.COLUMN_NAME_LOGJSON, logJSON);
-        values.put(LoggingProvider.LogDatabaseHelper.COLUMN_NAME_IS_DIAGNOSTIC, false);
-
-        context.getContentResolver().insert(
-                LoggingProvider.INSERT_URI,
-                values
-        );
-    }
-
-    /**
      * Checks whether an upgrade check should be performed. False will be returned if there's already
      * an upgrade file downloaded.
      * May be called from any process or thread.
@@ -153,14 +105,14 @@ public class UpgradeChecker extends BroadcastReceiver {
         // on disk.
 
         if (!allowedToSelfUpgrade(context)) {
-            log(context, R.string.upgrade_checker_no_upgrading, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.upgradeCheckNeeded: install does not support upgrading");
             return false;
         }
 
         File downloadedUpgradeFile = new File(PsiphonTunnel.getDefaultUpgradeDownloadFilePath(appContext));
 
         if (UpgradeManager.UpgradeInstaller.upgradeFileAvailable(appContext, downloadedUpgradeFile)) {
-            log(context, R.string.upgrade_checker_upgrade_file_exists, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.upgradeCheckNeeded: upgrade file already exists");
             // We know there's an upgrade file available, so send an intent about it.
             Intent intent = new Intent(appContext, UpgradeChecker.class);
             intent.setAction(UPGRADE_FILE_AVAILABLE_INTENT_ACTION);
@@ -175,11 +127,11 @@ public class UpgradeChecker extends BroadcastReceiver {
         if (multiProcessPreferences.getBoolean(
                 context.getString(R.string.downloadWifiOnlyPreference), PsiphonConstants.DOWNLOAD_WIFI_ONLY_PREFERENCE_DEFAULT) &&
                 !Utils.isOnWiFi(appContext)) {
-            log(context, R.string.upgrade_checker_upgrade_wifi_only, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.upgradeCheckNeeded: not checking due to WiFi only user preference");
             return false;
         }
 
-        log(appContext, R.string.upgrade_checker_check_needed, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+        MyLog.i("UpgradeChecker.upgradeCheckNeeded: upgrade check needed");
 
         return true;
     }
@@ -213,24 +165,24 @@ public class UpgradeChecker extends BroadcastReceiver {
         String action = intent.getAction();
 
         if (action.equals(ALARM_INTENT_ACTION)) {
-            log(context, R.string.upgrade_checker_alarm_intent_received, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.onReceive: ALARM_INTENT_ACTION received");
             if (!upgradeCheckNeeded(context)) {
                 return;
             }
             checkForUpgrade(context);
         }
         else if (action.equals(UPGRADE_FILE_AVAILABLE_INTENT_ACTION)) {
-            log(context, R.string.upgrade_checker_upgrade_file_available_intent_received, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.onReceive: UPGRADE_FILE_AVAILABLE_INTENT_ACTION received");
             // Create upgrade notification. User clicking the notification will trigger the install.
             String filename = intent.getStringExtra(UPGRADE_FILE_AVAILABLE_INTENT_EXTRA_FILENAME);
             UpgradeManager.UpgradeInstaller.notifyUpgrade(LocaleManager.getInstance(context).setLocale(context), filename);
         }
         else if (action.equals(Intent.ACTION_BOOT_COMPLETED)) {
-            log(context, R.string.upgrade_checker_boot_completed_intent_received, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.onReceive: ACTION_BOOT_COMPLETED received");
             // Pass. We created the alarm above, so nothing else to do (until the alarm runs).
         }
         else if (action.equals(CREATE_ALARM_INTENT_ACTION)) {
-            log(context, R.string.upgrade_checker_create_alarm_intent_received, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.onReceive: CREATE_ALARM_INTENT_ACTION received");
             // Pass. We created the alarm above, so nothing else to do (until the alarm runs).
         }
     }
@@ -243,7 +195,7 @@ public class UpgradeChecker extends BroadcastReceiver {
     private static void createAlarm(Context appContext) {
         if (!allowedToSelfUpgrade(appContext)) {
             // Don't waste resources with an alarm if we can't possibly self-upgrade.
-            log(appContext, R.string.upgrade_checker_no_alarm_no_selfupgrading, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.createAlarm: build does not allow self-upgrading; not creating alarm");
             return;
         }
 
@@ -257,11 +209,11 @@ public class UpgradeChecker extends BroadcastReceiver {
                 PendingIntent.FLAG_NO_CREATE) != null);
 
         if (alarmExists) {
-            log(appContext, R.string.upgrade_checker_alarm_exists, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeChecker.createAlarm: alarmExists; aborting");
             return;
         }
 
-        log(appContext, R.string.upgrade_checker_creating_alarm, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+        MyLog.i("UpgradeChecker.createAlarm: creating alarm");
 
         PendingIntent alarmIntent = PendingIntent.getBroadcast(
                 appContext,
@@ -281,7 +233,7 @@ public class UpgradeChecker extends BroadcastReceiver {
      * Launches the upgrade checking service. Returns immediately.
      */
     private void checkForUpgrade(Context context) {
-        log(context, R.string.upgrade_checker_start_service, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+        MyLog.i("UpgradeChecker.checkForUpgrade: starting service for upgrade check");
         UpgradeCheckerService.enqueueWork(context);
     }
 
@@ -325,11 +277,11 @@ public class UpgradeChecker extends BroadcastReceiver {
          */
         @Override
         protected void onHandleWork(@NonNull Intent intent) {
-            log(this, R.string.upgrade_checker_check_start, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeCheckerService: check starting");
 
             if (mUpgradeCheckInProgress) {
                 // A check is already in progress, log and return
-                log(this, R.string.upgrade_checker_already_in_progress, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+                MyLog.i("UpgradeCheckerService: check already in progress");
                 // Not calling shutDownTunnel() because we don't want to interfere with the currently running request.
                 return;
             }
@@ -342,7 +294,7 @@ public class UpgradeChecker extends BroadcastReceiver {
             try {
                 mTunnel.startTunneling(TunnelManager.getServerEntries(this));
             } catch (PsiphonTunnel.Exception e) {
-                log(this, R.string.upgrade_checker_start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN, e.getMessage());
+                MyLog.e("UpgradeCheckerService: start tunnel failed: " + e);
                 // No need to call shutDownTunnel().
                 mUpgradeCheckInProgress = false;
                 stopSelf();
@@ -358,7 +310,7 @@ public class UpgradeChecker extends BroadcastReceiver {
             mStopHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    log(context, R.string.upgrade_checker_done, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+                    MyLog.i("UpgradeCheckerService: check done");
                     mTunnel.stop();
                 }
             });
@@ -392,7 +344,7 @@ public class UpgradeChecker extends BroadcastReceiver {
          */
         @Override
         public void onClientIsLatestVersion() {
-            log(this, R.string.upgrade_checker_client_is_latest_version, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeCheckerService: client is latest version");
             shutDownTunnel();
         }
 
@@ -402,7 +354,7 @@ public class UpgradeChecker extends BroadcastReceiver {
          */
         @Override
         public void onClientUpgradeDownloaded(String filename) {
-            log(this, R.string.upgrade_checker_client_upgrade_downloaded, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeCheckerService: client upgrade downloaded");
 
             if (mUpgradeDownloaded) {
                 // Because tunnel-core may create multiple server connections and do multiple
@@ -426,13 +378,13 @@ public class UpgradeChecker extends BroadcastReceiver {
          */
         @Override
         public void onExiting() {
-            log(this, R.string.upgrade_checker_tunnel_exiting, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN);
+            MyLog.i("UpgradeCheckerService: tunnel exiting");
             stopSelf();
         }
 
         @Override
         public void onDiagnosticMessage(String message) {
-            log(this, R.string.upgrade_checker_tunnel_diagnostic_message, MyLog.Sensitivity.NOT_SENSITIVE, Log.WARN, message);
+            MyLog.i(String.format(Locale.US, "UpgradeCheckerService: tunnel diagnostic: %s", message));
         }
 
         @Override

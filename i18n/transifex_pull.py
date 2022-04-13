@@ -22,7 +22,7 @@ Pulls and massages our translations from Transifex.
 
 Run with
 # If you don't already have pipenv:
-$ pip install pipenv
+$ python3 -m pip install --upgrade pipenv
 
 $ pipenv install --three --ignore-pipfile
 $ pipenv run python transifex_pull.py

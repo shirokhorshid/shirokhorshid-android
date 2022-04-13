@@ -5,9 +5,6 @@
     <string name="FeedbackActivity.DefaultText">If you have any specific comments, further information about web sites that do not work, or if this form is not working for you, please email &lt;a href=&quot;mailto:feedback@psiphon.ca&quot;&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
     <string name="FeedbackActivity.Success">Thank you for submitting your feedback</string>
     <string name="FeedbackActivity.Failure">Submission failed.  Please try again.</string>
-    <string name="FeedbackActivity.SubmitFeedbackFailed">Failed to submit feedback</string>
-    <string name="FeedbackActivity.InvalidURLParameters">Invalid URL Parameters in feedback form submission</string>
-    <string name="FeedbackActivity.GetHTMLContentFailed">Failed to get feedback page content</string>
     <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN has stopped</string>
     <string name="StatusActivity.VpnRevokedMessage">Psiphon\'s VPN has been disconnected by you or by another app. Multiple VPN apps cannot be running at the same time. Check if another VPN app is installed and is running.</string>
     <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN cannot start</string>

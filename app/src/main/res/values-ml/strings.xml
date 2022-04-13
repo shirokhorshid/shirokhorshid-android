@@ -53,10 +53,17 @@
   <string name="vpn_always_on_preference_not_available_summary">ആന്‍ഡ്രോയിഡ് 7.0ഓ അതില്‍ കൂടിയതോ ആവശ്യമാണ്</string>
   <string name="vpn_exclusions_tip_summary">ക്ലാസിക് ബ്രൌസർ മാത്രമുള്ള മോഡിനായി ഒരു ബ്രൌസർ മാത്രം തിരഞ്ഞെടുക്കുക</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon (സൈഫൺ) MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">മാല്‍വെയര്‍ ട്രാഫിക് കണ്ടെത്തി! കൂടുതലറിയാൻ ക്ലിക്ക് ചെയ്യുക.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon (സൈഫൺ) MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon ഇന്റർനെറ്റിൽ ക്ഷുദ്രകരമായ സൈറ്റുകൾ കണ്ടെത്തുകയും അതിലേക്കുള്ള പ്രവേശനം തടയുകയും ചെയ്തു. കൂടുതലറിയാൻ താഴെയുള്ള ലിങ്കുകൾ പിന്തുടരുക.\n\nകണ്ടെത്തിയ മാല്‍വെയര്‍:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon (സൈഫൺ) MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">ഇൻറർനെറ്റിലെ ക്ഷുദ്രകരമായ സൈറ്റുകളിലേക്കുള്ള പ്രവേശനം Psiphon (സൈഫൺ) യാന്ത്രികമായി തടയുന്നു. ഇത് സംഭവിക്കുമ്പോൾ നിങ്ങളെ അറിയിക്കാൻ താൽപ്പര്യമുണ്ടോ?\n\nഈ ക്രമീകരണം പിന്നീട് കൂടുതൽ ഐച്ഛികങ്ങളില്‍ മാറ്റാവുന്നതാണ്.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware-നെ കുറിച്ച് ഇവിടെ കൂടുതലറിയുക:</string>
 </resources>

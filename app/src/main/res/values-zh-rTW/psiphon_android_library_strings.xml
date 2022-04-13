@@ -21,7 +21,7 @@
   <string name="current_network_type">當前網路：%s</string>
   <string name="UpgradeManager.CanNotRetrievePackageInfo">無法取得當前應用的軟件包資訊</string>
   <string name="UpgradeManager.UpgradeFileWriteFailed">寫入更新文件失敗</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">更新失敗。無法從更新文件提取軟件包資訊。</string>
+  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">更新失敗。無法從更新檔案提取軟體包資訊。</string>
   <string name="UpgradeManager.UpgradeFileNotFound">未找到更新文件</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">賽風更新</string>

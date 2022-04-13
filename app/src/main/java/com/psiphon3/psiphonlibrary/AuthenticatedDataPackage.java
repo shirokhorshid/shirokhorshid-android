@@ -44,7 +44,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.psiphon3.R;
-import com.psiphon3.psiphonlibrary.Utils.MyLog;
+import com.psiphon3.log.MyLog;
 
 
 public class AuthenticatedDataPackage
@@ -94,7 +94,7 @@ public class AuthenticatedDataPackage
         }
         catch (UnsupportedEncodingException e)
         {
-            MyLog.w(R.string.AuthenticatedDataPackage_InvalidEncoding, MyLog.Sensitivity.NOT_SENSITIVE);
+            MyLog.e("Invalid encoding for authenticated data package: " + e);
             throw new AuthenticatedDataPackageException();
         }
     }
@@ -309,8 +309,8 @@ public class AuthenticatedDataPackage
             
             if (!dataValueRead || signature == null || signingPublicKeyDigest == null)
             {
-                MyLog.w(R.string.AuthenticatedDataPackage_MissingValue, MyLog.Sensitivity.NOT_SENSITIVE);
-                throw new AuthenticatedDataPackageException();                
+                MyLog.e("Missing value in authenticated data package");
+                throw new AuthenticatedDataPackageException();
             }
             
             // Check if the entry is signed with a different public key than our embedded value.
@@ -320,7 +320,7 @@ public class AuthenticatedDataPackage
             String publicKeyDigest = Base64.encodeToString(sha2.digest(signaturePublicKey.getBytes()), Base64.NO_WRAP);
             if (0 != publicKeyDigest.compareTo(signingPublicKeyDigest))
             {
-                MyLog.w(R.string.AuthenticatedDataPackage_WrongPublicKey, MyLog.Sensitivity.NOT_SENSITIVE);
+                MyLog.e("Authenticated data package signed with different public key");
                 throw new AuthenticatedDataPackageException();
             }
             
@@ -328,8 +328,8 @@ public class AuthenticatedDataPackage
             // we can complete the verification process.
 
             if (!verifier.verify(Base64.decode(signature, Base64.NO_WRAP)))
-            {            
-                MyLog.w(R.string.AuthenticatedDataPackage_InvalidSignature, MyLog.Sensitivity.NOT_SENSITIVE);
+            {
+                MyLog.e("Invalid signature on authenticated data package");
                 throw new AuthenticatedDataPackageException();
             }
         }

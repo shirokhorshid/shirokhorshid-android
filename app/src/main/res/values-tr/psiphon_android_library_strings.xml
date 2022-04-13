@@ -140,7 +140,7 @@
   <string name="preference_notifications_with_sound_summary">Bağlantı durumu değiştiğinde ses çıkarılsın</string>
   <string name="preference_notifications_with_vibrate_title">Titreşim</string>
   <string name="preference_notifications_with_vibrate_summary">Bağlantı durumu değiştiğinde aygıt titresin</string>
-  <string name="downloadWiFiOnlyPreferenceSummary">Güncellemeler yalnız Wi-Fi üzerinden indirilsin</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Güncellemeler yalnızca Wi-Fi üzerinden indirilsin</string>
   <string name="moreOptions">Diğer ayarlar</string>
   <string name="proxySettingsCategoryTitle">Vekil sunucu ayarları</string>
   <string name="custom_proxy_host_summary">Vekil sunucu sunucu adı ya da IP adresi</string>
@@ -168,7 +168,7 @@
   <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">İzin isteği</string>
   <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Konum bilgisine erişme izni verdiğinizde, Psiphon bulunduğunuz ağda nasıl çalışması gerektiği hakkında daha iyi karar verebilir.\n\nKonum bilgisi yalnız aygıtınızda kalır ve yerel olarak kullanılır. Sunucularımıza ya da üçüncü taraflara aktarılmaz.</string>
+  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Konum bilgisine erişme izni verdiğinizde, Psiphon bulunduğunuz ağda nasıl çalışması gerektiği hakkında daha iyi karar verebilir.\n\nKonum bilgisi yalnızca aygıtınızda kalır ve yerel olarak kullanılır. Sunucularımıza ya da üçüncü taraflara aktarılmaz.</string>
   <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Tamam</string>
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
@@ -179,7 +179,7 @@
   <string name="preference_summary_custom_proxy">Özel vekil sunucu</string>
   <string name="preference_summary_system_proxy">Sistem vekil sunucusu</string>
   <string name="disableTimeoutsPreferenceTitle">Zaman aşımı kullanılmasın</string>
-  <string name="downloadWiFiOnlyPreferenceTitle">Yalnız Wi-Fi</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Yalnızca Wi-Fi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware uyarıları görüntülensin</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon, aygıtnızdan kaynaklanan zararlı yazılım trafiği algıladığında bildirim alın.</string>
   <string name="aboutMalAware">MalAware hakkında</string>

@@ -117,12 +117,11 @@
                 android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
                 android:value="true" />
         </service>
-
         <provider
-            android:name=".psiphonlibrary.LoggingProvider"
-            android:authorities="com.psiphon3.LoggingProvider"
-            android:exported="false">
-        </provider>
+            android:name=".log.LoggingContentProvider"
+            android:exported="false"
+            android:process=":LoggingContentProvider"
+            android:authorities="com.psiphon3.LoggingContentProvider" />
 
         <!-- UpgradeChecker receives intents (direct, alarm, boot) that trigger upgrade checking. -->
         <receiver
