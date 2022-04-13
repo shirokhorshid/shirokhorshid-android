@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">贊助商標誌；點擊訪問贊助商主頁</string>
-  <string name="open_browser">打開瀏覽器</string>
+  <string name="banner_desc">贊助商標誌；點擊瀏覽贊助商的首頁</string>
+  <string name="open_browser">開啟瀏覽器</string>
   <string name="FeedbackActivity.DefaultText">如果您有任何具體建議，有任何網站失效的訊息或者此表單無法使用的情況，請寄郵件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
   <string name="FeedbackActivity.Success">感謝您提供回饋意見</string>
   <string name="FeedbackActivity.Failure">送出失敗。請再試一次。</string>
