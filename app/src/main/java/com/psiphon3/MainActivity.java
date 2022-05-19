@@ -105,6 +105,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private PsiphonTabLayout tabLayout;
     private ImageView banner;
     private boolean isFirstRun = true;
+    private AlertDialog upstreamProxyErrorAlertDialog;
 
 
     @Override
@@ -515,6 +516,20 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                         .setView(dialogView)
                         .setPositiveButton(android.R.string.ok, null)
                         .show();
+            }
+        } else if (0 == intent.getAction().compareTo(TunnelManager.INTENT_ACTION_UPSTREAM_PROXY_ERROR)) {
+            // Switch to Logs tab where upstream proxy error(s) will be posted and show a generic
+            // upstream proxy alert dialog once.
+            selectTabByTag("logs");
+            if ((upstreamProxyErrorAlertDialog == null || !upstreamProxyErrorAlertDialog.isShowing()) && !isFinishing()) {
+                upstreamProxyErrorAlertDialog = new AlertDialog.Builder(this)
+                        .setCancelable(true)
+                        .setIcon(R.drawable.ic_psiphon_alert_notification)
+                        .setTitle(R.string.upstream_proxy_error_alert_title)
+                        .setMessage(R.string.upstream_proxy_error_alert_message)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create();
+                upstreamProxyErrorAlertDialog.show();
             }
         }
     }
