@@ -19,7 +19,7 @@
   <string name="ads_consent_preference_dialog_title">重置</string>
   <string name="ads_consent_preference_summary">重置您的设置，以允许广告联盟使用 Cookie 和您的个人数据</string>
   <string name="preference_language_selection_summary">选择语言</string>
-  <string name="preference_language_selection_title">语言</string>
+  <string name="preference_language_selection_title">界面语言</string>
   <string name="preference_language_title">语言选择</string>
   <string name="preference_language_default_language">默认语言</string>
   <string name="preference_category_advanced_title">更多密钥详情</string>

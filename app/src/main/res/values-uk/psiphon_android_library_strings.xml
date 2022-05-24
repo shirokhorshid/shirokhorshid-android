@@ -145,5 +145,6 @@
   <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Ні дякую</string>
   <string name="label_proxy_settings">Налаштування проксі</string>
+  <string name="preference_summary_no_proxy">Немає Проксі</string>
   <string name="disableTimeoutsPreferenceTitle">Вимкнути блокування за часом</string>
 </resources>
