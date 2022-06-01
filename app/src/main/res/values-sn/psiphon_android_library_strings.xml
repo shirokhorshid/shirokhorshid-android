@@ -11,16 +11,11 @@
   <string name="psiphon_upgrade_notification_channel_name">Kwidziridzo yesoftware yePsiphon</string>
   <string name="vpn_service_running">Chirango cheVPN chirikushanda</string>
   <string name="vpn_service_revoked">Chirango cheVPN chakanzurwa</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Tatadza kukwedekera mashoko efeedback diagnostic. Mashoko aya haachabatanidzwa patsamba mbozha yefeedback.</string>
   <string name="current_network_type">Tande yamanje: %s</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Tatadza kunyora faira rekukwidziridza software</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Kwidziridzo yesoftware yashaikwa.</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Kwidziridzo yesoftware yePsiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Pane kwidziridzo yesoftware yePsiphon yagadzirira kuvakirirwa.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Tatadza kuverenga faira rekukwidziridza software</string>
   <string name="connected_elapsed_time">Kukochekera: %s</string>
   <string name="disconnected">Haisisina kukochekera</string>
   <string name="label_sent">Zvaenda</string>
@@ -70,9 +65,4 @@
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="waiting">Kumirira...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

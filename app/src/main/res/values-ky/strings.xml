@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Эгерде сизде иштебей жаткан сайттар тууралуу өзгөчө пикир же маалымат болсо, же болбосо бул форма сизде иштебей жатса, буга кат жибериңиз: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Пикириңизди билдиргениңиз үчүн рахмат</string>
   <string name="FeedbackActivity.Failure">Жиберүү ишке ашкан жок. Дагы бир жолу аракет кылыңыз.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Пикириңиз жиберилбей калды</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Пикир жиберүү формасында URL Параметрлери жараксыз</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Пикир билдирүү бетинин мазмуну алынбай калды</string>
   <string name="ads_consent_preference_dialog_title">Баштапкы абалга кайтаруу</string>
   <string name="preference_language_selection_title">Тил</string>
   <string name="preference_language_default_language">Демейки тил</string>
@@ -32,4 +29,8 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

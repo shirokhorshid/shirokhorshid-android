@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS កំពុងដំណើរការលើច្រក %d</string>
   <string name="http_proxy_running">ប្រូកស៊ី HTTP កំពុងដំណើរការលើច្រក %d</string>
   <string name="client_version">កុំព្យូទ័រប្រើជំនាន់ %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">កញ្ចប់ទិន្នន័យផ្ទៀងផ្ទាត់ដែលបានចុះហត្ថលេខាជាមួយសោរសាធារណៈផ្សេងគ្នា</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">ហត្ថលេខាមិនត្រឹមត្រូវលើការផ្ទៀងផ្ទាត់កញ្ចប់ទិន្នន័យ</string>
-  <string name="AuthenticatedDataPackage.MissingValue">បរាជ័យក្នុងការផ្ទៀងផ្ទាត់កញ្ចប់ទិន្នន័យ</string>
   <string name="starting_tunnel">កំពុងចាប់ផ្តើមច្រក...</string>
   <string name="stopping_tunnel">កំពុងបញ្ឈប់ច្រក...</string>
   <string name="stopped_tunnel">ច្រកបានបញ្ឈប់</string>
@@ -17,19 +14,11 @@
   <string name="psiphon_upgrade_notification_channel_name">បច្ចុប្បន្នភាព Psiphon </string>
   <string name="vpn_service_running">សេវាកម្ម VPN កំពុងដំណើរការ</string>
   <string name="vpn_service_revoked">ដកសិទ្ធិសេវាកម្ម VPN</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">បរាជ័យក្នុងការអ៊ីនគ្រីបព័ត៌មានវិភាគមតិយោបល់។ ព័ត៌មាននេះនឹងមិនត្រូវភ្ជាប់ទៅអ៊ីម៉ែលមតិយោបល់ទេ។</string>
   <string name="current_network_type">បណ្តាញបច្ចុប្បន្ន៖ %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">មិនអាចទាញយកកញ្ចប់ព័ត៌មានសម្រាប់កម្មវិធីបច្ចុប្បន្ន</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">បរាជ័យក្នុងការសរសេរឯកសារតំឡើង</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">បច្ចុប្បន្នបរាជ័យ។ មិនអាចបន្លាកញ្ចប់ព័ត៌មានពីឯកសារបច្ចុប្បន្នភាព។</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">រកមិនឃើញឯកសារបច្ចុប្បន្នភាព</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">បច្ចុប្បន្នភាព Psiphon </string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">បច្ចុប្បន្នភាពមួយសម្រាប់ Psiphon បានបញ្ចូលបានហើយ។</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">បរាជ័យក្នុងការអានឯកសារបច្ចុប្បន្នភាព</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">បរាជ័យក្នុងការផ្ទៀងផ្ទាត់ឯកសារបច្ចុប្បន្នភាព</string>
   <string name="connected_elapsed_time">បានតភ្ជាប់៖ %s</string>
   <string name="disconnected">បានផ្តាច់ការតភ្ជាប់</string>
   <string name="label_sent">បានបញ្ជូន</string>
@@ -140,15 +129,6 @@
   <string name="tunnel_connecting">កំពុងតភ្ជាប់ច្រក...</string>
   <string name="tunnel_connected">ច្រកបានតភ្ជាប់</string>
   <string name="waiting">កំពុងរង់ចាំ...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ស្នើសុំការអនុញ្ញាត</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">អនុញ្ញាត Psiphon ឲ្យសម្រេចចិត្តប្រសើរជាងមុន អំពីរបៀបធ្វើការលើបណ្តាញរបស់អ្នក ដោយផ្តល់សិទ្ធិចូលប្រើប្រាស់ទីតាំងរបស់អ្នក.\n\nចំណាំ ព័ត៌មាននេះត្រូវ​បានប្រើនៅលើ​ឧបករណ៍របស់​អ្នក​ប៉ុណ្ណោះ ហើយមិនត្រូវបានបញ្ជូនទៅម៉ាស៊ីនមេរបស់យើង​ឬភាគីទីបីទេ។</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">យល់ព្រម</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">ទេ អរគុណ</string>
   <string name="label_vpn_settings">ការកំណត់VPN</string>
   <string name="disableTimeoutsPreferenceTitle">បិទ ការកំណត់ពេល</string>
   <string name="downloadWiFiOnlyPreferenceTitle">មានតែWiFi</string>

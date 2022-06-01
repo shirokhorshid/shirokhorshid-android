@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Hebt u specifieke opmerkingen, meer informatie over websites die niet werken, of als dit formulier niet voor je werkt is, stuur een email naar&lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Dank u voor het indienen van uw feedback</string>
   <string name="FeedbackActivity.Failure">Indiening is mislukt. Probeer het opnieuw.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Mislukt in te dienen feedback</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Ongeldige URL Parameters in feedback formulier bij indienen</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Mislukt te krijgen feedback pagina-inhoud</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN is gestopt</string>
   <string name="StatusActivity.VpnRevokedMessage">De VPN van Psiphon is door u of door een andere app verbroken. Meerdere VPN-apps kunnen niet tegelijkertijd worden uitgevoerd. Controleer of een andere VPN-app is geïnstalleerd en actief is.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN kan niet starten</string>
@@ -63,4 +60,8 @@
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

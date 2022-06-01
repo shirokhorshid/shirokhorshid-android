@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS beroperasi di port %d</string>
   <string name="http_proxy_running">Proksi HTTP beroperasi di port %d</string>
   <string name="client_version">Versi Klien %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Paket data terautentikasi yang ditandatangani dengan kunci publik berbeda</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Tanda tangan paket data terautentikasi tidak berlaku</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Ada nilai yang hilang pada paket data terautentikasi</string>
   <string name="starting_tunnel">Memulai pengalihan...</string>
   <string name="stopping_tunnel">Menyelesaikan pengalihan...</string>
   <string name="stopped_tunnel">Pengalihan berhenti</string>
@@ -18,19 +15,11 @@
   <string name="psiphon_server_alert_notification_channel_name">Peringatan Server Psiphon</string>
   <string name="vpn_service_running">Layanan VPN beroperasi</string>
   <string name="vpn_service_revoked">Layanan VPN dibatalkan</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Gagal mengenkripsi informasi diagnostik untuk kritik dan saran. Informasi ini tidak akan dilampirkan pada email kritik dan saran.</string>
   <string name="current_network_type">Jaringan saat ini: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Tidak dapat mengambil info paket aplikasi yang dipakai</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Gagal menulis berkas pembaruan</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Pembaruan gagal. Tidak dapat mengekstrak info paket dari berkas pembaruan.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Berkas pembaruan tak ditemukan</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Pembaruan Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon versi terbaru siap dipasang.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Gagal membaca berkas pembaruan</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Gagal mengautentikasi berkas pembaruan</string>
   <string name="connected_elapsed_time">Tersambung: %s</string>
   <string name="disconnected">Tidak tersambung</string>
   <string name="label_sent">Terkirim</string>
@@ -160,15 +149,6 @@
   <string name="tunnel_connecting">Pengalihan tersambung...</string>
   <string name="tunnel_connected">Pengalihan tersambung</string>
   <string name="waiting">Menunggu...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Kabulkan Permintaan</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Mengizinkan Psiphon mengambil keputusan terbaik perihal bagaimana menangani jaringan Anda dengan cara memberi akses ke lokasi Anda.\n\nPerlu diingat bahwa informasi ini hanya digunakan di perangkat Anda dan tidak dikirimkan ke server kami maupun ke pihak-pihak ke-3.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Oke</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Tidak makasih</string>
   <string name="label_vpn_settings">Pengaturan VPN</string>
   <string name="label_proxy_settings">Seting proxy</string>
   <string name="preference_summary_no_proxy">Tanpa proksi</string>

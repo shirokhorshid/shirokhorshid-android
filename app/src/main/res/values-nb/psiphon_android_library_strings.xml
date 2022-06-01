@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS kjører på port %d</string>
   <string name="http_proxy_running">HTTP-mellomlager kjører på port %d</string>
   <string name="client_version">Klientversjon %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Identiteten til datapakken er signert med en annen offentlig nøkkel</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Ugyldig signatur på bekreftelse av identitet for datapakke</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Mangler verdi i bekreftelse av identitet for datapakke</string>
   <string name="starting_tunnel">Starter tunnel…</string>
   <string name="stopping_tunnel">Stopper tunnel…</string>
   <string name="stopped_tunnel">Tunnel stoppet</string>
@@ -16,19 +13,11 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-oppgradering</string>
   <string name="vpn_service_running">VPN-tjeneste kjører</string>
   <string name="vpn_service_revoked">VPN-tjeneste tilbakedratt</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Klarte ikke å kryptere tilbakemeldingsfil for diagnostikk. Denne informasjonen vil ikke bli tilknyttet din tilbakemeldingse-post.</string>
   <string name="current_network_type">Gjeldende nettverk: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Klarte ikke å motta pakkeinfo for gjeldende program</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Klarte ikke å skrive oppgraderingsfil</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Oppgradering feilet. Klarte ikke å pakke ut pakkeinfo fra oppgraderingsfilen.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Oppgraderingsfil ikke funnet</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-oppgradering</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">En oppgradering for Psiphon er klar til installasjon.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Klarte ikke å lese oppgraderingsfil</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Klarte ikke å sjekke gyldighet for oppgraderingsfil</string>
   <string name="connected_elapsed_time">Tilkoblet: %s</string>
   <string name="disconnected">Frakoblet</string>
   <string name="label_sent">Sendt</string>
@@ -119,12 +108,6 @@
   <string name="tunnel_connecting">Kobler til tunnel</string>
   <string name="tunnel_connected">Tunnel tilkoblet</string>
   <string name="waiting">Venter …</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Greit</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="label_proxy_settings">Mellomtjenerinnstillinger</string>
   <string name="disableTimeoutsPreferenceTitle">Skru av tidsavbrudd</string>
 </resources>

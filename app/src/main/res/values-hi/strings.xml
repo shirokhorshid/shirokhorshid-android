@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">यदि आपके पास कोई विशिष्ट टिप्पणी है, वे वेब साइट्स के बारे में अधिक जानकारी जो काम नहीं करती है, या यदि यह फ़ॉर्म आपके लिए काम नहीं कर रहा है, तो कृपया ईमेल करें और &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">अपना फीडबैक देने के लिए धन्यवाद</string>
   <string name="FeedbackActivity.Failure">सबमिशन असफल रहा कृपया पुन: प्रयास करें।</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">फ़ीडबैक सबमिट करने में विफल</string>
-  <string name="FeedbackActivity.InvalidURLParameters">फ़ीडबैक फ़ॉर्म सबमिशन में अमान्य यूआरएल पैरामीटर</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">अभिप्राय पृष्ठ सामग्री प्राप्त करने में विफल रहा</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN बंद हो गया है</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN को आपके द्वारा या किसी अन्य एप्लिकेशन द्वारा बंद दिया गया है। एक ही समय में कई VPN ऐप नहीं चल सकते हैं। जांचें कि क्या दूसरा VPN ऐप इंस्टॉल है और चल रहा है।</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN प्रारंभ नहीं हो सकता है</string>
@@ -59,4 +56,8 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

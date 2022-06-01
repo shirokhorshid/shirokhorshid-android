@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Nếu bạn có bất kỳ nhận xét cụ thể nào, muốn biết thêm thông tin về các trang web không hoạt động, hoặc mẫu đơn này không có tác dụng với bạn, vui lòng gửi email đến &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Cám ơn bạn đã gửi thông tin phản hồi</string>
   <string name="FeedbackActivity.Failure">Gửi thất bại. Vui lòng thử lại.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Không thể gửi thông tin phản hồi</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Liên kết không hợp lệ trong quá trình gửi mẫu đơn phản hồi</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Không thể lấy nội dung trang thông tin phản hồi</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN đã ngừng hoạt động</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN đã bị hoãn kết nối bởi quý khách hoặc một chương trình khác. Nhiều chương trình VPN không thể hoạt động cùng lúc được. Xin kiểm tra nếu có chương trình VPN khác đã cài đặt và đang hoạt động.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN không mở được</string>
@@ -43,4 +40,8 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

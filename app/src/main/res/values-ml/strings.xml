@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">നിങ്ങൾക്ക് എന്തെങ്കിലും പ്രത്യേക അഭിപ്രായങ്ങളുണ്ടെങ്കിൽ,പ്രവർത്തിക്കാത്ത വെബ് സൈറ്റുകളെക്കുറിച്ചുള്ള കൂടുതൽ വിവരങ്ങൾ, അല്ലെങ്കിൽ ഈ ഫോം നിങ്ങൾക്ക് പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ, ദയവായി ഇമെയിൽ ചെയ്യുക &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">താങ്കളുടെ പ്രതികരണം സമര്‍പ്പിച്ചതിന് നന്ദി</string>
   <string name="FeedbackActivity.Failure">സമര്‍പ്പിയ്ക്കല്‍ പരാജയപ്പെട്ടു. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">പ്രതികരണം സമർപ്പിക്കുന്നത് പരാജയപ്പെട്ടു</string>
-  <string name="FeedbackActivity.InvalidURLParameters">പ്രതികരണ ഫോം സമർപ്പണത്തില്‍ അസാധുവായ യുആര്‍എല്‍ ഘടകങ്ങൾ</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">‌പ്രതികരണ താളിന്റെ ഉള്ളടക്കം നേടുന്നത് പരാജയപ്പെട്ടു</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN നിർത്തി</string>
   <string name="StatusActivity.VpnRevokedMessage">നിങ്ങൾ‌ അല്ലെങ്കിൽ‌ മറ്റൊരു അപ്ലിക്കേഷൻ‌ വഴി Psiphon VPN വിച്ഛേദിക്കപ്പെട്ടു. ഒന്നിലധികം VPN ആപ്പുകൾക്ക് ഒരേ സമയം പ്രവർത്തിക്കാൻ കഴിയില്ല. മറ്റൊരു VPN ആപ്പ് ഇൻസ്റ്റാളുചെയ്‌ത് പ്രവർത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുക.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN ആരംഭിക്കാൻ കഴിയില്ല</string>
@@ -66,4 +63,8 @@
   <string name="unsafe_traffic_alert_prompt_message">ഇൻറർനെറ്റിലെ ക്ഷുദ്രകരമായ സൈറ്റുകളിലേക്കുള്ള പ്രവേശനം Psiphon (സൈഫൺ) യാന്ത്രികമായി തടയുന്നു. ഇത് സംഭവിക്കുമ്പോൾ നിങ്ങളെ അറിയിക്കാൻ താൽപ്പര്യമുണ്ടോ?\n\nഈ ക്രമീകരണം പിന്നീട് കൂടുതൽ ഐച്ഛികങ്ങളില്‍ മാറ്റാവുന്നതാണ്.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware-നെ കുറിച്ച് ഇവിടെ കൂടുതലറിയുക:</string>
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

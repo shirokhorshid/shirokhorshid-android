@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Калі ёсць каментарыі, дадатковая інфармацыя пра вэб-сайты, якія не працуюць, або калі не спрацоўвае гэтая форма, калі ласка, напішыце &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Дзякуй за зваротную сувязь</string>
   <string name="FeedbackActivity.Failure">Не атрымалася адправіць. Паспрабуйце зноў.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Не атрымалася адправіць водгук</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Памылковыя параметры URL у форме зваротнай сувязі</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Не атрымалася загрузіць змесціва старонкі зваротнай сувязі</string>
   <string name="StatusActivity.VpnRevokedTitle">VPN Psiphon перастаў працаваць</string>
   <string name="StatusActivity.VpnRevokedMessage">VPN Psiphon адлучаны вамі ці іншай праграмай. Адначасова не можа працаваць некалькі праграм VPN. Праверце, магчыма ў вас працуе або ўсталяваная іншая праграма VPN. </string>
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon не запускаецца</string>
@@ -59,4 +56,8 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS запущен (порт %d)</string>
   <string name="http_proxy_running">HTTP-прокси запущен (порт %d)</string>
   <string name="client_version">Версия клиента %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Неверный публичный ключ в подписи пакета данных, прошедшего проверку </string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Неверная цифровая подпись пакета данных</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Недостающее значение в пакете данных</string>
   <string name="starting_tunnel">Запуск туннеля...</string>
   <string name="stopping_tunnel">Остановка туннеля...</string>
   <string name="stopped_tunnel">Туннель остановлен</string>
@@ -18,19 +15,11 @@
   <string name="psiphon_server_alert_notification_channel_name">Выбор региона сервера</string>
   <string name="vpn_service_running">VPN сервис запущен</string>
   <string name="vpn_service_revoked">VPN сервис удален</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Ошибка шифрования диагностических данных. Эти данные не будут прикреплены к отзыву.</string>
   <string name="current_network_type">Текущая сеть: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Ошибка чтения данных о пакете приложения</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Ошибка записи файла обновления</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Обновление невозможно. Ошибка чтения данных из файла обновления.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Файл обновления не найден</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Обновление Psiphon </string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Новая версия Psiphon готова к установке. </string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Ошибка чтения файла обновления</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Ошибка проверки подлинности файла обновления</string>
   <string name="connected_elapsed_time">Соединение установлено: %s</string>
   <string name="disconnected">Соединение разорвано</string>
   <string name="label_sent">Отправлено</string>
@@ -170,15 +159,6 @@
   <string name="tunnel_connecting">Подключение туннеля…</string>
   <string name="tunnel_connected">Туннель подключен</string>
   <string name="waiting">Ожидание…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Запрос разрешения</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Чтобы Psiphon принимал оптимальные решения о работе в вашей сети, откройте ему доступ к вашему местонахождению.\n\nВнимание: эти данные используются только на вашем устройстве. Они не передаются ни на наши серверы, ни третьим сторонам.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Нет, спасибо</string>
   <string name="label_vpn_settings">Настройки VPN</string>
   <string name="label_proxy_settings">Настройки прокси</string>
   <string name="preference_summary_no_proxy">Нет прокси</string>

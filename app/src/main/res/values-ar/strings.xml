@@ -6,9 +6,6 @@
  l &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">شكرا على إرسال الرد.</string>
   <string name="FeedbackActivity.Failure">فشل الارسال. يرجى إعادة المحاوله.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">فشل في إرسال الرد.</string>
-  <string name="FeedbackActivity.InvalidURLParameters">باراميترات خاطئه في استمارة الرد.</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">فشل في الحصول على مضمون صفحة الرد.</string>
   <string name="StatusActivity.VpnRevokedTitle">سايفون VPN قد توقف</string>
   <string name="StatusActivity.VpnRevokedMessage">انقطع اتصال VPN الخاص بسايفون عن طريقك أو عن طريق تطبيق آخر. لا يمكن تشغيل أكثر من تطبيق VPN فى الوقت عينه. تحقق ما إذا كان هناك تطبيق VPN آخر مثبت و قيد التشغيل.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">تعذّر تشغيل سايفون</string>
@@ -64,4 +61,8 @@
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

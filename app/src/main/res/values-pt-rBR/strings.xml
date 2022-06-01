@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Se você tiver algum comentário específico, informações sobre páginas que não funcionam, ou se este formulário não funciona para você, por favor escreva &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Obrigado por enviar seus comentários</string>
   <string name="FeedbackActivity.Failure">Falha no envio. Por favor tente novamente.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Falha ao enviar comentário</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Parâmetros inválidos da URL no envio do formulário</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Falha ao carregar conteúdo da página de comentários</string>
   <string name="ads_consent_preference_dialog_title">Resetar</string>
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_default_language">Idioma padrão</string>
@@ -33,4 +30,8 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS rodando na porta %d</string>
   <string name="http_proxy_running">Proxy HTTP rodando na porta %d</string>
   <string name="client_version">Versão do Cliente %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Pacote de dados autenticado foi assinado com uma chave pública diferente</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Assinatura inválida do pacote de dados autenticado</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Falta dado no pacote de dados autenticado</string>
   <string name="starting_tunnel">Iniciando túnel...</string>
   <string name="stopping_tunnel">Parando túnel...</string>
   <string name="stopped_tunnel">Túnel parado</string>
@@ -16,19 +13,11 @@
   <string name="psiphon_upgrade_notification_channel_name">Atualização do Psiphon</string>
   <string name="vpn_service_running">Rodando serviço de VPN</string>
   <string name="vpn_service_revoked">Serviço de VPN revogado</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Falha ao criptografar as informações de diagnóstico. Estas informações não serão inseridas no email de comentários.</string>
   <string name="current_network_type">Rede atual: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Não consegui pegar as informações de pacote do aplicativo atual</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Falha ao escrever arquivo de atualização</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Atualização falhou. Não foi possível extrair informações do arquivo de atualização.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Arquivo de atualização não encontrado.</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Atualização do Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Uma atualização para o Psiphon está pronta para ser instalada.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Falha ao ler arquivo de atualização</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Falha ao autenticar arquivo de atualização</string>
   <string name="connected_elapsed_time">Conectado: %s</string>
   <string name="disconnected">Desconectado</string>
   <string name="label_sent">Enviado</string>
@@ -130,13 +119,7 @@
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
   <string name="waiting">Aguarde...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Okay</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Não, obrigado!</string>
+  <string name="label_vpn_settings">Configurações de VPN</string>
   <string name="label_proxy_settings">Configurações do Proxy</string>
   <string name="preference_summary_no_proxy">Sem proxy</string>
 </resources>

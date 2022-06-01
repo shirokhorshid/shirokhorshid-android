@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS (സോക്സ്) പോര്‍ട്ട് %d -ൽ പ്രവർത്തിക്കുന്നു</string>
   <string name="http_proxy_running">HTTP/എച്ടിടിപി പ്രോക്സി പോര്‍ട്ട്%d-ൽ ഓടുന്നു</string>
   <string name="client_version">ക്ലയന്‍റ്  വേർഷൻ/പതിപ്പ് %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">വ്യത്യസ്‌ത പബ്ലിക് കീ ഉപയോഗിച്ച് ഒപ്പിട്ട ഡാറ്റ പാക്കേജ് പ്രമാണീകരിച്ചിരിക്കുന്നു</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">പ്രാമാണീകരിച്ച ഡാറ്റ പാക്കേജിൽ അസാധുവായ ഒപ്പാണ്</string>
-  <string name="AuthenticatedDataPackage.MissingValue">പ്രാമാണീകരിച്ച ഡാറ്റ പാക്കേജിലെ ഒരു വാല്യൂ/മൂല്യം കാണുന്നില്ല </string>
   <string name="starting_tunnel">ടണൽ തുടങ്ങുന്നു...</string>
   <string name="stopping_tunnel">ടണൽ നിർത്തുന്നു...</string>
   <string name="stopped_tunnel">ട്ടണൽ നിർത്തി</string>
@@ -18,19 +15,11 @@
   <string name="psiphon_server_alert_notification_channel_name">Psiphon (സൈഫൺ) സെര്‍വര്‍ അലേർട്ടുകൾ / അറിയിപ്പുകൾ</string>
   <string name="vpn_service_running">VPN (വിപിഎന്‍) സേവനം പ്രവർത്തിക്കുന്നു</string>
   <string name="vpn_service_revoked">VPN (വിപിഎന്‍) സേവനം റദ്ധാക്കിയിരിക്കുന്നു</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">ഫീഡ്‌ബാക്ക് ഡയഗ്നോസ്റ്റിക് വിവരങ്ങൾ എൻ‌ക്രിപ്റ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു. ഈ വിവരങ്ങൾ ഫീഡ്‌ബാക്ക് ഇമെയിലിലേക്ക് അറ്റാച്ചുചെയ്യില്ല.</string>
   <string name="current_network_type">നിലവിലെ നെറ്റ്‌വർക്ക്: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">നിലവിലെ അപ്പ്ലിക്കേഷന്റെ പാക്കേജ് വിവരങ്ങൾ വീണ്ടെടുക്കാനായില്ല.</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ എഴുതുന്നതിൽ പരാജയപ്പെട്ടു</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">അപ്‌ഗ്രേഡ് / നവീകരണം പരാജയപ്പെട്ടു. അപ്‌ഗ്രേഡ് ഫയലിൽ നിന്ന് പാക്കേജ് വിവരങ്ങൾ എക്‌സ്‌ട്രാക്റ്റു ചെയ്യാനായില്ല.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ കണ്ടെത്താനായില്ല</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon (സൈഫൺ) അപ്‌ഗ്രേഡ് / നവീകരണം</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon (സൈഫൺ) അപ്പ്ലിക്കേഷന്റെ ഒരു നവീകരിച്ച വേർഷൻ / പതിപ്പ് ഇൻസ്റ്റാൾ ചെയ്യാൻ തയ്യാറാണ്.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ വായിക്കുന്നതിൽ പരാജയപ്പെട്ടു</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">അപ്‌ഗ്രേഡ് ഫയൽ / നവീകരിച്ച ഫയൽ പ്രാമാണീകരിക്കുന്നതിൽ പരാജയപ്പെട്ടു</string>
   <string name="connected_elapsed_time">കണ്ണെക്റ്റഡ് / ബന്ധിപ്പിച്ചു: %s</string>
   <string name="disconnected">ഡിസ്കണ്ണെക്റ്റഡ് / വിച്ഛേദിച്ചു</string>
   <string name="label_sent">അയച്ചു</string>
@@ -150,15 +139,6 @@
   <string name="tunnel_connecting">ടണൽ ബന്ധിപ്പിക്കുന്നു...</string>
   <string name="tunnel_connected">ടണൽ ബന്ധിപ്പിച്ചു</string>
   <string name="waiting">കാത്തിരിക്കുന്നു…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">അനുമതിക്കായുള്ള അഭ്യർത്ഥന</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">നിങ്ങളുടെ ലൊക്കേഷനിലേക്ക് ആക്‌സസ് നൽകിക്കൊണ്ട് നിങ്ങളുടെ നെറ്റ്‌വർക്കിൽ എങ്ങനെ പ്രവർത്തിക്കാമെന്നതിനെക്കുറിച്ച് മികച്ച തീരുമാനങ്ങളെടുക്കാൻ Psiphon (സൈഫൺ) - നെ അനുവദിക്കുക.\n\nഈ വിവരങ്ങൾ നിങ്ങളുടെ ഉപകരണത്തിൽ പ്രാദേശികമായി മാത്രമേ ഉപയോഗിക്കുന്നുള്ളൂവെന്നും ഞങ്ങളുടെ സെർവറുകളിലേക്കോ ഏതെങ്കിലും മൂന്നാം കക്ഷികളിലേക്കോ ഇത് കൈമാറ്റം ചെയ്യപ്പെടുന്നില്ലെന്നും ശ്രദ്ധിക്കുക.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ശരി</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">വേണ്ട, നന്ദി!</string>
   <string name="label_vpn_settings">VPN(വിപിഎന്‍) ക്രമീകരണം</string>
   <string name="label_proxy_settings">പ്രോക്സി ക്രമീകരണം</string>
   <string name="preference_summary_no_proxy">പ്രോക്സി ഇല്ല</string>

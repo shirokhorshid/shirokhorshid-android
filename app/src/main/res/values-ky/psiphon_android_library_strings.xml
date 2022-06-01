@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS %d портунда жүрүп жатат</string>
   <string name="http_proxy_running">HTTP прокси %d портунда жүрүп жатат</string>
   <string name="client_version">Клиенттик нуска %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Ар кандай коомдук ачкычтар менен кол коюлган аутентификацияланган берилмелер топтому</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Аутентификацияланган берилмелер топтомунда жараксыз кол тамга</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Аутентификацияланган берилмелер топтомунда маани жетишсиз</string>
   <string name="starting_tunnel">Туннелдөө башталып жатат...</string>
   <string name="stopping_tunnel">Туннелдөө бүтүп жатат...</string>
   <string name="stopped_tunnel">Туннелдөө бүттү</string>
@@ -16,19 +13,11 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-ду  Жаңылоо</string>
   <string name="vpn_service_running">VPN кызматы жүрүүдө</string>
   <string name="vpn_service_revoked">VPN кызматы артка тартылды</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Кайтарым байланыш диагностикалык маалыматы шифрленбей койду. Бул маалымат кайтарым байланыш катына кошулбайт.</string>
   <string name="current_network_type">Учурдагы тармак: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Бул колдонмо үчүн топтом маалыматын алуу мүмкүн эмес.</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Жаңылоо файлы жазылбай койду</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Жаңыланбай койду.  Жаңылануу файлынан топтом маалыматын чыгаруу мүмкүн эмес.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Жаңылоочу файл табылбады</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-ду  Жаңылоо</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon үчүн жаңылоо орнотууга даяр.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Жаңылоо файлы окулбай койду</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Жаңылоо файлынын аныктыгы текшерилбей койду</string>
   <string name="connected_elapsed_time">Байланышты: %s</string>
   <string name="disconnected">Байланыш үзүлдү</string>
   <string name="label_sent">Жөнөтүлдү</string>
@@ -112,9 +101,4 @@
   <string name="tunnel_connecting">Туннелге туташуу...</string>
   <string name="tunnel_connected">Туннелге байланышты</string>
   <string name="waiting">Күтүү...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

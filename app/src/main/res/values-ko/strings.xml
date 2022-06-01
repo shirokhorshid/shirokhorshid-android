@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">만약 우리에게 남길 코멘트가 있는데, 웹 사이트가 작동하지 않거나, 이 폼이 작동하지 않을 경우, 다음의 이메일로 코멘트를 남겨주시면 됩니다: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">피드백을 주셔서 감사합니다</string>
   <string name="FeedbackActivity.Failure">작업을 실패했습니다. 다시 시도해 주세요.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">피드백을 보내는데 실패했습니다</string>
-  <string name="FeedbackActivity.InvalidURLParameters">URL 파라미터가 잘못 되어 피드백 전송에 실패했습니다</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">피드백 페이지의 콘텐츠를 가져오는 데 실패하였습니다</string>
   <string name="ads_consent_preference_dialog_title">초기화</string>
   <string name="preference_language_selection_title">언어</string>
   <string name="preference_language_default_language">기본 언어</string>
@@ -32,4 +29,8 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS روی پورت %d در حال اجرا است</string>
   <string name="http_proxy_running">پراکسی HTTP روی پورت %d در حال اجرا است</string>
   <string name="client_version">نسخه سرویس‌گیرنده %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">امضای بسته داده‌های معتبر با کلید عمومی متفاوت صورت گرفت</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">امضای نامعتبر بر روی بسته داده‌های معتبر</string>
-  <string name="AuthenticatedDataPackage.MissingValue">مقدار مربوط به بسته داده‌های معتبر وجود ندارد</string>
   <string name="starting_tunnel">در حال شروع تونل...</string>
   <string name="stopping_tunnel">در حال توقف تونل...</string>
   <string name="stopped_tunnel">تونل متوقف شد</string>
@@ -16,19 +13,11 @@
   <string name="psiphon_upgrade_notification_channel_name">ارتقاع سایفون</string>
   <string name="vpn_service_running">سرویس VPN در حال اجرا است</string>
   <string name="vpn_service_revoked">سرویس VPN لغو شد</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">رمزگذاری معلومات تشخیصی ملاحظه ناموفق بود. این معلومات به ایمیل ملاحظه ضمیمه نمیشوند.</string>
   <string name="current_network_type">شبکه فعلی: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">بازیابی معلومات بسته برای برنامه فعلی امکان‌پذیر نیست</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">نوشتن فایل ارتقاع ناموفق بود</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ارتقاع ناموفق بود. استخراج معلومات بسته از فایل ارتقاع انجام نشد.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">فایل ارتقاع پیدا نشد</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">ارتقاع سایفون</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">ارتقاع سایفون آماده نصب است.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">خواندن فایل ارتقاع ناموفق بود</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">تأیید فایل ارتقاع ناموفق بود</string>
   <string name="connected_elapsed_time">متصل شد: %s</string>
   <string name="disconnected">اتصال قطع شد</string>
   <string name="label_sent">ارسال شد</string>
@@ -112,9 +101,4 @@
   <string name="tunnel_connecting">تونل در حال اتصال...</string>
   <string name="tunnel_connected">تونل متصل شد</string>
   <string name="waiting">در حال انتظار…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

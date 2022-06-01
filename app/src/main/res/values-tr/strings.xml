@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan web siteleri hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
   <string name="FeedbackActivity.Success">Geri bildiriminiz için teşekkür ederiz</string>
   <string name="FeedbackActivity.Failure">Form gönderilemedi. Lütfen yeniden deneyin.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Geri bildirim gönderilemedi</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Geri bildirim formu gönderimi için adres parametreleri geçersiz</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Geri bildirim sayfasının içeriği alınamadı</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN durdu</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN bağlantısı siz ya da başka bir uygulama tarafından kesilmiş. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlatılamadı</string>
@@ -66,4 +63,12 @@
   <string name="unsafe_traffic_alert_prompt_message">Psiphon, İnternet üzerindeki zararlı olabilecek bir site trafiğini engelledi. Benzer durumların bildirilmesini ister misiniz?\n\nSeçiminizi daha sonra diğer ayarlar bölümünden değiştirebilirsiniz:</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware hakkında ayrıntılı bilgi almak için şuraya bakabilirsiniz:</string>
+  <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Giden vekil sunucu sorunu</string>
+  <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Lütfen Psiphon uygulamasını açıp vekil sunucu ayarlarını denetleyin.</string>
+  <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Vekil sunucu sorunu</string>
+  <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Psiphon bir giden vekil sunucu kullanmak üzere yapılandırılmış. Ancak bu vekil sunucu üzerinden bir Psiphon sunucusu ile bağlantı kurulamadı.\n\nLütfen ayarları düzeltip yeniden deneyin.\n\nTeknik bilgi almak için günlük kayıtlarına bakın.</string>
 </resources>

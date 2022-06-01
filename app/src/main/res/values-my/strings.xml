@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">အကယ်၍ သင့်ထံတွင် မှတ်ချက်များ၊ ဝက်ဆိုက်ဒ်များဝင်ရောက်ခြင်းနှင့်ပါတ်သက်ပြီး အဆင်မပြေမှုများရှိလျှင် သို့မဟုတ် လက်ရှိဖောင်သည် သင်နှင့် ကိုက်ညီမှုမရှိသေးလျှင် ကျေးဇူးပြု၍ &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; သို့ အီးမေးလ် ပေးပို့ဆက်သွယ်ပေးပါ။</string>
   <string name="FeedbackActivity.Success">ယခုကဲ့သို့ သင်၏အကြံပြုချက်များ ပြန်လည်ပေးပို့သည့်အတွက် ကျေးဇူးတင်ပါသည်။</string>
   <string name="FeedbackActivity.Failure">တင်သွင်းမှုမအောင်မြင်ပါ။ ကျေးဇူးပြု၍ နောက်တစ်ကြိမ်ထပ်မံကြိုးစားပေးပါ။</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">သင်၏အကြံပြုချက်များ ပြန်လည်ပေးပို့ခြင်း မအောင်မြင်ပါ။</string>
-  <string name="FeedbackActivity.InvalidURLParameters">အကြံပြုချက်ဖောင် ပြန်လည်ပေးပို့ရာတွင် ဆီလျော်မှုမရှိသော URL သတ်မှတ်ချက်များ (parameters) များပါဝင်နေသည်</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">အကြံပြုချက်ရေးသည့် စာမျက်နှာရှိ အကြောင်းအရာများကို ရယူမှုမအောင်မြင်ပါ။</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN ရပ်ဆိုင်းသွားပါသည်</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN သည် သင့်ကြောင့် သို့မဟုတ် တခြားအပ္ပလီကေးရှင်းကြောင့် ချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်။ VPN အပ္ပလီကေးရှင်း တစ်ခုထက်ပို၍ တစ်ပြိုင်တည်း ဖွင့်ထားလို့မရပါ။ VPN အပ္ပလီကေးရှင်း နောက်တစ်ခုများ တပ်ဆင်ထားပြီး ပွင့်နေသလားဆိုတာ တစ်ချက်စစ်ဆေးပေးပါ။</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN စတင်လို့ အရပါ</string>
@@ -65,4 +62,8 @@
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message">Psiphon သည် အင်တာနက်ပေါ်တွင် သံသယဖြစ်စရာကောင်းသော ဝက်ဘ်ဆိုဒ်များအား ဝင်ရောက်ကြည့်ရှုခွင့်ကို အလိုအလျောက် ပိတ်ထားသည်။ ထိုသို့ဖြစ်ပွားခဲ့ပါက သင့်အား သတိပေးစေလိုပါသလား။\n\nဤဆက်တင်ကို နောက်ထပ် ရွေးချယ်မှုများတွင် နောက်ပိုင်း၌ ပြောင်းလဲနိုင်သည်။</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

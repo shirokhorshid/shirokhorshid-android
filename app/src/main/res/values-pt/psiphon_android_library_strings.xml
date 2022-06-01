@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS - em execução na porta %d</string>
   <string name="http_proxy_running">Proxy HTTP em execução na porta %d</string>
   <string name="client_version">Versão do Cliente - %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Pacote de dados autenticado assinado com uma chave pública diferente</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Assinatura inválida no pacote de dados autenticado</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Valor em falta no pacote de dados autenticado</string>
   <string name="starting_tunnel">A iniciar \'tunnel\' ...</string>
   <string name="stopping_tunnel">A parar \'tunnel\' ...</string>
   <string name="stopped_tunnel">\'Tunnel\' parado</string>
@@ -15,17 +12,11 @@
   <string name="psiphon_upgrade_notification_channel_name">Atualização do Psiphon</string>
   <string name="vpn_service_running">Serviço VPN em execução</string>
   <string name="vpn_service_revoked">Serviços VPN revogado</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Não foi possível encriptar a informação do diagnóstico do comentário. Esta informação não será anexada à mensagem do comentário.</string>
   <string name="current_network_type">Rede atual: %s</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">A atualização falhou. Não é possível extrair a informação do pacote do ficheiro de atualização.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Ficheiro de atualização não encontrado</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Atualização do Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Está disponível uma atualização do Psiphon para ser instalada.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Não foi possível ler o ficheiro de atualização</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Não foi possível autenticar o ficheiro de atualização</string>
   <string name="connected_elapsed_time">Conetado: %s</string>
   <string name="disconnected">Desconetado</string>
   <string name="label_sent">Enviado</string>
@@ -100,11 +91,5 @@
   <string name="tunnel_connecting">A ligar o túnel...</string>
   <string name="tunnel_connected">Túnel ligado</string>
   <string name="waiting">A aguardar...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="label_proxy_settings">Configurações de proxy</string>
 </resources>

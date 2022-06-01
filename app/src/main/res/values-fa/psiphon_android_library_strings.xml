@@ -3,9 +3,6 @@
   <string name="socks_running">ساکس روی پورت %d درحال اجرا است</string>
   <string name="http_proxy_running">پراکسی اچ‌تی‌تی‌پی روی پورت %d درحال اجرا است</string>
   <string name="client_version">نسخه مورد استفاده کاربر %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">بسته داده‌های تصدیق شده با کلید عمومی متفاوتی امضا شده است</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">امضای نامعتبر در بسته داده های تصدیق شده </string>
-  <string name="AuthenticatedDataPackage.MissingValue">ارزش گمشده در بسته داده‌های  تصدیق شده</string>
   <string name="starting_tunnel">شروع تونل...</string>
   <string name="stopping_tunnel">توقف تونل...</string>
   <string name="stopped_tunnel">اجرای تونل متوقف شد </string>
@@ -18,19 +15,11 @@
   <string name="psiphon_server_alert_notification_channel_name">هشدارهای سرور سایفون</string>
   <string name="vpn_service_running">سرویس وی پی ان فعال است</string>
   <string name="vpn_service_revoked">سرویس وی پی ان لغو شد</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">رمز گذاراطلاعات تشخیصی امکان پذیر نبود. اطلاعات تشخیصی به ایمیل بازخورد پیوست نمی‌شود.  </string>
   <string name="current_network_type">شبکه کنونی: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">بازیابی اطلاعات بسته برای برنامه جاری امکان پذیر نیست  </string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">خطا در نوشتن فایل ارتقا</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">به روز رسانی ناموفقیت آمیز بود. بازکردن اطلاعات بسته از فایل ارتقا نا‌موفق بود.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">فایل بروزرسانی پیدا نشد.</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">به روز رسانی Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">بسته بروزرسانی Psiphon آماده نصب است.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">ناموفقیت آمیز بودن خواندن فایل بروز رسانی</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">تصدیق فایل بروز رسانی نا‌موفقیت آمیز بود </string>
   <string name="connected_elapsed_time">وصل شد : %s</string>
   <string name="disconnected">قطع شد </string>
   <string name="label_sent">ارسال شد</string>
@@ -164,16 +153,6 @@
   <string name="tunnel_connecting">در حال اتصال به تونل...</string>
   <string name="tunnel_connected">متصل شد</string>
   <string name="waiting">منتظر...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">درخواست اجازه</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">با دادن دسترسی به مکان خودتان، به سایفون اجازه دهید تصمیمات بهتری در مورد چگونگی عملکرد روی شبکه شما بگیرد.\n\n
- این اطلاعات تنها روی دستگاه شما مورد استفاده قرار می‌گیرد، و به سرورهای ما یا هیچ شخص ثالثی انتقال نمی‌یابد.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">قبول</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">نه، ممنون</string>
   <string name="label_vpn_settings">تنظیمات وی‌پی‌ان</string>
   <string name="label_proxy_settings">تنظیمات پروکسی</string>
   <string name="preference_summary_no_proxy">بدون پروکسی</string>

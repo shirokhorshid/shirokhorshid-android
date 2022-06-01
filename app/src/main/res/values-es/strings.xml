@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Si tiene comentarios específicos, más información de sitios que no funcionan, o si este formulario no está funcionando para usted, por favor, mande un mensaje a &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Gracias por enviar sus comentarios</string>
   <string name="FeedbackActivity.Failure">Fallo del envío. Por favor inténtelo de nuevo.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Fallo al enviar sus comentarios</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Parámetros de URL no válidos en el formulario de envío de comentarios</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">No se pudo obtener el contenido de la página de comentarios</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN se ha detenido</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN ha sido desconectada por usted u otra aplicación. Varias aplicaciones VPN no se pueden ejecutar al mismo tiempo. Compruebe si tiene otra aplicación de VPN instalada y en ejecución.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN no puede iniciar</string>
@@ -66,4 +63,8 @@
   <string name="unsafe_traffic_alert_prompt_message">Psiphon bloquea automáticamente el acceso a sitios en Internet potencialmente maliciosos. ¿te gustaría ser notificado cuando ocurra esto?\n\nEste ajuste puede ser cambiado luego en Más Opciones.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">Aprende más acerca de MalAware aquí:</string>
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
 </resources>

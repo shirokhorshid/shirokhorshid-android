@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href="mailto:feedback@psiphon.ca"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتون رو با ما در میان گذاشتید سپاسگزاریم</string>
   <string name="FeedbackActivity.Failure">ارسال نشد. لطفآ دوباره امتحان کنید</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">ارسال نظر ناموفق بود</string>
-  <string name="FeedbackActivity.InvalidURLParameters">پارامترهای نامعتبر در ارسال فرم</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">گرفتن صفحه ارسال نظر ناموفق بود</string>
   <string name="StatusActivity.VpnRevokedTitle">VPN Psiphon متوقف شده است</string>
   <string name="StatusActivity.VpnRevokedMessage">وی‌پی‌ان Psiphon توسط شما یا یک اپ دیگر قطع شد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و در حال اجرا است.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon نمی‌تواند شروع به کار کند</string>
@@ -68,4 +65,12 @@
 این تنظیمات بعدا در «گزینه‌های بیشتر» قابل تغییر است. </string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">اطلاعات بیشتر درباره MalAware را در اینجا بخوانید:</string>
+  <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">خطای پروکسی بالادست</string>
+  <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">لطفا Psiphon را باز کرده و تنظیمات پروکسی را بررسی کنید.</string>
+  <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">خطای پروکسی</string>
+  <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">شما Psiphon را برای استفاده از پروکسی بالادست پیکربندی کرده‌اید. با این حال، به نظر می‌رسد که نمی‌توانیم از طریق آن پروکسی به سرور Psiphon متصل شویم.\n\nلطفا تنظیمات را اصلاح و دوباره امتحان کنید.\n\nبرای اطلاعات فنی به گزارش‌ها مراجعه کنید.</string>
 </resources>

@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS འདི་མཐུད་ཀ་%d སྒང་ལ་འགྲོ་བཞིན་པ།</string>
   <string name="http_proxy_running">མཐུད་ཁ་%dསྒང་ལ་HTTP ངོ་ཚབ་ལས་ཀ་བྱེད་བཞིན་པ།</string>
   <string name="client_version">མཉེན་ཆས་ཐོན་རིམ།།%s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">ཡིག་ཚགས་ར་སྤྲོད་བྱས་པ་དེ་ཐུན་མོང་བའི་ལྡེ་མིག་གཞན་དག་ཞིག་བེད་སྤྱོད་བྱས་འདུག</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">ཡིག་ཚགས་ར་སྤྲོད་བྱས་པའི་སྒང་ལ་མིང་རྟགས་ནོར་བ་བཀོད་འདུག</string>
-  <string name="AuthenticatedDataPackage.MissingValue">ཡིག་ཚགས་ཐུམ་སྒྲིལ་ར་སྤྲོད་བྱས་པའི་ཆ་རྐྱེན་ཚང་མིན་འདུག</string>
   <string name="starting_tunnel">ཡུར་བ་སྒོ་འཛུགས།</string>
   <string name="stopping_tunnel">ཡུར་བ་མཚམས་འཇོག་བཞིན་པ།</string>
   <string name="stopped_tunnel">ཡུར་བ་མཚམས་འཇོག</string>
@@ -16,19 +13,11 @@
   <string name="psiphon_upgrade_notification_channel_name">སཡི་ཕོན་རིམ་སྤར།</string>
   <string name="vpn_service_running">VPN ཞབས་ཞུ་འཁོར་སྐྱོད་བྱེད་བཞིན་པ།</string>
   <string name="vpn_service_revoked">VPN ཞབས་ཞུ་འཕྲུལ་ཆས་ཕྱིར་བསྡུ།</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">ཉེན་སྐྱོན་ཅན་གྱི་གནས་དོན་རྣམས་ཀྱི་དགོངས་འཆར་གསང་སྡོམ་བྱེད་ཐུབ་མ་སོང་། གནས་དོན་འདི་དག་་དགོངས་འཆར་གློག་འཕྲིན་ལ་མཐུད་སྦྱོར་བྱེད་ཐུབ་མ་སོང་།</string>
   <string name="current_network_type">ད་ལྟའི་དྲྭ་ལམ།: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">ད་ལྟའི་མཉེན་ཆས་ཀྱི་ཆེད་དུ་ཐུམ་བུའི་གནས་ཚུལ་སྐྱར་བཟོ་ཐུབ་མ་སོང་།</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">རིམ་སྤར་ཡིག་ཚགས་བྲིས་ཐུབ་མ་སོང་།</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">རིམ་སྤར་ཐུབ་མ་སོང་། རིམ་སྤར་གྱི་ཡིག་ཚགས་ནས་ཐུམ་སྒྲིལ་བྱས་པའི་གནས་ཚུལ་སྟོན་ཐུབ་མ་སོང་།</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">རིམ་སྤར་ཡིག་ཆ་རྙེད་སོན་བྱུང་མ་སོང་།</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">སཡི་ཕོན་རིམ་སྤར།</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">སཡི་ཕོན་རིམ་སྤར་ནང་འཇུག་བྱེད་རྒྱུར་གྲ་སྒྲིག་ཡིན།</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">རིམ་སྤར་ཡིག་ཚགས་ཀློག་ཐུབ་མ་སོང་།</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">རིམ་སྤོས་ཡིག་ཚགས་ཁུངས་ལྡན་བཟོས་ཐུབ་མ་སོང་།</string>
   <string name="connected_elapsed_time">མཐུད།: %s</string>
   <string name="disconnected">མཐུད་ཀ།</string>
   <string name="label_sent">གཏོང་།</string>
@@ -112,9 +101,4 @@
   <string name="tunnel_connecting">ཡུར་བ་ལ་མཐུད་བཞིན་པ།...</string>
   <string name="tunnel_connected">ཡུར་བར་མཐུད་ཚར་སོང་།</string>
   <string name="waiting">སྒུག་བཞིན་པ།</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>
