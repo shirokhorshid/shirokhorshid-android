@@ -1285,7 +1285,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         try {
                             upstreamProxyErrorPendingIntent.send(m_parentService, 0, null);
                         } catch (PendingIntent.CanceledException e) {
-                            MyLog.w("regionNotAvailablePendingIntent send failed: " + e);
+                            MyLog.w("upstreamProxyErrorPendingIntent send failed: " + e);
                         }
                     } else {
                         if (mNotificationManager == null) {
