@@ -66,4 +66,12 @@
     <string name="unsafe_traffic_alert_prompt_message">Psiphon automatically blocks access to potentially malicious sites on the Internet. Would you like to be notified when this occurs?\n\nThis setting can be changed later in More Options.</string>
     <!-- More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts -->
     <string name="unsafe_traffic_alert_prompt_message_more_info">Learn more about MalAware here:</string>
+    <!-- "Upstream proxy error" notification title -->
+    <string name="notification_title_upstream_proxy_error">Upstream proxy error</string>
+    <!-- "Upstream proxy error" notification text -->
+    <string name="notification_text_upstream_proxy_error">Please open Psiphon and check proxy settings.</string>
+    <!-- "Upstream proxy error" alert dialog title -->
+    <string name="upstream_proxy_error_alert_title">Proxy Error</string>
+    <!-- "Upstream proxy error" alert dialog message -->
+    <string name="upstream_proxy_error_alert_message">"You have configured Psiphon to use an upstream proxy. However, we seem to be unable to connect to a Psiphon server through that proxy.\n\nPlease fix the settings and try again.\n\nSee logs for technical info."</string>
 </resources>
