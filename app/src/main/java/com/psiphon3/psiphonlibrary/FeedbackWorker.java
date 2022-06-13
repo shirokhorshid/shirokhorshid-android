@@ -146,7 +146,7 @@ public class FeedbackWorker extends RxWorker {
 
     @Override
     public void onStopped() {
-        MyLog.i("FeedbackUpload: worker stopped by system");
+        MyLog.i("FeedbackUpload: " + feedbackId + " worker stopped by system");
         super.onStopped();
     }
 
@@ -166,7 +166,7 @@ public class FeedbackWorker extends RxWorker {
         return Completable.create(emitter -> {
 
             emitter.setCancellable(() -> {
-                MyLog.i("FeedbackUpload: disposed");
+                MyLog.i("FeedbackUpload: " + feedbackId + " disposed");
                 psiphonTunnelFeedback.stopSendFeedback();
                 // Remove the shutdown hook since the underlying resources have been cleaned up by
                 // stopSendFeedback.
@@ -198,7 +198,7 @@ public class FeedbackWorker extends RxWorker {
                     new PsiphonTunnel.HostFeedbackHandler() {
                         public void sendFeedbackCompleted(java.lang.Exception e) {
                             if (!emitter.isDisposed()) {
-                                MyLog.i("FeedbackUpload: completed");
+                                MyLog.i("FeedbackUpload: " + feedbackId + " completed");
                                 if (e != null) {
                                     emitter.onError(e);
                                     return;
@@ -207,10 +207,10 @@ public class FeedbackWorker extends RxWorker {
                                 emitter.onComplete();
                             } else {
                                 if (e != null) {
-                                    MyLog.w("FeedbackUpload: completed with error but emitter disposed: " + e);
+                                    MyLog.w("FeedbackUpload: " + feedbackId + " completed with error but emitter disposed: " + e);
                                     return;
                                 }
-                                MyLog.i("FeedbackUpload: completed but emitter disposed");
+                                MyLog.i("FeedbackUpload: " + feedbackId + " completed but emitter disposed");
                             }
                         }
                     },
@@ -233,11 +233,11 @@ public class FeedbackWorker extends RxWorker {
         // Guard against the upload being retried indefinitely if it continues to exceed the max
         // execution time limit of 10 minutes.
         if (this.getRunAttemptCount() > 10) {
-            MyLog.e("FeedbackUpload: failed, exceeded 10 attempts");
+            MyLog.e("FeedbackUpload: " + feedbackId + " failed, exceeded 10 attempts");
             return Single.just(Result.failure());
         }
 
-        MyLog.i(String.format(Locale.US, "FeedbackUpload: starting feedback upload work, attempt %d", this.getRunAttemptCount()));
+        MyLog.i(String.format(Locale.US, "FeedbackUpload: starting feedback upload work " + feedbackId + ", attempt %d", this.getRunAttemptCount()));
 
         // Note: this method is called on the main thread despite documentation stating that work
         // will be scheduled on a background thread. All work should be done off the main thread in
@@ -281,7 +281,7 @@ public class FeedbackWorker extends RxWorker {
                     if (tunnelState.isStopped() || (tunnelState.isRunning() && tunnelState.connectionData().isConnected())) {
                         // Send feedback.
 
-                        MyLog.i("FeedbackUpload: uploading feedback");
+                        MyLog.i("FeedbackUpload: uploading feedback " + feedbackId);
 
                         Context context = getApplicationContext();
                         String feedbackJsonString = createFeedbackData(
@@ -322,13 +322,13 @@ public class FeedbackWorker extends RxWorker {
                                 .andThen(Flowable.just(Result.success()));
                     }
 
-                    MyLog.i("FeedbackUpload: waiting for tunnel to be disconnected or connected");
+                    MyLog.i("FeedbackUpload: " + feedbackId + " waiting for tunnel to be disconnected or connected");
                     return Flowable.empty();
                 })
                 .firstOrError()
-                .doOnSuccess(__ -> MyLog.i("FeedbackUpload: upload succeeded"))
+                .doOnSuccess(__ -> MyLog.i("FeedbackUpload: " + feedbackId + " upload succeeded"))
                 .onErrorReturn(error -> {
-                    MyLog.w("FeedbackUpload: upload failed: " + error.getMessage());
+                    MyLog.w("FeedbackUpload: " + feedbackId + " upload failed: " + error.getMessage());
                     return Result.failure();
                 });
     }
