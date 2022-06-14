@@ -65,6 +65,7 @@
   <string name="unsafe_traffic_alert_prompt_message_more_info">Pelajari lebih lanjut tentang MalAware di sini:</string>
   <!--"Upstream proxy error" notification title-->
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Silakan buka Psiphon dan periksa pengaturan proxy.</string>
   <!--"Upstream proxy error" alert dialog title-->
   <!--"Upstream proxy error" alert dialog message-->
 </resources>
