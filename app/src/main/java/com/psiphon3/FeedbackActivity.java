@@ -175,10 +175,12 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity {
 
                 MyLog.i("FeedbackActivity: user submitted feedback");
 
-                WorkManager.getInstance(getApplication()).beginUniqueWork(
-                        "feedback_upload",
-                        ExistingWorkPolicy.APPEND_OR_REPLACE,
-                        feedbackUpload).enqueue();
+                WorkManager.getInstance(getApplicationContext())
+                        .enqueueUniqueWork("feedback_upload",
+                                // Do not schedule a new upload if there's a pending(uncompleted)
+                                // feedback upload.
+                                ExistingWorkPolicy.KEEP,
+                                feedbackUpload);
 
                 return true;
             }
