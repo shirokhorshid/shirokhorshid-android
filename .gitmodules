@@ -1,0 +1,3 @@
+[submodule "jndcrash"]
+	path = jndcrash
+	url = https://github.com/ivanarh/jndcrash.git

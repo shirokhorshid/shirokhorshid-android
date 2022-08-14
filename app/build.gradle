@@ -91,6 +91,8 @@ dependencies {
 
     implementation project(':tray')
 
+    implementation project(':jndcrash')
+
     implementation "androidx.multidex:multidex:$rootProject.ext.multidexVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatVersion"
     implementation "com.google.android.material:material:$rootProject.ext.materialVersion"

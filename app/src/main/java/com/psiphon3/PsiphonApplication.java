@@ -39,6 +39,9 @@ import java.io.IOException;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.exceptions.UndeliverableException;
 import io.reactivex.plugins.RxJavaPlugins;
+import ru.ivanarh.jndcrash.NDCrash;
+import ru.ivanarh.jndcrash.NDCrashError;
+import ru.ivanarh.jndcrash.NDCrashUnwinder;
 
 public class PsiphonApplication extends Application implements MyLog.ILogger {
     @Override
@@ -91,6 +94,19 @@ public class PsiphonApplication extends Application implements MyLog.ILogger {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        final String reportPath = PsiphonCrashService.getCrashReportPath(this);
+        final NDCrashError error = NDCrash.initializeOutOfProcess(
+                this,
+                reportPath,
+                NDCrashUnwinder.libunwind,
+                PsiphonCrashService.class);
+        if (error == NDCrashError.ok) {
+            // Initialization is successful.
+        } else {
+            // Initialization failed, check error value.
+        }
+
         MyLog.setLogger(this);
         // Make sure VPN service is ALWAYS enabled because app upgrade will not automatically re-enable it
         PackageManager packageManager = getPackageManager();
