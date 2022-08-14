@@ -95,7 +95,7 @@ public class PsiphonApplication extends Application implements MyLog.ILogger {
     public void onCreate() {
         super.onCreate();
 
-        final String reportPath = PsiphonCrashService.getCrashReportPath(this);
+        final String reportPath = PsiphonCrashService.getTempCrashReportPath(this);
         final NDCrashError error = NDCrash.initializeOutOfProcess(
                 this,
                 reportPath,

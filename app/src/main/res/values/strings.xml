@@ -74,4 +74,10 @@
     <string name="upstream_proxy_error_alert_title">Proxy Error</string>
     <!-- "Upstream proxy error" alert dialog message -->
     <string name="upstream_proxy_error_alert_message">"You have configured Psiphon to use an upstream proxy. However, we seem to be unable to connect to a Psiphon server through that proxy.\n\nPlease fix the settings and try again.\n\nSee logs for technical info."</string>
+    <!-- Notification title for the 'Psiphon crash detected' notification -->
+    <string name="psiphon_native_crash_notification_title">Psiphon Crash</string>
+    <!-- Notification short message for the 'Psiphon crash detected' notification -->
+    <string name="psiphon_native_crash_notification_msg">Please send feedback</string>
+    <!-- Notification longer message for the 'Psiphon crash detected' notification -->
+    <string name="psiphon_native_crash_notification_msg_long">A recent Psiphon crash has been detected, please, click this notification to send feedback.</string>
 </resources>
