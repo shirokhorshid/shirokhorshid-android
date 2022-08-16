@@ -70,8 +70,8 @@ public class PsiphonCrashService extends NDCrashService {
     // Shows 'Psiphon crashed' notification if crash report file exists;
     // clicking the notification should open the feedback activity.
     private void checkNotify() {
-        File finalReportFile = new File(getFinalCrashReportPath(this));
-        if (finalReportFile.exists()) {
+        File tmpReportFile = new File(getTempCrashReportPath(this));
+        if (tmpReportFile.exists()) {
             Intent intent = new Intent(this, FeedbackActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             PendingIntent pendingIntent;
@@ -114,18 +114,13 @@ public class PsiphonCrashService extends NDCrashService {
 
         MyLog.e("PsiphonCrashService: received new native crash report.");
 
-        // Rename temporary crash report file
         File tmpCrashReportFile = new File(getTempCrashReportPath(this));
-        File finalReportFile = new File(getFinalCrashReportPath(this));
-        if (tmpCrashReportFile.exists()) {
-            tmpCrashReportFile.renameTo(finalReportFile);
-        }
 
-        // Append contents of the sderr redirect file to the final report.
+        // Append contents of the sderr redirect file to the temp crash report.
         File stdErrFile = new File(getStdRedirectPath(this));
-        if (stdErrFile.exists() && finalReportFile.exists()) {
+        if (stdErrFile.exists() && tmpCrashReportFile.exists()) {
             try {
-                BufferedWriter out = new BufferedWriter(new FileWriter(finalReportFile, true));
+                BufferedWriter out = new BufferedWriter(new FileWriter(tmpCrashReportFile, true));
                 BufferedReader in = new BufferedReader(new FileReader(stdErrFile));
                 String str;
 
@@ -143,8 +138,7 @@ public class PsiphonCrashService extends NDCrashService {
                 in.close();
 
                 stdErrFile.delete();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException ignored) {
             }
         }
         // Show the 'Psiphon crashed' notification if final crash report has been created successfully.
