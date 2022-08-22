@@ -101,10 +101,9 @@ public class PsiphonApplication extends Application implements MyLog.ILogger {
                 reportPath,
                 NDCrashUnwinder.libunwind,
                 PsiphonCrashService.class);
-        if (error == NDCrashError.ok) {
-            // Initialization is successful.
-        } else {
-            // Initialization failed, check error value.
+        if (error != NDCrashError.ok) {
+            // Initialization failed, log the error.
+            MyLog.e("NDCrash library initialization error: " + error.name());
         }
 
         MyLog.setLogger(this);
