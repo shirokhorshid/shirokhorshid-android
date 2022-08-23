@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">連線中…</string>
   <string name="psiphon_service_notification_id">Psiphon 服務通知</string>
   <string name="psiphon_upgrade_notification_channel_name">賽風更新</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN服務正在運行</string>
   <string name="vpn_service_revoked">VPN服務失效</string>
   <string name="current_network_type">當前網路：%s</string>
@@ -125,5 +126,6 @@
   <string name="tunnel_connecting">通道連接中…</string>
   <string name="tunnel_connected">通道已連接</string>
   <string name="waiting">等待中…</string>
+  <string name="preference_summary_no_proxy">沒有 proxy</string>
   <string name="disableTimeoutsPreferenceTitle">取消逾時</string>
 </resources>

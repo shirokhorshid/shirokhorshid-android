@@ -12,6 +12,7 @@
   <string name="psiphon_service_notification_id">សេវាជូនដំណឹង Psiphon </string>
   <string name="psiphon_service_notification_channel_name">ស្ថានភាព Psiphon ផ្លាស់ប្តូរ</string>
   <string name="psiphon_upgrade_notification_channel_name">បច្ចុប្បន្នភាព Psiphon </string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">សេវាកម្ម VPN កំពុងដំណើរការ</string>
   <string name="vpn_service_revoked">ដកសិទ្ធិសេវាកម្ម VPN</string>
   <string name="current_network_type">បណ្តាញបច្ចុប្បន្ន៖ %s</string>

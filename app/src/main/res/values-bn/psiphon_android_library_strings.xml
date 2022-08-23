@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">সংযুক্ত হচ্ছে ...</string>
   <string name="psiphon_service_notification_id">সাইফন সার্ভিস বিজ্ঞপ্তি</string>
   <string name="psiphon_upgrade_notification_channel_name">সাইফন আপগ্রেড</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">ভিপিএন সেবা চলমান</string>
   <string name="vpn_service_revoked">ভিপিএন সেবা বাতিল করা হয়েছে</string>
   <string name="current_network_type">বর্তমান নেটওয়ার্ক:%s</string>

@@ -60,4 +60,7 @@
   <!--"Upstream proxy error" notification text-->
   <!--"Upstream proxy error" alert dialog title-->
   <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

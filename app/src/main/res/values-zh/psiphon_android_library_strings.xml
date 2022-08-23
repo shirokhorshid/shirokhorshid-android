@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">赛风状态更改</string>
   <string name="psiphon_upgrade_notification_channel_name">赛风更新</string>
   <string name="psiphon_server_alert_notification_channel_name">赛风服务器警告</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN 服务正在运行</string>
   <string name="vpn_service_revoked">VPN 服务已撤消</string>
   <string name="current_network_type">当前网络：%s</string>

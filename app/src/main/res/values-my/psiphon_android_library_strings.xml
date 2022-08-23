@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Psiphon အခြေအနေ ပြောင်းလဲချက်များ</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon အဆင့်မြှင့်မှု</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon ဆာဗာ သတိပေးချက်များ</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN ဝန်ဆောင်မှု လည်ပတ်နေပါသည်</string>
   <string name="vpn_service_revoked">VPN ဝန်ဆောင်မှု ပယ်ချလိုက်ပါပြီ</string>
   <string name="current_network_type">လက်ရှိကွန်ယက် : %s</string>

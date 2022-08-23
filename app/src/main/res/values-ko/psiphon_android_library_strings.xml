@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">연결 중…</string>
   <string name="psiphon_service_notification_id">Psiphon 서비스 알림</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon 업그레이드</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN 서비스 실행 중</string>
   <string name="vpn_service_revoked">VPN 서비스 취소</string>
   <string name="current_network_type">현재 네트워크: %s</string>

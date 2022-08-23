@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Під\'єднання...</string>
   <string name="psiphon_service_notification_id">Служба сповіщення Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Оновлення Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Працює cлужба VPN </string>
   <string name="vpn_service_revoked">Службу VPN скасовано</string>
   <string name="current_network_type">Поточна мережа: %s</string>

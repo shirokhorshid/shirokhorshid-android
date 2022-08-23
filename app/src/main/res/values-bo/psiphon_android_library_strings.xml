@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">མཐུད་བཞིན་པ།...</string>
   <string name="psiphon_service_notification_id">སཡི་ཕོན་ཞབས་ཞུའི་སྔོན་བརྡ།</string>
   <string name="psiphon_upgrade_notification_channel_name">སཡི་ཕོན་རིམ་སྤར།</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN ཞབས་ཞུ་འཁོར་སྐྱོད་བྱེད་བཞིན་པ།</string>
   <string name="vpn_service_revoked">VPN ཞབས་ཞུ་འཕྲུལ་ཆས་ཕྱིར་བསྡུ།</string>
   <string name="current_network_type">ད་ལྟའི་དྲྭ་ལམ།: %s</string>

@@ -13,6 +13,8 @@
   <string name="psiphon_service_notification_channel_name">Psiphon durum değişiklikleri</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon güncelleme</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon sunucu uyarıları</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon çökmeleri</string>
   <string name="vpn_service_running">VPN hizmeti çalışıyor</string>
   <string name="vpn_service_revoked">VPN hizmeti iptal edildi</string>
   <string name="current_network_type">Geçerli ağ: %s</string>

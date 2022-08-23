@@ -12,6 +12,7 @@
   <string name="psiphon_service_notification_id">Obavijesti o Psiphon usluzi</string>
   <string name="psiphon_service_notification_channel_name">Promjene Psiphon statusa</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon nadogradnja</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN usluga pokrenuta</string>
   <string name="vpn_service_revoked">VPN usluga odbijena</string>
   <string name="current_network_type">Trenutna mreža: %s</string>

@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Psiphon (സൈഫൺ) സ്റ്റാറ്റസ് / നില മാറ്റങ്ങൾ</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon (സൈഫൺ) അപ്‌ഗ്രേഡ് / നവീകരണം</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon (സൈഫൺ) സെര്‍വര്‍ അലേർട്ടുകൾ / അറിയിപ്പുകൾ</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN (വിപിഎന്‍) സേവനം പ്രവർത്തിക്കുന്നു</string>
   <string name="vpn_service_revoked">VPN (വിപിഎന്‍) സേവനം റദ്ധാക്കിയിരിക്കുന്നു</string>
   <string name="current_network_type">നിലവിലെ നെറ്റ്‌വർക്ക്: %s</string>

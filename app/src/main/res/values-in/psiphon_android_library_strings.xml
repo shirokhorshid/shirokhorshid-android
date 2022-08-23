@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Status Perubahan Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Pembaruan Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Peringatan Server Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Layanan VPN beroperasi</string>
   <string name="vpn_service_revoked">Layanan VPN dibatalkan</string>
   <string name="current_network_type">Jaringan saat ini: %s</string>

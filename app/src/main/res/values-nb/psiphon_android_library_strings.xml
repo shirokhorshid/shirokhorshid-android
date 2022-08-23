@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Kobler til…</string>
   <string name="psiphon_service_notification_id">Psiphon tjeneste-kunngjøring</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-oppgradering</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN-tjeneste kjører</string>
   <string name="vpn_service_revoked">VPN-tjeneste tilbakedratt</string>
   <string name="current_network_type">Gjeldende nettverk: %s</string>

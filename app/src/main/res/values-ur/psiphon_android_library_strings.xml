@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">رابطہ ہو رہا ہے۔۔۔</string>
   <string name="psiphon_service_notification_id">Psiphon (سائفن) سروس کی اطلاع</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon (سائفن) اپ گریڈ ہو گیا</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN سروس چل رہی ہے</string>
   <string name="vpn_service_revoked">VPN سروس منسوخ کر دی گئی</string>
   <string name="current_network_type">موجودہ نیٹ ورک: %s</string>

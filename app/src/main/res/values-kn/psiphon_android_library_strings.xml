@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Psiphon ಸ್ಥಿತಿಗತಿ ಬದಲಾವಣೆಗಳು</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon ಅಪ್‌ಗ್ರೇಡ್</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon ಸರ್ವರ್ ಎಚ್ಚರಿಕೆಗಳು</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN ಸೇವೆ ಚಾಲ್ತಿಯಲ್ಲಿದೆ</string>
   <string name="vpn_service_revoked">VPN ಸೇವೆಯನ್ನು ರದ್ದುಪಡಿಸಲಾಗಿದೆ</string>
   <string name="current_network_type">ಪ್ರಸ್ತುತ ನೆಟ್‌ವರ್ಕ್: %s</string>

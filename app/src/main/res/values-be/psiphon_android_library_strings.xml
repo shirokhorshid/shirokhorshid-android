@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Змены статусу Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Абнаўленне Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Апавяшчэнні серверу Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Выконваецца сэрвіс VPN</string>
   <string name="vpn_service_revoked">сэрвіс VPN адкліканы</string>
   <string name="current_network_type">Бягучая сетка: %s</string>
@@ -62,6 +63,20 @@
   <string name="region_name_sk">Славакія</string>
   <string name="region_name_rs">Сербія</string>
   <string name="region_name_au">Аўстралія</string>
+  <string name="region_name_ae">Аб\'яднаныя Арабскія Эміраты</string>
+  <string name="region_name_ar">Аргенціна</string>
+  <string name="region_name_br">Бразілія</string>
+  <string name="region_name_cl">Чылі</string>
+  <string name="region_name_ee">Эстонія</string>
+  <string name="region_name_fi">Фінляндыя</string>
+  <string name="region_name_is">Ісландыя</string>
+  <string name="region_name_ie">Ірландыя</string>
+  <string name="region_name_ke">Кенія</string>
+  <string name="region_name_kr">Карэя</string>
+  <string name="region_name_lv">Латвія</string>
+  <string name="region_name_mx">Мексіка</string>
+  <string name="region_name_tw">Тайвань</string>
+  <string name="region_name_za">Паўднёвая Афрыка</string>
   <string name="about">Пра Psiphon</string>
   <string name="feedback">Зваротная сувязь</string>
   <string name="disableTimeoutsPreferenceSummary">Адключыць час чакання для павольных злучэнняў</string>

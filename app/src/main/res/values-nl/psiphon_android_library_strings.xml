@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Psiphon\'s status verandert</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon Upgrade</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon Server waarschuwingen</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN service werkt</string>
   <string name="vpn_service_revoked">VPN service is ingetrokken</string>
   <string name="current_network_type">Huidig netwerk: %s</string>

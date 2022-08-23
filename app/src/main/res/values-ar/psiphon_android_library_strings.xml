@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">تغييرات حالات Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">تحديث برنامج سايفون</string>
   <string name="psiphon_server_alert_notification_channel_name">تنبيهات خوادم Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">تشغيل خدمة الشبكة الافتراضية الخاصة</string>
   <string name="vpn_service_revoked">إلغاء خدمة الشبكة الافتراضية الخاصة </string>
   <string name="current_network_type">الشبكة الحالية: %s</string>

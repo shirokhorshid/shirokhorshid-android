@@ -59,5 +59,9 @@
   <!--"Upstream proxy error" notification title-->
   <!--"Upstream proxy error" notification text-->
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Памылка проксі</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

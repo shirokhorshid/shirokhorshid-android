@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Changements d’état de Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Mise à niveau de Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Alertes des serveurs Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Service RPV en fonction</string>
   <string name="vpn_service_revoked">Service RPV révoqué</string>
   <string name="current_network_type">Réseau actuel : %s</string>

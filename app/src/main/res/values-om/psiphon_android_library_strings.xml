@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Wal agarsiisaa jira...</string>
   <string name="psiphon_service_notification_id">Beeksisa Tajaajila Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Fooyyessa Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Tajaajilli VPN hojjetaa jira</string>
   <string name="vpn_service_revoked">Tajaajilli VPN uggurameera</string>
   <string name="current_network_type">Neetwoorkii amma jiru: %s</string>

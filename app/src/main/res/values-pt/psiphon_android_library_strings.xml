@@ -10,6 +10,7 @@
   <string name="psiphon_service_notification_message_connecting">A conetar ...</string>
   <string name="psiphon_service_notification_id">Notificação do Serviço do Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Atualização do Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Serviço VPN em execução</string>
   <string name="vpn_service_revoked">Serviços VPN revogado</string>
   <string name="current_network_type">Rede atual: %s</string>

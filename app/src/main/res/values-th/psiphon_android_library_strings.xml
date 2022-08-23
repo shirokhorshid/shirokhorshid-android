@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ...</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="disconnected">ตัดการเชื่อมต่อ</string>

@@ -9,6 +9,7 @@
   <string name="waiting_for_network_connectivity">Takamirira kochekero yetande...</string>
   <string name="psiphon_service_notification_message_connecting">Kukochekera...</string>
   <string name="psiphon_upgrade_notification_channel_name">Kwidziridzo yesoftware yePsiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Chirango cheVPN chirikushanda</string>
   <string name="vpn_service_revoked">Chirango cheVPN chakanzurwa</string>
   <string name="current_network_type">Tande yamanje: %s</string>

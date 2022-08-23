@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Пайваст мешавем...</string>
   <string name="psiphon_service_notification_id">Огоҳии хизматии Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Такмили Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Хидмати VPN кор мекунад</string>
   <string name="vpn_service_revoked">Хидмати VPN бозхонда шуд</string>
   <string name="current_network_type">Шабакаи ҷорӣ: %s</string>

@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">የPsiphon ሁኔታ ለውጦች</string>
   <string name="psiphon_upgrade_notification_channel_name">የPsiphon ደረጃ ማላቂያ</string>
   <string name="psiphon_server_alert_notification_channel_name">የPsiphon አገልጋይ ማንቅያዎች</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">የምናባዊ የግል አውታረ መረብ (ቪፒኤን) አገልግሎት እየሠራ ነው</string>
   <string name="vpn_service_revoked">የምናባዊ የግል አውታረ መረብ (ቪፒኤን) አገልግሎት ተሽሯል</string>
   <string name="current_network_type">አሁን ያለው አውታረመረብ፡- %s</string>

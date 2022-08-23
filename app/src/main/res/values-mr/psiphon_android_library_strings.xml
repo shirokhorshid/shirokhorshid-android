@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Psiphon स्थिती बदल</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon सुधारणा</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon सर्व्हर अलर्ट</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">चालू असलेली VPN सेवा </string>
   <string name="vpn_service_revoked">VPN सेवा रद्द केली</string>
   <string name="current_network_type">वर्तमान नेटवर्क: %s</string>

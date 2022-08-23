@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Birikdirilýär...</string>
   <string name="psiphon_service_notification_id">Psiphon Hyzmat Habarnamasy</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon beýgeldiş</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN hyzmaty işleýär</string>
   <string name="vpn_service_revoked">VPN hyzmaty goýbolsun edildi</string>
   <string name="current_network_type">Häzirki network: %s</string>

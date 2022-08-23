@@ -13,6 +13,8 @@
   <string name="psiphon_service_notification_channel_name">تغییرات وضعیت سایفون</string>
   <string name="psiphon_upgrade_notification_channel_name">به روز رسانی سایفون</string>
   <string name="psiphon_server_alert_notification_channel_name">هشدارهای سرور سایفون</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">خرابی‌های Psiphon</string>
   <string name="vpn_service_running">سرویس وی پی ان فعال است</string>
   <string name="vpn_service_revoked">سرویس وی پی ان لغو شد</string>
   <string name="current_network_type">شبکه کنونی: %s</string>

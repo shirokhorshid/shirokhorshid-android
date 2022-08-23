@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Đang kết nối...</string>
   <string name="psiphon_service_notification_id">Thông Báo Dịch Vụ Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Nâng Cấp Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Dịch vụ VPN đang chạy</string>
   <string name="vpn_service_revoked">Dịch vụ VPN bị thu hồi</string>
   <string name="current_network_type">Mạng hiện tại: %s</string>

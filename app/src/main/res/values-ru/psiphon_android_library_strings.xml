@@ -13,6 +13,7 @@
   <string name="psiphon_service_notification_channel_name">Статус Psiphon изменен</string>
   <string name="psiphon_upgrade_notification_channel_name">Обновление Psiphon </string>
   <string name="psiphon_server_alert_notification_channel_name">Выбор региона сервера</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN сервис запущен</string>
   <string name="vpn_service_revoked">VPN сервис удален</string>
   <string name="current_network_type">Текущая сеть: %s</string>

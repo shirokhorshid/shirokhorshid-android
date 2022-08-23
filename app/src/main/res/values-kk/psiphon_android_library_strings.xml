@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Қосылым орнатылуда…</string>
   <string name="psiphon_service_notification_id">Psiphon қызметтік хабарламасы</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon жаңартуы</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN қызметі орындалуда</string>
   <string name="vpn_service_revoked">VPN қызметі қайта шақырылды</string>
   <string name="current_network_type">Ағымдағы желі: %s</string>

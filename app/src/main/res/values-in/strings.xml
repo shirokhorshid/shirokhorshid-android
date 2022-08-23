@@ -68,4 +68,7 @@
   <string name="notification_text_upstream_proxy_error">Silakan buka Psiphon dan periksa pengaturan proxy.</string>
   <!--"Upstream proxy error" alert dialog title-->
   <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

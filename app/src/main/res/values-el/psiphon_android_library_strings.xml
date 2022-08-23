@@ -2,6 +2,7 @@
 <resources>
   <string name="psiphon_service_notification_message_connecting">Γίνεται σύνδεση...</string>
   <string name="psiphon_upgrade_notification_channel_name">Αναβάθμιση του Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="current_network_type">Υπάρχον δίκτυο: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Αναβάθμιση του Psiphon</string>

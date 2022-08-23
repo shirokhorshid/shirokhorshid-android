@@ -11,6 +11,7 @@
   <string name="psiphon_service_notification_message_connecting">Qoşulur...</string>
   <string name="psiphon_service_notification_id">Psiphon xidmət xəbərdarlığı</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon yeniləməsi</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN xidməti işləyir                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </string>
   <string name="vpn_service_revoked">VPN xidməti ləğv edildi</string>
   <string name="current_network_type">Hazırkı şəbəkə:: %s</string>
