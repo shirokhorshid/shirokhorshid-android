@@ -30,6 +30,7 @@ import androidx.work.Data;
 import androidx.work.RxWorker;
 import androidx.work.WorkerParameters;
 
+import com.psiphon3.PsiphonCrashService;
 import com.psiphon3.R;
 import com.psiphon3.log.LogEntry;
 import com.psiphon3.log.LoggingContentProvider;
@@ -41,6 +42,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Date;
 import java.util.Locale;
@@ -457,6 +463,27 @@ public class FeedbackWorker extends RxWorker {
                 }
                 diagnosticInfo.put("DiagnosticHistory", diagnosticHistory);
                 diagnosticInfo.put("StatusHistory", statusHistory);
+            }
+            // Check if we have native crash data to include
+            File crashReportFile = new File(PsiphonCrashService.getFinalCrashReportPath(context));
+            if (crashReportFile.exists()) {
+                JSONArray crashHistory = new JSONArray();
+                try {
+                    BufferedReader in;
+                    String str;
+                    in = new BufferedReader(new FileReader(crashReportFile));
+                    while ((str = in.readLine()) != null) {
+                        crashHistory.put(str);
+                    }
+                    in.close();
+
+                } catch (IOException ignored) {
+                }
+
+                crashReportFile.delete();
+                if (crashHistory.length() > 0) {
+                    diagnosticInfo.put("CrashHistory", crashHistory);
+                }
             }
             feedbackJsonObject.put("DiagnosticInfo", diagnosticInfo);
         }

@@ -1,1 +1,1 @@
-include ':app', ':tray'
+include ':app', ':tray', ':jndcrash'

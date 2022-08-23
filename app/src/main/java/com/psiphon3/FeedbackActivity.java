@@ -48,6 +48,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -158,6 +159,14 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity {
 
                 Data inputData = FeedbackWorker.generateInputData(
                         sendDiagnosticInfo, email, feedbackText, surveyResponsesJson);
+
+                // Rename the temp crash report file to stop the 'Psiphon crashed' notifications
+                // from the PsiphonCrashService while the feedback is being scheduled.
+                File from = new File(PsiphonCrashService.getTempCrashReportPath(getApplicationContext()));
+                if (from.exists()) {
+                    File to = new File(PsiphonCrashService.getFinalCrashReportPath(getApplicationContext()));
+                    from.renameTo(to);
+                }
 
                 Constraints.Builder constraintsBuilder = new Constraints.Builder();
                 constraintsBuilder.setRequiredNetworkType(NetworkType.CONNECTED);
