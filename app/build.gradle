@@ -88,10 +88,9 @@ dependencies {
     implementation files('libs/achartengine-1.0.0.jar')
     implementation files('libs/snakeyaml-1.10-android.jar')
     implementation files('libs/ca.psiphon.aar')
+    implementation files('libs/jndcrash-release.aar')
 
     implementation project(':tray')
-
-    implementation project(':jndcrash')
 
     implementation "androidx.multidex:multidex:$rootProject.ext.multidexVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompatVersion"
