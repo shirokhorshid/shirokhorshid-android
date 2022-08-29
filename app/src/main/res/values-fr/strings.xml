@@ -72,6 +72,9 @@
   <!--"Upstream proxy error" alert dialog message-->
   <string name="upstream_proxy_error_alert_message">Vous avez configuré Psiphon pour qu’il utilise un serveur mandataire ascendant. Cependant, il semble que nous ne soyons pas en mesure de nous connecter à un serveur Psiphon par ce mandataire.\n\nVeuillez corriger les paramètres et réessayer.\n\nPour des renseignements techniques, consultez les journaux.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon a planté</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Veuillez nous envoyer une rétroaction.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Veuillez cliquer sur cette notification pour nous envoyer une rétroaction. Cela nous aidera à comprendre le problème afin que nous puissions y remédier plus rapidement.</string>
 </resources>
