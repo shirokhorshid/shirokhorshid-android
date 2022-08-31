@@ -3,9 +3,6 @@
   <string name="socks_running">সক্স পোর্ট টি চলমান %d</string>
   <string name="http_proxy_running">HTTP প্রক্সি পোর্ট চলমান  %d</string>
   <string name="client_version">ক্লায়েন্ট সংস্করণ %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">বিভিন্ন পাবলিক কী সঙ্গে স্বাক্ষরিত প্রমাণীকৃত ডেটা প্যাকেজ </string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">প্রমাণীকৃত ডেটা প্যাকেজে অবৈধ স্বাক্ষর</string>
-  <string name="AuthenticatedDataPackage.MissingValue">প্রমাণীকৃত ডেটা প্যাকেজে অনুপস্থিত মান</string>
   <string name="starting_tunnel">টানেল শুরু হচ্ছে ...</string>
   <string name="stopping_tunnel">টানেল থামানো হচ্ছে ...</string>
   <string name="stopped_tunnel">টানেল বন্ধ হয়ে গেছে </string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">সংযুক্ত হচ্ছে ...</string>
   <string name="psiphon_service_notification_id">সাইফন সার্ভিস বিজ্ঞপ্তি</string>
   <string name="psiphon_upgrade_notification_channel_name">সাইফন আপগ্রেড</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">ভিপিএন সেবা চলমান</string>
   <string name="vpn_service_revoked">ভিপিএন সেবা বাতিল করা হয়েছে</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">প্রতিক্রিয়া ডায়গনিস্টিক তথ্য এনক্রিপ্ট করতে ব্যর্থ হয়েছে।এই তথ্য প্রতিক্রিয়া ই-মেইলের সাথে সংযুক্ত করা হবে না।</string>
   <string name="current_network_type">বর্তমান নেটওয়ার্ক:%s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">বর্তমান অ্যাপ্লিকেশনের জন্য প্যাকেজ তথ্য পুনরুদ্ধার করতে অক্ষম</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">আপগ্রেড ফাইল লিখতে ব্যর্থ হয়েছে</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">আপগ্রেড ব্যর্থ হয়েছে ।আপগ্রেড ফাইল থেকে প্যাকেজ তথ্য সরানো যাবে না</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">আপগ্রেড ফাইল পাওয়া যায় নি</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">সাইফন আপগ্রেড</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">সাইফন এর একটি আপগ্রেড ইনস্টল করার জন্য প্রস্তুত।</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">আপগ্রেড ফাইল পড়তে ব্যর্থ হয়েছে</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">আপগ্রেড ফাইল প্রমাণীকরণ-এ ব্যর্থ হয়েছে</string>
   <string name="connected_elapsed_time">সংযুক্ত:%s</string>
   <string name="disconnected">সংযোগ বিচ্ছিন্ন</string>
   <string name="label_sent">পাঠানো হয়েছে</string>
@@ -120,11 +110,5 @@
   <string name="tunnel_connecting">টানেল সংযুক্ত হচ্ছে ...</string>
   <string name="tunnel_connected">টানেল সংযুক্ত</string>
   <string name="waiting">অপেক্ষা করা হচ্ছে ...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ঠিক আছে</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="disableTimeoutsPreferenceTitle">সময়সীমা অক্ষম করুন</string>
 </resources>

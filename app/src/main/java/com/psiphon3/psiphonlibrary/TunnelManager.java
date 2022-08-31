@@ -46,6 +46,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
+import com.psiphon3.PsiphonCrashService;
 import com.psiphon3.R;
 import com.psiphon3.TunnelState;
 import com.psiphon3.log.MyLog;
@@ -75,6 +76,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import ru.ivanarh.jndcrash.NDCrash;
 
 public class TunnelManager implements PsiphonTunnel.HostService {
     // Android IPC messages
@@ -101,6 +103,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     public static final String INTENT_ACTION_STOP_TUNNEL = "com.psiphon3.psiphonlibrary.TunnelManager.ACTION_STOP_TUNNEL";
     public static final String IS_CLIENT_AN_ACTIVITY = "com.psiphon3.psiphonlibrary.TunnelManager.IS_CLIENT_AN_ACTIVITY";
     public static final String INTENT_ACTION_UNSAFE_TRAFFIC = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC";
+    public static final String INTENT_ACTION_UPSTREAM_PROXY_ERROR = "com.psiphon3.psiphonlibrary.TunnelManager.UPSTREAM_PROXY_ERROR";
 
     // Client -> Service bundle parameter names
     static final String RESET_RECONNECT_FLAG = "resetReconnectFlag";
@@ -345,8 +348,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     // Implementation of android.app.Service.onDestroy
     void onDestroy() {
         if (mNotificationManager != null) {
-            // Only cancel our own service notifications, do not cancel _all_ notifications.
+            // Cancel main service notification
             mNotificationManager.cancel(R.string.psiphon_service_notification_id);
+            // Cancel upstream proxy error notification
+            mNotificationManager.cancel(R.id.notification_id_upstream_proxy_error);
         }
         // Cancel "open app to finish connecting" notifications too.
         cancelOpenAppToFinishConnectingNotification();
@@ -806,6 +811,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // Also set locale
         setLocale(this);
 
+        final String stdErrRedirectPath = PsiphonCrashService.getStdRedirectPath(m_parentService);
+        NDCrash.nativeInitializeStdErrRedirect(stdErrRedirectPath);
+
         m_isReconnect.set(false);
         m_isStopping.set(false);
         m_startedTunneling.set(false);
@@ -1103,6 +1111,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 json.put("ClientFeatures", new JSONArray("[\"unsafe-traffic-alerts\"]"));
             }
 
+            json.put("DNSResolverAlternateServers", new JSONArray("[\"1.1.1.1\", \"1.0.0.1\", \"8.8.8.8\", \"8.8.4.4\"]"));
+
             return json.toString();
         } catch (JSONException e) {
             return null;
@@ -1271,6 +1281,34 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 if (m_lastUpstreamProxyErrorMessage == null || !m_lastUpstreamProxyErrorMessage.equals(message)) {
                     MyLog.w(R.string.upstream_proxy_error, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, message);
                     m_lastUpstreamProxyErrorMessage = message;
+
+                    PendingIntent upstreamProxyErrorPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_UPSTREAM_PROXY_ERROR);
+
+                    // If Android < 10 or there is a live activity client then send the intent right away,
+                    // otherwise show a notification.
+                    if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
+                        try {
+                            upstreamProxyErrorPendingIntent.send(m_parentService, 0, null);
+                        } catch (PendingIntent.CanceledException e) {
+                            MyLog.w("upstreamProxyErrorPendingIntent send failed: " + e);
+                        }
+                    } else {
+                        if (mNotificationManager == null) {
+                            return;
+                        }
+
+                        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
+                        notificationBuilder
+                                .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setContentTitle(getContext().getString(R.string.notification_title_upstream_proxy_error))
+                                .setContentText(getContext().getString(R.string.notification_text_upstream_proxy_error))
+                                .setStyle(new NotificationCompat.BigTextStyle()
+                                        .bigText(getContext().getString(R.string.notification_text_upstream_proxy_error)))
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setAutoCancel(true)
+                                .setContentIntent(upstreamProxyErrorPendingIntent);
+                        mNotificationManager.notify(R.id.notification_id_upstream_proxy_error, notificationBuilder.build());
+                    }
                 }
             }
         });
@@ -1298,6 +1336,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
+                // Cancel any showing upstream proxy error notifications in case the issue was
+                // temporary and connection still succeeded.
+                if (mNotificationManager != null) {
+                    mNotificationManager.cancel(R.id.notification_id_upstream_proxy_error);
+                }
+
                 DataTransferStats.getDataTransferStatsForService().startConnected();
 
                 MyLog.i(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);

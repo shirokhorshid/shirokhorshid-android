@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Ako imate nekih specifičnih komentara, daljnjih informacija o stranicama koje ne rade, ili ako vam ovaj format ne odgovara, molimo Vas pošaljite email &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Hvala Vam što ste podjelili povratne informacije</string>
   <string name="FeedbackActivity.Failure">Podnošenje nije uspjelo. Molimo pokušajte ponovno.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Podnošenje povratnih informacija nije uspjelo</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Neispravni URL parametri u predaji povratnih informacija</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Neuspjelo dobavljanje sadržaja stranice povratnih informacija</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN je zaustavljen</string>
   <string name="StatusActivity.VpnRevokedMessage">Vi ili neka druga aplikacija ste odspojili Psiphonov VPN. Više VPN aplikacija ne može biti pokrenuto u isto vrijeme. Provjerite ako je instalirana i pokrenuta neka druga VPN aplikacija.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN se ne može pokrenuti</string>
@@ -55,4 +52,11 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

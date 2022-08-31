@@ -3,9 +3,6 @@
   <string name="socks_running">SOCK werkt op poort %d</string>
   <string name="http_proxy_running">HTTP proxy werkt op poort %d</string>
   <string name="client_version">Klant Versie %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Geverifieerde data pakket getekend met verschillende publieke sleutel</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Ongeldige handtekening op geverifieerde datapakket</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Ontbrekende waarde in geauthenticeerd datapakket</string>
   <string name="starting_tunnel">Starten tunnel…</string>
   <string name="stopping_tunnel">Stoppen tunnel…</string>
   <string name="stopped_tunnel">Tunnel is gestopt </string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Psiphon\'s status verandert</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon Upgrade</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon Server waarschuwingen</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN service werkt</string>
   <string name="vpn_service_revoked">VPN service is ingetrokken</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Mislukt te versleutelen feedback diagnostische informatie. Deze informatie zal niet zijn bevestigd  aan de feedback e-mail.</string>
   <string name="current_network_type">Huidig netwerk: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Niet in staat om op te halen pakket informatie voor de huidige app</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Mislukt te schrijven upgrade-bestand</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Upgrade is mislukt. Kan niet uitpakken pakket info vanaf upgrade-bestand.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Upgrade bestand niet gevonden</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon Upgrade</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Een upgrade voor Psiphon is klaar om te worden geïnstalleerd.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Mislukt te lezen upgrade bestand</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Mislukt te authenticeren upgrade-bestand</string>
   <string name="connected_elapsed_time">Verbonden: %s</string>
   <string name="disconnected">Verbroken</string>
   <string name="label_sent">Versturen</string>
@@ -164,15 +154,6 @@
   <string name="tunnel_connecting">Tunnel verbinden...</string>
   <string name="tunnel_connected">Tunnel verbonden</string>
   <string name="waiting">Wachten...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Toestemmingsverzoek</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Sta Psiphon toe om betere beslissingen te nemen over hoe u aan uw netwerk werkt door toegang te verlenen tot uw locatie.\n\nMerk op, dat deze informatie alleen lokaal op uw apparaat wordt gebruikt en niet wordt verzonden naar onze servers of aan derden.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Nee bedankt</string>
   <string name="label_vpn_settings">VPN instellingen</string>
   <string name="label_proxy_settings">Proxy instellingen</string>
   <string name="preference_summary_no_proxy">Geen proxy</string>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ...</string>
-  <string name="debug_message">%s</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="disconnected">ตัดการเชื่อมต่อ</string>
@@ -67,10 +67,4 @@
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ตกลง</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

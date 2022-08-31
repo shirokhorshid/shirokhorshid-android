@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS працює на порту %d</string>
   <string name="http_proxy_running">HTTP проксі працює на порту %d</string>
   <string name="client_version">Версія клієнта %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Підтверджений пакет даних підписаний з різним відкритим ключем</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Недійсний підпис на підтвердженому пакеті даних</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Відсутнє значення в підтвердженому пакеті даних</string>
   <string name="starting_tunnel">Початок тунелювання...</string>
   <string name="stopping_tunnel">Зупинка тунелювання...</string>
   <string name="stopped_tunnel">Тунель зупинився </string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">Під\'єднання...</string>
   <string name="psiphon_service_notification_id">Служба сповіщення Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Оновлення Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Працює cлужба VPN </string>
   <string name="vpn_service_revoked">Службу VPN скасовано</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Не вдається зашифрувати діагностичну інформацію у відгуці. Ця інформація не буде додаватися до відгуку в електронному листі.</string>
   <string name="current_network_type">Поточна мережа: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Не вдається отримати інформацію про пакет для поточної програми</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Не вдалося записати файл оновлення</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Оновлення не вдалося. Не вдається отримати інформацію про пакет з файлу оновлення.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Файл оновлення не знайдено</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Оновлення Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Оновлення для Psiphon готове для встановлення.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Не вдалося прочитати файл оновлення</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Не вдалося перевірити автентичність файлу оновлення</string>
   <string name="connected_elapsed_time">З\'єднано: %s</string>
   <string name="disconnected">Роз\'єднано</string>
   <string name="label_sent">Відправлено</string>
@@ -137,13 +127,6 @@
   <string name="tunnel_connecting">Тунель з\'єднується...</string>
   <string name="tunnel_connected">Тунель з\'єднаний</string>
   <string name="waiting">Очікування...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Ні дякую</string>
   <string name="label_proxy_settings">Налаштування проксі</string>
   <string name="preference_summary_no_proxy">Немає Проксі</string>
   <string name="disableTimeoutsPreferenceTitle">Вимкнути блокування за часом</string>

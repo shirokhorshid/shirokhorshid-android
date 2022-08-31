@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS дар порти %d кор мекунад</string>
   <string name="http_proxy_running">HTTP-прокси дар порти %d кор мекунад</string>
   <string name="client_version">Версияи нармафзори муштарӣ %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Бастаи санҷидашудаи иттилоот бо калиди кушоди дигар имзо гузошта шудааст</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Бастаи санҷидашудаи иттилоот имзои беэътибор дорад</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Дар бастаи санҷидашудаи иттилоот арзише намерасад</string>
   <string name="starting_tunnel">Нақб ба кор дароварда мешавад...</string>
   <string name="stopping_tunnel">Кори нақб қатъ карда мешавад...</string>
   <string name="stopped_tunnel">Кори нақб қатъ карда шуд</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">Пайваст мешавем...</string>
   <string name="psiphon_service_notification_id">Огоҳии хизматии Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Такмили Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Хидмати VPN кор мекунад</string>
   <string name="vpn_service_revoked">Хидмати VPN бозхонда шуд</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Рамзбандӣ кардани маълумоти ташхисии изҳори назар барор наёфт. Ин маълумот ба мактуб бо изҳори назари шумо зам карда намешавад.</string>
   <string name="current_network_type">Шабакаи ҷорӣ: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Гирифтани маълумот оиди баста барои барномаи ҷорӣ ғайриимкон аст</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Навиштани файли такмил барор наёфт</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Такмилдиҳӣ барор наёфт. Истихроҷи маълумоти баста аз файли такмил ғайриимкон аст.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Файли такмил ёфт нашуд</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Такмили Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Барои Psiphon такмиле барои насб шудан омода аст.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Хондани файли такмил барор наёфт</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Санҷидани файли такмил барор наёфт</string>
   <string name="connected_elapsed_time">Пайваст шудем: %s</string>
   <string name="disconnected">Ҷудо шудем</string>
   <string name="label_sent">Фиристодашуда</string>
@@ -112,10 +102,5 @@
   <string name="tunnel_connecting">Нақб пайваст карда мешавад...</string>
   <string name="tunnel_connected">Нақб пайваст карда шуд</string>
   <string name="waiting">Интизорӣ...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="disableTimeoutsPreferenceTitle">Танаффузҳоро бекор кардан</string>
 </resources>

@@ -6,4 +6,6 @@
     <item name="notification_id_vpn_revoked" type="id" />
     <item name="notification_id_disallowed_traffic_alert" type="id" />
     <item name="notification_id_unsafe_traffic_alert" type="id" />
+    <item name="notification_id_upstream_proxy_error" type="id" />
+    <item name="notification_id_native_crash_report_available" type="id" />
 </resources>

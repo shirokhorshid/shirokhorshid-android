@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Ikiwa una maoni maalum, habari zaidi juu ya wavuti ambazo hazifanyi kazi, au ikiwa fomu hii haifanyi kazi kwako, tafadhali tuma barua pepe &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Asante kwa kuwasilisha maoni yako</string>
   <string name="FeedbackActivity.Failure">Uwasilishaji umeshindwa. Tafadhali jaribu tena.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Imeshindwa kuwasilisha maoni</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Vigezo vya URL batili katika uwasilishaji wa fomu ya maoni</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Imeshindwa kupata yaliyomo kwenye ukurasa wa maoni</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN imesimama</string>
   <string name="StatusActivity.VpnRevokedMessage">VPN ya Psiphon imetengwa na wewe au na programu nyingine. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia ikiwa programu nyingine ya VPN imewekwa na inaendelea.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN haiwezi kuanza</string>
@@ -59,8 +56,18 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon imegundua na kuzuia ufikiaji wa tovuti zinazoweza kuwa mbaya kwenye Mtandao. Tafadhali fuata viungo vilivyo hapa chini ili kupata maelezo zaidi.\n\nProgramu hasidi iliyotambuliwa:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon huzuia kiotomatiki ufikiaji wa tovuti zinazoweza kuwa mbaya kwenye Mtandao. Je, ungependa kuarifiwa hili likitokea?\n\nMpangilio huu unaweza kubadilishwa baadaye katika Chaguo Zaidi</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">jifunze zaidi kuhusiana na MalAware hapa:</string>
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

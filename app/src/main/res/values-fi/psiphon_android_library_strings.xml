@@ -9,18 +9,13 @@
   <string name="psiphon_service_notification_message_connecting">Yhdistetään...</string>
   <string name="psiphon_service_notification_id">Psiphon-palveluilmoitus</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-päivitys</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN-palvelu käynnissä</string>
-  <string name="debug_message">%s</string>
   <string name="current_network_type">Nykyinen verkko: %s</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Päivitystiedoston kirjoittaminen epäonnistui</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Päivitys epäonnistui. Pakkaustietojen purkaminen päivitystiedostosta epäonnistui.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Päivitystiedostoa ei löytynyt</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-päivitys</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon-päivitys on valmis asennettavaksi.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Päivitystiedoston lukeminen epäonnistui</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Päivitystiedoston todentaminen epäonnistui</string>
   <string name="connected_elapsed_time">Yhdistetty: %s</string>
   <string name="disconnected">Yhteys katkaistu</string>
   <string name="label_sent">Lähetetty</string>
@@ -80,9 +75,4 @@
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

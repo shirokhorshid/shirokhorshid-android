@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS %d पोर्ट पर चल रहा है</string>
   <string name="http_proxy_running">HTTP प्रॉक्सी %d पोर्ट पर चल रहा है </string>
   <string name="client_version">क्लाइंट संस्करण %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">विभिन्न सार्वजनिक कुंजी के साथ हस्ताक्षरित डेटा पैकेज</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">प्रमाणीकृत डेटा पैकेज पर अमान्य हस्ताक्षर</string>
-  <string name="AuthenticatedDataPackage.MissingValue">प्रमाणीकृत डेटा पैकेज में गुम मान</string>
   <string name="starting_tunnel">टनल अब शुरू किया जा रहा है …</string>
   <string name="stopping_tunnel">टनल अब रोका जा रहा है …</string>
   <string name="stopped_tunnel">टनल रोक दी गयी है</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Psiphon की स्थिति में बदलाव</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon अपग्रेड </string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon सर्वर से जुडी सूचनाएँ</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN सेवा चल रही है</string>
   <string name="vpn_service_revoked">VPN सेवा निरस्त कर दी गयी है</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">नैदानिक प्रतिपुष्टि जानकारी को एन्क्रिप्ट करने में विफल। यह जानकारी प्रतिपुष्टि ईमेल से जुड़ी नहीं जाएगी ।</string>
   <string name="current_network_type">वर्तमान नेटवर्क: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">वर्तमान एप्लिकेशन के लिए पैकेज जानकारी पुनर्प्राप्त करने में असमर्थ</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">अपग्रेड फ़ाइल लिखने में विफल</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">अपग्रेड विफल | अपग्रेड फाइल से पैकेज की जानकारी नहीं प्राप्त कर सकते।</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">अपग्रेड फ़ाइल नहीं मिली</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon अपग्रेड </string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon के लिए एक अपग्रेड इंस्टॉल होने के लिए तैयार है</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">अपग्रेड फ़ाइल पढ़ने की कोशिश असफल रही</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">अपग्रेड फ़ाइल को प्रमाणित करने में विफल</string>
   <string name="connected_elapsed_time">कनेक्टेड: %s</string>
   <string name="disconnected">डिस्कनेक्ट किया गया</string>
   <string name="label_sent">भेजी गयी</string>
@@ -163,15 +153,6 @@
   <string name="tunnel_connecting">टनल कनेक्ट हो रहा है...</string>
   <string name="tunnel_connected">टनल कनेक्टेड</string>
   <string name="waiting">वेटिंग…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">अनुमति का अनुरोध</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Psiphon को अपने स्थान के विषय में जानकारी प्रदान करके अपने नेटवर्क पर काम करने के तरीके के बारे में बेहतर निर्णय लेने की अनुमति दें।\n\nध्यान दें कि यह जानकारी केवल आपके डिवाइस पर स्थानीय रूप से उपयोग की जाती है, और हमारे सर्वर या किसी तीसरे पक्ष को प्रेषित नहीं की जाती है।</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ठीक है</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">नहीं, धन्यवाद</string>
   <string name="label_vpn_settings">VPN सेटिंग्स</string>
   <string name="label_proxy_settings">प्रॉक्सी सेटिंग्स</string>
   <string name="preference_summary_no_proxy">कोई प्रॉक्सी नहीं </string>

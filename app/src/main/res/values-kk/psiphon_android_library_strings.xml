@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS проксиі %d портында орындалуда</string>
   <string name="http_proxy_running">HTTP проксиі %d портында орындалуда</string>
   <string name="client_version">Клиент нұсқасы %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Аутентификацияланған деректер бумасына басқа ортақ кілтпен қолтаңба қойылған</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Аутентификацияланған деректер бумасының қолтаңбасы жарамсыз</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Аутентификацияланған деректер бумасының мәні жоқ</string>
   <string name="starting_tunnel">Туннель іске қосылуда...</string>
   <string name="stopping_tunnel">Туннельді тоқтатылуда...</string>
   <string name="stopped_tunnel">Туннель тоқтатылды</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">Қосылым орнатылуда…</string>
   <string name="psiphon_service_notification_id">Psiphon қызметтік хабарламасы</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon жаңартуы</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN қызметі орындалуда</string>
   <string name="vpn_service_revoked">VPN қызметі қайта шақырылды</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Кері байланысты тексеру ақпаратын шифрлау сәтсіз болды. Бұл ақпарат кері байланыс хатына тіркелмейді.</string>
   <string name="current_network_type">Ағымдағы желі: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Ағымдағы қолданба үшін бума ақпаратын алу мүмкін емес</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Жаңарту файлын жазу сәтсіз болды</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Жаңарту сәтсіз болды. Жаңарту файлынан бума ақпаратын шығарып алу мүмкін емес.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Жаңарту файлы табылмады</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon жаңартуы</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon жаңартуы орнату үшін дайын.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Жаңарту файлын оқу сәтсіз болды</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Жаңарту файлын аутентификациялау сәтсіз болды</string>
   <string name="connected_elapsed_time">Қосылулы: %s</string>
   <string name="disconnected">Қосылым үзілді</string>
   <string name="label_sent">Жіберілген</string>
@@ -112,9 +102,4 @@
   <string name="tunnel_connecting">Туннель қосылуда…</string>
   <string name="tunnel_connected">Туннель қосылулы</string>
   <string name="waiting">Күтуде…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

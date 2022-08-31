@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS %d portunda işləyir</string>
   <string name="http_proxy_running">HTTP proksi %d portunda işləyr</string>
   <string name="client_version">Proqram versiyası %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Fərqli ümumi açarla imzalanmış təsdiqlənmiş məlumat paketi</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Təsdiqlənmiş məlumat paketi üzərindəki imza etibarsızdır </string>
-  <string name="AuthenticatedDataPackage.MissingValue">Təsdiqlənmiş məlumat paketində çatışmayan göstərici</string>
   <string name="starting_tunnel">Tuneli başla</string>
   <string name="stopping_tunnel">Tuneli dayandır</string>
   <string name="stopped_tunnel">Tunel dayanıb</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">Qoşulur...</string>
   <string name="psiphon_service_notification_id">Psiphon xidmət xəbərdarlığı</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon yeniləməsi</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN xidməti işləyir                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </string>
   <string name="vpn_service_revoked">VPN xidməti ləğv edildi</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Diaqnostik məlumatın şərhini şifrələmək alınmadı. Bu məlumat şərh emailinə əlavə olunmayacaq.</string>
   <string name="current_network_type">Hazırkı şəbəkə:: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Hazırkı tətbiqetmə üçün məlumat paketini üzə çıxarmaq alınmadı</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Yenilənmiş faylı yazmaq alınmadı</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Yeniləmə alınmadı. Yeniləmə faylından paketi çıxara bilmədi.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Yeniləmə faylı tapılmadı</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon yeniləməsi</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon üçün yeniləmə yükləməyə hazırdır.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Yeniləmə faylını oxuya bilmədi</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Yenilənmiş faylı təsdiqləmək alınmadı</string>
   <string name="connected_elapsed_time">Qoşulub: %s</string>
   <string name="disconnected">Qoşulmayıb</string>
   <string name="label_sent">Göndərilib</string>
@@ -112,9 +102,4 @@
   <string name="tunnel_connecting">Tunel qoşulur...</string>
   <string name="tunnel_connected">Tunel qoşuldu</string>
   <string name="waiting">Gözləyir...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

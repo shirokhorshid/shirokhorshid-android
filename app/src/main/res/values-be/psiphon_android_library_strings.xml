@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS выконваецца праз порт %d</string>
   <string name="http_proxy_running">HTTP проксі выконваецца праз порт %d</string>
   <string name="client_version">Версія кліента %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Правераны на сапраўднасць пакет даных падпісаны іншым публічным ключом</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Памылковы подпіс на правераным на сапраўднасць пакеце даных</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Брак значэння ў правераным на сапраўднасць пакеце даных</string>
   <string name="starting_tunnel">Запуск тунэлявання...</string>
   <string name="stopping_tunnel">Спыненне тунэлявання...</string>
   <string name="stopped_tunnel"> Тунэляванне спыпыненае</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Змены статусу Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Абнаўленне Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Апавяшчэнні серверу Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Выконваецца сэрвіс VPN</string>
   <string name="vpn_service_revoked">сэрвіс VPN адкліканы</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Памылка шыфравання інфармацыі пра дыягностыку. Гэтая інфармацыя не будзе далучанай да ліста зваротнай сувязі.</string>
   <string name="current_network_type">Бягучая сетка: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Немагчыма атрымаць пакет інфармацыі для бягучай праграмы</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Памылка запісу файлу абнаўлення</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Памылка абнаўлення. Немагчыма атрымаць пакет інфармацыі з файлу абнаўлення.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Файл абнаўлення не знойдзены</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Абнаўленне Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Абнаўленне Psiphon гатова для ўсталявання.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Памылка чытання файлу абнаўлення</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Памылка праверкі сапраўднасці файлу абнаўлення</string>
   <string name="connected_elapsed_time">Падлучана: %s</string>
   <string name="disconnected">Адлучана</string>
   <string name="label_sent">Адпраўлена</string>
@@ -73,6 +63,20 @@
   <string name="region_name_sk">Славакія</string>
   <string name="region_name_rs">Сербія</string>
   <string name="region_name_au">Аўстралія</string>
+  <string name="region_name_ae">Аб\'яднаныя Арабскія Эміраты</string>
+  <string name="region_name_ar">Аргенціна</string>
+  <string name="region_name_br">Бразілія</string>
+  <string name="region_name_cl">Чылі</string>
+  <string name="region_name_ee">Эстонія</string>
+  <string name="region_name_fi">Фінляндыя</string>
+  <string name="region_name_is">Ісландыя</string>
+  <string name="region_name_ie">Ірландыя</string>
+  <string name="region_name_ke">Кенія</string>
+  <string name="region_name_kr">Карэя</string>
+  <string name="region_name_lv">Латвія</string>
+  <string name="region_name_mx">Мексіка</string>
+  <string name="region_name_tw">Тайвань</string>
+  <string name="region_name_za">Паўднёвая Афрыка</string>
   <string name="about">Пра Psiphon</string>
   <string name="feedback">Зваротная сувязь</string>
   <string name="disableTimeoutsPreferenceSummary">Адключыць час чакання для павольных злучэнняў</string>
@@ -157,15 +161,6 @@
   <string name="tunnel_connecting">Ідзе злучэнне з тунэлем...</string>
   <string name="tunnel_connected">Тунэль падлучаны</string>
   <string name="waiting">Чаканне...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Запыт на дазвол</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Адкрыйце доступ да геалакацыі і дазвольце Psiphon лепш наладжваць працу з вашай сеткай.\n\nУвага, гэтая інфармацыя выкарыстоўваецца толькі лакальна на вашай прыладзе, яна не перадаецца серверам 3-х бакоў.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Не, дзякуй</string>
   <string name="label_vpn_settings">Налады VPN</string>
   <string name="label_proxy_settings">Налады проксі</string>
   <string name="preference_summary_no_proxy">Няма проксі-сервера</string>

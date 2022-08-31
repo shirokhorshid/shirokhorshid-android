@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS en fonction sur le port %d</string>
   <string name="http_proxy_running">Mandataire HTTP en fonction sur le port %d</string>
   <string name="client_version">Version du client %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Le paquet de données authentifié est signé avec une clé publique différente</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Signature invalide pour le paquet de données authentifié</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Valeur manquante dans le paquet de données authentifié</string>
   <string name="starting_tunnel">Démarrage du tunnel…</string>
   <string name="stopping_tunnel">Arrêt du tunnel…</string>
   <string name="stopped_tunnel">Tunnel arrêté</string>
@@ -16,21 +13,15 @@
   <string name="psiphon_service_notification_channel_name">Changements d’état de Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Mise à niveau de Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Alertes des serveurs Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon plante</string>
   <string name="vpn_service_running">Service RPV en fonction</string>
   <string name="vpn_service_revoked">Service RPV révoqué</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Échec de chiffrement des renseignements de diagnostic rétroactif. Ces renseignements ne seront pas joints au courriel de rétroaction.</string>
   <string name="current_network_type">Réseau actuel : %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Impossible de récupérer les infos de paquet pour l’appli actuelle</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Échec d’écriture du fichier de mise à niveau</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Échec de mise à jour. Impossible d’extraire les infos de paquet du fichier de mise à niveau.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Le fichier de mise à niveau est introuvable</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Mise à niveau de Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Une mise à niveau de Psiphon est prête à être installée.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Échec de lecture du fichier de mise à niveau</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Échec d’authentification du fichier de mise à niveau</string>
   <string name="connected_elapsed_time">Connecté : %s</string>
   <string name="disconnected">Déconnecté</string>
   <string name="label_sent">Envoyé</string>
@@ -116,11 +107,13 @@
   <!--Description of option to select apps to exclusively tunnel-->
   <plurals name="preference_routing_select_apps_to_include_summary">
     <item quantity="one">%d appli sera tunnellisée par le RPV</item>
+    <item quantity="many">%d applis seront tunnellisées par le RPV</item>
     <item quantity="other">%d applis seront tunnellisées par le RPV</item>
   </plurals>
   <!--Description of option to select apps to not tunnel-->
   <plurals name="preference_routing_select_apps_to_exclude_summary">
     <item quantity="one">%d appli sera exclue du RPV</item>
+    <item quantity="many">%d applis seront exclues du RPV</item>
     <item quantity="other">%d applis seront exclues du RPV</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
@@ -128,11 +121,13 @@
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_include_apps">
     <item quantity="one">Tunnellisation d’%d appli</item>
+    <item quantity="many">Tunnellisation de %d applis</item>
     <item quantity="other">Tunnellisation de %d applis</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
     <item quantity="one">%d appli est exclue du tunnel</item>
+    <item quantity="many">%d applis sont exclues du tunnel</item>
     <item quantity="other">%d applis sont exclues du tunnel</item>
   </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">Toutes les applis seront tunnellisées par le RPV</string>
@@ -164,15 +159,6 @@
   <string name="tunnel_connecting">Connexion du tunnel…</string>
   <string name="tunnel_connected">Tunnel connecté</string>
   <string name="waiting">En attente..</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Demande d’autorisation</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Permettez à Psiphon de prendre de meilleures décisions sur son fonctionnement sur votre réseau en lui accordant l’accès à votre position géographique.\n\nNotez que ce renseignement n’est utilisé que localement sur votre appareil et n’est transmis ni à nos serveurs ni à des tiers.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Valider</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Non merci</string>
   <string name="label_vpn_settings">Paramètres du RPV</string>
   <string name="label_proxy_settings">Paramètres du mandataire</string>
   <string name="preference_summary_no_proxy">Aucun mandataire</string>

@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS läuft auf Port %d</string>
   <string name="http_proxy_running">HTTP-Proxy läuft auf Port %d</string>
   <string name="client_version">Client-Version %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Authentifiziertes Datenpaket mit unterschiedlichem öffentlichen Schlüssel signiert</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Ungültige Signatur in authentifiziertem Datenpaket</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Fehlender Wert im authentifizierten Datenpaket</string>
   <string name="starting_tunnel">Tunnel wird gestartet…</string>
   <string name="stopping_tunnel">Tunnel wird beendet…</string>
   <string name="stopped_tunnel">Tunnel angehalten</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_id">Psiphon-Dienstbenachrichtigung</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-Aktualisierung</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon-Server-Alarme</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN-Dienst läuft</string>
   <string name="vpn_service_revoked">VPN-Dienst widerrufen</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Fehler beim Verschlüsseln der Rückmeldungsdiagnoseinformationen. Diese Informationen werden nicht an die Rückmeldungs-E-Mail angehängt.</string>
   <string name="current_network_type">Aktuelles Netzwerk: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Paketinformationen für die aktuelle Anwendung können nicht abgerufen werden</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Fehler beim Schreiben der Aktualisierungsdatei</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Aktualisierung fehlgeschlagen. Paketinformationen können nicht aus Aktualisierungsdatei extrahiert werden.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Aktualisierungsdatei nicht gefunden</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-Aktualisierung</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Eine Aktualisierung für Psiphon ist bereit für die Installation.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Fehler beim Lesen der Aktualisierungsdatei</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Fehler beim Authentifizieren der Aktualisierungsdatei</string>
   <string name="connected_elapsed_time">Verbunden: %s</string>
   <string name="disconnected">Getrennt</string>
   <string name="label_sent">Gesendet</string>
@@ -138,14 +128,6 @@
   <string name="tunnel_connecting">Tunnel wird verbunden…</string>
   <string name="tunnel_connected">Tunnel verbunden</string>
   <string name="waiting">Wartend…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Berechtigungsanfrage</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">OK</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Nein danke</string>
   <string name="label_vpn_settings">VPN-Einstellungen</string>
   <string name="label_proxy_settings">Proxy-Einstellungen</string>
   <string name="preference_summary_no_proxy">Kein Proxy</string>

@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Агар ягон шарҳи муайян, маълумоти бештар оиди вебсайтҳое, ки кор намекунанд, ё агар ин варақа дуруст кор накунад, ба &lt;a href=”mailto:feedback@psiphon.ca”&gt;feedback@psiphon.ca&lt;/a&gt; мактуби электронӣ бифиристед.</string>
   <string name="FeedbackActivity.Success">Барои изҳори назаратон миннатдорем</string>
   <string name="FeedbackActivity.Failure">Пешниҳод барор наёфт.  Кӯшишро такрор кунед.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Пешниҳоди изҳори назар барор наёфт</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Параметрҳои URL дар пешниҳоди варақаи изҳори назар нодуруст мебошанд</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Дарёфти муҳтавои саҳифаи изҳори назар барор наёфт</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon  VPN бозистод</string>
   <string name="StatusActivity.VpnRevokedMessage">VPNи Psiphon аз тарафи шумо ё дигар замима чудо шуд. Якчанд замимахои VPN дар як вакт фаъол буда наметавонанд. Санчед ки дигар VPN фаъол аст ё не.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN наметавонад фаъол шавад</string>
@@ -38,4 +35,11 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Jika Anda ingin memberi komentar, ingin mencari informasi lebih lanjut tentang situs web yang tidak berfungsi, atau formulir ini rusak, silakan kirim email ke &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Terima kasih telah mengirim kritik dan saran!</string>
   <string name="FeedbackActivity.Failure">Pengiriman gagal. Silakan coba lagi.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Gagal mengirim kritik dan saran</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Parameter URL pada kiriman formulir kritik dan saran tidak berlaku</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Gagal mengambil isi laman kritik dan saran</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN telah berhenti</string>
   <string name="StatusActivity.VpnRevokedMessage">VPN Psiphon terputus oleh Anda atau aplikasi lain. Beberapa aplikasi VPN tidak bisa berjalan pada saat yang bersamaan. Periksa jika aplikasi VPN lain terpasang dan sedang berjalan.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN tidak bisa mulai</string>
@@ -66,4 +63,12 @@
   <string name="unsafe_traffic_alert_prompt_message">Psiphon secara otomatis memblokir akses ke situs yang berpotensi berbahaya di Internet. Apakah Anda ingin diberi tahu saat ini terjadi?\n\nSetelan ini dapat diubah kapan saja di Opsi Lainnya.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">Pelajari lebih lanjut tentang MalAware di sini:</string>
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Silakan buka Psiphon dan periksa pengaturan proxy.</string>
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

@@ -1,36 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="socks_running">SOCKS %d numaralı kapı üzerinde çalışıyor</string>
-  <string name="http_proxy_running">HTTP vekil sunucusu %d numaralı kapı üzerinde çalışıyor</string>
+  <string name="socks_running">SOCKS %d numaralı bağlantı noktasını kullanıyor</string>
+  <string name="http_proxy_running">HTTP vekil sunucusu %d numaralı bağlantı noktasını kullanıyor</string>
   <string name="client_version">Uygulama sürümü %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Kimliği doğrulanmış veri paketi, farklı bir herkese açık anahtar ile imzalanmış</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Kimliği doğrulanmış veri paketinin imzası geçersiz</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Kimliği doğrulanmış veri paketinde değer eksik</string>
   <string name="starting_tunnel">Tünel başlatılıyor…</string>
   <string name="stopping_tunnel">Tünel durduruluyor…</string>
   <string name="stopped_tunnel">Tünel durduruldu</string>
-  <string name="socks_port_in_use">İstenilen %d yerel SOCKS vekil sunucu kapı numarası başka bir uygulama tarafından kullanıldığından devam edilemiyor.</string>
+  <string name="socks_port_in_use">İstenilen %d yerel SOCKS vekil sunucu bağlantı noktası başka bir uygulama tarafından kullanıldığından devam edilemiyor.</string>
   <string name="waiting_for_network_connectivity">Ağ bağlantısının kurulması bekleniyor…</string>
   <string name="psiphon_service_notification_message_connecting">Bağlantı kuruluyor…</string>
   <string name="psiphon_service_notification_id">Psiphon hizmet bildirimi</string>
   <string name="psiphon_service_notification_channel_name">Psiphon durum değişiklikleri</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon güncelleme</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon sunucu uyarıları</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon çökmeleri</string>
   <string name="vpn_service_running">VPN hizmeti çalışıyor</string>
   <string name="vpn_service_revoked">VPN hizmeti iptal edildi</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Geri bildirim tanıma bilgileri şifrelenemedi. Bilgiler geri bildirim e-postasına eklenmeyecek.</string>
   <string name="current_network_type">Geçerli ağ: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Geçerli uygulama için paket bilgileri alınamadı</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Güncelleme dosyasına yazılamadı</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Güncelleme yapılamadı. Güncelleme dosyasından paket bilgileri ayıklanamadı.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Güncelleme dosyası bulunamadı</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon güncelleme</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon için kurulmaya hazır bir güncelleme var.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Güncelleme dosyası okunamadı</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Güncelleme dosyasının kimliği doğrulanamadı</string>
   <string name="connected_elapsed_time">Bağlantı kuruldu: %s</string>
   <string name="disconnected">Bağlantı kesildi</string>
   <string name="label_sent">Gönderilen</string>
@@ -45,7 +36,7 @@
   <string name="use_system_proxy_settings_radio">Sistem ağ ayarları kullanılsın</string>
   <string name="use_custom_proxy_settings_radio">Aşağıdaki ayarlar kullanılsın:</string>
   <string name="custom_proxy_settings_host">Sunucu adresi</string>
-  <string name="custom_proxy_settings_port">Kapı numarası</string>
+  <string name="custom_proxy_settings_port">Bağlantı noktası</string>
   <string name="region_name_any">En iyi başarım</string>
   <string name="region_name_us">Birleşik Devletler</string>
   <string name="region_name_gb">Birleşik Krallık</string>
@@ -144,7 +135,7 @@
   <string name="moreOptions">Diğer ayarlar</string>
   <string name="proxySettingsCategoryTitle">Vekil sunucu ayarları</string>
   <string name="custom_proxy_host_summary">Vekil sunucu sunucu adı ya da IP adresi</string>
-  <string name="custom_proxy_port_summary">Vekil sunucu kapı numarası</string>
+  <string name="custom_proxy_port_summary">Vekil sunucu bağlantı noktası</string>
   <string name="use_proxy_authentication_title">Kimlik doğrulaması kullanılsın</string>
   <string name="proxy_username_title">Vekil sunucu kullanıcı adı</string>
   <string name="proxy_username_summary">Vekil sunucu kimlik doğrulaması için kullanılacak kullanıcı adı</string>
@@ -152,27 +143,18 @@
   <string name="proxy_password_summary">Vekil sunucu kimlik doğrulaması için kullanılacak parola</string>
   <string name="proxy_domain_title">Vekil sunucu etki alanı</string>
   <string name="proxy_domain_summary">Vekil sunucu kimlik doğrulaması için kullanılacak etki alanı</string>
-  <string name="http_proxy_port_in_use">İstenilen %d yerel HTTP vekil sunucu kapı numarası başka bir uygulama tarafından kullanıldığından devam edilemiyor.</string>
+  <string name="http_proxy_port_in_use">İstenilen %d yerel HTTP vekil sunucu bağlantı noktası başka bir uygulama tarafından kullanıldığından devam edilemiyor.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <string name="split_tunnel_region">Bölünmüş tünel bölgesi: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <string name="untunneled_address">Tünellenmeyen: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
-  <string name="upstream_proxy_error">Giden vekil sunucu hatası: %s</string>
+  <string name="upstream_proxy_error">Giden vekil sunucu sorunu: %s</string>
   <string name="start_tunnel_failed">Tünel başlatılamadı: %s</string>
   <string name="vpn_exclusions_conflict">Geçerli VPN istisnaları ile çakışan bir ya da daha fazla uygulama var. Bağlantı kurmak için lütfen VPN ayarlarına gidin ve \'Tüm uygulamalar tünel kullansın\' kipine geçin.</string>
   <string name="tunnel_connecting">Tünel bağlantısı kuruluyor…</string>
   <string name="tunnel_connected">Tünel bağlantısı kuruldu</string>
   <string name="waiting">Bekleniyor…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">İzin isteği</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Konum bilgisine erişme izni verdiğinizde, Psiphon bulunduğunuz ağda nasıl çalışması gerektiği hakkında daha iyi karar verebilir.\n\nKonum bilgisi yalnızca aygıtınızda kalır ve yerel olarak kullanılır. Sunucularımıza ya da üçüncü taraflara aktarılmaz.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Tamam</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Hayır, teşekkürler</string>
   <string name="label_vpn_settings">VPN ayarları</string>
   <string name="label_proxy_settings">Vekil sunucu ayarları</string>
   <string name="preference_summary_no_proxy">Vekil sunucu yok</string>

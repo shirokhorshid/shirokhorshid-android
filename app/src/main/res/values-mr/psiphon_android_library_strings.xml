@@ -3,9 +3,6 @@
   <string name="socks_running">%d पोर्टवर चालू असलेले SOCKS</string>
   <string name="http_proxy_running">%d पोर्टवर चालू असलेले HTTP प्रॉक्सी</string>
   <string name="client_version">क्लायंट आवृत्ती %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">भिन्न सार्वजनिक की सह स्वाक्षरीकृत डेटा पॅकेज</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">प्रमाणीकृत डेटा पॅकेजवर अवैध स्वाक्षरी</string>
-  <string name="AuthenticatedDataPackage.MissingValue">प्रमाणित डेटा पॅकेजमधील मूल्य गहाळ आहे</string>
   <string name="starting_tunnel">टनेल चालू करीत आहे</string>
   <string name="stopping_tunnel">टनेल थांबवित आहे...</string>
   <string name="stopped_tunnel">टनेल थांबवित आहे</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Psiphon स्थिती बदल</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon सुधारणा</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon सर्व्हर अलर्ट</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">चालू असलेली VPN सेवा </string>
   <string name="vpn_service_revoked">VPN सेवा रद्द केली</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">प्रतिक्रिया निदान माहिती कूटबद्ध करण्यात अयशस्वी. ही माहिती प्रतिक्रिया ईमेलशी संलग्न केली जाणार नाही.</string>
   <string name="current_network_type">वर्तमान नेटवर्क: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">वर्तमान अ‍ॅप साठी पॅकेज माहिती पुनर्प्राप्त करण्यात अक्षम</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">सुधारित फाईल लिहिण्यात अयशस्वी</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">सुधारणा अयशस्वी. सुधारित फाईल मधून पॅकेज माहिती काढू शकत नाही.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">सुधारित फाईल सापडली नाही</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon सुधारणा</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon साठी सुधारणा स्थापित करण्यास सज्ज आहे.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">सुधारित फाईल वाचण्यात अयशस्वी</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">सुधारित फाईल प्रमाणीकरण करण्यात अयशस्वी</string>
   <string name="connected_elapsed_time">जोडले: %s</string>
   <string name="disconnected">डिस्कनेक्ट केले </string>
   <string name="label_sent">पाठविलेले</string>
@@ -150,15 +140,6 @@
   <string name="tunnel_connecting">टनेल कनेक्ट करीत आहे...</string>
   <string name="tunnel_connected">टनेल जोडले</string>
   <string name="waiting">प्रतीक्षा करीत आहे...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">परवानगी विनंती</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">आपल्या स्थानावर प्रवेश देऊन आपल्या नेटवर्कवर कसे कार्य करावे याबद्दल Psiphon ला चांगले निर्णय घेण्याची परवानगी द्या. \n\n लक्षात ठेवा ही माहिती केवळ आपल्या डिव्हाइसवर वापरली जाते आणि आमच्या सर्व्हरमध्ये किंवा कोणत्याही तृतीय पक्षाकडे ती प्रसारित केली जात नाही.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">ठीक</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">नाही धन्यवाद</string>
   <string name="label_vpn_settings">VPN सेटिंग्ज</string>
   <string name="label_proxy_settings">प्रॉक्सी सेटिंग्ज</string>
   <string name="preference_summary_no_proxy">प्रॉक्सी शिवाय</string>

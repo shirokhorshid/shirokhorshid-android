@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS %d portida ishlamoqda</string>
   <string name="http_proxy_running">HTTP proksi-serveri %d portida ishlamoqda</string>
   <string name="client_version">Mijoz-dastur versiyasi: %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Axborot paketi tekshirilgan imzoda notog‘ri rasmiy kalit</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Tekshirilgan axborot paketi noto‘g‘ri imzolangan</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Tekshirilgan axborot paketida parametr yetishmayapti</string>
   <string name="starting_tunnel">Shifrlash tunneli ishga tushmoqda…</string>
   <string name="stopping_tunnel">Shifrlash tunneli to‘xtatilmoqda…</string>
   <string name="stopped_tunnel">Shifrlash tunneli to‘xtatildi</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">Ulanmoqda…</string>
   <string name="psiphon_service_notification_id">Psiphon xizmat bildirishnomasi</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon brauzerini yangilash</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN xizmati ishlamoqda</string>
   <string name="vpn_service_revoked">VPN xizmati bekor qilindi</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Diagnostika axborotini shifrlab bo‘lmadi. Bu axborot fikr-mulohaza xatiga biriktirilmaydi.</string>
   <string name="current_network_type">Joriy tarmoq: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Joriy ilova uchun axborot paketi qabul qilinmadi</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Yangilanish fayli yozilmadi</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Yangilab bo‘lmadi. Yangilanish faylidan axborot paketini chiqarib bo‘lmadi.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Yangilanish fayli topilmadi</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon brauzerini yangilash</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon uchun yangilanishni o‘rnatish mumkin.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Yangilanish faylini o‘qib bo‘lmadi</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Yangilanish fayli haqiqiyligi tasdiqlanmadi</string>
   <string name="connected_elapsed_time">Aloqa o‘rnatildi: %s</string>
   <string name="disconnected">Aloqa uzildi</string>
   <string name="label_sent">Yuborilgan</string>
@@ -116,9 +106,4 @@
   <string name="tunnel_connecting">Shifrlash tunneli ulanmoqda…</string>
   <string name="tunnel_connected">Shifrlash tunneli ulandi</string>
   <string name="waiting">Kutilmoqda…</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

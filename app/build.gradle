@@ -88,6 +88,7 @@ dependencies {
     implementation files('libs/achartengine-1.0.0.jar')
     implementation files('libs/snakeyaml-1.10-android.jar')
     implementation files('libs/ca.psiphon.aar')
+    implementation files('libs/jndcrash-release.aar')
 
     implementation project(':tray')
 

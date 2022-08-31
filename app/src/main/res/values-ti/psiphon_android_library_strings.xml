@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS ኣብ %d ፖርት ይሰርሕ ኣሎ</string>
   <string name="http_proxy_running">HTTP ተተካኢ ኣብ %d ፖርት ይሰርሕ ኣሎ</string>
   <string name="client_version">ናይ ዓሚል ስሪት %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">ብዝተፈለየ ዕላዊ መፍትሕ ዝተፈረመ ዝተረጋገጸ ዕሹግ ዳታ</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">ግጉይ ፊርማ ኣብ ዝተረጋገጸ ዕሹግ ዳታ</string>
-  <string name="AuthenticatedDataPackage.MissingValue"> ኣብ ዝተረጋገጸ ዕሹግ ዳታ ዝጠፍአ ነገር</string>
   <string name="starting_tunnel">መተሓላለፊ ኣብ ምጅማር ኣሎ...</string>
   <string name="stopping_tunnel">መተሓላለፊ ደው ኣብ ምባል...</string>
   <string name="stopped_tunnel">መተሓላለፊ ደው ኢሉ</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">የራኸብ ኣሎ...</string>
   <string name="psiphon_service_notification_id">መዘኻኸሪ ኣገልግሎት ሳይፎን (Psiphon)</string>
   <string name="psiphon_upgrade_notification_channel_name">ምሕየሻ ሳይፎን (Psiphon)</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN ኣብ ምስራሕ ኣሎ</string>
   <string name="vpn_service_revoked">ኣገልግሎት VPN ተመንዚዑ</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">ሓበረታ ግብረ-መልሲ መርመራ ከመስጥር ኣይኸኣለን። ኣዚ ሓበረታ ምስ ግብረ-መልሲ ኢመይል ኣይክተሓሓዝን`ዩ</string>
   <string name="current_network_type">ሕጂ ዘሎ ነትዎርክ: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">ነዚ ዘሎ ኣፕ ዝኸውን ሓበረታ ጥማር ምምጻእ ኣይተኻእለን</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">ሕዱስ ፋይል ምጽሓፍ ኣይተኻእለን</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ምሕዳስ ኣይተኻእለን። ጥሙር ሓበረታ ካብ ምሕዩሽ ፋይል ምውጻእ ኣይክኣልን፡፡</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">ምሕዩሽ ፋይል ኣይተረኽበን</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">ምሕየሻ ሳይፎን (Psiphon)</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">ንሳይፎን ዝኸውን ምሕየሻ ክጽዕን ድልው ኣሎ፡፡</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">ምሕዩሽ ፋይል ምንባብ ኣይተኻእለን</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">ምሕዩሽ ፋይል ምርግጋጽ ኣይተኻእለን</string>
   <string name="connected_elapsed_time">ተራኺቡ: %s</string>
   <string name="disconnected">ኣይተራኸበን</string>
   <string name="label_sent">ተላኢኹ</string>
@@ -119,10 +109,5 @@
   <string name="tunnel_connecting">መተሓላለፊ ኣብ ምርኻብ...</string>
   <string name="tunnel_connected">መተሓላለፊ ተራኺቡ`ሎ</string>
   <string name="waiting">ኣብ ምጽባይ ኣሎ...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="disableTimeoutsPreferenceTitle">timeouts ኣደስክል</string>
 </resources>

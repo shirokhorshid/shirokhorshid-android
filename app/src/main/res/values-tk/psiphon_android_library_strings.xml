@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS işleýär %d</string>
   <string name="http_proxy_running">HTTP proksi işleýär %d</string>
   <string name="client_version">Müşderi wersiýasy %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Tassyklanan maglumat pakedy başga köpçülik açary bilen bellige alyndy</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Tassyklanan maglumat pakedynyň açary nädogry</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Tassyklanan maglumat paketynda kemlik bar</string>
   <string name="starting_tunnel">Ötük başladylýar...</string>
   <string name="stopping_tunnel">Ötük duruzylýar...</string>
   <string name="stopped_tunnel">Ötük durzuldy</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">Birikdirilýär...</string>
   <string name="psiphon_service_notification_id">Psiphon Hyzmat Habarnamasy</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon beýgeldiş</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN hyzmaty işleýär</string>
   <string name="vpn_service_revoked">VPN hyzmaty goýbolsun edildi</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Diagnostiki maglumatlaryň çözgüdi şowsuz. Bu maglumat seslenme emailna goşup bolmaz.</string>
   <string name="current_network_type">Häzirki network: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Häzirki amaly programma üçin toplum maglumatlaryny alyp bolanok</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Beýgeldiş faýlyny ýazmak şowsuz</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Beýgeldiş şowsuz. Beýgeldiş faýlyndan toplum maglumatlaryny çykaryp alyp bolanok.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Beýgeldiş faýly tapylmady</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon beýgeldiş</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon üçin beýgeldişler gurnalmaga taýyn.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Beýgeldiş faýyllary okamakda şowsuz</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Beýgeltme faýly tassyklanmady</string>
   <string name="connected_elapsed_time">Birikdirildi: %s</string>
   <string name="disconnected">Birikmedi</string>
   <string name="label_sent">Iberildi</string>
@@ -129,9 +119,4 @@
   <string name="tunnel_connecting">Tunel birikdirilýär...</string>
   <string name="tunnel_connected">Tunel birikdi</string>
   <string name="waiting">Garaşylýar...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

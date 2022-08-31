@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS in esecuzione sulla porta %d</string>
   <string name="http_proxy_running">HTTP proxy in esecuzione sulla porta %d</string>
   <string name="client_version">Versione Client %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Pacchetto dati autenticato firmato con chiave pubblica diversa</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Firma non valida sul pacchetto dati autenticato</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Valore mancante nel pacchetto dati autenticato</string>
   <string name="starting_tunnel">Avvio Tunnel in corso...</string>
   <string name="stopping_tunnel">Arresto Tunnel in corso...</string>
   <string name="stopped_tunnel">Tunnel arrestato</string>
@@ -15,21 +12,14 @@
   <string name="psiphon_service_notification_id">Notifica Servizio Psiphon</string>
   <string name="psiphon_service_notification_channel_name">Modifiche Stato Psiphon </string>
   <string name="psiphon_upgrade_notification_channel_name">Aggiornamento Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Servizio VPN in esecuzione</string>
   <string name="vpn_service_revoked">Servizio VPN revocato</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Impossibile crittografare le informazioni di feedback diagnostica. Queste informazioni non saranno allegate all\'email di feedback.</string>
   <string name="current_network_type">Rete attuale: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Impossibile recuperare le informazioni sul pacchetto per l\'app corrente</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Impossibile scrivere il file di aggiornamento</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Aggiornamento fallito. Impossibile estrarre informazioni dal file di aggiornamento.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">File di aggiornamento mancante</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Aggiornamento Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Un aggiornamento per Psiphon è pronto per essere installato.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Impossibile leggere il file di aggiornamento</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Impossibile autenticare il file di aggiornamento</string>
   <string name="connected_elapsed_time">Connesso: %s</string>
   <string name="disconnected">Disconnesso</string>
   <string name="label_sent">Inviati</string>
@@ -143,15 +133,6 @@
   <string name="tunnel_connecting">Connessione Tunnel in corso...</string>
   <string name="tunnel_connected">Tunnel connesso</string>
   <string name="waiting">In attesa...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Richiesta Autorizzazione </string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Permetti a Psiphon di mogliorare le prestazioni della rete, concedendo l\'accesso alla posizione.\n\nSi noti che queste informazioni vengono utilizzate solo localmente sul dispositivo e non vengono trasmesse ai nostri server o a cedute terzi.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Ok</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No grazie</string>
   <string name="preference_summary_no_proxy">Nessun proxy</string>
   <string name="disableTimeoutsPreferenceTitle">Disattiva timeout</string>
 </resources>

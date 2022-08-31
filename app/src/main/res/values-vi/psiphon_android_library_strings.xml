@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS đang chạy ở cổng %d</string>
   <string name="http_proxy_running">Proxy HTTP đang chạy ở cổng %d</string>
   <string name="client_version">Phiên Bản Trình %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Gói dữ liệu xác thực đã được ký bằng khóa công khai khác.</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Chữ ký không hợp lệ trên gói dữ liệu xác thực</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Thiếu giá trị trong gói dữ liệu xác thực</string>
   <string name="starting_tunnel">Khởi động đường hầm...</string>
   <string name="stopping_tunnel">Ngưng đường hầm...</string>
   <string name="stopped_tunnel">Đã dừng đường hầm</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">Đang kết nối...</string>
   <string name="psiphon_service_notification_id">Thông Báo Dịch Vụ Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Nâng Cấp Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Dịch vụ VPN đang chạy</string>
   <string name="vpn_service_revoked">Dịch vụ VPN bị thu hồi</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Không mã hóa thông tin chẩn đoán phản hồi được. Thông tin này sẽ không được đính kèm vào email phản hồi.</string>
   <string name="current_network_type">Mạng hiện tại: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Không thể truy lại thông tin gói cho ứng dụng hiện tại</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Không thể ghi tập tin nâng cấp</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Nâng cấp thất bại. Không thể trích xuất thông tin gói từ tập tin nâng cấp.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Không tìm thấy tập tin nâng cấp</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Nâng Cấp Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Gói nâng cấp cho Psiphon đã sẵn sàng để cài đặt.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Không thể đọc tập tin nâng cấp</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Không thể xác thực tập tin nâng cấp</string>
   <string name="connected_elapsed_time">Đã kết nối: %s</string>
   <string name="disconnected">Đã dừng kết nối</string>
   <string name="label_sent">Đã gửi</string>
@@ -130,11 +120,5 @@
   <string name="tunnel_connecting">Đang kết nối an toàn qua Psiphon...</string>
   <string name="tunnel_connected">Đã kết nối an toàn qua Psiphon</string>
   <string name="waiting">Đang chờ...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Chấp nhận</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="label_vpn_settings">Cài đặt VPN</string>
 </resources>

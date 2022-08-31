@@ -3,9 +3,6 @@
   <string name="socks_running">Ejecutando SOCKS en el puerto %d</string>
   <string name="http_proxy_running">Proxy HTTP ejecutándose en el puerto %d</string>
   <string name="client_version">Versión del cliente %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Paquete de datos autenticado firmado con una clave pública diferente</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Firma no válida en el paquete de datos autenticado</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Valor perdido en el paquete de datos autenticado</string>
   <string name="starting_tunnel">Iniciando túnel...</string>
   <string name="stopping_tunnel">Deteniendo túnel...</string>
   <string name="stopped_tunnel">Túnel detenido</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Cambios de Estado de Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Actualización de Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Alertas de Servidor de Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Servicio VPN en ejecución</string>
   <string name="vpn_service_revoked">Servicio VPN revocado</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Fallo al cifrar la información de diagnóstico para respuesta. Esta información no será adjuntada al correo de respuesta del usuario.</string>
   <string name="current_network_type">Red actual: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">No se pudo obtener la información de paquete de la aplicación actual</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">No se pudo escribir fichero de actualización</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">La actualización falló. No se pudo extraer la información de paquete del fichero de actualización.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">No se encontró el fichero de actualización</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Actualización de Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Una actualización para Psiphon está lista para ser instalada.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Fallo al leer fichero de actualización</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Fallo al autenticar el fichero de actualización</string>
   <string name="connected_elapsed_time">Conectado: %s</string>
   <string name="disconnected">Desconectado</string>
   <string name="label_sent">Enviado</string>
@@ -116,11 +106,13 @@
   <!--Description of option to select apps to exclusively tunnel-->
   <plurals name="preference_routing_select_apps_to_include_summary">
     <item quantity="one">%d aplicación será usada con túnel vía VPN</item>
+    <item quantity="many">%d aplicaciones serán usadas con túnel vía VPN</item>
     <item quantity="other">%d aplicaciones serán usadas con túnel vía VPN</item>
   </plurals>
   <!--Description of option to select apps to not tunnel-->
   <plurals name="preference_routing_select_apps_to_exclude_summary">
     <item quantity="one">%d aplicación será excluída de la VPN</item>
+    <item quantity="many">%d aplicaciones serán excluídas de la VPN</item>
     <item quantity="other">%d aplicaciones serán excluídas de la VPN</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
@@ -128,11 +120,13 @@
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_include_apps">
     <item quantity="one">Túnel para %d aplicación</item>
+    <item quantity="many">Túnel para %d aplicaciones</item>
     <item quantity="other">Túnel para %d aplicaciones</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
     <item quantity="one">%d aplicación excluída del túnel</item>
+    <item quantity="many">%d aplicaciones excluídas del túnel</item>
     <item quantity="other">%d aplicaciones excluídas del túnel</item>
   </plurals>
   <string name="preference_routing_all_apps_tunnel_summary">Todas las aplicaciones serán usadas con túnel vía VPN</string>
@@ -164,15 +158,6 @@
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
   <string name="waiting">Esperando...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Solicitud de permiso</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Permite a Psiphon efectuar mejores decisiones acerca de cómo funcionar en tu red dándole acceso a tu localización.\n\nTen en cuenta que esta información solo es usada localmente en tu dispositivo, y no es transmitida hacia nuestros servidores o cualquier tercero.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Aceptar </string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">No gracias</string>
   <string name="label_vpn_settings">Ajustes de VPN</string>
   <string name="label_proxy_settings">Ajustes para proxy</string>
   <string name="preference_summary_no_proxy">Sin proxy</string>

@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS پورٹ %d پر چل رہی ہے</string>
   <string name="http_proxy_running">HTTP پراکسی پورٹ %d پر چل رہی ہے</string>
   <string name="client_version">کلائنٹ ورژن %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">مختلف  عوامی کلیدوں کیساتھ دستخط شدہ مصدقہ ڈیٹا پیکج </string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">مصدقہ ڈیٹا پیکج پہ ناقابلِ شناخت دستخط</string>
-  <string name="AuthenticatedDataPackage.MissingValue">مصدقہ ڈیٹا پیکچ میں value غائب</string>
   <string name="starting_tunnel">Tunnel (ٹنل) شروع ہو رہا ہے۔۔۔</string>
   <string name="stopping_tunnel">Tunnel (ٹنل) رک رہا ہے۔۔۔</string>
   <string name="stopped_tunnel">Tunnel (ٹنل) رک گیا ہے</string>
@@ -14,21 +11,14 @@
   <string name="psiphon_service_notification_message_connecting">رابطہ ہو رہا ہے۔۔۔</string>
   <string name="psiphon_service_notification_id">Psiphon (سائفن) سروس کی اطلاع</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon (سائفن) اپ گریڈ ہو گیا</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN سروس چل رہی ہے</string>
   <string name="vpn_service_revoked">VPN سروس منسوخ کر دی گئی</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">feedback کی تشخیصی معلومات کو encrypt کرنے میں ناکام۔ یہ معلومات feedback ای-میل کے ساتھ منسلک نہیں ہو گی۔</string>
   <string name="current_network_type">موجودہ نیٹ ورک: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">موجودہ ایپ کیلئے پیکیج کی معلومات حاصل کرنے سے قاصر ہے</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">اپ گریڈ فائل لکھنے میں ناکام</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">اپ گریڈ ناکام ہو گئی ۔ اپ گریڈ فائل میں سے پیکچ کی معلومات نہیں نکال سکتے۔</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">اپ گریڈ فائل نہیں مل رہی</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon (سائفن) اپ گریڈ ہو گیا</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon (سائفن) کے لئے ایک اپ گریڈ انسٹال ہونے کےلئے تیار ہے۔</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">اپ گریڈ فائل پڑھنے میں ناکام ہو گئی</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">اپ گریڈ فائل کو مستند کرنے میں ناکام۔</string>
   <string name="connected_elapsed_time">منسلک: %s</string>
   <string name="disconnected">منقطع ہو گئی</string>
   <string name="label_sent">بھیجا گیا</string>
@@ -120,9 +110,4 @@
   <string name="tunnel_connecting">Tunnel (ٹنل) رابطہ ہو رہا ہے۔۔۔</string>
   <string name="tunnel_connected">Tunnel (ٹنل) رابطہ ہو گیا ہے</string>
   <string name="waiting">انتظار کیجئے۔۔۔</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
 </resources>

@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS သည် port %d တွင်လည်ပတ်နေပါသည်</string>
   <string name="http_proxy_running">HTTP ကြားခံသည့် port %d တွင်လည်ပတ်နေပါသည်</string>
   <string name="client_version">သုံးစွဲသူဗားရှင်း %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">မတူညီသည့်အများသုံးကီးဖြင့် ဖော်ပြထားသော အတည်ပြုပြီးဒေတာအစုအတွဲ</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">အတည်ပြုပြီးဒေတာအစုအတွဲပေါ်တွင် ဆီလျော်မှုမရှိသောဖော်ပြမှု</string>
-  <string name="AuthenticatedDataPackage.MissingValue">အတည်ပြုပြီးဒေတာအစုအတွဲတွင် တန်ဖိုးပျောက်ဆုံးနေပါသည်။</string>
   <string name="starting_tunnel">ချိတ်ဆက်မှုစတင်နေပါသည်...</string>
   <string name="stopping_tunnel">ချိတ်ဆက်မှုရပ်တန့်နေပါသည်...</string>
   <string name="stopped_tunnel">ချိတ်ဆက်မှုရပ်တန့်လိုက်ပါပြီ</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Psiphon အခြေအနေ ပြောင်းလဲချက်များ</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon အဆင့်မြှင့်မှု</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon ဆာဗာ သတိပေးချက်များ</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN ဝန်ဆောင်မှု လည်ပတ်နေပါသည်</string>
   <string name="vpn_service_revoked">VPN ဝန်ဆောင်မှု ပယ်ချလိုက်ပါပြီ</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">အကြံပြုချက် နှင့် စစ်ဆေးထားသော အချက်အလက်ကို လျို့ဝှက်စာအဖြစ်ပြောင်းလဲရန် မအောင်မြင်ပါ။ ဤသတင်းအချက်အလက်သည် အကြံပြုချက်ပေးပို့သည့် အီးမေးလ်ထဲတွင် ပါဝင်မည်မဟုတ်ပါ။</string>
   <string name="current_network_type">လက်ရှိကွန်ယက် : %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">လက်ရှိ app အတွက် အစုအတွဲ၏ သတင်းအချက်အလက်ကို ပြန်လည်မရယူနိုင်ပါ</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">အဆင့်မြှင့်ဖိုင်ကိုရေးရန် မအောင်မြင်ပါ</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">အဆင့်မြှင့်မှုမအောင်မြင်ပါ။ အဆင့်မြှင့်ရန်ဖိုင်အတွင်းမှ အစုအတွဲသတင်းအချက်အလက်ကို ထုတ်မယူနိုင်ပါ။</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">အဆင့်မြှင့်ရန်ဖိုင်ကို မတွေ့ရှိပါ</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon အဆင့်မြှင့်မှု</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon အား အဆင့်မြှင့်ရန်အတွက် ထည့်သွင်းရမည့်ဖိုင်သည် ထည့်သွင်းရန်အတွက်အဆင်သင့်ဖြစ်ပါပြီ။</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">အဆင့်မြှင့်ရန်ဖိုင်ကိုဖတ်ရန်မအောင်မြင်ပါ</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">အဆင့်မြှင့်ရန်ဖိုင်ကိုအတည်ပြုရန်မအောင်မြင်ပါ</string>
   <string name="connected_elapsed_time">ချိတ်ဆက်ပြီးပါပြီ: %s</string>
   <string name="disconnected">ချိတ်ဆက်မှု ပြတ်တောက်သွားသည်</string>
   <string name="label_sent">ပေးပို့ပြီးပါပြီ</string>
@@ -160,17 +150,6 @@
   <string name="tunnel_connecting">ဝင်ရောက်ချိတ်ဆက်နေပါသည်...</string>
   <string name="tunnel_connected">ဝင်ရောက်ချိတ်ဆက်ပြီးပါပြီ</string>
   <string name="waiting">စောင့်နေပါသည်...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ခွင့်ပြုချက် တောင်းခံခြင်း</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Psiphon အား သင်၏တည်နေရာကိုခွင့်ပြုခြင်းဖြင့် သင်၏ကွန်ယက်တွင် မည်သို့လုပ်ကိုင်ရမည်ကို ပိုမိုကောင်းမွန်သောဆုံးဖြတ်ချက်များချရန် ခွင့်ပြုပါ။
-
-ဤအချက်အလက်များသည် သင်၏စက်ပစ္စည်းပေါ်တွင်သာ အသုံးပြုပြီး ကျွန်ုပ်တို့၏ဆာဗာများ သို့မဟုတ် တတိယပါတီများသို့ မပို့ပါ။</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">အိုကေ</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">ရပါတယ်၊ ကျေးဇူးပါ။</string>
   <string name="label_vpn_settings">VPN အပြင်အဆင်များ</string>
   <string name="label_proxy_settings">ကြားခံ အပြင်အဆင်များ</string>
   <string name="preference_summary_no_proxy">ကြားခံ မရှိ</string>

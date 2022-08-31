@@ -2,15 +2,12 @@
 <resources>
   <string name="psiphon_service_notification_message_connecting">Γίνεται σύνδεση...</string>
   <string name="psiphon_upgrade_notification_channel_name">Αναβάθμιση του Psiphon</string>
-  <string name="debug_message">%s</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="current_network_type">Υπάρχον δίκτυο: %s</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Το αρχείο αναβάθμισης δεν βρέθηκε.</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Αναβάθμιση του Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Μια αναβάθμιση του Psiphon είναι έτοιμη προς εγκατάσταση.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Αποτυχία ανάγνωσης αρχείου αναβάθμισης</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Αποτυχία επιβεβαίωσης αρχείου αναβάθμισης</string>
   <string name="connected_elapsed_time">Συνδεδεμένο: %s</string>
   <string name="disconnected">Αποσυνδεδεμένο</string>
   <string name="label_sent">Εστάλη</string>
@@ -76,10 +73,5 @@
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="waiting">Αναμονή...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
   <string name="label_proxy_settings">Ρυθμίσεις proxy</string>
 </resources>

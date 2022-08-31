@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des renseignements complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, veuillez envoyer un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Merci pour votre rétroaction</string>
   <string name="FeedbackActivity.Failure">L’envoi a échoué. Veuillez réessayer.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Échec d’envoi de votre rétroaction</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Paramètres d’URL invalides dans l’envoi du formulaire de rétroaction</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Échec de récupération du contenu de la page de rétroaction</string>
   <string name="StatusActivity.VpnRevokedTitle">Le RPV Psiphon s’est arrêté</string>
   <string name="StatusActivity.VpnRevokedMessage">Le RPV de Psiphon a été déconnecté par vous ou par une autre appli. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et en cours d’exécution.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
@@ -66,4 +63,18 @@
   <string name="unsafe_traffic_alert_prompt_message">Psiphon bloque automatiquement l’accès à des sites potentiellement malveillants sur Internet. Voulez-vous que de tels cas vous soient signalés?\n\nCe paramètre peut être changé ultérieurement dans Plus d’options.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">Apprenez-en plus sur MalAware ici :</string>
+  <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Erreur de mandataire ascendant</string>
+  <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Veuillez ouvrir Psiphon et vérifier les paramètres du mandataire.</string>
+  <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Erreur du mandataire</string>
+  <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Vous avez configuré Psiphon pour qu’il utilise un serveur mandataire ascendant. Cependant, il semble que nous ne soyons pas en mesure de nous connecter à un serveur Psiphon par ce mandataire.\n\nVeuillez corriger les paramètres et réessayer.\n\nPour des renseignements techniques, consultez les journaux.</string>
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon a planté</string>
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Veuillez nous envoyer une rétroaction.</string>
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Veuillez cliquer sur cette notification pour nous envoyer une rétroaction. Cela nous aidera à comprendre le problème afin que nous puissions y remédier plus rapidement.</string>
 </resources>

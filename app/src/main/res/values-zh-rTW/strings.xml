@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">如果您有任何具體建議，有任何網站失效的訊息或者此表單無法使用的情況，請寄郵件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
   <string name="FeedbackActivity.Success">感謝您提供回饋意見</string>
   <string name="FeedbackActivity.Failure">送出失敗。請再試一次。</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">傳送回饋失敗</string>
-  <string name="FeedbackActivity.InvalidURLParameters">傳送提回饋表單中有無效的網址參數</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">獲取回饋頁面的內容失敗</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN 已停止</string>
   <string name="StatusActivity.VpnRevokedMessage">用戶或其它應用程關閉了 Psiphon\'s VPN，不可同時運行多個 VPN 應用程式。檢查是否正在運行其它已安裝的 VPN 應用。</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN 無法啟動</string>
@@ -63,4 +60,11 @@
   <string name="unsafe_traffic_alert_prompt_title">Psiphon 惡意軟體</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

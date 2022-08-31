@@ -3,9 +3,6 @@
   <string name="socks_running">ಪೋರ್ಟ್ %d ರಲ್ಲಿ SOCKS ಚಾಲನೆಯಲ್ಲಿದೆ</string>
   <string name="http_proxy_running">ಪೋರ್ಟ್ %dರಲ್ಲಿ HTTP ಪ್ರಾಕ್ಸಿ ಚಾಲನೆಯಲ್ಲಿದೆ</string>
   <string name="client_version">ಕ್ಲೈಂಟ್ ಆವೃತ್ತಿ %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">ವಿಭಿನ್ನ ಸಾರ್ವಜನಿಕ ಕೀಲಿಯೊಂದಿಗೆ ಸಹಿ ಮಾಡಲಾದ ಪ್ರಮಾಣೀಕೃತ ಡೇಟಾ ಪ್ಯಾಕೇಜ್</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">ಪ್ರಮಾಣೀಕರಿಸಿದ ಡೇಟಾ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲಿ ಅಮಾನ್ಯ ಸಹಿ</string>
-  <string name="AuthenticatedDataPackage.MissingValue">ಪ್ರಮಾಣೀಕರಿಸಿದ ಡೇಟಾ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲಿ ಮೌಲ್ಯ ಕಾಣೆಯಾಗಿದೆ</string>
   <string name="starting_tunnel">ಸುರಂಗ ಪ್ರಾರಂಭವಾಗುತ್ತಿದೆ...</string>
   <string name="stopping_tunnel">ಸುರಂಗ ಸ್ಥಗಿತಗೊಳಿಸಲಾಗುತ್ತಿದೆ...</string>
   <string name="stopped_tunnel">ಸುರಂಗ ಸ್ಥಗಿತಗೊಂಡಿದೆ</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Psiphon ಸ್ಥಿತಿಗತಿ ಬದಲಾವಣೆಗಳು</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon ಅಪ್‌ಗ್ರೇಡ್</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon ಸರ್ವರ್ ಎಚ್ಚರಿಕೆಗಳು</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN ಸೇವೆ ಚಾಲ್ತಿಯಲ್ಲಿದೆ</string>
   <string name="vpn_service_revoked">VPN ಸೇವೆಯನ್ನು ರದ್ದುಪಡಿಸಲಾಗಿದೆ</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">ಪ್ರತಿಕ್ರಿಯೆ ಡೈಗ್ನೊಸ್ಟಿಕ್‌ನ ಮಾಹಿತಿಯನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ. ಈ ಮಾಹಿತಿಯನ್ನು ಪ್ರತಿಕ್ರಿಯೆ ಈಮೇಲ್‌ನಲ್ಲಿ ಸೇರಿಸಲಾಗುವುದಿಲ್ಲ.</string>
   <string name="current_network_type">ಪ್ರಸ್ತುತ ನೆಟ್‌ವರ್ಕ್: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">ಪ್ರಸ್ತುತ ಅಪ್ಲಿಕೇಶನ್‌ಗಾಗಿ ಪ್ಯಾಕೇಜ್ ಮಾಹಿತಿಯನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">ಅಪ್‌ಗ್ರೇಡ್ ಫೈಲ್ ಬರೆಯಲು ವಿಫಲವಾಗಿದೆ</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">ಅಪ್‌ಗ್ರೇಡ್‌ ವಿಫಲಗೊಂಡಿದೆ. ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್‌ನಿಂದ ಪ್ಯಾಕೇಜ್ ಮಾಹಿತಿಯನ್ನು ಹೊರತೆಗೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್ ಸಿಗುತ್ತಿಲ್ಲ</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon ಅಪ್‌ಗ್ರೇಡ್</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Psiphon ಗಾಗಿ ಅಪ್‌ಗ್ರೇಡ್‌ಅನ್ನು ಸ್ಥಾಪಿಸಲು ಸಿದ್ಧವಾಗಿದೆ.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್ಅನ್ನು ಓದಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">ಅಪ್‌ಗ್ರೇಡ್‌ ಫೈಲ್ಅನ್ನು ಧೃಡಿಕರಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ</string>
   <string name="connected_elapsed_time">%s: ಸಂಪರ್ಕಗೊಂಡಿದೆ</string>
   <string name="disconnected"> ಸಂಪರ್ಕ ಕಡಿತಗೊಂಡಿದೆ</string>
   <string name="label_sent">ಕಳುಹಿಸಲಾಗಿದೆ</string>
@@ -150,15 +140,6 @@
   <string name="tunnel_connecting">ಸುರಂಗ ಕ್ಕೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ..</string>
   <string name="tunnel_connected">ಸುರಂಗ ಸಂಪರ್ಕಗೊಂಡಿದೆ</string>
   <string name="waiting">ನಿರೀಕ್ಷಿಸಲಾಗುತ್ತಿದೆ..</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">ಅನುಮತಿಯ ಕೋರಿಕೆ</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">ನಿಮ್ಮ  ಸ್ಥಳ ಮಾಹಿತಿಯನ್ನು ನೀಡುವ ಮೂಲಕ ನಿಮ್ಮ ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿ ಹೇಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸಬೇಕು ಎಂಬುದರ ಕುರಿತು ಉತ್ತಮ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು Psiphon ಗೆ ಅನುಮತಿಸಿ.\n\nಈ ಮಾಹಿತಿಯನ್ನು ಸ್ಥಳೀಯವಾಗಿ ಮಾತ್ರ ಬಳಸಲಾಗುತ್ತದೆ ಮತ್ತು ನಮ್ಮ ಸರ್ವರ್‌ಗಳಿಗೆ ಅಥವಾ ಯಾವುದೇ 3 ನೇ ಪಕ್ಷಗಳಿಗೆ ರವಾನಿಸುವುದಿಲ್ಲ ಎಂಬುದನ್ನು ಗಮನಿಸಿ</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton"> ಸರಿ</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton"> ಇಲ್ಲ, ಧನ್ಯವಾದಗಳು</string>
   <string name="label_vpn_settings">VPN ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="label_proxy_settings">ಪ್ರಾಕ್ಸಿ ಸೆಟ್ಟಿಂಗ್ಸ್</string>
   <string name="preference_summary_no_proxy">ಪ್ರಾಕ್ಸಿ ಇಲ್ಲ</string>

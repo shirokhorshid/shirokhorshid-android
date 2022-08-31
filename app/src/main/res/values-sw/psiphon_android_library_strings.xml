@@ -3,9 +3,6 @@
   <string name="socks_running">SOCKS ikikimbia bandarini %d </string>
   <string name="http_proxy_running">HTTP wakala anaekimbia bandarini %d</string>
   <string name="client_version">Toleo la wateja %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey">Kuhalisisha mfuko wa data kusaini kwa funguo huria tofauti</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">Saini batili kwenye uhalisi wa  mfuko wa data</string>
-  <string name="AuthenticatedDataPackage.MissingValue">Kukosekana kwa thamani kiuhalisia wa mfuko wa data</string>
   <string name="starting_tunnel">Kuanza kwa ficho</string>
   <string name="stopping_tunnel">Kuzima kwa handaki…</string>
   <string name="stopped_tunnel">Handaki iliyosimamishwa</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">Kubadilika kwa hali ya Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Boresha Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon Arifu Seva</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">Kuendesha kwa VPN seva</string>
   <string name="vpn_service_revoked">Kubatilishwa kwa VPN seva</string>
-  <string name="debug_message">%s</string>
-  <string name="Diagnostics.EncryptedFailed">Imeshindwa kwa uchunguzi wa maoni na taarifa iliyosimbwa. Taarifa hii haitashikamana katika maoni ya barua pepe.</string>
   <string name="current_network_type">Mtandao wa sasa: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">Haiwezi kupata tena maelezo ya kifurushi cha taarifa ya sasa</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">Kushindwa kuandika kuboresha kwa faili</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">Kushindwa kuzindua. Haiwezi kutoa mfuko wa taarifa kutoka uzinduzi wa faili.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">Uzinduzi wa faili haufanyikazi</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Boresha Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Kuboresha kwa Psiphon tayari kwa kuwekwa.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">Kushindwa kusoma kuboresha faili</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">Kushindwa kuthibitisha usasishaji wa faili</string>
   <string name="connected_elapsed_time">Kunganishwa: %s</string>
   <string name="disconnected">Tenganisha</string>
   <string name="label_sent">Imetumwa</string>
@@ -148,15 +138,6 @@
   <string name="tunnel_connecting">Kunganisha ficho…</string>
   <string name="tunnel_connected">Ficho imeunganishwa</string>
   <string name="waiting">Kusubiri</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">Ruhusu ombi</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">Fikia Psiphon kuweka uamuzi sahihi kuhusu vipi utafanya kazi kwenye mtandao wako kwa kutoa ufikiaji kwenye eneo lako.\n\nKumbuka kua taarifa hii ndio inayotumia pekee ndani ya kifaa chako, na hakipiti kwenye seva zetu au kwa upande wowote wa 3.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">Sawa</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">Hapana ahsante</string>
   <string name="label_vpn_settings">Mpangilio wa VPN</string>
   <string name="label_proxy_settings">Mpangilio wa proksi</string>
   <string name="preference_summary_no_proxy">Hakuna proksi</string>

@@ -149,7 +149,7 @@ public class RegionListPreference extends Preference {
     static {
         allRegions = new HashMap<>();
         allRegions.put(PsiphonConstants.REGION_CODE_ANY, new Region(PsiphonConstants.REGION_CODE_ANY,
-                R.string.region_name_any, R.drawable.flag_unknown));
+                R.string.region_name_any, R.drawable.flag_any));
         allRegions.put("AE", new Region("AE", R.string.region_name_ae, R.drawable.flag_ae));
         allRegions.put("AR", new Region("AR", R.string.region_name_ar, R.drawable.flag_ar));
         allRegions.put("AT", new Region("AT", R.string.region_name_at, R.drawable.flag_at));

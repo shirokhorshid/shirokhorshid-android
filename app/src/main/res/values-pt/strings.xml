@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Se tiver comentários especificos, mais informação sobre os sites da web que não funcionam, ou se este formulário não funcionar para si, por favor, envie um e-mail para &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Obrigado por submeter o seu comentário</string>
   <string name="FeedbackActivity.Failure">Falhou o envio do comentário. Por favor, tente de novo.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Não foi possível enviar o comentário</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Parâmetros do URL inválidos na submissão do formulário do comentário</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Não foi possível obter o conteúdo da página do comentário</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN parou</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN não consegue iniciar</string>
   <string name="ads_consent_preference_dialog_title">Reiniciar</string>
@@ -37,4 +34,11 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

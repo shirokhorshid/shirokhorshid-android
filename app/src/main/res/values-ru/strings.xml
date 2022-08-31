@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Если у вас есть комментарии, дополнительная информация о сайтах, которые не загружаются, или эта форма не работает для вас, пожалуйста, напишите нам на &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Спасибо за ваш отзыв</string>
   <string name="FeedbackActivity.Failure">Сбой отправки. Пожалуйста, попробуйте снова.</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">Не удалось отправить отзыв</string>
-  <string name="FeedbackActivity.InvalidURLParameters">Неверные параметры ссылки в форме отзыва</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">Не удалось загрузить страницу отзыва</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN остановлен</string>
   <string name="StatusActivity.VpnRevokedMessage">Вы или какое-то приложение отключили Psiphon VPN. Нельзя запускать несколько VPN одновременно. Убедитесь, что другое VPN-приложение не установлено/не запущено.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Ошибка старта Psiphon VPN</string>
@@ -59,4 +56,11 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>

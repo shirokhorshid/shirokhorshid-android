@@ -3,9 +3,6 @@
   <string name="socks_running">بروتوكول SOCKS قيد التشغيل %d</string>
   <string name="http_proxy_running">وكيل HTTP قيد التشغيل %d</string>
   <string name="client_version">نسخة العميل %s</string>
-  <string name="AuthenticatedDataPackage.WrongPublicKey"> تمً تأكيد حزمة البيانات الموثقة بمفتاح عام مختلف</string>
-  <string name="AuthenticatedDataPackage.InvalidSignature">التوقيع المستخدم للدخول لحزمة البيانات الموثقة  غير صالح أو لا يعمل</string>
-  <string name="AuthenticatedDataPackage.MissingValue">قيم أو معلومات مفقودة في حزمة البيانات الموثقة </string>
   <string name="starting_tunnel">جاري بدء تشغيل النفق ...</string>
   <string name="stopping_tunnel">توقيف النفق عن العمل...</string>
   <string name="stopped_tunnel">توقف النفق عن العمل</string>
@@ -16,21 +13,14 @@
   <string name="psiphon_service_notification_channel_name">تغييرات حالات Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">تحديث برنامج سايفون</string>
   <string name="psiphon_server_alert_notification_channel_name">تنبيهات خوادم Psiphon</string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">تشغيل خدمة الشبكة الافتراضية الخاصة</string>
   <string name="vpn_service_revoked">إلغاء خدمة الشبكة الافتراضية الخاصة </string>
-  <string name="debug_message">نسبة %s</string>
-  <string name="Diagnostics.EncryptedFailed">فشل عملية تشفير معلومات التشخيص. لن يتم إدراج تلك المعلومات في الرسالة الإلكترونية المتعلقة بمعلومات التشخيص.</string>
   <string name="current_network_type">الشبكة الحالية: %s</string>
-  <string name="UpgradeManager.CanNotRetrievePackageInfo">يتعذر استرجاع معلومات الحزمة للتطبيق الحالي</string>
-  <string name="UpgradeManager.UpgradeFileWriteFailed">فشل كتابة ملف التحديث</string>
-  <string name="UpgradeManager.CannotExtractUpgradePackageInfo">فشل التحديث. تعذر استخراج معلومات الحزمة من ملف التحديث.</string>
-  <string name="UpgradeManager.UpgradeFileNotFound">لم يتم العثور على ملف التحديث</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">تحديث برنامج سايفون</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">هناك تحسين لبرنامج سايفون و هو متوفر للتثبيت.</string>
-  <string name="UpgradeManager.UpgradeFileReadFailed">لم يتم قراءة ملف التحديث</string>
-  <string name="UpgradeManager.UpgradeFileAuthenticateFailed">لم تتم المصادقة على ملف التحديث</string>
   <string name="connected_elapsed_time">موصول: %s</string>
   <string name="disconnected">غير متصل</string>
   <string name="label_sent">تمً الإرسال</string>
@@ -180,15 +170,6 @@
   <string name="tunnel_connecting">النفق يحاول الإتصال... </string>
   <string name="tunnel_connected">النفق متصل </string>
   <string name="waiting">جاري الإنتظار ...</string>
-  <!--Title for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptTitle">طلب الترخيص</string>
-  <!--Message for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <!--Do not translate or transliterate "Psiphon"-->
-  <string name="MainBase_AccessCoarseLocationPermissionPromptMessage">اسمح لتطبيق Psiphon باتخاذ القرارات الملائمة حول كيفية العمل في شبكتك عبر منحه الوصول إلى موقعك.\n\nتذكر أن هذه المعلومة تُستخدَم فقط محليا في جهازك، ولا تُرسَل إلى خوادمنا ولا إلى أطراف أخرى.</string>
-  <!--Positive response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionPositiveButton">موافق</string>
-  <!--Negative response button for prompt requesting the user to grant the ACCESS_COARSE_LOCATION permission-->
-  <string name="MainBase_AccessCoarseLocationPermissionNegativeButton">لا شكراً</string>
   <string name="label_vpn_settings">إعدادات الشبكة الخاصة الافتراضية</string>
   <string name="label_proxy_settings">إعدادات البروكسي</string>
   <string name="preference_summary_no_proxy">لا وجود لأي وكيل</string>

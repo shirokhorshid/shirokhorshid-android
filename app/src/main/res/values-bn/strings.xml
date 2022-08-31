@@ -5,9 +5,6 @@
   <string name="FeedbackActivity.DefaultText">আপনার কোন নির্দিষ্ট মন্তব্য থাকলে, ওয়েবসাইট যদি কাজ না করে সম্পর্কে আরও তথ্য, অথবা যদি এই ফর্মটি আপনার জন্য কাজ করে না, দয়া করে ইমেইল করুন &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">আপনার মতামত জমা দেওয়ার জন্য আপনাকে ধন্যবাদ</string>
   <string name="FeedbackActivity.Failure">জমা দেওয়া যায়নি।অনুগ্রহ করে আবার চেষ্টা করুন</string>
-  <string name="FeedbackActivity.SubmitFeedbackFailed">প্রতিক্রিয়া জমা দিতে ব্যর্থ হয়েছে</string>
-  <string name="FeedbackActivity.InvalidURLParameters">প্রতিক্রিয়া ফর্ম জমা দিতে অবৈধ URL প্যারামিটার রয়েছে</string>
-  <string name="FeedbackActivity.GetHTMLContentFailed">প্রতিক্রিয়া পাতা এর কন্টেন্ট পেতে ব্যর্থ হয়েছে</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon ভিপিএন বন্ধ আছে</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার দ্বারা বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
   <string name="ads_consent_preference_dialog_title">রিসেট</string>
@@ -36,4 +33,11 @@
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <!--"Upstream proxy error" notification title-->
+  <!--"Upstream proxy error" notification text-->
+  <!--"Upstream proxy error" alert dialog title-->
+  <!--"Upstream proxy error" alert dialog message-->
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
 </resources>
