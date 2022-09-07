@@ -335,6 +335,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
         notificationBuilder
                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                .setGroup(getContext().getString(R.string.alert_notification_group))
                 .setContentTitle(getContext().getString(R.string.notification_title_action_required))
                 .setContentText(getContext().getString(R.string.notification_text_open_psiphon_to_finish_connecting))
                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -382,6 +383,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
             notificationBuilder
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                    .setGroup(getContext().getString(R.string.alert_notification_group))
                     .setContentTitle(getContext().getString(R.string.notification_title_vpn_revoked))
                     .setContentText(getContext().getString(R.string.notification_text_vpn_revoked))
                     .setStyle(new NotificationCompat.BigTextStyle()
@@ -540,6 +542,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
         return notificationBuilder
                 .setSmallIcon(iconID)
+                .setGroup(getContext().getString(R.string.status_notification_group))
                 .setContentTitle(getContext().getText(R.string.app_name))
                 .setContentText(contentText)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(contentText))
@@ -1213,6 +1216,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
                         notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setGroup(getContext().getString(R.string.alert_notification_group))
                                 .setContentTitle(getContext().getString(R.string.notification_title_region_not_available))
                                 .setContentText(getContext().getString(R.string.notification_text_region_not_available))
                                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -1308,6 +1312,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
                         notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setGroup(getContext().getString(R.string.alert_notification_group))
                                 .setContentTitle(getContext().getString(R.string.notification_title_upstream_proxy_error))
                                 .setContentText(getContext().getString(R.string.notification_text_upstream_proxy_error))
                                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -1467,6 +1472,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     String notificationMessage = context.getString(R.string.unsafe_traffic_alert_notification_message);
                     Notification notification = new NotificationCompat.Builder(context, NOTIFICATION_SERVER_ALERT_CHANNEL_ID)
                             .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                            .setGroup(getContext().getString(R.string.alert_notification_group))
                             .setContentTitle(context.getString(R.string.unsafe_traffic_alert_notification_title))
                             .setContentText(notificationMessage)
                             .setStyle(new NotificationCompat.BigTextStyle().bigText(notificationMessage))

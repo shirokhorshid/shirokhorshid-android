@@ -84,6 +84,7 @@ public class PsiphonCrashService extends NDCrashService {
 
             Notification notification = new NotificationCompat.Builder(this, NOTIFICATION_NATIVE_CRASH_CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                    .setGroup(getString(R.string.alert_notification_group))
                     .setContentTitle(getString(R.string.psiphon_native_crash_notification_title))
                     .setContentText(getString(R.string.psiphon_native_crash_notification_msg))
                     .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.psiphon_native_crash_notification_msg_long)))

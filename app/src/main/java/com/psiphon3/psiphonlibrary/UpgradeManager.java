@@ -455,6 +455,7 @@ public interface UpgradeManager
             if (mNotificationBuilder == null) {
                 mNotificationBuilder = new NotificationCompat.Builder(context, UPGRADE_NOTIFICATION_CHANNEL_ID)
                         .setSmallIcon(R.drawable.notification_icon_upgrade_available)
+                        .setGroup(context.getString(R.string.upgrade_notification_group))
                         .setContentIntent(invokeUpgradeIntent);
             }
             // Always update the text because the locale may have changed
