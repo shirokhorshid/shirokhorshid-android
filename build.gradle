@@ -34,7 +34,7 @@ ext {
     preferenceVersion = '1.1.1'
     localBroadCastManagerVersion = '1.0.0'
     junitVersion = '1.1.1'
-    workManagerVersion = '2.4.0'
+    workManagerVersion = '2.7.1'
     roomVersion = '2.4.1'
     pagingVersion = '2.1.2'
 }

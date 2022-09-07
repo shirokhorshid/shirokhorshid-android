@@ -24,6 +24,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.SystemClock;
 
@@ -206,7 +207,9 @@ public class UpgradeChecker extends BroadcastReceiver {
                 appContext,
                 ALARM_INTENT_REQUEST_CODE,
                 intent,
-                PendingIntent.FLAG_NO_CREATE) != null);
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        PendingIntent.FLAG_NO_CREATE | PendingIntent.FLAG_IMMUTABLE :
+                        PendingIntent.FLAG_NO_CREATE) != null);
 
         if (alarmExists) {
             MyLog.i("UpgradeChecker.createAlarm: alarmExists; aborting");
@@ -219,7 +222,9 @@ public class UpgradeChecker extends BroadcastReceiver {
                 appContext,
                 ALARM_INTENT_REQUEST_CODE,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE :
+                        PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmMgr = (AlarmManager)appContext.getSystemService(Context.ALARM_SERVICE);
         alarmMgr.setInexactRepeating(

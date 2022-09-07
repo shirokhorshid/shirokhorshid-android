@@ -448,7 +448,9 @@ public interface UpgradeManager
                             context,
                             0,
                             upgradeIntent,
-                            PendingIntent.FLAG_UPDATE_CURRENT);
+                            Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE :
+                                    PendingIntent.FLAG_UPDATE_CURRENT);
 
             if (mNotificationBuilder == null) {
                 mNotificationBuilder = new NotificationCompat.Builder(context, UPGRADE_NOTIFICATION_CHANNEL_ID)

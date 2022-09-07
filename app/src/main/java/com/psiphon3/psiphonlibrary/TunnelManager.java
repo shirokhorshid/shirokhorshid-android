@@ -449,7 +449,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 ctx,
                 0,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE :
+                        PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     private Single<Config> getTunnelConfigSingle() {
@@ -521,7 +523,13 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         Intent stopTunnelIntent = new Intent(getContext(), m_parentService.getClass());
         stopTunnelIntent.setAction(INTENT_ACTION_STOP_TUNNEL);
-        PendingIntent stopTunnelPendingIntent = PendingIntent.getService(getContext(), 0, stopTunnelIntent, 0);
+        PendingIntent stopTunnelPendingIntent = PendingIntent.getService(
+                getContext(),
+                0,
+                stopTunnelIntent,
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        0 | PendingIntent.FLAG_IMMUTABLE :
+                        0);
         NotificationCompat.Action notificationAction = new NotificationCompat.Action.Builder(
                         R.drawable.ic_btn_stop,
                         getContext().getString(R.string.stop),
@@ -745,9 +753,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     private void sendHandshakeIntent() {
         Intent fillInExtras = new Intent();
         fillInExtras.putExtras(getTunnelStateBundle());
-        PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE);
+        PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE, getTunnelStateBundle());
         try {
-            handshakePendingIntent.send(m_parentService, 0, fillInExtras);
+            handshakePendingIntent.send(m_parentService, 0, null);
         } catch (PendingIntent.CanceledException e) {
             MyLog.w("handshakePendingIntent send failed: " + e);
         }
