@@ -530,8 +530,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 0,
                 stopTunnelIntent,
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
-                        0 | PendingIntent.FLAG_IMMUTABLE :
-                        0);
+                        PendingIntent.FLAG_IMMUTABLE : 0);
         NotificationCompat.Action notificationAction = new NotificationCompat.Action.Builder(
                         R.drawable.ic_btn_stop,
                         getContext().getString(R.string.stop),
