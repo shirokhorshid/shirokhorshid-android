@@ -753,8 +753,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     private void sendHandshakeIntent() {
-        Intent fillInExtras = new Intent();
-        fillInExtras.putExtras(getTunnelStateBundle());
         PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE, getTunnelStateBundle());
         try {
             handshakePendingIntent.send(m_parentService, 0, null);
