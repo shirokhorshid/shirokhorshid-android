@@ -371,7 +371,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // otherwise show a notification.
         if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
             try {
-                vpnRevokedPendingIntent.send(m_parentService, 0, null);
+                vpnRevokedPendingIntent.send();
             } catch (PendingIntent.CanceledException e) {
                 MyLog.w("vpnRevokedPendingIntent send failed: " + e);
             }
@@ -755,7 +755,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     private void sendHandshakeIntent() {
         PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE, getTunnelStateBundle());
         try {
-            handshakePendingIntent.send(m_parentService, 0, null);
+            handshakePendingIntent.send();
         } catch (PendingIntent.CanceledException e) {
             MyLog.w("handshakePendingIntent send failed: " + e);
         }
@@ -1201,7 +1201,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // otherwise show a notification.
                     if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
                         try {
-                            regionNotAvailablePendingIntent.send(m_parentService, 0, null);
+                            regionNotAvailablePendingIntent.send();
                         } catch (PendingIntent.CanceledException e) {
                             MyLog.w("regionNotAvailablePendingIntent send failed: " + e);
                         }
@@ -1297,7 +1297,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // otherwise show a notification.
                     if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
                         try {
-                            upstreamProxyErrorPendingIntent.send(m_parentService, 0, null);
+                            upstreamProxyErrorPendingIntent.send();
                         } catch (PendingIntent.CanceledException e) {
                             MyLog.w("upstreamProxyErrorPendingIntent send failed: " + e);
                         }
