@@ -335,6 +335,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
         notificationBuilder
                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                .setGroup(getContext().getString(R.string.alert_notification_group))
                 .setContentTitle(getContext().getString(R.string.notification_title_action_required))
                 .setContentText(getContext().getString(R.string.notification_text_open_psiphon_to_finish_connecting))
                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -370,7 +371,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // otherwise show a notification.
         if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
             try {
-                vpnRevokedPendingIntent.send(m_parentService, 0, null);
+                vpnRevokedPendingIntent.send();
             } catch (PendingIntent.CanceledException e) {
                 MyLog.w("vpnRevokedPendingIntent send failed: " + e);
             }
@@ -382,6 +383,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
             notificationBuilder
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                    .setGroup(getContext().getString(R.string.alert_notification_group))
                     .setContentTitle(getContext().getString(R.string.notification_title_vpn_revoked))
                     .setContentText(getContext().getString(R.string.notification_text_vpn_revoked))
                     .setStyle(new NotificationCompat.BigTextStyle()
@@ -449,7 +451,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 ctx,
                 0,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE :
+                        PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     private Single<Config> getTunnelConfigSingle() {
@@ -521,7 +525,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         Intent stopTunnelIntent = new Intent(getContext(), m_parentService.getClass());
         stopTunnelIntent.setAction(INTENT_ACTION_STOP_TUNNEL);
-        PendingIntent stopTunnelPendingIntent = PendingIntent.getService(getContext(), 0, stopTunnelIntent, 0);
+        PendingIntent stopTunnelPendingIntent = PendingIntent.getService(
+                getContext(),
+                0,
+                stopTunnelIntent,
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        PendingIntent.FLAG_IMMUTABLE : 0);
         NotificationCompat.Action notificationAction = new NotificationCompat.Action.Builder(
                         R.drawable.ic_btn_stop,
                         getContext().getString(R.string.stop),
@@ -532,6 +541,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
         return notificationBuilder
                 .setSmallIcon(iconID)
+                .setGroup(getContext().getString(R.string.status_notification_group))
                 .setContentTitle(getContext().getText(R.string.app_name))
                 .setContentText(contentText)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(contentText))
@@ -743,11 +753,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     private void sendHandshakeIntent() {
-        Intent fillInExtras = new Intent();
-        fillInExtras.putExtras(getTunnelStateBundle());
-        PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE);
+        PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE, getTunnelStateBundle());
         try {
-            handshakePendingIntent.send(m_parentService, 0, fillInExtras);
+            handshakePendingIntent.send();
         } catch (PendingIntent.CanceledException e) {
             MyLog.w("handshakePendingIntent send failed: " + e);
         }
@@ -1193,7 +1201,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // otherwise show a notification.
                     if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
                         try {
-                            regionNotAvailablePendingIntent.send(m_parentService, 0, null);
+                            regionNotAvailablePendingIntent.send();
                         } catch (PendingIntent.CanceledException e) {
                             MyLog.w("regionNotAvailablePendingIntent send failed: " + e);
                         }
@@ -1205,6 +1213,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
                         notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setGroup(getContext().getString(R.string.alert_notification_group))
                                 .setContentTitle(getContext().getString(R.string.notification_title_region_not_available))
                                 .setContentText(getContext().getString(R.string.notification_text_region_not_available))
                                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -1288,7 +1297,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // otherwise show a notification.
                     if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
                         try {
-                            upstreamProxyErrorPendingIntent.send(m_parentService, 0, null);
+                            upstreamProxyErrorPendingIntent.send();
                         } catch (PendingIntent.CanceledException e) {
                             MyLog.w("upstreamProxyErrorPendingIntent send failed: " + e);
                         }
@@ -1300,6 +1309,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
                         notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setGroup(getContext().getString(R.string.alert_notification_group))
                                 .setContentTitle(getContext().getString(R.string.notification_title_upstream_proxy_error))
                                 .setContentText(getContext().getString(R.string.notification_text_upstream_proxy_error))
                                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -1459,6 +1469,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     String notificationMessage = context.getString(R.string.unsafe_traffic_alert_notification_message);
                     Notification notification = new NotificationCompat.Builder(context, NOTIFICATION_SERVER_ALERT_CHANNEL_ID)
                             .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                            .setGroup(getContext().getString(R.string.alert_notification_group))
                             .setContentTitle(context.getString(R.string.unsafe_traffic_alert_notification_title))
                             .setContentText(notificationMessage)
                             .setStyle(new NotificationCompat.BigTextStyle().bigText(notificationMessage))

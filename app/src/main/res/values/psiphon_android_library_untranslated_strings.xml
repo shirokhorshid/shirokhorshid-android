@@ -42,6 +42,9 @@
     <string name="feedbackPreferenceKey" translatable="false">feedbackPreferenceKey</string>
     <string name="moreOptionsPreferenceKey" translatable="false">moreOptionsPreferenceKey</string>
     <string name="regionPreferenceKey" translatable="false">regionPreferenceKey</string>
+    <string name="alert_notification_group" translatable="false">alert_notification_group</string>
+    <string name="upgrade_notification_group" translatable="false">upgrade_notification_group</string>
+    <string name="status_notification_group" translatable="false">status_notification_group</string>
 
     <string-array name="languages">
         <item>English,en</item>

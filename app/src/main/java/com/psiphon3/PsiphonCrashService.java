@@ -74,15 +74,17 @@ public class PsiphonCrashService extends NDCrashService {
         if (tmpReportFile.exists()) {
             Intent intent = new Intent(this, FeedbackActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent pendingIntent;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-            } else {
-                pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            }
+            PendingIntent pendingIntent = PendingIntent.getActivity(
+                    this,
+                    0,
+                    intent,
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                            PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE :
+                            PendingIntent.FLAG_UPDATE_CURRENT);
 
             Notification notification = new NotificationCompat.Builder(this, NOTIFICATION_NATIVE_CRASH_CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                    .setGroup(getString(R.string.alert_notification_group))
                     .setContentTitle(getString(R.string.psiphon_native_crash_notification_title))
                     .setContentText(getString(R.string.psiphon_native_crash_notification_msg))
                     .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.psiphon_native_crash_notification_msg_long)))
