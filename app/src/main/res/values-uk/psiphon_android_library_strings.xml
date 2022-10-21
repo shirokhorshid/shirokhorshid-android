@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Чекаємо на під\'єднання до мережі...</string>
   <string name="psiphon_service_notification_message_connecting">Під\'єднання...</string>
   <string name="psiphon_service_notification_id">Служба сповіщення Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Статус Psiphon змінено</string>
   <string name="psiphon_upgrade_notification_channel_name">Оновлення Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Вибір регіону сервера</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Збої Psiphon</string>
   <string name="vpn_service_running">Працює cлужба VPN </string>
   <string name="vpn_service_revoked">Службу VPN скасовано</string>
   <string name="current_network_type">Поточна мережа: %s</string>
@@ -84,22 +87,54 @@
   <string name="preference_notifications_title">Сповіщення</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Для всіх додатків</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Вибрати додатки</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Для вибраних додатків</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Виключені програми</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Крім вибраних додатків</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Тунелювання додатка: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Програма, виключена з тунелювання: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Жодна програма не виключена з тунелювання</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Вибір програм</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">Додаток через VPN: %d</item>
+    <item quantity="few">Додатка через VPN: %d</item>
+    <item quantity="many">Додатків через VPN: %d</item>
+    <item quantity="other">Додатків через VPN: %d</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">Виключеного з VPN додатка: %d</item>
+    <item quantity="few">Виключених з VPN додатка:  %d</item>
+    <item quantity="many">Виключених з VPN додатків: %d</item>
+    <item quantity="other">Виключених з VPN додатків: %d</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Тунелювати всі додатки</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Тунелювання додаткіа: %d</item>
+    <item quantity="few">Тунелювання додатка: %d</item>
+    <item quantity="many">Тунелювання додатків: %d</item>
+    <item quantity="other">Тунелювання додатків: %d</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">Виключений додаток: %d</item>
+    <item quantity="few">Виключених додатків: %d</item>
+    <item quantity="many">Виключених додатків: %d</item>
+    <item quantity="other">Виключених додатків: %d</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">Усі додатки будуть пропущені через VPN</string>
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Звук під час зміни стану з\'єднання</string>
   <string name="preference_notifications_with_vibrate_title">Вібрувати</string>
@@ -124,10 +159,18 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Помилка проксі-сервера: %s</string>
   <string name="start_tunnel_failed">Не вдалося запустити тунель: %s</string>
+  <string name="vpn_exclusions_conflict">У ваших поточних виключеннях VPN є одна або кілька конфліктуючих програм. Перейдіть до налаштувань VPN і перейдіть у режим «Тунелювати всі програми», щоб підключитися.</string>
   <string name="tunnel_connecting">Тунель з\'єднується...</string>
   <string name="tunnel_connected">Тунель з\'єднаний</string>
   <string name="waiting">Очікування...</string>
+  <string name="label_vpn_settings">Налаштування VPN</string>
   <string name="label_proxy_settings">Налаштування проксі</string>
   <string name="preference_summary_no_proxy">Немає Проксі</string>
+  <string name="preference_summary_custom_proxy">Власний проксі</string>
+  <string name="preference_summary_system_proxy">Системний проксі</string>
   <string name="disableTimeoutsPreferenceTitle">Вимкнути блокування за часом</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Тільки Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Показувати сповіщення MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Отримуйте сповіщення, коли Psiphon виявляє трафік зловмисного програмного забезпечення, що надходить з вашого пристрою.</string>
+  <string name="aboutMalAware">Про зловмисне програмне забезпечення</string>
 </resources>
