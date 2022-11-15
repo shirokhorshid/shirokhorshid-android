@@ -31,7 +31,11 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.VpnService;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -233,10 +237,11 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .doOnNext(url -> displayBrowser(this, url))
                 .subscribe());
 
-        // Check if the unsafe traffic alerts preference should be gathered
-        // and then if the tunnel should be started automatically
+        // Check if user data collection disclosure needs to be shown followed by the unsafe traffic
+        // alerts preference check and then check if the tunnel should be started automatically
         compositeDisposable.add(
-                unsafeTrafficAlertsCompletable()
+                vpnServiceDataCollectionDisclosureCompletable()
+                        .andThen(unsafeTrafficAlertsCompletable())
                         .andThen(autoStartMaybe())
                         .doOnSuccess(__ -> startTunnel())
                         .subscribe());
@@ -286,6 +291,54 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                     }
                 });
             }
+        })
+                .subscribeOn(AndroidSchedulers.mainThread());
+    }
+
+    // Completes right away if VPN service data collection disclosure has been accepted, otherwise
+    // displays a prompt and waits until the user accepts and preference is stored, then completes.
+    Completable vpnServiceDataCollectionDisclosureCompletable() {
+        return Completable.create(emitter -> {
+            if (multiProcessPreferences.getBoolean(getString(R.string.vpnServiceDataCollectionDisclosureAccepted), false) &&
+                    !emitter.isDisposed()) {
+                emitter.onComplete();
+            }
+            View dialogView = getLayoutInflater().inflate(R.layout.vpn_data_collection_disclosure_prompt_layout, null);
+
+            String topMessage = String.format(getString(R.string.vpn_data_collection_disclosure_top), getString(R.string.app_name));
+
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append(topMessage);
+            spannableStringBuilder.append("\n\n");
+            SpannableString bp = new SpannableString(getString(R.string.vpn_data_collection_disclosure_bp1));
+            bp.setSpan(new BulletSpan(15), 0, bp.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableStringBuilder.append(bp);
+            spannableStringBuilder.append("\n\n");
+            bp = new SpannableString(getString(R.string.vpn_data_collection_disclosure_bp2));
+            bp.setSpan(new BulletSpan(15), 0, bp.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableStringBuilder.append(bp);
+            ((TextView)dialogView.findViewById(R.id.textView)).setText(spannableStringBuilder);
+
+            final AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setCancelable(false)
+                    .setTitle(R.string.vpn_data_collection_disclosure_prompt_title)
+                    .setView(dialogView)
+                    // Only emit a completion event if we have a positive response
+                    .setPositiveButton(R.string.vpn_data_collection_disclosure_accept_btn_text,
+                            (dialog, whichButton) -> {
+                                multiProcessPreferences.put(getString(R.string.vpnServiceDataCollectionDisclosureAccepted), true);
+                                if (!emitter.isDisposed()) {
+                                    emitter.onComplete();
+                                }
+                            })
+                    .show();
+            // Also dismiss the alert when subscription is disposed, for example, on orientation
+            // change or when the app is backgrounded.
+            emitter.setCancellable(() -> {
+                if (alertDialog != null && alertDialog.isShowing()) {
+                    alertDialog.dismiss();
+                }
+            });
         })
                 .subscribeOn(AndroidSchedulers.mainThread());
     }
@@ -488,7 +541,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 Bundle extras = intent.getExtras();
                 ArrayList<String> unsafeTrafficSubjects = null;
                 ArrayList<String> unsafeTrafficActionUrls = null;
-                if (extras != null ) {
+                if (extras != null) {
                     unsafeTrafficSubjects = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST);
                     unsafeTrafficActionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
                 }

@@ -80,4 +80,26 @@
     <string name="psiphon_native_crash_notification_msg">Please send us feedback.</string>
     <!-- Notification longer message for the 'Psiphon crash detected' notification -->
     <string name="psiphon_native_crash_notification_msg_long">Please click this notification to send us feedback. This will help us understand the problem so that we can fix it faster.</string>
+
+    <!-- Data collection disclosure prompt button text -->
+    <string name="vpn_data_collection_disclosure_accept_btn_text">I accept</string>
+
+    <!-- Data collection disclosure prompt title -->
+    <string name="vpn_data_collection_disclosure_prompt_title">Data collection disclosure</string>
+
+    <!-- First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language. -->
+    <string name="vpn_data_collection_disclosure_top">%s uses the Android VPN service to provide you with uncensored access to Internet content. We collect, aggregate, and store the following information:</string>
+
+    <!-- Data collection disclosure list item -->
+    <string name="vpn_data_collection_disclosure_bp1">Your city, country, and ISP are derived from the IP address that you connect to our servers from. The IP address is not logged and is immediately discarded. This data is collected for usage and performance statistics and service health purposes.</string>>
+
+    <!-- Data collection disclosure list item -->
+    <string name="vpn_data_collection_disclosure_bp2">Your email, when you send us a diagnostics or crash log feedback. Providing email in the feedback is optional.</string>
+
+    <!-- Data collection disclosure list item -->
+    <string name="vpn_data_collection_disclosure_bp3">Your PsiCash account username, password, and optionally, email.</string>
+
+    <!-- Data collection disclosure list item -->
+    <string name="vpn_data_collection_disclosure_bottom">In addition to the data we collect, your device advertising ID may be shared with third party ad service providers unless you opt out of ad personalization in Android Settings.</string>
+
 </resources>
