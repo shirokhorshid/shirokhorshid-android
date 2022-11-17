@@ -91,7 +91,7 @@
     <string name="vpn_data_collection_disclosure_top">%s uses the Android VPN service to provide you with uncensored access to Internet content. We collect, aggregate, and store the following information:</string>
 
     <!-- Data collection disclosure list item -->
-    <string name="vpn_data_collection_disclosure_bp1">Your city, country, and ISP are derived from the IP address that you connect to our servers from. The IP address is not logged and is immediately discarded. This data is collected for usage and performance statistics and service health purposes.</string>>
+    <string name="vpn_data_collection_disclosure_bp1">Your city, country, and ISP are derived from the IP address that you connect to our servers from, and the IP address itself is never logged. This data is collected for usage and performance statistics and service health purposes.</string>>
 
     <!-- Data collection disclosure list item -->
     <string name="vpn_data_collection_disclosure_bp2">Your email, when you send us a diagnostics or crash log feedback. Providing email in the feedback is optional.</string>
