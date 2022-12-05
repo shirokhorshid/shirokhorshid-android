@@ -77,4 +77,18 @@
   <string name="psiphon_native_crash_notification_msg">Будь ласка, надішліть нам відгук.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg_long">Натисніть це сповіщення, щоб надіслати нам відгук. Це допоможе нам зрозуміти проблему, щоб ми могли її швидше вирішити.</string>
+  <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Я погоджуюся</string>
+  <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Розкриття інформації щодо збору даних</string>
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s використовує службу Android VPN для надання Вам нецензурованого доступу до Інтернет-контенту. Ми збираємо, узагальнюємо та зберігаємо наступну інформацію:</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Ваше місто, країна та інтернет-провайдер визначаються з IP-адреси, з якої ви підключаєтеся до наших серверів, а сама IP-адреса ніколи не реєструється. Ці дані збираються для статистики використання та продуктивності, а також з метою перевірки працездатності сервісу.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Ваша електронна пошта, коли ви надсилаєте нам відгук про діагностику або аварійний журнал. Вказувати електронну пошту у зворотному зв\'язку не обов\'язково.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Ім\'я користувача, пароль та, за бажанням, електронну пошту вашого облікового запису PsiCash.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bottom">На додачу ми збираємо рекламний ідентифікатор вашого пристрою і може бути переданий стороннім постачальникам рекламних послуг, якщо ви не відмовитеся від персоналізації реклами в налаштуваннях Android.</string>
 </resources>

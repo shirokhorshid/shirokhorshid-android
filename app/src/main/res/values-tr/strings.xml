@@ -77,4 +77,18 @@
   <string name="psiphon_native_crash_notification_msg">Lütfen bize çökme bildirimi gönderin.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg_long">Lütfen bize göndermek için bu çökme bildirimine tıklayın. Böylece sorunu anlayıp daha hızlı çözmemiz için bize yardımcı olabilirsiniz.</string>
+  <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Kabul ediyorum</string>
+  <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Veri toplama bildirimi</string>
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s, İnternet içeriğine sansürsüz erişmenizi sağlamak için Android VPN hizmetini kullanır. Aşağıdaki bilgileri toplar, derler ve saklarız:</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">İliniz, ülkeniz ve İnternet hizmeti sağlayıcınız, sunucularımıza bağlandığınız IP adresinden türetilir ve IP adresinin kendisi hiçbir zaman günlüğe kaydedilmez. Bu veriler, kullanım ve başarım istatistikleri ile hizmetin kalitesini ölçme amaçları için toplanır.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Bize bir tanı ya da kilitlenme günlüğü geri bildirimi gönderdiğinizde belirttiğiniz e-posta adresi. Geri bildirimde e-posta adresi belirtilmesi zorunlu değildir ve isteğe bağlıdır.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">PsiCash hesabı kullanıcı adınız, parolanız ve isteğe bağlı olarak belirtebileceğiniz e-posta adresiniz.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bottom">Android ayarlarında reklam kişiselleştirmeyi devre dışı bırakmadığınız sürece, topladığımız verilere ek olarak, aygıt reklam kimliğiniz üçüncü taraf reklam hizmeti sağlayıcılarıyla paylaşılabilir.</string>
 </resources>

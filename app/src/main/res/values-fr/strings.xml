@@ -77,4 +77,18 @@
   <string name="psiphon_native_crash_notification_msg">Veuillez nous envoyer une rétroaction.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg_long">Veuillez cliquer sur cette notification pour nous envoyer une rétroaction. Cela nous aidera à comprendre le problème afin que nous puissions y remédier plus rapidement.</string>
+  <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">J\'accepte</string>
+  <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Divulgation de connexion de donnée</string>
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s utilise le service RPV Android pour vous fournir un accès non-censuré au contenu internet. Nous collectons, agrégeons et stockons les informations suivantes :</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Votre ville, pays et FAI sont dérivés de l\'adresse IP que vous utilisez pour vous connecter à nos serveurs, l\'adresse IP elle-même n\'est jamais enregistrée. Ces données sont collectées pour des statistiques d\'utilisation et de performance et pour les services de santé.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostique ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est optionnel.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Votre nom d\'utilisateur PsiCash, votre mot de passe et optionnellement votre adresse courriel.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bottom">En plus des données que nous collectons, l\'identifiant de publicité de votre appareil peut être partagé avec des fournisseurs tiers de services publicitaires sauf si vous ne modifiez pas la personnalisation de publicité dans vos paramètres Android.</string>
 </resources>
