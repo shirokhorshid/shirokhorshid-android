@@ -192,8 +192,11 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         viewPager.post(() ->
                 viewPager.setCurrentItem(multiProcessPreferences.getInt(CURRENT_TAB, 0), false));
 
-        // Schedule handling current intent when the main view is fully inflated
-        getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
+        // Handle current intent only if we are not recreating from saved state
+        if (savedInstanceState == null) {
+            // Schedule handling current intent when the main view is fully inflated
+            getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
+        }
     }
 
     @Override
