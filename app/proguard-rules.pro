@@ -15,6 +15,3 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
-# keep all of the ca.psiphon package
--keep class ca.psiphon.** {*;}

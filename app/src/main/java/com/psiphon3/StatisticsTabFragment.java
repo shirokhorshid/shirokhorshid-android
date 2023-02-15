@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.psiphon3.psiphonlibrary.DataTransferStats;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.Utils;
 
 import org.achartengine.ChartFactory;
@@ -61,10 +61,6 @@ public class StatisticsTabFragment extends Fragment {
     public void onViewCreated(@NonNull View fragmentView, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(fragmentView, savedInstanceState);
 
-        MainActivityViewModel viewModel = new ViewModelProvider(requireActivity(),
-                new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()))
-                .get(MainActivityViewModel.class);
-
         elapsedConnectionTimeView = fragmentView.findViewById(R.id.elapsedConnectionTime);
         totalSentView = fragmentView.findViewById(R.id.totalSent);
         totalReceivedView = fragmentView.findViewById(R.id.totalReceived);
@@ -74,7 +70,8 @@ public class StatisticsTabFragment extends Fragment {
         fastSentGraph = new DataTransferGraph(fragmentView, R.id.fastSentGraph);
         fastReceivedGraph = new DataTransferGraph(fragmentView, R.id.fastReceivedGraph);
 
-        compositeDisposable.add(viewModel.dataStatsFlowable()
+        compositeDisposable.add(((LocalizedActivities.AppCompatActivity) requireActivity())
+                .getTunnelServiceInteractor().dataStatsFlowable()
                 .startWith(Boolean.FALSE)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(this::updateStatisticsUICallback)

@@ -1,5 +1,7 @@
 package com.psiphon3;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +15,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity;
 import com.psiphon3.psiphonlibrary.ProxyOptionsPreferenceActivity;
 import com.psiphon3.psiphonlibrary.PsiphonConstants;
@@ -30,9 +33,12 @@ import net.grandcentrix.tray.core.SharedPreferencesImport;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
+    private enum RestartMode {
+        NONE,
+        VPN,
+        TUNNEL
+    }
     private static final int REQUEST_CODE_VPN_PREFERENCES = 100;
     private static final int REQUEST_CODE_PROXY_PREFERENCES = 101;
     private static final int REQUEST_CODE_MORE_PREFERENCES = 102;
@@ -43,6 +49,7 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
     private AppPreferences multiProcessPreferences;
     private MainActivityViewModel viewModel;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private TunnelServiceInteractor tunnelServiceInteractor;
 
     @Override
     public void onCreatePreferences(Bundle bundle, String s) {
@@ -115,6 +122,8 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()))
                 .get(MainActivityViewModel.class);
 
+        tunnelServiceInteractor = ((LocalizedActivities.AppCompatActivity) requireActivity())
+                .getTunnelServiceInteractor();
 
         // Observe available regions set changes.
         compositeDisposable.add(viewModel.updateAvailableRegionsFlowable()
@@ -173,7 +182,7 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
 
         // NOTE: reconnects even when Any is selected: we could select a
         // faster server
-        viewModel.restartPsiphon(TunnelServiceInteractor.RestartMode.TUNNEL);
+        tunnelServiceInteractor.commandTunnelRestart();
     }
 
     private void setSummaryFromPreferences() {
@@ -211,39 +220,48 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
 
     @Override
     public void onActivityResult(int request, int result, Intent data) {
-        final TunnelServiceInteractor.RestartMode restartMode;
+        final @NonNull RestartMode restartMode;
         switch (request) {
             case REQUEST_CODE_VPN_PREFERENCES:
-                restartMode = vpnSettingsRestartRequired() ? TunnelServiceInteractor.RestartMode.VPN : null;
+                restartMode = vpnSettingsRestartRequired() ? RestartMode.VPN : RestartMode.NONE;
                 updateVpnSettingsFromPreferences();
                 break;
 
             case REQUEST_CODE_PROXY_PREFERENCES:
-                restartMode = proxySettingsRestartRequired() ? TunnelServiceInteractor.RestartMode.TUNNEL : null;
+                restartMode = proxySettingsRestartRequired() ? RestartMode.TUNNEL : RestartMode.NONE;
                 updateProxySettingsFromPreferences();
                 break;
 
             case REQUEST_CODE_MORE_PREFERENCES:
-                restartMode = moreSettingsRestartRequired() ? TunnelServiceInteractor.RestartMode.TUNNEL : null;
+                restartMode = moreSettingsRestartRequired() ? RestartMode.TUNNEL : RestartMode.NONE;
                 updateMoreSettingsFromPreferences();
                 break;
 
             default:
-                restartMode = null;
+                restartMode = RestartMode.NONE;
                 super.onActivityResult(request, result, data);
                 break;
         }
 
-        if (restartMode != null) {
-            compositeDisposable.add(viewModel.tunnelStateFlowable()
+        if (restartMode != RestartMode.NONE) {
+            compositeDisposable.add(tunnelServiceInteractor.tunnelStateFlowable()
                     .filter(tunnelState -> !tunnelState.isUnknown())
                     .firstOrError()
                     .doOnSuccess(state -> {
                         if (state.isRunning()) {
                             if (viewModel.validateCustomProxySettings()) {
-                                viewModel.restartPsiphon(restartMode);
+                                switch (restartMode) {
+                                    case VPN:
+                                        tunnelServiceInteractor.scheduleVpnServiceRestart(requireContext());
+                                        break;
+                                    case TUNNEL:
+                                        tunnelServiceInteractor.commandTunnelRestart();
+                                        break;
+                                    default:
+                                        break;
+                                }
                             } else {
-                                viewModel.stopTunnelService();
+                                tunnelServiceInteractor.stopTunnelService();
                             }
                         }
                     })
@@ -251,8 +269,6 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
         }
 
         if (data != null && data.getBooleanExtra(MoreOptionsPreferenceActivity.INTENT_EXTRA_LANGUAGE_CHANGED, false)) {
-            // Signal the service to update notifications with new language
-            viewModel.sendLocaleChangedMessage();
             // This is a bit of a weird hack to cause a restart, but it works
             // Previous attempts to use the alarm manager or others caused a variable amount of wait (up to about a second)
             // before the activity would relaunch. This *seems* to provide the best functionality across phones.
@@ -263,7 +279,7 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 intent.putExtra(MainActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
                 startActivity(intent);
                 System.exit(1);
-            }, restartMode != null ? 1000 : 0);
+            }, restartMode != RestartMode.NONE ? 1000 : 0);
         }
     }
 

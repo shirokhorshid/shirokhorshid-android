@@ -29,7 +29,6 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.net.VpnService;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -58,7 +57,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.psiphon3.log.LogsMaintenanceWorker;
-import com.psiphon3.log.MyLog;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.TunnelManager;
@@ -94,8 +92,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainActivity.PREVENT_AUTO_START";
     private static final String CURRENT_TAB = "currentTab";
     private static final String BANNER_FILE_NAME = "bannerImage";
-
-    private static final int REQUEST_CODE_PREPARE_VPN = 100;
 
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private Button toggleButton;
@@ -146,18 +142,17 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         defaultProgressBarDrawable = connectionProgressBar.getIndeterminateDrawable();
         openBrowserButton = findViewById(R.id.openBrowserButton);
         toggleButton.setOnClickListener(v ->
-                compositeDisposable.add(viewModel.tunnelStateFlowable()
+                compositeDisposable.add(getTunnelServiceInteractor().tunnelStateFlowable()
                         .filter(state -> !state.isUnknown())
                         .take(1)
                         .doOnNext(state -> {
                             if (state.isRunning()) {
-                                viewModel.stopTunnelService();
+                                getTunnelServiceInteractor().stopTunnelService();
                             } else {
                                 startTunnel();
                             }
                         })
                         .subscribe()));
-
         tabLayout = findViewById(R.id.main_activity_tablayout);
         tabLayout.addTab(tabLayout.newTab().setTag("home").setText(R.string.home_tab_name));
         tabLayout.addTab(tabLayout.newTab().setTag("statistics").setText(R.string.statistics_tab_name));
@@ -216,7 +211,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // Observe tunnel state changes to update UI
-        compositeDisposable.add(viewModel.tunnelStateFlowable()
+        compositeDisposable.add(getTunnelServiceInteractor().tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(this::updateServiceStateUI)
                 .subscribe());
@@ -344,19 +339,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             });
         })
                 .subscribeOn(AndroidSchedulers.mainThread());
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_PREPARE_VPN) {
-            if (resultCode == RESULT_OK) {
-                viewModel.startTunnelService();
-            } else if (resultCode == RESULT_CANCELED) {
-                showVpnAlertDialog(R.string.StatusActivity_VpnPromptCancelledTitle,
-                        R.string.StatusActivity_VpnPromptCancelledMessage);
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -633,52 +615,13 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         return false;
     }
 
-    private void showVpnAlertDialog(int titleId, int messageId) {
-        new AlertDialog.Builder(this)
-                .setCancelable(true)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle(titleId)
-                .setMessage(messageId)
-                .setPositiveButton(android.R.string.ok, null)
-                .show();
-    }
-
-    private void startTunnel() {
+    @Override
+    public void startTunnel() {
         // Don't start if custom proxy settings is selected and values are invalid
         if (!viewModel.validateCustomProxySettings()) {
             return;
         }
-        boolean waitingForPrompt = doVpnPrepare();
-        if (!waitingForPrompt) {
-            viewModel.startTunnelService();
-        }
-    }
-
-    private boolean doVpnPrepare() {
-        // Devices without VpnService support throw various undocumented
-        // exceptions, including ActivityNotFoundException and ActivityNotFoundException.
-        // For example: http://code.google.com/p/ics-openvpn/source/browse/src/de/blinkt/openvpn/LaunchVPN.java?spec=svn2a81c206204193b14ac0766386980acdc65bee60&name=v0.5.23&r=2a81c206204193b14ac0766386980acdc65bee60#376
-        try {
-            Intent intent = VpnService.prepare(this);
-            if (intent != null) {
-                // TODO: can we disable the mode before we reach this this
-                // failure point with
-                // resolveActivity()? We'll need the intent from prepare() or
-                // we'll have to mimic it.
-                // http://developer.android.com/reference/android/content/pm/PackageManager.html#resolveActivity%28android.content.Intent,%20int%29
-
-                startActivityForResult(intent, REQUEST_CODE_PREPARE_VPN);
-
-                // start service will be called in onActivityResult
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            MyLog.e(R.string.tunnel_whole_device_exception, MyLog.Sensitivity.NOT_SENSITIVE);
-            // true = waiting for prompt, although we can't start the
-            // activity so onActivityResult won't be called
-            return true;
-        }
+        super.startTunnel();
     }
 
     private void cancelInvalidProxySettingsToast() {

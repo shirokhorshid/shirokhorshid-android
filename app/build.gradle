@@ -104,6 +104,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
     implementation "com.jakewharton.rxrelay2:rxrelay:$rootProject.ext.rxrelayVersion"
 
+    api "androidx.lifecycle:lifecycle-viewmodel:$rootProject.ext.lifecycleViewModelVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleViewModelVersion"
+
     implementation "androidx.work:work-runtime:$rootProject.ext.workManagerVersion"
     implementation "androidx.work:work-rxjava2:$rootProject.ext.workManagerVersion"
 
