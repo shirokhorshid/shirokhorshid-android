@@ -724,6 +724,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             manager.m_context = localeManager.setNewLocale(manager.m_parentService, languageCode);
         }
         manager.updateNotifications();
+        // Also update upgrade notifications
+        UpgradeManager.UpgradeInstaller.updateNotification(manager.getContext());
     }
 
     private Message composeClientMessage(int what, Bundle data) {
@@ -836,6 +838,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_isStopping.set(false);
         m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
         m_isRoutingThroughTunnelPublishRelay.accept(Boolean.FALSE);
+
+        // Notify if an upgrade has already been downloaded and is waiting for install
+        UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext(), PsiphonTunnel.getDefaultUpgradeDownloadFilePath(getContext()));
 
         MyLog.i(R.string.starting_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
@@ -1390,6 +1395,16 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             @Override
             public void run() {
                 m_tunnelState.clientRegion = region;
+            }
+        });
+    }
+
+    @Override
+    public void onClientUpgradeDownloaded(String filename) {
+        m_Handler.post(new Runnable() {
+            @Override
+            public void run() {
+                UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext(), filename);
             }
         });
     }
