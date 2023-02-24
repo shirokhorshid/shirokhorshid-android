@@ -233,7 +233,8 @@ public class TunnelServiceInteractor {
                         MyLog.e("sendServiceMessage failed: " + e);
                     }
                     return Completable.complete();
-                });
+                })
+                .onErrorComplete();
     }
 
     private static TunnelManager.State getTunnelStateFromBundle(Bundle data) {
