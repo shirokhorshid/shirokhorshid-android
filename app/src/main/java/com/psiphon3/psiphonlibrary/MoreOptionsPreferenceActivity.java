@@ -22,7 +22,6 @@ package com.psiphon3.psiphonlibrary;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -147,11 +146,15 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                 localeManager.setNewLocale(getActivity(), languageCode);
             }
 
+            // Signal tunnel service
+            ((LocalizedActivities.AppCompatActivity) requireActivity())
+                    .getTunnelServiceInteractor()
+                    .sendLocaleChangedMessage();
             // Finish back to the MainActivity and inform the language has changed
             Intent data = new Intent();
             data.putExtra(INTENT_EXTRA_LANGUAGE_CHANGED, true);
-            getActivity().setResult(RESULT_OK, data);
-            getActivity().finish();
+            requireActivity().setResult(RESULT_OK, data);
+            requireActivity().finish();
         }
 
         private void setupLanguageSelector(PreferenceScreen preferences) {

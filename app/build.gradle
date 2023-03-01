@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 31
 
-    def versionPropsFile = new File('version.properties')
+    def versionPropsFile = rootProject.file('version.properties')
 
     if (versionPropsFile.canRead()) {
         def Properties props = new Properties()
@@ -58,7 +58,7 @@ android {
         abortOnError false
     }
 
-    def propFile = new File('signing.properties')
+    def propFile = rootProject.file('signing.properties')
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
@@ -103,6 +103,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
     implementation "com.jakewharton.rxrelay2:rxrelay:$rootProject.ext.rxrelayVersion"
+
+    api "androidx.lifecycle:lifecycle-viewmodel:$rootProject.ext.lifecycleViewModelVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleViewModelVersion"
 
     implementation "androidx.work:work-runtime:$rootProject.ext.workManagerVersion"
     implementation "androidx.work:work-rxjava2:$rootProject.ext.workManagerVersion"
