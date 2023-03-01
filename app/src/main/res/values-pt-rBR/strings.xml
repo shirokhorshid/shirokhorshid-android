@@ -5,7 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Se você tiver algum comentário específico, informações sobre páginas que não funcionam, ou se este formulário não funciona para você, por favor escreva &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Obrigado por enviar seus comentários</string>
   <string name="FeedbackActivity.Failure">Falha no envio. Por favor tente novamente.</string>
-  <string name="ads_consent_preference_dialog_title">Resetar</string>
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_default_language">Idioma padrão</string>
   <string name="preference_category_advanced_title">Avançado</string>
@@ -40,7 +39,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

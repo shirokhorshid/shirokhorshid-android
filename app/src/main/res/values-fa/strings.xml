@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon نمی‌تواند شروع به کار کند</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">امکان اجرای وی‌پی‌ان توسط Psiphon وجود ندارد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و تنظیم شده تا همیشه در حال اجراء باشد.</string>
   <string name="selected_region_currently_not_available">ناحیه‌ی انتخاب شده در حال حاضر در دسترس نیست، لطفا ناحیه‌ی دیگری را انتخاب کنید.</string>
-  <string name="ads_consent_preference_category_title">شخصی کردن آگهی‌ها</string>
-  <string name="ads_consent_preference_dialog_preference_message">آیا تایید می‌کنید که می‌خواهید تنظیمات شخصی‌کردن آگهی‌ها را دوباره تنظیم کنید؟ </string>
-  <string name="ads_consent_preference_title">ترجیحات شخصی‌شده آگهی‌ها را دوباره تنظیم کنید. </string>
-  <string name="ads_consent_preference_dialog_title">راه اندازی مجدد</string>
-  <string name="ads_consent_preference_summary">ترجیحات خود را دوباره تنظیم کنید تا شبکه‌های تبلیغاتی بتوانند از کوکی‌ها و اطلاعات شخصی‌تان استفاده کند. </string>
   <string name="preference_language_selection_summary">زبان را انتخاب کنید</string>
   <string name="preference_language_selection_title">زبان</string>
   <string name="preference_language_title">انتخاب زبان</string>
@@ -91,6 +86,4 @@
   <string name="vpn_data_collection_disclosure_bp2">ایمیل شما، زمانی که برای ما بازخورد یا گزارش خرابی ارسال می‌کنید. ارائه ایمیل در بازخورد اختیاری است.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">نام کاربری، رمز عبور و در صورت تمایل، ایمیل حساب PsiCash شما.</string>
-  <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bottom">علاوه بر داده‌هایی که جمع‌آوری می‌کنیم، شناسه تبلیغاتی دستگاه شما ممکن است با ارائه‌دهندگان خدمات آگهی شخص ثالث به اشتراک گذاشته شود، مگر اینکه از شخصی‌سازی آگهی در تنظیمات Android انصراف دهید.</string>
 </resources>

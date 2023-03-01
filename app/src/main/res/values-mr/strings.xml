@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">सायफोन व्हीपीएन प्रारंभ करू शकत नाही</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">सायफोन व्हीपीएन सुरू करू शकत नाही. एकाधिक व्हीपीएन अ‍ॅप्स एकाच वेळी चालू शकत नाहीत. दुसरे व्हीपीएन अ‍ॅप स्थापित आणि तो नेहमी-चालू वर सेट केले आहे का ते तपासा.</string>
   <string name="selected_region_currently_not_available">निवडलेला प्रदेश सध्या उपलब्ध नाही, कृपया दुसरा प्रदेश निवडा.</string>
-  <string name="ads_consent_preference_category_title">जाहिरातिचे वैयक्तिकरण</string>
-  <string name="ads_consent_preference_dialog_preference_message">आपण खरोखर आपल्या जाहिराती वैयक्तिकरण प्राधान्य रीसेट करू इच्छिता?</string>
-  <string name="ads_consent_preference_title">जाहिराती वैयक्तिकरण प्राधान्य रीसेट करा </string>
-  <string name="ads_consent_preference_dialog_title">रीसेट</string>
-  <string name="ads_consent_preference_summary">कुकीज आणि आपला वैयक्तिक डेटा वापरण्यास जाहिरात नेटवर्कला अनुमती देण्यासाठी आपले प्राधान्य रीसेट करा</string>
   <string name="preference_language_selection_summary">भाषा निवडा</string>
   <string name="preference_language_selection_title">भाषा</string>
   <string name="preference_language_title">भाषा निवड</string>
@@ -66,7 +61,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

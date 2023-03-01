@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN no puede iniciar</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon no puede iniciar la VPN. Varias aplicaciones VPN no se pueden ejecutar al mismo tiempo. Compruebe si tiene otra aplicación de VPN instalada y en ejecución.</string>
   <string name="selected_region_currently_not_available">La región seleccionada no está disponible actualmente, por favor seleccione otra región.</string>
-  <string name="ads_consent_preference_category_title">Personalización de publicidades</string>
-  <string name="ads_consent_preference_dialog_preference_message">¿Realmente quiere restablecer su preferencia de personalización de publicidades?</string>
-  <string name="ads_consent_preference_title">Restablecer preferencia de personalización de publicidades</string>
-  <string name="ads_consent_preference_dialog_title">Reiniciar</string>
-  <string name="ads_consent_preference_summary">Restablezca su preferencia para permitir a las redes publicitarias usar cookies y sus datos personales</string>
   <string name="preference_language_selection_summary">Seleccione el Idioma</string>
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_title">Selección de idioma</string>
@@ -73,7 +68,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

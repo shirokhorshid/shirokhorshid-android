@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN စတင်လို့ အရပါ</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon မှ VPN ဖွင့်၍မရပါ။ VPN အပ္ပလီကေးရှင်း တစ်ခုထက်ပို၍ တစ်ပြိုင်တည်း ဖွင့်ထားလို့မရပါ။ VPN အပ္ပလီကေးရှင်း နောက်တစ်ခုကို တပ်ဆင်ထားပြီး အမြဲပွင့်နေသလားဆိုတာ တစ်ချက်စစ်ဆေးပေးပါ။</string>
   <string name="selected_region_currently_not_available">လက်ရှိရွေးချယ်ထားသော ဒေသကို မရရှိနိုင်ပါ ၊ အခြားဒေသကို ရွေးပေးပါ။</string>
-  <string name="ads_consent_preference_category_title">ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်း</string>
-  <string name="ads_consent_preference_dialog_preference_message">သင်သည် ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်း ကို ပြောင်းလဲချိန်ဆမှုများ ပြုလုပ်စေချင်ပါသလား?</string>
-  <string name="ads_consent_preference_title">ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်းကို ပြောင်းလဲချိန်ဆမယ်</string>
-  <string name="ads_consent_preference_dialog_title">ပြန်ချိန်ရန်</string>
-  <string name="ads_consent_preference_summary">ကြော်ငြာကွန်ရက်များ ကို ကွတ်ကီးမှတ်တမ်းများ (cookies) နှင့် သင့်ကိုယ်ပိုင်ဒေတာများအား အသုံးပြုနိုင်ရန် သင့် စိတ်ကြိုက်ပြင်ဆင်ခြင်းများကို ပြောင်းလဲချိန်ဆပါ။</string>
   <string name="preference_language_selection_summary">ဘာသာစကား ရွေးချယ်ပါ</string>
   <string name="preference_language_selection_title">ဘာသာစကား</string>
   <string name="preference_language_title">ဘာသာစကား ရွေးချယ်ခြင်း</string>
@@ -72,7 +67,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

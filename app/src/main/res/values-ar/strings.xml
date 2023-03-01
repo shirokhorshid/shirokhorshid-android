@@ -11,11 +11,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">تعذّر تشغيل سايفون</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">سايفون لا يستطيع تشغيل ال VPN. لا يمكن تشغيل أكثر من تطبيق VPN في الوقت عيته. تحقق ما اذا كان هناك تطبيق VPN آخر مثبت و تم ضبطه مسبقاً لـ \"تشغيل دائم\".</string>
   <string name="selected_region_currently_not_available">المنطقة المختارة غير متوفرة حاليا ، يرجى تحديد منطقة أخرى.</string>
-  <string name="ads_consent_preference_category_title">تخصيص الإعلانات</string>
-  <string name="ads_consent_preference_dialog_preference_message">هل تريد إعادة ضبط تفضيلات تخصيص الإعلانات؟</string>
-  <string name="ads_consent_preference_title">إعادة ضبط تفضيلات تخصيص الإعلانات</string>
-  <string name="ads_consent_preference_dialog_title">إعادة ضبط</string>
-  <string name="ads_consent_preference_summary">أعد ضبط تفضيلاتك للسماح لشبكات الإعلانات باستخدام ملفات تعريف الارتباط وبياناتك الشخصية</string>
   <string name="preference_language_selection_summary">اختر اللغة</string>
   <string name="preference_language_selection_title">اللغة</string>
   <string name="preference_language_title">اختيار اللغة</string>
@@ -71,7 +66,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

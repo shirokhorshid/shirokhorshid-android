@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN 無法啟動</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon 無法啟動 VPN. 不能同時運行多個 VPN 應用，請先檢查是否曾安裝其它 VPN 應用與其開啟設定。</string>
   <string name="selected_region_currently_not_available">目前無法選擇此地區，請換其它地方。</string>
-  <string name="ads_consent_preference_category_title">廣告個人化</string>
-  <string name="ads_consent_preference_dialog_preference_message">確定要重置個人廣告偏好設定嗎？</string>
-  <string name="ads_consent_preference_title">重置個別廣告偏好</string>
-  <string name="ads_consent_preference_dialog_title">重設</string>
-  <string name="ads_consent_preference_summary">重置個人惼好以便讓廣告商可以使用 cookies 與用戶個資</string>
   <string name="preference_language_selection_summary">選擇語言</string>
   <string name="preference_language_selection_title">語言</string>
   <string name="preference_language_title">語言選取</string>
@@ -70,7 +65,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

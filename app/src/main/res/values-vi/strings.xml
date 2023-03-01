@@ -10,10 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN không mở được</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon không kích hoạt VPN được. Nhiều chương trình VPN không thể hoạt động cùng lúc. Xin kiểm tra xem nếu đã cài đặt chương trình VPN khác với dạng \"Luôn Bật\".</string>
   <string name="selected_region_currently_not_available">Vùng được chọn hiện không có sẵn, xin vui lòng chọn vùng khác.</string>
-  <string name="ads_consent_preference_category_title">Cá nhân hóa quảng cáo</string>
-  <string name="ads_consent_preference_dialog_preference_message">Quý khách có muốn đặt lại quảng cáo theo sở thích cá nhân không?</string>
-  <string name="ads_consent_preference_title">Đặt lại quảng cáo theo sở thích cá nhân</string>
-  <string name="ads_consent_preference_dialog_title">Đặt lại</string>
   <string name="preference_language_selection_summary">Chọn ngôn ngữ</string>
   <string name="preference_language_selection_title">Ngôn ngữ</string>
   <string name="preference_language_default_language">Ngôn ngữ mặc định</string>
@@ -50,7 +46,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

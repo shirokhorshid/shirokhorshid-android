@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN не може запуститися</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon не може запустити VPN. Різні VPN-додатки не можуть працювати одночасно. Перевірте, чи не встановлено і не налаштовано на постійну роботу інший VPN-додаток.</string>
   <string name="selected_region_currently_not_available">Обраний регіон наразі недоступний, оберіть інший регіон.</string>
-  <string name="ads_consent_preference_category_title">Персоналізація реклами</string>
-  <string name="ads_consent_preference_dialog_preference_message">Ви справді хочете скинути ваші налаштування персоналізації реклами?</string>
-  <string name="ads_consent_preference_title">Скинути налаштування персоналізації реклами</string>
-  <string name="ads_consent_preference_dialog_title">Відновити</string>
-  <string name="ads_consent_preference_summary">Скиньте ваші налаштування, щоб дозволити рекламним мережам використовувати куки та ваші персональні дані</string>
   <string name="preference_language_selection_summary">Обрати мову</string>
   <string name="preference_language_selection_title">Мова</string>
   <string name="preference_language_title">Вибір мови</string>
@@ -89,6 +84,4 @@
   <string name="vpn_data_collection_disclosure_bp2">Ваша електронна пошта, коли ви надсилаєте нам відгук про діагностику або аварійний журнал. Вказувати електронну пошту у зворотному зв\'язку не обов\'язково.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Ім\'я користувача, пароль та, за бажанням, електронну пошту вашого облікового запису PsiCash.</string>
-  <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bottom">На додачу ми збираємо рекламний ідентифікатор вашого пристрою і може бути переданий стороннім постачальникам рекламних послуг, якщо ви не відмовитеся від персоналізації реклами в налаштуваннях Android.</string>
 </resources>

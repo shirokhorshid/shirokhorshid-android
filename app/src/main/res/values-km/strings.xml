@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN សាយហ្វូន មិនអាច​ចាប់ផ្តើម​បាន</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon មិនអាចចាប់ផ្តើម VPN បានទេ។ កម្មវិធី VPN ច្រើន មិនអាចដំណើរការក្នុងពេលតែមួយបានទេ។ ពិនិត្យមើល កម្មវិធី VPN ផ្សេងត្រូវបានបញ្ចូល និងកំណត់ថា បើកជានិច្ច។</string>
   <string name="selected_region_currently_not_available">តំបន់ដែលបានជ្រើសរើសទាន់មិនមានទេនៅពេលនេះ សូមជ្រើសរើសតំបន់ផ្សេងទៀត។</string>
-  <string name="ads_consent_preference_category_title">ការផ្សព្វផ្សាយបុគ្គលិកលក្ខណៈផ្ទាល់ខ្លួន</string>
-  <string name="ads_consent_preference_dialog_preference_message">តើអ្នកពិតជាចង់កំណត់ចំណង់ចំណូលចិត្តពាណិជ្ជកម្មសារឡើងវិញ?</string>
-  <string name="ads_consent_preference_title">កំណត់​សារជាថ្មី ចំណង់ចំណូលចិត្ត ពាណិជ្ជកម្ម</string>
-  <string name="ads_consent_preference_dialog_title">កំណត់​ឡើង​វិញ</string>
-  <string name="ads_consent_preference_summary">កំណត់ចំណូលចិត្តរបស់អ្នកឡើងវិញ ដើម្បីអនុញ្ញាតឱ្យបណ្តាញផ្សាយពាណិជ្ជកម្មប្រើខូឃីស៍ និងទិន្នន័យផ្ទាល់ខ្លួនរបស់អ្នក</string>
   <string name="preference_language_selection_summary">ជ្រើសរើស​ភាសា</string>
   <string name="preference_language_selection_title">ភាសា</string>
   <string name="preference_language_title">ការជ្រើសរើស​ភាសា</string>
@@ -63,7 +58,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

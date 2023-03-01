@@ -5,7 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Эгерде сизде иштебей жаткан сайттар тууралуу өзгөчө пикир же маалымат болсо, же болбосо бул форма сизде иштебей жатса, буга кат жибериңиз: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Пикириңизди билдиргениңиз үчүн рахмат</string>
   <string name="FeedbackActivity.Failure">Жиберүү ишке ашкан жок. Дагы бир жолу аракет кылыңыз.</string>
-  <string name="ads_consent_preference_dialog_title">Баштапкы абалга кайтаруу</string>
   <string name="preference_language_selection_title">Тил</string>
   <string name="preference_language_default_language">Демейки тил</string>
   <string name="preference_category_advanced_title">Өркүндөтүлгөн</string>
@@ -39,7 +38,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) መጀመር አልቻለም።</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን)ኡን ማስጀመር አልቻለም። ከአንድ በላይ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) በአንድ ግዜ መሄድ አይችልም። ሌላ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) የተጫነ እና ሁሌም የበራ ሁነታ ወስጥ መሆን አለመሆኑን ያረጋግጡ።</string>
   <string name="selected_region_currently_not_available">የተመረጠው ቀጠና ለጊዜው አይገኝም ፣  እባክዎትን ሌላ ቀጠና ይምረጡ።</string>
-  <string name="ads_consent_preference_category_title">ማስታወቂያን ግላዊነት ማላበስ</string>
-  <string name="ads_consent_preference_dialog_preference_message">የማስታወቂያ ግላዊነት ማላበስ ምርጫዎን ዳግም ማቀናበር እውን ይፈልጋሉ?</string>
-  <string name="ads_consent_preference_title">የማስታወቂያ ግላዊነት ማላበስ ምርጫን ዳግም አቀናብር</string>
-  <string name="ads_consent_preference_dialog_title">ዳግም አቀናብር</string>
-  <string name="ads_consent_preference_summary">የማስታወቂያ አውታረመረቦች ኩኪሶችን እና የግል ውሂቦትን እንዲጠቀሙ ምርጫዎትን ዳግም ያቀናብሩ</string>
   <string name="preference_language_selection_summary">ቋንቋውን ይምረጡ</string>
   <string name="preference_language_selection_title">ቋንቋ</string>
   <string name="preference_language_title">የቋንቋ መረጣ</string>
@@ -66,7 +61,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

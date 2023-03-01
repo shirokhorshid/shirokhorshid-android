@@ -5,7 +5,6 @@
   <string name="FeedbackActivity.DefaultText">اگر کدام نظر خاص دارید، به معلومات بیشتر در مورد ویب سایت‌های که کار نمیکنند نیاز دارید یا اگر این فورم برایتان کار نمیکند، لطفاً به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;. ایمیل بفرستید.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتان را ارسال کردید سپاسگزار هستیم</string>
   <string name="FeedbackActivity.Failure">ارسال ناموفق بود. لطفاً دوباره امتحان کنید.</string>
-  <string name="ads_consent_preference_dialog_title">تنظیم دوباره</string>
   <string name="preference_language_selection_title">زبان</string>
   <string name="preference_language_default_language">زبان پیش فرض</string>
   <string name="preference_category_advanced_title">پیشرفته</string>
@@ -38,7 +37,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

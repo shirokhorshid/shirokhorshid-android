@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN haiwezi kuanza</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon haiwezi kuanzisha VPN. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia kama programu nyingine ya VPN imesakinishwa na imepangiliwa kuwa wazi kila wakati.</string>
   <string name="selected_region_currently_not_available">Chagua eneo ambalo kwa sasa halipatikani, tafadhari chagua tena eneo lingine.</string>
-  <string name="ads_consent_preference_category_title">Matangazo ya mtu mmoja</string>
-  <string name="ads_consent_preference_dialog_preference_message">Ni kweli unataka kufanya mpangilio wa matakwa ya mtumiaji</string>
-  <string name="ads_consent_preference_title">Pangilia upya kwa pendekezo la mtumiaji</string>
-  <string name="ads_consent_preference_dialog_title">Pangilia upya</string>
-  <string name="ads_consent_preference_summary">Set upya uteuzi wako kuruhusu mtandao wa matangazo kutumia kuki na taarifa zako binafsi</string>
   <string name="preference_language_selection_summary">Chagua lugha</string>
   <string name="preference_language_selection_title">Lugha</string>
   <string name="preference_language_title">Kuchagua lugha</string>
@@ -73,7 +68,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

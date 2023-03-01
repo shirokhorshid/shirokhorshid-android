@@ -7,7 +7,6 @@
   <string name="FeedbackActivity.Failure">জমা দেওয়া যায়নি।অনুগ্রহ করে আবার চেষ্টা করুন</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon ভিপিএন বন্ধ আছে</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার দ্বারা বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
-  <string name="ads_consent_preference_dialog_title">রিসেট</string>
   <string name="preference_language_selection_title">ভাষা</string>
   <string name="preference_language_default_language">নির্ধারিত ভাষা</string>
   <string name="preference_category_advanced_title">অগ্রবর্তী</string>
@@ -43,7 +42,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

@@ -5,7 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Jika anda mempunyai komen yang spesifik, info lanjut tentang laman web yang tidak berfungsi, atau borang ini tidak dapat digunakan, sila email &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Terima kasih kerana menghantar borang maklumbalas anda</string>
   <string name="FeedbackActivity.Failure">Penyerahan gagal. Sila cuba lagi.</string>
-  <string name="ads_consent_preference_dialog_title">Tetap Semula</string>
   <string name="preference_language_selection_title">Bahasa</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Baiklah</string>
@@ -37,7 +36,6 @@
   <!--Data collection disclosure prompt button text-->
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->

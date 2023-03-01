@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlatılamadı</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN bağlantısını başlatamadı. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
   <string name="selected_region_currently_not_available">Seçtiğiniz bölge şu anda kullanılamıyor, lütfen başka bir bölge seçin.</string>
-  <string name="ads_consent_preference_category_title">Reklamları kişiselleştirme</string>
-  <string name="ads_consent_preference_dialog_preference_message">Reklam kişiselleştirme ayarlarınızı sıfırlamak istediğinize emin misiniz?</string>
-  <string name="ads_consent_preference_title">Reklamları kişiselleştirme ayarlarını sıfırla</string>
-  <string name="ads_consent_preference_dialog_title">Sıfırla</string>
-  <string name="ads_consent_preference_summary">Reklam ağlarının çerez kullanmasına ve kişisel verilerinize erişmesine izin veren ayarları sıfırlayın</string>
   <string name="preference_language_selection_summary">Kullanılacak dili seçin</string>
   <string name="preference_language_selection_title">Dil</string>
   <string name="preference_language_title">Dil seçimi</string>
@@ -89,6 +84,4 @@
   <string name="vpn_data_collection_disclosure_bp2">Bize bir tanı ya da kilitlenme günlüğü geri bildirimi gönderdiğinizde belirttiğiniz e-posta adresi. Geri bildirimde e-posta adresi belirtilmesi zorunlu değildir ve isteğe bağlıdır.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">PsiCash hesabı kullanıcı adınız, parolanız ve isteğe bağlı olarak belirtebileceğiniz e-posta adresiniz.</string>
-  <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bottom">Android ayarlarında reklam kişiselleştirmeyi devre dışı bırakmadığınız sürece, topladığımız verilere ek olarak, aygıt reklam kimliğiniz üçüncü taraf reklam hizmeti sağlayıcılarıyla paylaşılabilir.</string>
 </resources>
