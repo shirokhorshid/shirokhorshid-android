@@ -27,6 +27,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,6 +40,7 @@ import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -96,7 +98,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private Button toggleButton;
     private ProgressBar connectionProgressBar;
-    private Drawable defaultProgressBarDrawable;
+    private ViewGroup connectionWaitingNetworkIndicator;
     private Button openBrowserButton;
     private MainActivityViewModel viewModel;
     private Toast invalidProxySettingsToast;
@@ -139,7 +141,8 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
 
         toggleButton = findViewById(R.id.toggleButton);
         connectionProgressBar = findViewById(R.id.connectionProgressBar);
-        defaultProgressBarDrawable = connectionProgressBar.getIndeterminateDrawable();
+        connectionWaitingNetworkIndicator = findViewById(R.id.connectionWaitingNetworkIndicator);
+        ((AnimationDrawable) connectionWaitingNetworkIndicator.getBackground()).start();
         openBrowserButton = findViewById(R.id.openBrowserButton);
         toggleButton.setOnClickListener(v ->
                 compositeDisposable.add(getTunnelServiceInteractor().tunnelStateFlowable()
@@ -353,12 +356,14 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             toggleButton.setEnabled(false);
             toggleButton.setText(getText(R.string.waiting));
             connectionProgressBar.setVisibility(View.INVISIBLE);
+            connectionWaitingNetworkIndicator.setVisibility(View.INVISIBLE);
         } else if (tunnelState.isRunning()) {
             toggleButton.setEnabled(true);
             toggleButton.setText(getText(R.string.stop));
             if (tunnelState.connectionData().isConnected()) {
                 openBrowserButton.setEnabled(true);
                 connectionProgressBar.setVisibility(View.INVISIBLE);
+                connectionWaitingNetworkIndicator.setVisibility(View.INVISIBLE);
 
                 ArrayList<String> homePages = tunnelState.connectionData().homePages();
                 final String url;
@@ -370,16 +375,11 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 openBrowserButton.setOnClickListener(view -> displayBrowser(this, url));
             } else {
                 openBrowserButton.setEnabled(false);
-                connectionProgressBar.setVisibility(View.VISIBLE);
-                connectionProgressBar.setIndeterminate(false);
-                Rect bounds = connectionProgressBar.getIndeterminateDrawable().getBounds();
-                Drawable drawable =
-                        (tunnelState.connectionData().networkConnectionState() == TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK) ?
-                                ContextCompat.getDrawable(this, R.drawable.connection_progress_bar_animation) :
-                                defaultProgressBarDrawable;
-                connectionProgressBar.setIndeterminateDrawable(drawable);
-                connectionProgressBar.getIndeterminateDrawable().setBounds(bounds);
-                connectionProgressBar.setIndeterminate(true);
+                boolean waitingForNetwork =
+                        tunnelState.connectionData().networkConnectionState() ==
+                                TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK;
+                connectionWaitingNetworkIndicator.setVisibility(waitingForNetwork ? View.VISIBLE : View.INVISIBLE);
+                connectionProgressBar.setVisibility(waitingForNetwork ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
             // Service not running
@@ -387,6 +387,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             toggleButton.setEnabled(true);
             openBrowserButton.setEnabled(false);
             connectionProgressBar.setVisibility(View.INVISIBLE);
+            connectionWaitingNetworkIndicator.setVisibility(View.INVISIBLE);
         }
     }
 

@@ -88,6 +88,13 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/connectionWaitingNetworkIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_alignTop="@+id/buttonPanel"
+                android:background="@drawable/connection_waiting_network_animation_drawable"
+                android:visibility="invisible" />
             <ProgressBar
                 android:id="@+id/connectionProgressBar"
                 style="?android:attr/progressBarStyleHorizontal"
