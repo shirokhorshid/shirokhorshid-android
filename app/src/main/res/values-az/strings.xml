@@ -64,4 +64,12 @@
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Bağla</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Bağla</string>
+  <!--Generic 'close' alert prompt message-->
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
 </resources>

@@ -84,4 +84,14 @@
   <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostique ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est optionnel.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Votre nom d\'utilisateur PsiCash, votre mot de passe et optionnellement votre adresse courriel.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Veuillez patienter alors que Psiphon se connecte</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Fermer</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Fermer</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Voulez-vous fermer cette fenêtre maintenant ?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
 </resources>

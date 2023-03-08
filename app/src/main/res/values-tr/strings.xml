@@ -84,4 +84,15 @@
   <string name="vpn_data_collection_disclosure_bp2">Bize bir tanı ya da kilitlenme günlüğü geri bildirimi gönderdiğinizde belirttiğiniz e-posta adresi. Geri bildirimde e-posta adresi belirtilmesi zorunlu değildir ve isteğe bağlıdır.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">PsiCash hesabı kullanıcı adınız, parolanız ve isteğe bağlı olarak belirtebileceğiniz e-posta adresiniz.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Lütfen Psiphon bağlantı kurarken bekleyin</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Kapat</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Kapat</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Bu pencereyi şimdi kapatmak ister misiniz?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Katkıda bulunduğunuz için teşekkürler!</string>
 </resources>

@@ -86,4 +86,15 @@
   <string name="vpn_data_collection_disclosure_bp2">ایمیل شما، زمانی که برای ما بازخورد یا گزارش خرابی ارسال می‌کنید. ارائه ایمیل در بازخورد اختیاری است.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">نام کاربری، رمز عبور و در صورت تمایل، ایمیل حساب PsiCash شما.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">لطفا زمانی که Psiphon در حال اتصال است، صبر کنید</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">بستن</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">بستن</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">آیا می‌خواهید این پنجره را ببندید؟</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">از مشارکت شما در این تست سپاسگزاریم! </string>
 </resources>

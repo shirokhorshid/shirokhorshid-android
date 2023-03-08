@@ -84,4 +84,12 @@
   <string name="vpn_data_collection_disclosure_bp2">Ваша електронна пошта, коли ви надсилаєте нам відгук про діагностику або аварійний журнал. Вказувати електронну пошту у зворотному зв\'язку не обов\'язково.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Ім\'я користувача, пароль та, за бажанням, електронну пошту вашого облікового запису PsiCash.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Закрити</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Закрити</string>
+  <!--Generic 'close' alert prompt message-->
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
 </resources>
