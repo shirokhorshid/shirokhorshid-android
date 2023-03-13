@@ -82,7 +82,7 @@ public class TunnelServiceInteractor {
                 String action = intent.getAction();
                 if (action != null) {
                     if (action.equals(SERVICE_STARTING_BROADCAST_INTENT) && !isStopped) {
-                        bindTunnelService(context, intent);
+                        bindTunnelService(context);
                     }
                 }
             }
@@ -94,12 +94,10 @@ public class TunnelServiceInteractor {
     public void onStart(Context context) {
         isStopped = false;
         if (isServiceRunning(context)) {
-            tunnelStateRelay.accept(TunnelState.unknown());
+            bindTunnelService(context);
         } else {
             tunnelStateRelay.accept(TunnelState.stopped());
         }
-        final Intent bindingIntent = new Intent(context, TunnelVpnService.class);
-        bindTunnelService(context, bindingIntent);
     }
 
     public void onStop(Context context) {
@@ -188,7 +186,6 @@ public class TunnelServiceInteractor {
         if (manager != null) {
             for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
                 if (service.uid == android.os.Process.myUid() &&
-                        service.started &&
                         TunnelVpnService.class.getName().equals(service.service.getClassName())) {
                     result = service.service.getClassName();
                     break;
@@ -203,7 +200,8 @@ public class TunnelServiceInteractor {
                 .subscribe();
     }
 
-    private void bindTunnelService(Context context, Intent intent) {
+    public void bindTunnelService(Context context) {
+        final Intent intent = new Intent(context, TunnelVpnService.class);
         serviceBindingFactory = new Rx2ServiceBindingFactory(context, intent);
         serviceMessengerDisposable = serviceBindingFactory.getMessengerObservable()
                 .doOnComplete(() -> tunnelStateRelay.accept(TunnelState.stopped()))
