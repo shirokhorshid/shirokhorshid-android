@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">贊助商標誌；點擊瀏覽贊助商的首頁</string>
+  <string name="banner_desc">贊助商橫幅；點擊瀏覽贊助商的首頁</string>
   <string name="open_browser">開啟瀏覽器</string>
   <string name="FeedbackActivity.DefaultText">如果您有任何具體建議，有任何網站失效的訊息或者此表單無法使用的情況，請寄郵件至 &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;。</string>
   <string name="FeedbackActivity.Success">感謝您提供回饋意見</string>
@@ -51,29 +51,48 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon 惡意軟體</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon 偵測且封鎖了網路中的潛在惡意網站，請依照下方鏈結了解詳情。\n\n 偵測到的惡意軟體：</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon 惡意軟體</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon 會自動地封鎖網路上潛在的惡意網站。您想收到相關的通知嗎？\n\n 此設定可稍晚在更多選項處進行變更。</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">多了解惡意軟體:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">上層代理出錯</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">請開啟 Psiphon 檢查代理設定</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">代理錯誤</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">您已設定 Psiphon 使用上層代理，但其似乎無法連接到 Psiphon 伺服器。\n\n 請修正此設定再試試\n\n 請見技術資訊的活動記錄。</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon 崩潰</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">請向我們發送反饋</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">請點擊此通知以向我們發送反饋，這有助於了解問題以便及早修復。</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">我同意</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">資料收集揭示</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s 使用 Android VPN 服務不受審查限制地訪問網際網路。我們收集、加總與儲存以下資訊：</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">您使用連接我們服務的 IP 位置獲知您所在的城市、國家與網路連線服務商等資訊而 IP 本身絕不會記錄。這些資料的收集使用是為了了解使用情況、效能統計與服務健全等目的。</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">您的電子郵件，您向我們發送診斷或崩潰記錄反饋，在反饋時不必要須提供電子郵件。</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">您的 PsiCash 帳號的用戶名稱、密碼與電郵(可不提供)</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">請等候 Psiphon 連接</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">關閉</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">關閉</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">確定現在要關閉此視窗嗎? </string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">感謝您的參與!</string>
 </resources>
