@@ -2,7 +2,7 @@
 <resources>
   <string name="banner_desc">destekçi başlığı; destekçi ana sayfasını açmak için tıklayın</string>
   <string name="open_browser">Tarayıcıyı aç</string>
-  <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan web siteleri hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
+  <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan siteler hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
   <string name="FeedbackActivity.Success">Geri bildiriminiz için teşekkür ederiz</string>
   <string name="FeedbackActivity.Failure">Form gönderilemedi. Lütfen yeniden deneyin.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN durdu</string>

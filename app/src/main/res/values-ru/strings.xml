@@ -74,4 +74,5 @@
   <!--Generic 'close' alert prompt message-->
   <string name="close_alert_message">Вы хотите закрыть это окно сейчас?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Благодарим вас за участие!</string>
 </resources>
