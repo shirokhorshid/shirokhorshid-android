@@ -167,8 +167,8 @@ public class FeedbackWorker extends RxWorker {
                           @NonNull String clientPlatformPrefix, @NonNull String clientPlatformSuffix) {
 
         return Completable.create(emitter -> {
-            // Note that PsiphonTunnelFeedback instance cannot be reused PsiphonTunnelFeedback.shutdown()
-            // is called.
+            // Note that PsiphonTunnelFeedback instance cannot be reused after
+            // PsiphonTunnelFeedback.shutdown() is called.
             final PsiphonTunnelFeedback psiphonTunnelFeedback = new PsiphonTunnelFeedback();
             emitter.setCancellable(() -> {
                 MyLog.i("FeedbackUpload: " + feedbackId + " disposed");
