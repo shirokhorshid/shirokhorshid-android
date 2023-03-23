@@ -10,7 +10,8 @@
                   android:normalScreens="true"
                   android:largeScreens="true"
                   android:xlargeScreens="true" />
-
+    <!--Apps targeting Android 13 (SDK 33) and above are required to declare POST_NOTIFICATIONS permission -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -107,6 +108,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity android:theme="@style/Theme.NoTitleDialog"
+            android:excludeFromRecents="true"
+            android:name=".NotificationPermissionActivity" />
         <service
             android:name=".PsiphonCrashService"
             android:exported="false"
