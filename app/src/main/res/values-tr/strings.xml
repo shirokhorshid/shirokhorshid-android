@@ -95,4 +95,20 @@
   <string name="close_alert_message">Bu pencereyi şimdi kapatmak ister misiniz?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <string name="pxe_submit_thank_you">Katkıda bulunduğunuz için teşekkürler!</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s bildirimleri</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s, uygulama arka planda çalışırken önemli bilgiler vermek için bildirimleri kullanır. Şunlar bildirilir:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">VPN bağlantı durumunuzdaki değişiklikler.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Bağlantınızdaki sorunlar.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Çökme bildirimleri.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware uyarıları.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Yeni uygulama sürümleri.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Bildirimleri istediğiniz zaman uygulama ayarları bölümünden kapatabilirsiniz.</string>
 </resources>

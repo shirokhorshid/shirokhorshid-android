@@ -75,4 +75,12 @@
   <string name="close_alert_message">Вы хотите закрыть это окно сейчас?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <string name="pxe_submit_thank_you">Благодарим вас за участие!</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale last sentence-->
 </resources>

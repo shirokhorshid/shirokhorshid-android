@@ -72,4 +72,12 @@
   <string name="close_alert_title">ዝጋ</string>
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale last sentence-->
 </resources>
