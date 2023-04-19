@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Psiphon Inc.
+ * Copyright (c) 2023, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,6 +19,7 @@
 
 package com.psiphon3;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -26,10 +27,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -51,6 +51,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -91,6 +92,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         Utils.initializeSecureRandom();
     }
 
+    static final int POST_NOTIFICATIONS_REQUEST_CODE = 121232;
     public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainActivity.PREVENT_AUTO_START";
     private static final String CURRENT_TAB = "currentTab";
     private static final String BANNER_FILE_NAME = "bannerImage";
@@ -194,6 +196,21 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         if (savedInstanceState == null) {
             // Schedule handling current intent when the main view is fully inflated
             getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
+        }
+
+        // Check and request notification permissions on Android 13+ if we are not recreating from
+        // saved state. Check suggested workflow for details:
+        // https://developer.android.com/training/permissions/requesting#workflow_for_requesting_permissions
+        if (Build.VERSION.SDK_INT >= 33 && savedInstanceState == null) {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.POST_NOTIFICATIONS) != PermissionChecker.PERMISSION_GRANTED) {
+                if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+                    startActivity(new Intent(this, NotificationPermissionActivity.class));
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                            POST_NOTIFICATIONS_REQUEST_CODE);
+                }
+            }
         }
     }
 

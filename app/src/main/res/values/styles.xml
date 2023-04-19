@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.NoTitleDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowIsFloating">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.NoTitleDialog.Transparent" parent="Theme.NoTitleDialog">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>
