@@ -108,7 +108,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:theme="@style/Theme.NoTitleDialog"
+        <activity android:theme="@style/Theme.DialogAlert"
             android:excludeFromRecents="true"
             android:name=".NotificationPermissionActivity" />
         <service
