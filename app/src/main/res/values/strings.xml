@@ -99,9 +99,6 @@
     <!-- Data collection disclosure list item -->
     <string name="vpn_data_collection_disclosure_bp3">Your PsiCash account username, password, and optionally, email.</string>
 
-    <!-- Data collection disclosure list item -->
-    <string name="vpn_data_collection_disclosure_bottom">In addition to the data we collect, your device advertising ID may be shared with third party ad service providers unless you opt out of ad personalization in Android Settings.</string>
-
     <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language. -->
     <string name="notifications_permission_rationale_title">%s Notifications</string>
 
