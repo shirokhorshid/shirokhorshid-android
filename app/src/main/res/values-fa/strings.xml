@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon نمی‌تواند شروع به کار کند</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">امکان اجرای وی‌پی‌ان توسط Psiphon وجود ندارد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و تنظیم شده تا همیشه در حال اجراء باشد.</string>
   <string name="selected_region_currently_not_available">ناحیه‌ی انتخاب شده در حال حاضر در دسترس نیست، لطفا ناحیه‌ی دیگری را انتخاب کنید.</string>
-  <string name="ads_consent_preference_category_title">شخصی کردن آگهی‌ها</string>
-  <string name="ads_consent_preference_dialog_preference_message">آیا تایید می‌کنید که می‌خواهید تنظیمات شخصی‌کردن آگهی‌ها را دوباره تنظیم کنید؟ </string>
-  <string name="ads_consent_preference_title">ترجیحات شخصی‌شده آگهی‌ها را دوباره تنظیم کنید. </string>
-  <string name="ads_consent_preference_dialog_title">راه اندازی مجدد</string>
-  <string name="ads_consent_preference_summary">ترجیحات خود را دوباره تنظیم کنید تا شبکه‌های تبلیغاتی بتوانند از کوکی‌ها و اطلاعات شخصی‌تان استفاده کند. </string>
   <string name="preference_language_selection_summary">زبان را انتخاب کنید</string>
   <string name="preference_language_selection_title">زبان</string>
   <string name="preference_language_title">انتخاب زبان</string>
@@ -79,4 +74,27 @@
   <string name="psiphon_native_crash_notification_msg">لطفا برای ما بازخورد ارسال کنید.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg_long">لطفا برای ارسال بازخورد روی این اعلان کلیک کنید. این به ما کمک می‌‌کند تا مشکل را متوجه شویم و آن را سریع‌تر برطرف کنیم.</string>
+  <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">می‌پذیرم</string>
+  <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">افشای جمع‌آوری داده‌ها</string>
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s از سرویس Android VPN استفاده می‌کند تا دسترسی بدون سانسور به محتوای اینترنت را برای شما فراهم کند. ما اطلاعات زیر را جمع آوری و ذخیره می‌کنیم:</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">شهر، کشور، و ISP شما از آدرس IP که از آن به سرورهای ما متصل می‌شوید و خود آدرس IP هرگز ذخیره نمی‌شود. این داده ها برای آمار استفاده و عملکرد و اهداف سلامت خدمات جمع آوری شده است.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">ایمیل شما، زمانی که برای ما بازخورد یا گزارش خرابی ارسال می‌کنید. ارائه ایمیل در بازخورد اختیاری است.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">نام کاربری، رمز عبور و در صورت تمایل، ایمیل حساب PsiCash شما.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">لطفا زمانی که Psiphon در حال اتصال است، صبر کنید</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">بستن</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">بستن</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">آیا می‌خواهید این پنجره را ببندید؟</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">از مشارکت شما در این تست سپاسگزاریم! </string>
 </resources>

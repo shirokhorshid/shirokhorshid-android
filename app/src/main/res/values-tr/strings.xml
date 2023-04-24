@@ -2,7 +2,7 @@
 <resources>
   <string name="banner_desc">destekçi başlığı; destekçi ana sayfasını açmak için tıklayın</string>
   <string name="open_browser">Tarayıcıyı aç</string>
-  <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan web siteleri hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
+  <string name="FeedbackActivity.DefaultText">Özel bir notunuz varsa, çalışmayan siteler hakkında daha fazla bilgi almak isterseniz ya da bu form çalışmıyorsa &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt; adresimize bir e-posta gönderebilirsiniz.</string>
   <string name="FeedbackActivity.Success">Geri bildiriminiz için teşekkür ederiz</string>
   <string name="FeedbackActivity.Failure">Form gönderilemedi. Lütfen yeniden deneyin.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN durdu</string>
@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlatılamadı</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN bağlantısını başlatamadı. Aynı anda birden çok VPN uygulaması kullanılamaz. Başka bir VPN uygulamasının kurulmuş ve kullanılıyor olup olmadığını denetleyin.</string>
   <string name="selected_region_currently_not_available">Seçtiğiniz bölge şu anda kullanılamıyor, lütfen başka bir bölge seçin.</string>
-  <string name="ads_consent_preference_category_title">Reklamları kişiselleştirme</string>
-  <string name="ads_consent_preference_dialog_preference_message">Reklam kişiselleştirme ayarlarınızı sıfırlamak istediğinize emin misiniz?</string>
-  <string name="ads_consent_preference_title">Reklamları kişiselleştirme ayarlarını sıfırla</string>
-  <string name="ads_consent_preference_dialog_title">Sıfırla</string>
-  <string name="ads_consent_preference_summary">Reklam ağlarının çerez kullanmasına ve kişisel verilerinize erişmesine izin veren ayarları sıfırlayın</string>
   <string name="preference_language_selection_summary">Kullanılacak dili seçin</string>
   <string name="preference_language_selection_title">Dil</string>
   <string name="preference_language_title">Dil seçimi</string>
@@ -77,4 +72,27 @@
   <string name="psiphon_native_crash_notification_msg">Lütfen bize çökme bildirimi gönderin.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg_long">Lütfen bize göndermek için bu çökme bildirimine tıklayın. Böylece sorunu anlayıp daha hızlı çözmemiz için bize yardımcı olabilirsiniz.</string>
+  <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Kabul ediyorum</string>
+  <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Veri toplama bildirimi</string>
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s, İnternet içeriğine sansürsüz erişmenizi sağlamak için Android VPN hizmetini kullanır. Aşağıdaki bilgileri toplar, derler ve saklarız:</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">İliniz, ülkeniz ve İnternet hizmeti sağlayıcınız, sunucularımıza bağlandığınız IP adresinden türetilir ve IP adresinin kendisi hiçbir zaman günlüğe kaydedilmez. Bu veriler, kullanım ve başarım istatistikleri ile hizmetin kalitesini ölçme amaçları için toplanır.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Bize bir tanı ya da kilitlenme günlüğü geri bildirimi gönderdiğinizde belirttiğiniz e-posta adresi. Geri bildirimde e-posta adresi belirtilmesi zorunlu değildir ve isteğe bağlıdır.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">PsiCash hesabı kullanıcı adınız, parolanız ve isteğe bağlı olarak belirtebileceğiniz e-posta adresiniz.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Lütfen Psiphon bağlantı kurarken bekleyin</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Kapat</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Kapat</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Bu pencereyi şimdi kapatmak ister misiniz?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Katkıda bulunduğunuz için teşekkürler!</string>
 </resources>

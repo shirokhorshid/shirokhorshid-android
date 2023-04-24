@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas démarrer le RPV. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et réglée sur RPV permanent.</string>
   <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
-  <string name="ads_consent_preference_category_title">Personnalisation de la publicité</string>
-  <string name="ads_consent_preference_dialog_preference_message">Voulez-vous vraiment réinitialiser vos préférences de personnalisation des publicités?</string>
-  <string name="ads_consent_preference_title">Réinitialiser la préférence de personnalisation des publicités</string>
-  <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
-  <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>
   <string name="preference_language_selection_summary">Sélectionner la langue</string>
   <string name="preference_language_selection_title">Langue</string>
   <string name="preference_language_title">Sélection de la langue</string>
@@ -77,4 +72,26 @@
   <string name="psiphon_native_crash_notification_msg">Veuillez nous envoyer une rétroaction.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg_long">Veuillez cliquer sur cette notification pour nous envoyer une rétroaction. Cela nous aidera à comprendre le problème afin que nous puissions y remédier plus rapidement.</string>
+  <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">J\'accepte</string>
+  <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Divulgation de connexion de donnée</string>
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s utilise le service RPV Android pour vous fournir un accès non-censuré au contenu internet. Nous collectons, agrégeons et stockons les informations suivantes :</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Votre ville, pays et FAI sont dérivés de l\'adresse IP que vous utilisez pour vous connecter à nos serveurs, l\'adresse IP elle-même n\'est jamais enregistrée. Ces données sont collectées pour des statistiques d\'utilisation et de performance et pour les services de santé.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostique ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est optionnel.</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Votre nom d\'utilisateur PsiCash, votre mot de passe et optionnellement votre adresse courriel.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Veuillez patienter alors que Psiphon se connecte</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Fermer</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Fermer</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Voulez-vous fermer cette fenêtre maintenant ?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
 </resources>

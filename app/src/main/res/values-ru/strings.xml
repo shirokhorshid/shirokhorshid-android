@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Ошибка старта Psiphon VPN</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Ошибка запуска VPN. Нельзя запускать несколько VPN одновременно. Убедитесь, что другое VPN-приложение не установлено/не запущено.</string>
   <string name="selected_region_currently_not_available">Выбранный регион сейчас недоступен. Пожалуйста, выберите другой регион.</string>
-  <string name="ads_consent_preference_category_title">Персонализация рекламы</string>
-  <string name="ads_consent_preference_dialog_preference_message">Вы правда хотите сбросить настройки персонализации рекламы?</string>
-  <string name="ads_consent_preference_title">Сбросить настройки персонализации рекламы</string>
-  <string name="ads_consent_preference_dialog_title">Сброс</string>
-  <string name="ads_consent_preference_summary">Сбросить ваши настройки, чтобы позволить рекламным сетям использовать файлы cookie и ваши персональные данные</string>
   <string name="preference_language_selection_summary">Выберите язык</string>
   <string name="preference_language_selection_title">Язык</string>
   <string name="preference_language_title">Выбор языка</string>
@@ -63,4 +58,21 @@
   <!--Notification title for the 'Psiphon crash detected' notification-->
   <!--Notification short message for the 'Psiphon crash detected' notification-->
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <!--Data collection disclosure prompt button text-->
+  <!--Data collection disclosure prompt title-->
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Пожалуйста, подождите, пока Psiphon подключится</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Закрыть</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Закрыть</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Вы хотите закрыть это окно сейчас?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Благодарим вас за участие!</string>
 </resources>

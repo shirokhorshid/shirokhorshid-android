@@ -42,6 +42,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
+import com.psiphon3.psiphonlibrary.LocalizedActivities;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -107,7 +108,8 @@ public class HomeTabFragment extends Fragment {
 
         // Observes tunnel state changes and updates the status UI,
         // also loads sponsor home pages in the embedded web view if needed.
-        compositeDisposable.add(viewModel.tunnelStateFlowable()
+        compositeDisposable.add(((LocalizedActivities.AppCompatActivity) requireActivity())
+                .getTunnelServiceInteractor().tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 // Update the connection status UI
                 .doOnNext(this::updateStatusUI)

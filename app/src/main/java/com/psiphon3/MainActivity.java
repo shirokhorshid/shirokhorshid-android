@@ -27,15 +27,20 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.net.VpnService;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.BulletSpan;
 import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -54,7 +59,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.psiphon3.log.LogsMaintenanceWorker;
-import com.psiphon3.log.MyLog;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.TunnelManager;
@@ -91,12 +95,10 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private static final String CURRENT_TAB = "currentTab";
     private static final String BANNER_FILE_NAME = "bannerImage";
 
-    private static final int REQUEST_CODE_PREPARE_VPN = 100;
-
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private Button toggleButton;
     private ProgressBar connectionProgressBar;
-    private Drawable defaultProgressBarDrawable;
+    private ViewGroup connectionWaitingNetworkIndicator;
     private Button openBrowserButton;
     private MainActivityViewModel viewModel;
     private Toast invalidProxySettingsToast;
@@ -139,21 +141,21 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
 
         toggleButton = findViewById(R.id.toggleButton);
         connectionProgressBar = findViewById(R.id.connectionProgressBar);
-        defaultProgressBarDrawable = connectionProgressBar.getIndeterminateDrawable();
+        connectionWaitingNetworkIndicator = findViewById(R.id.connectionWaitingNetworkIndicator);
+        ((AnimationDrawable) connectionWaitingNetworkIndicator.getBackground()).start();
         openBrowserButton = findViewById(R.id.openBrowserButton);
         toggleButton.setOnClickListener(v ->
-                compositeDisposable.add(viewModel.tunnelStateFlowable()
+                compositeDisposable.add(getTunnelServiceInteractor().tunnelStateFlowable()
                         .filter(state -> !state.isUnknown())
                         .take(1)
                         .doOnNext(state -> {
                             if (state.isRunning()) {
-                                viewModel.stopTunnelService();
+                                getTunnelServiceInteractor().stopTunnelService();
                             } else {
                                 startTunnel();
                             }
                         })
                         .subscribe()));
-
         tabLayout = findViewById(R.id.main_activity_tablayout);
         tabLayout.addTab(tabLayout.newTab().setTag("home").setText(R.string.home_tab_name));
         tabLayout.addTab(tabLayout.newTab().setTag("statistics").setText(R.string.statistics_tab_name));
@@ -188,8 +190,11 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         viewPager.post(() ->
                 viewPager.setCurrentItem(multiProcessPreferences.getInt(CURRENT_TAB, 0), false));
 
-        // Schedule handling current intent when the main view is fully inflated
-        getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
+        // Handle current intent only if we are not recreating from saved state
+        if (savedInstanceState == null) {
+            // Schedule handling current intent when the main view is fully inflated
+            getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
+        }
     }
 
     @Override
@@ -209,7 +214,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // Observe tunnel state changes to update UI
-        compositeDisposable.add(viewModel.tunnelStateFlowable()
+        compositeDisposable.add(getTunnelServiceInteractor().tunnelStateFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(this::updateServiceStateUI)
                 .subscribe());
@@ -233,10 +238,11 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .doOnNext(url -> displayBrowser(this, url))
                 .subscribe());
 
-        // Check if the unsafe traffic alerts preference should be gathered
-        // and then if the tunnel should be started automatically
+        // Check if user data collection disclosure needs to be shown followed by the unsafe traffic
+        // alerts preference check and then check if the tunnel should be started automatically
         compositeDisposable.add(
-                unsafeTrafficAlertsCompletable()
+                vpnServiceDataCollectionDisclosureCompletable()
+                        .andThen(unsafeTrafficAlertsCompletable())
                         .andThen(autoStartMaybe())
                         .doOnSuccess(__ -> startTunnel())
                         .subscribe());
@@ -290,17 +296,52 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .subscribeOn(AndroidSchedulers.mainThread());
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_PREPARE_VPN) {
-            if (resultCode == RESULT_OK) {
-                viewModel.startTunnelService();
-            } else if (resultCode == RESULT_CANCELED) {
-                showVpnAlertDialog(R.string.StatusActivity_VpnPromptCancelledTitle,
-                        R.string.StatusActivity_VpnPromptCancelledMessage);
+    // Completes right away if VPN service data collection disclosure has been accepted, otherwise
+    // displays a prompt and waits until the user accepts and preference is stored, then completes.
+    Completable vpnServiceDataCollectionDisclosureCompletable() {
+        return Completable.create(emitter -> {
+            if (multiProcessPreferences.getBoolean(getString(R.string.vpnServiceDataCollectionDisclosureAccepted), false) &&
+                    !emitter.isDisposed()) {
+                emitter.onComplete();
             }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
+            View dialogView = getLayoutInflater().inflate(R.layout.vpn_data_collection_disclosure_prompt_layout, null);
+
+            String topMessage = String.format(getString(R.string.vpn_data_collection_disclosure_top), getString(R.string.app_name));
+
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append(topMessage);
+            spannableStringBuilder.append("\n\n");
+            SpannableString bp = new SpannableString(getString(R.string.vpn_data_collection_disclosure_bp1));
+            bp.setSpan(new BulletSpan(15), 0, bp.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableStringBuilder.append(bp);
+            spannableStringBuilder.append("\n\n");
+            bp = new SpannableString(getString(R.string.vpn_data_collection_disclosure_bp2));
+            bp.setSpan(new BulletSpan(15), 0, bp.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableStringBuilder.append(bp);
+            ((TextView)dialogView.findViewById(R.id.textView)).setText(spannableStringBuilder);
+
+            final AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setCancelable(false)
+                    .setTitle(R.string.vpn_data_collection_disclosure_prompt_title)
+                    .setView(dialogView)
+                    // Only emit a completion event if we have a positive response
+                    .setPositiveButton(R.string.vpn_data_collection_disclosure_accept_btn_text,
+                            (dialog, whichButton) -> {
+                                multiProcessPreferences.put(getString(R.string.vpnServiceDataCollectionDisclosureAccepted), true);
+                                if (!emitter.isDisposed()) {
+                                    emitter.onComplete();
+                                }
+                            })
+                    .show();
+            // Also dismiss the alert when subscription is disposed, for example, on orientation
+            // change or when the app is backgrounded.
+            emitter.setCancellable(() -> {
+                if (alertDialog != null && alertDialog.isShowing()) {
+                    alertDialog.dismiss();
+                }
+            });
+        })
+                .subscribeOn(AndroidSchedulers.mainThread());
     }
 
     @Override
@@ -315,12 +356,14 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             toggleButton.setEnabled(false);
             toggleButton.setText(getText(R.string.waiting));
             connectionProgressBar.setVisibility(View.INVISIBLE);
+            connectionWaitingNetworkIndicator.setVisibility(View.INVISIBLE);
         } else if (tunnelState.isRunning()) {
             toggleButton.setEnabled(true);
             toggleButton.setText(getText(R.string.stop));
             if (tunnelState.connectionData().isConnected()) {
                 openBrowserButton.setEnabled(true);
                 connectionProgressBar.setVisibility(View.INVISIBLE);
+                connectionWaitingNetworkIndicator.setVisibility(View.INVISIBLE);
 
                 ArrayList<String> homePages = tunnelState.connectionData().homePages();
                 final String url;
@@ -332,16 +375,11 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 openBrowserButton.setOnClickListener(view -> displayBrowser(this, url));
             } else {
                 openBrowserButton.setEnabled(false);
-                connectionProgressBar.setVisibility(View.VISIBLE);
-                connectionProgressBar.setIndeterminate(false);
-                Rect bounds = connectionProgressBar.getIndeterminateDrawable().getBounds();
-                Drawable drawable =
-                        (tunnelState.connectionData().networkConnectionState() == TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK) ?
-                                ContextCompat.getDrawable(this, R.drawable.connection_progress_bar_animation) :
-                                defaultProgressBarDrawable;
-                connectionProgressBar.setIndeterminateDrawable(drawable);
-                connectionProgressBar.getIndeterminateDrawable().setBounds(bounds);
-                connectionProgressBar.setIndeterminate(true);
+                boolean waitingForNetwork =
+                        tunnelState.connectionData().networkConnectionState() ==
+                                TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK;
+                connectionWaitingNetworkIndicator.setVisibility(waitingForNetwork ? View.VISIBLE : View.INVISIBLE);
+                connectionProgressBar.setVisibility(waitingForNetwork ? View.INVISIBLE : View.VISIBLE);
             }
         } else {
             // Service not running
@@ -349,6 +387,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             toggleButton.setEnabled(true);
             openBrowserButton.setEnabled(false);
             connectionProgressBar.setVisibility(View.INVISIBLE);
+            connectionWaitingNetworkIndicator.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -488,7 +527,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 Bundle extras = intent.getExtras();
                 ArrayList<String> unsafeTrafficSubjects = null;
                 ArrayList<String> unsafeTrafficActionUrls = null;
-                if (extras != null ) {
+                if (extras != null) {
                     unsafeTrafficSubjects = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST);
                     unsafeTrafficActionUrls = extras.getStringArrayList(TunnelManager.DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST);
                 }
@@ -577,52 +616,13 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         return false;
     }
 
-    private void showVpnAlertDialog(int titleId, int messageId) {
-        new AlertDialog.Builder(this)
-                .setCancelable(true)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle(titleId)
-                .setMessage(messageId)
-                .setPositiveButton(android.R.string.ok, null)
-                .show();
-    }
-
-    private void startTunnel() {
+    @Override
+    public void startTunnel() {
         // Don't start if custom proxy settings is selected and values are invalid
         if (!viewModel.validateCustomProxySettings()) {
             return;
         }
-        boolean waitingForPrompt = doVpnPrepare();
-        if (!waitingForPrompt) {
-            viewModel.startTunnelService();
-        }
-    }
-
-    private boolean doVpnPrepare() {
-        // Devices without VpnService support throw various undocumented
-        // exceptions, including ActivityNotFoundException and ActivityNotFoundException.
-        // For example: http://code.google.com/p/ics-openvpn/source/browse/src/de/blinkt/openvpn/LaunchVPN.java?spec=svn2a81c206204193b14ac0766386980acdc65bee60&name=v0.5.23&r=2a81c206204193b14ac0766386980acdc65bee60#376
-        try {
-            Intent intent = VpnService.prepare(this);
-            if (intent != null) {
-                // TODO: can we disable the mode before we reach this this
-                // failure point with
-                // resolveActivity()? We'll need the intent from prepare() or
-                // we'll have to mimic it.
-                // http://developer.android.com/reference/android/content/pm/PackageManager.html#resolveActivity%28android.content.Intent,%20int%29
-
-                startActivityForResult(intent, REQUEST_CODE_PREPARE_VPN);
-
-                // start service will be called in onActivityResult
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            MyLog.e(R.string.tunnel_whole_device_exception, MyLog.Sensitivity.NOT_SENSITIVE);
-            // true = waiting for prompt, although we can't start the
-            // activity so onActivityResult won't be called
-            return true;
-        }
+        super.startTunnel();
     }
 
     private void cancelInvalidProxySettingsToast() {

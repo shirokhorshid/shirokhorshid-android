@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">等待網路連線...</string>
   <string name="psiphon_service_notification_message_connecting">連線中…</string>
   <string name="psiphon_service_notification_id">Psiphon 服務通知</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon 狀態變化</string>
   <string name="psiphon_upgrade_notification_channel_name">賽風更新</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon 伺服器警報</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon 崩潰</string>
   <string name="vpn_service_running">VPN服務正在運行</string>
   <string name="vpn_service_revoked">VPN服務失效</string>
   <string name="current_network_type">當前網路：%s</string>
@@ -70,6 +73,7 @@
   <string name="region_name_is">冰島</string>
   <string name="region_name_ie">愛爾蘭</string>
   <string name="region_name_ke">肯亞</string>
+  <string name="region_name_kr">韓國</string>
   <string name="region_name_lv">拉托維亞</string>
   <string name="region_name_mx">墨西哥</string>
   <string name="region_name_tw">台灣</string>
@@ -83,22 +87,42 @@
   <string name="preference_notifications_title">通知</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary"> 隧道全部應用程式</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">包括應用</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">只隧道選取的應用程式</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">排除的應用</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">所選取的應用不要隧道</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">隧道化應用:%s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">應用程式被隧道排除: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">這個隧道裏無應用程式被排除</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">選取應用</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">%d 應用將透過 VPN 進行隧道</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">%d 應用將不會使用 VPN</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">隧道全部應用軟體</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">隧道 %d 應用軟體</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d 應用軟體不使用隧道</item>
+  </plurals>
+  <string name="preference_routing_all_apps_tunnel_summary">全部應用將通過 VPN 隧道 </string>
   <string name="preference_notifications_with_sound_title">聲音</string>
   <string name="preference_notifications_with_sound_summary">當連接狀態改變時發出聲音</string>
   <string name="preference_notifications_with_vibrate_title">震動</string>
@@ -123,9 +147,18 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">上層代理錯誤：%s</string>
   <string name="start_tunnel_failed">啟動通道失敗：%s</string>
+  <string name="vpn_exclusions_conflict">目前的 VPN 例外裏頭出現應用軟體衝突，請到 VPN 設置中調整為\" 隧道全部應用\"模式進伒連接。</string>
   <string name="tunnel_connecting">通道連接中…</string>
   <string name="tunnel_connected">通道已連接</string>
   <string name="waiting">等待中…</string>
+  <string name="label_vpn_settings">VPN  設置</string>
+  <string name="label_proxy_settings">代理設置</string>
   <string name="preference_summary_no_proxy">沒有 proxy</string>
+  <string name="preference_summary_custom_proxy">自定代理</string>
+  <string name="preference_summary_system_proxy">系統代理</string>
   <string name="disableTimeoutsPreferenceTitle">取消逾時</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">只用 Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">顯示惡意軟體警告</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">當 Psiphon 在您的設備上偵測到惡意軟體時發出警示通知</string>
+  <string name="aboutMalAware">關於惡意軟體</string>
 </resources>

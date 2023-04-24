@@ -5,7 +5,6 @@
   <string name="FeedbackActivity.DefaultText">Hvis du har spesifikke kommentarer, videre informasjon om nettsider som ikke virker, eller hvis dette datafeltet ikke virker for din del, send e-post til &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Takk for at du sender inn din tilbakemelding</string>
   <string name="FeedbackActivity.Failure">Innsending feilet. Prøv igjen.</string>
-  <string name="ads_consent_preference_dialog_title">Tilbakestill</string>
   <string name="preference_language_selection_title">Språk</string>
   <string name="preference_language_default_language">Forvalgt språk</string>
   <string name="preference_category_advanced_title">Avansert</string>
@@ -36,4 +35,18 @@
   <!--Notification title for the 'Psiphon crash detected' notification-->
   <!--Notification short message for the 'Psiphon crash detected' notification-->
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <!--Data collection disclosure prompt button text-->
+  <!--Data collection disclosure prompt title-->
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Lukk</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Lukk</string>
+  <!--Generic 'close' alert prompt message-->
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
 </resources>

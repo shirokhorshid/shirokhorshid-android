@@ -20,14 +20,11 @@
 package com.psiphon3;
 
 import android.app.Application;
-import android.content.Context;
 import android.database.ContentObserver;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.paging.PagedList;
 import androidx.paging.RxPagedListBuilder;
 
@@ -37,14 +34,12 @@ import com.psiphon3.log.LoggingContentProvider;
 import com.psiphon3.log.LogsDataSourceFactory;
 import com.psiphon3.log.LogsLastEntryHelper;
 import com.psiphon3.log.MyLog;
-import com.psiphon3.psiphonlibrary.TunnelServiceInteractor;
 import com.psiphon3.psiphonlibrary.UpstreamProxySettings;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 
-public class MainActivityViewModel extends AndroidViewModel implements LifecycleObserver {
-    private final TunnelServiceInteractor tunnelServiceInteractor;
+public class MainActivityViewModel extends AndroidViewModel implements DefaultLifecycleObserver {
     private final PublishRelay<Boolean> customProxyValidationResultRelay = PublishRelay.create();
     private final PublishRelay<Object> availableRegionsSelectionRelay = PublishRelay.create();
     private final PublishRelay<Object> openVpnSettingsRelay = PublishRelay.create();
@@ -57,8 +52,6 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
-        tunnelServiceInteractor = new TunnelServiceInteractor(getApplication(), true);
-
         LogsLastEntryHelper logsLastEntryHelper = new LogsLastEntryHelper(application.getContentResolver());
         LogsDataSourceFactory logsDataSourceFactory = new LogsDataSourceFactory(application.getContentResolver());
 
@@ -96,54 +89,10 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
         logsLastEntryHelper.fetchLatest();
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    protected void onLifeCycleStop() {
-        tunnelServiceInteractor.onStop(getApplication());
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    protected void onLifeCycleStart() {
-        tunnelServiceInteractor.onStart(getApplication());
-    }
-
     @Override
     protected void onCleared() {
         super.onCleared();
         getApplication().getContentResolver().unregisterContentObserver(loggingObserver);
-        tunnelServiceInteractor.onDestroy(getApplication());
-    }
-
-    public Flowable<TunnelState> tunnelStateFlowable() {
-        return tunnelServiceInteractor.tunnelStateFlowable();
-    }
-
-    public Flowable<Boolean> dataStatsFlowable() {
-        return tunnelServiceInteractor.dataStatsFlowable();
-    }
-
-    public void stopTunnelService() {
-        tunnelServiceInteractor.stopTunnelService();
-    }
-
-    public void startTunnelService() {
-        tunnelServiceInteractor.startTunnelService(getApplication());
-    }
-
-    public void restartPsiphon(TunnelServiceInteractor.RestartMode restartMode) {
-        switch (restartMode) {
-            case VPN:
-                tunnelServiceInteractor.scheduleVpnServiceRestart(getApplication());
-                break;
-
-            case TUNNEL:
-                // Note resetReconnectFlag == true to open a sponsor page after reconnect
-                tunnelServiceInteractor.commandTunnelRestart(true);
-                break;
-        }
-    }
-
-    public void sendLocaleChangedMessage() {
-        tunnelServiceInteractor.sendLocaleChangedMessage();
     }
 
     // Basic check of proxy settings values
@@ -216,9 +165,5 @@ public class MainActivityViewModel extends AndroidViewModel implements Lifecycle
     public Flowable<String> lastLogEntryFlowable() {
         return lastLogEntryFlowable
                 .map(logEntry -> MyLog.getStatusLogMessageForDisplay(logEntry.getLogJson(), getApplication()));
-    }
-
-    public boolean isServiceRunning(Context context) {
-        return tunnelServiceInteractor.isServiceRunning(context);
     }
 }

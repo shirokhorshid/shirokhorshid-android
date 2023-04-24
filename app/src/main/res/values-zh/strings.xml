@@ -10,11 +10,6 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">赛风VPN无法启动</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">赛风无法开启VPN。多个VPN应用无法同时运行。请检查其他VPN应用是否设置为常开模式。</string>
   <string name="selected_region_currently_not_available">目前选定的地区无效，请选择其他地区。</string>
-  <string name="ads_consent_preference_category_title">广告个性化</string>
-  <string name="ads_consent_preference_dialog_preference_message">您真的想重置广告个性化设置吗？</string>
-  <string name="ads_consent_preference_title">重置广告个性化设置</string>
-  <string name="ads_consent_preference_dialog_title">重置</string>
-  <string name="ads_consent_preference_summary">重置您的设置，以允许广告联盟使用 Cookie 和您的个人数据</string>
   <string name="preference_language_selection_summary">选择语言</string>
   <string name="preference_language_selection_title">界面语言</string>
   <string name="preference_language_title">语言选择</string>
@@ -70,4 +65,20 @@
   <!--Notification title for the 'Psiphon crash detected' notification-->
   <!--Notification short message for the 'Psiphon crash detected' notification-->
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <!--Data collection disclosure prompt button text-->
+  <!--Data collection disclosure prompt title-->
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">请等待连接到Psiphon</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">关闭</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">关闭</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">您是否想现在关闭这个窗口？</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
 </resources>

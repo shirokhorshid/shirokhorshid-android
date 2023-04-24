@@ -40,11 +40,11 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.text.TextUtils;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
-import com.jakewharton.rxrelay2.BehaviorRelay;
 import com.jakewharton.rxrelay2.PublishRelay;
 import com.psiphon3.PsiphonCrashService;
 import com.psiphon3.R;
@@ -70,11 +70,13 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import ca.psiphon.PsiphonTunnel;
+import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
 import ru.ivanarh.jndcrash.NDCrash;
 
@@ -105,14 +107,11 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     public static final String INTENT_ACTION_UNSAFE_TRAFFIC = "com.psiphon3.psiphonlibrary.TunnelManager.INTENT_ACTION_UNSAFE_TRAFFIC";
     public static final String INTENT_ACTION_UPSTREAM_PROXY_ERROR = "com.psiphon3.psiphonlibrary.TunnelManager.UPSTREAM_PROXY_ERROR";
 
-    // Client -> Service bundle parameter names
-    static final String RESET_RECONNECT_FLAG = "resetReconnectFlag";
-
     // Service -> Client bundle parameter names
     static final String DATA_TUNNEL_STATE_IS_RUNNING = "isRunning";
     static final String DATA_TUNNEL_STATE_NETWORK_CONNECTION_STATE = "networkConnectionState";
     static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_SOCKS_PROXY_PORT = "listeningLocalSocksProxyPort";
-    static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT = "listeningLocalHttpProxyPort";
+    public static final String DATA_TUNNEL_STATE_LISTENING_LOCAL_HTTP_PROXY_PORT = "listeningLocalHttpProxyPort";
     static final String DATA_TUNNEL_STATE_CLIENT_REGION = "clientRegion";
     static final String DATA_TUNNEL_STATE_SPONSOR_ID = "sponsorId";
     public static final String DATA_TUNNEL_STATE_HOME_PAGES = "homePages";
@@ -164,6 +163,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     private NotificationManager mNotificationManager = null;
     private final static String NOTIFICATION_CHANNEL_ID = "psiphon_notification_channel";
+    private final static String NOTIFICATION_SERVER_ALERT_CHANNEL_ID_OLD = "psiphon_server_alert_notification_channel";
     private final static String NOTIFICATION_SERVER_ALERT_CHANNEL_ID = "psiphon_server_alert_new_notification_channel";
     private Service m_parentService;
 
@@ -171,8 +171,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     private boolean m_firstStart = true;
     private CountDownLatch m_tunnelThreadStopSignal;
     private Thread m_tunnelThread;
-    private AtomicBoolean m_startedTunneling;
-    private AtomicBoolean m_isReconnect;
     private final AtomicBoolean m_isStopping;
     private PsiphonTunnel m_tunnel;
     private String m_lastUpstreamProxyErrorMessage;
@@ -180,7 +178,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     private PendingIntent m_notificationPendingIntent;
 
-    private BehaviorRelay<TunnelState.ConnectionData.NetworkConnectionState> m_networkConnectionStateBehaviorRelay = BehaviorRelay.create();
+    private PublishRelay<TunnelState.ConnectionData.NetworkConnectionState> m_networkConnectionStatePublishRelay = PublishRelay.create();
+    private final PublishRelay<Boolean> m_isRoutingThroughTunnelPublishRelay = PublishRelay.create();
     private PublishRelay<Object> m_newClientPublishRelay = PublishRelay.create();
     private CompositeDisposable m_compositeDisposable = new CompositeDisposable();
     private VpnAppsUtils.VpnAppsExclusionSetting vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
@@ -191,8 +190,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     TunnelManager(Service parentService) {
         m_parentService = parentService;
         m_context = parentService;
-        m_startedTunneling = new AtomicBoolean(false);
-        m_isReconnect = new AtomicBoolean(false);
         m_isStopping = new AtomicBoolean(false);
         unsafeTrafficSubjects = new ArrayList<>();
         // Note that we are requesting manual control over PsiphonTunnel.routeThroughTunnel() functionality.
@@ -204,7 +201,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         if (mNotificationManager == null) {
             mNotificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                // Remove old server alert notification channel if exist
+                // since we changed server alert notification priority from DEFAULT to HIGH
+                mNotificationManager.deleteNotificationChannel(NOTIFICATION_SERVER_ALERT_CHANNEL_ID_OLD);
+
                 NotificationChannel notificationChannel = new NotificationChannel(
                         NOTIFICATION_CHANNEL_ID, getContext().getText(R.string.psiphon_service_notification_channel_name),
                         NotificationManager.IMPORTANCE_LOW);
@@ -225,14 +227,13 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // This service runs as a separate process, so it needs to initialize embedded values
         EmbeddedValues.initialize(getContext());
 
-        m_compositeDisposable.clear();
         m_compositeDisposable.add(connectionStatusUpdaterDisposable());
     }
 
     // Implementation of android.app.Service.onStartCommand
     int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && INTENT_ACTION_STOP_TUNNEL.equals(intent.getAction())) {
-            if(m_tunnelThreadStopSignal == null || m_tunnelThreadStopSignal.getCount() == 0) {
+            if (m_tunnelThreadStopSignal == null || m_tunnelThreadStopSignal.getCount() == 0) {
                 m_parentService.stopForeground(true);
                 m_parentService.stopSelf();
             } else {
@@ -265,60 +266,64 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     // also updates service notification.
     private Disposable connectionStatusUpdaterDisposable() {
         return connectionObservable()
-                .switchMapSingle(networkConnectionState
-                        -> {
-                    // If tunnel is not connected return immediately
-                    if (networkConnectionState != TunnelState.ConnectionData.NetworkConnectionState.CONNECTED) {
-                        return Single.just(networkConnectionState);
+                .switchMap(pair -> {
+                    TunnelState.ConnectionData.NetworkConnectionState networkConnectionState = pair.first;
+                    boolean isRoutingThroughTunnel = pair.second;
+
+                    // The tunnel is connected but we are not routing traffic through the tunnel yet,
+                    // check we need to send a landing page intent.
+                    if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED && !isRoutingThroughTunnel) {
+                        if (m_tunnelState.homePages != null && m_tunnelState.homePages.size() != 0) {
+                            if (canSendIntentToActivity()) {
+                                m_tunnel.routeThroughTunnel();
+                                sendHandshakeIntent();
+                                m_isRoutingThroughTunnelPublishRelay.accept(Boolean.TRUE);
+                                // Do not emit downstream if we are just started routing.
+                                return Observable.empty();
+                            }
+                            // Emit CONNECTING and start waiting for an activity to bind
+                            return waitSendIntentAndRouteThroughTunnelCompletable(this::sendHandshakeIntent)
+                                    .<TunnelState.ConnectionData.NetworkConnectionState>toObservable()
+                                    .startWith(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+                        }
+                        // No intents to send, just route through tunnel.
+                        m_tunnel.routeThroughTunnel();
+                        m_isRoutingThroughTunnelPublishRelay.accept(Boolean.TRUE);
+                        // Do not emit downstream if we are just started routing.
+                        return Observable.empty();
                     }
-                    // If this is a reconnect return immediately
-                    if (m_isReconnect.get()) {
-                        return Single.just(networkConnectionState);
-                    }
-                    // If there are no home pages to show return immediately
-                    if (m_tunnelState.homePages == null || m_tunnelState.homePages.size() == 0) {
-                        return Single.just(networkConnectionState);
-                    }
-                    // If OS is less than Android 10 return immediately
-                    if (Build.VERSION.SDK_INT < 29) {
-                        return Single.just(networkConnectionState);
-                    }
-                    // If there is at least one live activity client, which means there is at least
-                    // one activity in foreground bound to the service - return immediately
-                    if (pingForActivity()) {
-                        return Single.just(networkConnectionState);
-                    }
-                    // If there are no live client wait for new ones to bind
-                    return m_newClientPublishRelay
-                            // Test the activity client(s) again by pinging, block until there's at least one live client
-                            .filter(__ -> pingForActivity())
-                            // We have a live client, complete this inner subscription and send down original networkConnectionState value
-                            .map(__ -> networkConnectionState)
-                            .firstOrError()
-                            // Show "Open Psiphon" notification when subscribed to
-                            .doOnSubscribe(__ -> showOpenAppToFinishConnectingNotification())
-                            // Cancel "Open Psiphon to keep connecting" when completed or disposed
-                            .doFinally(() -> cancelOpenAppToFinishConnectingNotification());
+                    return Observable.just(networkConnectionState);
                 })
+                .distinctUntilChanged()
                 .doOnNext(networkConnectionState -> {
                     m_tunnelState.networkConnectionState = networkConnectionState;
-                    // Any subsequent onConnected after this first one will be a reconnect.
-                    if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED
-                            && m_isReconnect.compareAndSet(false, true)) {
-                        m_tunnel.routeThroughTunnel();
-                        if (m_tunnelState.homePages != null && m_tunnelState.homePages.size() > 0) {
-                            sendHandshakeIntent();
-                        }
-                    }
                     sendClientMessage(ServiceToClientMessage.TUNNEL_CONNECTION_STATE.ordinal(), getTunnelStateBundle());
                     // Don't update notification to CONNECTING, etc., when a stop was commanded.
                     if (!m_isStopping.get()) {
-                        // We expect only distinct connection status from connectionObservable
-                        // which means we always add a sound / vibration alert to the notification
                         postServiceNotification(true, networkConnectionState);
                     }
                 })
                 .subscribe();
+    }
+
+    private Completable waitSendIntentAndRouteThroughTunnelCompletable(Runnable runnable) {
+        return m_newClientPublishRelay
+                // Test the activity client(s) again by pinging, block until there's at least one live client
+                .filter(__ -> pingForActivity())
+                .take(1)
+                .ignoreElements()
+                .doOnSubscribe(__ -> showOpenAppToFinishConnectingNotification())
+                .doOnComplete(() -> {
+                    m_tunnel.routeThroughTunnel();
+                    runnable.run();
+                    m_isRoutingThroughTunnelPublishRelay.accept(Boolean.TRUE);
+                })
+                // Cancel "Open Psiphon to keep connecting" when completed or disposed
+                .doFinally(this::cancelOpenAppToFinishConnectingNotification);
+    }
+
+    private boolean canSendIntentToActivity() {
+        return Build.VERSION.SDK_INT < 29 || pingForActivity();
     }
 
     private void cancelOpenAppToFinishConnectingNotification() {
@@ -332,14 +337,15 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             return;
         }
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_SERVER_ALERT_CHANNEL_ID);
         notificationBuilder
                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                .setGroup(getContext().getString(R.string.alert_notification_group))
                 .setContentTitle(getContext().getString(R.string.notification_title_action_required))
                 .setContentText(getContext().getString(R.string.notification_text_open_psiphon_to_finish_connecting))
                 .setStyle(new NotificationCompat.BigTextStyle()
                         .bigText(getContext().getString(R.string.notification_text_open_psiphon_to_finish_connecting)))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setContentIntent(m_notificationPendingIntent);
 
         mNotificationManager.notify(R.id.notification_id_open_app_to_keep_connecting, notificationBuilder.build());
@@ -353,8 +359,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             // Cancel upstream proxy error notification
             mNotificationManager.cancel(R.id.notification_id_upstream_proxy_error);
         }
-        // Cancel "open app to finish connecting" notifications too.
-        cancelOpenAppToFinishConnectingNotification();
 
         stopAndWaitForTunnel();
         m_compositeDisposable.dispose();
@@ -370,7 +374,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // otherwise show a notification.
         if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
             try {
-                vpnRevokedPendingIntent.send(m_parentService, 0, null);
+                vpnRevokedPendingIntent.send();
             } catch (PendingIntent.CanceledException e) {
                 MyLog.w("vpnRevokedPendingIntent send failed: " + e);
             }
@@ -382,6 +386,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
             notificationBuilder
                     .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                    .setGroup(getContext().getString(R.string.alert_notification_group))
                     .setContentTitle(getContext().getString(R.string.notification_title_vpn_revoked))
                     .setContentText(getContext().getString(R.string.notification_text_vpn_revoked))
                     .setStyle(new NotificationCompat.BigTextStyle()
@@ -449,7 +454,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 ctx,
                 0,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE :
+                        PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     private Single<Config> getTunnelConfigSingle() {
@@ -478,7 +485,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED) {
             iconID = R.drawable.notification_icon_connected;
-            switch(vpnAppsExclusionSetting) {
+            switch (vpnAppsExclusionSetting) {
                 case INCLUDE_APPS:
                     contentText = getContext().getResources()
                             .getQuantityString(R.plurals.psiphon_service_notification_message_vpn_include_apps,
@@ -521,17 +528,22 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         Intent stopTunnelIntent = new Intent(getContext(), m_parentService.getClass());
         stopTunnelIntent.setAction(INTENT_ACTION_STOP_TUNNEL);
-        PendingIntent stopTunnelPendingIntent = PendingIntent.getService(getContext(), 0, stopTunnelIntent, 0);
+        PendingIntent stopTunnelPendingIntent = PendingIntent.getService(
+                getContext(),
+                0,
+                stopTunnelIntent,
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ?
+                        PendingIntent.FLAG_IMMUTABLE : 0);
         NotificationCompat.Action notificationAction = new NotificationCompat.Action.Builder(
-                        R.drawable.ic_btn_stop,
-                        getContext().getString(R.string.stop),
-                        stopTunnelPendingIntent)
+                R.drawable.ic_btn_stop,
+                getContext().getString(R.string.stop),
+                stopTunnelPendingIntent)
                 .build();
-
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
         return notificationBuilder
                 .setSmallIcon(iconID)
+                .setGroup(getContext().getString(R.string.status_notification_group))
                 .setContentTitle(getContext().getText(R.string.app_name))
                 .setContentText(contentText)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(contentText))
@@ -539,6 +551,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 .setDefaults(defaults)
                 .setContentIntent(m_notificationPendingIntent)
                 .addAction(notificationAction)
+                .setOngoing(true)
                 .build();
     }
 
@@ -583,11 +596,13 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     private static class MessengerWrapper {
-        @NonNull Messenger messenger;
+        @NonNull
+        Messenger messenger;
         boolean isActivity;
+
         MessengerWrapper(@NonNull Messenger messenger, Bundle data) {
             this.messenger = messenger;
-            if (data!= null) {
+            if (data != null) {
                 isActivity = data.getBoolean(IS_CLIENT_AN_ACTIVITY, false);
             }
         }
@@ -599,7 +614,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     private final Messenger m_incomingMessenger = new Messenger(
             new IncomingMessageHandler(this));
-    private HashMap<Integer, MessengerWrapper> mClients = new HashMap<>();
+    private final HashMap<Integer, MessengerWrapper> mClients = new HashMap<>();
 
 
     private static class IncomingMessageHandler extends Handler {
@@ -650,6 +665,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
                 case STOP_SERVICE:
                     if (manager != null) {
+                        // Ignore the message if the sender is not registered
+                        if (manager.mClients.get(msg.replyTo.hashCode()) == null) {
+                            return;
+                        }
                         // Do not send any more messages after a stop was commanded.
                         // Client side will receive a ServiceConnection.onServiceDisconnected callback
                         // when the service finally stops.
@@ -660,19 +679,19 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
                 case RESTART_TUNNEL:
                     if (manager != null) {
-                        final boolean resetReconnectFlag;
-                        Bundle data = msg.getData();
-                        if (data != null) {
-                            resetReconnectFlag = data.getBoolean(RESET_RECONNECT_FLAG, true);
-                        } else {
-                            resetReconnectFlag = true;
+                        // Ignore the message if the sender is not registered
+                        if (manager.mClients.get(msg.replyTo.hashCode()) == null) {
+                            return;
                         }
+
+                        // TODO: notify client that the tunnel is going to restart
+                        //  rather than reporting tunnel is not connected?
+                        manager.m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
                         manager.m_compositeDisposable.add(
                                 manager.getTunnelConfigSingle()
                                         .doOnSuccess(config -> {
-                                            if (resetReconnectFlag) {
-                                                manager.m_isReconnect.set(false);
-                                            }
+                                            manager.m_tunnel.stopRouteThroughTunnel();
+                                            manager.m_isRoutingThroughTunnelPublishRelay.accept(Boolean.FALSE);
                                             manager.setTunnelConfig(config);
                                             manager.onRestartTunnel();
                                         })
@@ -682,6 +701,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
                 case CHANGED_LOCALE:
                     if (manager != null) {
+                        // Ignore the message if the sender is not registered
+                        if (manager.mClients.get(msg.replyTo.hashCode()) == null) {
+                            return;
+                        }
                         setLocale(manager);
                     }
                     break;
@@ -715,7 +738,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     private void sendClientMessage(int what, Bundle data) {
         Message msg = composeClientMessage(what, data);
-        for (Iterator i = mClients.entrySet().iterator(); i.hasNext();) {
+        for (Iterator i = mClients.entrySet().iterator(); i.hasNext(); ) {
             Map.Entry pair = (Map.Entry) i.next();
             MessengerWrapper messenger = (MessengerWrapper) pair.getValue();
             try {
@@ -743,11 +766,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     private void sendHandshakeIntent() {
-        Intent fillInExtras = new Intent();
-        fillInExtras.putExtras(getTunnelStateBundle());
-        PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE);
+        PendingIntent handshakePendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_HANDSHAKE, getTunnelStateBundle());
         try {
-            handshakePendingIntent.send(m_parentService, 0, fillInExtras);
+            handshakePendingIntent.send();
         } catch (PendingIntent.CanceledException e) {
             MyLog.w("handshakePendingIntent send failed: " + e);
         }
@@ -814,10 +835,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         final String stdErrRedirectPath = PsiphonCrashService.getStdRedirectPath(m_parentService);
         NDCrash.nativeInitializeStdErrRedirect(stdErrRedirectPath);
 
-        m_isReconnect.set(false);
         m_isStopping.set(false);
-        m_startedTunneling.set(false);
-        m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+        m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+        m_isRoutingThroughTunnelPublishRelay.accept(Boolean.FALSE);
 
         // Notify if an upgrade has already been downloaded and is waiting for install
         UpgradeManager.UpgradeInstaller.notifyUpgrade(getContext(), PsiphonTunnel.getDefaultUpgradeDownloadFilePath(getContext()));
@@ -836,7 +856,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             MyLog.i(R.string.vpn_service_running, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_tunnel.startTunneling(getServerEntries(m_parentService));
-            m_startedTunneling.set(true);
             try {
                 m_tunnelThreadStopSignal.await();
             } catch (InterruptedException e) {
@@ -853,7 +872,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             MyLog.i(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_isStopping.set(true);
-            m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+            m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
             m_tunnel.stop();
 
             sendDataTransferStatsHandler.removeCallbacks(sendDataTransferStats);
@@ -902,7 +921,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         if (Build.VERSION.SDK_INT < LOLLIPOP) {
             return vpnBuilder;
         }
-        
+
 //        Added on API 29:
 //        Marks the VPN network as metered. A VPN network is classified as metered when the user is
 //        sensitive to heavy data usage due to monetary costs and/or data limitations. In such cases,
@@ -1000,12 +1019,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
      * tunnel, the UpgradeChecker temp tunnel and the FeedbackWorker upload operation).
      *
      * @param context
-     * @param tunnelConfig         Config values to be set in the tunnel core config.
-     * @param useUpstreamProxy     If an upstream proxy has been configured, include it in the returned
-     *                             config. Used to omit the proxy from the returned config when network
-     *                             operations will already be tunneled over a connection which uses the
-     *                             configured upstream proxy.
-     * @param tempTunnelName       null if not a temporary tunnel. If set, must be a valid to use in file path.
+     * @param tunnelConfig     Config values to be set in the tunnel core config.
+     * @param useUpstreamProxy If an upstream proxy has been configured, include it in the returned
+     *                         config. Used to omit the proxy from the returned config when network
+     *                         operations will already be tunneled over a connection which uses the
+     *                         configured upstream proxy.
+     * @param tempTunnelName   null if not a temporary tunnel. If set, must be a valid to use in file path.
      * @return JSON string of config. null on error.
      */
     public static String buildTunnelCoreConfig(
@@ -1119,12 +1138,14 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         }
     }
 
-    // Creates an observable from ReplaySubject of size(1) that holds the last connection state
-    // value. The result is additionally filtered to output only distinct consecutive values.
-    // Emits its current value to every new subscriber.
-    private Observable<TunnelState.ConnectionData.NetworkConnectionState> connectionObservable() {
-        return m_networkConnectionStateBehaviorRelay
-                .hide()
+    // This observable emits a pair consisting of the latest NetworkConnectionState state and a
+    // Boolean representing whether we are routing the traffic via tunnel.
+    // Emits a new pair every time when either of the sources emits a new value.
+    private Observable<Pair<TunnelState.ConnectionData.NetworkConnectionState, Boolean>> connectionObservable() {
+        return Observable.combineLatest(m_networkConnectionStatePublishRelay,
+                        m_isRoutingThroughTunnelPublishRelay,
+                        ((BiFunction<TunnelState.ConnectionData.NetworkConnectionState, Boolean,
+                                Pair<TunnelState.ConnectionData.NetworkConnectionState, Boolean>>) Pair::new))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .distinctUntilChanged();
@@ -1151,7 +1172,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
     @Override
     public String getPsiphonConfig() {
-        this.setPlatformAffixes(m_tunnel, null);
+        setPlatformAffixes(m_tunnel, null);
         String config = buildTunnelCoreConfig(getContext(), m_tunnelConfig, true, null);
         return config == null ? "" : config;
     }
@@ -1193,7 +1214,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // otherwise show a notification.
                     if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
                         try {
-                            regionNotAvailablePendingIntent.send(m_parentService, 0, null);
+                            regionNotAvailablePendingIntent.send();
                         } catch (PendingIntent.CanceledException e) {
                             MyLog.w("regionNotAvailablePendingIntent send failed: " + e);
                         }
@@ -1205,6 +1226,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
                         notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setGroup(getContext().getString(R.string.alert_notification_group))
                                 .setContentTitle(getContext().getString(R.string.notification_title_region_not_available))
                                 .setContentText(getContext().getString(R.string.notification_text_region_not_available))
                                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -1288,7 +1310,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // otherwise show a notification.
                     if (Build.VERSION.SDK_INT < 29 || pingForActivity()) {
                         try {
-                            upstreamProxyErrorPendingIntent.send(m_parentService, 0, null);
+                            upstreamProxyErrorPendingIntent.send();
                         } catch (PendingIntent.CanceledException e) {
                             MyLog.w("upstreamProxyErrorPendingIntent send failed: " + e);
                         }
@@ -1300,6 +1322,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
                         notificationBuilder
                                 .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                                .setGroup(getContext().getString(R.string.alert_notification_group))
                                 .setContentTitle(getContext().getString(R.string.notification_title_upstream_proxy_error))
                                 .setContentText(getContext().getString(R.string.notification_text_upstream_proxy_error))
                                 .setStyle(new NotificationCompat.BigTextStyle()
@@ -1319,7 +1342,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+                m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
                 DataTransferStats.getDataTransferStatsForService().stop();
                 m_tunnelState.homePages.clear();
 
@@ -1346,7 +1369,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
                 MyLog.i(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
 
-                m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
+                m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
             }
         });
     }
@@ -1413,7 +1436,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK);
+                m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK);
                 MyLog.i(R.string.waiting_for_network_connectivity, MyLog.Sensitivity.NOT_SENSITIVE);
             }
         });
@@ -1424,7 +1447,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
-                m_networkConnectionStateBehaviorRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+                m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
                 // Do not log "Connecting" if tunnel is stopping
                 if (!m_isStopping.get()) {
                     MyLog.i(R.string.tunnel_connecting, MyLog.Sensitivity.NOT_SENSITIVE);
@@ -1459,6 +1482,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     String notificationMessage = context.getString(R.string.unsafe_traffic_alert_notification_message);
                     Notification notification = new NotificationCompat.Builder(context, NOTIFICATION_SERVER_ALERT_CHANNEL_ID)
                             .setSmallIcon(R.drawable.ic_psiphon_alert_notification)
+                            .setGroup(getContext().getString(R.string.alert_notification_group))
                             .setContentTitle(context.getString(R.string.unsafe_traffic_alert_notification_title))
                             .setContentText(notificationMessage)
                             .setStyle(new NotificationCompat.BigTextStyle().bigText(notificationMessage))

@@ -7,11 +7,6 @@
   <string name="FeedbackActivity.Failure">Einsendung fehlgeschlagen. Bitte versuchen Sie es erneut.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN wurde gestoppt</string>
   <string name="selected_region_currently_not_available">Ausgewählte Region ist derzeit nicht verfügbar, bitte wählen Sie eine andere Region aus.</string>
-  <string name="ads_consent_preference_category_title">Personalisierung der Werbung</string>
-  <string name="ads_consent_preference_dialog_preference_message">Möchten Sie wirklich die Einstellungen für die Werbepersonalisierung zurücksetzen?</string>
-  <string name="ads_consent_preference_title">Einstellungen für die Werbepersonalisierung zurücksetzen</string>
-  <string name="ads_consent_preference_dialog_title">Zu&amp;rücksetzen</string>
-  <string name="ads_consent_preference_summary">Setzen Sie Ihre Einstellung zurück, um den Werbenetzwerken die Verwendung von Cookies und Ihren persönlichen Daten zu erlauben</string>
   <string name="preference_language_selection_summary">Wählen Sie die Sprache aus</string>
   <string name="preference_language_selection_title">Sprache</string>
   <string name="preference_language_title">Sprachauswahl</string>
@@ -53,4 +48,18 @@
   <!--Notification title for the 'Psiphon crash detected' notification-->
   <!--Notification short message for the 'Psiphon crash detected' notification-->
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <!--Data collection disclosure prompt button text-->
+  <!--Data collection disclosure prompt title-->
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Schließen</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Schließen</string>
+  <!--Generic 'close' alert prompt message-->
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
 </resources>
