@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.VpnService;
 import android.os.Bundle;
+import android.view.Menu;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -25,6 +26,11 @@ public abstract class LocalizedActivities {
 
         public TunnelServiceInteractor getTunnelServiceInteractor() {
             return tunnelServiceInteractor;
+        }
+
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            return super.onCreateOptionsMenu(menu);
         }
 
         @Override
