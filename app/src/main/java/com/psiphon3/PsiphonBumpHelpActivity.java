@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -124,17 +125,22 @@ public class PsiphonBumpHelpActivity extends LocalizedActivities.AppCompatActivi
             if (args != null) {
                 int position = args.getInt(ARG_POSITION);
                 TextView textView = view.findViewById(R.id.textView);
+                AppCompatImageView imageView = view.findViewById(R.id.imageView);
                 switch (position) {
                     case 0:
+                        imageView.setImageResource(R.drawable.bump_onboarding_1);
                         textView.setText(R.string.psiphon_bump_help_1);
                         break;
                     case 1:
+                        imageView.setImageResource(R.drawable.bump_onboarding_2);
                         textView.setText(R.string.psiphon_bump_help_2);
                         break;
                     case 2:
+                        imageView.setImageResource(R.drawable.bump_onboarding_3);
                         textView.setText(R.string.psiphon_bump_help_3);
                         break;
                     case 3:
+                        imageView.setImageResource(R.drawable.bump_onboarding_4);
                         textView.setText(R.string.psiphon_bump_help_4);
                         break;
                 }

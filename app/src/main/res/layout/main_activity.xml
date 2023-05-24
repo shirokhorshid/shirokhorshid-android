@@ -71,8 +71,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
                 android:layout_margin="16dp"
-                android:src="@drawable/ic_sos"
-                android:visibility="gone"
+                android:src="@drawable/ic_nfc_help"
+                app:backgroundTint="@android:color/white"
+                android:tint="@android:color/black"
+                app:maxImageSize="48dp"
+                android:visibility="visible"
                 android:tooltipText="@string/help_connect_fab_tooltip"
                 app:fabSize="normal" />
         </FrameLayout>

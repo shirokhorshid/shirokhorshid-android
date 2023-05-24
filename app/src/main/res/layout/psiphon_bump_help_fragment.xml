@@ -6,14 +6,15 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView"
+        android:id="@+id/imageView"
         android:layout_width="0dp"
+        app:layout_constraintWidth_max="360dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/psiphon_bump_help_one" />
+        app:srcCompat="@drawable/bump_onboarding_1" />
 
     <TextView
         android:paddingHorizontal="20dp"

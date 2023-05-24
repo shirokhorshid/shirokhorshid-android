@@ -172,7 +172,7 @@
     <string name="psiphon_bump_help_2">Verify that their Psiphon app is connected to Psiphon network and is showing Psiphon Bump icon in the app bar.</string>
 
     <!-- NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump' -->
-    <string name="psiphon_bump_help_3">With Psiphon Bump NFC reader dialog open on your device and Psiphon app open on the helper device place your devices back to back to initiate a connection data transfer.</string>
+    <string name="psiphon_bump_help_3">With Psiphon Bump NFC reader dialog open on your device and Psiphon app open on the helper device, place your devices back to back to initiate a connection data transfer.</string>
 
     <!-- NFC connection exchange onboarding / tutorial slide text -->
     <string name="psiphon_bump_help_4">Once the connection data transfer is complete and Psiphon on your device is able to connect the reader dialog will close automatically. Alternatively, you may re-initiate the transfer until Psiphon connects successfully.</string>
