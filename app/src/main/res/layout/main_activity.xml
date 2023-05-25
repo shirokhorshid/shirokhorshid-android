@@ -75,7 +75,7 @@
                 app:backgroundTint="@android:color/white"
                 android:tint="@android:color/black"
                 app:maxImageSize="48dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:tooltipText="@string/help_connect_fab_tooltip"
                 app:fabSize="normal" />
         </FrameLayout>
