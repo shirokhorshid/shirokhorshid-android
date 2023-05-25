@@ -130,22 +130,22 @@
     <string name="enable_nfc_in_settings">Please enable NFC in settings</string>
 
     <!-- NFC connection data exchange error message -->
-    <string name="nfc_export_data_empty">Host device responded with empty connection data message. Is Psiphon running and connected on the host device? Please check and try again.</string>
+    <string name="nfc_export_data_empty">Error communicating with the other device. Please check that Psiphon is open and connected on the other device and try again.</string>
 
     <!-- NFC connection data exchange message when waiting for interaction with host device -->
-    <string name="nfc_reader_default_message">Waiting for NFC interaction with the helper device…</string>
+    <string name="nfc_reader_default_message">Waiting for NFC interaction with the other device…</string>
 
     <!-- NFC connection data exchange success message -->
     <string name="nfc_export_success">Connection information exchanged successfully!</string>
 
     <!-- NFC connection data exchange error message -->
-    <string name="nfc_export_bad_data">Helper device responded with bad data. Please try again.</string>
+    <string name="nfc_export_bad_data">Error communicating with the other device. Please try again.</string>
 
     <!-- NFC connection data exchange error message -->
     <string name="nfc_export_lost_tag">Device moved too fast, connection lost. Please try again.</string>
 
     <!-- NFC connection data exchange error message -->
-    <string name="nfc_export_unsupported_tag">Unsupported NFC tag discovered. Is Psiphon connected and running in foreground on the helper device?</string>
+    <string name="nfc_export_unsupported_tag">Unsupported NFC tag discovered. Is Psiphon open and connected on the other device?</string>
 
     <!-- NFC connection data exchange message when devices are connected and data is being exchanged -->
     <string name="nfc_export_reading_data">Reading data…</string>
@@ -166,14 +166,14 @@
     <string name="onboarding_done">Done</string>
 
     <!-- NFC connection exchange onboarding / tutorial slide text -->
-    <string name="psiphon_bump_help_1">If Psiphon is taking a long time to connect, find a friend who is connected and share the connection parameters with them using Near-Field Communication (NFC).</string>
+    <string name="psiphon_bump_help_1">If you are having trouble connecting to a Psiphon server, find a friend who has successfully connected and share their connection information using NFC.</string>
 
     <!-- NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump' -->
-    <string name="psiphon_bump_help_2">Verify that their Psiphon app is connected to Psiphon network and is showing Psiphon Bump icon in the app bar.</string>
+    <string name="psiphon_bump_help_2">Make sure that Psiphon is open and connected and the Psiphon Bump icon is showing in the app bar on the other device.</string>
 
     <!-- NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump' -->
-    <string name="psiphon_bump_help_3">With Psiphon Bump NFC reader dialog open on your device and Psiphon app open on the helper device, place your devices back to back to initiate a connection data transfer.</string>
+    <string name="psiphon_bump_help_3">With the Psiphon Bump dialog open on your device and the Psiphon app open and connected on the other device, place your devices back to back to initiate a connection information data transfer.</string>
 
     <!-- NFC connection exchange onboarding / tutorial slide text -->
-    <string name="psiphon_bump_help_4">Once the connection data transfer is complete and Psiphon on your device is able to connect the reader dialog will close automatically. Alternatively, you may re-initiate the transfer until Psiphon connects successfully.</string>
+    <string name="psiphon_bump_help_4">Once the connection information data transfer is complete and your Psiphon app is able to connect, the Psiphon Bump dialog will close automatically. If you still cannot connect, you can retry until Psiphon connects successfully.</string>
 </resources>
