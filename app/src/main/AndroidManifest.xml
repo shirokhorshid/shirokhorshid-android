@@ -143,7 +143,6 @@
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
                 <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE"/>
-                <!-- category required!!! this was not included in official android HCE documentation -->
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             <meta-data android:name="android.nfc.cardemulation.host_apdu_service"
