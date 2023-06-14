@@ -172,4 +172,9 @@
     <string name="unsafeTrafficAlertsOptInPreferenceTitle">Show MalAware alerts</string>
     <string name="unsafeTrafficAlertsOptInPreferenceSummary">Get notified when Psiphon detects malware traffic originating from your device.</string>
     <string name="aboutMalAware">About MalAware</string>
+
+    <!-- Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump' -->
+    <string name="nfcBumpPreferenceTitle">Enable Psiphon Bump</string>
+    <!-- Summary for Psiphon Bump preference -->
+    <string name="nfcBumpPreferenceSummary">Use NFC to share Psiphon connection data with other devices.</string>
 </resources>

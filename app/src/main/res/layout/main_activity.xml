@@ -22,6 +22,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -43,22 +44,41 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="fill_parent"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.0"
-            android:orientation="vertical">
+            android:layout_weight="1.0">
 
-            <com.psiphon3.PsiphonTabLayout
-                android:id="@+id/main_activity_tablayout"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/tabs_view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <com.psiphon3.PsiphonTabLayout
+                    android:id="@+id/main_activity_tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/tabs_view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/help_connect_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_nfc_help"
+                app:backgroundTint="@android:color/white"
+                android:tint="@android:color/black"
+                app:maxImageSize="48dp"
+                android:visibility="gone"
+                android:tooltipText="@string/help_connect_fab_tooltip"
+                app:fabSize="normal" />
+        </FrameLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"

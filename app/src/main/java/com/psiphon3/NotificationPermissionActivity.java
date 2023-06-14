@@ -82,7 +82,7 @@ public class NotificationPermissionActivity extends LocalizedActivities.AppCompa
         }
 
         message.append(getString(R.string.notifications_permission_rationale_disable_any_time));
-        ((TextView)findViewById(R.id.message)).setText(message);
+        ((TextView)findViewById(R.id.messageTextView)).setText(message);
 
         findViewById(R.id.continue_btn).setOnClickListener(v -> {
             if (Build.VERSION.SDK_INT >= 33) {

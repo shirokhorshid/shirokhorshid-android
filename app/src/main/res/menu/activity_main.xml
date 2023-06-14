@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_psiphon_bump"
+        android:title=""
+        app:actionLayout="@layout/menu_psiphon_bump"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_psiphon_version"
+        android:title=""
+        app:actionLayout="@layout/menu_psiphon_version"
+        app:showAsAction="always" />
+
+</menu>

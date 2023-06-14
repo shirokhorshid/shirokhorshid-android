@@ -33,6 +33,7 @@
     <string name="unsafeTrafficAlertsPreference" translatable="false">unsafeTrafficAlertsPreference</string>
     <string name="egressRegionPreference">egressRegionPreference</string>
     <string name="moreOptionsPreferencesName">moreOptionsPreferencesName</string>
+    <string name="nfcBumpPreference" translatable="false">nfcBumpPreference</string>
 
     <string name="upgrade_checker_service_name">Psiphon:UpgradeChecker</string>
 

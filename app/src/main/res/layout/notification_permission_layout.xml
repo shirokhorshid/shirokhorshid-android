@@ -64,7 +64,7 @@
             android:paddingBottom="12dip">
 
             <TextView
-                android:id="@+id/message"
+                android:id="@+id/messageTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4dip"

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Psiphon</string>
+    <string name="app_name" translatable="false">Psiphon</string>
+    <string name="nfc_emulation_service_description" translatable="false">Psiphon HCE service</string>
+    <string name="psiphon_nfc_aid_description" translatable="false">Psiphon NFC AID</string>
 </resources>
