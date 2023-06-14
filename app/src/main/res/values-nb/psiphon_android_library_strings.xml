@@ -111,4 +111,6 @@
   <string name="waiting">Venter …</string>
   <string name="label_proxy_settings">Mellomtjenerinnstillinger</string>
   <string name="disableTimeoutsPreferenceTitle">Skru av tidsavbrudd</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

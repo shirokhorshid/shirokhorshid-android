@@ -93,4 +93,6 @@
   <string name="tunnel_connected">Túnel ligado</string>
   <string name="waiting">A aguardar...</string>
   <string name="label_proxy_settings">Configurações de proxy</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

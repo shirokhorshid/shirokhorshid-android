@@ -145,4 +145,6 @@
   <string name="preference_summary_system_proxy">Mfumo wa proksi</string>
   <string name="disableTimeoutsPreferenceTitle">Lemaza mudaumeisha</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi tu</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

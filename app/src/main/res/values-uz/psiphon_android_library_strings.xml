@@ -106,4 +106,6 @@
   <string name="tunnel_connecting">Shifrlash tunneli ulanmoqda…</string>
   <string name="tunnel_connected">Shifrlash tunneli ulandi</string>
   <string name="waiting">Kutilmoqda…</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

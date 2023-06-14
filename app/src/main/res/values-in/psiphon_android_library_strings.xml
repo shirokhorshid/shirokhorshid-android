@@ -160,4 +160,6 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">Tampilkan peringatan MalAware</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Dapatkan pemberitahuan saat Psiphon mendeteksi lalu lintas malware yang berasal dari perangkat Anda.</string>
   <string name="aboutMalAware">Tentang MalAware</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

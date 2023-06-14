@@ -168,4 +168,6 @@
   <string name="preference_summary_system_proxy">Системный прокси</string>
   <string name="disableTimeoutsPreferenceTitle">Отключить таймауты</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Только wi-fi</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

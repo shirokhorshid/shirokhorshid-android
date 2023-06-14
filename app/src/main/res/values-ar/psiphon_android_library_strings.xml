@@ -179,4 +179,6 @@
   <string name="downloadWiFiOnlyPreferenceTitle">فقط Wi-Fi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">‫إظهار تنبيهات MalAware</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">الحصول على الإشعار عندما يكتشف Psiphon حركات مرور ناجمة عن برمجيات خبيثة منشؤها جهازك.</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

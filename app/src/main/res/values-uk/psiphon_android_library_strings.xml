@@ -173,4 +173,6 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">Показувати сповіщення MalAware</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Отримуйте сповіщення, коли Psiphon виявляє трафік зловмисного програмного забезпечення, що надходить з вашого пристрою.</string>
   <string name="aboutMalAware">Про зловмисне програмне забезпечення</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

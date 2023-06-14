@@ -163,4 +163,6 @@
   <string name="downloadWiFiOnlyPreferenceTitle">Alleen WiFi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">Toon malwaremeldingen</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Ontvang een melding wanneer Psiphon malware-verkeer detecteert dat afkomstig is van uw apparaat.</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

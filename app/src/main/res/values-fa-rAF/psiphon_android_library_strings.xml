@@ -102,4 +102,6 @@
   <string name="tunnel_connecting">تونل در حال اتصال...</string>
   <string name="tunnel_connected">تونل متصل شد</string>
   <string name="waiting">در حال انتظار…</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

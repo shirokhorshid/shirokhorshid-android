@@ -103,4 +103,6 @@
   <string name="tunnel_connected">Нақб пайваст карда шуд</string>
   <string name="waiting">Интизорӣ...</string>
   <string name="disableTimeoutsPreferenceTitle">Танаффузҳоро бекор кардан</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

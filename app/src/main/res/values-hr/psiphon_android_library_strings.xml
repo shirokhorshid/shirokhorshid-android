@@ -146,4 +146,6 @@
   <string name="label_proxy_settings">Postavke proxy-a</string>
   <string name="preference_summary_no_proxy">Nema proxija</string>
   <string name="disableTimeoutsPreferenceTitle">Onemogući pauze</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

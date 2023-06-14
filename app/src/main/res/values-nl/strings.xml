@@ -84,4 +84,25 @@
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
   <!--Notifications permission rationale list item-->
   <!--Notifications permission rationale last sentence-->
+  <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <!--NFC connection data exchange error message-->
+  <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <!--NFC connection data exchange success message-->
+  <!--NFC connection data exchange error message-->
+  <!--NFC connection data exchange error message-->
+  <!--NFC connection data exchange error message-->
+  <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <!--Label on the button that opens NFC exchange onboarding screen-->
+  <string name="help_btn_label">Hulp</string>
+  <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Overslaan</string>
+  <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
+  <string name="onboarding_next">Volgende</string>
+  <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
+  <string name="onboarding_done">Gereed</string>
+  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <!--NFC connection exchange onboarding / tutorial slide text-->
 </resources>

@@ -102,4 +102,6 @@
   <string name="tunnel_connecting">ཡུར་བ་ལ་མཐུད་བཞིན་པ།...</string>
   <string name="tunnel_connected">ཡུར་བར་མཐུད་ཚར་སོང་།</string>
   <string name="waiting">སྒུག་བཞིན་པ།</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

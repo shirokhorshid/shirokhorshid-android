@@ -135,4 +135,6 @@
   <string name="waiting">In attesa...</string>
   <string name="preference_summary_no_proxy">Nessun proxy</string>
   <string name="disableTimeoutsPreferenceTitle">Disattiva timeout</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

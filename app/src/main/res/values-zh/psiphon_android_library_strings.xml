@@ -160,4 +160,6 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">显示恶意软件警告</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon 发现设备上有恶意软件时会提醒您。</string>
   <string name="aboutMalAware">关于MalAware</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>
