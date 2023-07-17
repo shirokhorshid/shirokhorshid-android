@@ -5,7 +5,8 @@
     <item
         android:id="@+id/menu_psiphon_bump"
         android:title=""
-        app:actionLayout="@layout/menu_psiphon_bump"
+        android:icon="@drawable/ic_contactless"
+        android:visible="false"
         app:showAsAction="always" />
 
     <item
