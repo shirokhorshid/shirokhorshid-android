@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Boresha Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon Arifu Seva</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Hitilafu kwenye Psiphon</string>
   <string name="vpn_service_running">Kuendesha kwa VPN seva</string>
   <string name="vpn_service_revoked">Kubatilishwa kwa VPN seva</string>
   <string name="current_network_type">Mtandao wa sasa: %s</string>

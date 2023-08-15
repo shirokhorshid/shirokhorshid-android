@@ -143,6 +143,12 @@
   <string name="psiphon_bump_help_2">Psiphon uygulamasının açık ve bağlı olduğundan ve diğer aygıttaki uygulama çubuğunda Psiphon Bump simgesinin göründüğünden emin olun.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_help_3">Aygıtınızda Psiphon Bump penceresinin açık ve diğer aygıtta Psiphon uygulamasının açık ve bağlı olduğundan emin olun. Bağlantı bilgilerini aktarmak için aygıtlarınızı sırt sırta getirin.</string>
-  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_help_4">Bağlantı bilgileri aktarıldığında ve Psiphon uygulamanız bağlantı kurabildiğinde Psiphon Bump penceresi otomatik olarak kapanır. Bilgileri aktarmanıza rağmen bağlantı kuramıyorsanız, Psiphon bağlantısı sorunsuz kurulana kadar bilgileri yeniden aktarmayı deneyebilirsiniz.</string>
+  <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
+  <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump yardımcı kipini etkinleştirmek için lütfen sistem ayarlarından NFC özelliğini açın.</string>
+  <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Ayarları aç</string>
 </resources>

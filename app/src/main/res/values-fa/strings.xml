@@ -148,7 +148,11 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_help_3">وقتی Psiphon Bump روی دستگاه خودتان باز شده، و سایفون روی دستگاه دیگر باز و متصل است، دستگاه‌های خود را با هم تماس دهید تا  اطلاعات اتصال منتقل شود.
  </string>
-  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_help_4">وقتی انتقال اطلاعات اتصال کامل شد و و سایفون روی دستگاه شما متصل شد، Psiphon Bump به صورت خودکار بسته می‌شود. تا زمانی که سایفون با موفقیت متصل شود، تلاش کنید.
  </string>
+  <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">تنظیمات را باز کنید</string>
 </resources>

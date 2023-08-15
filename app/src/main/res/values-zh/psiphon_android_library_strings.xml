@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">赛风更新</string>
   <string name="psiphon_server_alert_notification_channel_name">赛风服务器警告</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon 崩溃</string>
   <string name="vpn_service_running">VPN 服务正在运行</string>
   <string name="vpn_service_revoked">VPN 服务已撤消</string>
   <string name="current_network_type">当前网络：%s</string>
@@ -161,5 +162,7 @@
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon 发现设备上有恶意软件时会提醒您。</string>
   <string name="aboutMalAware">关于MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">启用 Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">使用 NFC 与其他设备共享 Psiphon 连接数据。</string>
 </resources>

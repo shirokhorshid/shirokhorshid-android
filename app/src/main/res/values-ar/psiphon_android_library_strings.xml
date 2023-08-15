@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">تحديث برنامج سايفون</string>
   <string name="psiphon_server_alert_notification_channel_name">تنبيهات خوادم Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon تعطل</string>
   <string name="vpn_service_running">تشغيل خدمة الشبكة الافتراضية الخاصة</string>
   <string name="vpn_service_revoked">إلغاء خدمة الشبكة الافتراضية الخاصة </string>
   <string name="current_network_type">الشبكة الحالية: %s</string>
@@ -179,6 +180,9 @@
   <string name="downloadWiFiOnlyPreferenceTitle">فقط Wi-Fi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">‫إظهار تنبيهات MalAware</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">الحصول على الإشعار عندما يكتشف Psiphon حركات مرور ناجمة عن برمجيات خبيثة منشؤها جهازك.</string>
+  <string name="aboutMalAware">حول التطبيق MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">تفعيل Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">استخدم NFC لمشاركة بيانات اتصال Psiphon مع الأجهزة الأخرى.</string>
 </resources>

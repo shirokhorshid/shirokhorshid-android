@@ -24,7 +24,7 @@ Run with
 # If you don't already have pipenv:
 $ python3 -m pip install --upgrade pipenv
 
-$ pipenv install --three --ignore-pipfile
+$ pipenv install --ignore-pipfile
 $ pipenv run python transifex_pull.py
 
 # To reset your pipenv state (e.g., after a Python upgrade):
@@ -139,7 +139,7 @@ FEEDBACK_LANGS = {
 
 def pull_app_translations():
     transifexlib.process_resource(
-        'android-app-strings',
+        'https://www.transifex.com/otf/Psiphon3/android-app-strings/',
         APP_LANGS,
         '../app/src/main/res/values/strings.xml',
         lambda lang: f'../app/src/main/res/values-{lang}/strings.xml',
@@ -147,7 +147,7 @@ def pull_app_translations():
     print(f'android-app-strings: DONE')
 
     transifexlib.process_resource(
-        'android-library-strings',
+        'https://www.transifex.com/otf/Psiphon3/android-library-strings/',
         APP_LANGS,
         '../app/src/main/res/values/psiphon_android_library_strings.xml',
         lambda lang: f'../app/src/main/res/values-{lang}/psiphon_android_library_strings.xml',
@@ -155,7 +155,7 @@ def pull_app_translations():
     print(f'android-library-strings: DONE')
 
     transifexlib.process_resource(
-        'psiphon-pro-android-strings',
+        'https://www.transifex.com/otf/psiphon-pro/psiphon-pro-android-strings/',
         APP_LANGS,
         '../app/src/main/res/values/pro-strings.xml',
         lambda lang: f'../app/src/main/res/values-{lang}/pro-strings.xml',
@@ -168,7 +168,7 @@ FEEDBACK_DIR = './feedback'
 
 def pull_feedback_translations():
     transifexlib.process_resource(
-        'feedback-template-strings',
+        'https://www.transifex.com/otf/Psiphon3/feedback-template-strings/',
         FEEDBACK_LANGS,
         f'{FEEDBACK_DIR}/en.yaml',
         lambda lang: f'{FEEDBACK_DIR}/temp/{lang}.yaml',
