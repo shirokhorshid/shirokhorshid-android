@@ -20,7 +20,6 @@
 package com.psiphon3;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -35,6 +34,7 @@ import android.nfc.NfcAdapter;
 import android.nfc.cardemulation.CardEmulation;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -44,6 +44,7 @@ import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -116,11 +117,16 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private ImageView banner;
     private boolean isFirstRun = true;
     private AlertDialog upstreamProxyErrorAlertDialog;
-    private ImageView canHelpImageView;
+    private MenuItem psiphonBumpHelpItem;
     private FloatingActionButton helpConnectFab;
-    // Keeps track of the HCE state of Psiphon Bump
-    private boolean hceAidEnabled = false;
+    // Keeps track of the Psiphon Bump help state
+    private PsiphonBumpHelpState psiphonBumpHelpState = PsiphonBumpHelpState.DISABLED;
 
+    enum PsiphonBumpHelpState {
+        DISABLED,
+        NEED_SYSTEM_NFC,
+        ENABLED
+    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -136,10 +142,53 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         TextView versionLabel = menu.getItem(1).getActionView().findViewById(R.id.toolbar_version_label);
         versionLabel.setText(String.format(Locale.US, "v. %s", EmbeddedValues.CLIENT_VERSION));
         // Psiphon Bump
-        // Set up "Can Help" icon in the action bar
-        canHelpImageView = menu.getItem(0).getActionView().findViewById(R.id.toolbar_can_help_image);
-        canHelpImageView.setVisibility(hceAidEnabled ? View.VISIBLE : View.GONE);
+        psiphonBumpHelpItem = menu.getItem(0);
+        // Set up "Can Help" item state in the action bar
+        updatePsiphonBumpHelpMenuItem(psiphonBumpHelpState);
         return true;
+    }
+
+    private void updatePsiphonBumpHelpMenuItem(PsiphonBumpHelpState psiphonBumpHelpState) {
+        if (psiphonBumpHelpItem == null) {
+            return;
+        }
+        switch (psiphonBumpHelpState) {
+            case DISABLED:
+                // Hide
+                psiphonBumpHelpItem.setVisible(false);
+                break;
+            case NEED_SYSTEM_NFC:
+                // Show "NFC disabled" icon
+                psiphonBumpHelpItem.setIcon(R.drawable.ic_contactless_nfc_disabled);
+                psiphonBumpHelpItem.setVisible(true);
+                // Make clickable
+                psiphonBumpHelpItem.setEnabled(true);
+                // Show "Enable NFC" dialog when clicked
+                psiphonBumpHelpItem.setOnMenuItemClickListener(item -> {
+                    new AlertDialog.Builder(this)
+                            .setTitle(R.string.psiphon_bump_need_system_nfc_title)
+                            .setMessage(R.string.psiphon_bump_need_system_nfc_message)
+                            .setPositiveButton(R.string.psiphon_bump_need_system_nfc_open_btn, (dialog, which) -> {
+                                // Open system NFC settings screen
+                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                                    Intent intent = new Intent(Settings.ACTION_NFC_SETTINGS);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton(R.string.close_btn_label, null)
+                            .show();
+                    return true;
+                });
+                break;
+            case ENABLED:
+                // Show "Can Help" icon
+                psiphonBumpHelpItem.setIcon(R.drawable.ic_contactless);
+                psiphonBumpHelpItem.setVisible(true);
+                // Make not clickable
+                psiphonBumpHelpItem.setEnabled(false);
+                psiphonBumpHelpItem.setOnMenuItemClickListener(null);
+                break;
+        }
     }
 
     @Override
@@ -270,7 +319,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                     // disable Psiphon Bump HCE and hide help connect FAB when this subscription is
                     // disposed.
                     .doOnCancel(() -> {
-                        setHceAidEnabled(false);
+                        updatePsiphonBumpHceState(false);
                         helpConnectFab.setVisibility(View.GONE);
                     })
                     .subscribe());
@@ -453,7 +502,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             switch (tunnelState.status()) {
                 case RUNNING:
                     TunnelState.ConnectionData connectionData = tunnelState.connectionData();
-                    setHceAidEnabled(connectionData.isConnected());
+                    updatePsiphonBumpHceState(connectionData.isConnected());
                     if (connectionData.isConnected()) {
                         helpConnectFab.setVisibility(View.GONE);
                         helpConnectFab.setOnClickListener(null);
@@ -472,7 +521,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                     break;
                 case STOPPED:
                 case UNKNOWN:
-                    setHceAidEnabled(false);
+                    updatePsiphonBumpHceState(false);
                     helpConnectFab.setVisibility(View.GONE);
                     helpConnectFab.setOnClickListener(null);
                     break;
@@ -480,30 +529,35 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     }
 
     // Dynamically register and unregister "Psiphon Nfc" AID for NFC emulation
-    @SuppressLint("NewApi")
-    private void setHceAidEnabled(boolean enabled) {
+    // and update Psiphon Bump help UI
+    private void updatePsiphonBumpHceState(boolean isConnected) {
         NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         PackageManager pm = getPackageManager();
 
-        if (nfcAdapter != null && nfcAdapter.isEnabled() && pm.hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION)) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+                nfcAdapter != null &&
+                pm.hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION)) {
             CardEmulation cardEmulation = CardEmulation.getInstance(nfcAdapter);
-            if (enabled) {
+            if (isConnected) {
                 cardEmulation.registerAidsForService(new ComponentName(this, PsiphonHostApduService.class),
                         CardEmulation.CATEGORY_OTHER,
                         Collections.singletonList("50736970686f6e4e6663")); // "PsiphonNfc" hex-encoded
+                if (nfcAdapter.isEnabled()) {
+                    psiphonBumpHelpState = PsiphonBumpHelpState.ENABLED;
+                } else {
+                    psiphonBumpHelpState = PsiphonBumpHelpState.NEED_SYSTEM_NFC;
+                }
             } else {
                 cardEmulation.removeAidsForService(new ComponentName(this, PsiphonHostApduService.class),
                         CardEmulation.CATEGORY_OTHER);
+                psiphonBumpHelpState = PsiphonBumpHelpState.DISABLED;
             }
         } else {
-            enabled = false;
+            psiphonBumpHelpState = PsiphonBumpHelpState.DISABLED;
         }
 
-        // Also update the UI
-        if (canHelpImageView != null) {
-            canHelpImageView.setVisibility(enabled ? View.VISIBLE : View.GONE);
-        }
-        hceAidEnabled = enabled;
+        // Update the UI
+        updatePsiphonBumpHelpMenuItem(psiphonBumpHelpState);
     }
 
     private void displayBrowser(Context context, String urlString) {

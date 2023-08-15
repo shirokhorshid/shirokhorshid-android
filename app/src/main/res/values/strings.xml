@@ -174,6 +174,15 @@
     <!-- NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump' -->
     <string name="psiphon_bump_help_3">With the Psiphon Bump dialog open on your device and the Psiphon app open and connected on the other device, place your devices back to back to initiate a connection information data transfer.</string>
 
-    <!-- NFC connection exchange onboarding / tutorial slide text -->
+    <!-- NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'  -->
     <string name="psiphon_bump_help_4">Once the connection information data transfer is complete and your Psiphon app is able to connect, the Psiphon Bump dialog will close automatically. If you still cannot connect, you can retry until Psiphon connects successfully.</string>
+
+    <!-- Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump' -->
+    <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
+
+    <!-- Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'  -->
+    <string name="psiphon_bump_need_system_nfc_message">Please turn on NFC in the system settings to enable Psiphon Bump helper mode.</string>
+
+    <!-- Button that opens NFC related system settings -->
+    <string name="psiphon_bump_need_system_nfc_open_btn">Open settings</string>
 </resources>
