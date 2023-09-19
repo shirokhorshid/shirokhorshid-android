@@ -86,10 +86,67 @@
   <string name="vpn_data_collection_disclosure_bp3">Ім\'я користувача, пароль та, за бажанням, електронну пошту вашого облікового запису PsiCash.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Зачекайте, поки Psiphon підключиться</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Закрити</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">Закрити</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Бажаєте закрити це вікно зараз?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Дякуємо за участь!</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s Сповіщення</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s використовує сповіщення, щоб надавати вам важливу інформацію, коли програма працює у фоновому режимі. Сюди входить:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Зміни стану VPN-з\'єднання.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Проблеми зі з\'єднанням.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Звіти про аварії.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Сповіщення про шкідливе програмне забезпечення.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Доступність нові версії програми.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Ви можете будь-коли вимкнути сповіщення в налаштуваннях програми.</string>
+  <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Будь ласка, увімкніть NFC в налаштуваннях</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Помилка зв\'язку з іншим пристроєм. Будь ласка, перевірте, чи відкрито та під\'єднано Psiphon на іншому пристрої, і повторіть спробу.</string>
+  <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Очікування взаємодії NFC з іншим пристроєм...</string>
+  <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Інформація про з\'єднання успішно обмінялася!</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Помилка зв\'язку з іншим пристроєм. Спробуйте ще раз.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Пристрій рухався занадто швидко, зв\'язок втрачено. Спробуйте ще раз.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Виявлено непідтримувану мітку NFC. Чи відкрито та під\'єднано Psiphon на іншому пристрої?</string>
+  <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Читання даних…</string>
+  <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Отримайте допомогу з підключенням</string>
+  <!--Label on the button that opens NFC exchange onboarding screen-->
+  <string name="help_btn_label">Довідка</string>
+  <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Пропустити</string>
+  <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
+  <string name="onboarding_next">Далі</string>
+  <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
+  <string name="onboarding_done">Гаразд</string>
+  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Якщо у вас виникли проблеми з під\'єднанням до сервера Psiphon, знайдіть друга, який успішно під\'єднався, і поділіться з ним інформацією про під\'єднання за допомогою NFC.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Переконайтеся, що Psiphon відкрито і під\'єднано, а на панелі застосунків на іншому пристрої зображається іконка Psiphon Bump.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">З відкритим діалоговим вікном Psiphon Bump на вашому пристрої та відкритою і під\'єднаною програмою Psiphon на іншому пристрої, покладіть пристрої один до одного, щоб започаткувати передачу інформації про з\'єднання.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Після завершення передачі даних про з\'єднання, коли ваша програма Psiphon зможе під\'єднатися, діалогове вікно Psiphon Bump автоматично закриється. Якщо ви все ще не можете під\'єднатися, ви можете повторювати спроби, поки Psiphon не під\'єднається успішно.</string>
+  <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Відкрити налаштування</string>
 </resources>

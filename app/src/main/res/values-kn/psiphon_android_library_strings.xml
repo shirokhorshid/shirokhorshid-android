@@ -147,4 +147,6 @@
   <string name="preference_summary_system_proxy">ಸಿಸ್ಟಂ ಪ್ರಾಕ್ಸಿ</string>
   <string name="disableTimeoutsPreferenceTitle">ಟೈಮ್‌ಔಟ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
   <string name="downloadWiFiOnlyPreferenceTitle">ಕೇವಲ ವೈಫೈ</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

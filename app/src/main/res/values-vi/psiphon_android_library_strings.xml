@@ -121,4 +121,6 @@
   <string name="tunnel_connected">Đã kết nối an toàn qua Psiphon</string>
   <string name="waiting">Đang chờ...</string>
   <string name="label_vpn_settings">Cài đặt VPN</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

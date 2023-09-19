@@ -165,4 +165,8 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware uyarıları görüntülensin</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon, aygıtnızdan kaynaklanan zararlı yazılım trafiği algıladığında bildirim alın.</string>
   <string name="aboutMalAware">MalAware hakkında</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump kullanılsın</string>
+  <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Psiphon bağlantı bilgilerini NFC üzerinden diğer aygıtlar ile paylaşın.</string>
 </resources>

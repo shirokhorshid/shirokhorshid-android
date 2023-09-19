@@ -48,6 +48,11 @@
             android:key="@string/unsafeTrafficAlertsPreference"
             android:title="@string/unsafeTrafficAlertsOptInPreferenceTitle"
             android:summary="@string/unsafeTrafficAlertsOptInPreferenceSummary" />
+        <CheckBoxPreference
+            android:icon="@drawable/ic_contactless"
+            android:key="@string/nfcBumpPreference"
+            android:title="@string/nfcBumpPreferenceTitle"
+            android:summary="@string/nfcBumpPreferenceSummary" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preference_category_info_title">

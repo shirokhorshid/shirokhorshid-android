@@ -133,4 +133,6 @@
   <string name="label_vpn_settings">ការកំណត់VPN</string>
   <string name="disableTimeoutsPreferenceTitle">បិទ ការកំណត់ពេល</string>
   <string name="downloadWiFiOnlyPreferenceTitle">មានតែWiFi</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

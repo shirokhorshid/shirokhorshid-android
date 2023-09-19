@@ -161,4 +161,6 @@
   <string name="preference_summary_system_proxy">የሥርዓት ወኪል</string>
   <string name="disableTimeoutsPreferenceTitle">የእረፍት ጊዜዎችን ያቦዝኑ</string>
   <string name="downloadWiFiOnlyPreferenceTitle">ዋይፋይ ብቻ</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

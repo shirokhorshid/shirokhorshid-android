@@ -103,6 +103,14 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                     (CheckBoxPreference) preferences.findPreference(getString(R.string.unsafeTrafficAlertsPreference));
             unsafeTrafficAlertsCheckBox.setChecked(preferenceGetter.getBoolean(getString(R.string.unsafeTrafficAlertsPreference), false));
 
+            if (Utils.supportsNfc(getContext())) {
+                CheckBoxPreference nfcCheckBox =
+                        (CheckBoxPreference) preferences.findPreference(getString(R.string.nfcBumpPreference));
+                nfcCheckBox.setChecked(preferenceGetter.getBoolean(getString(R.string.nfcBumpPreference), true));
+            } else {
+                preferences.removePreferenceRecursively(getString(R.string.nfcBumpPreference));
+            }
+
             setupLanguageSelector(preferences);
             setupAbouts(preferences);
         }

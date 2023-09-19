@@ -102,4 +102,6 @@
   <string name="tunnel_connecting">Туннель қосылуда…</string>
   <string name="tunnel_connected">Туннель қосылулы</string>
   <string name="waiting">Күтуде…</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

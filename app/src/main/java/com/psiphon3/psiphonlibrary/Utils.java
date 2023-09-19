@@ -20,7 +20,6 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.annotation.TargetApi;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -28,20 +27,15 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.nfc.NfcAdapter;
 import android.os.Build;
-import android.util.Log;
 
 import com.psiphon3.R;
 
 import net.grandcentrix.tray.AppPreferences;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.lang.ref.WeakReference;
-import java.net.URLEncoder;
 import java.security.GeneralSecurityException;
 import java.security.KeyFactory;
 import java.security.PublicKey;
@@ -49,7 +43,6 @@ import java.security.SecureRandom;
 import java.security.spec.X509EncodedKeySpec;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.IllegalFormatException;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
@@ -105,6 +98,24 @@ public class Utils {
             hexChars[j * 2 + 1] = hexArray[v % 16];
         }
         return new String(hexChars);
+    }
+
+    public static boolean supportsPsiphonBump(Context context) {
+        AppPreferences mp = new AppPreferences(context);
+        // Default to true
+        return mp.getBoolean(context.getString(R.string.nfcBumpPreference), true) && supportsNfc(context);
+    }
+
+    public static boolean supportsNfc(Context context) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            NfcAdapter nfcAdapter = null;
+            PackageManager pm = context.getPackageManager();
+            if (pm.hasSystemFeature(PackageManager.FEATURE_NFC)) {
+                nfcAdapter = NfcAdapter.getDefaultAdapter(context);
+            }
+            return nfcAdapter != null;
+        }
+        return false;
     }
 
     /***************************************************************

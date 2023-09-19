@@ -111,4 +111,6 @@
   <string name="tunnel_connected">টানেল সংযুক্ত</string>
   <string name="waiting">অপেক্ষা করা হচ্ছে ...</string>
   <string name="disableTimeoutsPreferenceTitle">সময়সীমা অক্ষম করুন</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

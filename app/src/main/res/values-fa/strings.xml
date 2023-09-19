@@ -63,7 +63,7 @@
   <!--"Upstream proxy error" notification title-->
   <string name="notification_title_upstream_proxy_error">خطای پروکسی بالادست</string>
   <!--"Upstream proxy error" notification text-->
-  <string name="notification_text_upstream_proxy_error">لطفا Psiphon را باز کرده و تنظیمات پروکسی را بررسی کنید.</string>
+  <string name="notification_text_upstream_proxy_error">لطفا سایفون را باز کرده و تنظیمات پروکسی را بررسی کنید.</string>
   <!--"Upstream proxy error" alert dialog title-->
   <string name="upstream_proxy_error_alert_title">خطای پروکسی</string>
   <!--"Upstream proxy error" alert dialog message-->
@@ -75,13 +75,13 @@
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg_long">لطفا برای ارسال بازخورد روی این اعلان کلیک کنید. این به ما کمک می‌‌کند تا مشکل را متوجه شویم و آن را سریع‌تر برطرف کنیم.</string>
   <!--Data collection disclosure prompt button text-->
-  <string name="vpn_data_collection_disclosure_accept_btn_text">می‌پذیرم</string>
+  <string name="vpn_data_collection_disclosure_accept_btn_text">قبول</string>
   <!--Data collection disclosure prompt title-->
-  <string name="vpn_data_collection_disclosure_prompt_title">افشای جمع‌آوری داده‌ها</string>
+  <string name="vpn_data_collection_disclosure_prompt_title">نحوه جمع‌آوری داده‌ها</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s از سرویس Android VPN استفاده می‌کند تا دسترسی بدون سانسور به محتوای اینترنت را برای شما فراهم کند. ما اطلاعات زیر را جمع آوری و ذخیره می‌کنیم:</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp1">شهر، کشور، و ISP شما از آدرس IP که از آن به سرورهای ما متصل می‌شوید و خود آدرس IP هرگز ذخیره نمی‌شود. این داده ها برای آمار استفاده و عملکرد و اهداف سلامت خدمات جمع آوری شده است.</string>
+  <string name="vpn_data_collection_disclosure_bp1">شهر، کشور، و ارايه‌دهنده اینترنت شما از آدرس اینترنتی که از آن به سرورهای ما متصل می‌شوید و خود آدرس اینترنتی هرگز ذخیره نمی‌شود. این داده ها برای آمار استفاده و عملکرد و اهداف سلامت خدمات جمع آوری می‌شود.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">ایمیل شما، زمانی که برای ما بازخورد یا گزارش خرابی ارسال می‌کنید. ارائه ایمیل در بازخورد اختیاری است.</string>
   <!--Data collection disclosure list item-->
@@ -96,5 +96,63 @@
   <!--Generic 'close' alert prompt message-->
   <string name="close_alert_message">آیا می‌خواهید این پنجره را ببندید؟</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">از مشارکت شما در این تست سپاسگزاریم! </string>
+  <string name="pxe_submit_thank_you">از مشارکت شما سپاسگزاریم! </string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">اعلان‌های %s</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro"> وقتی برنامه در پس‌زمینه روشن است، %s از اعلان‌ها برای ارائه اطلاعات مهم استفاده می‌کند. اعلان‌ها شامل این موارد می‌شود:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">تغییرات در وضعیت اتصال وی‌پی‌ان شما. </string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">مشکلات اتصال شما</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">گزارش عدم موفقیت</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">هشدارهای MalAware</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">نسخه‌های جدید برنامه</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">هر زمان بخواهید می‌توانید اعلان‌ها را در تنظیمات اپ غیرفعال کنید.</string>
+  <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">لطفا NFC را در تنظیمات فعال کنید.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">خطای ارتباط با دستگاه دیگر. لطفا مطمئن شوید که سایفون روی دستگاه دیگر باز و متصل است، سپس دوباره تلاش کنید. </string>
+  <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">منتظر تعامل NFC با دستگاه دیگر</string>
+  <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">اطلاعات اتصال با موفقیت تبادل شد! </string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">خطای ارتباط با دستگاه دیگر. لطفا دوباره تلاش کنید.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">دستگاه حرکت کرد، ارتباط قطع شد. لطفا دوباره تلاش کنید. </string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">یک نشانه NFC پشتیبانی‌نشده پیدا شد. آیا سایفون روی دستگاه دیگر باز و متصل است؟</string>
+  <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">در حال خواندن اطلاعات...</string>
+  <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">برای اتصال کمک بگیرید </string>
+  <!--Label on the button that opens NFC exchange onboarding screen-->
+  <string name="help_btn_label">کمک</string>
+  <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">برو بعدی</string>
+  <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
+  <string name="onboarding_next">بعدی</string>
+  <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
+  <string name="onboarding_done">انجام شد</string>
+  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">اگر برای اتصال به سرور سایفون دچار مشکل شده‌اید، دوستی را پیدا کنید که با موفقیت به سایفون متصل شده است و می‌تواند اطلاعات اتصال را با NFC به اشتراک بگذارد.
+ </string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">مطمئن شوید که سایفون باز و متصل است و علامت Psiphon Bump در نوار برنامه در دستگاه دیگر نمایش داده می‌شود.
+ </string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">وقتی Psiphon Bump روی دستگاه خودتان باز شده، و سایفون روی دستگاه دیگر باز و متصل است، دستگاه‌های خود را با هم تماس دهید تا  اطلاعات اتصال منتقل شود.
+ </string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">وقتی انتقال اطلاعات اتصال کامل شد و و سایفون روی دستگاه شما متصل شد، Psiphon Bump به صورت خودکار بسته می‌شود. تا زمانی که سایفون با موفقیت متصل شود، تلاش کنید.
+ </string>
+  <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">تنظیمات را باز کنید</string>
 </resources>

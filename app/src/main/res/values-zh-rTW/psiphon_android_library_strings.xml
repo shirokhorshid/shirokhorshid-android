@@ -161,4 +161,8 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">顯示惡意軟體警告</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">當 Psiphon 在您的設備上偵測到惡意軟體時發出警示通知</string>
   <string name="aboutMalAware">關於惡意軟體</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">啟用 Psiphon Bump</string>
+  <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">使用 NFC 來分享 Psiphon 連線流量給其它設備。</string>
 </resources>

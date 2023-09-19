@@ -95,4 +95,58 @@
   <string name="close_alert_message">確定現在要關閉此視窗嗎? </string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <string name="pxe_submit_thank_you">感謝您的參與!</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s 通知</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s 當應用程式在後台運行時，使用通知可為您提供重要資訊，包括：</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">VPN 連接狀態的變動。</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">連線發生問題。</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">崩潰回報</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">惡意軟體警示。</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">有新版本可用。</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">隨時可在應用設置處關閉通知功能。</string>
+  <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">請開啟設置處的 NFC 功能</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">與其他設備通訊時出錯。 請檢查其他設備是否開啟連接 Psiphon ，然後重試。</string>
+  <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">等待與其它設備的 NFC 界面...</string>
+  <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">成功地交換連接資訊！</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">無法與其它設備通訊，請重試。</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">設備移動過快，已失去連線。請重試。</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">發現不支持的 NFC 標籤。其他設備 是否開啟並連接 Psiphon ？</string>
+  <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">讀取資料...</string>
+  <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">連接求助</string>
+  <!--Label on the button that opens NFC exchange onboarding screen-->
+  <string name="help_btn_label">説明</string>
+  <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">跳過</string>
+  <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
+  <string name="onboarding_next">下一個</string>
+  <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
+  <string name="onboarding_done">完成</string>
+  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">如果連接 Psiphon 伺服器遇到問題，請找到已成功連接的朋友並使用 NFC 分享他們的連接資訊。</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">確認 Psiphon 已打開且連接， Psiphon Bump 圖標會出現在其他設備上的應用欄。</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">在您的設備上打開 Psiphon Bump 對話框，並於另一台設備上啟用 Psiphon 連接，將設備背對背放置以啟動資訊傳輸對接。</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">一旦資訊傳輸完成且讓您的 Psiphon 應用程式能夠連接，Psiphon Bump 對話框將自動關閉。 如果仍然無法連接，請重試直到 Psiphon 連接成功。</string>
+  <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">開場設置</string>
 </resources>

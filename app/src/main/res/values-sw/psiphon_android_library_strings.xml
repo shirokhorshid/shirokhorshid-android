@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Boresha Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon Arifu Seva</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Hitilafu kwenye Psiphon</string>
   <string name="vpn_service_running">Kuendesha kwa VPN seva</string>
   <string name="vpn_service_revoked">Kubatilishwa kwa VPN seva</string>
   <string name="current_network_type">Mtandao wa sasa: %s</string>
@@ -145,4 +146,6 @@
   <string name="preference_summary_system_proxy">Mfumo wa proksi</string>
   <string name="disableTimeoutsPreferenceTitle">Lemaza mudaumeisha</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi tu</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

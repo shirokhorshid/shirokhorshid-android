@@ -168,4 +168,6 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">Mostrar alertas de MalAware</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Reciba notificaciones cuando Psiphon detecte tráfico de malware que se origina en su dispositivo.</string>
   <string name="aboutMalAware">Acerca de MalAware</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

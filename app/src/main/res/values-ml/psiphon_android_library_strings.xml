@@ -150,4 +150,6 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware മുന്നറിയിപ്പുകൾ കാണിക്കുക</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">നിങ്ങളുടെ ഉപകരണത്തിൽ നിന്ന് ഉത്ഭവിക്കുന്ന മാല്‍വെയര്‍ ട്രാഫിക് Psiphon (സൈഫൺ) കണ്ടെത്തുമ്പോൾ അറിയിപ്പ് ലഭിക്കുക.</string>
   <string name="aboutMalAware">MalAware-നെ കുറിച്ച്</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

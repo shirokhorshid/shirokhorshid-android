@@ -165,4 +165,8 @@
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">هشدارهای MalAware را نشان بده</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">وقتی سایفون ترافیک به بدافزارها را روی دستگاه شما شناسایی می‌کند، پیام هشدار دریافت کنید. </string>
   <string name="aboutMalAware">درباره MalAware</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">سایفون Bump را فعال کنید</string>
+  <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">از NFC برای انتقال اطلاعات اتصال سایفون به دستگاه‌های دیگر استفاده کنید. </string>
 </resources>

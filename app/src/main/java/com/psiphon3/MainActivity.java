@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Psiphon Inc.
+ * Copyright (c) 2023, Psiphon Inc.
  * All rights reserved.
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,18 +19,22 @@
 
 package com.psiphon3;
 
+import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.nfc.NfcAdapter;
+import android.nfc.cardemulation.CardEmulation;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -39,6 +43,8 @@ import android.text.style.BulletSpan;
 import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -51,12 +57,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.psiphon3.log.LogsMaintenanceWorker;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
@@ -91,6 +99,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         Utils.initializeSecureRandom();
     }
 
+    static final int POST_NOTIFICATIONS_REQUEST_CODE = 121232;
     public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainActivity.PREVENT_AUTO_START";
     private static final String CURRENT_TAB = "currentTab";
     private static final String BANNER_FILE_NAME = "bannerImage";
@@ -108,12 +117,78 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private ImageView banner;
     private boolean isFirstRun = true;
     private AlertDialog upstreamProxyErrorAlertDialog;
+    private MenuItem psiphonBumpHelpItem;
+    private FloatingActionButton helpConnectFab;
+    // Keeps track of the Psiphon Bump help state
+    private PsiphonBumpHelpState psiphonBumpHelpState = PsiphonBumpHelpState.DISABLED;
 
+    enum PsiphonBumpHelpState {
+        DISABLED,
+        NEED_SYSTEM_NFC,
+        ENABLED
+    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putBoolean("isFirstRun", isFirstRun);
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        // Set up version label in the action bar
+        TextView versionLabel = menu.getItem(1).getActionView().findViewById(R.id.toolbar_version_label);
+        versionLabel.setText(String.format(Locale.US, "v. %s", EmbeddedValues.CLIENT_VERSION));
+        // Psiphon Bump
+        psiphonBumpHelpItem = menu.getItem(0);
+        // Set up "Can Help" item state in the action bar
+        updatePsiphonBumpHelpMenuItem(psiphonBumpHelpState);
+        return true;
+    }
+
+    private void updatePsiphonBumpHelpMenuItem(PsiphonBumpHelpState psiphonBumpHelpState) {
+        if (psiphonBumpHelpItem == null) {
+            return;
+        }
+        switch (psiphonBumpHelpState) {
+            case DISABLED:
+                // Hide
+                psiphonBumpHelpItem.setVisible(false);
+                break;
+            case NEED_SYSTEM_NFC:
+                // Show "NFC disabled" icon
+                psiphonBumpHelpItem.setIcon(R.drawable.ic_contactless_nfc_disabled);
+                psiphonBumpHelpItem.setVisible(true);
+                // Make clickable
+                psiphonBumpHelpItem.setEnabled(true);
+                // Show "Enable NFC" dialog when clicked
+                psiphonBumpHelpItem.setOnMenuItemClickListener(item -> {
+                    new AlertDialog.Builder(this)
+                            .setTitle(R.string.psiphon_bump_need_system_nfc_title)
+                            .setMessage(R.string.psiphon_bump_need_system_nfc_message)
+                            .setPositiveButton(R.string.psiphon_bump_need_system_nfc_open_btn, (dialog, which) -> {
+                                // Open system NFC settings screen
+                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                                    Intent intent = new Intent(Settings.ACTION_NFC_SETTINGS);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton(R.string.close_btn_label, null)
+                            .show();
+                    return true;
+                });
+                break;
+            case ENABLED:
+                // Show "Can Help" icon
+                psiphonBumpHelpItem.setIcon(R.drawable.ic_contactless);
+                psiphonBumpHelpItem.setVisible(true);
+                // Make not clickable
+                psiphonBumpHelpItem.setEnabled(false);
+                psiphonBumpHelpItem.setOnMenuItemClickListener(null);
+                break;
+        }
     }
 
     @Override
@@ -124,6 +199,8 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         }
 
         setContentView(R.layout.main_activity);
+
+        helpConnectFab = findViewById(R.id.help_connect_fab);
 
         EmbeddedValues.initialize(getApplicationContext());
         multiProcessPreferences = new AppPreferences(this);
@@ -195,6 +272,21 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             // Schedule handling current intent when the main view is fully inflated
             getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
         }
+
+        // Check and request notification permissions on Android 13+ if we are not recreating from
+        // saved state. Check suggested workflow for details:
+        // https://developer.android.com/training/permissions/requesting#workflow_for_requesting_permissions
+        if (Build.VERSION.SDK_INT >= 33 && savedInstanceState == null) {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.POST_NOTIFICATIONS) != PermissionChecker.PERMISSION_GRANTED) {
+                if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+                    startActivity(new Intent(this, NotificationPermissionActivity.class));
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                            POST_NOTIFICATIONS_REQUEST_CODE);
+                }
+            }
+        }
     }
 
     @Override
@@ -218,6 +310,20 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(this::updateServiceStateUI)
                 .subscribe());
+
+        // If device supports Psiphon Bump observe tunnel state and update NFC UI and HCE state accordingly
+        if (Utils.supportsPsiphonBump(this)) {
+            compositeDisposable.add(getTunnelServiceInteractor().tunnelStateFlowable()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnNext(this::updatePsiphonBumpState)
+                    // disable Psiphon Bump HCE and hide help connect FAB when this subscription is
+                    // disposed.
+                    .doOnCancel(() -> {
+                        updatePsiphonBumpHceState(false);
+                        helpConnectFab.setVisibility(View.GONE);
+                    })
+                    .subscribe());
+        }
 
         // Observe custom proxy validation results to show a toast for invalid ones
         compositeDisposable.add(viewModel.customProxyValidationResultFlowable()
@@ -389,6 +495,69 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             connectionProgressBar.setVisibility(View.INVISIBLE);
             connectionWaitingNetworkIndicator.setVisibility(View.INVISIBLE);
         }
+    }
+
+    // update NFC UI
+    private void updatePsiphonBumpState(final TunnelState tunnelState) {
+            switch (tunnelState.status()) {
+                case RUNNING:
+                    TunnelState.ConnectionData connectionData = tunnelState.connectionData();
+                    updatePsiphonBumpHceState(connectionData.isConnected());
+                    if (connectionData.isConnected()) {
+                        helpConnectFab.setVisibility(View.GONE);
+                        helpConnectFab.setOnClickListener(null);
+                    } else {
+                        boolean waitingForNetwork =
+                                tunnelState.connectionData().networkConnectionState() ==
+                                        TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK;
+                        helpConnectFab.setVisibility(waitingForNetwork ? View.INVISIBLE : View.VISIBLE);
+                        helpConnectFab.setOnClickListener(waitingForNetwork ? null : view -> {
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                                Intent intent = new Intent(this, PsiphonBumpNfcReaderActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                    }
+                    break;
+                case STOPPED:
+                case UNKNOWN:
+                    updatePsiphonBumpHceState(false);
+                    helpConnectFab.setVisibility(View.GONE);
+                    helpConnectFab.setOnClickListener(null);
+                    break;
+            }
+    }
+
+    // Dynamically register and unregister "Psiphon Nfc" AID for NFC emulation
+    // and update Psiphon Bump help UI
+    private void updatePsiphonBumpHceState(boolean isConnected) {
+        NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        PackageManager pm = getPackageManager();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP &&
+                nfcAdapter != null &&
+                pm.hasSystemFeature(PackageManager.FEATURE_NFC_HOST_CARD_EMULATION)) {
+            CardEmulation cardEmulation = CardEmulation.getInstance(nfcAdapter);
+            if (isConnected) {
+                cardEmulation.registerAidsForService(new ComponentName(this, PsiphonHostApduService.class),
+                        CardEmulation.CATEGORY_OTHER,
+                        Collections.singletonList("50736970686f6e4e6663")); // "PsiphonNfc" hex-encoded
+                if (nfcAdapter.isEnabled()) {
+                    psiphonBumpHelpState = PsiphonBumpHelpState.ENABLED;
+                } else {
+                    psiphonBumpHelpState = PsiphonBumpHelpState.NEED_SYSTEM_NFC;
+                }
+            } else {
+                cardEmulation.removeAidsForService(new ComponentName(this, PsiphonHostApduService.class),
+                        CardEmulation.CATEGORY_OTHER);
+                psiphonBumpHelpState = PsiphonBumpHelpState.DISABLED;
+            }
+        } else {
+            psiphonBumpHelpState = PsiphonBumpHelpState.DISABLED;
+        }
+
+        // Update the UI
+        updatePsiphonBumpHelpMenuItem(psiphonBumpHelpState);
     }
 
     private void displayBrowser(Context context, String urlString) {

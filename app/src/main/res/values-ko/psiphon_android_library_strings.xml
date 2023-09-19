@@ -120,4 +120,6 @@
   <string name="tunnel_connected">터널 연결됨</string>
   <string name="waiting">기다려 주세요...</string>
   <string name="preference_summary_no_proxy">프록시 없음</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

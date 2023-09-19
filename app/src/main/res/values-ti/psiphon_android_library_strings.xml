@@ -110,4 +110,6 @@
   <string name="tunnel_connected">መተሓላለፊ ተራኺቡ`ሎ</string>
   <string name="waiting">ኣብ ምጽባይ ኣሎ...</string>
   <string name="disableTimeoutsPreferenceTitle">timeouts ኣደስክል</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

@@ -160,4 +160,6 @@
   <string name="preference_summary_system_proxy">सिस्टम प्रॉक्सी</string>
   <string name="disableTimeoutsPreferenceTitle">टाइमआउट अक्षम करें</string>
   <string name="downloadWiFiOnlyPreferenceTitle">सिर्फ Wi-Fi</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

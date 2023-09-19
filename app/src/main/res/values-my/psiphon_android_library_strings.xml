@@ -159,4 +159,6 @@
   <string name="downloadWiFiOnlyPreferenceTitle">ဝိုင်ဖိုင်သာ</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware သတိပေးချက်များ ပြပါ</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">သင့်စက်ပစ္စည်းမှ အစပြုသည့် အန္တရာယ်ပြုဆော့ဖ်ဝဲ (malware) အသွားအလာကို Psiphon မှ ထောက်လှမ်းတွေ့ရှိသောအခါ သတိပေးချက် ရယူပါ။</string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <!--Summary for Psiphon Bump preference-->
 </resources>

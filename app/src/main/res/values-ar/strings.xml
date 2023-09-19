@@ -52,29 +52,104 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon قام باكتشاف وحظر الوصول إلى المواقع التي يحتمل أن يكون خبيث على الإنترنت. الرجاء اتباع الارتباطات أدناه لمعرفة المزيد‏ برمجيات خبيثة ‪.\n\nDetected</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">يقوم Psiphon تلقائيًا بحظر الوصول إلى المواقع التي يحتمل أن تكون ضارة على الإنترنت. هل تريد أن يتم إعلامك عند حدوث ذلك؟ \n\nThis‎ يمكن تغيير هذا الإعداد لاحقًا في المزيد من الخيارات.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">تعرف على المزيد حول MalAware هنا:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">خطأ في بروكسي Upstream</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">يرجى فتح Psiphon والتحقق من إعدادات البروكسي.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">خطأ في بروكسي</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">لقد قمت بتهيئ Psiphon لاستخدام بروكسي upstream. ومع ذلك، يبدو أننا غير قادرين على الاتصال بخادم Psiphon من خلال هذا البروكسي ‎.\n\nPlease أصلح الإعدادات وحاول مرة أخرى ‎.\n\nSee راجع السجلات للحصول على معلومات فنية.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">تعطل  Psiphon</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">يرجى إرسال ملاحظاتك إلينا.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">الرجاء النقر فوق هذا الإشعار لإرسال تعليقات إلينا. سيساعدنا هذا في فهم المشكلة حتى نتمكن من حلها بشكل أسرع.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">موافق</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">الإفصاح عن جمع البيانات</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s يستخدم خدمة Android VPN لتزويدك بوصول غير خاضع للرقابة إلى محتوى الإنترنت. نقوم بجمع وتجميع وتخزين المعلومات التالية:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">يتم اشتقاق مدينتك وبلدك و مزود خدمة الانترنت من عنوان IP الذي تتصل به بخوادمنا، ولا يتم تسجيل عنوان IP نفسه مطلقًا. يتم جمع هذه البيانات لإحصاءات الاستخدام والأداء ولأغراض سلامة الخدمة.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">بريدك الإلكتروني، عندما ترسل إلينا تشخيصات أو ملاحظات سجل الأعطال. يكون تقديم البريد الإلكتروني في الملاحظات اختياري.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">اسم المستخدم وكلمة السر لحساب PsiCash الخاص بك والبريد الإلكتروني اختياريًا.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">من فضلك انتظر بينما Psiphon يقوم بالاتصال </string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">أغلق</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">أغلق</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">هل تود إغلاق هذه النافذة الآن؟</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">شكرا لمشاركتك!</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%sإشعارات</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s يستخدم الإشعارات لتزويدك بمعلومات مهمة عندما يكون التطبيق في الخلفية. هذا يتضمن:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">التغييرات في حالة اتصال شبكة خاصة افتراضية VPN الخاص بك.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">مشاكل في الاتصال.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">تقارير الأعطال.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">تنبيهات MalAware.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">إصدارات جديدة للتطبيق متاحة.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">يمكنك تعطيل الإشعارات في إعدادات التطبيق في أي وقت.</string>
+  <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">يرجى تفعيل NFC في الإعدادات</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">خطأ في الاتصال بالجهاز الآخر. يرجى التحقق من أن برنامج Psiphon مفتوح ومتصل بالجهاز الآخر وحاول مرة أخرى.</string>
+  <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">في انتظار تفاعل NFC مع الجهاز الآخر ...</string>
+  <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">تم تبادل معلومات الاتصال بنجاح!</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">خطأ في الاتصال بالجهاز الآخر. حاول مرة اخرى.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">تحرك الجهاز بسرعة كبيرة، وفقد الاتصال. حاول مرة اخرى.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">تم اكتشاف علامة NFC غير مدعومة. هل برنامج Psiphon مفتوح ومتصل على الجهاز الآخر؟</string>
+  <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">قراءة البيانات ...</string>
+  <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">احصل على مساعدة في الاتصال</string>
+  <!--Label on the button that opens NFC exchange onboarding screen-->
+  <string name="help_btn_label">المساعدة</string>
+  <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">تخطي</string>
+  <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
+  <string name="onboarding_next">التالي</string>
+  <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
+  <string name="onboarding_done">انتهى</string>
+  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">إذا كنت تواجه مشكلة في الاتصال بخادم Psiphon، فابحث عن صديق نجح في الاتصال ومشاركة معلومات الاتصال الخاصة به باستخدام NFC.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">تأكد من أن Psiphon مفتوح ومتصل وأن أيقونة Psiphon Bump تظهر في شريط التطبيقات على الجهاز الآخر.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">مع فتح مربع حوار Psiphon Bump على جهازك وفتح تطبيق Psiphon واتصاله بالجهاز الآخر، ضع الجهازين في وضع خلفا لخلف لبدء نقل بيانات معلومات الاتصال.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">بمجرد اكتمال نقل بيانات الاتصال، يكون تطبيق Psiphon الخاص بك قادرًا على الاتصال، سيتم إغلاق مربع حوار Psiphon Bump تلقائيًا. إذا كنت لا تزال غير قادر على الاتصال، يمكنك إعادة المحاولة حتى يتصل Psiphon بنجاح.</string>
+  <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
+  <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">يرجى تشغيل NFC في إعدادات النظام لتفعيل وضع مساعد Psiphon Bump.</string>
+  <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">افتح الإعدادات</string>
 </resources>
