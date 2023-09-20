@@ -78,6 +78,8 @@
   <string name="region_name_mx">مکزیک</string>
   <string name="region_name_tw">تایوان</string>
   <string name="region_name_za">افریقای جنوبی</string>
+  <string name="region_name_id">اندونزی</string>
+  <string name="region_name_nz">نیوزلند</string>
   <string name="about">درباره Psiphon</string>
   <string name="feedback">بازخوردها</string>
   <string name="disableTimeoutsPreferenceSummary">غیر فعال کردن وقفه برای شبکه‌های کم سرعت</string>

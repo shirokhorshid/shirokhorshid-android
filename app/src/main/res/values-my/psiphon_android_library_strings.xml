@@ -77,6 +77,8 @@
   <string name="region_name_mx">မက္ကဆီကို</string>
   <string name="region_name_tw">ထိုင်ဝမ်</string>
   <string name="region_name_za">တောင်အာဖရိက</string>
+  <string name="region_name_id">အင်ဒိုနီးရှား</string>
+  <string name="region_name_nz">နယူးဇီလန်</string>
   <string name="about">Psiphon အကြောင်း</string>
   <string name="feedback">အကြံပြုချက်</string>
   <string name="disableTimeoutsPreferenceSummary">နှေးသောကွန်ယက်များအတွက် အချိန်သတ်မှတ်ချက်များကို အသုံးပြု၍မရအောင်လုပ်ရန်</string>

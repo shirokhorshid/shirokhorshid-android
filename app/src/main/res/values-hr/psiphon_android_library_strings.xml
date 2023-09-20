@@ -75,6 +75,8 @@
   <string name="region_name_mx">Meksiko</string>
   <string name="region_name_tw">Tajvan</string>
   <string name="region_name_za">Južna Afrika</string>
+  <string name="region_name_id">Indonezija</string>
+  <string name="region_name_nz">Novi Zeland</string>
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
   <string name="disableTimeoutsPreferenceSummary">Onemogući pauze za spore mreže</string>

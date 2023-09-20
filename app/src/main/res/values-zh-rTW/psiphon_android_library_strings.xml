@@ -78,6 +78,8 @@
   <string name="region_name_mx">墨西哥</string>
   <string name="region_name_tw">台灣</string>
   <string name="region_name_za">南非</string>
+  <string name="region_name_id">印度尼西亞</string>
+  <string name="region_name_nz">紐西蘭</string>
   <string name="about">關於賽風</string>
   <string name="feedback">回饋</string>
   <string name="disableTimeoutsPreferenceSummary">慢速網路請取消暫停功能</string>

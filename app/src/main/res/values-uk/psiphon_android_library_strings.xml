@@ -78,6 +78,8 @@
   <string name="region_name_mx">Мексика</string>
   <string name="region_name_tw">Тайвань</string>
   <string name="region_name_za">Південна Африка</string>
+  <string name="region_name_id">Індонезія</string>
+  <string name="region_name_nz">Нова Зеландія</string>
   <string name="about">Про Psiphon</string>
   <string name="feedback">Відгуки</string>
   <string name="disableTimeoutsPreferenceSummary">Вимкнути час очікування для повільних мереж</string>
