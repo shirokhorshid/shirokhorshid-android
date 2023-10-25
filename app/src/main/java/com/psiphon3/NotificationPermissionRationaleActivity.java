@@ -19,8 +19,6 @@
 
 package com.psiphon3;
 
-import static com.psiphon3.MainActivity.POST_NOTIFICATIONS_REQUEST_CODE;
-
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
@@ -30,21 +28,22 @@ import android.text.Spanned;
 import android.text.style.BulletSpan;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
 
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
 
-public class NotificationPermissionActivity extends LocalizedActivities.AppCompatActivity {
+public class NotificationPermissionRationaleActivity extends LocalizedActivities.AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notification_permission_layout);
+        setContentView(R.layout.permission_rationale);
         setFinishOnTouchOutside(false);
 
         String alertTitle = String.format(getString(R.string.notifications_permission_rationale_title), getString(R.string.app_name));
-        ((TextView)findViewById(R.id.alertTitle)).setText(alertTitle);
+        ((TextView) findViewById(R.id.alertTitle)).setText(alertTitle);
 
         String str = String.format(getString(R.string.notifications_permission_rationale_intro), getString(R.string.app_name));
 
@@ -82,17 +81,26 @@ public class NotificationPermissionActivity extends LocalizedActivities.AppCompa
         }
 
         message.append(getString(R.string.notifications_permission_rationale_disable_any_time));
-        ((TextView)findViewById(R.id.messageTextView)).setText(message);
+        ((TextView) findViewById(R.id.messageTextView)).setText(message);
 
         findViewById(R.id.continue_btn).setOnClickListener(v -> {
-            if (Build.VERSION.SDK_INT >= 33) {
-                if (ContextCompat.checkSelfPermission(this,
-                        Manifest.permission.POST_NOTIFICATIONS) != PermissionChecker.PERMISSION_GRANTED) {
-                    requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},
-                            POST_NOTIFICATIONS_REQUEST_CODE);
-                }
+            // Request notification permission again.
+            if (Build.VERSION.SDK_INT >= 33 && ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.POST_NOTIFICATIONS) != PermissionChecker.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        MainActivity.REQUEST_CODE_PERMISSIONS);
+            } else {
+                // Should not happen, but if it does, finish the activity.
+                finish();
             }
-            finish();
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        // Regardless of whether the permission was granted or not, finish the activity.
+        if (requestCode == MainActivity.REQUEST_CODE_PERMISSIONS) {
+            finish();
+        }
     }
 }

@@ -17,8 +17,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- required for targetSdk 30+ to show all apps in the VPN exclusions dialog -->
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
-    <!-- instruct manifest merger to remove any location permissions from the final manifest -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" tools:node="remove"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- instruct manifest merger to remove fine location permissions from the final manifest -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" tools:node="remove"/>
     <!-- instruct manifest merger to remove any external storage permissions from the final manifest -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" tools:node="remove"/>
@@ -113,7 +113,10 @@
         </activity>
         <activity android:theme="@style/Theme.DialogAlert"
             android:excludeFromRecents="true"
-            android:name=".NotificationPermissionActivity" />
+            android:name=".NotificationPermissionRationaleActivity" />
+        <activity android:theme="@style/Theme.DialogAlert"
+            android:excludeFromRecents="true"
+            android:name=".LocationPermissionRationaleActivity" />
         <service
             android:name=".PsiphonCrashService"
             android:exported="false"
@@ -125,6 +128,7 @@
             android:name=".PsiphonBumpHelpActivity" />
         <service
             android:name=".psiphonlibrary.TunnelVpnService"
+            android:foregroundServiceType="location"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_VPN_SERVICE"
             android:exported="false"
