@@ -23,6 +23,7 @@ package com.psiphon3;
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,24 +32,37 @@ import androidx.core.content.PermissionChecker;
 
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
 
+import net.grandcentrix.tray.AppPreferences;
+
 public class LocationPermissionRationaleActivity extends LocalizedActivities.AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.permission_rationale);
-
-        //TODO: add content for the location permission rationale
-
         setFinishOnTouchOutside(false);
 
+        //TODO: review content
+
+        ((TextView) findViewById(R.id.alertTitle)).setText(R.string.location_permission_rationale_title);
+
+        String str = String.format(getString(R.string.location_permission_rationale_text), getString(R.string.app_name));
+
+        ((TextView) findViewById(R.id.messageTextView)).setText(str);
+
         findViewById(R.id.continue_btn).setOnClickListener(v -> {
-            // Request location permission again.
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ContextCompat.checkSelfPermission(this,
+            // Check and request location permission again.
+
+            final AppPreferences mp = new AppPreferences(getApplicationContext());
+            int deviceLocationPrecision =  mp.getInt(getString(R.string.deviceLocationPrecisionParameter), 0);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                    deviceLocationPrecision > 0 && deviceLocationPrecision <= 12 &&
+                    ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_COARSE_LOCATION) != PermissionChecker.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                         MainActivity.REQUEST_CODE_PERMISSIONS);
             } else {
-                // Should not happen, but if it does, finish the activity.
+                // If we are not requesting location permission, finish the activity.
                 finish();
             }
         });
@@ -57,9 +71,9 @@ public class LocationPermissionRationaleActivity extends LocalizedActivities.App
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == MainActivity.REQUEST_CODE_PERMISSIONS) {
-            // If location permission is granted run location update
+            // If location permission is granted run location update.
             if (grantResults.length > 0 && grantResults[0] == PermissionChecker.PERMISSION_GRANTED) {
-                // TODO: run location update
+                Location.runCurrentLocationUpdate(this);
             }
             // Finish the activity regardless of whether the permission was granted or not.
             finish();

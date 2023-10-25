@@ -47,6 +47,7 @@
     <string name="upgrade_notification_group" translatable="false">upgrade_notification_group</string>
     <string name="status_notification_group" translatable="false">status_notification_group</string>
     <string name="vpnServiceDataCollectionDisclosureAccepted" translatable="false">vpnServiceDataCollectionDisclosureAccepted</string>
+    <string name="deviceLocationPrecisionParameter" translatable="false">deviceLocationPrecision</string>
 
     <string-array name="languages">
         <item>English,en</item>

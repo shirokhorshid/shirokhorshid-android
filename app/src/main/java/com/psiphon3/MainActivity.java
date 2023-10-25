@@ -287,7 +287,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
                     ContextCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_COARSE_LOCATION) == PermissionChecker.PERMISSION_GRANTED) {
-                // TODO: start location update
+                Location.runCurrentLocationUpdate(this);
             }
         }
     }
@@ -324,7 +324,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             for (int i = 0; i < permissions.length; i++) {
                 if (permissions[i].equals(Manifest.permission.ACCESS_COARSE_LOCATION) &&
                         grantResults[i] == PermissionChecker.PERMISSION_GRANTED) {
-                    // TODO: run location update
+                    Location.runCurrentLocationUpdate(this);
                 }
             }
         }
@@ -406,9 +406,13 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 }
             }
 
-            // Check if we have coarse location permission
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION) != PermissionChecker.PERMISSION_GRANTED) {
+            // Check if we need coarse location permission
+            final AppPreferences mp = new AppPreferences(getApplicationContext());
+            int deviceLocationPrecision =  mp.getInt(getString(R.string.deviceLocationPrecisionParameter), 0);
+
+            if (deviceLocationPrecision > 0 && deviceLocationPrecision <= 12 &&
+                    ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.ACCESS_COARSE_LOCATION) != PermissionChecker.PERMISSION_GRANTED) {
                 permissionsToRequest.add(Manifest.permission.ACCESS_COARSE_LOCATION);
                 // Check if we should show a rationale for location permission
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {

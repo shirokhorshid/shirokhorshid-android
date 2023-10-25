@@ -90,7 +90,7 @@ public class NotificationPermissionRationaleActivity extends LocalizedActivities
                 requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},
                         MainActivity.REQUEST_CODE_PERMISSIONS);
             } else {
-                // Should not happen, but if it does, finish the activity.
+                // If we are not requesting notification permission, finish the activity.
                 finish();
             }
         });

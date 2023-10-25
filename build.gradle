@@ -17,6 +17,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -41,4 +42,6 @@ ext {
     workManagerVersion = '2.7.1'
     roomVersion = '2.4.1'
     pagingVersion = '2.1.2'
+    locationServicesVersion = '21.0.1'
+    geoHashVersion = '0.22'
 }
