@@ -1075,6 +1075,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 json.put("UpgradeDownloadURLs", new JSONArray(EmbeddedValues.UPGRADE_URLS_JSON));
 
                 json.put("UpgradeDownloadClientVersionHeader", "x-amz-meta-psiphon-client-version");
+
+                json.put("EnableUpgradeDownload", true);
             }
 
             json.put("MigrateUpgradeDownloadFilename",
@@ -1108,6 +1110,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             json.put("FeedbackUploadURLs", new JSONArray(EmbeddedValues.FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_URLS_JSON));
             json.put("FeedbackEncryptionPublicKey", EmbeddedValues.FEEDBACK_ENCRYPTION_PUBLIC_KEY);
+            json.put("EnableFeedbackUpload", true);
 
             json.put("AdditionalParameters", EmbeddedValues.ADDITIONAL_PARAMETERS);
 
