@@ -46,6 +46,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import com.jakewharton.rxrelay2.PublishRelay;
+import com.psiphon3.Location;
 import com.psiphon3.PsiphonCrashService;
 import com.psiphon3.R;
 import com.psiphon3.TunnelState;
@@ -138,6 +139,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
         String sponsorId = EmbeddedValues.SPONSOR_ID;
+        String deviceLocation = "";
     }
 
     private Config m_tunnelConfig;
@@ -464,8 +466,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     private Single<Config> getTunnelConfigSingle() {
+        final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
+
         Single<Config> configSingle = Single.fromCallable(() -> {
-            final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
             Config tunnelConfig = new Config();
             tunnelConfig.egressRegion = multiProcessPreferences
                     .getString(getContext().getString(R.string.egressRegionPreference),
@@ -476,7 +479,21 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             return tunnelConfig;
         });
 
-        return configSingle;
+        int deviceLocationPrecision = multiProcessPreferences
+                .getInt(getContext().getString(R.string.deviceLocationPrecisionParameter),
+                        0);
+
+        Single<String> geoHashSingle =
+                Location.getGeoHashSingle(getContext(), deviceLocationPrecision, 1000)
+                        .onErrorReturnItem("");
+
+        BiFunction<Config, String, Config> zipper =
+                (config, deviceLocation) -> {
+                    config.deviceLocation = deviceLocation;
+                    return config;
+                };
+
+        return Single.zip(configSingle, geoHashSingle, zipper);
     }
 
     private Notification createNotification(
@@ -1167,6 +1184,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             json.put("DNSResolverAlternateServers", new JSONArray("[\"1.1.1.1\", \"1.0.0.1\", \"8.8.8.8\", \"8.8.4.4\"]"));
 
+            if (!TextUtils.isEmpty(tunnelConfig.deviceLocation)) {
+                json.put("DeviceLocation", tunnelConfig.deviceLocation);
+            }
+
             return json.toString();
         } catch (JSONException e) {
             return null;
@@ -1532,5 +1553,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 });
             }
         }
+    }
+
+    @Override
+    public void onApplicationParameters(@NonNull Object o) {
+        int deviceLocationPrecision = ((JSONObject) o).optInt("DeviceLocationPrecision");
+        final AppPreferences mp = new AppPreferences(getContext());
+        mp.put(m_parentService.getString(R.string.deviceLocationPrecisionParameter), deviceLocationPrecision);
     }
 }

@@ -56,6 +56,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
@@ -84,6 +85,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -99,7 +101,10 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         Utils.initializeSecureRandom();
     }
 
-    static final int POST_NOTIFICATIONS_REQUEST_CODE = 121232;
+    static final int REQUEST_CODE_PERMISSIONS = 103;
+    static final int REQUEST_CODE_NOTIFICATION_RATIONALE = 104;
+    static final int REQUEST_CODE_LOCATION_RATIONALE = 105;
+
     public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainActivity.PREVENT_AUTO_START";
     private static final String CURRENT_TAB = "currentTab";
     private static final String BANNER_FILE_NAME = "bannerImage";
@@ -271,20 +276,18 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         if (savedInstanceState == null) {
             // Schedule handling current intent when the main view is fully inflated
             getWindow().getDecorView().post(() -> HandleCurrentIntent(getIntent()));
-        }
 
-        // Check and request notification permissions on Android 13+ if we are not recreating from
-        // saved state. Check suggested workflow for details:
-        // https://developer.android.com/training/permissions/requesting#workflow_for_requesting_permissions
-        if (Build.VERSION.SDK_INT >= 33 && savedInstanceState == null) {
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.POST_NOTIFICATIONS) != PermissionChecker.PERMISSION_GRANTED) {
-                if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-                    startActivity(new Intent(this, NotificationPermissionActivity.class));
-                } else {
-                    requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS},
-                            POST_NOTIFICATIONS_REQUEST_CODE);
-                }
+            // Also run permissions check once per app creation and request them if needed.
+            // Check suggested workflow for details:
+            // https://developer.android.com/training/permissions/requesting#workflow_for_requesting_permissions
+            checkPermissions();
+
+            // If we are on Android pre-M or already have coarse location permission, start location
+            // update.
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
+                    ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.ACCESS_COARSE_LOCATION) == PermissionChecker.PERMISSION_GRANTED) {
+                Location.runCurrentLocationUpdate(this);
             }
         }
     }
@@ -300,6 +303,31 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         super.onPause();
         cancelInvalidProxySettingsToast();
         compositeDisposable.clear();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_NOTIFICATION_RATIONALE ||
+                requestCode == REQUEST_CODE_LOCATION_RATIONALE) {
+            // If we are returning from a permission rationale activity, run permissions check
+            // when we resume again since the previous check may have been interrupted.
+            checkPermissions();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            // There could be multiple permissions requested, check if we were granted a location
+            // one and start location update if so.
+            for (int i = 0; i < permissions.length; i++) {
+                if (permissions[i].equals(Manifest.permission.ACCESS_COARSE_LOCATION) &&
+                        grantResults[i] == PermissionChecker.PERMISSION_GRANTED) {
+                    Location.runCurrentLocationUpdate(this);
+                }
+            }
+        }
     }
 
     @Override
@@ -352,6 +380,56 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                         .andThen(autoStartMaybe())
                         .doOnSuccess(__ -> startTunnel())
                         .subscribe());
+    }
+
+    // Check runtime permissions and show rationales if needed.
+    // When we are done with the rationales return granted permissions.
+    private  void checkPermissions() {
+        // Runtime permissions are only needed on Android M+ (API 23+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            List<String> permissionsToRequest = new ArrayList<>();
+
+            // Check if notification permission is granted on Android 13+ (API 33+)
+            if (Build.VERSION.SDK_INT >= 33) {
+                if (ContextCompat.checkSelfPermission(this,
+                        Manifest.permission.POST_NOTIFICATIONS) != PermissionChecker.PERMISSION_GRANTED) {
+                    permissionsToRequest.add(Manifest.permission.POST_NOTIFICATIONS);
+                    // Check if we should show a rationale for notification permission
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.POST_NOTIFICATIONS)) {
+                        // Start notification rationale activity and abort further permission checks and requests.
+                        // We will run permission check again when the rationale activity is finished.
+                        startActivityForResult(
+                                new Intent(this, NotificationPermissionRationaleActivity.class),
+                                REQUEST_CODE_NOTIFICATION_RATIONALE);
+                        return;
+                    }
+                }
+            }
+
+            // Check if we need coarse location permission
+            final AppPreferences mp = new AppPreferences(getApplicationContext());
+            int deviceLocationPrecision =  mp.getInt(getString(R.string.deviceLocationPrecisionParameter), 0);
+
+            if (deviceLocationPrecision > 0 && deviceLocationPrecision <= 12 &&
+                    ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.ACCESS_COARSE_LOCATION) != PermissionChecker.PERMISSION_GRANTED) {
+                permissionsToRequest.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                // Check if we should show a rationale for location permission
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                    // Start location rationale activity and abort further permission checks and requests.
+                    // We will run permissions check again the rationale activity is finished.
+                    startActivityForResult(
+                            new Intent(this, LocationPermissionRationaleActivity.class),
+                            REQUEST_CODE_LOCATION_RATIONALE);
+                    return;
+                }
+            }
+
+            // Request permissions if needed
+            if (permissionsToRequest.size() > 0) {
+                requestPermissions(permissionsToRequest.toArray(new String[0]), REQUEST_CODE_PERMISSIONS);
+            }
+        }
     }
 
     // Completes right away if unsafe traffic alerts preference exists, otherwise displays an alert
