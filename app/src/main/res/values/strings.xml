@@ -190,6 +190,6 @@
     <string name="location_permission_rationale_title">Approximate Location</string>
 
     <!--Approximate location permission rationale alert text. -->
-    <string name="location_permission_rationale_text">Please allow %s access your device\'s approximate location. Your location data estimate is used to optimize the Psiphon network, and is accurate to within about 3 square kilometers.</string>
+    <string name="location_permission_rationale_text">Please allow %s to access your device\'s approximate location. Your location data estimate is used to optimize the Psiphon network, and is accurate to within about 3 square kilometers.</string>
 
 </resources>

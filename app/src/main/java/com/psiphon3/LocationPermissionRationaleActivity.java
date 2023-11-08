@@ -41,8 +41,6 @@ public class LocationPermissionRationaleActivity extends LocalizedActivities.App
         setContentView(R.layout.permission_rationale);
         setFinishOnTouchOutside(false);
 
-        //TODO: review content
-
         ((TextView) findViewById(R.id.alertTitle)).setText(R.string.location_permission_rationale_title);
 
         String str = String.format(getString(R.string.location_permission_rationale_text), getString(R.string.app_name));
