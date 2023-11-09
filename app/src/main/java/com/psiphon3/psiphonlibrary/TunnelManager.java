@@ -21,6 +21,7 @@ package com.psiphon3.psiphonlibrary;
 
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -44,6 +45,8 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PermissionChecker;
 
 import com.jakewharton.rxrelay2.PublishRelay;
 import com.psiphon3.Location;
@@ -1178,8 +1181,21 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             json.put("EmitServerAlerts", true);
 
+            JSONArray clientFeaturesJsonArray = new JSONArray();
+
+            AppPreferences mp = new AppPreferences(context);
+            int deviceLocationPrecision = mp.getInt(context.getString(R.string.deviceLocationPrecisionParameter), 0);
+            if (deviceLocationPrecision > 0) {
+                if (ContextCompat.checkSelfPermission(context,
+                        Manifest.permission.ACCESS_COARSE_LOCATION) == PermissionChecker.PERMISSION_GRANTED) {
+                    clientFeaturesJsonArray.put("coarse-location");
+                }
+            }
             if (Utils.getUnsafeTrafficAlertsOptInState(context)) {
-                json.put("ClientFeatures", new JSONArray("[\"unsafe-traffic-alerts\"]"));
+                clientFeaturesJsonArray.put("unsafe-traffic-alerts");
+            }
+            if (clientFeaturesJsonArray.length() > 0) {
+                json.put("ClientFeatures", clientFeaturesJsonArray);
             }
 
             json.put("DNSResolverAlternateServers", new JSONArray("[\"1.1.1.1\", \"1.0.0.1\", \"8.8.8.8\", \"8.8.4.4\"]"));
