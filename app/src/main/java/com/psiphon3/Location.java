@@ -47,23 +47,42 @@ public class Location {
 
     public static Single<String> getGeoHashSingle(Context context, int geoHashLength, int timeout) {
         return Single.<String>create(emitter -> {
+                    // If geoHashLength is 0, emit empty string
+                    if (geoHashLength == 0) {
+                        if (!emitter.isDisposed()) {
+                            emitter.onSuccess("");
+                        }
+                        return;
+                    }
                     if (geoHashLength < 1 || geoHashLength > 12) {
-                        emitter.onError(new Exception("Invalid geoHashLength"));
+                        if (!emitter.isDisposed()) {
+                            emitter.onError(new Exception("Invalid geoHashLength"));
+                        }
                         return;
                     }
                     if (!isAvailable(context)) {
-                        emitter.onError(new Exception("Location is not available"));
+                        // If location is not available, emit empty string
+                        if (!emitter.isDisposed()) {
+                            emitter.onSuccess("");
+                        }
                         return;
                     }
 
                     FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
                     fusedLocationClient.getLastLocation().addOnSuccessListener(location -> {
-                        if (location != null) {
-                            emitter.onSuccess(GeoHash.fromLocation(location, geoHashLength).toString());
-                        } else {
-                            emitter.onError(new Exception("Location is null"));
+                        if (!emitter.isDisposed()) {
+                            if (location == null) {
+                                //historical location is not available, emit empty string
+                                emitter.onSuccess("");
+                            } else {
+                                emitter.onSuccess(GeoHash.fromLocation(location, geoHashLength).toString());
+                            }
                         }
-                    }).addOnFailureListener(emitter::onError);
+                    }).addOnFailureListener(e -> {
+                        if (!emitter.isDisposed()) {
+                            emitter.onError(e);
+                        }
+                    });
                 })
                 .timeout(timeout, java.util.concurrent.TimeUnit.MILLISECONDS);
     }
