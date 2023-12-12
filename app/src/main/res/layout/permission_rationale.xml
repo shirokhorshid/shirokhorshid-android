@@ -67,7 +67,7 @@
                 android:id="@+id/messageTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lineSpacingExtra="4dip"
+                android:lineSpacingExtra="6dip"
                 android:padding="5dip"
                 />
         </ScrollView>

@@ -146,7 +146,9 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_help_4">Після завершення передачі даних про з\'єднання, коли ваша програма Psiphon зможе під\'єднатися, діалогове вікно Psiphon Bump автоматично закриється. Якщо ви все ще не можете під\'єднатися, ви можете повторювати спроби, поки Psiphon не під\'єднається успішно.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Увімкніть NFC у налаштуваннях системи, щоб увімкнути режим помічника Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Відкрити налаштування</string>
 </resources>

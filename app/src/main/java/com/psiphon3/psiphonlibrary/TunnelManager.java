@@ -21,6 +21,7 @@ package com.psiphon3.psiphonlibrary;
 
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -44,8 +45,11 @@ import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.PermissionChecker;
 
 import com.jakewharton.rxrelay2.PublishRelay;
+import com.psiphon3.Location;
 import com.psiphon3.PsiphonCrashService;
 import com.psiphon3.R;
 import com.psiphon3.TunnelState;
@@ -138,6 +142,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
         String sponsorId = EmbeddedValues.SPONSOR_ID;
+        String deviceLocation = "";
     }
 
     private Config m_tunnelConfig;
@@ -464,8 +469,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     private Single<Config> getTunnelConfigSingle() {
+        final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
+
         Single<Config> configSingle = Single.fromCallable(() -> {
-            final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
             Config tunnelConfig = new Config();
             tunnelConfig.egressRegion = multiProcessPreferences
                     .getString(getContext().getString(R.string.egressRegionPreference),
@@ -476,7 +482,21 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             return tunnelConfig;
         });
 
-        return configSingle;
+        int deviceLocationPrecision = multiProcessPreferences
+                .getInt(getContext().getString(R.string.deviceLocationPrecisionParameter),
+                        0);
+
+        Single<String> geoHashSingle =
+                Location.getGeoHashSingle(getContext(), deviceLocationPrecision, 1000)
+                        .onErrorReturnItem("");
+
+        BiFunction<Config, String, Config> zipper =
+                (config, deviceLocation) -> {
+                    config.deviceLocation = deviceLocation;
+                    return config;
+                };
+
+        return Single.zip(configSingle, geoHashSingle, zipper);
     }
 
     private Notification createNotification(
@@ -1075,6 +1095,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 json.put("UpgradeDownloadURLs", new JSONArray(EmbeddedValues.UPGRADE_URLS_JSON));
 
                 json.put("UpgradeDownloadClientVersionHeader", "x-amz-meta-psiphon-client-version");
+
+                json.put("EnableUpgradeDownload", true);
             }
 
             json.put("MigrateUpgradeDownloadFilename",
@@ -1108,6 +1130,9 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             json.put("FeedbackUploadURLs", new JSONArray(EmbeddedValues.FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_URLS_JSON));
             json.put("FeedbackEncryptionPublicKey", EmbeddedValues.FEEDBACK_ENCRYPTION_PUBLIC_KEY);
+            json.put("EnableFeedbackUpload", true);
+
+            json.put("AdditionalParameters", EmbeddedValues.ADDITIONAL_PARAMETERS);
 
             // If this is a temporary tunnel (like for UpgradeChecker) we need to override some of
             // the implicit config values.
@@ -1156,11 +1181,28 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             json.put("EmitServerAlerts", true);
 
+            JSONArray clientFeaturesJsonArray = new JSONArray();
+
+            AppPreferences mp = new AppPreferences(context);
+            int deviceLocationPrecision = mp.getInt(context.getString(R.string.deviceLocationPrecisionParameter), 0);
+            if (deviceLocationPrecision > 0) {
+                if (ContextCompat.checkSelfPermission(context,
+                        Manifest.permission.ACCESS_COARSE_LOCATION) == PermissionChecker.PERMISSION_GRANTED) {
+                    clientFeaturesJsonArray.put("coarse-location");
+                }
+            }
             if (Utils.getUnsafeTrafficAlertsOptInState(context)) {
-                json.put("ClientFeatures", new JSONArray("[\"unsafe-traffic-alerts\"]"));
+                clientFeaturesJsonArray.put("unsafe-traffic-alerts");
+            }
+            if (clientFeaturesJsonArray.length() > 0) {
+                json.put("ClientFeatures", clientFeaturesJsonArray);
             }
 
             json.put("DNSResolverAlternateServers", new JSONArray("[\"1.1.1.1\", \"1.0.0.1\", \"8.8.8.8\", \"8.8.4.4\"]"));
+
+            if (!TextUtils.isEmpty(tunnelConfig.deviceLocation)) {
+                json.put("DeviceLocation", tunnelConfig.deviceLocation);
+            }
 
             return json.toString();
         } catch (JSONException e) {
@@ -1527,5 +1569,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 });
             }
         }
+    }
+
+    @Override
+    public void onApplicationParameters(@NonNull Object o) {
+        int deviceLocationPrecision = ((JSONObject) o).optInt("DeviceLocationPrecision");
+        final AppPreferences mp = new AppPreferences(getContext());
+        mp.put(m_parentService.getString(R.string.deviceLocationPrecisionParameter), deviceLocationPrecision);
     }
 }

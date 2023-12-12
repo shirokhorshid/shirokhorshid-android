@@ -78,6 +78,8 @@
   <string name="region_name_mx">Meksika</string>
   <string name="region_name_tw">Tayvan</string>
   <string name="region_name_za">Güney Afrika</string>
+  <string name="region_name_id">Endonezya</string>
+  <string name="region_name_nz">Yeni Zelanda</string>
   <string name="about">Psiphon hakkında</string>
   <string name="feedback">Geri bildirim</string>
   <string name="disableTimeoutsPreferenceSummary">Yavaş bağlantılarda zaman aşımı kullanılmasın</string>

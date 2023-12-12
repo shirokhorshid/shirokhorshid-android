@@ -77,6 +77,8 @@
   <string name="region_name_mx">Mexico</string>
   <string name="region_name_tw">Taiwan</string>
   <string name="region_name_za">Zuidafrika</string>
+  <string name="region_name_id">Indonesië</string>
+  <string name="region_name_nz">Nieuw Zeeland</string>
   <string name="about">Over Psiphon</string>
   <string name="feedback">Feedback</string>
   <string name="disableTimeoutsPreferenceSummary">Uitschakelen time-outs voor trage netwerken</string>

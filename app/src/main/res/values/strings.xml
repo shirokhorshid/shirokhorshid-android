@@ -91,7 +91,7 @@
     <string name="vpn_data_collection_disclosure_top">%s uses the Android VPN service to provide you with uncensored access to Internet content. We collect, aggregate, and store the following information:</string>
 
     <!-- Data collection disclosure list item -->
-    <string name="vpn_data_collection_disclosure_bp1">Your city, country, and ISP are derived from the IP address that you connect to our servers from, and the IP address itself is never logged. This data is collected for usage and performance statistics and service health purposes.</string>>
+    <string name="vpn_data_collection_disclosure_bp1">Your city, country, ISP, and optionally, approximate location. The city, country, and ISP are derived from the IP address that you connect to our servers from, and the IP address itself is never logged. This data is collected for usage and performance statistics and service health purposes.</string>>
 
     <!-- Data collection disclosure list item -->
     <string name="vpn_data_collection_disclosure_bp2">Your email, when you send us a diagnostics or crash log feedback. Providing email in the feedback is optional.</string>
@@ -185,4 +185,11 @@
 
     <!-- Button that opens NFC related system settings -->
     <string name="psiphon_bump_need_system_nfc_open_btn">Open settings</string>
+
+    <!--Approximate location permission rationale alert title. -->
+    <string name="location_permission_rationale_title">Approximate Location</string>
+
+    <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'  -->
+    <string name="location_permission_rationale_text">Please allow %s to access your device\'s approximate location. Your location data estimate is used to optimize the Psiphon network, and is accurate to within about 3 square kilometers.</string>
+
 </resources>

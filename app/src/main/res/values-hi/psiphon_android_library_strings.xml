@@ -76,6 +76,8 @@
   <string name="region_name_mx">मेक्सिको</string>
   <string name="region_name_tw">ताइवान</string>
   <string name="region_name_za">दक्षिण अफ्रीका</string>
+  <string name="region_name_id">इंडोनेशिया</string>
+  <string name="region_name_nz">न्यूज़ीलैंड</string>
   <string name="about">Psiphon के बारे में</string>
   <string name="feedback">प्रतिक्रिया</string>
   <string name="disableTimeoutsPreferenceSummary">धीमे नेटवर्क के लिए टाइमआउट अक्षम करें</string>

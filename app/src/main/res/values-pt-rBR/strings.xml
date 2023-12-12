@@ -8,6 +8,7 @@
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_default_language">Idioma padrão</string>
   <string name="preference_category_advanced_title">Avançado</string>
+  <string name="preference_category_info_title">Informação</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN sempre ativa</string>
@@ -44,11 +45,13 @@
   <!--Data collection disclosure list item-->
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Aguarde enquanto o Psiphon está se conectando</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Fechar</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">Fechar</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Gostaria de fechar esta janela agora?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->

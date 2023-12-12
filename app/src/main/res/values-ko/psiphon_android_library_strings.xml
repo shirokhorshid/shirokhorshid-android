@@ -74,6 +74,8 @@
   <string name="region_name_mx">멕시코</string>
   <string name="region_name_tw">대마</string>
   <string name="region_name_za">남아프리카</string>
+  <string name="region_name_id">인도네시아</string>
+  <string name="region_name_nz">뉴 질랜드</string>
   <string name="about">Psiphon에 대하여</string>
   <string name="feedback">피드백</string>
   <string name="network_proxy_connect_invalid_values">유효하지 않은 HTTP Proxy 설정</string>

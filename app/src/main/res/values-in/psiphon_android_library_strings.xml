@@ -77,6 +77,8 @@
   <string name="region_name_mx">Meksiko</string>
   <string name="region_name_tw">Taiwan</string>
   <string name="region_name_za">Afrika Selatan</string>
+  <string name="region_name_id">Indonesia</string>
+  <string name="region_name_nz">Selandia Baru</string>
   <string name="about">Tentang Psiphon</string>
   <string name="feedback">Kritik dan Saran</string>
   <string name="disableTimeoutsPreferenceSummary">Nonaktifkan batasan waktu (timeout) untuk jaringan lambat</string>

@@ -79,6 +79,12 @@
     <string name="region_name_mx">Mexico</string>
     <string name="region_name_tw">Taiwan</string>
     <string name="region_name_za">South Africa</string>
+    <string name="region_name_id">Indonesia</string>
+    <string name="region_name_nz">New Zealand</string>
+    <string name="region_name_gr">Greece</string>
+    <string name="region_name_ua">Ukraine</string>
+    <string name="region_name_pt">Portugal</string>
+    <string name="region_name_hr">Croatia</string>
     <string name="about">About Psiphon</string>
     <string name="feedback">Feedback</string>
     <string name="disableTimeoutsPreferenceSummary">Disable timeouts for slow networks</string>

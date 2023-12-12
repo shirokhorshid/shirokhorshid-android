@@ -121,4 +121,7 @@ dependencies {
 
     implementation "androidx.paging:paging-runtime:$rootProject.ext.pagingVersion"
     implementation "androidx.paging:paging-rxjava2:$rootProject.ext.pagingVersion"
+
+    implementation "com.google.android.gms:play-services-location:$rootProject.ext.locationServicesVersion"
+    implementation "com.github.drfonfon:android-geohash:$rootProject.ext.geoHashVersion"
 }

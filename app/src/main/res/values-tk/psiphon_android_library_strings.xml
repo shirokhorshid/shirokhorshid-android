@@ -74,6 +74,8 @@
   <string name="region_name_mx">Meksika</string>
   <string name="region_name_tw">Taýwan</string>
   <string name="region_name_za">Günorta Afrika</string>
+  <string name="region_name_id">Indoneziýa</string>
+  <string name="region_name_nz">Täze Zelandiýa</string>
   <string name="about">Psiphon hakynda</string>
   <string name="feedback">Seslenme</string>
   <string name="disableTimeoutsPreferenceSummary">Yuwaş network üçin goşmaça wagtalmalary öçür </string>

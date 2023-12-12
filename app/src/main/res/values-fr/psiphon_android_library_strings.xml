@@ -78,6 +78,8 @@
   <string name="region_name_mx">Mexique</string>
   <string name="region_name_tw">Taïwan</string>
   <string name="region_name_za">Afrique du Sud</string>
+  <string name="region_name_id">Indonésie</string>
+  <string name="region_name_nz">Nouvelle Zélande</string>
   <string name="about">À propos de Psiphon</string>
   <string name="feedback">Rétroaction</string>
   <string name="disableTimeoutsPreferenceSummary">Désactiver les temporisations pour les réseaux lents</string>

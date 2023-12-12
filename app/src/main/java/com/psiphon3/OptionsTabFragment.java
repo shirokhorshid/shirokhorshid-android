@@ -274,11 +274,14 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
             // before the activity would relaunch. This *seems* to provide the best functionality across phones.
             // Add a 1 second delay to give activity chance to restart VPN service or command tunnel restart if needed.
             new Handler().postDelayed(() -> {
-                requireActivity().finish();
-                Intent intent = new Intent(requireActivity(), MainActivity.class);
-                intent.putExtra(MainActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
-                startActivity(intent);
-                System.exit(1);
+                FragmentActivity activity = getActivity();
+                if (activity != null && !activity.isFinishing()) {
+                    activity.finish();
+                    Intent intent = new Intent(activity, MainActivity.class);
+                    intent.putExtra(MainActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
+                    startActivity(intent);
+                    System.exit(1);
+                }
             }, restartMode != RestartMode.NONE ? 1000 : 0);
         }
     }
