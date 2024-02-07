@@ -80,7 +80,6 @@
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s يستخدم خدمة Android VPN لتزويدك بوصول غير خاضع للرقابة إلى محتوى الإنترنت. نقوم بجمع وتجميع وتخزين المعلومات التالية:</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp1">يتم اشتقاق مدينتك وبلدك و مزود خدمة الانترنت من عنوان IP الذي تتصل به بخوادمنا، ولا يتم تسجيل عنوان IP نفسه مطلقًا. يتم جمع هذه البيانات لإحصاءات الاستخدام والأداء ولأغراض سلامة الخدمة.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">بريدك الإلكتروني، عندما ترسل إلينا تشخيصات أو ملاحظات سجل الأعطال. يكون تقديم البريد الإلكتروني في الملاحظات اختياري.</string>
   <!--Data collection disclosure list item-->
@@ -152,4 +151,6 @@
   <string name="psiphon_bump_need_system_nfc_message">يرجى تشغيل NFC في إعدادات النظام لتفعيل وضع مساعد Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">افتح الإعدادات</string>
+  <!--Approximate location permission rationale alert title.-->
+  <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
 </resources>

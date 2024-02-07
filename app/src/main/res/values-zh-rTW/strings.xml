@@ -79,7 +79,7 @@
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s 使用 Android VPN 服務不受審查限制地訪問網際網路。我們收集、加總與儲存以下資訊：</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp1">您使用連接我們服務的 IP 位置獲知您所在的城市、國家與網路連線服務商等資訊而 IP 本身絕不會記錄。這些資料的收集使用是為了了解使用情況、效能統計與服務健全等目的。</string>
+  <string name="vpn_data_collection_disclosure_bp1">您的城市、國家、ISP 資訊和大致位置。您的城市、國家和 ISP 資訊源自於接接我們伺服器的 IP 地址，這個 IP 地址本身不會被記錄。 收集这些資料的目的是了解使用情况和性能統計和服務運行狀況。</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">您的電子郵件，您向我們發送診斷或崩潰記錄反饋，在反饋時不必要須提供電子郵件。</string>
   <!--Data collection disclosure list item-->
@@ -146,7 +146,13 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_help_4">一旦資訊傳輸完成且讓您的 Psiphon 應用程式能夠連接，Psiphon Bump 對話框將自動關閉。 如果仍然無法連接，請重試直到 Psiphon 連接成功。</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">靖在系統設置下開啟 NFC 以啟動 Psiphon Bump 協助模式。</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">開場設置</string>
+  <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">大致位置</string>
+  <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">請讓 %s 存取設置的大致位置。此位置資訊用於優化 Psiphon 網路服務，精確度大約在 3平方公里。</string>
 </resources>
