@@ -95,4 +95,6 @@
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Einstellungen öffnen</string>
+  <!--Approximate location permission rationale alert title.-->
+  <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
 </resources>

@@ -22,24 +22,41 @@
     </aapt:attr>
   </path>
   <path
-      android:pathData="M0,7.5h21v7.5h-21z"
+      android:pathData="M0,7h21v4h-21z"
       android:strokeWidth="1"
       android:fillType="evenOdd"
       android:strokeColor="#00000000">
     <aapt:attr name="android:fillColor">
       <gradient 
           android:startX="10.5"
-          android:startY="7.5"
+          android:startY="7"
           android:endX="10.5"
-          android:endY="15"
+          android:endY="11"
           android:type="linear">
-        <item android:offset="0" android:color="#FFE8252A"/>
-        <item android:offset="1" android:color="#FFD7151A"/>
+        <item android:offset="0" android:color="#FF0748AE"/>
+        <item android:offset="1" android:color="#FF003993"/>
       </gradient>
     </aapt:attr>
   </path>
   <path
-      android:pathData="M0,0h21v7.5h-21z"
+      android:pathData="M0,11h21v4h-21z"
+      android:strokeWidth="1"
+      android:fillType="evenOdd"
+      android:strokeColor="#00000000">
+    <aapt:attr name="android:fillColor">
+      <gradient 
+          android:startX="10.5"
+          android:startY="11"
+          android:endX="10.5"
+          android:endY="15"
+          android:type="linear">
+        <item android:offset="0" android:color="#FFDE2035"/>
+        <item android:offset="1" android:color="#FFCE1126"/>
+      </gradient>
+    </aapt:attr>
+  </path>
+  <path
+      android:pathData="M0,0h21v7h-21z"
       android:strokeWidth="1"
       android:fillType="evenOdd"
       android:strokeColor="#00000000">
@@ -48,27 +65,10 @@
           android:startX="10.5"
           android:startY="0"
           android:endX="10.5"
-          android:endY="7.5"
+          android:endY="7"
           android:type="linear">
-        <item android:offset="0" android:color="#FFFFFFFF"/>
-        <item android:offset="1" android:color="#FFF0F0F0"/>
-      </gradient>
-    </aapt:attr>
-  </path>
-  <path
-      android:pathData="M0,0l10,7.5l-10,7.5z"
-      android:strokeWidth="1"
-      android:fillType="evenOdd"
-      android:strokeColor="#00000000">
-    <aapt:attr name="android:fillColor">
-      <gradient 
-          android:startX="5"
-          android:startY="0"
-          android:endX="5"
-          android:endY="15"
-          android:type="linear">
-        <item android:offset="0" android:color="#FF17579E"/>
-        <item android:offset="1" android:color="#FF10457F"/>
+        <item android:offset="0" android:color="#FFFFD935"/>
+        <item android:offset="1" android:color="#FFFDD216"/>
       </gradient>
     </aapt:attr>
   </path>

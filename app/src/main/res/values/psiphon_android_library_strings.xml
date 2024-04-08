@@ -85,6 +85,8 @@
     <string name="region_name_ua">Ukraine</string>
     <string name="region_name_pt">Portugal</string>
     <string name="region_name_hr">Croatia</string>
+    <string name="region_name_co">Colombia</string>
+    <string name="region_name_my">Malaysia</string>
     <string name="about">About Psiphon</string>
     <string name="feedback">Feedback</string>
     <string name="disableTimeoutsPreferenceSummary">Disable timeouts for slow networks</string>

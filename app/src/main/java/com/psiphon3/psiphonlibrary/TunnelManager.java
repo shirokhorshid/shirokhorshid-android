@@ -201,11 +201,16 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         m_context = parentService;
         m_isStopping = new AtomicBoolean(false);
         unsafeTrafficSubjects = new ArrayList<>();
-        // Note that we are requesting manual control over PsiphonTunnel.routeThroughTunnel() functionality.
-        m_tunnel = PsiphonTunnel.newPsiphonTunnel(this, false);
     }
 
     void onCreate() {
+        // Defer initialization of the PsiphonTunnel instance to onCreate(). Ensures a valid context
+        // passed via hostService is available for potential Context-dependent operations that the
+        // PsiphonTunnel may perform internally at any time.
+        //
+        // Note that we are requesting manual control over PsiphonTunnel.routeThroughTunnel() functionality.
+        m_tunnel = PsiphonTunnel.newPsiphonTunnel(this, false);
+
         m_notificationPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VIEW);
 
         if (mNotificationManager == null) {

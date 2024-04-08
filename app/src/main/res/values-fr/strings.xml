@@ -79,7 +79,7 @@
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s utilise le service RPV Android pour vous fournir un accès non-censuré au contenu internet. Nous collectons, agrégeons et stockons les informations suivantes :</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp1">Votre ville, pays et FAI sont dérivés de l\'adresse IP que vous utilisez pour vous connecter à nos serveurs, l\'adresse IP elle-même n\'est jamais enregistrée. Ces données sont collectées pour des statistiques d\'utilisation et de performance et pour les services de santé.</string>
+  <string name="vpn_data_collection_disclosure_bp1">Votre pays, FAI, et éventuellement emplacement approximatif. Vos ville, pays et FAI sont obtenus par l\'adresse IP utilisée pour vous connecter à nos serveurs, même si cette adresse IP n\'est pas enregistrée. Ces données sont collectées pour les statistiques d\'utilisation et de performance, et l\'état de nos services.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostique ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est optionnel.</string>
   <!--Data collection disclosure list item-->
@@ -94,20 +94,35 @@
   <!--Generic 'close' alert prompt message-->
   <string name="close_alert_message">Voulez-vous fermer cette fenêtre maintenant ?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Merci pour votre participation !</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s Notifications</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s utilise des notifications pour vous fournir des informations importantes lorsque l\'application tourne en arrière-plan. Ceci inclus :</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Changement d\'état de votre connexion VPN.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Problèmes avec votre connexion.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Rapports de plantage.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Alertes MalAware.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">De nouvelles versions de l\'appli sont disponibles.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Vous pouvez désactiver les notifications à tout moment depuis les paramètres de l\'appli.</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Activez le NFC depuis les paramètres</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Erreur de communication avec l\'autre appareil. Vérifier que Psiphon est ouvert et connecté à l\'autre appareil, et réessayez.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">En attente de communication NFC avec l\'autre appareil...</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Informations de connexion échangées avec succès !</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Erreur de communication avec l\'autre appareil. Merci de réessayer.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">L\'appareil s\'est déplacé trop vite, la connexion a été perdue. Réessayez.</string>
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
@@ -127,4 +142,6 @@
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Ouvrir les paramètres</string>
+  <!--Approximate location permission rationale alert title.-->
+  <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
 </resources>
