@@ -1,1 +1,1 @@
-include ../../badvpn/Android.mk
+include ../badvpn/Android.mk

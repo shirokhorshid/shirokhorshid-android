@@ -135,3 +135,6 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/androidstudio
 build.properties
+# Ignore .cxx directory in the app module
+app/.cxx
+
