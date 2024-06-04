@@ -19,7 +19,6 @@
 
 package com.psiphon3;
 
-import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -272,7 +271,6 @@ public class HomeTabFragment extends Fragment {
         private final SponsorWebChromeClient mWebChromeClient;
         private final ProgressBar mProgressBar;
 
-        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
         public SponsorHomePage(WebView webView, ProgressBar progressBar) {
             mWebView = webView;
             mProgressBar = progressBar;
@@ -287,6 +285,14 @@ public class HomeTabFragment extends Fragment {
             webSettings.setDomStorageEnabled(true);
             webSettings.setLoadWithOverviewMode(true);
             webSettings.setUseWideViewPort(true);
+            // Disable all file:// URLs
+            webSettings.setAllowFileAccess(false);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                webSettings.setAllowFileAccessFromFileURLs(false);
+                webSettings.setAllowUniversalAccessFromFileURLs(false);
+            }
+            // Disable all content:// URLs
+            webSettings.setAllowContentAccess(false);
         }
 
         public void stop() {

@@ -42,7 +42,7 @@
         android:theme="@style/Theme.AppCompat"
         android:supportsRtl="true"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
+        android:usesCleartextTraffic="false"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:fullBackupContent">
 
