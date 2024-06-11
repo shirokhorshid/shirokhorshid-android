@@ -80,10 +80,6 @@ void BLog_InitStderr (void)
 // ==== PSIPHON ====
 #ifdef PSIPHON
 
-void cachePsiphonLogger(const char *className, const char *methodName);
-
-void freePsiphonLogger(void);
-
 void PsiphonLog(const char *level, const char *channel, const char *msg);
 
 static void psiphon_log (int channel, int level, const char *msg)
@@ -93,14 +89,10 @@ static void psiphon_log (int channel, int level, const char *msg)
 
 static void psiphon_free (void)
 {
-    // Release cached Java logger resources
-    freePsiphonLogger();
 }
 
 void BLog_InitPsiphon (void)
 {
-    // Initialize and cache Java logger class and method
-    cachePsiphonLogger("com/psiphon3/VpnManager", "logTun2Socks");
     BLog_Init(psiphon_log, psiphon_free);
 }
 

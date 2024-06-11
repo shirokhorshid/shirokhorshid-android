@@ -36,6 +36,8 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+import ca.psiphon.Tun2SocksJniLoader;
+
 // The VpnManager class manages the VPN interface and tun2socks library. It creates the VPN
 // interface, starts tun2socks to route traffic through the VPN interface, and stops tun2socks.
 // The class is a singleton and should be accessed via the getInstance() method.
@@ -59,7 +61,7 @@ public class VpnManager {
 
     // Load the native library once when the class is loaded
     static {
-        System.loadLibrary("tun2socks");
+        Tun2SocksJniLoader.initializeLogger(VpnManager.class.getName(), "logTun2Socks");
     }
 
     private VpnManager() {
@@ -282,7 +284,7 @@ public class VpnManager {
         if (mTun2SocksThread != null) {
             return;
         }
-        mTun2SocksThread = new Thread(() -> runTun2Socks(
+        mTun2SocksThread = new Thread(() -> Tun2SocksJniLoader.runTun2Socks(
                 vpnInterfaceFileDescriptor.detachFd(),
                 vpnInterfaceMTU,
                 vpnIpv4Address,
@@ -301,7 +303,7 @@ public class VpnManager {
     private void stopTun2Socks() {
         if (mTun2SocksThread != null) {
             try {
-                terminateTun2Socks();
+                Tun2SocksJniLoader.terminateTun2Socks();
                 mTun2SocksThread.join();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
@@ -327,20 +329,4 @@ public class VpnManager {
             }
         }
     }
-
-    // Starts tun2socks
-    private native static void runTun2Socks(
-            int vpnInterfaceFileDescriptor,
-            int vpnInterfaceMTU,
-            String vpnIpv4Address,
-            String vpnIpv4NetMask,
-            // If vpnIpv6Address is null, IPv6 routing is disabled
-            String vpnIpv6Address,
-            String socksServerAddress,
-            String udpgwServerAddress,
-            int udpgwTransparentDNS);
-
-
-    // Stops tun2socks
-    private native static void terminateTun2Socks();
 }

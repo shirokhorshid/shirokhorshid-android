@@ -282,6 +282,12 @@ static void terminateTun2SocksNative(
         JNIEnv *env,
         jclass cls);
 
+static void initTun2socksLoggerNative(
+        JNIEnv *env,
+        jclass cls,
+        jstring className,
+        jstring methodName);
+
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
     g_vm = vm;
     JNIEnv *env;
@@ -289,14 +295,15 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
         return JNI_ERR;
     }
 
-    jclass cls = (*env)->FindClass(env, "com/psiphon3/VpnManager");
+    jclass cls = (*env)->FindClass(env, "ca/psiphon/Tun2SocksJniLoader");
     if (cls == NULL) {
         return JNI_ERR;
     }
 
     static JNINativeMethod method_table[] = {
         {"runTun2Socks","(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", (void *) runTun2SocksNative},
-        {"terminateTun2Socks", "()V", (void *) terminateTun2SocksNative}
+        {"terminateTun2Socks", "()V", (void *) terminateTun2SocksNative},
+        {"initTun2socksLogger", "(Ljava/lang/String;Ljava/lang/String;)V", (void *) initTun2socksLoggerNative}
     };
 
     jint method_count = sizeof(method_table) / sizeof(method_table[0]);
@@ -309,10 +316,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 }
 
 JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *vm, void *reserved) {
-    g_vm = NULL;
-}
-
-void cachePsiphonLogger(const char *className, const char *methodName) {
     JNIEnv *env;
     if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) != JNI_OK) {
         if ((*g_vm)->AttachCurrentThread(g_vm, &env, NULL) != 0) {
@@ -320,39 +323,7 @@ void cachePsiphonLogger(const char *className, const char *methodName) {
         }
     }
 
-    jclass localClass = (*env)->FindClass(env, className);
-    if (localClass == NULL) {
-        return; // Class not found
-    }
-
-    g_logClass = (*env)->NewGlobalRef(env, localClass);
-    (*env)->DeleteLocalRef(env, localClass);
-    if (g_logClass == NULL) {
-        return; // Failed to create global reference to class
-    }
-
-    g_logMethod = (*env)->GetStaticMethodID(env, g_logClass, methodName,
-                                            "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
-    if (g_logMethod == NULL) {
-        // Failed to find method
-        (*env)->DeleteGlobalRef(env, g_logClass);
-        g_logClass = NULL;
-    }
-
-    if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) == JNI_EDETACHED) {
-        (*g_vm)->DetachCurrentThread(g_vm);
-    }
-}
-
-void freePsiphonLogger() {
-    JNIEnv *env;
-    if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) != JNI_OK) {
-        if ((*g_vm)->AttachCurrentThread(g_vm, &env, NULL) != 0) {
-            return; // Failed to attach thread
-        }
-    }
-
-    // Clean up global reference to class
+    // Clean up global reference to the logger class
     if (g_logClass != NULL) {
         (*env)->DeleteGlobalRef(env, g_logClass);
         g_logClass = NULL;
@@ -362,6 +333,39 @@ void freePsiphonLogger() {
     if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) == JNI_EDETACHED) {
         (*g_vm)->DetachCurrentThread(g_vm);
     }
+
+    g_vm = NULL;
+}
+
+JNIEXPORT void JNICALL initTun2socksLoggerNative(JNIEnv *env, jclass cls, jstring className, jstring methodName) {
+    const char *classNameStr = (*env)->GetStringUTFChars(env, className, 0);
+    const char *methodNameStr = (*env)->GetStringUTFChars(env, methodName, 0);
+
+    // Use env pointer directly
+    jclass localClass = (*env)->FindClass(env, classNameStr);
+    if (localClass == NULL) {
+        (*env)->ReleaseStringUTFChars(env, className, classNameStr);
+        (*env)->ReleaseStringUTFChars(env, methodName, methodNameStr);
+        return; // Class not found
+    }
+
+    g_logClass = (*env)->NewGlobalRef(env, localClass);
+    (*env)->DeleteLocalRef(env, localClass);
+    if (g_logClass == NULL) {
+        (*env)->ReleaseStringUTFChars(env, className, classNameStr);
+        (*env)->ReleaseStringUTFChars(env, methodName, methodNameStr);
+        return; // Failed to create global reference to class
+    }
+
+    g_logMethod = (*env)->GetStaticMethodID(env, g_logClass, methodNameStr, "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+    if (g_logMethod == NULL) {
+        // Failed to find method
+        (*env)->DeleteGlobalRef(env, g_logClass);
+        g_logClass = NULL;
+    }
+
+    (*env)->ReleaseStringUTFChars(env, className, classNameStr);
+    (*env)->ReleaseStringUTFChars(env, methodName, methodNameStr);
 }
 
 void PsiphonLog(const char *levelStr, const char *channelStr, const char *msgStr) {
