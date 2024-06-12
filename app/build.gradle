@@ -93,7 +93,7 @@ android {
     externalNativeBuild {
         ndkBuild {
             // Path to the tun2socks NDK build script
-            path "jni/Android.mk"
+            path "src/main/jni/Android.mk"
         }
     }
 
