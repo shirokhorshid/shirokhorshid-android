@@ -59,7 +59,9 @@ public class VpnManager {
     private Thread mTun2SocksThread;
     private WeakReference<HostService> hostServiceRef;
 
-    // Load the native library once when the class is loaded
+    // Initialize the tun2socks logger with the class name and method name
+    // This is called once when the class is loaded
+    // The logTun2Socks method is called from the native tun2socks code to log messages
     static {
         Tun2SocksJniLoader.initializeLogger(VpnManager.class.getName(), "logTun2Socks");
     }
@@ -315,8 +317,6 @@ public class VpnManager {
             }
         }
     }
-
-    // Native JNI methods
 
     // Log messages from tun2socks, called from native tun2socks code
     public static void logTun2Socks(String level, String channel, String msg) {
