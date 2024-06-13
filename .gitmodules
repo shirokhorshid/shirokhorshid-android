@@ -1,4 +1,0 @@
-[submodule "app/src/main/jni/badvpn"]
-	path = app/src/main/jni/badvpn
-	url = https://github.com/Psiphon-Inc/badvpn.git
-	branch = psiphon
