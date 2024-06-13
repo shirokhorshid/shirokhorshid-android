@@ -1218,6 +1218,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.Host
                 json.put("DeviceLocation", tunnelConfig.deviceLocation);
             }
 
+            json.put("EmitBytesTransferred", true);
+
             return json.toString();
         } catch (JSONException e) {
             return null;
