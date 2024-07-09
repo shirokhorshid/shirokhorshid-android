@@ -31,6 +31,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ServiceInfo;
 import android.net.VpnService;
 import android.net.VpnService.Builder;
 import android.os.Build;
@@ -234,8 +235,14 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             }
         }
 
-        m_parentService.startForeground(R.string.psiphon_service_notification_id,
-                createNotification(false, TunnelState.ConnectionData.NetworkConnectionState.CONNECTING));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            m_parentService.startForeground(R.string.psiphon_service_notification_id,
+                    createNotification(false, TunnelState.ConnectionData.NetworkConnectionState.CONNECTING),
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
+        } else {
+            m_parentService.startForeground(R.string.psiphon_service_notification_id,
+                    createNotification(false, TunnelState.ConnectionData.NetworkConnectionState.CONNECTING));
+        }
 
         m_tunnelState.isRunning = true;
         // This service runs as a separate process, so it needs to initialize embedded values
