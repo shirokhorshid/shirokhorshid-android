@@ -13,7 +13,6 @@ android {
             def verName = props['VERSION_CODE']
             def verCode = verName.toInteger()
             defaultConfig {
-                project.ext.set("archivesBaseName", "PsiphonAndroid");
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
                 minSdkVersion 14
@@ -32,6 +31,14 @@ android {
 
     signingConfigs {
         release
+    }
+
+    // Configure output APK file name
+    applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach { output ->
+            def fileName = "PsiphonAndroid-${variant.buildType.name}.apk"
+            output.outputFileName = fileName
+        }
     }
 
     buildTypes {
