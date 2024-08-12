@@ -27,7 +27,7 @@
   <!--"Please open Psiphon to keep connecting" notification title-->
   <string name="notification_title_action_required">İşlem yapılması gerekiyor!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
-  <string name="notification_text_open_psiphon_to_finish_connecting">Lütfen bağlantıyı tamamlamak için Psiphon uygulamasını açın.</string>
+  <string name="notification_text_open_psiphon_to_finish_connecting">Lütfen bağlantıyı kurmak için Psiphon uygulamasını açın.</string>
   <!--"Selected region is not available" notification title-->
   <string name="notification_title_region_not_available">Seçilmiş bölge kullanılamıyor</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
@@ -128,7 +128,7 @@
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
   <string name="nfc_export_reading_data">Veriler okunuyor…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
-  <string name="help_connect_fab_tooltip">Bağlanmak için yardım alın</string>
+  <string name="help_connect_fab_tooltip">Bağlantı kurmak için yardım alın</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Yardım</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
