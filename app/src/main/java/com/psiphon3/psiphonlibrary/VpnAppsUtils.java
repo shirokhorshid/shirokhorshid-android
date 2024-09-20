@@ -33,11 +33,20 @@ import com.psiphon3.R;
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 public class VpnAppsUtils {
+    // Set of apps to always exclude from VPN routing if supported
+    private static final Set<String> defaultExcludedApps = Set.of(
+            "ca.psiphon.conduit" // Conduit app
+    );
+
+    // Set of apps to always include in VPN routing if supported
+    private static final Set<String> defaultIncludedApps = Set.of();
+
     public enum VpnAppsExclusionSetting {ALL_APPS, INCLUDE_APPS, EXCLUDE_APPS}
 
     public static VpnAppsExclusionSetting getVpnAppsExclusionMode(Context context) {
@@ -79,13 +88,23 @@ public class VpnAppsUtils {
     public static Set<String> getCurrentAppsIncludedInVpn(Context context) {
         AppPreferences prefs = new AppPreferences(context);
         String serializedSet = prefs.getString(context.getString(R.string.preferenceIncludeAppsInVpnString), "");
-        return SharedPreferenceUtils.deserializeSet(serializedSet);
+        Set<String> includedApps = SharedPreferenceUtils.deserializeSet(serializedSet);
+
+        // Safeguard against including apps that should always be excluded from VPN
+        includedApps.removeAll(getDefaultExcludedApps(context));
+
+        return includedApps;
     }
 
     public static Set<String> getCurrentAppsExcludedFromVpn(Context context) {
         AppPreferences prefs = new AppPreferences(context);
         String serializedSet = prefs.getString(context.getString(R.string.preferenceExcludeAppsFromVpnString), "");
-        return SharedPreferenceUtils.deserializeSet(serializedSet);
+        Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(serializedSet);
+
+        // Safeguard against excluding apps that should always be included in VPN
+        excludedApps.removeAll(getDefaultIncludedApps(context));
+
+        return excludedApps;
     }
 
     static void setPendingAppsToIncludeInVpn(Context context, Set<String> packageIds) {
@@ -176,5 +195,17 @@ public class VpnAppsUtils {
             }
         }
         return packageIds;
+    }
+
+    // Method to get apps to be always included in the VPN routing if supported
+    public static Set<String> getDefaultIncludedApps(Context context) {
+        Set<String> includedApps = new HashSet<>(defaultIncludedApps);
+        includedApps.add(context.getPackageName()); // Add self to the inclusion list
+        return includedApps;
+    }
+
+    // Method to get apps to be always excluded from the VPN routing if supported
+    public static Set<String> getDefaultExcludedApps(Context context) {
+        return new HashSet<>(defaultExcludedApps);
     }
 }

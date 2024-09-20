@@ -135,6 +135,8 @@
         <item quantity="one">%d app excluded from the tunnel</item>
         <item quantity="other">%d apps excluded from the tunnel</item>
     </plurals>
+    <!-- Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon" -->
+    <string name="vpn_preferences_default_exclusions_footer_text">Note: Certain Psiphon apps are automatically excluded from VPN routing to ensure proper functionality. These exclusions cannot be modified.</string>
     <string name="preference_routing_all_apps_tunnel_summary">All apps will be tunnelled via VPN</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>

@@ -30,5 +30,12 @@
         <Preference
             android:key="@string/preferenceSelectApps"
             android:title="@string/preference_routing_select_apps_title" />
+        <!-- Footer message -->
+        <Preference
+            android:enabled="false"
+            android:key="footerMessage"
+            android:selectable="false"
+            android:summary="@string/vpn_preferences_default_exclusions_footer_text"
+            android:title="" />
     </PreferenceCategory>
 </PreferenceScreen>
