@@ -33,7 +33,7 @@
         <!-- Footer message -->
         <Preference
             android:enabled="false"
-            android:key="footerMessage"
+            android:key="@string/preferenceDefaultExclusionsFooter"
             android:selectable="false"
             android:summary="@string/vpn_preferences_default_exclusions_footer_text"
             android:title="" />

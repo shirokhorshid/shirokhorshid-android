@@ -14,6 +14,7 @@
     <string name="preferenceExcludeAppsFromVpn" translatable="false">preferenceExcludeAppsFromVpn</string>
     <string name="preferenceExcludeAppsFromVpnString" translatable="false">preferenceExcludeAppsFromVpnString</string>
     <string name="preferenceSelectApps" translatable="false">preferenceSelectApps</string>
+    <string name="preferenceDefaultExclusionsFooter" translatable="false">preferenceDefaultExclusionsFooter</string>
     <string name="preferenceAbout" translatable="false">preferenceAbout</string>
     <string name="preferenceAboutMalAware" translatable="false">preferenceAboutMalAware</string>
     <string name="AboutMalAwareLink" translatable="false">https://s3.amazonaws.com/psiphon/web/malaware.io/index.html</string>
