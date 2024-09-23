@@ -20,13 +20,11 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -170,10 +168,9 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
 
     // Apps that should be excluded or included from VPN routing by default should not be shown in the list
     private Set<String> getExcludeApps (Context context) {
-        Set<String> excludedAndIncludedApps = new HashSet<>(VpnAppsUtils.getDefaultExcludedApps(context));
-        excludedAndIncludedApps.addAll(VpnAppsUtils.getDefaultIncludedApps(context)); // Combine both sets
+        Set<String> excludedAndIncludedApps = new HashSet<>(VpnAppsUtils.getDefaultAppsExcludedFromVpn(context));
+        excludedAndIncludedApps.addAll(VpnAppsUtils.getDefaultAppsIncludedInVpn(context)); // Combine both sets
         return excludedAndIncludedApps;
-
     }
 
     private boolean isSystemPackage(PackageInfo pkgInfo) {

@@ -1004,7 +1004,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 break;
 
             case INCLUDE_APPS:
-                Set<String> includedApps = VpnAppsUtils.getCurrentAppsIncludedInVpn(context);
+                Set<String> includedApps = VpnAppsUtils.getUserAppsIncludedInVpn(context);
                 int includedAppsCount = includedApps.size();
                 // allow the selected apps
                 for (Iterator<String> iterator = includedApps.iterator(); iterator.hasNext(); ) {
@@ -1022,7 +1022,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 }
                 // If some packages are no longer installed, updated persisted set
                 if (includedAppsCount != includedApps.size()) {
-                    VpnAppsUtils.setCurrentAppsToIncludeInVpn(context, includedApps);
+                    VpnAppsUtils.setUserAppsToIncludeInVpn(context, includedApps);
                     includedAppsCount = includedApps.size();
                 }
 
@@ -1030,7 +1030,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // If there are included apps, set the exclusion mode to INCLUDE_APPS
                     // and add the default included apps to the list
                     vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.INCLUDE_APPS;
-                    Set <String> defaultIncludedApps = VpnAppsUtils.getDefaultIncludedApps(context);
+                    Set <String> defaultIncludedApps = VpnAppsUtils.getDefaultAppsIncludedInVpn(context);
                     for (Iterator <String> iterator = defaultIncludedApps.iterator(); iterator.hasNext(); ) {
                         String packageId = iterator.next();
                         try {
@@ -1053,7 +1053,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 break;
 
             case EXCLUDE_APPS:
-                Set<String> excludedApps = VpnAppsUtils.getCurrentAppsExcludedFromVpn(context);
+                Set<String> excludedApps = VpnAppsUtils.getUserAppsExcludedFromVpn(context);
                 int excludedAppsCount = excludedApps.size();
                 // disallow the selected apps
                 for (Iterator<String> iterator = excludedApps.iterator(); iterator.hasNext(); ) {
@@ -1071,7 +1071,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 }
                 // If some packages are no longer installed update persisted set
                 if (excludedAppsCount != excludedApps.size()) {
-                    VpnAppsUtils.setCurrentAppsToExcludeFromVpn(context, excludedApps);
+                    VpnAppsUtils.setUserAppsToExcludeFromVpn(context, excludedApps);
                     excludedAppsCount = excludedApps.size();
                 }
 
@@ -1079,7 +1079,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // If there are excluded apps, set the exclusion mode to EXCLUDE_APPS
                     // and add the default excluded apps to the list
                     vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.EXCLUDE_APPS;
-                    Set <String> defaultExcludedApps = VpnAppsUtils.getDefaultExcludedApps(context);
+                    Set <String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn(context);
                     for (Iterator <String> iterator = defaultExcludedApps.iterator(); iterator.hasNext(); ) {
                         String packageId = iterator.next();
                         try {
@@ -1105,7 +1105,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // VPN exclusions.
         if (vpnAppsExclusionSetting == VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS) {
             if (Utils.supportsVpnExclusions()) {
-                Set<String> defaultExcludedApps = VpnAppsUtils.getDefaultExcludedApps(context);
+                Set<String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn(context);
                 // If there are no default excluded apps, output no apps excluded message
                 if (defaultExcludedApps.isEmpty()) {
                     MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
