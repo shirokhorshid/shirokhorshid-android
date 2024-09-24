@@ -168,8 +168,11 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
 
     // Apps that should be excluded or included from VPN routing by default should not be shown in the list
     private Set<String> getExcludeApps (Context context) {
-        Set<String> excludedAndIncludedApps = new HashSet<>(VpnAppsUtils.getDefaultAppsExcludedFromVpn(context));
-        excludedAndIncludedApps.addAll(VpnAppsUtils.getDefaultAppsIncludedInVpn(context)); // Combine both sets
+        // Combine the default excluded and included apps
+        Set<String> excludedAndIncludedApps = new HashSet<>(VpnAppsUtils.getDefaultAppsExcludedFromVpn());
+        excludedAndIncludedApps.addAll(VpnAppsUtils.getDefaultAppsIncludedInVpn());
+        // Add self to the no-show list too
+        excludedAndIncludedApps.add(context.getPackageName());
         return excludedAndIncludedApps;
     }
 

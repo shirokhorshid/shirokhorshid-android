@@ -996,6 +996,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         Context context = getContext();
         PackageManager pm = context.getPackageManager();
+        AppSignatureVerifier verifier = new AppSignatureVerifier(context);
 
         switch (VpnAppsUtils.getVpnAppsExclusionMode(context)) {
             case ALL_APPS:
@@ -1030,19 +1031,30 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // If there are included apps, set the exclusion mode to INCLUDE_APPS
                     // and add the default included apps to the list
                     vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.INCLUDE_APPS;
-                    Set <String> defaultIncludedApps = VpnAppsUtils.getDefaultAppsIncludedInVpn(context);
-                    for (Iterator <String> iterator = defaultIncludedApps.iterator(); iterator.hasNext(); ) {
-                        String packageId = iterator.next();
-                        try {
-                            pm.getApplicationInfo(packageId, 0);
-                            vpnBuilder.addAllowedApplication(packageId);
-                            // Output the package name of the app that is included by default; do not updated the count
-                            MyLog.i(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
-                        } catch (PackageManager.NameNotFoundException ignored) {
-                            iterator.remove();
+                    Set<String> defaultIncludedApps = VpnAppsUtils.getDefaultAppsIncludedInVpn();
+                    for (String packageId : defaultIncludedApps) {
+                        String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
+                        if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
+                            try {
+                                pm.getApplicationInfo(packageId, 0);
+                                vpnBuilder.addAllowedApplication(packageId);
+                                // Output the package name of the app that is included by default; do not update the count
+                                MyLog.i(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                        packageId);
+                            } catch (PackageManager.NameNotFoundException ignored) {
+                            }
+                        } else {
+                            MyLog.w("Signature verification failed for package: " + packageId);
                         }
                     }
 
+                    // Also always include the Psiphon app itself in this mode
+                    try {
+                        pm.getApplicationInfo(context.getPackageName(), 0);
+                        vpnBuilder.addAllowedApplication(context.getPackageName());
+                        MyLog.i(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                context.getPackageName());
+                    } catch (PackageManager.NameNotFoundException ignored) {}
                 } else {
                     // If there are no apps to include, set the exclusion mode to ALL_APPS
                     // Note that we will be excluding default excluded apps in this case later.
@@ -1079,16 +1091,21 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     // If there are excluded apps, set the exclusion mode to EXCLUDE_APPS
                     // and add the default excluded apps to the list
                     vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.EXCLUDE_APPS;
-                    Set <String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn(context);
-                    for (Iterator <String> iterator = defaultExcludedApps.iterator(); iterator.hasNext(); ) {
-                        String packageId = iterator.next();
-                        try {
-                            pm.getApplicationInfo(packageId, 0);
-                            vpnBuilder.addDisallowedApplication(packageId);
-                            // Output the package name of the app that is excluded by default; do not update the count
-                            MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS, packageId);
-                        } catch (PackageManager.NameNotFoundException ignored) {
-                            iterator.remove();
+                    Set<String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn();
+
+                    for (String packageId : defaultExcludedApps) {
+                        String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
+                        if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
+                            try {
+                                pm.getApplicationInfo(packageId, 0);
+                                vpnBuilder.addDisallowedApplication(packageId);
+                                // Output the package name of the app that is excluded by default; do not update the count
+                                MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                        packageId);
+                            } catch (PackageManager.NameNotFoundException ignored) {
+                            }
+                        } else {
+                            MyLog.w("Signature verification failed for package: " + packageId);
                         }
                     }
                 } else {
@@ -1101,22 +1118,27 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 break;
         }
 
-        // If we are in ALL_APPS mode then disallow apps that should be not tunneled by default if the device supports
+        // If we are in ALL_APPS mode then disallow apps that should not be tunneled by default if the device supports
         // VPN exclusions.
         if (vpnAppsExclusionSetting == VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS) {
             if (Utils.supportsVpnExclusions()) {
-                Set<String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn(context);
+                Set<String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn();
                 // If there are no default excluded apps, output no apps excluded message
                 if (defaultExcludedApps.isEmpty()) {
                     MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 } else {
                     for (String packageId : defaultExcludedApps) {
-                        try {
-                            vpnBuilder.addDisallowedApplication(packageId);
-                            // Output the package name of the app that is excluded
-                            MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
-                                    packageId);
-                        } catch (PackageManager.NameNotFoundException ignored) {
+                        String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
+                        if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
+                            try {
+                                vpnBuilder.addDisallowedApplication(packageId);
+                                // Output the package name of the app that is excluded
+                                MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                        packageId);
+                            } catch (PackageManager.NameNotFoundException ignored) {
+                            }
+                        } else {
+                            MyLog.w("Signature verification failed for package: " + packageId);
                         }
                     }
                 }

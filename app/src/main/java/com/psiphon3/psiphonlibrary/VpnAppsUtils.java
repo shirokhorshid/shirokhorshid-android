@@ -26,6 +26,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
+
 import androidx.annotation.NonNull;
 
 import com.psiphon3.R;
@@ -36,16 +37,18 @@ import net.grandcentrix.tray.core.ItemNotFoundException;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class VpnAppsUtils {
-    // Set of apps to always exclude from VPN routing if supported
-    private static final Set<String> defaultExcludedApps = Set.of(
-            "ca.psiphon.conduit" // Conduit app
+    // Map of apps to always exclude from VPN routing if supported, with their signature hashes
+    // TODO: Add expected signature hashes for the apps listed here
+    private static final Map<String, String> defaultExcludedAppsWithSignatures = Map.of(
+            "ca.psiphon.conduit", "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c"
     );
 
-    // Set of apps to always include in VPN routing if supported
-    private static final Set<String> defaultIncludedApps = Set.of();
+    // Map of apps to always include in VPN routing if supported, with their signature hashes
+    private static final Map<String, String> defaultIncludedAppsWithSignatures = Map.of();
 
     public enum VpnAppsExclusionSetting {ALL_APPS, INCLUDE_APPS, EXCLUDE_APPS}
 
@@ -91,7 +94,7 @@ public class VpnAppsUtils {
         Set<String> includedApps = SharedPreferenceUtils.deserializeSet(serializedSet);
 
         // Safeguard against including apps that should always be excluded from VPN by default
-        includedApps.removeAll(getDefaultAppsExcludedFromVpn(context));
+        includedApps.removeAll(getDefaultAppsExcludedFromVpn());
 
         return includedApps;
     }
@@ -102,7 +105,10 @@ public class VpnAppsUtils {
         Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(serializedSet);
 
         // Safeguard against excluding apps that should always be included in VPN by default
-        excludedApps.removeAll(getDefaultAppsIncludedInVpn(context));
+        excludedApps.removeAll(getDefaultAppsIncludedInVpn());
+
+        // Safeguard against excluding the self package
+        excludedApps.remove(context.getPackageName());
 
         return excludedApps;
     }
@@ -158,7 +164,7 @@ public class VpnAppsUtils {
         if (prefs.getBoolean(context.getString(R.string.preferenceExcludeAppsFromVpn), false)) {
             // Combine user-selected and default excluded apps
             Set<String> excludedApps = getUserAppsExcludedFromVpn(context);
-            excludedApps.addAll(getDefaultAppsExcludedFromVpn(context)); // Add default excluded apps
+            excludedApps.addAll(getDefaultAppsExcludedFromVpn()); // Add default excluded apps
             // Return true if the app is NOT in the excluded list
             return !excludedApps.contains(appId);
         }
@@ -167,7 +173,12 @@ public class VpnAppsUtils {
         if (prefs.getBoolean(context.getString(R.string.preferenceIncludeAppsInVpn), false)) {
             // Combine user-selected and default included apps
             Set<String> includedApps = getUserAppsIncludedInVpn(context);
-            includedApps.addAll(getDefaultAppsIncludedInVpn(context)); // Add default included apps
+            // Add default included apps
+            includedApps.addAll(getDefaultAppsIncludedInVpn());
+
+            // Add self because it should always be tunneled.
+            includedApps.add(context.getPackageName());
+
             // Return true if the app is in the included list
             return includedApps.contains(appId);
         }
@@ -207,15 +218,24 @@ public class VpnAppsUtils {
         return packageIds;
     }
 
-    // Method to get apps to be always included in the VPN routing if supported
-    public static Set<String> getDefaultAppsIncludedInVpn(Context context) {
-        Set<String> includedApps = new HashSet<>(defaultIncludedApps);
-        includedApps.add(context.getPackageName()); // Add self to the inclusion list
-        return includedApps;
+    // Method to get default excluded apps without performing a signature check here
+    public static Set<String> getDefaultAppsExcludedFromVpn() {
+        return new HashSet<>(defaultExcludedAppsWithSignatures.keySet()); // Return only package names
     }
 
-    // Method to get apps to be always excluded from the VPN routing if supported
-    public static Set<String> getDefaultAppsExcludedFromVpn(Context context) {
-        return new HashSet<>(defaultExcludedApps);
+    // Method to get default included apps without performing a signature check here
+    public static Set<String> getDefaultAppsIncludedInVpn() {
+        return new HashSet<>(defaultIncludedAppsWithSignatures.keySet()); // Return only package names
+    }
+
+    // Method to get expected signature hash for a package
+    public static String getExpectedSignatureForPackage(String packageName) {
+        if (defaultExcludedAppsWithSignatures.containsKey(packageName)) {
+            return defaultExcludedAppsWithSignatures.get(packageName);
+        }
+        if (defaultIncludedAppsWithSignatures.containsKey(packageName)) {
+            return defaultIncludedAppsWithSignatures.get(packageName);
+        }
+        return null;
     }
 }
