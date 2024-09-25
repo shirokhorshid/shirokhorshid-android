@@ -996,16 +996,16 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         Context context = getContext();
         PackageManager pm = context.getPackageManager();
+        AppSignatureVerifier verifier = new AppSignatureVerifier(context);
 
         switch (VpnAppsUtils.getVpnAppsExclusionMode(context)) {
             case ALL_APPS:
                 vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
                 vpnAppsExclusionCount = 0;
-                MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 break;
 
             case INCLUDE_APPS:
-                Set<String> includedApps = VpnAppsUtils.getCurrentAppsIncludedInVpn(context);
+                Set<String> includedApps = VpnAppsUtils.getUserAppsIncludedInVpn(context);
                 int includedAppsCount = includedApps.size();
                 // allow the selected apps
                 for (Iterator<String> iterator = includedApps.iterator(); iterator.hasNext(); ) {
@@ -1023,28 +1023,48 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 }
                 // If some packages are no longer installed, updated persisted set
                 if (includedAppsCount != includedApps.size()) {
-                    VpnAppsUtils.setCurrentAppsToIncludeInVpn(context, includedApps);
+                    VpnAppsUtils.setUserAppsToIncludeInVpn(context, includedApps);
                     includedAppsCount = includedApps.size();
                 }
-                // If we run in this mode and there at least one allowed app then add ourselves too
+
                 if (includedAppsCount > 0) {
-                    try {
-                        vpnBuilder.addAllowedApplication(context.getPackageName());
-                    } catch (PackageManager.NameNotFoundException e) {
-                        // this should never be thrown
-                    }
+                    // If there are included apps, set the exclusion mode to INCLUDE_APPS
+                    // and add the default included apps to the list
                     vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.INCLUDE_APPS;
-                    vpnAppsExclusionCount = includedAppsCount;
+                    Set<String> defaultIncludedApps = VpnAppsUtils.getDefaultAppsIncludedInVpn();
+                    for (String packageId : defaultIncludedApps) {
+                        String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
+                        if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
+                            try {
+                                vpnBuilder.addAllowedApplication(packageId);
+                                // Output the package name of the app that is included by default; do not update the count
+                                MyLog.i(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                        packageId);
+                            } catch (PackageManager.NameNotFoundException ignored) {
+                            }
+                        } else {
+                            MyLog.w("Signature verification failed for package: " + packageId);
+                        }
+                    }
+
+                    // Also always include the Psiphon app itself in this mode
+                    try {
+                        pm.getApplicationInfo(context.getPackageName(), 0);
+                        vpnBuilder.addAllowedApplication(context.getPackageName());
+                        MyLog.i(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                context.getPackageName());
+                    } catch (PackageManager.NameNotFoundException ignored) {}
                 } else {
-                    // There's no included apps, we're tunnelling all
+                    // If there are no apps to include, set the exclusion mode to ALL_APPS
+                    // Note that we will be excluding default excluded apps in this case later.
                     vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
-                    vpnAppsExclusionCount = 0;
-                    MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
                 }
+
+                vpnAppsExclusionCount = includedAppsCount;
                 break;
 
             case EXCLUDE_APPS:
-                Set<String> excludedApps = VpnAppsUtils.getCurrentAppsExcludedFromVpn(context);
+                Set<String> excludedApps = VpnAppsUtils.getUserAppsExcludedFromVpn(context);
                 int excludedAppsCount = excludedApps.size();
                 // disallow the selected apps
                 for (Iterator<String> iterator = excludedApps.iterator(); iterator.hasNext(); ) {
@@ -1062,15 +1082,68 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 }
                 // If some packages are no longer installed update persisted set
                 if (excludedAppsCount != excludedApps.size()) {
-                    VpnAppsUtils.setCurrentAppsToExcludeFromVpn(context, excludedApps);
+                    VpnAppsUtils.setUserAppsToExcludeFromVpn(context, excludedApps);
                     excludedAppsCount = excludedApps.size();
                 }
-                if (excludedAppsCount == 0) {
-                    MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+
+                if (excludedAppsCount > 0) {
+                    // If there are excluded apps, set the exclusion mode to EXCLUDE_APPS
+                    // and add the default excluded apps to the list
+                    vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.EXCLUDE_APPS;
+                    Set<String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn();
+
+                    for (String packageId : defaultExcludedApps) {
+                        String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
+                        if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
+                            try {
+                                vpnBuilder.addDisallowedApplication(packageId);
+                                // Output the package name of the app that is excluded by default; do not update the count
+                                MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                        packageId);
+                            } catch (PackageManager.NameNotFoundException ignored) {
+                            }
+                        } else {
+                            MyLog.w("Signature verification failed for package: " + packageId);
+                        }
+                    }
+                } else {
+                    // If there are no apps to exclude, set the exclusion mode to ALL_APPS
+                    // Note that we will be excluding default excluded apps in this case later.
+                    vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
                 }
-                vpnAppsExclusionSetting = VpnAppsUtils.VpnAppsExclusionSetting.EXCLUDE_APPS;
+
                 vpnAppsExclusionCount = excludedAppsCount;
                 break;
+        }
+
+        // If we are in ALL_APPS mode then disallow apps that should not be tunneled by default if the device supports
+        // VPN exclusions.
+        if (vpnAppsExclusionSetting == VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS) {
+            if (Utils.supportsVpnExclusions()) {
+                Set<String> defaultExcludedApps = VpnAppsUtils.getDefaultAppsExcludedFromVpn();
+                // If there are no default excluded apps, output no apps excluded message
+                if (defaultExcludedApps.isEmpty()) {
+                    MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+                } else {
+                    for (String packageId : defaultExcludedApps) {
+                        String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
+                        if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
+                            try {
+                                vpnBuilder.addDisallowedApplication(packageId);
+                                // Output the package name of the app that is excluded
+                                MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                                        packageId);
+                            } catch (PackageManager.NameNotFoundException ignored) {
+                            }
+                        } else {
+                            MyLog.w("Signature verification failed for package: " + packageId);
+                        }
+                    }
+                }
+            } else {
+                // If the device does not support VPN exclusions, output no apps excluded message
+                MyLog.i(R.string.no_apps_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS);
+            }
         }
 
         return vpnBuilder;
