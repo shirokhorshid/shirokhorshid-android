@@ -237,4 +237,14 @@ public class VpnAppsUtils {
         }
         return null;
     }
+
+    // Method to check if app is installed
+    public static boolean isAppInstalled(PackageManager packageManager, String packageName) {
+        try {
+            packageManager.getApplicationInfo(packageName, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException ignored) {
+            return false;
+        }
+    }
 }
