@@ -1,4 +1,4 @@
-package com.psiphon3.psiphonlibrary;/*
+/*
  * Copyright (c) 2024, Psiphon Inc.
  * All rights reserved.
  *
@@ -17,12 +17,13 @@ package com.psiphon3.psiphonlibrary;/*
  *
  */
 
+package com.psiphon3.psiphonlibrary;
+
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Build;
-import android.util.Base64;
 
 import com.psiphon3.log.MyLog;
 

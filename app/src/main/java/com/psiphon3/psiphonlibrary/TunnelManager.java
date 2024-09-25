@@ -1036,7 +1036,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
                         if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
                             try {
-                                pm.getApplicationInfo(packageId, 0);
                                 vpnBuilder.addAllowedApplication(packageId);
                                 // Output the package name of the app that is included by default; do not update the count
                                 MyLog.i(R.string.individual_app_included, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
@@ -1097,7 +1096,6 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         String expectedSignature = VpnAppsUtils.getExpectedSignatureForPackage(packageId);
                         if (expectedSignature != null && verifier.isSignatureValid(packageId, expectedSignature)) {
                             try {
-                                pm.getApplicationInfo(packageId, 0);
                                 vpnBuilder.addDisallowedApplication(packageId);
                                 // Output the package name of the app that is excluded by default; do not update the count
                                 MyLog.i(R.string.individual_app_excluded, MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
