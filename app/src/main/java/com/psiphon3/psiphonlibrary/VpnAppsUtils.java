@@ -44,7 +44,7 @@ public class VpnAppsUtils {
     // Map of apps to always exclude from VPN routing if supported, with their signature hashes
     // TODO: Add expected signature hashes for the apps listed here
     private static final Map<String, String> defaultExcludedAppsWithSignatures = Map.of(
-            "ca.psiphon.conduit", "fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c"
+            "ca.psiphon.conduit", "48:8C:4B:47:90:2E:CB:48:04:7E:97:FF:FE:1F:19:C4:B0:0F:31:40:D2:E2:57:06:70:95:23:CF:FE:4D:C4:B3"
     );
 
     // Map of apps to always include in VPN routing if supported, with their signature hashes

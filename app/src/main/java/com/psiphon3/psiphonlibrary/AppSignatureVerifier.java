@@ -81,15 +81,20 @@ public class AppSignatureVerifier {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = digest.digest(signature.toByteArray());
 
-            // Convert byte array to a hex string
+            // Convert byte array to a hex string with colons
             StringBuilder hexString = new StringBuilder();
-            for (byte hashByte : hashBytes) {
-                String hex = Integer.toHexString(0xff & hashByte);
+            for (int i = 0; i < hashBytes.length; i++) {
+                String hex = Integer.toHexString(0xff & hashBytes[i]);
                 if (hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
+                hexString.append(hex.toUpperCase());
+
+                // Add colon between bytes, but not after the last one
+                if (i < hashBytes.length - 1) {
+                    hexString.append(':');
+                }
             }
 
-            return hexString.toString(); // Return hex format, same as keytool output
+            return hexString.toString(); // Return hex format with colons
         } catch (NoSuchAlgorithmException e) {
             MyLog.w("AppSignatureVerifier: Unable to hash signature: " + e.getMessage());
             return null;
