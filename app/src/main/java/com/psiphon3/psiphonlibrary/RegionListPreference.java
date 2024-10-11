@@ -181,6 +181,7 @@ public class RegionListPreference extends Preference {
         allRegions.put("JP", new Region("JP", R.string.region_name_jp, R.drawable.flag_jp));
         allRegions.put("KE", new Region("KE", R.string.region_name_ke, R.drawable.flag_ke));
         allRegions.put("KR", new Region("KR", R.string.region_name_kr, R.drawable.flag_kr));
+        allRegions.put("LT", new Region("LT", R.string.region_name_lt, R.drawable.flag_lt));
         allRegions.put("LV", new Region("LV", R.string.region_name_lv, R.drawable.flag_lv));
         allRegions.put("MX", new Region("MX", R.string.region_name_mx, R.drawable.flag_mx));
         allRegions.put("MY", new Region("MY", R.string.region_name_my, R.drawable.flag_my));
