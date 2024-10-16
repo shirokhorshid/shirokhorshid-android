@@ -974,8 +974,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.Host
     }
 
     @Override
-    public VpnService getVpnService() {
-        return ((TunnelVpnService) m_parentService);
+    public void bindToDevice(long fileDescriptor) {
+        if (m_parentService instanceof VpnService) {
+            if (!((VpnService) m_parentService).protect((int) fileDescriptor)) {
+                throw new RuntimeException("VpnService.protect() failed");
+            }
+        }
     }
 
     @Override
