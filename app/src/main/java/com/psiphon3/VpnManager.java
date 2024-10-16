@@ -22,6 +22,8 @@ package com.psiphon3;
 import android.net.VpnService;
 import android.os.ParcelFileDescriptor;
 
+import com.psiphon3.log.MyLog;
+
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.net.Inet4Address;
@@ -57,7 +59,7 @@ public class VpnManager {
     private final AtomicReference<ParcelFileDescriptor> tunFd;
     private final AtomicBoolean isRoutingThroughTunnel;
     private Thread mTun2SocksThread;
-    private WeakReference<HostService> hostServiceRef;
+    private WeakReference<VpnServiceBuilderProvider> vpnServiceBuilderProviderRef;
 
     // Initialize the tun2socks logger with the class name and method name
     // This is called once when the class is loaded
@@ -83,24 +85,20 @@ public class VpnManager {
     }
 
     // Host service interface
-    public interface HostService {
+    public interface VpnServiceBuilderProvider {
         // Return a VpnService.Builder instance to use for creating the VPN interface
         VpnService.Builder vpnServiceBuilder();
-        // Return the name of the app to use for the VPN session
-        String getAppName();
-        // Log a diagnostic message
-        void onDiagnosticMessage(String message);
     }
 
     // Register a host service
-    public synchronized void registerHostService(HostService hostService) {
-        this.hostServiceRef = new WeakReference<>(hostService);
+    public synchronized void registerHostService(VpnServiceBuilderProvider vpnServiceBuilderProvider) {
+        this.vpnServiceBuilderProviderRef = new WeakReference<>(vpnServiceBuilderProvider);
     }
 
     // Unregister the host service
     public synchronized void unregisterHostService() {
-        if (hostServiceRef != null) {
-            hostServiceRef.clear();
+        if (vpnServiceBuilderProviderRef != null) {
+            vpnServiceBuilderProviderRef.clear();
         }
     }
 
@@ -180,13 +178,12 @@ public class VpnManager {
 
             String dnsResolver = mPrivateAddress.mRouter;
 
-            HostService hostService = hostServiceRef.get();
-            if (hostService == null) {
+            VpnServiceBuilderProvider vpnServiceBuilderProvider = vpnServiceBuilderProviderRef.get();
+            if (vpnServiceBuilderProvider == null) {
                 throw new IllegalStateException("HostService reference is null");
             }
 
-            ParcelFileDescriptor tunFd = hostService.vpnServiceBuilder()
-                    .setSession(hostService.getAppName())
+            ParcelFileDescriptor tunFd = vpnServiceBuilderProvider.vpnServiceBuilder()
                     .setMtu(VPN_INTERFACE_MTU)
                     .addAddress(mPrivateAddress.mIpAddress, mPrivateAddress.mPrefixLength)
                     .addRoute("0.0.0.0", 0)
@@ -231,11 +228,7 @@ public class VpnManager {
         }
 
         if (socksProxyPort <= 0) {
-            HostService hostService = hostServiceRef.get();
-            if (hostService != null) {
-                hostService.onDiagnosticMessage(
-                        "Routing through tunnel error: socks proxy port is not set");
-            }
+            MyLog.e("routeThroughTunnel: socks proxy port is not set");
             return;
         }
         String socksServerAddress = "127.0.0.1:" + socksProxyPort;
@@ -255,15 +248,9 @@ public class VpnManager {
                     socksServerAddress,
                     udpgwServerAddress,
                     true);
-            HostService hostService = hostServiceRef.get();
-            if (hostService != null) {
-                hostService.onDiagnosticMessage("Routing through tunnel");
-            }
+            MyLog.i("Routing through tunnel");
         } catch (IOException e) {
-            HostService hostService = hostServiceRef.get();
-            if (hostService != null) {
-                hostService.onDiagnosticMessage("Routing through tunnel error: " + e);
-            }
+            MyLog.e("routeThroughTunnel: error duplicating tun FD: " + e);
         }
     }
 
@@ -296,10 +283,7 @@ public class VpnManager {
                 udpgwServerAddress,
                 udpgwTransparentDNS ? 1 : 0));
         mTun2SocksThread.start();
-        HostService hostService = hostServiceRef.get();
-        if (hostService != null) {
-            hostService.onDiagnosticMessage("tun2socks started");
-        }
+        MyLog.i("tun2socks started");
     }
 
     private void stopTun2Socks() {
@@ -311,22 +295,37 @@ public class VpnManager {
                 Thread.currentThread().interrupt();
             }
             mTun2SocksThread = null;
-            HostService hostService = hostServiceRef.get();
-            if (hostService != null) {
-                hostService.onDiagnosticMessage("tun2socks stopped");
-            }
+            MyLog.i("tun2socks stopped");
         }
     }
 
     // Log messages from tun2socks, called from native tun2socks code
     public static void logTun2Socks(String level, String channel, String msg) {
-        VpnManager instance = INSTANCE;
-        if (instance != null) {
-            HostService hostService = instance.hostServiceRef.get();
-            if (hostService != null) {
-                String logMsg = "tun2socks: " + level + "(" + channel + "): " + msg;
-                hostService.onDiagnosticMessage(logMsg);
-            }
+        String logMsg = "tun2socks: " + level + "(" + channel + "): " + msg;
+
+        // These are the levels as defined in the native code
+        // static char *level_names[] = { NULL, "ERROR", "WARNING", "NOTICE", "INFO", "DEBUG" };
+
+        // Keep redundant cases for each level to make it easier to modify in the future
+        switch (level) {
+            case "ERROR":
+                MyLog.e(logMsg);
+                break;
+            case "WARNING":
+                MyLog.w(logMsg);
+                break;
+            case "NOTICE":
+                MyLog.i(logMsg);
+                break;
+            case "INFO":
+                MyLog.i(logMsg);
+                break;
+            case "DEBUG":
+                MyLog.v(logMsg);
+                break;
+            default:
+                MyLog.i(logMsg);
+                break;
         }
     }
 }

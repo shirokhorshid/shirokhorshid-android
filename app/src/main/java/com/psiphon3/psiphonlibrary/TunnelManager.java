@@ -85,7 +85,7 @@ import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
 import ru.ivanarh.jndcrash.NDCrash;
 
-public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.HostService {
+public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnServiceBuilderProvider {
     // Android IPC messages
     // Client -> Service
     enum ClientToServiceMessage {
@@ -964,11 +964,6 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.Host
     }
 
     @Override
-    public String getAppName() {
-        return m_parentService.getString(R.string.app_name);
-    }
-
-    @Override
     public Context getContext() {
         return m_context;
     }
@@ -984,7 +979,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.Host
 
     @Override
     public Builder vpnServiceBuilder() {
-        Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
+        // Create a new VpnService.Builder instance and set the session name to the app name^M
+        Builder vpnBuilder = ((VpnService) m_parentService)
+                .new Builder()
+                .setSession(getContext().getString(R.string.app_name));
         // only can control tunneling post lollipop
         if (Build.VERSION.SDK_INT < LOLLIPOP) {
             return vpnBuilder;
