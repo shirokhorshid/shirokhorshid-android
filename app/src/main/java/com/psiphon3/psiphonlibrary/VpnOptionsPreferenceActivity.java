@@ -96,13 +96,20 @@ public class VpnOptionsPreferenceActivity extends LocalizedActivities.AppCompatA
                 alwaysOnVpnPref.setSummary(R.string.vpn_always_on_preference_not_available_summary);
             }
 
+            final Preference preferenceDefaultExclusionsFooter = preferenceScreen.findPreference(getString(R.string.preferenceDefaultExclusionsFooter));
             if (Utils.supportsVpnExclusions()) {
                 setupTunnelConfiguration(preferenceScreen, preferenceGetter);
+
+                // Show the default exclusions footer if VPN exclusions are supported
+                preferenceDefaultExclusionsFooter.setVisible(true);
             } else {
                 mTunnelAllApps.setEnabled(false);
                 mTunnelSelectedApps.setEnabled(false);
                 mTunnelNotSelectedApps.setEnabled(false);
                 mSelectApps.setEnabled(false);
+
+                // Hide the default exclusions footer if VPN exclusions are not supported
+                preferenceDefaultExclusionsFooter.setVisible(false);
             }
         }
 
