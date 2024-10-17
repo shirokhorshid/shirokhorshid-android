@@ -393,11 +393,6 @@ public class UpgradeChecker extends BroadcastReceiver {
         }
 
         @Override
-        public String getAppName() {
-            return getString(R.string.app_name);
-        }
-
-        @Override
         public Context getContext() {
             return this;
         }

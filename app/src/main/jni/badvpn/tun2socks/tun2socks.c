@@ -260,61 +260,171 @@ static void udpgw_client_handler_received (void *unused, BAddr local_addr, BAddr
 //==== PSIPHON ====
 
 #ifdef PSIPHON
-
 int g_terminate = 0;
-JNIEnv* g_env = 0;
-int sendKeepAlive = 1;
 
-void PsiphonLog(const char *levelStr, const char *channelStr, const char *msgStr)
-{
-    if (!g_env)
-    {
-        return;
+static JavaVM *g_vm = NULL;
+static jclass g_logClass = NULL;
+static jmethodID g_logMethod = NULL;
+
+static void runTun2SocksNative(
+        JNIEnv *env,
+        jclass cls,
+        jint vpn_interface_file_descriptor,
+        jint vpn_interface_mtu,
+        jstring vpn_ipv4_address,
+        jstring vpn_ipv4_netmask,
+        jstring vpn_ipv6_address,
+        jstring socks_server_address,
+        jstring udpgw_server_address,
+        jint udpgw_transparent_dns);
+
+static void terminateTun2SocksNative(
+        JNIEnv *env,
+        jclass cls);
+
+static void initTun2socksLoggerNative(
+        JNIEnv *env,
+        jclass cls,
+        jstring className,
+        jstring methodName);
+
+JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
+    g_vm = vm;
+    JNIEnv *env;
+    if ((*vm)->GetEnv(vm, (void **) &env, JNI_VERSION_1_6) != JNI_OK) {
+        return JNI_ERR;
     }
-    // Note: we could cache the class and method references if log is called frequently
 
-    jstring level = (*g_env)->NewStringUTF(g_env, levelStr);
-    jstring channel = (*g_env)->NewStringUTF(g_env, channelStr);
-    jstring msg = (*g_env)->NewStringUTF(g_env, msgStr);
+    jclass cls = (*env)->FindClass(env, "ca/psiphon/Tun2SocksJniLoader");
+    if (cls == NULL) {
+        return JNI_ERR;
+    }
 
-    jclass cls = (*g_env)->FindClass(g_env, "ca/psiphon/PsiphonTunnel");
-    jmethodID logMethod = (*g_env)->GetStaticMethodID(g_env, cls, "logTun2Socks", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
-    (*g_env)->CallStaticVoidMethod(g_env, cls, logMethod, level, channel, msg);
+    static JNINativeMethod method_table[] = {
+        {"runTun2Socks","(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", (void *) runTun2SocksNative},
+        {"terminateTun2Socks", "()V", (void *) terminateTun2SocksNative},
+        {"initTun2socksLogger", "(Ljava/lang/String;Ljava/lang/String;)V", (void *) initTun2socksLoggerNative}
+    };
 
-    (*g_env)->DeleteLocalRef(g_env, cls);
+    jint method_count = sizeof(method_table) / sizeof(method_table[0]);
 
-    (*g_env)->DeleteLocalRef(g_env, level);
-    (*g_env)->DeleteLocalRef(g_env, channel);
-    (*g_env)->DeleteLocalRef(g_env, msg);
+    if ((*env)->RegisterNatives(env, cls, method_table, method_count) != JNI_OK) {
+        return JNI_ERR;
+    }
+
+    return JNI_VERSION_1_6;
 }
 
-JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_runTun2Socks(
-    JNIEnv* env,
-    jclass cls,
-    jint vpnInterfaceFileDescriptor,
-    jint vpnInterfaceMTU,
-    jstring vpnIpAddress,
-    jstring vpnNetMask,
-    jstring socksServerAddress,
-    jstring udpgwServerAddress,
-    jint udpgwTransparentDNS)
-{
-    g_env = env;
+JNIEXPORT void JNICALL JNI_OnUnload(JavaVM *vm, void *reserved) {
+    JNIEnv *env;
+    if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) != JNI_OK) {
+        if ((*g_vm)->AttachCurrentThread(g_vm, &env, NULL) != 0) {
+            return; // Failed to attach thread
+        }
+    }
 
-    const char* vpnIpAddressStr = (*env)->GetStringUTFChars(env, vpnIpAddress, 0);
-    const char* vpnNetMaskStr = (*env)->GetStringUTFChars(env, vpnNetMask, 0);
-    const char* socksServerAddressStr = (*env)->GetStringUTFChars(env, socksServerAddress, 0);
-    const char* udpgwServerAddressStr = (*env)->GetStringUTFChars(env, udpgwServerAddress, 0);
+    // Clean up global reference to the logger class
+    if (g_logClass != NULL) {
+        (*env)->DeleteGlobalRef(env, g_logClass);
+        g_logClass = NULL;
+    }
+    g_logMethod = NULL;
+
+    if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) == JNI_EDETACHED) {
+        (*g_vm)->DetachCurrentThread(g_vm);
+    }
+
+    g_vm = NULL;
+}
+
+JNIEXPORT void JNICALL initTun2socksLoggerNative(JNIEnv *env, jclass cls, jstring className, jstring methodName) {
+    const char *classNameStr = (*env)->GetStringUTFChars(env, className, 0);
+    const char *methodNameStr = (*env)->GetStringUTFChars(env, methodName, 0);
+
+    // Use env pointer directly
+    jclass localClass = (*env)->FindClass(env, classNameStr);
+    if (localClass == NULL) {
+        (*env)->ReleaseStringUTFChars(env, className, classNameStr);
+        (*env)->ReleaseStringUTFChars(env, methodName, methodNameStr);
+        return; // Class not found
+    }
+
+    g_logClass = (*env)->NewGlobalRef(env, localClass);
+    (*env)->DeleteLocalRef(env, localClass);
+    if (g_logClass == NULL) {
+        (*env)->ReleaseStringUTFChars(env, className, classNameStr);
+        (*env)->ReleaseStringUTFChars(env, methodName, methodNameStr);
+        return; // Failed to create global reference to class
+    }
+
+    g_logMethod = (*env)->GetStaticMethodID(env, g_logClass, methodNameStr, "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+    if (g_logMethod == NULL) {
+        // Failed to find method
+        (*env)->DeleteGlobalRef(env, g_logClass);
+        g_logClass = NULL;
+    }
+
+    (*env)->ReleaseStringUTFChars(env, className, classNameStr);
+    (*env)->ReleaseStringUTFChars(env, methodName, methodNameStr);
+}
+
+void PsiphonLog(const char *levelStr, const char *channelStr, const char *msgStr) {
+    if (g_logClass == NULL || g_logMethod == NULL) {
+        return; // Cache is not initialized
+    }
+
+    JNIEnv *env;
+    if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) != JNI_OK) {
+        if ((*g_vm)->AttachCurrentThread(g_vm, &env, NULL) != 0) {
+            return;
+        }
+    }
+
+    jstring level = (*env)->NewStringUTF(env, levelStr);
+    jstring channel = (*env)->NewStringUTF(env, channelStr);
+    jstring msg = (*env)->NewStringUTF(env, msgStr);
+
+    (*env)->CallStaticVoidMethod(env, g_logClass, g_logMethod, level, channel, msg);
+
+    // Clean up local references
+    (*env)->DeleteLocalRef(env, level);
+    (*env)->DeleteLocalRef(env, channel);
+    (*env)->DeleteLocalRef(env, msg);
+
+    // Detach the thread if it was attached
+    if ((*g_vm)->GetEnv(g_vm, (void **) &env, JNI_VERSION_1_6) == JNI_EDETACHED) {
+        (*g_vm)->DetachCurrentThread(g_vm);
+    }
+}
+
+void runTun2SocksNative(
+        JNIEnv *env,
+        jclass cls,
+        jint vpn_interface_file_descriptor,
+        jint vpn_interface_mtu,
+        jstring vpn_ipv4_address,
+        jstring vpn_ipv4_netmask,
+        jstring vpn_ipv6_address,
+        jstring socks_server_address,
+        jstring udpgw_server_address,
+        jint udpgw_transparent_dns) {
+    const char *vpnIpAddressStr = (*env)->GetStringUTFChars(env, vpn_ipv4_address, 0);
+    const char *vpnNetMaskStr = (*env)->GetStringUTFChars(env, vpn_ipv4_netmask, 0);
+    const char *vpnIpv6AddressStr = vpn_ipv6_address ?
+            (*env)->GetStringUTFChars(env, vpn_ipv6_address, 0) : NULL;
+    const char *socksServerAddressStr = (*env)->GetStringUTFChars(env, socks_server_address, 0);
+    const char *udpgwServerAddressStr = (*env)->GetStringUTFChars(env, udpgw_server_address, 0);
 
     init_arguments("Psiphon tun2socks");
 
-    options.netif_ipaddr = (char*)vpnIpAddressStr;
-    options.netif_netmask = (char*)vpnNetMaskStr;
-    options.socks_server_addr = (char*)socksServerAddressStr;
-    options.udpgw_remote_server_addr = (char*)udpgwServerAddressStr;
-    options.udpgw_transparent_dns = udpgwTransparentDNS;
-    options.tun_fd = vpnInterfaceFileDescriptor;
-    options.tun_mtu = vpnInterfaceMTU;
+    options.tun_fd = vpn_interface_file_descriptor;
+    options.tun_mtu = vpn_interface_mtu;
+    options.netif_ipaddr = (char *) vpnIpAddressStr;
+    options.netif_netmask = (char *) vpnNetMaskStr;
+    options.netif_ip6addr = (char *) vpnIpv6AddressStr;
+    options.socks_server_addr = (char *) socksServerAddressStr;
+    options.udpgw_remote_server_addr = (char *) udpgwServerAddressStr;
+    options.udpgw_transparent_dns = udpgw_transparent_dns;
     options.set_signal = 0;
     options.loglevel = 2;
 
@@ -324,40 +434,19 @@ JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_runTun2Socks(
 
     run();
 
-    (*env)->ReleaseStringUTFChars(env, vpnIpAddress, vpnIpAddressStr);
-    (*env)->ReleaseStringUTFChars(env, vpnNetMask, vpnNetMaskStr);
-    (*env)->ReleaseStringUTFChars(env, socksServerAddress, socksServerAddressStr);
-    (*env)->ReleaseStringUTFChars(env, udpgwServerAddress, udpgwServerAddressStr);
-
-    g_env = 0;
-
-    // TODO: return success/error
-
-    return 1;
+    (*env)->ReleaseStringUTFChars(env, vpn_ipv4_address, vpnIpAddressStr);
+    (*env)->ReleaseStringUTFChars(env, vpn_ipv4_netmask, vpnNetMaskStr);
+    if (vpnIpv6AddressStr) {
+        (*env)->ReleaseStringUTFChars(env, vpn_ipv6_address, vpnIpv6AddressStr);
+    }
+    (*env)->ReleaseStringUTFChars(env, socks_server_address, socksServerAddressStr);
+    (*env)->ReleaseStringUTFChars(env, udpgw_server_address, udpgwServerAddressStr);
 }
 
-JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_terminateTun2Socks(
-    jclass cls,
-    JNIEnv* env)
-{
+void terminateTun2SocksNative(
+        JNIEnv *env,
+        jclass cls) {
     __sync_bool_compare_and_swap(&g_terminate, 0, 1);
-    return 0;
-}
-
-JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_disableUdpGwKeepalive(
-    jclass cls,
-    JNIEnv* env)
-{
-    __sync_bool_compare_and_swap(&sendKeepAlive, 1, 0);
-    return 0;
-}
-
-JNIEXPORT jint JNICALL Java_ca_psiphon_PsiphonTunnel_enableUdpGwKeepalive(
-    jclass cls,
-    JNIEnv* env)
-{
-    __sync_bool_compare_and_swap(&sendKeepAlive, 0, 1);
-    return 0;
 }
 
 // from tcp_helper.c
