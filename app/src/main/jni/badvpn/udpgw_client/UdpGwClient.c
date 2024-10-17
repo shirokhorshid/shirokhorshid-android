@@ -54,9 +54,6 @@ static void connection_first_job_handler (struct UdpGwClient_connection *con);
 static void connection_send (struct UdpGwClient_connection *con, uint8_t flags, const uint8_t *data, int data_len);
 static struct UdpGwClient_connection * reuse_connection (UdpGwClient *o, struct UdpGwClient_conaddr conaddr);
 
-// PSIPHON
-extern int sendKeepAlive;
-
 static int uint16_comparator (void *unused, uint16_t *v1, uint16_t *v2)
 {
     return B_COMPARE(*v1, *v2);
@@ -175,9 +172,10 @@ static void recv_interface_handler_send (UdpGwClient *o, uint8_t *data, int data
 static void send_monitor_handler (UdpGwClient *o)
 {
     //==== PSIPHON ====
-    if (sendKeepAlive == 0) {
-        return;
-    }
+    // Disable keepalive
+#ifdef PSIPHON
+    return;
+#endif
     //==== PSIPHON ====
 
     DebugObject_Access(&o->d_obj);
