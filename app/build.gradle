@@ -21,6 +21,7 @@ android {
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+                multiDexEnabled true
                 vectorDrawables.useSupportLibrary = true
 
                 // tun2socks NDK build configuration
@@ -60,7 +61,7 @@ android {
             debuggable false
             ndk {
                 // ABI configurations of native libraries Gradle should package with the APK.
-                abiFilters 'armeabi-v7a'
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
             }
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
