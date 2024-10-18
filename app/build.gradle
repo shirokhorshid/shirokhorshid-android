@@ -53,6 +53,8 @@ android {
         debug {
             debuggable true
             pseudoLocalesEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
             debuggable false
