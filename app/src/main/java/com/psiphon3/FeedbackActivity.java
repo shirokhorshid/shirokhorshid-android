@@ -25,6 +25,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -85,6 +86,14 @@ public class FeedbackActivity extends LocalizedActivities.AppCompatActivity {
 
         webView = (WebView) findViewById(R.id.feedbackWebView);
         webView.getSettings().setJavaScriptEnabled(true);
+        // Disable all file:// URLs
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            webView.getSettings().setAllowUniversalAccessFromFileURLs(false);
+            webView.getSettings().setAllowFileAccessFromFileURLs(false);
+        }
+        webView.getSettings().setAllowFileAccess(false);
+        // Disable all content:// URLs
+        webView.getSettings().setAllowContentAccess(false);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

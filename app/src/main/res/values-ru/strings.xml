@@ -45,20 +45,30 @@
   <string name="vpn_always_on_preference_not_available_summary">Нужен Android 7.0 или новее</string>
   <string name="vpn_exclusions_tip_summary">Выберите только один браузер для классического браузерного режима</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Обнаружен вредоносный трафик! Нажмите, чтобы узнать больше.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon обнаружил потенциально вредоносные сайты и ограничил к ним доступ. Пожалуйста, перейдите по ссылкам ниже, чтобы узнать подробности.\n\nОбнаруженные вредоносные сайты: </string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon автоматически ограничивает доступ к потенциально вредоносным сайтам. Хотите ли вы получать уведомления о таких ограничениях?\n\nЭту настройку можно позже поменять в меню настроек.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Узнайте больше о MalAware:</string>
   <!--"Upstream proxy error" notification title-->
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Пожалуйста откройте Psiphon и проверьте настройки прокси.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Ошибка прокси</string>
   <!--"Upstream proxy error" alert dialog message-->
   <!--Notification title for the 'Psiphon crash detected' notification-->
   <!--Notification short message for the 'Psiphon crash detected' notification-->
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Я принимаю</string>
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Data collection disclosure list item-->
@@ -91,7 +101,9 @@
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Чтение данных…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Получить помощь с подключением</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Помощь</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -105,8 +117,13 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Пожалуйста, включите NFC в системных настройках, чтобы активировать режим помощи Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Открыть настройки</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Приблизительное местоположение</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Пожалуйста, разрешите %s доступ к приблизительному местоположению устройства. Данные о вашем местоположении с точностью до 3 квадратных километров используются для оптимизации сети Psiphon.</string>
 </resources>

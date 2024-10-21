@@ -20,13 +20,11 @@
 package com.psiphon3.psiphonlibrary;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +40,7 @@ import com.psiphon3.log.MyLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -50,7 +49,6 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder implements SearchView.OnQueryTextListener {
     private InstalledAppsRecyclerViewAdapter adapter;
     private final boolean whitelist;
@@ -146,21 +144,14 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
         List<AppEntry> apps = new ArrayList<>();
         List<PackageInfo> packages = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
 
+        // Get the set of apps that should not be shown in the list
+        Set <String> excludeApps = getExcludeApps(context);
 
-        String selfPackageName = context.getPackageName();
-        boolean checkSelf = true;
-
-        for (int i = 0; i < packages.size(); i++) {
-            PackageInfo p = packages.get(i);
-
-            // The returned app list excludes:
-            //  - Apps that don't require internet access
-            //  - Psiphon itself
-            if (checkSelf && p.packageName.equals(selfPackageName)) {
-                // Skip the check next time once we got a match.
-                checkSelf = false;
+        for (PackageInfo p : packages) {
+            if (excludeApps.contains(p.packageName)) {
                 continue;
             }
+
             if (isInternetPermissionGranted(p)) {
                 // This takes a bit of time, but since we want the apps sorted by displayed name
                 // its best to do synchronously
@@ -173,6 +164,16 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
 
         Collections.sort(apps);
         return apps;
+    }
+
+    // Apps that should be excluded or included from VPN routing by default should not be shown in the list
+    private Set<String> getExcludeApps (Context context) {
+        // Combine the default excluded and included apps
+        Set<String> excludedAndIncludedApps = new HashSet<>(VpnAppsUtils.getDefaultAppsExcludedFromVpn());
+        excludedAndIncludedApps.addAll(VpnAppsUtils.getDefaultAppsIncludedInVpn());
+        // Add self to the no-show list too
+        excludedAndIncludedApps.add(context.getPackageName());
+        return excludedAndIncludedApps;
     }
 
     private boolean isSystemPackage(PackageInfo pkgInfo) {
