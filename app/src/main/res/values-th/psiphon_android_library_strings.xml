@@ -46,6 +46,12 @@
   <string name="region_name_tw">ไต้หวัน</string>
   <string name="region_name_za">แอฟริกาใต้</string>
   <string name="region_name_id">อินโดนีเซีย</string>
+  <string name="region_name_gr">กรีซ</string>
+  <string name="region_name_ua">ยูเครน</string>
+  <string name="region_name_pt">โปรตุเกส</string>
+  <string name="region_name_hr">โครเอเชีย</string>
+  <string name="region_name_co">โคลอมเบีย</string>
+  <string name="region_name_my">มาเลเซีย</string>
   <string name="feedback">การตอบสนอง</string>
   <string name="preference_notifications_title">การแจ้งเตือน</string>
   <!--Description of option to tunnel everything-->
