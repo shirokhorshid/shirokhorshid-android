@@ -158,6 +158,13 @@
             android:exported="false"
             android:process=":LoggingContentProvider"
             android:authorities="com.psiphon3.LoggingContentProvider" />
+        <!-- PsiphonUpdateReceiver receives intents that trigger upgrade checking. -->
+        <receiver android:name=".PsiphonUpdateReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
 
         <!-- UpgradeChecker receives intents (direct, alarm, boot) that trigger upgrade checking. -->
         <receiver
