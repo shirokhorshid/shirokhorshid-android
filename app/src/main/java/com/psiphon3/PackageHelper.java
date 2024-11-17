@@ -74,11 +74,11 @@ public class PackageHelper {
             if (actualSignature != null && actualSignature.equals(expectedSignature)) {
                 return true;
             } else {
-                MyLog.w("TrustedPackages: Signature mismatch for package: " + packageName);
+                MyLog.w("PackageHelper: verification failed for package " + packageName + ", signature mismatch");
                 return false;
             }
         } catch (PackageManager.NameNotFoundException e) {
-            MyLog.w("TrustedPackages: Package not found: " + packageName);
+            MyLog.w("PackageHelper: verification failed for package " + packageName + ", package not found");
             return false;
         }
     }
