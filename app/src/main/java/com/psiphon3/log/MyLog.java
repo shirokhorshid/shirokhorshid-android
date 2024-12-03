@@ -38,6 +38,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MyLog {
     private static final String TAG = MyLog.class.getSimpleName();
@@ -50,6 +51,12 @@ public class MyLog {
     // Retry config
     private static final int MAX_RETRIES = 3;
     private static final long[] RETRY_DELAYS_MS = {100, 200, 500}; // backoff delays in ms
+
+    // Circuit breaker fields and config
+    private static final AtomicInteger failureCount = new AtomicInteger(0);
+    private static final AtomicBoolean circuitOpen = new AtomicBoolean(false);
+    private static final int FAILURE_THRESHOLD = 10;
+    private static final long RESET_INTERVAL_MS = 30000; // 30 seconds
 
     /**
      * Used to indicate the sensitivity level of the log. This will affect
@@ -242,6 +249,14 @@ public class MyLog {
     }
 
     private static void insertWithRetry(Context context, Uri uri, ContentValues values, int priority, int attempt) {
+        // If the circuit is currently open, log to logcat and return
+        if (circuitOpen.get()) {
+            if (priority >= Log.ERROR) {
+                Log.e(TAG, values.getAsString("logjson"));
+            }
+            return;
+        }
+
         try {
             // Will return uri on success or throw on failure
             Uri result = context.getContentResolver().insert(uri, values);
@@ -249,20 +264,43 @@ public class MyLog {
             if (result == null) {
                 throw new IllegalStateException("Insert returned null result");
             }
+            // Reset failure count if successful
+            failureCount.set(0);
         } catch (SecurityException | IllegalArgumentException | IllegalStateException e) {
             Log.e(TAG, String.format(Locale.US, "Insert failed (attempt %d): %s",
                     attempt + 1, e.getMessage()));
 
-            if (attempt < MAX_RETRIES) {
-                scheduleRetry(context, uri, values, priority, attempt + 1);
+            // If the failure count exceeds the threshold, open the circuit
+            // and don't retry, log ERROR logs to logcat
+            if (failureCount.incrementAndGet() >= FAILURE_THRESHOLD) {
+                circuitOpen.set(true);
+                scheduleCircuitReset();
+                if (priority >= Log.ERROR) {
+                    Log.e(TAG, values.getAsString("logjson"));
+                }
                 return;
             }
 
-            // No more retries left, ensure ERROR logs still get to logcat
-            if (priority >= Log.ERROR) {
+            // Retry if we haven't reached the max number of retries,
+            // otherwise log ERROR logs to logcat
+            if (attempt < MAX_RETRIES) {
+                scheduleRetry(context, uri, values, priority, attempt + 1);
+            } else if (priority >= Log.ERROR) {
                 Log.e(TAG, values.getAsString("logjson"));
             }
         }
+    }
+
+    private static void scheduleCircuitReset() {
+        executorService.execute(() -> {
+            try {
+                Thread.sleep(RESET_INTERVAL_MS);
+                circuitOpen.set(false);
+                failureCount.set(0);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
     }
 
     private static void scheduleRetry(Context context, Uri uri, ContentValues values, int priority, int nextAttempt) {
