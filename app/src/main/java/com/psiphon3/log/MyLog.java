@@ -41,9 +41,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MyLog {
     private static final String TAG = MyLog.class.getSimpleName();
+    private static volatile Context applicationContext;
     private static final AtomicBoolean isShutdown = new AtomicBoolean(false);
     private static final ExecutorService executorService = Executors.newSingleThreadExecutor();
-    private static WeakReference<Context> contextRef;
     private static final AtomicBoolean isInitialized = new AtomicBoolean(false);
     private static final Object initLock = new Object();
 
@@ -77,18 +77,13 @@ public class MyLog {
 
     // Initialize early in the application lifecycle with the application context
     public static void init(Context context) {
-        // If already initialized and we have a valid context, do nothing
-        if (isInitialized.get() && contextRef != null && contextRef.get() != null) {
-            return;
+        if (context == null) {
+            throw new IllegalArgumentException("Context must not be null");
         }
-        // Only initialize if we have a valid context
-        if (context != null) {
-            synchronized (initLock) {
-                // Double check the initialization state
-                if (!isInitialized.get() || contextRef == null || contextRef.get() == null) {
-                    contextRef = new WeakReference<>(context.getApplicationContext());
-                    isInitialized.set(true);
-                }
+        synchronized (initLock) {
+            if (!isShutdown.get() && !isInitialized.get()) {
+                applicationContext = context.getApplicationContext();
+                isInitialized.set(true);
             }
         }
     }
@@ -102,7 +97,7 @@ public class MyLog {
             }
 
             // Clear context ref and initialized state
-            contextRef = null;
+            applicationContext = null;
             isInitialized.set(false);
 
             // Shutdown executor service immediately to cancel pending retries
@@ -169,7 +164,7 @@ public class MyLog {
         // Get context and check initialization
         final Context context;
         synchronized (initLock) {
-            context = (contextRef != null) ? contextRef.get() : null;
+            context = applicationContext;
             if (!isInitialized.get() || context == null) {
                 throw new IllegalStateException("MyLog not properly initialized before logging");
             }
@@ -220,8 +215,7 @@ public class MyLog {
         // Capture context and check initialization state
         final Context context;
         synchronized (initLock) {
-            context = (contextRef != null) ? contextRef.get() : null;
-
+            context = applicationContext;
             if (!isInitialized.get() || context == null) {
                 throw new IllegalStateException(String.format(Locale.US,
                         "MyLog not properly initialized. Context: %s, Initialized: %b",
