@@ -21,6 +21,7 @@ package com.psiphon3.log;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 
 import androidx.annotation.StringRes;
@@ -33,23 +34,29 @@ import org.json.JSONObject;
 
 import java.lang.ref.WeakReference;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MyLog {
-    private static final String TAG = "Psiphon";
+    private static final String TAG = MyLog.class.getSimpleName();
+    private static volatile Context applicationContext;
+    private static final AtomicBoolean isShutdown = new AtomicBoolean(false);
     private static final ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private static final AtomicBoolean isInitialized = new AtomicBoolean(false);
+    private static final Object initLock = new Object();
 
-    // It is expected that the logger implementation will be an Activity, so
-    // we're only going to hold a weak reference to it -- we don't want to
-    // interfere with it being destroyed in low memory situations. This class
-    // can cope with the logger going away and being re-set later on.
-    static private WeakReference<ILogger> logger = new WeakReference<>(null);
+    // Retry config
+    private static final int MAX_RETRIES = 3;
+    private static final long[] RETRY_DELAYS_MS = {100, 200, 500}; // backoff delays in ms
 
-
-    public interface ILogger {
-        Context getContext();
-    }
+    // Circuit breaker fields and config
+    private static final AtomicInteger failureCount = new AtomicInteger(0);
+    private static final AtomicBoolean circuitOpen = new AtomicBoolean(false);
+    private static final int FAILURE_THRESHOLD = 10;
+    private static final long RESET_INTERVAL_MS = 30000; // 30 seconds
 
     /**
      * Used to indicate the sensitivity level of the log. This will affect
@@ -75,74 +82,105 @@ public class MyLog {
         public static final int SENSITIVE_FORMAT_ARGS = 4;
     }
 
-    static public void setLogger(ILogger logger) {
-        MyLog.logger = new WeakReference<>(logger);
+    // Initialize early in the application lifecycle with the application context
+    public static void init(Context context) {
+        if (context == null) {
+            throw new IllegalArgumentException("Context must not be null");
+        }
+        synchronized (initLock) {
+            if (!isShutdown.get() && !isInitialized.get()) {
+                applicationContext = context.getApplicationContext();
+                isInitialized.set(true);
+            }
+        }
+    }
+
+    // Shuts down the logger, cancelling any pending retries and preventing further logging
+    // Should be called when the application is shutting down
+    public static void shutdown() {
+        synchronized (initLock) {
+            if (isShutdown.getAndSet(true)) {
+                return;  // Already shut down
+            }
+
+            // Clear context ref and initialized state
+            applicationContext = null;
+            isInitialized.set(false);
+
+            // Shutdown executor service immediately to cancel pending retries
+            executorService.shutdownNow();
+        }
     }
 
     // Status log with priority Log.VERBOSE
     // Displayed to the user and included in feedback if the user consents
-    static public void v(@StringRes int resId, int sensitivity, Object... formatArgs) {
+    public static void v(@StringRes int resId, int sensitivity, Object... formatArgs) {
         storeStatusLog(resId, formatArgs, sensitivity, Log.VERBOSE, new Date());
     }
 
     // Diagnostic log with priority Log.VERBOSE
     // Internal only and included in feedback if the user consents
-    static public void v(String msg, Object... nameValuePairs) {
+    public static void v(String msg, Object... nameValuePairs) {
         storeDiagnosticLog(msg, nameValuePairs, Log.VERBOSE, new Date());
     }
 
     // Status log with priority Log.INFO
     // Displayed to the user and included in feedback if the user consents
-    static public void i(@StringRes int resId, int sensitivity, Object... formatArgs) {
+    public static void i(@StringRes int resId, int sensitivity, Object... formatArgs) {
         storeStatusLog(resId, formatArgs, sensitivity, Log.INFO, new Date());
     }
 
     // Diagnostic log with priority Log.INFO that also takes timestamp
     // Temporarily used for tunnel core notices logging in the TunnelManager.onDiagnosticMessage
     // for the purpose of getting a more accurate timestamp.
-    static public void i(Date timestamp, String msg, Object... nameValuePairs) {
+    public static void i(Date timestamp, String msg, Object... nameValuePairs) {
         storeDiagnosticLog(msg, nameValuePairs, Log.INFO, timestamp);
     }
 
     // Diagnostic log with priority Log.INFO
     // Internal only and included in feedback if the user consents
-    static public void i(String msg, Object... nameValuePairs) {
+    public static void i(String msg, Object... nameValuePairs) {
         storeDiagnosticLog(msg, nameValuePairs, Log.INFO, new Date());
     }
 
     // Status log with priority Log.WARN
     // Displayed to the user and included in feedback if the user consents
-    static public void w(@StringRes int resId, int sensitivity, Object... formatArgs) {
+    public static void w(@StringRes int resId, int sensitivity, Object... formatArgs) {
         storeStatusLog(resId, formatArgs, sensitivity, Log.WARN, new Date());
     }
 
     // Diagnostic log with priority Log.WARN
     // Internal only and included in feedback if the user consents
-    static public void w(String msg, Object... nameValuePairs) {
+    public static void w(String msg, Object... nameValuePairs) {
         storeDiagnosticLog(msg, nameValuePairs, Log.WARN, new Date());
     }
 
     // Status log with priority Log.ERROR
     // Displayed to the user and included in feedback if the user consents
-    static public void e(@StringRes int resId, int sensitivity, Object... formatArgs) {
+    public static void e(@StringRes int resId, int sensitivity, Object... formatArgs) {
         storeStatusLog(resId, formatArgs, sensitivity, Log.ERROR, new Date());
     }
 
     // Diagnostic log with priority Log.ERROR
     // Internal only and included in feedback if the user consents
-    static public void e(String msg, Object... nameValuePairs) {
+    public static void e(String msg, Object... nameValuePairs) {
         storeDiagnosticLog(msg, nameValuePairs, Log.ERROR, new Date());
     }
 
-    private static void storeStatusLog(@StringRes int resId, Object[] formatArgs, int sensitivity,
-                                       int priority, Date timestamp) {
-        if (logger.get() == null) {
-            return;
+    private static void storeStatusLog(@StringRes int resId, Object[] formatArgs, int sensitivity, int priority, Date timestamp) {
+        // Get context and check initialization
+        final Context context;
+        synchronized (initLock) {
+            context = applicationContext;
+            if (!isInitialized.get() || context == null) {
+                throw new IllegalStateException("MyLog not properly initialized before logging");
+            }
         }
+
         try {
             JSONObject logJsonObject = new JSONObject();
 
-            String stringResourceName = logger.get().getContext().getResources().getResourceName(resId);
+            String stringResourceName = context.getResources().getResourceName(resId);
             logJsonObject.put("stringResourceName", stringResourceName);
 
             logJsonObject.put("sensitivity", sensitivity);
@@ -156,16 +194,12 @@ public class MyLog {
                     JSONObject.NULL : formatArgsJsonArray);
 
             storeLog(logJsonObject.toString(), false, priority, timestamp.getTime());
-        } catch (JSONException ignored) {
-            // fail silently
+        } catch (JSONException e) {
+            Log.e(TAG, "Failed to create JSON log object: " + e.getMessage());
         }
     }
 
-    private static void storeDiagnosticLog(String msg, Object[] nameValuePairs, int priority,
-                                           Date timestamp) {
-        if (logger.get() == null) {
-            return;
-        }
+    private static void storeDiagnosticLog(String msg, Object[] nameValuePairs, int priority, Date timestamp) {
         if (nameValuePairs.length % 2 != 0) {
             throw new IllegalArgumentException("Number of arguments in nameValuePairs must divide by 2.");
         }
@@ -179,32 +213,111 @@ public class MyLog {
             logJsonObject.put("data", data);
 
             storeLog(logJsonObject.toString(), true, priority, timestamp.getTime());
-        } catch (JSONException ignored) {
-            // fail silently
+        } catch (JSONException e) {
+            Log.e(TAG, "Failed to create diagnostic JSON log object: " + e.getMessage());
         }
     }
 
     private static void storeLog(String logjson, boolean isDiagnostic, int priority, long timestamp) {
-        if (logger.get() == null) {
-            return;
+        // Capture context and check initialization state
+        final Context context;
+        synchronized (initLock) {
+            context = applicationContext;
+            if (!isInitialized.get() || context == null) {
+                throw new IllegalStateException(String.format(Locale.US,
+                        "MyLog not properly initialized. Context: %s, Initialized: %b",
+                        context == null ? "null" : "valid",
+                        isInitialized.get()));
+            }
         }
+
         ContentValues values = new ContentValues();
         values.put("logjson", logjson);
         values.put("is_diagnostic", isDiagnostic);
         values.put("priority", priority);
         values.put("timestamp", timestamp);
 
-        executorService.execute(() ->
-                logger.get().getContext().getContentResolver()
-                        .insert(LoggingContentProvider.CONTENT_URI, values));
+        executorService.execute(() -> insertWithRetry(context, LoggingContentProvider.CONTENT_URI, values, priority, 0));
 
         if (BuildConfig.DEBUG) {
             if (isDiagnostic) {
                 Log.println(priority, TAG, logjson.replaceAll("\\\\", ""));
             } else {
-                Log.println(priority, TAG, getStatusLogMessageForDisplay(logjson, logger.get().getContext()));
+                Log.println(priority, TAG, getStatusLogMessageForDisplay(logjson, context));
             }
         }
+    }
+
+    private static void insertWithRetry(Context context, Uri uri, ContentValues values, int priority, int attempt) {
+        // If the circuit is currently open, log to logcat and return
+        if (circuitOpen.get()) {
+            if (priority >= Log.ERROR) {
+                Log.e(TAG, values.getAsString("logjson"));
+            }
+            return;
+        }
+
+        try {
+            // Will return uri on success or throw on failure
+            Uri result = context.getContentResolver().insert(uri, values);
+
+            if (result == null) {
+                throw new IllegalStateException("Insert returned null result");
+            }
+            // Reset failure count if successful
+            failureCount.set(0);
+        } catch (SecurityException | IllegalArgumentException | IllegalStateException e) {
+            Log.e(TAG, String.format(Locale.US, "Insert failed (attempt %d): %s",
+                    attempt + 1, e.getMessage()));
+
+            // If the failure count exceeds the threshold, open the circuit
+            // and don't retry, log ERROR logs to logcat
+            if (failureCount.incrementAndGet() >= FAILURE_THRESHOLD) {
+                circuitOpen.set(true);
+                scheduleCircuitReset();
+                if (priority >= Log.ERROR) {
+                    Log.e(TAG, values.getAsString("logjson"));
+                }
+                return;
+            }
+
+            // Retry if we haven't reached the max number of retries,
+            // otherwise log ERROR logs to logcat
+            if (attempt < MAX_RETRIES) {
+                scheduleRetry(context, uri, values, priority, attempt + 1);
+            } else if (priority >= Log.ERROR) {
+                Log.e(TAG, values.getAsString("logjson"));
+            }
+        }
+    }
+
+    private static void scheduleCircuitReset() {
+        executorService.execute(() -> {
+            try {
+                Thread.sleep(RESET_INTERVAL_MS);
+                circuitOpen.set(false);
+                failureCount.set(0);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+    }
+
+    private static void scheduleRetry(Context context, Uri uri, ContentValues values, int priority, int nextAttempt) {
+        long delay = RETRY_DELAYS_MS[nextAttempt - 1];
+
+        executorService.execute(() -> {
+            try {
+                Thread.sleep(delay);
+                insertWithRetry(context, uri, values, priority, nextAttempt);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                // If interrupted, make sure ERROR logs still get to logcat
+                if (priority >= Log.ERROR) {
+                    Log.e(TAG, values.getAsString("logjson"));
+                }
+            }
+        });
     }
 
     public static String getStatusLogMessageForDisplay(String logjson, Context context) {
