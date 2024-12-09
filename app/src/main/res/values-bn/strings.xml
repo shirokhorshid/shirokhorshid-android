@@ -25,6 +25,7 @@
   <string name="notification_title_vpn_revoked">Psiphon ভিপিএন বন্ধ আছে</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <!--Description for an app icon image-->
+  <string name="description_app_icon">অ্যাপ আইকন</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
@@ -85,6 +86,7 @@
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">সেটিংস খুলুন</string>
   <!--Approximate location permission rationale alert title.-->
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
 </resources>
