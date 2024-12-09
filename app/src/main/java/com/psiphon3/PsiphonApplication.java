@@ -145,7 +145,10 @@ public class PsiphonApplication extends Application {
 
     @Override
     public void onTerminate() {
-        super.onTerminate();
+        // Note: This method is only called in the Android emulator, never on real devices.
+        // The app process is killed directly by the system without notification.
+        // This cleanup is only useful for debugging.
         MyLog.shutdown();
+        super.onTerminate();
     }
 }
