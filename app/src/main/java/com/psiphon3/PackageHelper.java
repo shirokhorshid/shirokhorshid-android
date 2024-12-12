@@ -158,15 +158,19 @@ public class PackageHelper {
     // Saves the map of package signatures to a file in process-safe manner
     // Uses file locking to ensure only one process can write at a time.
     // Uses a temporary file and atomic rename to ensure data consistency.
+    @SuppressWarnings("resource") // Pre-API 19: manual resource handling required instead of try-with-resources
     public static void saveTrustedSignaturesToFile(Context context, Map<String, Set<String>> signatures) {
         File tempFile = new File(context.getFilesDir(), TEMP_FILE);
         File finalFile = new File(context.getFilesDir(), SIGNATURES_FILE);
         File lockFile = new File(context.getFilesDir(), LOCK_FILE);
 
+        RandomAccessFile randomAccessFile = null;
+        FileChannel channel = null;
         FileLock lock = null;
 
-        try (RandomAccessFile randomAccessFile = new RandomAccessFile(lockFile, "rw");
-             FileChannel channel = randomAccessFile.getChannel()) {
+        try {
+            randomAccessFile = new RandomAccessFile(lockFile, "rw");
+            channel = randomAccessFile.getChannel();
 
             // Block until we can acquire the lock
             // This ensures we don't miss writing important trusted signatures data
@@ -218,21 +222,39 @@ public class PackageHelper {
                     MyLog.e("PackageHelper: failed to release lock: " + e);
                 }
             }
+            if (channel != null) {
+                try {
+                    channel.close();
+                } catch (IOException e) {
+                    MyLog.e("PackageHelper: failed to close channel: " + e);
+                }
+            }
+            if (randomAccessFile != null) {
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e) {
+                    MyLog.e("PackageHelper: failed to close random access file: " + e);
+                }
+            }
         }
     }
 
     // Reads package signatures from file in a process-safe manner.
     // Uses shared file locking to allow multiple readers but prevent reading during writes.
     // Returns empty map if file doesn't exist or on any error.
+    @SuppressWarnings("resource") // Pre-API 19: manual resource handling required instead of try-with-resources
     public static Map<String, Set<String>> readTrustedSignaturesFromFile(Context context) {
         File file = new File(context.getFilesDir(), SIGNATURES_FILE);
         File lockFile = new File(context.getFilesDir(), LOCK_FILE);
         Map<String, Set<String>> signatures = new HashMap<>();
 
+        RandomAccessFile randomAccessFile = null;
+        FileChannel channel = null;
         FileLock lock = null;
 
-        try (RandomAccessFile randomAccessFile = new RandomAccessFile(lockFile, "rw");
-             FileChannel channel = randomAccessFile.getChannel()) {
+        try {
+            randomAccessFile = new RandomAccessFile(lockFile, "rw");
+            channel = randomAccessFile.getChannel();
 
             // Get shared lock - allows multiple readers but not during writes
             try {
@@ -274,6 +296,20 @@ public class PackageHelper {
                     lock.release();
                 } catch (IOException e) {
                     MyLog.e("PackageHelper: failed to release lock: " + e);
+                }
+            }
+            if (channel != null) {
+                try {
+                    channel.close();
+                } catch (IOException e) {
+                    MyLog.e("PackageHelper: failed to close channel: " + e);
+                }
+            }
+            if (randomAccessFile != null) {
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e) {
+                    MyLog.e("PackageHelper: failed to close random access file: " + e);
                 }
             }
         }
