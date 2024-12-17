@@ -10,6 +10,7 @@
   <string name="preference_language_selection_title">ভাষা</string>
   <string name="preference_language_default_language">নির্ধারিত ভাষা</string>
   <string name="preference_category_advanced_title">অগ্রবর্তী</string>
+  <string name="preference_category_info_title">তথ্য</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ঠিক আছে</string>
   <string name="preference_navigate_to_vpn_setting_title">সর্বদা সচল VPN</string>

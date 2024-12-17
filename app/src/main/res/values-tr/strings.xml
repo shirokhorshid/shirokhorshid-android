@@ -148,7 +148,7 @@
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump yardımcı kipini etkinleştirmek için lütfen sistem ayarlarından NFC özelliğini açın.</string>
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump yardımcı kipini açmak için lütfen sistem ayarlarından NFC özelliğini açın.</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Ayarları aç</string>
   <!--Approximate location permission rationale alert title.-->
