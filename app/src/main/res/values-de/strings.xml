@@ -2,10 +2,12 @@
 <resources>
   <string name="banner_desc">Sponsorenbanner; klicken Sie, um die Homepage des Sponsors zu besuchen</string>
   <string name="open_browser">Browser öffnen</string>
-  <string name="FeedbackActivity.DefaultText">Wenn Sie Anmerkungen oder weitere Informationen über nicht funktionierende Websites haben oder wenn dieses Format nicht funktioniert, kontaktieren Sie bitte:  &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Wenn Sie Anmerkungen oder weitere Informationen über nicht funktionierende Websites haben oder wenn dieses Formular nicht funktioniert, kontaktieren Sie bitte:  &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Vielen Dank für Ihre Rückmeldung.</string>
-  <string name="FeedbackActivity.Failure">Einsendung fehlgeschlagen. Bitte versuchen Sie es erneut.</string>
+  <string name="FeedbackActivity.Failure">Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN wurde gestoppt</string>
+  <string name="StatusActivity.VpnRevokedMessage">Die Verbindung zum VPN von Psiphon wurde von Ihnen oder einer anderen App getrennt. Es können nicht mehrere VPN-Apps gleichzeitig ausgeführt werden. Überprüfen Sie, ob eine andere VPN-App installiert und ausgeführt wird.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN kann nicht gestartet werden</string>
   <string name="selected_region_currently_not_available">Ausgewählte Region ist derzeit nicht verfügbar, bitte wählen Sie eine andere Region aus.</string>
   <string name="preference_language_selection_summary">Wählen Sie die Sprache aus</string>
   <string name="preference_language_selection_title">Sprache</string>
