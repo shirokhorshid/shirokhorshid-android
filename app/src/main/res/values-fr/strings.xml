@@ -81,9 +81,9 @@
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp1">Votre pays, FAI, et éventuellement emplacement approximatif. Vos ville, pays et FAI sont obtenus par l\'adresse IP utilisée pour vous connecter à nos serveurs, même si cette adresse IP n\'est pas enregistrée. Ces données sont collectées pour les statistiques d\'utilisation et de performance, et l\'état de nos services.</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostique ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est optionnel.</string>
+  <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostic ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est optionnel.</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp3">Votre nom d\'utilisateur PsiCash, votre mot de passe et optionnellement votre adresse courriel.</string>
+  <string name="vpn_data_collection_disclosure_bp3">Votre nom d\'utilisateur PsiCash (compte), votre mot de passe et optionnellement votre adresse courriel.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <string name="pxe_web_wait_tunnel_connecting">Veuillez patienter alors que Psiphon se connecte</string>
@@ -104,7 +104,7 @@
   <!--Notifications permission rationale list item-->
   <string name="notifications_permission_rationale_connection_problems_bp">Problèmes avec votre connexion.</string>
   <!--Notifications permission rationale list item-->
-  <string name="notifications_permission_rationale_crash_reports_bp">Rapports de plantage.</string>
+  <string name="notifications_permission_rationale_crash_reports_bp">Signalements de plantage.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
   <string name="notifications_permission_rationale_malaware_alerts_bp">Alertes MalAware.</string>
   <!--Notifications permission rationale list item-->
@@ -114,7 +114,7 @@
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">Activez le NFC depuis les paramètres</string>
   <!--NFC connection data exchange error message-->
-  <string name="nfc_export_data_empty">Erreur de communication avec l\'autre appareil. Vérifier que Psiphon est ouvert et connecté à l\'autre appareil, et réessayez.</string>
+  <string name="nfc_export_data_empty">Erreur de communication avec l\'autre appareil. Vérifiez que Psiphon est ouvert et connecté à l\'autre appareil, et réessayez.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
   <string name="nfc_reader_default_message">En attente de communication NFC avec l\'autre appareil...</string>
   <!--NFC connection data exchange success message-->

@@ -1,34 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">معاون بینر؛ معاون ابتدائیہ میں جانے کیلئے کلک کیجئے</string>
+  <string name="banner_desc">سپانسر بینر؛ سپانسر دیکھنے کے لئے ہوم پیج کلک کیجئے</string>
   <string name="open_browser">براؤزر کھولئے</string>
-  <string name="FeedbackActivity.DefaultText">اگر آپ کے پاس کچھ مخصوص تبصرے ہیں، ان ویب سائٹس کے بارے میں جو کام نہیں کرتی ہیں ، یا اگر یہ فارم آپ کے لئے کام نہیں کررہا ہے تو ، براہ کرم ای میل کریں &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">اگر آپ کے پاس کچھ مخصوص تبصرے ہیں، ان ویب سائٹس کے بارے میں جو کام نہیں کرتی ہیں ، یا اگر یہ فارم آپ کے لئے کام نہیں کررہا ہے تو ، براہ کرم ای میل کریں &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;. </string>
   <string name="FeedbackActivity.Success">اپنی رآئے پیش کرنے کے لئے آپ کا شکریہ</string>
   <string name="FeedbackActivity.Failure">گزارش ناکام ہو گئی ۔ مہربانی فرما کر دوبارہ کوشش کریں۔</string>
-  <string name="StatusActivity.VpnRevokedTitle">Psiphon (سائفن) VPN (وی پی این) رک گیا ہے</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon (سائفن) VPN (وی پی این) بند ہوگیا ہے</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon (سائفن) کا وی پی این آپ کے یا کسی اور ایپ کے ذریعے منقطع ہوگیا ہے۔ ایک ہی وقت میں متعدد وی پی این ایپس چل نہیں سکتی ہیں۔ جانچ کریں کہ کوئی اور وی پی این ایپ انسٹال ہے اور چل رہی ہے۔ </string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon (سائفن) وی پی این شروع نہیں ہو سکتا</string>
-  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon (سائفن) وی پی این شروع نہیں کرسکتا۔ ایک ہی وقت میں کئی وی پی این ایپس چل نہیں سکتی ہیں۔ جانچ کریں کہ  کوئی دوسرا وی پی این ایپ انسٹال ہوا ہے اور وہ آلویز-ٰن پر سیٹ ہے۔</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon (سائفن) وی پی این شروع نہیں کرسکتا۔ ایک ہی وقت میں کئی وی پی این ایپس چل نہیں سکتی ہیں۔ جانچ کریں کہ  کوئی دوسرا وی پی این ایپ انسٹال ہوا ہے اور وہ آلویزآن پر سیٹ ہے۔</string>
   <string name="selected_region_currently_not_available">منتخب شدہ علاقہ ابھی دستیاب نہیں ہے، مہربانی کر کے کوئی دوسرا علاقہ منتخب کریں۔</string>
   <string name="preference_language_selection_summary">زبان کا انتخاب کریں</string>
   <string name="preference_language_selection_title">زبان</string>
   <string name="preference_language_title">زبان کا انتخاب</string>
-  <string name="preference_language_default_language">طے شدہ زبان</string>
+  <string name="preference_language_default_language">ڈیفالٹ زبان</string>
   <string name="preference_category_advanced_title">ترقی یافتہ</string>
+  <string name="preference_category_info_title">معلومات</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ٹھیک ہے</string>
-  <string name="preference_navigate_to_vpn_setting_title">Always-on VPN (ہمیشہ آن VPN)</string>
-  <string name="preference_navigate_to_vpn_setting_summary">Always-on VPN (ہمیشہ آن VPN) کو فعال کرنے کیلئے سسٹم ترتیبات میں جائیں</string>
+  <string name="preference_navigate_to_vpn_setting_title">وی بی ان ہمیشہ آن</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Always-on VPN (ہمیشہ آن VPN) کو فعال کرنے کیلئے سسٹم سیٹنگ میں جائیں</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">نہیں</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">ہاں</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">کارروائی کی ضرورت ہے</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">رابطہ ختم کرنے کے لئے براہ کرم سائفون کھولیں۔</string>
   <!--"Selected region is not available" notification title-->
   <!--Message shown in notification informing the user that selected region is not currently available-->
   <!--"VPN stopped" notification title-->
-  <string name="notification_title_vpn_revoked">Psiphon (سائفن) VPN (وی پی این) رک گیا ہے</string>
+  <string name="notification_title_vpn_revoked">Psiphon (سائفن) VPN (وی پی این) بند ہوگیا ہے</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
   <!--Description for an app icon image-->
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
@@ -53,11 +56,13 @@
   <!--Data collection disclosure list item-->
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">براہ کرم Psiphon کے منسلک ہونے تک انتظار کریں</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">بند کریں</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">بند کریں</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">کیا آپ اس ونڈو کو ابھی بند کرنا چاہیں گے؟</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
