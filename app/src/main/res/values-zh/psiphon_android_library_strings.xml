@@ -80,6 +80,12 @@
   <string name="region_name_za">南非</string>
   <string name="region_name_id">印度尼西亚</string>
   <string name="region_name_nz">新西兰</string>
+  <string name="region_name_gr">希腊</string>
+  <string name="region_name_ua">乌克兰</string>
+  <string name="region_name_pt">葡萄牙</string>
+  <string name="region_name_hr">克罗地亚</string>
+  <string name="region_name_co">哥伦比亚</string>
+  <string name="region_name_my">马来西亚</string>
   <string name="about">关于赛风</string>
   <string name="feedback">反馈</string>
   <string name="disableTimeoutsPreferenceSummary">网速较慢时禁用超时断线</string>

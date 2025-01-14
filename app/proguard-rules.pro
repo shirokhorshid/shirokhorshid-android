@@ -15,3 +15,13 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# Preserve native methods in Tun2SocksJniLoader
+-keep class ca.psiphon.Tun2SocksJniLoader {
+    native <methods>;
+}
+
+# Keep the logTun2Socks method in VpnManager, as it is called from native code
+-keep class com.psiphon3.VpnManager {
+    public static void logTun2Socks(java.lang.String, java.lang.String, java.lang.String);
+}

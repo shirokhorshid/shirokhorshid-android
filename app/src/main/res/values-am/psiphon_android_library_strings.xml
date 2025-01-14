@@ -78,6 +78,7 @@
   <string name="region_name_tw">ታይዋን</string>
   <string name="region_name_za">ደቡብ አፍሪካ</string>
   <string name="region_name_id">ኢንዶኔዝያ</string>
+  <string name="region_name_co">ኮሎምቢያ</string>
   <string name="about">ስለ Psiphon</string>
   <string name="feedback">ግብረመልስ</string>
   <string name="disableTimeoutsPreferenceSummary">ለዝግተኛ አውታረመረቦች የጊዜ እረፍቶችን አቦዝን</string>

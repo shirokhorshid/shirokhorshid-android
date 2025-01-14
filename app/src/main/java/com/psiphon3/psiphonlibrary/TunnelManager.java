@@ -54,6 +54,7 @@ import com.psiphon3.Location;
 import com.psiphon3.PsiphonCrashService;
 import com.psiphon3.R;
 import com.psiphon3.TunnelState;
+import com.psiphon3.VpnManager;
 import com.psiphon3.log.MyLog;
 
 import net.grandcentrix.tray.AppPreferences;
@@ -85,7 +86,7 @@ import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
 import ru.ivanarh.jndcrash.NDCrash;
 
-public class TunnelManager implements PsiphonTunnel.HostService {
+public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnServiceBuilderProvider {
     // Android IPC messages
     // Client -> Service
     enum ClientToServiceMessage {
@@ -183,6 +184,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     private Thread m_tunnelThread;
     private final AtomicBoolean m_isStopping;
     private PsiphonTunnel m_tunnel;
+    private VpnManager m_vpnManager = VpnManager.getInstance();
     private String m_lastUpstreamProxyErrorMessage;
     private Handler m_Handler = new Handler();
 
@@ -208,9 +210,10 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         // Defer initialization of the PsiphonTunnel instance to onCreate(). Ensures a valid context
         // passed via hostService is available for potential Context-dependent operations that the
         // PsiphonTunnel may perform internally at any time.
-        //
-        // Note that we are requesting manual control over PsiphonTunnel.routeThroughTunnel() functionality.
-        m_tunnel = PsiphonTunnel.newPsiphonTunnel(this, false);
+        m_tunnel = PsiphonTunnel.newPsiphonTunnel(this);
+
+        // Register self as a host service for the VPN manager
+        m_vpnManager.registerHostService(this);
 
         m_notificationPendingIntent = getPendingIntent(m_parentService, INTENT_ACTION_VIEW);
 
@@ -275,6 +278,13 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                                 m_tunnelThread.start();
                             })
                             .subscribe());
+
+            // Set the persistent service running flag to true.
+            // This flag is used to determine whether the service should be automatically restarted
+            // after an app update, upon receiving a package replaced broadcast in the PsiphonUpdateReceiver.
+            new AppPreferences(getContext()).put(getContext().getString(R.string.serviceRunningPreference), true);
+
+
         }
         return Service.START_REDELIVER_INTENT;
     }
@@ -296,7 +306,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                     if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED && !isRoutingThroughTunnel) {
                         if (m_tunnelState.homePages != null && m_tunnelState.homePages.size() != 0) {
                             if (canSendIntentToActivity()) {
-                                m_tunnel.routeThroughTunnel();
+                                m_vpnManager.routeThroughTunnel(m_tunnel.getLocalSocksProxyPort());
                                 sendHandshakeIntent();
                                 m_isRoutingThroughTunnelPublishRelay.accept(Boolean.TRUE);
                                 // Do not emit downstream if we are just started routing.
@@ -308,7 +318,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                                     .startWith(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
                         }
                         // No intents to send, just route through tunnel.
-                        m_tunnel.routeThroughTunnel();
+                        m_vpnManager.routeThroughTunnel(m_tunnel.getLocalSocksProxyPort());
                         m_isRoutingThroughTunnelPublishRelay.accept(Boolean.TRUE);
                         // Do not emit downstream if we are just started routing.
                         return Observable.empty();
@@ -335,7 +345,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                 .ignoreElements()
                 .doOnSubscribe(__ -> showOpenAppToFinishConnectingNotification())
                 .doOnComplete(() -> {
-                    m_tunnel.routeThroughTunnel();
+                    m_vpnManager.routeThroughTunnel(m_tunnel.getLocalSocksProxyPort());
                     runnable.run();
                     m_isRoutingThroughTunnelPublishRelay.accept(Boolean.TRUE);
                 })
@@ -383,6 +393,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
         stopAndWaitForTunnel();
         m_compositeDisposable.dispose();
+        // Unregister host service for the VPN manager
+        m_vpnManager.unregisterHostService();
     }
 
     void onRevoke() {
@@ -424,10 +436,12 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             return;
         }
 
-        // signalStopService could have been called, but in case is was not, call here.
-        // If signalStopService was not already called, the join may block the calling
-        // thread for some time.
-        signalStopService();
+        // The `signalStopService`, which performs the latch countdown, may have already been called.
+        // If it has not been called, then manually attempt to count down the latch here.
+        // If the countdown hasn't been initiated, the `join` call may block the calling thread, potentially delaying execution.
+        if (m_tunnelThreadStopSignal != null) {
+            m_tunnelThreadStopSignal.countDown();
+        }
 
         try {
             m_tunnelThread.join();
@@ -447,6 +461,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         if (m_tunnelThreadStopSignal != null) {
             m_tunnelThreadStopSignal.countDown();
         }
+        // Also set the persistent service running flag to false to prevent automatic restart upon app update.
+        new AppPreferences(getContext()).put(getContext().getString(R.string.serviceRunningPreference), false);
     }
 
     private PendingIntent getPendingIntent(Context ctx, final String actionString) {
@@ -726,7 +742,7 @@ public class TunnelManager implements PsiphonTunnel.HostService {
                         manager.m_compositeDisposable.add(
                                 manager.getTunnelConfigSingle()
                                         .doOnSuccess(config -> {
-                                            manager.m_tunnel.stopRouteThroughTunnel();
+                                            manager.m_vpnManager.stopRouteThroughTunnel();
                                             manager.m_isRoutingThroughTunnelPublishRelay.accept(Boolean.FALSE);
                                             manager.setTunnelConfig(config);
                                             manager.onRestartTunnel();
@@ -912,18 +928,20 @@ public class TunnelManager implements PsiphonTunnel.HostService {
         sendDataTransferStatsHandler.postDelayed(sendDataTransferStats, sendDataTransferStatsIntervalMs);
 
         try {
-            if (!m_tunnel.startRouting()) {
-                throw new PsiphonTunnel.Exception("application is not prepared or revoked");
-            }
+            m_vpnManager.vpnEstablish();
             MyLog.i(R.string.vpn_service_running, MyLog.Sensitivity.NOT_SENSITIVE);
 
+            m_tunnel.setVpnMode(true);
             m_tunnel.startTunneling(getServerEntries(m_parentService));
             try {
                 m_tunnelThreadStopSignal.await();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
-        } catch (PsiphonTunnel.Exception e) {
+        } catch (IllegalStateException |
+                 IllegalArgumentException |
+                 SecurityException |
+                 PsiphonTunnel.Exception e) {
             String errorMessage = e.getMessage();
             MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, errorMessage);
             if ((errorMessage.startsWith("get package uid:") || errorMessage.startsWith("getPackageUid:"))
@@ -935,6 +953,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
 
             m_isStopping.set(true);
             m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
+            m_isRoutingThroughTunnelPublishRelay.accept(false);
+            m_vpnManager.vpnTeardown();
             m_tunnel.stop();
 
             sendDataTransferStatsHandler.removeCallbacks(sendDataTransferStats);
@@ -962,23 +982,25 @@ public class TunnelManager implements PsiphonTunnel.HostService {
     }
 
     @Override
-    public String getAppName() {
-        return m_parentService.getString(R.string.app_name);
-    }
-
-    @Override
     public Context getContext() {
         return m_context;
     }
 
     @Override
-    public VpnService getVpnService() {
-        return ((TunnelVpnService) m_parentService);
+    public void bindToDevice(long fileDescriptor) {
+        if (m_parentService instanceof VpnService) {
+            if (!((VpnService) m_parentService).protect((int) fileDescriptor)) {
+                throw new RuntimeException("VpnService.protect() failed");
+            }
+        }
     }
 
     @Override
-    public Builder newVpnServiceBuilder() {
-        Builder vpnBuilder = ((TunnelVpnService) m_parentService).newBuilder();
+    public Builder vpnServiceBuilder() {
+        // Create a new VpnService.Builder instance and set the session name to the app name^M
+        Builder vpnBuilder = ((VpnService) m_parentService)
+                .new Builder()
+                .setSession(getContext().getString(R.string.app_name));
         // only can control tunneling post lollipop
         if (Build.VERSION.SDK_INT < LOLLIPOP) {
             return vpnBuilder;
@@ -1320,6 +1342,8 @@ public class TunnelManager implements PsiphonTunnel.HostService {
             if (!TextUtils.isEmpty(tunnelConfig.deviceLocation)) {
                 json.put("DeviceLocation", tunnelConfig.deviceLocation);
             }
+
+            json.put("EmitBytesTransferred", true);
 
             return json.toString();
         } catch (JSONException e) {

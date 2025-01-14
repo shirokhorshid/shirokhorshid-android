@@ -1,1 +1,0 @@
-include ../../badvpn/Android.mk

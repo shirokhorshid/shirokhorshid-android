@@ -23,6 +23,13 @@ android {
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
                 multiDexEnabled true
                 vectorDrawables.useSupportLibrary = true
+
+                // tun2socks NDK build configuration
+                externalNativeBuild {
+                    ndkBuild {
+                        cFlags "-DNDEBUG"
+                    }
+                }
             }
         } else {
             throw new GradleException('version.properties found but entries are missing')
@@ -47,6 +54,8 @@ android {
         debug {
             debuggable true
             pseudoLocalesEnabled true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
             debuggable false
@@ -92,6 +101,15 @@ android {
         }
     } else {
         throw new GradleException('signing.properties not found!')
+    }
+
+    // For android 14 support we have to use ndk r17c or lower
+    ndkVersion '17.2.4988734'
+    externalNativeBuild {
+        ndkBuild {
+            // Path to the tun2socks NDK build script
+            path "src/main/jni/Android.mk"
+        }
     }
 
 }

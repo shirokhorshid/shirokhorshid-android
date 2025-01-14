@@ -81,6 +81,12 @@
   <string name="region_name_za"> Afrika Kusini</string>
   <string name="region_name_id">Indonesia</string>
   <string name="region_name_nz">New Zealand</string>
+  <string name="region_name_gr">Ugiriki</string>
+  <string name="region_name_ua">Ukraine</string>
+  <string name="region_name_pt">Ureno</string>
+  <string name="region_name_hr">Croatia</string>
+  <string name="region_name_co">Colombia</string>
+  <string name="region_name_my">Malaysia</string>
   <string name="about">Kuhusu Psiphon</string>
   <string name="feedback">Mrejesho</string>
   <string name="disableTimeoutsPreferenceSummary">Lemaza muda wa kuisha kwa mtandao wa polepole</string>
