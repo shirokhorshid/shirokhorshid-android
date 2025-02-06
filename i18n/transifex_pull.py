@@ -52,6 +52,7 @@ APP_LANGS = {
     'fa_AF': 'fa-rAF',  # Persian (Afghanistan)
     'fi_FI': 'fi',      # Finnish
     'fr': 'fr',         # French
+    'ha': 'ha',         # Hausa
     'hi': 'hi',         # Hindi
     'hr': 'hr',         # Croation
     'id': 'in',         # Indonesian is "in" on Android
@@ -103,6 +104,7 @@ FEEDBACK_LANGS = OrderedDict([
     ('fa_AF', 'fa_AF'),
     ('fi_FI', 'fi'),
     ('fr', 'fr'),
+    ('ha', 'ha'),
     ('hi', 'hi'),
     ('hr', 'hr'),
     ('id', 'id'),
