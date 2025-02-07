@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="banner_desc">Tambarin mai daukan nauyi; latsa domin ziyartar shafin mai daukan nauyi</string>
+  <string name="open_browser">Buɗe Browser</string>
+  <string name="FeedbackActivity.DefaultText">idan kana da sharhu na musamman,kokuma kana neman ƙarin bayani akan shafukan yanar gizo da basa aiki, kokuma idan wannan shafin ne bayayi maka aiki, za a iya turo da saƙon imel &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">mun gode daka maryanin ka</string>
+  <string name="FeedbackActivity.Failure">ba\'ayi nasarar miƙawa ba. a sake gwadawa</string>
+  <string name="StatusActivity.VpnRevokedTitle">VPN din Psiphon ya tsaya</string>
+  <string name="StatusActivity.VpnRevokedMessage">ko dai ka katse VPN din Psiphon kokuma wata manhajar ta katse ta. Manhajoji masu amfani da VPN basa iya aiki tare a lokaci daya. sake dubawa ko ɗora wata manhajar mai amfani da VPN kuma yana kan aiki</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">VON din Psiphon bazai iya fara aiki ba</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon bazai iya fara aiki da VON ba. Manhajoji masu amfani da VPN bazasu iya aiki tare lokaci ɗaya ba. Duba ko wani manhajar mai amfani da VPN na a kunne kuma yana kai aiki a koda yaushe</string>
+  <string name="selected_region_currently_not_available">babu yankin da aka zaɓa, a sake zaɓar wani yankin.</string>
+  <string name="preference_language_selection_summary">Zaɓi yaren</string>
+  <string name="preference_language_selection_title">Yare</string>
+  <string name="preference_language_title">Mazaɓar Yare</string>
+  <string name="preference_language_default_language">yaren din-din-din</string>
+  <string name="preference_category_advanced_title">ci gaba</string>
+  <string name="preference_category_info_title">bayani</string>
+  <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">OK</string>
+  <string name="preference_navigate_to_vpn_setting_title">VPN. kunne kullum</string>
+  <string name="preference_navigate_to_vpn_setting_summary">a buɗe settings domin bada damar kunna VPN ya cigaba da aiki</string>
+  <!--Generic negative button label.-->
+  <string name="lbl_no">a\'a</string>
+  <!--Generic positive button label.-->
+  <string name="lbl_yes">eh</string>
+  <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">ana buƙatan ɗaukan mataki</string>
+  <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">a buɗe Psiphon domin ƙarasa buɗewa</string>
+  <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">babu yankin da aka zaɓa</string>
+  <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">a sake buɗe Psiphon sai a zaɓi wani yanki</string>
+  <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">VPN din Psiphon ya tsaya</string>
+  <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">kodai ka kashe VPN na Psiphon kokuma wata manhajar ta kashe VPN din Psiphon </string>
+  <!--Description for an app icon image-->
+  <string name="description_app_icon">tambarin manhaja</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">saitin VPN. da aka sa ba daidai bane</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">a wannan tsarin, a buƙatar a zaɓi koda manhaja daya ne</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">a wannan tsarin, ana bukatar a rage yawan manhajar da aka zaɓa, koda guda ɗaya ne</string>
+  <string name="vpn_exclusions_preference_not_available_summary">ana buƙatar Android mai girman 5.0 ko sama da hakan</string>
+  <string name="vpn_always_on_preference_not_available_summary">ana bukatar Android mai girman 7.0 ko fiye da hakan</string>
+  <string name="vpn_exclusions_tip_summary">zaɓi browser ɗaya kawai domin shiga tsarin browser-only</string>
+  <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title"> Manhaja mai haɗari ga Psiphon</string>
+  <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">ana samun ƙaruwar hari masu haɗari! latsa domin ƙarin bayani.</string>
+  <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title"> Manhaja mai haɗari ga Psiphon</string>
+  <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon ya gano kuma ya dakatar da shiga wani waje mai tattare da hatsari. Latsa nan domin ƙarin bayani more.\n\nDetected:</string>
+  <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title"> Manhaja mai haɗari ga Psiphon</string>
+  <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">A take Psiphon ke ganewa kuma ya hana shiga shafuka masu hatsari ?\n\nZa a iya canza wannan saitin daga baya a More Options.</string>
+  <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">a samu ƙarin bayani akan Manhaja mai hatsari nan:</string>
+  <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">akwai matsala a wilin Upstream </string>
+  <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Buɗe Psiphon ka duba yanayin saitin proxy</string>
+  <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">an samu tangarɗa a wakili</string>
+  <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Ka shirya Psiphon akan tsarin da zaiyi amfani da wakili na Upstream. Amma bamu samu nasarar haɗa Psiphon da babbar ma\'ajiya ta hanyar wakilin ba. A daure a sake canza saitin kafin a sake gwadawa. \n\nLatsa domin ƙarin bayani</string>
+  <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon ya tsaya</string>
+  <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">a turo mana martani</string>
+  <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">latsa wannan sanarwar domin maido mana martani. wannan zai taimaka mana wajen fahimtar matsalar domin gyarawa</string>
+  <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">na amince</string>
+  <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">yanda ake sarrafa bayanan da aka tattara</string>
+  <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s na amfani da VPN din Android domin samar maka da bayanan da basu da adadi a yanar gizo. Muna tattara da kuma adana bayanai da suka haɗa da:</string>
+  <!--Data collection disclosure list item-->
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Adreshin imel wanda ka turo mana matsalolin da ake fuskanta. Bada wannan adreshin, ba dole bane</string>
+  <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Sunnan asusunka na PsiCash, kalmar sirri, da imel. Amma adreshin imel ba dole bane.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">a dan tsahirta, Psiphon na shirin buɗewa</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Rufewa</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Rufewa</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">kana son rufe wannan shafin yanzu?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Muna godiya</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s sanarwa</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s na amfani da sanarwar kar-ta-kwana don gabatar maka da muhimman bayanai lokacin da ake rufe shafin manhajar. Wannan ya haɗar da:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">An samu canji a yanayin VPN dinka</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">akwai matsala a yanayin sadarwa</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">rahoto akan tsayawa</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Gargadi akan manhaja mai hatsari </string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">an samu sabuwa kuma ingantacciyar manhaja</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Za a iya dakatar da saƙonin kar-ta-kwana na wannan manhajar a duk lokacin da ake buƙar yin hakan. </string>
+  <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">a cikin saiti, a latsa NFC</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Ba\'a samu nasarar sadarwa tsakanin na\'urori ba. A daure a tabbatar Psiphon na a buɗe kuma a jone da sauran na\'urori, sannan a dake gwadawa</string>
+  <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Ana jiran NFC ya haɗu da wata na\'ura...</string>
+  <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">An yi nasarar musayar bayanai!</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Ba\'a samu nasarar haɗewa da wata na\'ura ba. A sake gwadawa.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">An yi hanzarin motsar da na\'ura kuma sadarwar ta katse. A sake gwadawa.</string>
+  <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">An gano tambarin da ba\'a yarda dashi ba. A buɗe Psiphon take kuma a haɗe da wata na\'ura?</string>
+  <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">karanta bayanai…</string>
+  <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Nemi taimako domin haɗewa</string>
+  <!--Label on the button that opens NFC exchange onboarding screen-->
+  <string name="help_btn_label">taimako</string>
+  <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">tsallake</string>
+  <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
+  <string name="onboarding_next">nagaba</string>
+  <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
+  <string name="onboarding_done">An gama</string>
+  <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Idan kana samun matsala wajen haɗa  uwar garken Psiphon, nemi wani makusancin da yayi nasarar hakan domin amfani da bayanan  da sukayi amfani dashi ta hanyar amfani da NFC don samun nasar sadarwa.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Tabbatar da Psiphon na buɗe kuma a haɗe, sannan ya kasance ana ganin alamun Bump din Psiphon ya fito a na\'ura da aka haɗa.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Yayin da Bump din Psiphon ya buɗe a na\'urar ka, kuma manhajar Psiphon ta buɗe, ta haɗe da wata na\'ura, sai a haɗe bayan na\'urorin biyu domin a samu damar tura bayanai.</string>
+  <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Da zarar an yi nasarar masanyar bayanai kuma Psiphon ta yi nasarar haɗewa, Bump din Psiphon zai kashe kanshi da kanshi. Idan ana samun tangarɗa wajen haɗuwa, a cigaba da gwadawa har a dace.</string>
+  <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Bump din Psiphon </string>
+  <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">BuɗebNFC a cikin saiti domin bada dama ga Bump din Psiphon </string>
+  <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Buɗe saiti</string>
+  <!--Approximate location permission rationale alert title.-->
+  <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+</resources>

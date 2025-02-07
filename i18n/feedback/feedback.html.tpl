@@ -141,6 +141,7 @@ html {{
   <option value="fa_AF">فارسی دری</option>
   <option value="fi">Suomi</option>
   <option value="fr">Français</option>
+  <option value="ha">Hausa</option>
   <option value="hi">हिन्दी</option>
   <option value="hr">Hrvatski</option>
   <option value="id">Bahasa Indonesia</option>

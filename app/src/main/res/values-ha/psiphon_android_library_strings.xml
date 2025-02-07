@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <string name="socks_running">SOCKS na aiki a tasha  %d</string>
+  <string name="http_proxy_running">Wakilin HTTP  na aiki a tashar%d</string>
+  <string name="client_version">Samfuri na abokin hulɗa %s</string>
+  <string name="starting_tunnel">Hanyar sirri ta fara aiki...</string>
+  <string name="stopping_tunnel">Hanyar sirri ta fara tsayawa...</string>
+  <string name="stopped_tunnel">hanyar sirri ta tsaya</string>
+  <string name="socks_port_in_use">An nemi iziinin tashar SOCKS. Wata manhajar na kan amfani da%d  . Baza a iya cigaba ba</string>
+  <string name="waiting_for_network_connectivity">Ana jiran sadarwa da network </string>
+  <string name="psiphon_service_notification_message_connecting">Haɗawa...</string>
+  <string name="psiphon_service_notification_id">Saƙonin kat-ta-kwana na Psiphon </string>
+  <string name="psiphon_service_notification_channel_name">Canje-canje akan yanayin Psiphon</string>
+  <string name="psiphon_upgrade_notification_channel_name">Inganta Psiphon </string>
+  <string name="psiphon_server_alert_notification_channel_name">Sanarwa daga uwar garken ajiyan bayanai na Psiphon </string>
+  <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon ta daina aiki</string>
+  <string name="vpn_service_running">Ayyukan VPN na cigaba da aiki</string>
+  <string name="vpn_service_revoked">Anyi watsi da aikin VPN</string>
+  <string name="current_network_type">Nerwork na kai a yanzu: %s</string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptTitle">Inganta Psiphon </string>
+  <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptMessage">An samar da ingantacciyar Psiphon mai jiran a shigar da shi</string>
+  <string name="connected_elapsed_time">An yi nasarar hadawa: %s</string>
+  <string name="disconnected">Haɗuwar ta katse</string>
+  <string name="label_sent">An aika</string>
+  <string name="label_received">An kaɓi saƙo</string>
+  <string name="start">Farawa</string>
+  <string name="stop">Tsayawa</string>
+  <string name="home_tab_name">Gida</string>
+  <string name="settings_tab_name">Zaɓi</string>
+  <string name="statistics_tab_name">Ƙididdiga </string>
+  <string name="logs_tab_name">Rijistan ayyuka</string>
+  <string name="use_proxy_settings_toggle">Haɗa ta hanyar wakilin HTTP</string>
+  <string name="use_system_proxy_settings_radio">Yi amfani da saitin kan network </string>
+  <string name="use_custom_proxy_settings_radio">Yi amfani da jerin saittikan nan:</string>
+  <string name="custom_proxy_settings_host">Adreshin dake kula da wannan hurumin</string>
+  <string name="custom_proxy_settings_port">Wani wuri a jikin kwanfuta da ake soka abubuwa</string>
+  <string name="region_name_any">Aiki mafi inganci </string>
+  <string name="region_name_us">Ƙasar Amurka </string>
+  <string name="region_name_gb">Ƙasar Birtaniya </string>
+  <string name="region_name_ca">Ƙasar Kanada</string>
+  <string name="region_name_de">Ƙasar Jamus</string>
+  <string name="region_name_jp">Ƙasar Japan</string>
+  <string name="region_name_hk">Birnin Hong Kong </string>
+  <string name="region_name_sg">Ƙasar Singapore</string>
+  <string name="region_name_nl">Ƙasar Netherlands</string>
+  <string name="region_name_in">Ƙasar Indiya</string>
+  <string name="region_name_es">Ƙasar Andalus</string>
+  <string name="region_name_at">Ƙasar Austria</string>
+  <string name="region_name_be">Ƙasar Beljium</string>
+  <string name="region_name_bg">Ƙasar Bulgariya</string>
+  <string name="region_name_ch">Ƙasar Swizalan</string>
+  <string name="region_name_cz">Jamhuriyar Czech</string>
+  <string name="region_name_dk">Ƙasar Denmark</string>
+  <string name="region_name_fr">Ƙasar Faransa</string>
+  <string name="region_name_hu">Ƙasar Hungary</string>
+  <string name="region_name_it">Ƙasar Italiya </string>
+  <string name="region_name_no">Ƙasar Noway</string>
+  <string name="region_name_ro">Ƙasar Romaniya</string>
+  <string name="region_name_se">Ƙasar Sweden</string>
+  <string name="region_name_pl">Ƙasar Poland</string>
+  <string name="region_name_sk">Ƙasar Slovakiya</string>
+  <string name="region_name_rs">Kasar Sabiya</string>
+  <string name="region_name_au">Ƙasar Australia </string>
+  <string name="region_name_ae">Daular Kasar Larabawa </string>
+  <string name="region_name_ar">Ƙasar Argentina </string>
+  <string name="region_name_br">Ƙasar Brazil</string>
+  <string name="region_name_cl">ƙasar Chili</string>
+  <string name="region_name_ee">Ƙasar Estonia</string>
+  <string name="region_name_fi">Ƙasar Finland </string>
+  <string name="region_name_is">ƙasar Iceland </string>
+  <string name="region_name_ie">Ƙasar Ireland </string>
+  <string name="region_name_ke">Ƙasar Kenya</string>
+  <string name="region_name_kr">Ƙasar Koriya</string>
+  <string name="region_name_lv">ƙasar Latvia</string>
+  <string name="region_name_mx">Ƙasar Mexico</string>
+  <string name="region_name_tw">Ƙasar Taiwan</string>
+  <string name="region_name_za">Ƙasar Afrika ta Kudu </string>
+  <string name="about">Bayanai akan Psiphon</string>
+  <string name="feedback">Martani</string>
+  <string name="disableTimeoutsPreferenceSummary">Kashe tsarin da yake katse haɗawa lokacin da ake samum jinkirin network </string>
+  <string name="region_selector">Zaɓi yankin uwar garken</string>
+  <string name="network_proxy_connect_invalid_values">Saitin wakilin HTTP ba dadai bane</string>
+  <string name="tunnel_whole_device_exception">Na\'urar ka bata dace da dukkan tashoshin sirrancewa ba saboda babu wasu Vpn na API</string>
+  <string name="preference_notifications_title">Sakonnin kar-ta-kwana</string>
+  <string name="preference_vpn_title">VPN</string>
+  <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Sirrance manhajoji</string>
+  <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Haɗa da wannan manhajoji</string>
+  <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Manhajojin da aka sirrance kaɗai</string>
+  <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Banda wannan manhajojin</string>
+  <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Kar a sirrance manhajojin da aka zaɓa</string>
+  <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Ana kan sirrance manhaja: %s</string>
+  <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Manhajojin da ba\'a sirrance ba: %s</string>
+  <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Babu wata manhajar da aka ware domin sirrancewa </string>
+  <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Zaɓi manhajoji</string>
+  <!--Description of option to select apps to exclusively tunnel-->
+  <!--Description of option to select apps to not tunnel-->
+  <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Sirrance dukkan manhaja</string>
+  <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <string name="preference_routing_all_apps_tunnel_summary">Za\'a sirrance dukkan manhajoji ta hanyar VPN</string>
+  <string name="preference_notifications_with_sound_title">Sauti</string>
+  <string name="preference_notifications_with_sound_summary">A saurari sautin idan aka samu canji a yanayin haɗawa</string>
+  <string name="preference_notifications_with_vibrate_title">Girgiza</string>
+  <string name="preference_notifications_with_vibrate_summary">A ji girgiza idan yanayi ya canza </string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Sauke ingantaccen tsari idan ana amfani da Wi-Fi kaɗai</string>
+  <string name="moreOptions">Ƙarin Zaɓi</string>
+  <string name="proxySettingsCategoryTitle">Saitin Wakili</string>
+  <string name="custom_proxy_host_summary">Sunan uwar-garken da wikili ko IP ke amfani da</string>
+  <string name="custom_proxy_port_summary">Tashar uwar garken wakili</string>
+  <string name="use_proxy_authentication_title">Yi amfani da wakili wajen tabbatarwa </string>
+  <string name="proxy_username_title">sunnan wakili</string>
+  <string name="proxy_username_summary">Sunan wakili a wajen tabbatarwa</string>
+  <string name="proxy_password_title">Kalmar sirrin wakili</string>
+  <string name="proxy_password_summary">Kalmomin sirri domin tantacewa</string>
+  <string name="proxy_domain_title">Garkar wakili</string>
+  <string name="proxy_domain_summary">Yankin tantance wakili</string>
+  <string name="http_proxy_port_in_use">Wata manhajar na kan amfani da ramin saka wakilin HTTP %d .  Baza a iya cigaba ba. </string>
+  <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Rarrabe kafar sadarwa ta sirri: %s</string>
+  <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">Cire daga sirri: %s</string>
+  <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">An samu akasin wakili: %s</string>
+  <string name="start_tunnel_failed">Ba\'a yi nasarar fara sirrancewa ba: %s</string>
+  <string name="vpn_exclusions_conflict">Akwai manhajoji da suke cin-karo da juna a wajen amfani da VPN. A ziyarci saitin VPN a bada izinin \'Sirrance Manhajoji\'</string>
+  <string name="tunnel_connecting">Tashar sirri na haɗuwa</string>
+  <string name="tunnel_connected">Kafar sadarwa ta sirri ta haɗu</string>
+  <string name="waiting">Jira...</string>
+  <string name="label_vpn_settings">Saitin NPN</string>
+  <string name="label_proxy_settings">saitin wakili</string>
+  <string name="preference_summary_no_proxy">Babu wakili</string>
+  <string name="preference_summary_custom_proxy">Wakilin da ala tsara na musamman </string>
+  <string name="preference_summary_system_proxy">Tsarin wakili</string>
+  <string name="disableTimeoutsPreferenceTitle">Cire tsarin katsewa da manhaja zata iya yiwa kanta</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi kaɗai</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Nuna alat na haddura </string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Bada dama domin samun bayani idan Psiphon ta gano wani tsari mai hatsari wanda ya samu asali daga na\'urar ka</string>
+  <string name="aboutMalAware">Bayani akan kutse mai hatsari </string>
+  <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Ƙarfafa Bump na Psiphon </string>
+  <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Yi amfani da NFC domin baiwa wasu na\'urorin damar amfani da Psiphon din ka</string>
+</resources>
