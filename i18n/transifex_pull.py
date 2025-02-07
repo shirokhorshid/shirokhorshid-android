@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # Copyright (c) 2017, Psiphon Inc.
@@ -20,20 +19,19 @@
 '''
 Pulls and massages our translations from Transifex.
 
-Run with
-# If you don't already have pipenv:
-$ python3 -m pip install --upgrade pipenv
+Install uv: https://github.com/astral-sh/uv?tab=readme-ov-file#installation
 
-$ pipenv install --ignore-pipfile
-$ pipenv run python transifex_pull.py
+Then:
+$ uv run transifex_pull.py
 
-# To reset your pipenv state (e.g., after a Python upgrade):
-$ pipenv --rm
+To do a brute-force upgrade of dependencies:
+$ rm -rf .venv uv.lock
+Then run again.
 '''
 
 
+from collections import OrderedDict
 import shutil
-import os
 import hashlib
 import json
 import yaml
@@ -54,6 +52,7 @@ APP_LANGS = {
     'fa_AF': 'fa-rAF',  # Persian (Afghanistan)
     'fi_FI': 'fi',      # Finnish
     'fr': 'fr',         # French
+    'ha': 'ha',         # Hausa
     'hi': 'hi',         # Hindi
     'hr': 'hr',         # Croation
     'id': 'in',         # Indonesian is "in" on Android
@@ -71,7 +70,7 @@ APP_LANGS = {
     'nl': 'nl',         # Dutch
     'om': 'om',         # Afaan Oromoo
     'pt_BR': 'pt-rBR',  # Portuguese-Brazil
-    'pt_PT': 'pt',   # Portuguese-Portugal
+    'pt_PT': 'pt',      # Portuguese-Portugal
     'ru': 'ru',         # Russian
     'sn': 'sn',         # Shona
     'sw': 'sw',         # Swahili
@@ -89,52 +88,52 @@ APP_LANGS = {
 }
 
 # When modifying the languages here, you MUST modify the language list in feedback.html.tpl
-FEEDBACK_LANGS = {
-    'en': 'en',
-    'fa': 'fa',
-    'ar': 'ar',
-    'zh': 'zh',
-    'zh_TW': 'zh_TW',
-    'am': 'am',
-    'az@latin': 'az',
-    'be': 'be',
-    'bn': 'bn',
-    'bo': 'bo',
-    'de': 'de',
-    'el_GR': 'el',
-    'es': 'es',
-    'fa_AF': 'fa_AF',
-    'fi_FI': 'fi',
-    'fr': 'fr',
-    'hi': 'hi',
-    'hr': 'hr',
-    'id': 'id',
-    'it': 'it',
-    'kk': 'kk',
-    'km': 'km',
-    'ko': 'ko',
-    'ky': 'ky',
-    'my': 'my',
-    'nb_NO': 'nb',
-    'nl': 'nl',
-    'om': 'om',
-    'pt_BR': 'pt_BR',
-    'pt_PT': 'pt_PT',
-    'ru': 'ru',
-    'sn': 'sn',
-    'sw': 'sw',
-    'tg': 'tg',
-    #'th': 'th',
-    'ti': 'ti',
-    'tk': 'tk',
-    'tr': 'tr',
-    #'ug@Latn': 'ug@Latn',
-    'uk': 'uk',
-    'ur': 'ur',
-    'uz': 'uz',
-    #'uz@Cyrl': 'uz@Cyrl',
-    'vi': 'vi',
-}
+FEEDBACK_LANGS = OrderedDict([
+    ('fa', 'fa'),
+    ('ar', 'ar'),
+    ('zh', 'zh'),
+    ('zh_TW', 'zh_TW'),
+    ('am', 'am'),
+    ('az@latin', 'az'),
+    ('be', 'be'),
+    ('bn', 'bn'),
+    ('bo', 'bo'),
+    ('de', 'de'),
+    ('el_GR', 'el'),
+    ('es', 'es'),
+    ('fa_AF', 'fa_AF'),
+    ('fi_FI', 'fi'),
+    ('fr', 'fr'),
+    ('ha', 'ha'),
+    ('hi', 'hi'),
+    ('hr', 'hr'),
+    ('id', 'id'),
+    ('it', 'it'),
+    ('kk', 'kk'),
+    ('km', 'km'),
+    ('ko', 'ko'),
+    ('ky', 'ky'),
+    ('my', 'my'),
+    ('nb_NO', 'nb'),
+    ('nl', 'nl'),
+    ('om', 'om'),
+    ('pt_BR', 'pt_BR'),
+    ('pt_PT', 'pt_PT'),
+    ('ru', 'ru'),
+    ('sn', 'sn'),
+    ('sw', 'sw'),
+    ('tg', 'tg'),
+    #('th', 'th'),
+    ('ti', 'ti'),
+    ('tk', 'tk'),
+    ('tr', 'tr'),
+    #('ug@Latn', 'ug@Latn'),
+    ('uk', 'uk'),
+    ('ur', 'ur'),
+    ('uz', 'uz'),
+    #('uz@Cyrl', 'uz@Cyrl'),
+    ('vi', 'vi'),
+])
 
 
 def pull_app_translations():
@@ -193,7 +192,11 @@ def pull_feedback_translations():
 
 
 def make_feedback_html(template_filename, langs_dir, output_filename):
-    langs = {}
+    # When we dump to JSON, we want the keys to be in a consistent order between runs
+    # (or else our output file will seem to be continually changing).
+    FEEDBACK_LANGS['en'] = 'en'
+    FEEDBACK_LANGS.move_to_end('en', last=False)
+    langs = OrderedDict()
     for orig_lang, final_lang in FEEDBACK_LANGS.items():
         with open(f'{langs_dir}/{final_lang}.yaml', encoding='utf8') as f:
             lang_yaml = f.read()
