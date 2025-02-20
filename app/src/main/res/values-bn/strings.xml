@@ -6,7 +6,7 @@
   <string name="FeedbackActivity.Success">আপনার মতামত জমা দেওয়ার জন্য আপনাকে ধন্যবাদ</string>
   <string name="FeedbackActivity.Failure">জমা দেওয়া যায়নি।অনুগ্রহ করে আবার চেষ্টা করুন</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon ভিপিএন বন্ধ আছে</string>
-  <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার দ্বারা বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
   <string name="preference_language_selection_title">ভাষা</string>
   <string name="preference_language_default_language">নির্ধারিত ভাষা</string>
   <string name="preference_category_advanced_title">অগ্রবর্তী</string>
