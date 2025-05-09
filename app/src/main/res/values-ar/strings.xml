@@ -11,6 +11,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">تعذّر تشغيل سايفون</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">سايفون لا يستطيع تشغيل ال VPN. لا يمكن تشغيل أكثر من تطبيق VPN في الوقت عيته. تحقق ما اذا كان هناك تطبيق VPN آخر مثبت و تم ضبطه مسبقاً لـ \"تشغيل دائم\".</string>
   <string name="selected_region_currently_not_available">المنطقة المختارة غير متوفرة حاليا ، يرجى تحديد منطقة أخرى.</string>
+  <string name="ads_consent_preference_category_title">تخصيص الإعلانات</string>
+  <string name="ads_consent_preference_dialog_preference_message">هل تريد إعادة ضبط تفضيلات تخصيص الإعلانات؟</string>
+  <string name="ads_consent_preference_title">إعادة ضبط تفضيلات تخصيص الإعلانات</string>
+  <string name="ads_consent_preference_dialog_title">إعادة ضبط</string>
+  <string name="ads_consent_preference_summary">أعد ضبط تفضيلاتك للسماح لشبكات الإعلانات باستخدام ملفات تعريف الارتباط وبياناتك الشخصية</string>
   <string name="preference_language_selection_summary">اختر اللغة</string>
   <string name="preference_language_selection_title">اللغة</string>
   <string name="preference_language_title">اختيار اللغة</string>
@@ -85,17 +90,6 @@
   <string name="vpn_data_collection_disclosure_bp2">بريدك الإلكتروني، عندما ترسل إلينا تشخيصات أو ملاحظات سجل الأعطال. يكون تقديم البريد الإلكتروني في الملاحظات اختياري.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">اسم المستخدم وكلمة السر لحساب PsiCash الخاص بك والبريد الإلكتروني اختياريًا.</string>
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <string name="pxe_web_wait_tunnel_connecting">من فضلك انتظر بينما Psiphon يقوم بالاتصال </string>
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">أغلق</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">أغلق</string>
-  <!--Generic 'close' alert prompt message-->
-  <string name="close_alert_message">هل تود إغلاق هذه النافذة الآن؟</string>
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">شكرا لمشاركتك!</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">%sإشعارات</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
@@ -112,6 +106,17 @@
   <string name="notifications_permission_rationale_upgrade_available_bp">إصدارات جديدة للتطبيق متاحة.</string>
   <!--Notifications permission rationale last sentence-->
   <string name="notifications_permission_rationale_disable_any_time">يمكنك تعطيل الإشعارات في إعدادات التطبيق في أي وقت.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">من فضلك انتظر بينما Psiphon يقوم بالاتصال </string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">أغلق</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">أغلق</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">هل تود إغلاق هذه النافذة الآن؟</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">شكرا لمشاركتك!</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">يرجى تفعيل NFC في الإعدادات</string>
   <!--NFC connection data exchange error message-->

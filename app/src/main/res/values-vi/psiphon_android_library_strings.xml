@@ -131,6 +131,7 @@
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
     <item quantity="other">%d ứng dụng bị loại trừ khỏi đường hầm</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">Tất cả ứng dụng sẽ được xuyên hầm qua VPN</string>
   <string name="preference_notifications_with_sound_title">Âm thanh</string>
   <string name="preference_notifications_with_sound_summary">Phát âm thanh khi tình trạng kết nối thay đổi</string>

@@ -111,6 +111,7 @@
     <item quantity="one">%d अ‍ॅप टनेल मधून वगळले</item>
     <item quantity="other">%d अ‍ॅप्स टनेल मधून वगळले</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">सर्व अ‍ॅप्स VPN द्वारे टनेल केले जातील </string>
   <string name="preference_notifications_with_sound_title">आवाज</string>
   <string name="preference_notifications_with_sound_summary">जेव्हा कनेक्शनची स्थिती बदलते तेव्हा आवाज प्ले करा</string>

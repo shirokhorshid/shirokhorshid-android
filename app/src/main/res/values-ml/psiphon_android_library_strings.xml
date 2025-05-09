@@ -111,6 +111,7 @@
     <item quantity="one">%d ആപ്ലിക്കേഷൻ ടണൽ ചെയ്യപ്പെടുന്നില്ല</item>
     <item quantity="other">%d ആപ്ലിക്കേഷനുകൾ ടണൽ ചെയ്യപ്പെടുന്നില്ല</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">എല്ലാ ആപ്ലിക്കേഷനും VPN(വിപിഎന്‍) വഴി ടണൽ ചെയ്യപ്പെടും</string>
   <string name="preference_notifications_with_sound_title">ശബ്ദം</string>
   <string name="preference_notifications_with_sound_summary">കണക്ഷൻ നില മാറുമ്പോൾ ശബ്‌ദം പ്ലേ ചെയ്യുക</string>

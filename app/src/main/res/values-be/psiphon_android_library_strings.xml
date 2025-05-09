@@ -133,6 +133,7 @@
     <item quantity="many">%d праграм не тунелюецца</item>
     <item quantity="other">%d праграм не тунэлюецца</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">Усе праграмы будуць тунэлявацца праз VPN</string>
   <string name="preference_notifications_with_sound_title">Гук</string>
   <string name="preference_notifications_with_sound_summary">Гук пры змене статусу падлучэння</string>

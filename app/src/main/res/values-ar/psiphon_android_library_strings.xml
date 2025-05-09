@@ -151,6 +151,7 @@
     <item quantity="many">%d  تطبيقا مستثنى من النفق</item>
     <item quantity="other">%d تطبيق مستثنى من النفق</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">‫كل التطبيقات سوف تُمرَّر نفقيا بواسطة VPN ‬</string>
   <string name="preference_notifications_with_sound_title">صوت </string>
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>

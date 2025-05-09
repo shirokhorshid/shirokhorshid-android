@@ -5,6 +5,7 @@
   <string name="FeedbackActivity.DefaultText">Эгерде сизде иштебей жаткан сайттар тууралуу өзгөчө пикир же маалымат болсо, же болбосо бул форма сизде иштебей жатса, буга кат жибериңиз: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Пикириңизди билдиргениңиз үчүн рахмат</string>
   <string name="FeedbackActivity.Failure">Жиберүү ишке ашкан жок. Дагы бир жолу аракет кылыңыз.</string>
+  <string name="ads_consent_preference_dialog_title">Баштапкы абалга кайтаруу</string>
   <string name="preference_language_selection_title">Тил</string>
   <string name="preference_language_default_language">Демейки тил</string>
   <string name="preference_category_advanced_title">Өркүндөтүлгөн</string>
@@ -41,14 +42,6 @@
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Жабуу</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Жабуу</string>
-  <!--Generic 'close' alert prompt message-->
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Notifications permission rationale list item-->
@@ -57,6 +50,14 @@
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
   <!--Notifications permission rationale list item-->
   <!--Notifications permission rationale last sentence-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Жабуу</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Жабуу</string>
+  <!--Generic 'close' alert prompt message-->
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->

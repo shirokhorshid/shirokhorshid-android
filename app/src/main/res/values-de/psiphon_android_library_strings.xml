@@ -119,6 +119,7 @@
   <string name="psiphon_service_notification_message_vpn_all_apps">Alle Apps werden getunnelt</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">Alle Apps werden über VPN getunnelt</string>
   <string name="preference_notifications_with_sound_title">Ton</string>
   <string name="preference_notifications_with_sound_summary">Ton abspielen, wenn sich der Verbindungsstatus ändert</string>

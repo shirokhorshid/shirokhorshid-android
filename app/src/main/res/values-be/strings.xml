@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon не запускаецца</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">VPN Psiphon не запускаецца. Адначасова не можа працаваць некалькі праграм VPN. Праверце, магчыма ў вас усталяваная або аўтаматычна запускаецца іншая праграма VPN. </string>
   <string name="selected_region_currently_not_available">Выбраны рэгіён часова не даступны. Выберыце іншы рэгіён.</string>
+  <string name="ads_consent_preference_category_title">Персаналізацыя рэкламы</string>
+  <string name="ads_consent_preference_dialog_preference_message">Сапраўды хочаце памяняць налады рэкламы?</string>
+  <string name="ads_consent_preference_title">Памяняць налады рэкламы</string>
+  <string name="ads_consent_preference_dialog_title">Абнуліць</string>
+  <string name="ads_consent_preference_summary">Памяняць налады і даць дазвол на выкарыстанне cookies і асабістых дадзеных рэкламным сеткам</string>
   <string name="preference_language_selection_summary">Выбраць мову</string>
   <string name="preference_language_selection_title">Мова</string>
   <string name="preference_language_title">Выбар мовы</string>
@@ -66,15 +71,6 @@
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Закрыць</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Закрыць</string>
-  <!--Generic 'close' alert prompt message-->
-  <string name="close_alert_message">Вы хочаце закрыць гэта акно цяпер?</string>
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">Апавяшчэнняў: %s</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
@@ -87,6 +83,15 @@
   <string name="notifications_permission_rationale_upgrade_available_bp">Даступны новыя версіі праграмы</string>
   <!--Notifications permission rationale last sentence-->
   <string name="notifications_permission_rationale_disable_any_time">Вы можаце адключыць апавяшчэнні ў наладах праграмы ў любы момант.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Закрыць</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Закрыць</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Вы хочаце закрыць гэта акно цяпер?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">Уключыце NFC у наладах</string>
   <!--NFC connection data exchange error message-->

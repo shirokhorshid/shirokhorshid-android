@@ -83,17 +83,6 @@
   <string name="vpn_data_collection_disclosure_bp2">Adreshin imel wanda ka turo mana matsalolin da ake fuskanta. Bada wannan adreshin, ba dole bane</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Sunnan asusunka na PsiCash, kalmar sirri, da imel. Amma adreshin imel ba dole bane.</string>
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <string name="pxe_web_wait_tunnel_connecting">a dan tsahirta, Psiphon na shirin buɗewa</string>
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Rufewa</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Rufewa</string>
-  <!--Generic 'close' alert prompt message-->
-  <string name="close_alert_message">kana son rufe wannan shafin yanzu?</string>
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">Muna godiya</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">%s sanarwa</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
@@ -110,6 +99,17 @@
   <string name="notifications_permission_rationale_upgrade_available_bp">an samu sabuwa kuma ingantacciyar manhaja</string>
   <!--Notifications permission rationale last sentence-->
   <string name="notifications_permission_rationale_disable_any_time">Za a iya dakatar da saƙonin kar-ta-kwana na wannan manhajar a duk lokacin da ake buƙar yin hakan. </string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">a dan tsahirta, Psiphon na shirin buɗewa</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Rufewa</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Rufewa</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">kana son rufe wannan shafin yanzu?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Muna godiya</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">a cikin saiti, a latsa NFC</string>
   <!--NFC connection data exchange error message-->

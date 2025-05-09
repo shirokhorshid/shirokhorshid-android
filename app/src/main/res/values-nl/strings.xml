@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN kan niet starten</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon kan niet starten de VPN. Meerdere VPN-apps kunnen niet tegelijkertijd worden uitgevoerd. Controleer of een andere VPN-app is geïnstalleerd en is ingesteld op Altijd-aan.</string>
   <string name="selected_region_currently_not_available">Geselecteerde regio is momenteel niet beschikbaar. Selecteer een andere regio.</string>
+  <string name="ads_consent_preference_category_title">Advertentiepersonalisatie</string>
+  <string name="ads_consent_preference_dialog_preference_message">Wilt u echt de voorkeuren van uw advertenties aanpassen?</string>
+  <string name="ads_consent_preference_title">Reset advertenties personalisatie voorkeur</string>
+  <string name="ads_consent_preference_dialog_title">Herstellen</string>
+  <string name="ads_consent_preference_summary">Reset uw voorkeur om advertentienetwerken om cookies te gebruiken en uw persoonlijke gegevens</string>
   <string name="preference_language_selection_summary">Selecteer de Taal</string>
   <string name="preference_language_selection_title">Taal</string>
   <string name="preference_language_title">Taal Selectie</string>
@@ -68,14 +73,6 @@
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Sluiten</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Sluiten</string>
-  <!--Generic 'close' alert prompt message-->
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Notifications permission rationale list item-->
@@ -84,6 +81,14 @@
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
   <!--Notifications permission rationale list item-->
   <!--Notifications permission rationale last sentence-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Sluiten</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Sluiten</string>
+  <!--Generic 'close' alert prompt message-->
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->

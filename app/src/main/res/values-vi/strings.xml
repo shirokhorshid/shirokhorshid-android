@@ -10,6 +10,10 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN không khởi động được</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon không khởi động VPN được. Nhiều VPN không thể chạy cùng lúc được. Xin xem lại có một VPN nào khác được cài đặt dưới dạng \"Luôn-bật\".</string>
   <string name="selected_region_currently_not_available">Vùng được chọn hiện không có sẵn, xin vui lòng chọn vùng khác.</string>
+  <string name="ads_consent_preference_category_title">Cá nhân hóa quảng cáo</string>
+  <string name="ads_consent_preference_dialog_preference_message">Quý khách có muốn đặt lại quảng cáo theo sở thích cá nhân không?</string>
+  <string name="ads_consent_preference_title">Đặt lại quảng cáo theo sở thích cá nhân</string>
+  <string name="ads_consent_preference_dialog_title">Đặt lại</string>
   <string name="preference_language_selection_summary">Chọn ngôn ngữ</string>
   <string name="preference_language_selection_title">Ngôn ngữ</string>
   <string name="preference_language_title">Chọn Ngôn ngữ</string>
@@ -83,17 +87,6 @@
   <string name="vpn_data_collection_disclosure_bp2">Email của bạn, khi bạn gửi chúng tôi dữ liệu chẩn đoán hoặc phản hồi sự cố hỏng. Cho biết email hay không trong phản hồi là tùy ý bạn.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Tên người dùng, mật khẩu và có thể email của tài khoản PsiCash của bạn.</string>
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <string name="pxe_web_wait_tunnel_connecting">Xin chờ trong khi Psiphon kết nối</string>
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Đóng</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Đóng</string>
-  <!--Generic 'close' alert prompt message-->
-  <string name="close_alert_message">Bạn muốn đóng cửa sổ này lại không?</string>
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">Cám ơn bạn đã tham gia!</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">%s Thông báo</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
@@ -110,6 +103,17 @@
   <string name="notifications_permission_rationale_upgrade_available_bp">Đã có phiên bản mới của ứng dụng</string>
   <!--Notifications permission rationale last sentence-->
   <string name="notifications_permission_rationale_disable_any_time">Bạn có thể tắt thông báo trong phần thiết đặt của ứng dụng bất cứ lúc nào.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Xin chờ trong khi Psiphon kết nối</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Đóng</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Đóng</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Bạn muốn đóng cửa sổ này lại không?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Cám ơn bạn đã tham gia!</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">Xin bật mở NFC trong thiết đặt</string>
   <!--NFC connection data exchange error message-->

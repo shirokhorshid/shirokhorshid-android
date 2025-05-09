@@ -115,6 +115,7 @@
   <string name="psiphon_service_notification_message_vpn_all_apps">Colocar todas as aplicações em túnel</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Reproduzir um som quando o estado da ligação é alterado</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>

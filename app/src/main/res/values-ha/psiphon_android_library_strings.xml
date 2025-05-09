@@ -110,6 +110,7 @@
   <string name="psiphon_service_notification_message_vpn_all_apps">Sirrance dukkan manhaja</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">Za\'a sirrance dukkan manhajoji ta hanyar VPN</string>
   <string name="preference_notifications_with_sound_title">Sauti</string>
   <string name="preference_notifications_with_sound_summary">A saurari sautin idan aka samu canji a yanayin haɗawa</string>

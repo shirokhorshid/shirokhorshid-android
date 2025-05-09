@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN не може запуститися</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon не може запустити VPN. Різні VPN-додатки не можуть працювати одночасно. Перевірте, чи не встановлено і не налаштовано на постійну роботу інший VPN-додаток.</string>
   <string name="selected_region_currently_not_available">Обраний регіон наразі недоступний, оберіть інший регіон.</string>
+  <string name="ads_consent_preference_category_title">Персоналізація реклами</string>
+  <string name="ads_consent_preference_dialog_preference_message">Ви справді хочете скинути ваші налаштування персоналізації реклами?</string>
+  <string name="ads_consent_preference_title">Скинути налаштування персоналізації реклами</string>
+  <string name="ads_consent_preference_dialog_title">Відновити</string>
+  <string name="ads_consent_preference_summary">Скиньте ваші налаштування, щоб дозволити рекламним мережам використовувати куки та ваші персональні дані</string>
   <string name="preference_language_selection_summary">Обрати мову</string>
   <string name="preference_language_selection_title">Мова</string>
   <string name="preference_language_title">Вибір мови</string>
@@ -84,17 +89,6 @@
   <string name="vpn_data_collection_disclosure_bp2">Ваша електронна пошта, коли ви надсилаєте нам відгук про діагностику або аварійний журнал. Вказувати електронну пошту у зворотному зв\'язку не обов\'язково.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Ім\'я користувача, пароль та, за бажанням, електронну пошту вашого облікового запису PsiCash.</string>
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <string name="pxe_web_wait_tunnel_connecting">Зачекайте, поки Psiphon підключиться</string>
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Закрити</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Закрити</string>
-  <!--Generic 'close' alert prompt message-->
-  <string name="close_alert_message">Бажаєте закрити це вікно зараз?</string>
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">Дякуємо за участь!</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">%s Сповіщення</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
@@ -111,6 +105,17 @@
   <string name="notifications_permission_rationale_upgrade_available_bp">Доступність нові версії програми.</string>
   <!--Notifications permission rationale last sentence-->
   <string name="notifications_permission_rationale_disable_any_time">Ви можете будь-коли вимкнути сповіщення в налаштуваннях програми.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Зачекайте, поки Psiphon підключиться</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Закрити</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Закрити</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Бажаєте закрити це вікно зараз?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Дякуємо за участь!</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">Будь ласка, увімкніть NFC в налаштуваннях</string>
   <!--NFC connection data exchange error message-->

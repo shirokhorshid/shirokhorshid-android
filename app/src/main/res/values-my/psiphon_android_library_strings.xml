@@ -130,6 +130,7 @@
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
     <item quantity="other">အပ္ပလီကေးရှင်း %d များသည် လိုဏ်လိုင်းနှင့် ချိတ်ဆက်မှုမှ ပယ်ထားပါသည်</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">အပ္ပလီကေးရှင်းများအားလုံးကို VPN လိုဏ်လိုင်းနှင့် ချိတ်ထားပါမည်</string>
   <string name="preference_notifications_with_sound_title">အသံ</string>
   <string name="preference_notifications_with_sound_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းအသံထွက်ရန်</string>

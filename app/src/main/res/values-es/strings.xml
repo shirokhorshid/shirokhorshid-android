@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN no puede iniciar</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon no puede iniciar la VPN. Varias aplicaciones VPN no se pueden ejecutar al mismo tiempo. Compruebe si tiene otra aplicación de VPN instalada y en ejecución.</string>
   <string name="selected_region_currently_not_available">La región seleccionada no está disponible actualmente, por favor seleccione otra región.</string>
+  <string name="ads_consent_preference_category_title">Personalización de publicidades</string>
+  <string name="ads_consent_preference_dialog_preference_message">¿Realmente quiere restablecer su preferencia de personalización de publicidades?</string>
+  <string name="ads_consent_preference_title">Restablecer preferencia de personalización de publicidades</string>
+  <string name="ads_consent_preference_dialog_title">Restablecer</string>
+  <string name="ads_consent_preference_summary">Restablezca su preferencia para permitir a las redes publicitarias usar cookies y sus datos personales</string>
   <string name="preference_language_selection_summary">Seleccione el Idioma</string>
   <string name="preference_language_selection_title">Idioma</string>
   <string name="preference_language_title">Selección de idioma</string>
@@ -83,17 +88,6 @@
   <string name="vpn_data_collection_disclosure_bp2">Su correo electrónico, cuando nos envíe comentarios sobre diagnósticos o registros de fallas. Proporcionar correo electrónico en los comentarios es opcional.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Su nombre de usuário Psicash, contrasenã, y opcionalmente, coreo.</string>
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <string name="pxe_web_wait_tunnel_connecting">Por favor espera mientras Psiphon se está conectando</string>
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Cerrar</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Cerrar</string>
-  <!--Generic 'close' alert prompt message-->
-  <string name="close_alert_message">¿Te gustaría cerrar esta ventana ahora?</string>
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">Gracias por participar!</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">%sNotificaciones</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
@@ -110,6 +104,17 @@
   <string name="notifications_permission_rationale_upgrade_available_bp">Nuevas versiones de la aplicación disponibles</string>
   <!--Notifications permission rationale last sentence-->
   <string name="notifications_permission_rationale_disable_any_time">Puede deshabilitar las notificaciones de la aplicación en cualquier momento.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Por favor espera mientras Psiphon se está conectando</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Cerrar</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Cerrar</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">¿Te gustaría cerrar esta ventana ahora?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Gracias por participar!</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">Por favor, Habilite NFC en la configuración</string>
   <!--NFC connection data exchange error message-->

@@ -135,6 +135,7 @@
     <item quantity="one">%dprogramu ambazo hazijajumuishwa kwenye njia</item>
     <item quantity="other">%dprogramu zimetengwa kwenye njia </item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">Programu zote zitapitishwa kupitia VPN</string>
   <string name="preference_notifications_with_sound_title">Sauti</string>
   <string name="preference_notifications_with_sound_summary">Cheza sauti wakati hali ya muunganisho inabadilika</string>

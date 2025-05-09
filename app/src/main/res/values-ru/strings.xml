@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Ошибка старта Psiphon VPN</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Ошибка запуска VPN. Нельзя запускать несколько VPN одновременно. Убедитесь, что другое VPN-приложение не установлено/не запущено.</string>
   <string name="selected_region_currently_not_available">Выбранный регион сейчас недоступен. Пожалуйста, выберите другой регион.</string>
+  <string name="ads_consent_preference_category_title">Персонализация рекламы</string>
+  <string name="ads_consent_preference_dialog_preference_message">Вы правда хотите сбросить настройки персонализации рекламы?</string>
+  <string name="ads_consent_preference_title">Сбросить настройки персонализации рекламы</string>
+  <string name="ads_consent_preference_dialog_title">Сброс</string>
+  <string name="ads_consent_preference_summary">Сбросить ваши настройки, чтобы позволить рекламным сетям использовать файлы cookie и ваши персональные данные</string>
   <string name="preference_language_selection_summary">Выберите язык</string>
   <string name="preference_language_selection_title">Язык</string>
   <string name="preference_language_title">Выбор языка</string>
@@ -74,6 +79,14 @@
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <!--Notifications permission rationale list item-->
+  <!--Notifications permission rationale last sentence-->
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <string name="pxe_web_wait_tunnel_connecting">Пожалуйста, подождите, пока Psiphon подключится</string>
@@ -85,14 +98,6 @@
   <string name="close_alert_message">Вы хотите закрыть это окно сейчас?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <string name="pxe_submit_thank_you">Благодарим вас за участие!</string>
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->

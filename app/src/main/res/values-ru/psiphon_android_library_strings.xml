@@ -142,6 +142,7 @@
     <item quantity="many">Исключенных приложений: %d</item>
     <item quantity="other">Исключенных приложений: %d</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">Все приложения будут пропущены через VPN</string>
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Сигнал при изменении статуса подключения</string>
