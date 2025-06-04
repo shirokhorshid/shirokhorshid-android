@@ -64,13 +64,21 @@ public class PackageHelper {
     // Unmodifiable map of trusted packages with their corresponding sets of SHA-256 signature hashes
     private static final Map<String, Set<String>> TRUSTED_PACKAGES;
     static {
-        // Psiphon Conduit package and its signature as SHA-256 hash using uppercase hex encoding, continuous (no separator)
+        // Conduit package and its signature as SHA-256 hash using uppercase hex encoding, continuous (no separator)
         Map<String, Set<String>> map = new HashMap<>();
         map.put("ca.psiphon.conduit", new HashSet<>(Arrays.asList(
                 "488C4B47902ECB48047E97FFFE1F19C4B00F3140D2E25706709523CFFE4DC4B3"
                 // Add additional valid signatures for the package as needed:
                 //"THEOTHERSIGNATUREHASHHERE"
         )));
+        // Ryve package and its signatures as SHA-256 hashes using uppercase hex encoding, continuous (no separator)
+        // app ID: network.ryve.app
+        // SHA256: AE:2E:20:B1:DC:53:72:C2:60:73:58:A3:BA:46:1E:1C:A4:30:6F:A1:74:FF:57:42:7A:1C:F5:2B:34:3F:AE:A0
+        map.put("network.ryve.app", Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+                "AE2E20B1DC5372C2607358A3BA461E1CA4306FA174FF57427A1CF52B343FAEA0"
+                // Add additional valid signatures for the package as needed:
+                // "THEOTHERSIGNATUREHASHHERE"
+        ))));
         TRUSTED_PACKAGES = Collections.unmodifiableMap(map);
     }
 
