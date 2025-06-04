@@ -41,11 +41,12 @@ import java.util.Set;
 public class VpnAppsUtils {
     // Set of default excluded apps package names, these apps will always be excluded from VPN routing if their signature is verified
     private static final Set<String> defaultExcludedApps = Set.of(
-            "ca.psiphon.conduit" // Psiphon Conduit, must be listed in TrustedPackages
+            "ca.psiphon.conduit", // Conduit, must be listed in PackageHelper.TRUSTED_PACKAGES
+            "network.ryve.app" // Ryve, must be listed in PackageHelper.TRUSTED_PACKAGES
     );
     // Set of default included apps package names, these apps will always be included in VPN routing if their signature is verified
     private static final Set<String> defaultIncludedApps = Set.of(
-            // Any default included apps would go here and must be listed in TrustedPackages
+            // Any default included apps would go here and must be listed in PackageHelper.TRUSTED_PACKAGES
     );
 
     public enum VpnAppsExclusionSetting {ALL_APPS, INCLUDE_APPS, EXCLUDE_APPS}
