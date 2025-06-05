@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Абнаўленне Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Апавяшчэнні серверу Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Збоі Psiphon</string>
   <string name="vpn_service_running">Выконваецца сэрвіс VPN</string>
   <string name="vpn_service_revoked">сэрвіс VPN адкліканы</string>
   <string name="current_network_type">Бягучая сетка: %s</string>
@@ -73,10 +74,19 @@
   <string name="region_name_ie">Ірландыя</string>
   <string name="region_name_ke">Кенія</string>
   <string name="region_name_kr">Карэя</string>
+  <string name="region_name_lt">Літва</string>
   <string name="region_name_lv">Латвія</string>
   <string name="region_name_mx">Мексіка</string>
   <string name="region_name_tw">Тайвань</string>
   <string name="region_name_za">Паўднёвая Афрыка</string>
+  <string name="region_name_id">Інданезія</string>
+  <string name="region_name_nz">Новая Зеландыя</string>
+  <string name="region_name_gr">Грэцыя</string>
+  <string name="region_name_ua">Украіна</string>
+  <string name="region_name_pt">Партугалія</string>
+  <string name="region_name_hr">Харватыя</string>
+  <string name="region_name_co">Калумбія</string>
+  <string name="region_name_my">Малайзія</string>
   <string name="about">Пра Psiphon</string>
   <string name="feedback">Зваротная сувязь</string>
   <string name="disableTimeoutsPreferenceSummary">Адключыць час чакання для павольных злучэнняў</string>
@@ -134,6 +144,7 @@
     <item quantity="other">%d праграм не тунэлюецца</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Пэўныя прыложанні Psiphon аўтаматычна выключаны з VPN-маршрутызацыі для забеспячэння правільнай функцыянальнасці. Спіс гэтых прыложанняў нельга змяніць.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Усе праграмы будуць тунэлявацца праз VPN</string>
   <string name="preference_notifications_with_sound_title">Гук</string>
   <string name="preference_notifications_with_sound_summary">Гук пры змене статусу падлучэння</string>
@@ -159,6 +170,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Памылка зыходнага проксі-сервера: %s</string>
   <string name="start_tunnel_failed">Памылка запуску тунэлявання: %s</string>
+  <string name="vpn_exclusions_conflict">У вашых бягучых выключэннях VPN ёсць адна або больш канфліктных прыложанняў. Калі ласка, перайдзіце ў налады VPN і вырашыце канфлікт.</string>
   <string name="tunnel_connecting">Ідзе злучэнне з тунэлем...</string>
   <string name="tunnel_connected">Тунэль падлучаны</string>
   <string name="waiting">Чаканне...</string>
@@ -169,6 +181,11 @@
   <string name="preference_summary_system_proxy">Сістэмны проксі-сервер</string>
   <string name="disableTimeoutsPreferenceTitle">Адключыць час чакання</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Толькі Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Паказаць папярэджанні MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Атрымлівайце паведамленні, калі Psiphon выяўляе трафік шкоднасных праграм, які паходзіць з вашай прылады.</string>
+  <string name="aboutMalAware">Пра MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Уключыць Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Выкарыстоўвайце NFC для абмену данымі падключэння Psiphon з іншымі прыладамі.</string>
 </resources>
