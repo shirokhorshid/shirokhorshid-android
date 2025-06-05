@@ -107,6 +107,7 @@
   <string name="notifications_permission_rationale_disable_any_time">Вы можаце адключыць апавяшчэнні ў наладах праграмы ў любы момант.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Калі ласка, пачакайце, пакуль Psiphon падключаецца</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Закрыць</string>
   <!--Generic 'close' alert title-->
