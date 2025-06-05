@@ -62,6 +62,7 @@
   <string name="about">সাইফন সম্পর্কে</string>
   <string name="feedback">প্রতিক্রিয়া</string>
   <string name="disableTimeoutsPreferenceSummary">ধীর গতির নেটওয়ার্কগুলির জন্য সময়সীমা অক্ষম করুন</string>
+  <string name="region_selector">সার্ভার অঞ্চল নির্বাচন করুন</string>
   <string name="network_proxy_connect_invalid_values">অবৈধ HTTP প্রক্সি সেটিংস</string>
   <string name="tunnel_whole_device_exception">আপনার ডিভাইস-এ অনুপস্থিত VpnService API এর কারণে এটি পুরো ডিভাইসের টানেল বিকল্পটি সমর্থন করে না</string>
   <string name="preference_notifications_title">প্রজ্ঞাপন</string>

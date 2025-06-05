@@ -2,8 +2,14 @@
 <resources>
   <string name="banner_desc">แบนเนอร์ผู้ลนับสนุน; แตะเพื่อเยี่ยมชมหน้าหลักของผู้สนุับสนุน</string>
   <string name="open_browser">เปิดเบราเซอร์</string>
+  <string name="FeedbackActivity.Success">ขอบคุณสำหรับการส่งความคิดเห็นของคุณ</string>
+  <string name="FeedbackActivity.Failure">การส่งล้มเหลว กรุณาลองอีกครั้ง</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN หยุดทำงานแล้ว</string>
+  <string name="selected_region_currently_not_available">ภูมิภาคที่เลือกไม่พร้อมใช้งานในขณะนี้ กรุณาเลือกภูมิภาคอื่น</string>
   <string name="ads_consent_preference_dialog_title">ล้างทิ้ง</string>
+  <string name="preference_language_selection_summary">เลือกภาษา</string>
   <string name="preference_language_selection_title">ภาษา</string>
+  <string name="preference_language_title">การเลือกภาษา</string>
   <string name="preference_language_default_language">ภาษาเริ่มต้น</string>
   <string name="preference_category_advanced_title">ขั้นสูง</string>
   <string name="preference_category_info_title">ข้อมูล</string>
@@ -14,17 +20,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">ใช่</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">ต้องดำเนินการ!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">กรุณาเปิด Psiphon เพื่อเสร็จสิ้นการเชื่อมต่อ</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">ภูมิภาคที่เลือกไม่พร้อมใช้งาน</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">กรุณาเปิด Psiphon และเลือกภูมิภาคอื่น</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN หยุดทำงานแล้ว</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN ถูกตัดการเชื่อมต่อโดยคุณหรือแอปพลิเคชันอื่น</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">ไอคอนแอปพลิเคชัน</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">ตรวจพบการจราจรมัลแวร์! คลิกเพื่อเรียนรู้เพิ่มเติม</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->

@@ -60,8 +60,10 @@
   <string name="about">Psiphon туралы</string>
   <string name="feedback">Кері байланыс</string>
   <string name="disableTimeoutsPreferenceSummary">Баяу желілер үшін таймауттарды ажырату</string>
+  <string name="region_selector">Сервер аймағын таңдау</string>
   <string name="network_proxy_connect_invalid_values">HTTP прокси параметрлері жарамсыз</string>
   <string name="preference_notifications_title">Хабарламалар</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
   <!--Description of option to tunnel only selected apps-->

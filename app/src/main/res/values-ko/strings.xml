@@ -5,10 +5,15 @@
   <string name="FeedbackActivity.DefaultText">만약 우리에게 남길 코멘트가 있는데, 웹 사이트가 작동하지 않거나, 이 폼이 작동하지 않을 경우, 다음의 이메일로 코멘트를 남겨주시면 됩니다: &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">피드백을 주셔서 감사합니다</string>
   <string name="FeedbackActivity.Failure">작업을 실패했습니다. 다시 시도해 주세요.</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN이 중지되었습니다</string>
+  <string name="selected_region_currently_not_available">선택한 지역을 현재 사용할 수 없습니다. 다른 지역을 선택해주세요.</string>
   <string name="ads_consent_preference_dialog_title">재설정</string>
+  <string name="preference_language_selection_summary">언어 선택</string>
   <string name="preference_language_selection_title">언어</string>
+  <string name="preference_language_title">언어 선택</string>
   <string name="preference_language_default_language">기본 언어</string>
   <string name="preference_category_advanced_title">고급</string>
+  <string name="preference_category_info_title">정보</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">확인</string>
   <!--Generic negative button label.-->
@@ -16,17 +21,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">예</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">조치가 필요합니다!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">연결을 완료하려면 Psiphon을 열어주세요.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">선택한 지역을 사용할 수 없음</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Psiphon을 열고 다른 지역을 선택해주세요.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN이 중지되었습니다</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN이 사용자 또는 다른 앱에 의해 연결 해제되었습니다.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">앱 아이콘</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">멀웨어 트래픽이 감지되었습니다! 클릭하여 자세히 알아보세요.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->

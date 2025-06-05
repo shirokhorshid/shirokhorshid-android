@@ -5,9 +5,15 @@
   <string name="FeedbackActivity.DefaultText">Jika anda mempunyai komen yang spesifik, info lanjut tentang laman web yang tidak berfungsi, atau borang ini tidak dapat digunakan, sila email &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Terima kasih kerana menghantar borang maklumbalas anda</string>
   <string name="FeedbackActivity.Failure">Penyerahan gagal. Sila cuba lagi.</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN telah dihentikan</string>
+  <string name="selected_region_currently_not_available">Rantau yang dipilih pada masa ini tidak tersedia, sila pilih rantau lain.</string>
   <string name="ads_consent_preference_dialog_title">Tetap Semula</string>
+  <string name="preference_language_selection_summary">Pilih bahasa</string>
   <string name="preference_language_selection_title">Bahasa</string>
+  <string name="preference_language_title">Pemilihan Bahasa</string>
+  <string name="preference_language_default_language">Bahasa lalai</string>
   <string name="preference_category_advanced_title">Lanjutan</string>
+  <string name="preference_category_info_title">Maklumat</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Baiklah</string>
   <!--Generic negative button label.-->
@@ -15,17 +21,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">Ya</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Tindakan diperlukan!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Sila buka Psiphon untuk menyelesaikan sambungan.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Rantau yang dipilih tidak tersedia</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Sila buka Psiphon dan pilih rantau lain.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN telah dihentikan</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN telah diputuskan sambungannya oleh anda atau aplikasi lain.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Ikon aplikasi</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Trafik perisian hasad dikesan! Klik untuk ketahui lebih lanjut.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->
@@ -69,6 +86,7 @@
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Bantuan</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Langkau</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">Seterusnya</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->

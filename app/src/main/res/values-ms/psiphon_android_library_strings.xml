@@ -1,13 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="waiting_for_network_connectivity">Menunggu sambungan rangkaian...</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="vpn_service_running">Perkhidmatan VPN sedang berjalan</string>
+  <string name="vpn_service_revoked">perkhidmatan VPN dibatalkan</string>
+  <string name="current_network_type">Rangkaian semasa: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="connected_elapsed_time">Sambungan: %s</string>
   <string name="start">Mula</string>
   <string name="stop">Henti</string>
   <string name="home_tab_name">Rumah</string>
   <string name="settings_tab_name">Pilihan</string>
   <string name="statistics_tab_name">Stat</string>
+  <string name="about">Mengenai Psiphon</string>
+  <string name="feedback">Maklum balas</string>
+  <string name="region_selector">Pilih rantau pelayan</string>
   <string name="preference_notifications_title">Notifications</string>
   <string name="preference_vpn_title">Apps</string>
   <!--Description of option to tunnel everything-->
@@ -27,10 +35,14 @@
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">Bunyi</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
+  <string name="moreOptions">Lebih pilihan</string>
   <string name="proxySettingsCategoryTitle">Tetapan proxy</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="tunnel_connecting">Menyambung terowong...</string>
+  <string name="tunnel_connected">Terowong disambungkan</string>
+  <string name="waiting">Menunggu...</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
   <!--Summary for Psiphon Bump preference-->
 </resources>

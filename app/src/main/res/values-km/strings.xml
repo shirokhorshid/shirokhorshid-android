@@ -47,10 +47,14 @@
   <string name="bad_vpn_exclusion_whitelist_alert_message">អ្នកត្រូវមានកម្មវិធីយ៉ាងហោចណាស់មួយ ត្រូវបានជ្រើសរើសនៅក្នុងទម្រង់នេះ!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">អ្នកត្រូវមានកម្មវិធីយ៉ាងហោចណាស់មួយ ត្រូវមិនបានជ្រើសរើសនៅក្នុងទម្រង់នេះ!</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">រកឃើញចរាចរណ៍មាល់វែរ! ចុចដើម្បីដឹងបន្ថែម។</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->

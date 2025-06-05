@@ -64,8 +64,10 @@
   <string name="about">Psiphon haqida</string>
   <string name="feedback">Fikr-mulohaza</string>
   <string name="disableTimeoutsPreferenceSummary">Tezligi past tarmoqlar uchun kutish vaqtini o‘chirib qo‘yish</string>
+  <string name="region_selector">Server hududini tanlash</string>
   <string name="network_proxy_connect_invalid_values">HTTP proksi-serveri sozlamalari noto‘g‘ri</string>
   <string name="preference_notifications_title">Bildirishnomalar</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
   <!--Description of option to tunnel only selected apps-->

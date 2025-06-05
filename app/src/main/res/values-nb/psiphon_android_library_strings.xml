@@ -61,6 +61,7 @@
   <string name="about">Om Psiphon</string>
   <string name="feedback">Tilbakemeldinger</string>
   <string name="disableTimeoutsPreferenceSummary">Skru av tidsavbrudd for trege nettverk</string>
+  <string name="region_selector">Velg serverregion</string>
   <string name="network_proxy_connect_invalid_values">Ugyldige innstillinger for HTTP-mellomtjener</string>
   <string name="tunnel_whole_device_exception">Enheten din støtter ikke hele-fjøla -tunnel-modus på grunn av manglende VpnService-API.</string>
   <string name="preference_notifications_title">Kunngjøringer</string>

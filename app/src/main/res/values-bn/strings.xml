@@ -7,8 +7,11 @@
   <string name="FeedbackActivity.Failure">জমা দেওয়া যায়নি।অনুগ্রহ করে আবার চেষ্টা করুন</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon ভিপিএন বন্ধ আছে</string>
   <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
+  <string name="selected_region_currently_not_available">নির্বাচিত অঞ্চল বর্তমানে উপলব্ধ নেই, অনুগ্রহ করে অন্য অঞ্চল নির্বাচন করুন।</string>
   <string name="ads_consent_preference_dialog_title">রিসেট</string>
+  <string name="preference_language_selection_summary">ভাষা নির্বাচন করুন</string>
   <string name="preference_language_selection_title">ভাষা</string>
+  <string name="preference_language_title">ভাষা নির্বাচন</string>
   <string name="preference_language_default_language">নির্ধারিত ভাষা</string>
   <string name="preference_category_advanced_title">অগ্রবর্তী</string>
   <string name="preference_category_info_title">তথ্য</string>
@@ -20,19 +23,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">হা</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">কর্ম প্রয়োজন!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">সংযোগ সম্পূর্ণ করতে অনুগ্রহ করে Psiphon খুলুন।</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">নির্বাচিত অঞ্চল উপলব্ধ নেই</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">অনুগ্রহ করে Psiphon খুলুন এবং অন্য অঞ্চল নির্বাচন করুন।</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon ভিপিএন বন্ধ আছে</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN আপনার দ্বারা বা অন্য অ্যাপের দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে।</string>
   <!--Description for an app icon image-->
   <string name="description_app_icon">অ্যাপ আইকন</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">ম্যালওয়্যার ট্রাফিক সনাক্ত করা হয়েছে! আরও জানতে ক্লিক করুন।</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->
