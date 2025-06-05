@@ -12,7 +12,9 @@
   <string name="psiphon_service_notification_id">Obavijesti o Psiphon usluzi</string>
   <string name="psiphon_service_notification_channel_name">Promjene Psiphon statusa</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon nadogradnja</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon upozorenja poslužitelja</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon rušenja</string>
   <string name="vpn_service_running">VPN usluga pokrenuta</string>
   <string name="vpn_service_revoked">VPN usluga odbijena</string>
   <string name="current_network_type">Trenutna mreža: %s</string>
@@ -71,6 +73,7 @@
   <string name="region_name_is">Island</string>
   <string name="region_name_ie">Irska</string>
   <string name="region_name_ke">Kenija</string>
+  <string name="region_name_kr">Koreja</string>
   <string name="region_name_lt">Litva</string>
   <string name="region_name_lv">Latvija</string>
   <string name="region_name_mx">Meksiko</string>
@@ -87,6 +90,7 @@
   <string name="about">O Psiphon-u</string>
   <string name="feedback">Povratne informacije</string>
   <string name="disableTimeoutsPreferenceSummary">Onemogući pauze za spore mreže</string>
+  <string name="region_selector">Odabir regije</string>
   <string name="network_proxy_connect_invalid_values">Neispravane postavke HTTP proxy-a</string>
   <string name="tunnel_whole_device_exception">Vaš uređaj ne podržava tuneliranje cijelog uređaja jer nema VpnService API.</string>
   <string name="preference_notifications_title">Obavijesti</string>
@@ -122,9 +126,11 @@
     <item quantity="other">%d aplikacija će biti isključeno iz VPN-a</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Tuneliranje svih aplikacija</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Određene Psiphon aplikacije automatski su isključene iz VPN usmjeravanja kako bi se osigurala ispravna funkcionalnost. Ova izuzeća se ne mogu modificirati.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Sve aplikacije će biti tunelirane kroz VPN</string>
   <string name="preference_notifications_with_sound_title">Zvuk</string>
   <string name="preference_notifications_with_sound_summary">Sviraj zvuk kad se status veze promjeni</string>
@@ -150,12 +156,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Greška uzvodnog proxy-a: %s</string>
   <string name="start_tunnel_failed">Pokretanje tunela nije uspjelo: %s</string>
+  <string name="vpn_exclusions_conflict">Postoji jedna ili više sukobnih aplikacija u vašim trenutnim VPN izuzecima. Idite u VPN postavke i prebacite na način \'Tuneliranje svih aplikacija\' za povezivanje.</string>
   <string name="tunnel_connecting">Tunel se spaja...</string>
   <string name="tunnel_connected">Tunel spojen</string>
   <string name="waiting">Čekam...</string>
+  <string name="label_vpn_settings">VPN postavke</string>
   <string name="label_proxy_settings">Postavke proxy-a</string>
   <string name="preference_summary_no_proxy">Nema proxija</string>
+  <string name="preference_summary_custom_proxy">Prilagođeni proxy</string>
+  <string name="preference_summary_system_proxy">Sistemski proxy</string>
   <string name="disableTimeoutsPreferenceTitle">Onemogući pauze</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Samo Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Prikaži MalAware upozorenja</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Budite obaviješteni kada Psiphon otkrije zlonamjerni promet s vašeg uređaja.</string>
+  <string name="aboutMalAware">O MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Omogući Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Koristite NFC za dijeljenje Psiphon podataka o vezi s drugim uređajima.</string>
 </resources>

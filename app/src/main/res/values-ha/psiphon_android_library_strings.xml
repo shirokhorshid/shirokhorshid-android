@@ -74,10 +74,19 @@
   <string name="region_name_ie">Ƙasar Ireland </string>
   <string name="region_name_ke">Ƙasar Kenya</string>
   <string name="region_name_kr">Ƙasar Koriya</string>
+  <string name="region_name_lt">Lithuania</string>
   <string name="region_name_lv">ƙasar Latvia</string>
   <string name="region_name_mx">Ƙasar Mexico</string>
   <string name="region_name_tw">Ƙasar Taiwan</string>
   <string name="region_name_za">Ƙasar Afrika ta Kudu </string>
+  <string name="region_name_id">Indonesia</string>
+  <string name="region_name_nz">New Zealand</string>
+  <string name="region_name_gr">Girka</string>
+  <string name="region_name_ua">Ukraine</string>
+  <string name="region_name_pt">Portugal</string>
+  <string name="region_name_hr">Croatia</string>
+  <string name="region_name_co">Colombia</string>
+  <string name="region_name_my">Malaysia</string>
   <string name="about">Bayanai akan Psiphon</string>
   <string name="feedback">Martani</string>
   <string name="disableTimeoutsPreferenceSummary">Kashe tsarin da yake katse haɗawa lokacin da ake samum jinkirin network </string>
@@ -111,6 +120,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Wasu aikace-aikacen Psiphon ana keɓe su ne ta atomatik daga hanyoyin VPN domin tabbatar da aiki mai kyau. Ba za a iya canza waɗannan keɓewar ba.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Za\'a sirrance dukkan manhajoji ta hanyar VPN</string>
   <string name="preference_notifications_with_sound_title">Sauti</string>
   <string name="preference_notifications_with_sound_summary">A saurari sautin idan aka samu canji a yanayin haɗawa</string>

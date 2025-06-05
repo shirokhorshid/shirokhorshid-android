@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon အဆင့်မြှင့်မှု</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon ဆာဗာ သတိပေးချက်များ</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon ပျက်စီးမှုများ</string>
   <string name="vpn_service_running">VPN ဝန်ဆောင်မှု လည်ပတ်နေပါသည်</string>
   <string name="vpn_service_revoked">VPN ဝန်ဆောင်မှု ပယ်ချလိုက်ပါပြီ</string>
   <string name="current_network_type">လက်ရှိကွန်ယက် : %s</string>
@@ -131,6 +132,7 @@
     <item quantity="other">အပ္ပလီကေးရှင်း %d များသည် လိုဏ်လိုင်းနှင့် ချိတ်ဆက်မှုမှ ပယ်ထားပါသည်</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Psiphon အပ္ပလီကေးရှင်း အချို့သည် သင့်လုံခြုံရေးကို သေချာစေရန်အတွက် VPN လမ်းကြောင်းမှ အလိုအလျောက် ဖယ်ထုတ်ထားပါသည်။</string>
   <string name="preference_routing_all_apps_tunnel_summary">အပ္ပလီကေးရှင်းများအားလုံးကို VPN လိုဏ်လိုင်းနှင့် ချိတ်ထားပါမည်</string>
   <string name="preference_notifications_with_sound_title">အသံ</string>
   <string name="preference_notifications_with_sound_summary">ချိတ်ဆက်မှုအခြေအနေပြောင်းလဲတိုင်းအသံထွက်ရန်</string>
@@ -169,6 +171,9 @@
   <string name="downloadWiFiOnlyPreferenceTitle">ဝိုင်ဖိုင်သာ</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware သတိပေးချက်များ ပြပါ</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">သင့်စက်ပစ္စည်းမှ အစပြုသည့် အန္တရာယ်ပြုဆော့ဖ်ဝဲ (malware) အသွားအလာကို Psiphon မှ ထောက်လှမ်းတွေ့ရှိသောအခါ သတိပေးချက် ရယူပါ။</string>
+  <string name="aboutMalAware">MalAware အကြောင်း</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump ကို ဖွင့်ပါ</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">အခြားကိရိယာများနှင့် Psiphon ချိတ်ဆက်မှု ဒေတာ မျှဝေရန် NFC ကို အသုံးပြုပါ။</string>
 </resources>

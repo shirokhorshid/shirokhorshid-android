@@ -74,6 +74,7 @@
   <string name="region_name_ie">爱尔兰</string>
   <string name="region_name_ke">肯尼亚</string>
   <string name="region_name_kr">韩国</string>
+  <string name="region_name_lt">立陶宛</string>
   <string name="region_name_lv">拉脱维亚</string>
   <string name="region_name_mx">墨西哥</string>
   <string name="region_name_tw">中国台湾</string>
@@ -131,6 +132,7 @@
     <item quantity="other">%d程序不使用隧道</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">某些 Psiphon 应用程序会自动从 VPN 路由中排除，以确保正常功能。这些排除无法修改。</string>
   <string name="preference_routing_all_apps_tunnel_summary">所有应用都会通过VPN进入隧道</string>
   <string name="preference_notifications_with_sound_title">声音</string>
   <string name="preference_notifications_with_sound_summary">当连接状态改变时发出声音</string>

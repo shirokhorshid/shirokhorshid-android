@@ -160,5 +160,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">الموقع التقريبي</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
-  <string name="location_permission_rationale_text">من فضلك اسمح لـ 1%s بالوصول إلى الموقع التقريبي لجهازك. يتم استخدام البيانات التقريبية لموقعك الجغرافي من أجل تحسين شبكة Psiphon، ويكون دقيقًا في حدود 3 كيلومترات مربعة تقريبًا.</string>
+  <string name="location_permission_rationale_text">من فضلك اسمح لـ %s بالوصول إلى الموقع التقريبي لجهازك. يتم استخدام البيانات التقريبية لموقعك الجغرافي من أجل تحسين شبكة Psiphon، ويكون دقيقًا في حدود 3 كيلومترات مربعة تقريبًا.</string>
 </resources>

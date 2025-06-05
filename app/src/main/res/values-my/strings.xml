@@ -62,27 +62,49 @@
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message">Psiphon သည် အင်တာနက်ပေါ်တွင် သံသယဖြစ်စရာကောင်းသော ဝက်ဘ်ဆိုဒ်များအား ဝင်ရောက်ကြည့်ရှုခွင့်ကို အလိုအလျောက် ပိတ်ထားသည်။ ထိုသို့ဖြစ်ပွားခဲ့ပါက သင့်အား သတိပေးစေလိုပါသလား။\n\nဤဆက်တင်ကို နောက်ထပ် ရွေးချယ်မှုများတွင် နောက်ပိုင်း၌ ပြောင်းလဲနိုင်သည်။</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware အကြောင်း ပိုမိုလေ့လာရန် ဤနေရာတွင်-</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Upstream proxy အမှား</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">ကျေးဇူးပြု၍ Psiphon ဖွင့်ပြီး proxy ဆက်တင်များကို စစ်ဆေးပါ။</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Proxy အမှား</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">သင်သည် Psiphon အား upstream proxy အသုံးပြုရန် ပြင်ဆင်ထားသည်။ သို့သော် ကျွန်ုပ်တို့သည် ထို proxy မှတစ်ဆင့် Psiphon ဆာဗာသို့ ချိတ်ဆက်၍မရပါ။\n\nကျေးဇူးပြု၍ ဆက်တင်များကို ပြင်ဆင်ပြီး နောက်တစ်ကြိမ် ကြိုးစားပါ။\n\nနည်းပညာအချက်အလက်များအတွက် logs များကို ကြည့်ပါ။</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon ပျက်စီးသွားပါသည်</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">ကျေးဇူးပြု၍ ကျွန်ုပ်တို့အား အကြံပြုချက် ပေးပို့ပါ။</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">ကျေးဇူးပြု၍ ဤ notification ကို နှိပ်ပြီး ကျွန်ုပ်တို့အား အကြံပြုချက် ပေးပို့ပါ။ ၎င်းသည် ပြဿနာကို နားလည်ရန်နှင့် ပိုမိုမြန်ဆန်စွာ ပြင်ဆင်နိုင်ရန် ကူညီပေးမည်ဖြစ်သည်။</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">ကျွန်ုပ် လက်ခံပါသည်</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">ဒေတာ စုဆောင်းမှု ထုတ်ဖော်ပြသခြင်း</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s သည် သင့်အား ဆင်ဆာမခံသော အင်တာနက် အကြောင်းအရာများကို ဝင်ရောက်ခွင့်ပေးရန် Android VPN ဝန်ဆောင်မှုကို အသုံးပြုသည်။ ကျွန်ုပ်တို့သည် အောက်ပါ အချက်အလက်များကို စုဆောင်း၊ ပေါင်းစပ်၊ သိမ်းဆည်းပါသည်-</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">သင့်မြို့၊ နိုင်ငံ၊ ISP နှင့် ရွေးချယ်မှုအရ ခန့်မှန်းခြေတည်နေရာ။ မြို့၊ နိုင်ငံနှင့် ISP တို့သည် သင်သည် ကျွန်ုပ်တို့ဆာဗာများသို့ ချိတ်ဆက်သည့် IP လိပ်စာမှ ရယူထားပြီး IP လိပ်စာ ကိုယ်တိုင်ကို မည်သည့်အခါမျှ မှတ်တမ်းတင်ခြင်းမရှိပါ။ ဤဒေတာသည် အသုံးပြုမှုနှင့် စွမ်းဆောင်ရည် ကိန်းဂဏန်းများနှင့် ဝန်ဆောင်မှု ကျန်းမာရေး ရည်ရွယ်ချက်များအတွက် စုဆောင်းထားသည်။</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">သင်၏ အီးမေးလ်၊ သင်သည် ကျွန်ုပ်တို့အား အမှားရှာဖွေမှု သို့မဟုတ် ပျက်စီးမှု log အကြံပြုချက် ပေးပို့သည့်အခါ။ အကြံပြုချက်တွင် အီးမေးလ်ပေးခြင်းသည် ရွေးချယ်ခွင့်ရှိသည်။</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">သင့် PsiCash အကောင့် အသုံးပြုသူအမည်၊ စကားဝှက်နှင့် ရွေးချယ်မှုအရ အီးမေးလ်။</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s အကြောင်းကြားချက်များ</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s သည် အပ္ပလီကေးရှင်းသည် နောက်ခံတွင်ရှိနေစဉ် အရေးကြီးသော အချက်အလက်များ ပေးအပ်ရန် အကြောင်းကြားချက်များ အသုံးပြုသည်။ ၎င်းတွင် ပါဝင်သည်-</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">သင့် VPN ချိတ်ဆက်မှု အခြေအနေ ပြောင်းလဲမှုများ။</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">သင့်ချိတ်ဆက်မှုဆိုင်ရာ ပြဿနာများ။</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">ပျက်စီးမှု အစီရင်ခံစာများ။</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware သတိပေးချက်များ။</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">အပ္ပလီကေးရှင်း ဗားရှင်းအသစ်များ ရရှိနိုင်ကြောင်း။</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">သင်သည် အပ္ပလီကေးရှင်း ဆက်တင်များတွင် အကြောင်းကြားချက်များကို မည်သည့်အချိန်မျှ ပိတ်နိုင်သည်။</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -92,14 +114,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">ကျေးဇူးပြု၍ ဆက်တင်များတွင် NFC အားဖွင့်ပေးပါ</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">အခြားကိရိယာနှင့် ဆက်သွယ်မှုမှာ အမှားဖြစ်နေသည်။ ကျေးဇူးပြု၍ အခြားကိရိယာတွင် Psiphon ဖွင့်ပြီး ချိတ်ဆက်ထားကြောင်း စစ်ဆေးပြီး နောက်တစ်ကြိမ် ကြိုးစားပါ။</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">အခြားကိရိယာနှင့် NFC အပြန်အလှန်ဆက်သွယ်မှုကို စောင့်နေသည်…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">ချိတ်ဆက်မှု အချက်အလက်များ အောင်မြင်စွာ လဲလှယ်ပြီးပါပြီ!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">အခြားကိရိယာနှင့် ဆက်သွယ်မှုမှာ အမှားဖြစ်နေသည်။ ကျေးဇူးပြု၍ နောက်တစ်ကြိမ် ကြိုးစားပါ။</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">ကိရိယာများ အလွန်မြန်စွာ ရွေ့ခဲ့သောကြောင့် ချိတ်ဆက်မှု ပြတ်တောက်သွားသည်။ ကျေးဇူးပြု၍ နောက်တစ်ကြိမ် ကြိုးစားပါ။</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">မပံ့ပိုးထားသော NFC တက်ဂ် တွေ့ရှိရသည်။ အခြားကိရိယာတွင် Psiphon ဖွင့်ပြီး ချိတ်ဆက်ထားပါသလား။</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">ဒေတာ ဖတ်နေသည်…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">ချိတ်ဆက်ရန် အကူအညီ ရယူပါ</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">အကူအညီ</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -109,14 +140,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">ပြီးသွားပြီ</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">အကယ်၍ သင်သည် Psiphon ဆာဗာသို့ ချိတ်ဆက်ရာတွင် ခက်ခဲမှုရှိနေလျှင်၊ အောင်မြင်စွာ ချိတ်ဆက်နိုင်ခဲ့သော သူငယ်ချင်းတစ်ဦးကို ရှာ၍ ၎င်းတို့၏ ချိတ်ဆက်မှု အချက်အလက်များကို NFC အသုံးပြု၍ မျှဝေပါ။</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Psiphon ဖွင့်ပြီး ချိတ်ဆက်ထားကြောင်းနှင့် အခြားကိရိယာရှိ အပ္ပလီကေးရှင်း ဘားတွင် Psiphon Bump သင်္ကေတ ပြသနေကြောင်း သေချာပါစေ။</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">သင့်ကိရိယာတွင် Psiphon Bump ဒိုင်ယာလိုရ် ဖွင့်ထားပြီး အခြားကိရိယာတွင် Psiphon အပ္ပလီကေးရှင်း ဖွင့်ပြီး ချိတ်ဆက်ထားလျက်၊ ချိတ်ဆက်မှု အချက်အလက် ဒေတာ ကူးပြောင်းမှု စတင်ရန် သင့်ကိရိယာများကို ကျောမှကျော တင်ထားပါ။</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">ချိတ်ဆက်မှု အချက်အလက် ဒေတာ ကူးပြောင်းမှု ပြီးဆုံးပြီး သင့် Psiphon အပ္ပလီကေးရှင်းသည် ချိတ်ဆက်နိုင်သောအခါ၊ Psiphon Bump ဒိုင်ယာလိုရ်သည် အလိုအလျောက် ပိတ်သွားမည်ဖြစ်သည်။ အကယ်၍ သင်သည် ချိတ်ဆက်မရသေးလျှင်၊ Psiphon အောင်မြင်စွာ ချိတ်ဆက်သည်အထိ ထပ်မံကြိုးစားနိုင်သည်။</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">ကျေးဇူးပြု၍ Psiphon Bump အကူအညီ မုဒ်ကို ဖွင့်ရန် စနစ် ဆက်တင်များတွင် NFC ကို ဖွင့်ပေးပါ။</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">ဆက်တင်များ ဖွင့်မည်</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">ခန့်မှန်းခြေ တည်နေရာ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">ကျေးဇူးပြု၍ %s အား သင့်ကိရိယာ၏ ခန့်မှန်းခြေ တည်နေရာကို ဝင်ရောက်ခွင့်ပေးပါ။ သင့်တည်နေရာ အခြေအနေခန့်မှန်းချက်သည် Psiphon ကွန်ရက်ကို ပိုမိုအကောင်းဆုံး ဖြစ်စေရန်အတွက် အသုံးပြုပြီး ၃ စတုရန်းကီလိုမီတာ အတွင်းတွင် တိကျစေမည်ဖြစ်သည်။</string>
 </resources>

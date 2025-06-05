@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon Upgrade</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon Server waarschuwingen</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon Crashes</string>
   <string name="vpn_service_running">VPN service werkt</string>
   <string name="vpn_service_revoked">VPN service is ingetrokken</string>
   <string name="current_network_type">Huidig netwerk: %s</string>
@@ -135,6 +136,7 @@
     <item quantity="other">%d apps uitgezonderd van de tunnel</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Bepaalde Psiphon apps worden automatisch uitgesloten van VPN-routing om juiste functionaliteit te garanderen. Deze uitsluitingen kunnen niet worden gewijzigd.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Alle apps zullen worden getunneld via VPN</string>
   <string name="preference_notifications_with_sound_title">Geluid</string>
   <string name="preference_notifications_with_sound_summary">Speel geluid wanneer status van de verbinding verandert</string>
@@ -173,6 +175,9 @@
   <string name="downloadWiFiOnlyPreferenceTitle">Alleen WiFi</string>
   <string name="unsafeTrafficAlertsOptInPreferenceTitle">Toon malwaremeldingen</string>
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Ontvang een melding wanneer Psiphon malware-verkeer detecteert dat afkomstig is van uw apparaat.</string>
+  <string name="aboutMalAware">Over MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump inschakelen</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Gebruik NFC om Psiphon verbindingsgegevens te delen met andere apparaten.</string>
 </resources>

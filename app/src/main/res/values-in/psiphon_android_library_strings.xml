@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Pembaruan Psiphon</string>
   <string name="psiphon_server_alert_notification_channel_name">Peringatan Server Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon Crashes</string>
   <string name="vpn_service_running">Layanan VPN beroperasi</string>
   <string name="vpn_service_revoked">Layanan VPN dibatalkan</string>
   <string name="current_network_type">Jaringan saat ini: %s</string>
@@ -131,6 +132,7 @@
     <item quantity="other">%d aplikasi dikeluarkan dari saluran</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Aplikasi Psiphon tertentu secara otomatis dikecualikan dari routing VPN untuk memastikan fungsionalitas yang tepat. Pengecualian ini tidak dapat diubah.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Semua aplikasi akan dialihkan lewat VPN</string>
   <string name="preference_notifications_with_sound_title">Suara</string>
   <string name="preference_notifications_with_sound_summary">Beri tanda suara saat status sambungan berubah</string>
@@ -171,5 +173,7 @@
   <string name="unsafeTrafficAlertsOptInPreferenceSummary">Dapatkan pemberitahuan saat Psiphon mendeteksi lalu lintas malware yang berasal dari perangkat Anda.</string>
   <string name="aboutMalAware">Tentang MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Aktifkan Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Gunakan NFC untuk berbagi data koneksi Psiphon dengan perangkat lain.</string>
 </resources>

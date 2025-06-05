@@ -69,16 +69,23 @@
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Ваш горад, краіна, ISP і па жаданні прыблізнае месцазнаходжанне. Горад, краіна і ISP атрымліваюцца з IP-адраса, з якога вы падключаецеся да нашых сервераў, і сам IP-адрас ніколі не рэгіструецца. Гэтыя даныя збіраюцца для статыстыкі выкарыстання і прадукцыйнасці і мэт здароўя сэрвісу.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Ваш адрас электроннай пошты, калі вы адпраўляеце нам дыягнастычныя дадзеныя або водгукі аб збоях. Указанне электроннай пошты ў водгуках неабавязкова.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Ваша імя карыстальніка акаўнта PsiCash, пароль і па жаданні электронная пошта.</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">Апавяшчэнняў: %s</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_intro">%s выкарыстоўвае апавяшчэнні, каб пастаўляць вам важную інфармацыю, калі праграма знаходзіца на фоне. Сюды ўваходзіць:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Змены стану вашага VPN-злучэння.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Праблемы з вашым злучэннем.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Справаздачы аб збоях.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Абвесткі MalAware.</string>
   <!--Notifications permission rationale list item-->
   <string name="notifications_permission_rationale_upgrade_available_bp">Даступны новыя версіі праграмы</string>
   <!--Notifications permission rationale last sentence-->

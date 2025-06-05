@@ -84,6 +84,7 @@
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s utiliza el servicio VPN de Android para proporcionarle acceso sin censura al contenido de Internet. Recopilamos, agregamos y almacenamos la siguiente información:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Su ciudad, país, ISP y, opcionalmente, ubicación aproximada. La ciudad, país e ISP se derivan de la dirección IP desde la que se conecta a nuestros servidores, y la dirección IP en sí nunca se registra. Estos datos se recopilan para estadísticas de uso y rendimiento y propósitos de salud del servicio.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">Su correo electrónico, cuando nos envíe comentarios sobre diagnósticos o registros de fallas. Proporcionar correo electrónico en los comentarios es opcional.</string>
   <!--Data collection disclosure list item-->
@@ -128,6 +129,7 @@
   <!--NFC connection data exchange error message-->
   <string name="nfc_export_lost_tag">El dispositivo se movió demasiado rápido, se perdió la conexión. Por favor, inténtelo de nuevo.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Etiqueta NFC no compatible descubierta. ¿Está Psiphon abierto y conectado en el otro dispositivo?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
   <string name="nfc_export_reading_data">Lectura de datos</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
@@ -141,9 +143,13 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Listo</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Si tiene problemas para conectarse a un servidor Psiphon, encuentre un amigo que se haya conectado exitosamente y comparta su información de conexión usando NFC.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Asegúrese de que Psiphon esté abierto y conectado y que el ícono de Psiphon Bump se muestre en la barra de aplicaciones del otro dispositivo.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Con el diálogo de Psiphon Bump abierto en su dispositivo y la aplicación Psiphon abierta y conectada en el otro dispositivo, coloque sus dispositivos espalda con espalda para iniciar una transferencia de datos de información de conexión.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Una vez que se complete la transferencia de datos de información de conexión y su aplicación Psiphon pueda conectarse, el diálogo de Psiphon Bump se cerrará automáticamente. Si aún no puede conectarse, puede reintentar hasta que Psiphon se conecte exitosamente.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
@@ -153,4 +159,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Ubicación aproximada</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Por favor permita que %s acceda a la ubicación aproximada de su dispositivo. Su estimación de datos de ubicación se utiliza para optimizar la red Psiphon y es precisa dentro de aproximadamente 3 kilómetros cuadrados.</string>
 </resources>

@@ -113,5 +113,7 @@
   <string name="waiting">অপেক্ষা করা হচ্ছে ...</string>
   <string name="disableTimeoutsPreferenceTitle">সময়সীমা অক্ষম করুন</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump সক্ষম করুন</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">অন্যান্য ডিভাইসের সাথে Psiphon সংযোগ ডেটা ভাগ করতে NFC ব্যবহার করুন।</string>
 </resources>

@@ -64,29 +64,47 @@
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">Узнайте больше о MalAware:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Ошибка upstream прокси</string>
   <!--"Upstream proxy error" notification text-->
   <string name="notification_text_upstream_proxy_error">Пожалуйста откройте Psiphon и проверьте настройки прокси.</string>
   <!--"Upstream proxy error" alert dialog title-->
   <string name="upstream_proxy_error_alert_title">Ошибка прокси</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Вы настроили Psiphon на использование upstream прокси. Однако, похоже, мы не можем подключиться к серверу Psiphon через этот прокси.\n\nПожалуйста, исправьте настройки и попробуйте снова.\n\nСм. логи для технической информации.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon упал</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Пожалуйста, отправьте нам отзыв.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Пожалуйста, нажмите на это уведомление, чтобы отправить нам отзыв. Это поможет нам понять проблему, чтобы мы могли исправить её быстрее.</string>
   <!--Data collection disclosure prompt button text-->
   <string name="vpn_data_collection_disclosure_accept_btn_text">Я принимаю</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Раскрытие информации о сборе данных</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s использует сервис Android VPN для предоставления вам неограниченного доступа к интернет-контенту. Мы собираем, агрегируем и храним следующую информацию:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Ваш город, страну, провайдера и, опционально, приблизительное местоположение. Город, страна и провайдер определяются по IP-адресу, с которого вы подключаетесь к нашим серверам, сам IP-адрес никогда не записывается. Эти данные собираются для статистики использования и производительности, а также для здоровья сервиса.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Ваш email, когда вы отправляете нам диагностику или отзыв о сбоях. Указание email в отзыве необязательно.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Имя пользователя, пароль и, опционально, email вашего аккаунта PsiCash.</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s Уведомления</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s использует уведомления для предоставления вам важной информации, когда приложение работает в фоне. Это включает:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Изменения в статусе вашего VPN-соединения.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Проблемы с вашим соединением.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Отчёты о сбоях.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Предупреждения MalAware.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Доступны новые версии приложения.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Вы можете отключить уведомления в настройках приложения в любое время.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <string name="pxe_web_wait_tunnel_connecting">Пожалуйста, подождите, пока Psiphon подключится</string>
@@ -99,12 +117,19 @@
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <string name="pxe_submit_thank_you">Благодарим вас за участие!</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Пожалуйста, включите NFC в настройках</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Ошибка связи с другим устройством. Пожалуйста, убедитесь, что Psiphon открыт и подключен на другом устройстве, и попробуйте снова.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Ожидание NFC-взаимодействия с другим устройством…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Информация о соединении успешно обменена!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Ошибка связи с другим устройством. Пожалуйста, попробуйте снова.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Устройство двигалось слишком быстро, соединение потеряно. Пожалуйста, попробуйте снова.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Обнаружен неподдерживаемый NFC-тег. Открыт ли Psiphon и подключен на другом устройстве?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
   <string name="nfc_export_reading_data">Чтение данных…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
@@ -118,9 +143,13 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Готово</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Если у вас проблемы с подключением к серверу Psiphon, найдите друга, который успешно подключился, и поделитесь его информацией о соединении с помощью NFC.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Убедитесь, что Psiphon открыт и подключен, и значок Psiphon Bump отображается в панели приложений на другом устройстве.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">С открытым диалогом Psiphon Bump на вашем устройстве и открытым и подключенным приложением Psiphon на другом устройстве, поместите ваши устройства спина к спине для инициации передачи данных информации о соединении.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Как только передача данных информации о соединении завершится и ваше приложение Psiphon сможет подключиться, диалог Psiphon Bump закроется автоматически. Если вы всё ещё не можете подключиться, вы можете повторить попытку, пока Psiphon не подключится успешно.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->

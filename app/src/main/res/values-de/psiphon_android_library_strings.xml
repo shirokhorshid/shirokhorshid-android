@@ -120,6 +120,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Bestimmte Psiphon-Apps sind automatisch vom VPN-Routing ausgeschlossen, um eine ordnungsgemäße Funktionalität zu gewährleisten. Diese Ausschlüsse können nicht geändert werden.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Alle Apps werden über VPN getunnelt</string>
   <string name="preference_notifications_with_sound_title">Ton</string>
   <string name="preference_notifications_with_sound_summary">Ton abspielen, wenn sich der Verbindungsstatus ändert</string>

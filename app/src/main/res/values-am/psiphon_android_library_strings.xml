@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">የPsiphon ደረጃ ማላቂያ</string>
   <string name="psiphon_server_alert_notification_channel_name">የPsiphon አገልጋይ ማንቅያዎች</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">የPsiphon መበላሸቶች</string>
   <string name="vpn_service_running">የምናባዊ የግል አውታረ መረብ (ቪፒኤን) አገልግሎት እየሠራ ነው</string>
   <string name="vpn_service_revoked">የምናባዊ የግል አውታረ መረብ (ቪፒኤን) አገልግሎት ተሽሯል</string>
   <string name="current_network_type">አሁን ያለው አውታረመረብ፡- %s</string>
@@ -73,12 +74,19 @@
   <string name="region_name_ie">አየርላንድ</string>
   <string name="region_name_ke">ኬንያ</string>
   <string name="region_name_kr">ኮሪያ</string>
+  <string name="region_name_lt">ሊቱዌኒያ</string>
   <string name="region_name_lv">ላትቪያ</string>
   <string name="region_name_mx">ሜክሲኮ</string>
   <string name="region_name_tw">ታይዋን</string>
   <string name="region_name_za">ደቡብ አፍሪካ</string>
   <string name="region_name_id">ኢንዶኔዝያ</string>
+  <string name="region_name_nz">ኒው ዚላንድ</string>
+  <string name="region_name_gr">ግሪክ</string>
+  <string name="region_name_ua">ዩክሬን</string>
+  <string name="region_name_pt">ፖርቱጋል</string>
+  <string name="region_name_hr">ክሮኤሽያ</string>
   <string name="region_name_co">ኮሎምቢያ</string>
+  <string name="region_name_my">ማሌዢያ</string>
   <string name="about">ስለ Psiphon</string>
   <string name="feedback">ግብረመልስ</string>
   <string name="disableTimeoutsPreferenceSummary">ለዝግተኛ አውታረመረቦች የጊዜ እረፍቶችን አቦዝን</string>
@@ -120,7 +128,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_include_apps">
     <item quantity="one">%d መተግበሪያ በመቦርቦር ላይ</item>
-    <item quantity="other">%d መተግበሪያ በመቦርቦር ላይ</item>
+    <item quantity="other">%d መተግበሪያዎች በመቦርቦር ላይ</item>
   </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
@@ -128,6 +136,7 @@
     <item quantity="other">%d መተግበሪያዎች ከመተላለፊያ ዋሻው ተገለዋል</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">አንዳንድ የPsiphon መተግበሪያዎች ትክክለኛ ተግባር ለማረጋገጥ በቪፒኤን መጓዝ ውስጥ በራስ-ሰር ይገለላሉ። እነዚህ ገለልተኞች ሊሻሻሉ አይችሉም።</string>
   <string name="preference_routing_all_apps_tunnel_summary">ሁሉም መተግበሪያዎች በምናባዊ የግል አውታረ መረብ (ቪፒኤን) ይቦረቦራሉ</string>
   <string name="preference_notifications_with_sound_title">ድምጽ</string>
   <string name="preference_notifications_with_sound_summary">የግንኙነት ደረጃ ለውጥ ሲኖር ድምጽ አሰማ</string>
@@ -164,6 +173,11 @@
   <string name="preference_summary_system_proxy">የሥርዓት ወኪል</string>
   <string name="disableTimeoutsPreferenceTitle">የእረፍት ጊዜዎችን ያቦዝኑ</string>
   <string name="downloadWiFiOnlyPreferenceTitle">ዋይፋይ ብቻ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware ማንቅያዎችን አሳይ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon ከአንተ መሳሪያ የሚመጣ ተባይ ዘግሎን ማላገጥ ሰዓትን ማሳወቂያ ይሰጣሀል።</string>
+  <string name="aboutMalAware">ስለ MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump ን አስቻል</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">NFC በመጠቀም የPsiphon ግንኙነት መረጃን ከሌሎች መሣሪያዎች ጋር አካፍል።</string>
 </resources>

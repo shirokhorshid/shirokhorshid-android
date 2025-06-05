@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Обновление Psiphon </string>
   <string name="psiphon_server_alert_notification_channel_name">Выбор региона сервера</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Сбои Psiphon</string>
   <string name="vpn_service_running">VPN сервис запущен</string>
   <string name="vpn_service_revoked">VPN сервис удален</string>
   <string name="current_network_type">Текущая сеть: %s</string>
@@ -81,7 +82,7 @@
   <string name="region_name_id">Индонезия</string>
   <string name="region_name_nz">Новая Зеландия</string>
   <string name="region_name_gr">Греция</string>
-  <string name="region_name_ua">Украинa</string>
+  <string name="region_name_ua">Украина</string>
   <string name="region_name_pt">Португалия</string>
   <string name="region_name_hr">Хорватия</string>
   <string name="region_name_co">Колумбия</string>
@@ -143,6 +144,7 @@
     <item quantity="other">Исключенных приложений: %d</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Некоторые приложения Psiphon автоматически исключены из маршрутизации VPN для обеспечения правильной работы. Эти исключения нельзя изменить.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Все приложения будут пропущены через VPN</string>
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Сигнал при изменении статуса подключения</string>
@@ -168,6 +170,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Ошибка внешнего прокси: %s</string>
   <string name="start_tunnel_failed">Запуск туннеля не удался: %s</string>
+  <string name="vpn_exclusions_conflict">В ваших текущих исключениях VPN есть одно или несколько конфликтующих приложений. Пожалуйста, перейдите в настройки VPN и переключитесь в режим \'Туннелировать все приложения\' для подключения.</string>
   <string name="tunnel_connecting">Подключение туннеля…</string>
   <string name="tunnel_connected">Туннель подключен</string>
   <string name="waiting">Ожидание…</string>
@@ -178,6 +181,11 @@
   <string name="preference_summary_system_proxy">Системный прокси</string>
   <string name="disableTimeoutsPreferenceTitle">Отключить таймауты</string>
   <string name="downloadWiFiOnlyPreferenceTitle">Только wi-fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Показывать предупреждения MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Получать уведомления, когда Psiphon обнаруживает вредоносный трафик с вашего устройства.</string>
+  <string name="aboutMalAware">О MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Включить Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Используйте NFC для обмена данными подключения Psiphon с другими устройствами.</string>
 </resources>
