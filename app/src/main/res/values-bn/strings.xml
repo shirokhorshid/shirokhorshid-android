@@ -6,10 +6,15 @@
   <string name="FeedbackActivity.Success">আপনার মতামত জমা দেওয়ার জন্য আপনাকে ধন্যবাদ</string>
   <string name="FeedbackActivity.Failure">জমা দেওয়া যায়নি।অনুগ্রহ করে আবার চেষ্টা করুন</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon ভিপিএন বন্ধ আছে</string>
-  <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার দ্বারা বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon এর ভিপিএন আপনার বা অন্য অ্যাপ দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে। একাধিক ভিপিএন অ্যাপ্লিকেশন একই সময়ে চালানো যাবে না। অন্য কোন ভিপিএন অ্যাপ্লিকেশন ইনস্টল এবং চলমান কিনা তা পরীক্ষা করুন।</string>
+  <string name="selected_region_currently_not_available">নির্বাচিত অঞ্চল বর্তমানে উপলব্ধ নেই, অনুগ্রহ করে অন্য অঞ্চল নির্বাচন করুন।</string>
+  <string name="ads_consent_preference_dialog_title">রিসেট</string>
+  <string name="preference_language_selection_summary">ভাষা নির্বাচন করুন</string>
   <string name="preference_language_selection_title">ভাষা</string>
+  <string name="preference_language_title">ভাষা নির্বাচন</string>
   <string name="preference_language_default_language">নির্ধারিত ভাষা</string>
   <string name="preference_category_advanced_title">অগ্রবর্তী</string>
+  <string name="preference_category_info_title">তথ্য</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ঠিক আছে</string>
   <string name="preference_navigate_to_vpn_setting_title">সর্বদা সচল VPN</string>
@@ -18,18 +23,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">হা</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">কর্ম প্রয়োজন!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">সংযোগ সম্পূর্ণ করতে অনুগ্রহ করে Psiphon খুলুন।</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">নির্বাচিত অঞ্চল উপলব্ধ নেই</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">অনুগ্রহ করে Psiphon খুলুন এবং অন্য অঞ্চল নির্বাচন করুন।</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon ভিপিএন বন্ধ আছে</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN আপনার দ্বারা বা অন্য অ্যাপের দ্বারা সংযোগ বিচ্ছিন্ন হয়েছে।</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">অ্যাপ আইকন</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">ম্যালওয়্যার ট্রাফিক সনাক্ত করা হয়েছে! আরও জানতে ক্লিক করুন।</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->
@@ -43,8 +58,27 @@
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">আপনার শহর, দেশ, ISP এবং ঐচ্ছিকভাবে আনুমানিক অবস্থান। শহর, দেশ এবং ISP আপনি আমাদের সার্ভারে যে IP ঠিকানা থেকে সংযোগ করেন তা থেকে প্রাপ্ত, এবং IP ঠিকানা নিজেই কখনও লগ করা হয় না। এই ডেটা ব্যবহার এবং কর্মক্ষমতা পরিসংখ্যান এবং সেবা স্বাস্থ্যের উদ্দেশ্যে সংগ্রহ করা হয়।</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">আপনার ইমেইল, যখন আপনি আমাদের ডায়াগনস্টিক বা ক্র্যাশ লগ ফিডব্যাক পাঠান। ফিডব্যাকে ইমেইল প্রদান ঐচ্ছিক।</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">আপনার PsiCash অ্যাকাউন্ট ইউজারনেম, পাসওয়ার্ড এবং ঐচ্ছিকভাবে ইমেইল।</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s বিজ্ঞপ্তি</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s অ্যাপটি পটভূমিতে থাকার সময় আপনাকে গুরুত্বপূর্ণ তথ্য সরবরাহ করার জন্য বিজ্ঞপ্তি ব্যবহার করে। এতে রয়েছে:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">আপনার VPN সংযোগ অবস্থার পরিবর্তন।</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">আপনার সংযোগের সমস্যা।</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">ক্র্যাশ রিপোর্ট।</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware সতর্কতা।</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">নতুন অ্যাপ সংস্করণ উপলব্ধ।</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">আপনি যেকোনো সময় অ্যাপ সেটিংসে বিজ্ঞপ্তি নিষ্ক্রিয় করতে পারেন।</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -53,14 +87,6 @@
   <string name="close_alert_title">বন্ধ</string>
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->
@@ -83,8 +109,10 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">সেটিংস খুলুন</string>
   <!--Approximate location permission rationale alert title.-->
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
 </resources>

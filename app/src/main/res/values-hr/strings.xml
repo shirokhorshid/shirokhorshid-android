@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN se ne može pokrenuti</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne može pokrenuti VPN. Više VPN aplikacija ne može biti pokrenuto u isto vrijeme. Provjerite ako je instalirana neka druga VPN aplikacija i ako je postavljena da bude stalno upaljena.</string>
   <string name="selected_region_currently_not_available">Odabrana regija je trenutno nedostupna, molimo odaberite drugu regiju.</string>
+  <string name="ads_consent_preference_category_title">Personalizacija reklama</string>
+  <string name="ads_consent_preference_dialog_preference_message">Stvarno želite ponovno postaviti svoje reklamne postavke?</string>
+  <string name="ads_consent_preference_title">Ponovno postavi reklamne postavke</string>
+  <string name="ads_consent_preference_dialog_title">Ponovno postavi</string>
+  <string name="ads_consent_preference_summary">Ponovno postavite dopuštenja za reklamne mreže i korištenje kolačića i Vaših osobnih podataka</string>
   <string name="preference_language_selection_summary">Odaberite jezik</string>
   <string name="preference_language_selection_title">Jezik</string>
   <string name="preference_language_title">Odabir jezika</string>
@@ -58,8 +63,27 @@
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Vaš grad, zemlja, ISP i opcionalno, približna lokacija. Grad, zemlja i ISP se izvode iz IP adrese s koje se spajate na naše servere, a sama IP adresa se nikad ne zapisuje. Ovi podaci se prikupljaju za statistike korištenja i performansi te svrhe zdravlja usluge.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Vaš email kada nam šaljete dijagnostičke ili crash log povratne informacije. Pružanje emaila u povratnim informacijama je opcionalno.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Vaše PsiCash korisničko ime, lozinka i opcionalno, email.</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s Obavijesti</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s koristi obavijesti za pružanje važnih informacija kada je aplikacija u pozadini. To uključuje:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Promjene u stanju vaše VPN veze.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Problemi s vašom vezom.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Izvještaji o rušenju.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware upozorenja.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Dostupne nove verzije aplikacije.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Možete onemogućiti obavijesti u postavkama aplikacije u bilo koje vrijeme.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -68,14 +92,6 @@
   <string name="close_alert_title">Zatvori</string>
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->
@@ -98,6 +114,7 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
   <!--Approximate location permission rationale alert title.-->

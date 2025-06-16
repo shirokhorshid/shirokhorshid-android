@@ -102,6 +102,7 @@
   <string name="psiphon_service_notification_message_vpn_all_apps">ធ្វើថូនែលគ្រប់កម្មវិធី</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">គ្រប់កម្មវិធីទាំងអស់នឹងត្រូវបើកច្រកតាម VPN</string>
   <string name="preference_notifications_with_sound_title">សំឡេង</string>
   <string name="preference_notifications_with_sound_summary">ចាក់សំឡេងពេលស្ថានភាពការតភ្ជាប់ផ្លាស់ប្តូរ</string>

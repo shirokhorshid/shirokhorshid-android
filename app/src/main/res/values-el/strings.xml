@@ -39,8 +39,27 @@
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Η πόλη σας, η χώρα σας, ο ISP σας και προαιρετικά, η κατά προσέγγιση τοποθεσία σας. Η πόλη, η χώρα και ο ISP προέρχονται από τη διεύθυνση IP από την οποία συνδέεστε στους διακομιστές μας, και η ίδια η διεύθυνση IP δεν καταγράφεται ποτέ. Αυτά τα δεδομένα συλλέγονται για στατιστικά χρήσης και απόδοσης και σκοπούς υγείας υπηρεσίας.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Το email σας, όταν μας στέλνετε διαγνωστικά ή αναφορές σφαλμάτων. Η παροχή email στα σχόλια είναι προαιρετική.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Το όνομα χρήστη του λογαριασμού PsiCash σας, τον κωδικό πρόσβασης και προαιρετικά, το email.</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">Ειδοποιήσεις %s</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">Το %s χρησιμοποιεί ειδοποιήσεις για να σας παρέχει σημαντικές πληροφορίες όταν η εφαρμογή είναι στο παρασκήνιο. Αυτό περιλαμβάνει:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Αλλαγές στην κατάσταση σύνδεσης VPN σας.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Προβλήματα με τη σύνδεσή σας.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Αναφορές σφαλμάτων.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Ειδοποιήσεις MalAware.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Διαθέσιμες νέες εκδόσεις εφαρμογής.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Μπορείτε να απενεργοποιήσετε τις ειδοποιήσεις στις ρυθμίσεις της εφαρμογής οποιαδήποτε στιγμή.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -49,14 +68,6 @@
   <string name="close_alert_title">Κλείσιμο</string>
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->
@@ -78,6 +89,7 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
   <!--Approximate location permission rationale alert title.-->

@@ -12,7 +12,9 @@
   <string name="psiphon_service_notification_id">Notifica Servizio Psiphon</string>
   <string name="psiphon_service_notification_channel_name">Modifiche Stato Psiphon </string>
   <string name="psiphon_upgrade_notification_channel_name">Aggiornamento Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Avvisi Server Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Crash Psiphon</string>
   <string name="vpn_service_running">Servizio VPN in esecuzione</string>
   <string name="vpn_service_revoked">Servizio VPN revocato</string>
   <string name="current_network_type">Rete attuale: %s</string>
@@ -71,6 +73,7 @@
   <string name="region_name_is">Islanda</string>
   <string name="region_name_ie">Irlanda</string>
   <string name="region_name_ke">Kenya</string>
+  <string name="region_name_kr">Corea</string>
   <string name="region_name_lt">Lituania</string>
   <string name="region_name_lv">Lettonia</string>
   <string name="region_name_mx">Messico</string>
@@ -87,6 +90,7 @@
   <string name="about">Informazioni su Psiphon</string>
   <string name="feedback">Feedback</string>
   <string name="disableTimeoutsPreferenceSummary">Disattiva timeout per reti lente</string>
+  <string name="region_selector">Seleziona regione server</string>
   <string name="network_proxy_connect_invalid_values">Impostazioni proxy HTTP non valide</string>
   <string name="tunnel_whole_device_exception">Il tuo dispositivo non supporta l\'opzione Tunnel Whole Device a causa di API VpnService mancante.</string>
   <string name="preference_notifications_title">Notifiche</string>
@@ -110,10 +114,33 @@
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">App selezionate</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d app sarà instradata tramite VPN</item>
+    <item quantity="many">%d app saranno instradata tramite VPN</item>
+    <item quantity="other">%d app saranno instradata tramite VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d app sarà esclusa dalla VPN</item>
+    <item quantity="many">%d app saranno escluse dalla VPN</item>
+    <item quantity="other">%d app saranno escluse dalla VPN</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Tunneling di tutte le app</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Tunneling %d app</item>
+    <item quantity="many">Tunneling %d app</item>
+    <item quantity="other">Tunneling %d app</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d app esclusa dal tunnel</item>
+    <item quantity="many">%d app escluse dal tunnel</item>
+    <item quantity="other">%d app escluse dal tunnel</item>
+  </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Alcune app Psiphon sono automaticamente escluse dal routing VPN per garantire il corretto funzionamento. Queste esclusioni non possono essere modificate.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Tutto il traffico sarà instradato via VPN</string>
   <string name="preference_notifications_with_sound_title">Suona</string>
   <string name="preference_notifications_with_sound_summary">Suona quando cambia lo stato della connessione</string>
@@ -139,11 +166,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Errore proxy di transito: %s</string>
   <string name="start_tunnel_failed">Avvio Tunnel fallito: %s</string>
+  <string name="vpn_exclusions_conflict">Ci sono una o più applicazioni in conflitto nelle tue esclusioni VPN attuali. Vai alle impostazioni VPN e passa alla modalità \'Tunnel tutte le app\' per connetterti.</string>
   <string name="tunnel_connecting">Connessione Tunnel in corso...</string>
   <string name="tunnel_connected">Tunnel connesso</string>
   <string name="waiting">In attesa...</string>
+  <string name="label_vpn_settings">Impostazioni VPN</string>
+  <string name="label_proxy_settings">Impostazioni proxy</string>
   <string name="preference_summary_no_proxy">Nessun proxy</string>
+  <string name="preference_summary_custom_proxy">Proxy personalizzato</string>
+  <string name="preference_summary_system_proxy">Proxy di sistema</string>
   <string name="disableTimeoutsPreferenceTitle">Disattiva timeout</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Solo Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Mostra avvisi MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Ricevi notifiche quando Psiphon rileva traffico malware proveniente dal tuo dispositivo.</string>
+  <string name="aboutMalAware">Informazioni su MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Abilita Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Usa NFC per condividere i dati di connessione Psiphon con altri dispositivi.</string>
 </resources>

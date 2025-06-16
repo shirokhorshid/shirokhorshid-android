@@ -3,14 +3,18 @@
   <string name="socks_running">SOCKS - em execução na porta %d</string>
   <string name="http_proxy_running">Proxy HTTP em execução na porta %d</string>
   <string name="client_version">Versão do Cliente - %s</string>
-  <string name="starting_tunnel">A iniciar \'tunnel\' ...</string>
-  <string name="stopping_tunnel">A parar \'tunnel\' ...</string>
-  <string name="stopped_tunnel">\'Tunnel\' parado</string>
-  <string name="waiting_for_network_connectivity">A aguardar por conexão à rede ...</string>
-  <string name="psiphon_service_notification_message_connecting">A conetar ...</string>
+  <string name="starting_tunnel">A iniciar túnel...</string>
+  <string name="stopping_tunnel">A parar túnel ...</string>
+  <string name="stopped_tunnel">Túnel parado</string>
+  <string name="socks_port_in_use">A porta proxy SOCKS local solicitada%d  já está a ser utilizada por outra aplicação. Não é possível continuar. </string>
+  <string name="waiting_for_network_connectivity">A aguardar ligação à rede ...</string>
+  <string name="psiphon_service_notification_message_connecting">A ligar ...</string>
   <string name="psiphon_service_notification_id">Notificação do Serviço do Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Alterações de estado do Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Atualização do Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Alertas de servidor Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon Crashes</string>
   <string name="vpn_service_running">Serviço VPN em execução</string>
   <string name="vpn_service_revoked">Serviços VPN revogado</string>
   <string name="current_network_type">Rede atual: %s</string>
@@ -18,17 +22,20 @@
   <string name="UpgradeManager.UpgradePromptTitle">Atualização do Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptMessage">Está disponível uma atualização do Psiphon para ser instalada.</string>
-  <string name="connected_elapsed_time">Conetado: %s</string>
-  <string name="disconnected">Desconetado</string>
+  <string name="connected_elapsed_time">Ligado: %s</string>
+  <string name="disconnected">Desligado</string>
   <string name="label_sent">Enviado</string>
   <string name="label_received">Recebido</string>
   <string name="start">Iniciar</string>
   <string name="stop">Parar</string>
-  <string name="home_tab_name">Início</string>
+  <string name="home_tab_name">Página inicial</string>
   <string name="settings_tab_name">Opções</string>
-  <string name="statistics_tab_name">Estados</string>
-  <string name="logs_tab_name">Registo de Eventos</string>
-  <string name="custom_proxy_settings_host">Endereço do Hospedeiro</string>
+  <string name="statistics_tab_name">Estatísticas</string>
+  <string name="logs_tab_name">Registo </string>
+  <string name="use_proxy_settings_toggle">Ligar através de um proxy HTTP</string>
+  <string name="use_system_proxy_settings_radio">Utilizar as definições de rede do sistema</string>
+  <string name="use_custom_proxy_settings_radio">Utilize as definições seguintes:</string>
+  <string name="custom_proxy_settings_host">Endereço do anfitrião</string>
   <string name="custom_proxy_settings_port">Porta</string>
   <string name="region_name_any">Melhor desempenho</string>
   <string name="region_name_us">Estados Unidos da América</string>
@@ -53,27 +60,62 @@
   <string name="region_name_no">Noruega</string>
   <string name="region_name_ro">Roménia</string>
   <string name="region_name_se">Suécia</string>
+  <string name="region_name_pl">Polónia</string>
+  <string name="region_name_rs">Eslováquia</string>
+  <string name="region_name_au">Austrália</string>
+  <string name="region_name_ae">Emirados Árabes Unidos</string>
+  <string name="region_name_ar">Argentina</string>
   <string name="region_name_br">Brasil</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Estónia</string>
+  <string name="region_name_fi">Finlândia</string>
+  <string name="region_name_is">Islândia</string>
   <string name="region_name_ie">Irlanda</string>
+  <string name="region_name_ke">Quénia</string>
+  <string name="region_name_kr">Coreia</string>
+  <string name="region_name_lt">Lituânia</string>
+  <string name="region_name_lv">Letónia</string>
+  <string name="region_name_mx">México</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">África do Sul</string>
+  <string name="region_name_id">Indonésia</string>
+  <string name="region_name_nz">Nova Zelândia</string>
+  <string name="region_name_gr">Grécia</string>
+  <string name="region_name_ua">Ucrânia</string>
+  <string name="region_name_pt">Portugal</string>
+  <string name="region_name_hr">Croácia</string>
+  <string name="region_name_co">Colômbia</string>
+  <string name="region_name_my">Malásia</string>
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentário</string>
-  <string name="disableTimeoutsPreferenceSummary">Desativar \'expiração\' para redes lentas</string>
+  <string name="disableTimeoutsPreferenceSummary">Desativar os tempos limite para redes lentas</string>
+  <string name="region_selector">Selecionar a região do servidor</string>
+  <string name="network_proxy_connect_invalid_values">Definições de proxy HTTP inválidas</string>
+  <string name="tunnel_whole_device_exception">O seu dispositivo não suporta a opção túnel para todo o dispositivo devido à ausência da API VpnService.</string>
   <string name="preference_notifications_title">Notificações</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Túnel de todas as aplicações</string>
   <!--Title for selecting apps to be tunneled-->
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Só túneis de aplicações selecionadas</string>
   <!--Title for selecting apps to be excluded-->
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Não criar túneis em aplicações selecionadas </string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">A fazer túnel da aplicação: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Aplicação excluída do túnel:%s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Nenhuma aplicação foi excluída do túnel</string>
   <!--Title for option to select apps for routing changes-->
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Colocar todas as aplicações em túnel</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Reproduzir um som quando o estado da ligação é alterado</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>

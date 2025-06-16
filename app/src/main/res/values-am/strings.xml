@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን) መጀመር አልቻለም።</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ምናባዊ የግል አውታረ መረብ (ቪፒኤን)ኡን ማስጀመር አልቻለም። ከአንድ በላይ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) በአንድ ግዜ መሄድ አይችልም። ሌላ ምናባዊ የግል አውታረ መረብ (ቪፒኤን) የተጫነ እና ሁሌም የበራ ሁነታ ወስጥ መሆን አለመሆኑን ያረጋግጡ።</string>
   <string name="selected_region_currently_not_available">የተመረጠው ቀጠና ለጊዜው አይገኝም ፣  እባክዎትን ሌላ ቀጠና ይምረጡ።</string>
+  <string name="ads_consent_preference_category_title">ማስታወቂያን ግላዊነት ማላበስ</string>
+  <string name="ads_consent_preference_dialog_preference_message">የማስታወቂያ ግላዊነት ማላበስ ምርጫዎን ዳግም ማቀናበር እውን ይፈልጋሉ?</string>
+  <string name="ads_consent_preference_title">የማስታወቂያ ግላዊነት ማላበስ ምርጫን ዳግም አቀናብር</string>
+  <string name="ads_consent_preference_dialog_title">ዳግም አስጀምሩ </string>
+  <string name="ads_consent_preference_summary">የማስታወቂያ አውታረመረቦች ኩኪሶችን እና የግል ውሂቦትን እንዲጠቀሙ ምርጫዎትን ዳግም ያቀናብሩ</string>
   <string name="preference_language_selection_summary">ቋንቋውን ይምረጡ</string>
   <string name="preference_language_selection_title">ቋንቋ</string>
   <string name="preference_language_title">የቋንቋ መረጣ</string>
@@ -45,25 +50,61 @@
   <string name="vpn_always_on_preference_not_available_summary">Android (አንድሮይድ) 7.0 ወይም ከዚያ በላይ ይጠይቃል</string>
   <string name="vpn_exclusions_tip_summary">አንድ አሳሽ ብቻ ይምረጡ ለዘመን አይሽሬ አሳሽ ሁነታ</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">የመጎዳት አቅም ያለው ስራ ተገኝቷል! ተጨማሪ ለማወቅ ይጫኑ።</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon በኢንተርኔት ላይ የመጎዳት አቅም ያላቸውን ድር ጣቢያዎች ለይቶ እና ዘግቷል። ተጨማሪ ለማወቅ የሚከተሉትን አገናኞች ይከተሉ።\n\nየተገኘ መጎዳት:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon በኢንተርኔት ላይ የመጎዳት አቅም ያላቸውን ድር ጣቢያዎች በራስ-ሰር ይዘጋል። ይህ ሲከሰት ማሳወቂያ መቀበል ይፈልጋሉ?\n\nይህ ቅንብር በኋላ በተጨማሪ አማራጮች ውስጥ ሊቀየር ይችላል።</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">ስለ MalAware ተጨማሪ እዚህ ይመለከቱ:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">የላይኛ ወኪል ስህተት</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">እባክዎን Psiphonን ይክፈቱና የወኪል ቅንብሮችን ይመርምሩ።</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">የወኪል ስህተት</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Psiphonን የላይኛ ወኪል እንዲጠቀም አዋቅረውታል። ነገር ግን በዚህ ወኪል በኩል ከ Psiphon አገልጋይ ጋር መገናኘት አልቻልንም።\n\nእባክዎን ቅንብሮቹን ያስተካክሉና እንደገና ይሞክሩ።\n\nቴክኒካል መረጃ ለማግኘት ምዝገባዎችን ይመልከቱ።</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon ተበላሽቷል</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">እባክዎን ግብረመልስ ይላኩልን።</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">እባክዎን ይህንን ማሳወቂያ ይጫኑና ግብረመልስ ይላኩልን። ይህ ችግሩን እንድንረዳና በፈጣንነት እንድናስተካክለው ይረዳናል።</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">እቀበላለሁ</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">የመረጃ ሰብሳቢነት ይፋ ማድረግ</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s ያለማረፋት የኢንተርኔት ይዘት ለማግኘት የAndroid VPN አገልግሎትን ይጠቀማል። የሚከተሉትን መረጃዎች እንሰበስባለን፣ እናጠቃልላለን እና እናከማቻለን:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">የእርስዎ ከተማ፣ ሀገር፣ ኢንተርኔት አገልግሎት ሰጪና በምርጫ ግምታዊ ቦታ። ከተማ፣ ሀገር እና ኢንተርኔት አገልግሎት ሰጪ በአገልጋዮቻችን ለመገናኘት ከሚጠቀሙት IP አድራሻ የተወሰዱ ናቸው፣ እና IP አድራሻው ራሱ በፍጹም አይመዘገብም። ይህ መረጃ ለአጠቃቀምና አፈጻጸም ስታቲስቲክስ እና የአገልግሎት ጤና ዓላማዎች ተሰብስቧል።</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">የእርስዎ ኢሜይል፣ የሳይካሎጂክ ወይም የመበላሸት ምዝገባ ግብረመልስ ሲልኩልን። በግብረመልስ ውስጥ ኢሜይል መስጠት በምርጫ ነው።</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">የPsiCash መለያዎ የተጠቃሚ ስም፣ የመተላለፊያ ቃል፣ እና በምርጫ ኢሜይል።</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s ማሳወቂያዎች</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s ትግበራው በበራ ሁኔታ ሲሆን አስፈላጊ መረጃ ለመስጠት ማሳወቂያዎችን ይጠቀማል። ይህ የሚያካትተው:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">በVPN ተገናኝነት ሁኔታዎ ላይ ለውጦች።</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">በተገናኝነትዎ ላይ ችግሮች።</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">የመበላሸት ሪፖርቶች።</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware ማስጠንቀቂያዎች።</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">አዲስ የመተግበሪያ ዝርጋታዎች አሉ።</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">በማንኛውም ጊዜ በመተግበሪያ ቅንብሮች ማሳወቂያዎችን ማሰናከል ይችላሉ።</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -72,23 +113,24 @@
   <string name="close_alert_title">ዝጋ</string>
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">እባክዎን በቅንብሮች ውስጥ NFCን ያንቁ</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">ከሌላው መሳሪያ ጋር መገናኘት ተሳንቷል። እባክዎን በሌላው መሳሪያ ላይ Psiphon ተከፍቶና ተገናኝቶ መሆኑን ያረጋግጡና እንደገና ይሞክሩ።</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">ከሌላው መሳሪያ ጋር NFC መስተጋብር እየተጠበቀ…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">የተገናኝነት መረጃ በሚገባ ተለዋውጧል!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">ከሌላው መሳሪያ ጋር መገናኘት ተሳንቷል። እባክዎን እንደገና ይሞክሩ።</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">መሳሪያው በጣም በፍጥነት ተንቀሳቅሷል፣ ተገናኝነት ጠፋ። እባክዎን እንደገና ይሞክሩ።</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">ያልተደገፈ NFC ምልክት ተገኝቷል። በሌላው መሳሪያ ላይ Psiphon ተከፍቶና ተገናኝቶ ነውን?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">መረጃ እየተነበበ…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">የመገናኘት እርዳታ አግኝ</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">እገዛ</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -98,12 +140,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">ተጠናቋል </string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">ከPsiphon አገልጋይ ጋር በመገናኘት ችግር ካጋጠመዎት፣ በሚገባ የተገናኘ ጓደኛ ይፈልጉና NFCን ተጠቅመው የተገናኝነት መረጃውን ያጋሩ።</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Psiphon ተከፍቶና ተገናኝቶ መሆኑንና በሌላው መሳሪያ ላይ Psiphon Bump አዶው በመተግበሪያ አሞሌ ላይ እየታየ መሆኑን ያረጋግጡ።</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">በመሳሪያዎ ላይ Psiphon Bump ንግግር ተከፍቶና በሌላው መሳሪያ ላይ Psiphon መተግበሪያ ተከፍቶና ተገናኝቶ ሲሆን፣ የተገናኝነት መረጃ ውሂብ ለውጥ ለማስጀመር መሳሪያዎቹን ጀርባ ለጀርባ ያድርጉዋቸው።</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">የተገናኝነት መረጃ ውሂብ ለውጥ ሲጠናቀቅና የPsiphon መተግበሪያዎ መገናኘት ሲችል፣ Psiphon Bump ንግግሩ በራስ-ሰር ይዘጋል። አሁንም መገናኘት ካልቻሉ፣ Psiphon በሚገባ እስከተገናኘ ድረስ እንደገና መሞከር ይችላሉ።</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump የእርዳታ ሁነታን ለማንቃት እባክዎን በሲስተም ቅንብሮች ውስጥ NFCን ያብሩ።</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">ቅንብሮችን ክፈት</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">ግምታዊ ቦታ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">እባክዎን %s የመሳሪያዎን ግምታዊ ቦታ እንዲደርስ ፍቀዱ። የቦታ መረጃ ግምትዎ የPsiphon አውታረ መረብን ለማሻሻል ይጠቅማል፣ እና ወደ 3 ካሬ ኪሎሜትሮች ያክል ትክክለኛ ነው።</string>
 </resources>

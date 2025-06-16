@@ -1,76 +1,135 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="banner_desc">faixa do patrocinador; clique para visitar a página principal do patrocinador</string>
-  <string name="open_browser">Abrir Navegador</string>
-  <string name="FeedbackActivity.DefaultText">Se tiver comentários especificos, mais informação sobre os sites da web que não funcionam, ou se este formulário não funcionar para si, por favor, envie um e-mail para &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
-  <string name="FeedbackActivity.Success">Obrigado por submeter o seu comentário</string>
-  <string name="FeedbackActivity.Failure">Falhou o envio do comentário. Por favor, tente de novo.</string>
-  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN parou</string>
-  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN não consegue iniciar</string>
+  <string name="open_browser">Abra o navegador</string>
+  <string name="FeedbackActivity.DefaultText">Se tiver comentários específicos, mais informações sobre os sítios da web que não funcionam, ou se este formulário não funcionar para si, envie um e-mail para &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.Success">Obrigado por enviar o seu comentário</string>
+  <string name="FeedbackActivity.Failure">Falha no envio do comentário. Tente novamente.</string>
+  <string name="StatusActivity.VpnRevokedTitle">A Psiphon VPN parou</string>
+  <string name="StatusActivity.VpnRevokedMessage">A VPN do Psiphon foi desligada por si ou por outra aplicação. Não é possível executar várias aplicações VPN ao mesmo tempo. Verifique se outra aplicação VPN está instalada e em execução.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">A Psiphon VPN não consegue iniciar</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">O Psiphon não consegue iniciar a VPN. Não é possível executar várias aplicações VPN ao mesmo tempo. Verifique se está instalada outra aplicação VPN e se está definida como Sempre ativa.</string>
+  <string name="selected_region_currently_not_available">A região selecionada não está disponível atualmente, selecione outra região.</string>
+  <string name="ads_consent_preference_dialog_title">Repor</string>
+  <string name="preference_language_selection_summary">Selecione o idioma</string>
   <string name="preference_language_selection_title">Idioma</string>
+  <string name="preference_language_title">Seleção do idioma</string>
   <string name="preference_language_default_language">Idioma predefinido</string>
   <string name="preference_category_advanced_title">Avançado</string>
   <string name="preference_category_info_title">Informação</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
   <string name="preference_navigate_to_vpn_setting_title">VPN - Sempre ligada</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Vá às definições do sistema para ativar a opção VPN - sempre ligada</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Não</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">Sim</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Ação necessária!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Abra o Psiphon para concluir a ligação.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">A região selecionada não está disponível</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Abra o Psiphon e selecione outra região</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon VPN parou</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">A Psiphon VPN foi desligada por si ou por outra aplicação.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">ícone da aplicação</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">A definição da VPN é inválida</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Neste modo é necessário ter, pelo menos, uma aplicação selecionada!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Tem de ter, pelo menos, uma aplicação selecionada neste modo!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Requer Android 5.0 ou superior</string>
+  <string name="vpn_always_on_preference_not_available_summary">Requer Android 7.0 ou superior</string>
+  <string name="vpn_exclusions_tip_summary">Selecione apenas um navegador para o modo clássico só de navegador</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Tráfego de malware detetado! Clique para saber mais.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">O Psiphon detetou e bloqueou o acesso a sites potencialmente maliciosos na Internet. Siga os links abaixo para saber mais.\n\nMalware detectado:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">O Psiphon bloqueia automaticamente o acesso a sites potencialmente maliciosos na Internet. Gostaria de ser notificado quando isso acontecer? Esta definição pode ser alterada mais tarde em Mais opções.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Saiba mais sobre o MalAware aqui:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Erro de proxy de upstream</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Abra o Psiphon e verifique as definições de proxy.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Erro de proxy</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Configurou o Psiphon para usar um proxy upstream. No entanto, parece que não conseguimos ligar-nos a um servidor Psiphon através desse proxy.\n\nCorrija as configurações e tente novamente.\n\nVeja os logs para obter informações técnicas.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon Crashed</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Envie-nos os seus comentários</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Clique nesta notificação para nos enviar comentários. Isto ajudar-nos-á a compreender o problema para que o possamos resolver mais rapidamente.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Aceito</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Divulgação da recolha de dados</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%sUtiliza o serviço Android VPN para lhe fornecer acesso não censurado a conteúdos da Internet. Recolhemos, agregamos e armazenamos as seguintes informações:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">A sua cidade, país, ISP e, opcionalmente, localização aproximada. A cidade, o país e o ISP são derivados do endereço IP a partir do qual se liga aos nossos servidores, e o endereço IP em si nunca é registado. Estes dados são recolhidos para efeitos de estatísticas de utilização e desempenho e de saúde do serviço.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">O seu e-mail, quando nos envia um comentário de diagnóstico ou de registo de falhas. O fornecimento do e-mail no comentário é opcional.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">O nome de utilizador, a palavra-passe e, opcionalmente, o e-mail da sua conta PsiCash.</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s Notificações</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s utiliza notificações para lhe fornecer informações importantes quando a aplicação está em segundo plano. Isto inclui:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Alterações ao estado da sua ligação VPN.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Problemas sobre a sua ligação.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Relatórios de crash</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">alertas de MalAware</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Novas versões da aplicação disponíveis.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Pode desativar as notificações nas definições da aplicação em qualquer altura.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Aguarde enquanto o  Psiphon se está a ligar</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Fechar</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">Fechar</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Pretende fechar esta janela agora?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
+  <string name="pxe_submit_thank_you">Obrigado pela participação</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Ative NFC nas definições</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Erro de comunicação com o outro dispositivo. Verifique se o Psiphon está aberto e ligado no outro dispositivo e tente novamente.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">À espera da interação NFC com o outro dispositivo...</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Informação de ligação trocada com sucesso!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Erro ao comunicar com o outro dispositivo. Tente novamente.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">O dispositivo moveu-se demasiado depressa, a ligação perdeu-se. Tente novamente.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Etiqueta NFC não suportada descoberta. O Psiphon está aberto e ligado no outro dispositivo?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">A ler os dados...</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Obter ajuda para estabelecer uma ligação</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Ajuda</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -80,12 +139,22 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Concluído</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Se estiver a ter problemas em ligar-se a um servidor Psiphon, encontre um amigo, que se tenha ligado com sucesso e partilhe as informações de ligação dele, utilizando NFC. </string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Certifique-se de que o Psiphon está aberto e ligado e de que o ícone do Psiphon Bump é apresentado na barra de aplicações do outro dispositivo. </string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">
+Com a caixa de diálogo do Psiphon Bump aberta no seu dispositivo e a aplicação Psiphon aberta e ligada no outro dispositivo, coloque os seus dispositivos frente a frente para iniciar uma transferência de dados de informação de ligação. </string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Quando a transferência de dados da informação de ligação estiver concluída e a aplicação Psiphon conseguir estabelecer a ligação, a caixa de diálogo do Psiphon Bump fecha-se automaticamente. Se continuar a não conseguir ligar, pode tentar novamente até que o Psiphon se ligue com sucesso.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Ativar o NFC nas definições do sistema para ativar o modo auxiliar do Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Abra as definições</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Localização aproximada</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Autorize%s a aceder à localização aproximada do seu dispositivo. A estimativa dos seus dados de localização é utilizada para otimizar a rede Psiphon e tem uma precisão de cerca de 3 quilómetros quadrados.</string>
 </resources>

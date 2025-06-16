@@ -131,6 +131,8 @@
   <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
     <item quantity="other">%d 應用軟體不使用隧道</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">某些 Psiphon 應用程式會自動從 VPN 路由中排除，以確保正常功能。這些排除無法修改。</string>
   <string name="preference_routing_all_apps_tunnel_summary">全部應用將通過 VPN 隧道 </string>
   <string name="preference_notifications_with_sound_title">聲音</string>
   <string name="preference_notifications_with_sound_summary">當連接狀態改變時發出聲音</string>

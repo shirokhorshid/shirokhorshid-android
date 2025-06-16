@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN haiwezi kuanza</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon haiwezi kuanzisha VPN. Programu nyingi za VPN haziwezi kufanya kazi kwa wakati mmoja. Angalia ikiwa programu nyingine ya VPN imesakinishwa na imewashwa muda wote</string>
   <string name="selected_region_currently_not_available">Eneo lililochaguliwa halipatikani kwa sasa, tafadhali chagua eneo lingine.</string>
+  <string name="ads_consent_preference_category_title">Matangazo ya mtu mmoja</string>
+  <string name="ads_consent_preference_dialog_preference_message">Ni kweli unataka kufanya mpangilio wa matakwa ya mtumiaji</string>
+  <string name="ads_consent_preference_title">Pangilia upya kwa pendekezo la mtumiaji</string>
+  <string name="ads_consent_preference_dialog_title">Weka upya</string>
+  <string name="ads_consent_preference_summary">Set upya uteuzi wako kuruhusu mtandao wa matangazo kutumia kuki na taarifa zako binafsi</string>
   <string name="preference_language_selection_summary">Chagua lugha</string>
   <string name="preference_language_selection_title">Lugha</string>
   <string name="preference_language_title">Kuchagua lugha</string>
@@ -84,17 +89,6 @@
   <string name="vpn_data_collection_disclosure_bp2">Barua pepe yako, unapotoa maoni ya uchunguzi au taarifa ya kukwama kwa programu. Kutoa barua pepe ni hiari wakati wa kutoa maoni.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp3">Jina la mtumiaji wa akaunti yako ya PsiCash, nenosiri, na kwa hiari, barua pepe.</string>
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <string name="pxe_web_wait_tunnel_connecting">Tafadhali subiri wakati Psiphon inapounganisha.</string>
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Funga</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Funga</string>
-  <!--Generic 'close' alert prompt message-->
-  <string name="close_alert_message">Je, ungependa kufunga dirisha hili sasa?</string>
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">Asante kwa kushiriki!</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="notifications_permission_rationale_title">Arifa</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
@@ -111,6 +105,17 @@
   <string name="notifications_permission_rationale_upgrade_available_bp">Matoleo mapya ya programu yanapatikana.</string>
   <!--Notifications permission rationale last sentence-->
   <string name="notifications_permission_rationale_disable_any_time">Unaweza kuzima arifa katika mipangilio ya programu wakati wowote.</string>
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Tafadhali subiri wakati Psiphon inapounganisha.</string>
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Funga</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Funga</string>
+  <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Je, ungependa kufunga dirisha hili sasa?</string>
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Asante kwa kushiriki!</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">Tafadhali washa NFC katika mipangilio</string>
   <!--NFC connection data exchange error message-->

@@ -60,8 +60,10 @@
   <string name="about">Psiphon туралы</string>
   <string name="feedback">Кері байланыс</string>
   <string name="disableTimeoutsPreferenceSummary">Баяу желілер үшін таймауттарды ажырату</string>
+  <string name="region_selector">Сервер аймағын таңдау</string>
   <string name="network_proxy_connect_invalid_values">HTTP прокси параметрлері жарамсыз</string>
   <string name="preference_notifications_title">Хабарламалар</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
   <!--Description of option to tunnel only selected apps-->
@@ -76,6 +78,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">Дыбыс</string>
   <string name="preference_notifications_with_sound_summary">Қосылым күйі өзгерген кезде дыбысты ойнату</string>
   <string name="preference_notifications_with_vibrate_title">Дірілдеу</string>

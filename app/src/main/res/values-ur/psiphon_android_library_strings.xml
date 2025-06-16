@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">نیٹ ورک منسلک ہونے کا انتظار کرے۔۔۔</string>
   <string name="psiphon_service_notification_message_connecting">رابطہ ہو رہا ہے۔۔۔</string>
   <string name="psiphon_service_notification_id">Psiphon (سائفن) سروس کی اطلاع</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon اسٹیٹس کی تبدیلیاں</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon (سائفن) اپ گریڈ ہو گیا</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon سرور الرٹس</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon کریش</string>
   <string name="vpn_service_running">VPN سروس چل رہی ہے</string>
   <string name="vpn_service_revoked">VPN سروس منسوخ کر دی گئی</string>
   <string name="current_network_type">موجودہ نیٹ ورک: %s</string>
@@ -59,30 +62,82 @@
   <string name="region_name_se">سویڈن</string>
   <string name="region_name_pl">پولینڈ</string>
   <string name="region_name_sk">سلوواکیہ</string>
+  <string name="region_name_rs">سربیا</string>
+  <string name="region_name_au">آسٹریلیا</string>
+  <string name="region_name_ae">متحدہ عرب امارات</string>
+  <string name="region_name_ar">ارجنٹائن</string>
+  <string name="region_name_br">برازیل</string>
+  <string name="region_name_cl">چلی</string>
+  <string name="region_name_ee">اسٹونیا</string>
+  <string name="region_name_fi">فن لینڈ</string>
+  <string name="region_name_is">آئس لینڈ</string>
+  <string name="region_name_ie">آئرلینڈ</string>
+  <string name="region_name_ke">کینیا</string>
+  <string name="region_name_kr">کوریا</string>
+  <string name="region_name_lt">لتھوانیا</string>
+  <string name="region_name_lv">لیٹویا</string>
+  <string name="region_name_mx">میکسیکو</string>
+  <string name="region_name_tw">تائیوان</string>
+  <string name="region_name_za">جنوبی افریقہ</string>
+  <string name="region_name_id">انڈونیشیا</string>
+  <string name="region_name_nz">نیوزی لینڈ</string>
+  <string name="region_name_gr">یونان</string>
+  <string name="region_name_ua">یوکرین</string>
+  <string name="region_name_pt">پرتگال</string>
+  <string name="region_name_hr">کرویشیا</string>
+  <string name="region_name_co">کولمبیا</string>
+  <string name="region_name_my">ملائیشیا</string>
   <string name="about">Psiphon (سائفن) سے متعلق</string>
   <string name="feedback">آراؑ</string>
   <string name="disableTimeoutsPreferenceSummary">سست نیٹ ورکس کے ٹائم آؤٹ کو غیر فعال کریں</string>
+  <string name="region_selector">سرور ریجن کا انتخاب کریں</string>
   <string name="network_proxy_connect_invalid_values">سسٹم پراکسی کی ترتیبات غلط ہے</string>
   <string name="tunnel_whole_device_exception">گمشدہ Vpnسروس API کی وجہ سے آپ کی ڈیوائس پوری ڈیوائس tunnel (ٹنل)  آپشن  نہیں چلا سکتا۔</string>
   <string name="preference_notifications_title">اطلاع کرنا</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">تمام ایپس کو ٹنل کریں</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">ایپس شامل کریں</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">صرف منتخب کردہ ایپس کو ٹنل کریں</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">ایپس کو خارج کریں</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">منتخب کردہ ایپس کو ٹنل نہ کریں</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">ٹنلنگ ایپ: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">ایپ کو ٹنل سے خارج نہیں کیا گیا: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">ٹنل سے کسی بھی ایپلیکشن کو خارج نہیں کیا گیا تھا</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">ایپس کا انتخاب کریں</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d ایپ کو VPN کے ذریعے ٹنل کیا جائے گا</item>
+    <item quantity="other">%d ایپس کو VPN کے ذریعے ٹنل کیا جائے گا</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d ایپ کو VPN سے خارج کیا جائے گا</item>
+    <item quantity="other">%d ایپس کو VPN سے خارج کیا جائے گا</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">تمام ایپس کو ٹنل کر رہا ہے</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d ایپ کو ٹنل کر رہا ہے</item>
+    <item quantity="other">%d ایپس کو ٹنل کر رہا ہے</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d ایپ کو ٹنل سے خارج کیا گیا</item>
+    <item quantity="other">%d ایپس کو ٹنل سے خارج کیا گیا</item>
+  </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">کچھ Psiphon ایپس کو مناسب فعالیت کو یقینی بنانے کے لیے VPN روٹنگ سے خودکار طور پر خارج کر دیا جاتا ہے۔ ان اخراجات کو تبدیل نہیں کیا جا سکتا۔</string>
+  <string name="preference_routing_all_apps_tunnel_summary">تمام ایپس کو VPN کے ذریعے ٹنل کیا جائے گا</string>
   <string name="preference_notifications_with_sound_title">آواز</string>
   <string name="preference_notifications_with_sound_summary"> آواز چلائیں جب کنکشن کی کیفیت بدل جاتی ہے </string>
   <string name="preference_notifications_with_vibrate_title">وائبریٹ</string>
@@ -107,9 +162,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">اپ سٹریم پراکسی ایرر: %s</string>
   <string name="start_tunnel_failed">Tunnel (ٹنل) کی ابتدا میں ناکامی: %s</string>
+  <string name="vpn_exclusions_conflict">آپ کے موجودہ VPN اخراجات میں ایک یا زیادہ متضاد ایپلیکیشنز ہیں۔ براہ کرم VPN سیٹنگز میں جائیں اور کنکٹ کرنے کے لیے \'تمام ایپس کو ٹنل کریں\' موڈ پر سوئچ کریں۔</string>
   <string name="tunnel_connecting">Tunnel (ٹنل) رابطہ ہو رہا ہے۔۔۔</string>
   <string name="tunnel_connected">Tunnel (ٹنل) رابطہ ہو گیا ہے</string>
   <string name="waiting">انتظار کیجئے۔۔۔</string>
+  <string name="label_vpn_settings">VPN سیٹنگز</string>
+  <string name="label_proxy_settings">پراکسی سیٹنگز</string>
+  <string name="preference_summary_no_proxy">کوئی پراکسی نہیں</string>
+  <string name="preference_summary_custom_proxy">کسٹم پراکسی</string>
+  <string name="preference_summary_system_proxy">سسٹم پراکسی</string>
+  <string name="disableTimeoutsPreferenceTitle">ٹائم آؤٹس کو غیر فعال کریں</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">صرف Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware الرٹس دکھائیں</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">جب Psiphon آپ کے ڈیوائس سے آنے والے میلویئر ٹریفک کا پتہ لگاتا ہے تو اطلاع حاصل کریں۔</string>
+  <string name="aboutMalAware">MalAware کے بارے میں</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump کو فعال کریں</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">دوسرے ڈیوائسز کے ساتھ Psiphon کنکشن ڈیٹا شیئر کرنے کے لیے NFC کا استعمال کریں۔</string>
 </resources>

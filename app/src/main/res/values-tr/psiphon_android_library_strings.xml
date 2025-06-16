@@ -135,6 +135,8 @@
     <item quantity="one">%d uygulama tünel kullanmayacak şekilde ayarlandı</item>
     <item quantity="other">%d uygulama tünel kullanmayacak şekilde ayarlandı</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Bazı Psiphon uygulamaları, düzgün çalışmaları için otomatik olarak VPN yöneltmesine katılmaz. Bu katılmayan uygulamalar değiştirilemez.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Tüm uygulamalar VPN tüneli kullanacak</string>
   <string name="preference_notifications_with_sound_title">Ses</string>
   <string name="preference_notifications_with_sound_summary">Bağlantı durumu değiştiğinde ses çıkarılsın</string>

@@ -5,8 +5,14 @@
   <string name="FeedbackActivity.DefaultText">Jos sinulla on jotain erityisiä kommentteja, lisätietoja webbisivuista, jotka eivät toimi, tai jos tämä lomake ei toimi sinulle, lähetä sähköpostiviesti &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;</string>
   <string name="FeedbackActivity.Success">Kiitoksia palautteesi lähettämisestä</string>
   <string name="FeedbackActivity.Failure">Lähetys epäonnistui. Yritä uudelleen.</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN on pysäytetty</string>
+  <string name="selected_region_currently_not_available">Valittu alue ei ole tällä hetkellä käytettävissä, valitse toinen alue.</string>
+  <string name="preference_language_selection_summary">Valitse kieli</string>
   <string name="preference_language_selection_title">Kieli</string>
+  <string name="preference_language_title">Kielen valinta</string>
+  <string name="preference_language_default_language">Oletuskieli</string>
   <string name="preference_category_advanced_title">Lisätiedot</string>
+  <string name="preference_category_info_title">Tiedot</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Valmis</string>
   <!--Generic negative button label.-->
@@ -14,17 +20,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">Kyllä</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Toimenpide vaaditaan!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Avaa Psiphon viimeistelläksesi yhteyden.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Valittu alue ei ole käytettävissä</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Avaa Psiphon ja valitse toinen alue.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN on pysäytetty</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN -yhteys on katkaistu sinun tai toisen sovelluksen toimesta.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Sovelluskuvake</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Haittaohjelmaliikenne havaittu! Klikkaa saadaksesi lisätietoja.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->
@@ -38,8 +55,27 @@
   <!--Data collection disclosure prompt title-->
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Kaupunkisi, maasi, ISP ja valinnaisesti likimääräinen sijaintisi. Kaupunki, maa ja ISP johdetaan IP-osoitteesta, josta muodostat yhteyden palvelimiimme, eikä itse IP-osoitetta koskaan tallenneta. Näitä tietoja kerätään käyttö- ja suorituskykytilastoja ja palvelun terveyttä varten.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Sähköpostiosoitteesi, kun lähetät meille diagnostiikka- tai kaatumislokin palautetta. Sähköpostin antaminen palautteessa on valinnaista.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">PsiCash-tilisi käyttäjätunnus, salasana ja valinnaisesti sähköposti.</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s Ilmoitukset</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s käyttää ilmoituksia tarjotakseen sinulle tärkeitä tietoja, kun sovellus on taustalla. Tämä sisältää:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Muutokset VPN-yhteytesi tilassa.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Ongelmat yhteydessäsi.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Kaatumisraportit.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware-hälytykset.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Uusia sovellusversioita saatavilla.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Voit poistaa ilmoitukset käytöstä sovelluksen asetuksista milloin tahansa.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -48,14 +84,6 @@
   <string name="close_alert_title">Sulje</string>
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->
@@ -68,6 +96,7 @@
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Opaste</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Ohita</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">Seuraava</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
@@ -77,6 +106,7 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
   <!--Approximate location permission rationale alert title.-->

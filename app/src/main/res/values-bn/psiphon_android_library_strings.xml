@@ -62,6 +62,7 @@
   <string name="about">সাইফন সম্পর্কে</string>
   <string name="feedback">প্রতিক্রিয়া</string>
   <string name="disableTimeoutsPreferenceSummary">ধীর গতির নেটওয়ার্কগুলির জন্য সময়সীমা অক্ষম করুন</string>
+  <string name="region_selector">সার্ভার অঞ্চল নির্বাচন করুন</string>
   <string name="network_proxy_connect_invalid_values">অবৈধ HTTP প্রক্সি সেটিংস</string>
   <string name="tunnel_whole_device_exception">আপনার ডিভাইস-এ অনুপস্থিত VpnService API এর কারণে এটি পুরো ডিভাইসের টানেল বিকল্পটি সমর্থন করে না</string>
   <string name="preference_notifications_title">প্রজ্ঞাপন</string>
@@ -83,6 +84,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">শব্দ</string>
   <string name="preference_notifications_with_sound_summary">সংযোগ স্থিতি পরিবর্তন হলে শব্দটি প্লে করুন</string>
   <string name="preference_notifications_with_vibrate_title">কম্পন</string>
@@ -112,5 +114,7 @@
   <string name="waiting">অপেক্ষা করা হচ্ছে ...</string>
   <string name="disableTimeoutsPreferenceTitle">সময়সীমা অক্ষম করুন</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump সক্ষম করুন</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">অন্যান্য ডিভাইসের সাথে Psiphon সংযোগ ডেটা ভাগ করতে NFC ব্যবহার করুন।</string>
 </resources>

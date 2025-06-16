@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon अपग्रेड </string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon सर्वर से जुडी सूचनाएँ</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon क्रैश</string>
   <string name="vpn_service_running">VPN सेवा चल रही है</string>
   <string name="vpn_service_revoked">VPN सेवा निरस्त कर दी गयी है</string>
   <string name="current_network_type">वर्तमान नेटवर्क: %s</string>
@@ -72,6 +73,7 @@
   <string name="region_name_is">आइसलैंड</string>
   <string name="region_name_ie">आयरलैंड</string>
   <string name="region_name_ke">केन्या</string>
+  <string name="region_name_kr">कोरिया</string>
   <string name="region_name_lt">लिथुआनिया</string>
   <string name="region_name_lv">लाटविया</string>
   <string name="region_name_mx">मेक्सिको</string>
@@ -133,6 +135,8 @@
     <item quantity="one">%d ऐप टनल में शामिल नहीं किया गया</item>
     <item quantity="other">%d ऐप्स टनल में शामिल नहीं किये गए </item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">उचित कार्यक्षमता सुनिश्चित करने के लिए कुछ Psiphon ऐप्स स्वचालित रूप से VPN रूटिंग से बाहर रखे गए हैं। इन बहिष्करणों को संशोधित नहीं किया जा सकता।</string>
   <string name="preference_routing_all_apps_tunnel_summary">सारे ऐप्स VPN के द्वारा टनल किये जायेंगे </string>
   <string name="preference_notifications_with_sound_title">ध्वनि</string>
   <string name="preference_notifications_with_sound_summary">कनेक्शन स्थिति बदलते समय ध्वनि चलाएं</string>
@@ -169,6 +173,11 @@
   <string name="preference_summary_system_proxy">सिस्टम प्रॉक्सी</string>
   <string name="disableTimeoutsPreferenceTitle">टाइमआउट अक्षम करें</string>
   <string name="downloadWiFiOnlyPreferenceTitle">सिर्फ Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware अलर्ट दिखाएं</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">जब Psiphon आपके डिवाइस से मैलवेयर ट्रैफिक का पता लगाए तो सूचित हों।</string>
+  <string name="aboutMalAware">MalAware के बारे में</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump सक्षम करें</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">अन्य डिवाइसों के साथ Psiphon कनेक्शन डेटा साझा करने के लिए NFC का उपयोग करें।</string>
 </resources>

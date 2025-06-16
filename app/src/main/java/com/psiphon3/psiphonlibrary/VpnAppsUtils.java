@@ -34,20 +34,20 @@ import com.psiphon3.R;
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class VpnAppsUtils {
-    // Map of apps to always exclude from VPN routing if supported, with their signature hashes
-    private static final Map<String, String> defaultExcludedAppsWithSignatures = Map.of(
-            "ca.psiphon.conduit", "48:8C:4B:47:90:2E:CB:48:04:7E:97:FF:FE:1F:19:C4:B0:0F:31:40:D2:E2:57:06:70:95:23:CF:FE:4D:C4:B3"
+    // Set of default excluded apps package names, these apps will always be excluded from VPN routing if their signature is verified
+    private static final Set<String> defaultExcludedApps = Set.of(
+            "ca.psiphon.conduit", // Conduit, must be listed in PackageHelper.TRUSTED_PACKAGES
+            "network.ryve.app" // Ryve, must be listed in PackageHelper.TRUSTED_PACKAGES
     );
-
-    // Map of apps to always include in VPN routing if supported, with their signature hashes
-    private static final Map<String, String> defaultIncludedAppsWithSignatures = Map.of();
+    // Set of default included apps package names, these apps will always be included in VPN routing if their signature is verified
+    private static final Set<String> defaultIncludedApps = Set.of(
+            // Any default included apps would go here and must be listed in PackageHelper.TRUSTED_PACKAGES
+    );
 
     public enum VpnAppsExclusionSetting {ALL_APPS, INCLUDE_APPS, EXCLUDE_APPS}
 
@@ -219,32 +219,11 @@ public class VpnAppsUtils {
 
     // Method to get default excluded apps without performing a signature check here
     public static Set<String> getDefaultAppsExcludedFromVpn() {
-        return new HashSet<>(defaultExcludedAppsWithSignatures.keySet()); // Return only package names
+        return defaultExcludedApps;
     }
 
     // Method to get default included apps without performing a signature check here
     public static Set<String> getDefaultAppsIncludedInVpn() {
-        return new HashSet<>(defaultIncludedAppsWithSignatures.keySet()); // Return only package names
-    }
-
-    // Method to get expected signature hash for a package
-    public static String getExpectedSignatureForPackage(String packageName) {
-        if (defaultExcludedAppsWithSignatures.containsKey(packageName)) {
-            return defaultExcludedAppsWithSignatures.get(packageName);
-        }
-        if (defaultIncludedAppsWithSignatures.containsKey(packageName)) {
-            return defaultIncludedAppsWithSignatures.get(packageName);
-        }
-        return null;
-    }
-
-    // Method to check if app is installed
-    public static boolean isAppInstalled(PackageManager packageManager, String packageName) {
-        try {
-            packageManager.getApplicationInfo(packageName, 0);
-            return true;
-        } catch (PackageManager.NameNotFoundException ignored) {
-            return false;
-        }
+        return defaultIncludedApps;
     }
 }

@@ -9,9 +9,14 @@
   <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN сіз немесе басқа қолданба тоқтатқан. Бірнеше VPN қолданбасы бір уақытта бірге жұмыс істей алмайды. Басқа VPN қолданбасы орнатылып, жұмыс істеп тұрғанын тексеріңіз.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN іске қосыла алмайды</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN іске қоса алмады. Бірнеше VPN қолданбасы бір уақытта бірге жұмыс істей алмайды. Басқа VPN қолданбасы орнатылып, әрқашан жұмыс істейтіндей етіп бапталғанын тексеріңіз.</string>
+  <string name="selected_region_currently_not_available">Таңдалған аймақ қазір қолжетімді емес, басқа аймақты таңдаңыз.</string>
+  <string name="ads_consent_preference_dialog_title">Қалпына келтіру</string>
+  <string name="preference_language_selection_summary">Тілді таңдау</string>
   <string name="preference_language_selection_title">Тіл</string>
+  <string name="preference_language_title">Тілді таңдау</string>
   <string name="preference_language_default_language">әдепкі бойынша тіл</string>
   <string name="preference_category_advanced_title">Кеңейтілген</string>
+  <string name="preference_category_info_title">Ақпарат</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ОК</string>
   <!--Generic negative button label.-->
@@ -19,18 +24,28 @@
   <!--Generic positive button label.-->
   <string name="lbl_yes">Иә</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Әрекет қажет!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Қосылуды аяқтау үшін Psiphon ашыңыз.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Таңдалған аймақ қолжетімді емес</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Psiphon ашып, басқа аймақты таңдаңыз.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon VPN тоқтатылды</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN сіз немесе басқа қолданбамен ажыратылды.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Қолданба белгішесі</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Зиянды бағдарламалық құрал анықталды! Көбірек білу үшін басыңыз.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <!--"Upstream proxy error" notification title-->
@@ -46,14 +61,6 @@
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
   <!--Data collection disclosure list item-->
-  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
-    Note: 'Psiphon' should not be translated or transliterated.-->
-  <!--Generic 'close' button label-->
-  <string name="close_btn_label">Жабу</string>
-  <!--Generic 'close' alert title-->
-  <string name="close_alert_title">Жабу</string>
-  <!--Generic 'close' alert prompt message-->
-  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <!--Notifications permission rationale list item-->
@@ -62,6 +69,14 @@
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
   <!--Notifications permission rationale list item-->
   <!--Notifications permission rationale last sentence-->
+  <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
+    Note: 'Psiphon' should not be translated or transliterated.-->
+  <!--Generic 'close' button label-->
+  <string name="close_btn_label">Жабу</string>
+  <!--Generic 'close' alert title-->
+  <string name="close_alert_title">Жабу</string>
+  <!--Generic 'close' alert prompt message-->
+  <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <!--NFC connection data exchange error message-->
   <!--NFC connection data exchange message when waiting for interaction with host device-->
@@ -74,6 +89,7 @@
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Көмек</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Өткізу</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">Келесі</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
@@ -83,6 +99,7 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <!--Button that opens NFC related system settings-->
   <!--Approximate location permission rationale alert title.-->

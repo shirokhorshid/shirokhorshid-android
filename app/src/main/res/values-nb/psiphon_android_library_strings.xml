@@ -61,6 +61,7 @@
   <string name="about">Om Psiphon</string>
   <string name="feedback">Tilbakemeldinger</string>
   <string name="disableTimeoutsPreferenceSummary">Skru av tidsavbrudd for trege nettverk</string>
+  <string name="region_selector">Velg serverregion</string>
   <string name="network_proxy_connect_invalid_values">Ugyldige innstillinger for HTTP-mellomtjener</string>
   <string name="tunnel_whole_device_exception">Enheten din støtter ikke hele-fjøla -tunnel-modus på grunn av manglende VpnService-API.</string>
   <string name="preference_notifications_title">Kunngjøringer</string>
@@ -82,6 +83,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">Lyd</string>
   <string name="preference_notifications_with_sound_summary">Avspill lyd når tilkoblingsstatus endres</string>
   <string name="preference_notifications_with_vibrate_title">Vibrer</string>

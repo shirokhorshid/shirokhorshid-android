@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon не запускаецца</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">VPN Psiphon не запускаецца. Адначасова не можа працаваць некалькі праграм VPN. Праверце, магчыма ў вас усталяваная або аўтаматычна запускаецца іншая праграма VPN. </string>
   <string name="selected_region_currently_not_available">Выбраны рэгіён часова не даступны. Выберыце іншы рэгіён.</string>
+  <string name="ads_consent_preference_category_title">Персаналізацыя рэкламы</string>
+  <string name="ads_consent_preference_dialog_preference_message">Сапраўды хочаце памяняць налады рэкламы?</string>
+  <string name="ads_consent_preference_title">Памяняць налады рэкламы</string>
+  <string name="ads_consent_preference_dialog_title">Абнуліць</string>
+  <string name="ads_consent_preference_summary">Памяняць налады і даць дазвол на выкарыстанне cookies і асабістых дадзеных рэкламным сеткам</string>
   <string name="preference_language_selection_summary">Выбраць мову</string>
   <string name="preference_language_selection_title">Мова</string>
   <string name="preference_language_title">Выбар мовы</string>
@@ -45,29 +50,64 @@
   <string name="vpn_always_on_preference_not_available_summary">Патрабуецца Android 7.0 ці наступныя версіі</string>
   <string name="vpn_exclusions_tip_summary">Для класічнага рэжыму (толькі браўзер) выберыце адзін браўзер</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Выяўлены трафік шкоднасных праграм! Націсніце, каб даведацца больш.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon выявіў і заблакаваў доступ да патэнцыйна шкоднасных сайтаў у Інтэрнэце. Калі ласка, перайдзіце па спасылках ніжэй, каб даведацца больш.\n\nВыяўленыя шкоднасныя праграмы:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon аўтаматычна блакуе доступ да патэнцыйна шкоднасных сайтаў у Інтэрнэце. Хочаце, каб мы паведамлялі вам, калі гэта адбываецца?\n\nГэтую налада можна змяніць пазней у Параметрах.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Даведайцеся больш пра MalAware тут:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Памылка вышэйшага проксі</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Калі ласка, адчыніце Psiphon і праверце налады проксі.</string>
   <!--"Upstream proxy error" alert dialog title-->
   <string name="upstream_proxy_error_alert_title">Памылка проксі</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Вы наладзілі Psiphon на выкарыстанне вышэйшага проксі. Аднак, здаецца, мы не можам падключыцца да проксі-сервера праз гэты проксі. Калі ласка, настройце правільныя налады проксі і паспрабуйце зноў.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon разбіўся</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Калі ласка, адпраўце нам водгук.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Калі ласка, націсніце гэтае паведамленне, каб адправіць нам водгук. Гэта дапаможа нам зразумець праблему, каб мы маглі яе выправіць.</string>
   <!--Data collection disclosure prompt button text-->
   <string name="vpn_data_collection_disclosure_accept_btn_text">Я пагаджаюся</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Раскрыццё збору даных</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s выкарыстоўвае службу Android VPN, каб забеспечыць вам доступ да кантэнту Інтэрнэту без цэнзуры. Мы збіраем наступныя дадзеныя:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Ваш горад, краіна, ISP і па жаданні прыблізнае месцазнаходжанне. Горад, краіна і ISP атрымліваюцца з IP-адраса, з якога вы падключаецеся да нашых сервераў, і сам IP-адрас ніколі не рэгіструецца. Гэтыя даныя збіраюцца для статыстыкі выкарыстання і прадукцыйнасці і мэт здароўя сэрвісу.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Ваш адрас электроннай пошты, калі вы адпраўляеце нам дыягнастычныя дадзеныя або водгукі аб збоях. Указанне электроннай пошты ў водгуках неабавязкова.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Ваша імя карыстальніка акаўнта PsiCash, пароль і па жаданні электронная пошта.</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">Апавяшчэнняў: %s</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s выкарыстоўвае апавяшчэнні, каб пастаўляць вам важную інфармацыю, калі праграма знаходзіца на фоне. Сюды ўваходзіць:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Змены стану вашага VPN-злучэння.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Праблемы з вашым злучэннем.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Справаздачы аб збоях.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Абвесткі MalAware.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Даступны новыя версіі праграмы</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Вы можаце адключыць апавяшчэнні ў наладах праграмы ў любы момант.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Калі ласка, пачакайце, пакуль Psiphon падключаецца</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Закрыць</string>
   <!--Generic 'close' alert title-->
@@ -75,29 +115,24 @@
   <!--Generic 'close' alert prompt message-->
   <string name="close_alert_message">Вы хочаце закрыць гэта акно цяпер?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <string name="notifications_permission_rationale_title">Апавяшчэнняў: %s</string>
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <string name="notifications_permission_rationale_intro">%s выкарыстоўвае апавяшчэнні, каб пастаўляць вам важную інфармацыю, калі праграма знаходзіца на фоне. Сюды ўваходзіць:</string>
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <string name="notifications_permission_rationale_upgrade_available_bp">Даступны новыя версіі праграмы</string>
-  <!--Notifications permission rationale last sentence-->
-  <string name="notifications_permission_rationale_disable_any_time">Вы можаце адключыць апавяшчэнні ў наладах праграмы ў любы момант.</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">Уключыце NFC у наладах</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Памылка сувязі з іншай прыладай. Калі ласка, пераканайцеся, што Psiphon адчынены і падключаны на іншай прыладзе.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Чаканне NFC-узаемадзеяння з іншай прыладай…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Інфармацыя аб падключэнні паспяхова абменена!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Памылка сувязі з іншай прыладай. Калі ласка, паспрабуйце зноў.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Прылада рухалася занадта хутка, злучэнне страчана. Калі ласка, паспрабуйце зноў.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Знойдзена непадтрымліваемая NFC-метка. Psiphon адчынены і падключаны на іншай прыладзе?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
   <string name="nfc_export_reading_data">Чытанне даных…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Атрымаць дапамогу па падключэнні</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Дапамога</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -107,13 +142,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Гатова</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Калі ў вас узніклі праблемы з падключэннем да сервера Psiphon, знайдзіце сябра, які паспяхова падключыўся да Psiphon, і выкарыстайце Psiphon Bump, каб атрымаць інфармацыю аб падключэнні.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Пераканайцеся, што Psiphon адчынены і падключаны, і значок Psiphon Bump адлюстроўваецца ў панэлі прыложанняў на прыладзе вашага сябра.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">З адчыненым дыялогам Psiphon Bump на вашай прыладзе і адчыненым і падключаным прыложаннем Psiphon на іншай прыладзе, падтрымлівайце блізкі кантакт паміж прыладамі і дакранецеся да задняй часткі прылад разам.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Пасля таго, як перадача даных інфармацыі аб падключэнні завершыцца і ваша прыложанне Psiphon зможа падключыцца, скажыце дзякуй сябру!</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Калі ласка, уключыце NFC у наладах сістэмы, каб уключыць рэжым дапамогі Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Адкрыць налады</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Прыблізнае месцазнаходжанне</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Калі ласка, дазвольце %s атрымаць доступ да прыблізнага месцазнаходжання вашай прылады. Ваша ацэнка даных аб месцазнаходжанні выкарыстоўваецца для аптымізацыі прадукцыйнасці сеткі і не захоўваецца і не перадаецца за межы вашай прылады.</string>
 </resources>

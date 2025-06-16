@@ -1,9 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="waiting_for_network_connectivity">กำลังรอการเชื่อมต่อเครือข่าย...</string>
   <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ...</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="vpn_service_running">บริการ VPN กำลังทำงาน</string>
+  <string name="vpn_service_revoked">บริการ VPN ถูกยกเลิก</string>
+  <string name="current_network_type">เครือข่ายปัจจุบัน: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="connected_elapsed_time">เชื่อมต่อแล้ว: %s</string>
   <string name="disconnected">ตัดการเชื่อมต่อ</string>
   <string name="label_sent">ส่งแล้ว</string>
   <string name="start">เริ่ม</string>
@@ -52,8 +57,11 @@
   <string name="region_name_hr">โครเอเชีย</string>
   <string name="region_name_co">โคลอมเบีย</string>
   <string name="region_name_my">มาเลเซีย</string>
+  <string name="about">เกี่ยวกับ Psiphon</string>
   <string name="feedback">การตอบสนอง</string>
+  <string name="region_selector">เลือกภูมิภาคเซิร์ฟเวอร์</string>
   <string name="preference_notifications_title">การแจ้งเตือน</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
   <!--Title for selecting apps to be tunneled-->
   <!--Description of option to tunnel only selected apps-->
@@ -68,12 +76,17 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">เสียง</string>
   <string name="preference_notifications_with_vibrate_title">สั่น</string>
+  <string name="moreOptions">ตัวเลือกเพิ่มเติม</string>
   <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="tunnel_connecting">กำลังเชื่อมต่ออุโมงค์...</string>
+  <string name="tunnel_connected">อุโมงค์เชื่อมต่อแล้ว</string>
+  <string name="waiting">กำลังรอ...</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
   <!--Summary for Psiphon Bump preference-->
 </resources>

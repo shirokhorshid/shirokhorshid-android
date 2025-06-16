@@ -76,6 +76,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">صدا</string>
   <string name="preference_notifications_with_sound_summary">هنگامکه وضعیت اتصال تغییر میکند، لرزش صورت میگیرد</string>
   <string name="preference_notifications_with_vibrate_title">لرزش</string>

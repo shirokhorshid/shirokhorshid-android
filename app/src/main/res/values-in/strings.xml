@@ -10,6 +10,11 @@
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN tidak bisa mulai</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon tidak bisa memulai VPN. Beberapa aplikasi VPN tidak bisa berjalan pada saat yang bersamaan. Periksa jika aplikasi VPN lain terpasang dan diatur untuk selalu aktif.</string>
   <string name="selected_region_currently_not_available">Regional yang dipilih saat ini tidak tersedia, silakan memilih regional lain.</string>
+  <string name="ads_consent_preference_category_title">Personalisasi iklan</string>
+  <string name="ads_consent_preference_dialog_preference_message">Apakah Anda benar-benar ingin mengatur ulang pilihan personalisasi iklan Anda?</string>
+  <string name="ads_consent_preference_title">Atur ulang pilihan personalisasi iklan</string>
+  <string name="ads_consent_preference_dialog_title">Atur ulang</string>
+  <string name="ads_consent_preference_summary">Atur ulang pilihan Anda untuk mengizinkan jaringan iklan untuk menggunakan cookie dan data personal Anda</string>
   <string name="preference_language_selection_summary">Pilih bahasa</string>
   <string name="preference_language_selection_title">Bahasa</string>
   <string name="preference_language_title">Pilihan bahasa</string>
@@ -59,44 +64,75 @@
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">Pelajari lebih lanjut tentang MalAware di sini:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Kesalahan proxy upstream</string>
   <!--"Upstream proxy error" notification text-->
   <string name="notification_text_upstream_proxy_error">Silakan buka Psiphon dan periksa pengaturan proxy.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Kesalahan Proxy</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Anda telah mengonfigurasi Psiphon untuk menggunakan proxy upstream. Namun, kami sepertinya tidak dapat terhubung ke server Psiphon melalui proxy tersebut.\n\nSilakan perbaiki pengaturan dan coba lagi.\n\nLihat log untuk info teknis.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon Crash</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Silakan kirim kami umpan balik.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Silakan klik notifikasi ini untuk mengirim umpan balik kepada kami. Ini akan membantu kami memahami masalah sehingga kami dapat memperbaikinya lebih cepat.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Saya terima</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Pengungkapan pengumpulan data</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s menggunakan layanan Android VPN untuk memberi Anda akses tanpa sensor ke konten Internet. Kami mengumpulkan, menggabungkan, dan menyimpan informasi berikut:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Kota, negara, ISP Anda dan secara opsional, lokasi perkiraan. Kota, negara, dan ISP diperoleh dari alamat IP yang Anda gunakan untuk terhubung ke server kami, dan alamat IP itu sendiri tidak pernah dicatat. Data ini dikumpulkan untuk statistik penggunaan dan kinerja serta tujuan kesehatan layanan.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Email Anda, ketika Anda mengirimkan umpan balik diagnostik atau laporan crash kepada kami. Memberikan email dalam umpan balik bersifat opsional.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Nama pengguna akun PsiCash, kata sandi, dan secara opsional, email Anda.</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">Notifikasi %s</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s menggunakan notifikasi untuk memberikan informasi penting saat aplikasi berjalan di latar belakang. Ini termasuk:</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Perubahan status koneksi VPN Anda.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Masalah dengan koneksi Anda.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Laporan crash.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Peringatan MalAware.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Versi aplikasi baru tersedia.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Anda dapat menonaktifkan notifikasi di pengaturan aplikasi kapan saja.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Harap tunggu selagi Psiphon terhubung</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Tutup</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">Tutup</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Apakah Anda ingin menutup jendela ini sekarang?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <!--Notifications permission rationale list item-->
-  <!--Notifications permission rationale last sentence-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Silakan aktifkan NFC di pengaturan</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Kesalahan berkomunikasi dengan perangkat lain. Silakan periksa bahwa Psiphon terbuka dan terhubung di perangkat lain dan coba lagi.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Menunggu interaksi NFC dengan perangkat lain…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Informasi koneksi berhasil ditukar!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Kesalahan berkomunikasi dengan perangkat lain. Silakan coba lagi.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Perangkat bergerak terlalu cepat, koneksi terputus. Silakan coba lagi.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Tag NFC yang tidak didukung ditemukan. Apakah Psiphon terbuka dan terhubung di perangkat lain?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Membaca data…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Dapatkan bantuan menghubungkan</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Bantuan</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -106,13 +142,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Selesai</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Jika Anda kesulitan terhubung ke server Psiphon, temukan teman yang berhasil terhubung dan bagikan informasi koneksi mereka menggunakan NFC.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Pastikan bahwa Psiphon terbuka dan terhubung dan ikon Psiphon Bump ditampilkan di bilah aplikasi di perangkat lain.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Dengan dialog Psiphon Bump terbuka di perangkat Anda dan aplikasi Psiphon terbuka dan terhubung di perangkat lain, tempatkan perangkat Anda saling membelakangi untuk memulai transfer data informasi koneksi.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Setelah transfer data informasi koneksi selesai dan aplikasi Psiphon Anda dapat terhubung, dialog Psiphon Bump akan menutup secara otomatis. Jika Anda masih tidak dapat terhubung, Anda dapat mencoba lagi sampai Psiphon berhasil terhubung.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Silakan nyalakan NFC di pengaturan sistem untuk mengaktifkan mode pembantu Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Buka pengaturan</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Lokasi Perkiraan</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Silakan izinkan %s untuk mengakses lokasi perkiraan perangkat Anda. Perkiraan data lokasi Anda digunakan untuk mengoptimalkan jaringan Psiphon, dan akurat dalam sekitar 3 kilometer persegi.</string>
 </resources>

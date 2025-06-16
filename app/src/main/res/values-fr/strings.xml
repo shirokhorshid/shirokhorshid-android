@@ -2,14 +2,19 @@
 <resources>
   <string name="banner_desc">bandeau des commanditaires ; cliquez pour visiter le site des commanditaires</string>
   <string name="open_browser">Ouvrir le navigateur</string>
-  <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des renseignements complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, veuillez envoyer un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des renseignements complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, envoyez un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Merci pour votre rétroaction</string>
   <string name="FeedbackActivity.Failure">L’envoi a échoué. Veuillez réessayer.</string>
   <string name="StatusActivity.VpnRevokedTitle">Le RPV Psiphon s’est arrêté</string>
   <string name="StatusActivity.VpnRevokedMessage">Le RPV de Psiphon a été déconnecté par vous ou par une autre appli. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et en cours d’exécution.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon ne peut pas démarrer le RPV. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et réglée sur RPV permanent.</string>
-  <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, veuillez sélectionner une autre région.</string>
+  <string name="selected_region_currently_not_available">La région sélectionnée n’est pas proposée actuellement, choisissez une autre région.</string>
+  <string name="ads_consent_preference_category_title">Personnalisation de la publicité</string>
+  <string name="ads_consent_preference_dialog_preference_message">Voulez-vous vraiment réinitialiser vos préférences de personnalisation des publicités ?</string>
+  <string name="ads_consent_preference_title">Réinitialiser les préférences de personnalisation des publicités</string>
+  <string name="ads_consent_preference_dialog_title">Réinitialiser</string>
+  <string name="ads_consent_preference_summary">Réinitialisez vos préférences pour permettre aux réseaux publicitaires d’utiliser des témoins ainsi que vos données personnelles</string>
   <string name="preference_language_selection_summary">Sélectionner la langue</string>
   <string name="preference_language_selection_title">Langue</string>
   <string name="preference_language_title">Sélection de la langue</string>
@@ -27,11 +32,11 @@
   <!--"Please open Psiphon to keep connecting" notification title-->
   <string name="notification_title_action_required">Une action est nécessaire</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
-  <string name="notification_text_open_psiphon_to_finish_connecting">Veuillez ouvrir Psiphon pour finir de vous connecter.</string>
+  <string name="notification_text_open_psiphon_to_finish_connecting">Ouvrez Psiphon pour finir de vous connecter.</string>
   <!--"Selected region is not available" notification title-->
   <string name="notification_title_region_not_available">La région sélectionnée n’est pas disponible</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
-  <string name="notification_text_region_not_available">Veuillez ouvrir Psiphon et sélectionner une autre région.</string>
+  <string name="notification_text_region_not_available">Ouvrez Psiphon et sélectionner une autre région.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Le RPV Psiphon s’est arrêté</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
@@ -51,7 +56,7 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">MalAware de Psiphon</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
-  <string name="unsafe_traffic_alert_dialog_message">Psiphon a détecté et bloqué l\'accès à des sites potentiellement malveillants sur Internet. Veuillez suivre les liens ci-dessous pour en apprendre davantage.\n\nLogiciels malveillants détectés :</string>
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon a détecté et bloqué l\'accès à des sites potentiellement malveillants sur Internet. Suivez les liens ci-dessous pour en apprendre davantage.\n\nLogiciels malveillants détectés :</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">MalAware de Psiphon</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
@@ -61,32 +66,48 @@
   <!--"Upstream proxy error" notification title-->
   <string name="notification_title_upstream_proxy_error">Erreur de mandataire ascendant</string>
   <!--"Upstream proxy error" notification text-->
-  <string name="notification_text_upstream_proxy_error">Veuillez ouvrir Psiphon et vérifier les paramètres du mandataire.</string>
+  <string name="notification_text_upstream_proxy_error">Ouvrez Psiphon et vérifier les paramètres du mandataire.</string>
   <!--"Upstream proxy error" alert dialog title-->
   <string name="upstream_proxy_error_alert_title">Erreur du mandataire</string>
   <!--"Upstream proxy error" alert dialog message-->
-  <string name="upstream_proxy_error_alert_message">Vous avez configuré Psiphon pour qu’il utilise un serveur mandataire ascendant. Cependant, il semble que nous ne soyons pas en mesure de nous connecter à un serveur Psiphon par ce mandataire.\n\nVeuillez corriger les paramètres et réessayer.\n\nPour des renseignements techniques, consultez les journaux.</string>
+  <string name="upstream_proxy_error_alert_message">Vous avez configuré Psiphon pour qu’il utilise un serveur mandataire ascendant. Cependant, il semble que nous ne soyons pas en mesure de nous connecter à un serveur Psiphon par ce mandataire.\n\nCorrigez les paramètres et réessayer.\n\nPour des renseignements techniques, consultez les journaux.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_title">Psiphon a planté</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
-  <string name="psiphon_native_crash_notification_msg">Veuillez nous envoyer une rétroaction.</string>
+  <string name="psiphon_native_crash_notification_msg">Envoyez-nous une rétroaction.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
-  <string name="psiphon_native_crash_notification_msg_long">Veuillez cliquer sur cette notification pour nous envoyer une rétroaction. Cela nous aidera à comprendre le problème afin que nous puissions y remédier plus rapidement.</string>
+  <string name="psiphon_native_crash_notification_msg_long">Touchez sur cette notification pour nous envoyer une rétroaction. Cela nous aidera à comprendre le problème afin que nous puissions y remédier plus rapidement.</string>
   <!--Data collection disclosure prompt button text-->
-  <string name="vpn_data_collection_disclosure_accept_btn_text">J\'accepte</string>
+  <string name="vpn_data_collection_disclosure_accept_btn_text">J’accepte</string>
   <!--Data collection disclosure prompt title-->
-  <string name="vpn_data_collection_disclosure_prompt_title">Divulgation de connexion de donnée</string>
+  <string name="vpn_data_collection_disclosure_prompt_title">Divulgation de collecte de donnée</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <string name="vpn_data_collection_disclosure_top">%s utilise le service RPV Android pour vous fournir un accès non-censuré au contenu internet. Nous collectons, agrégeons et stockons les informations suivantes :</string>
+  <string name="vpn_data_collection_disclosure_top">%s utilise le service RPV d’Android pour vous fournir un accès non censuré au contenu en ligne. Nous recueillons, agrégeons et stockons les renseignements suivants :</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp1">Votre pays, FAI, et éventuellement emplacement approximatif. Vos ville, pays et FAI sont obtenus par l\'adresse IP utilisée pour vous connecter à nos serveurs, même si cette adresse IP n\'est pas enregistrée. Ces données sont collectées pour les statistiques d\'utilisation et de performance, et l\'état de nos services.</string>
+  <string name="vpn_data_collection_disclosure_bp1">Votre ville, pays, FAI, et facultativement votre localisation approximative. La ville, le pays et le FAI  proviennent de l’adresse IP que vous utilisez pour vous connecter à nos serveurs ; l’adresse IP même n’est jamais enregistrée. Ces données sont recueillies pour des statistiques d’utilisation et de performance et pour les services de santé.</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostique ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est optionnel.</string>
+  <string name="vpn_data_collection_disclosure_bp2">Votre adresse courriel, quand vous nous envoyez un diagnostic ou un signalement de plantage. Fournir votre adresse courriel dans le signalement est facultatif.</string>
   <!--Data collection disclosure list item-->
-  <string name="vpn_data_collection_disclosure_bp3">Votre nom d\'utilisateur PsiCash, votre mot de passe et optionnellement votre adresse courriel.</string>
+  <string name="vpn_data_collection_disclosure_bp3">Le nom d’utilisateur de votre compte PsiCash, votre mot de passe et facultativement votre adresse courriel.</string>
+  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">Notifications %s</string>
+  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s utilise des notifications pour vous fournir des renseignements importants quand l’appli est en arrière-plan :</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Changement d\'état de votre connexion RPV.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Votre connexion présente des problèmes.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Signalements de plantage.</string>
+  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Alertes MalAware.</string>
+  <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">De nouvelles versions de l’appli sont proposées.</string>
+  <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Vous pouvez désactiver les notifications dans les paramètres de l’appli.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
-  <string name="pxe_web_wait_tunnel_connecting">Veuillez patienter alors que Psiphon se connecte</string>
+  <string name="pxe_web_wait_tunnel_connecting">Patientez pendant que Psiphon se connecte</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Fermer</string>
   <!--Generic 'close' alert title-->
@@ -94,38 +115,25 @@
   <!--Generic 'close' alert prompt message-->
   <string name="close_alert_message">Voulez-vous fermer cette fenêtre maintenant ?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
-  <string name="pxe_submit_thank_you">Merci pour votre participation !</string>
-  <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <string name="notifications_permission_rationale_title">%s Notifications</string>
-  <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
-  <string name="notifications_permission_rationale_intro">%s utilise des notifications pour vous fournir des informations importantes lorsque l\'application tourne en arrière-plan. Ceci inclus :</string>
-  <!--Notifications permission rationale list item-->
-  <string name="notifications_permission_rationale_vpn_state_bp">Changement d\'état de votre connexion VPN.</string>
-  <!--Notifications permission rationale list item-->
-  <string name="notifications_permission_rationale_connection_problems_bp">Problèmes avec votre connexion.</string>
-  <!--Notifications permission rationale list item-->
-  <string name="notifications_permission_rationale_crash_reports_bp">Rapports de plantage.</string>
-  <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
-  <string name="notifications_permission_rationale_malaware_alerts_bp">Alertes MalAware.</string>
-  <!--Notifications permission rationale list item-->
-  <string name="notifications_permission_rationale_upgrade_available_bp">De nouvelles versions de l\'appli sont disponibles.</string>
-  <!--Notifications permission rationale last sentence-->
-  <string name="notifications_permission_rationale_disable_any_time">Vous pouvez désactiver les notifications à tout moment depuis les paramètres de l\'appli.</string>
+  <string name="pxe_submit_thank_you">Nous vous remercions de votre participation</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
-  <string name="enable_nfc_in_settings">Activez le NFC depuis les paramètres</string>
+  <string name="enable_nfc_in_settings">Activez la CCP dans les paramètres</string>
   <!--NFC connection data exchange error message-->
-  <string name="nfc_export_data_empty">Erreur de communication avec l\'autre appareil. Vérifier que Psiphon est ouvert et connecté à l\'autre appareil, et réessayez.</string>
+  <string name="nfc_export_data_empty">Erreur de communication avec l’autre appareil. Assurez-vous que Psiphon est ouvert et connecté à l’autre appareil, puis réessayez.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
-  <string name="nfc_reader_default_message">En attente de communication NFC avec l\'autre appareil...</string>
+  <string name="nfc_reader_default_message">Attente de communication CCP avec l’autre appareil…</string>
   <!--NFC connection data exchange success message-->
-  <string name="nfc_export_success">Informations de connexion échangées avec succès !</string>
+  <string name="nfc_export_success">Les données de connexion ont été échangées</string>
   <!--NFC connection data exchange error message-->
-  <string name="nfc_export_bad_data">Erreur de communication avec l\'autre appareil. Merci de réessayer.</string>
+  <string name="nfc_export_bad_data">Erreur de communication avec l’autre appareil. Réessayez.</string>
   <!--NFC connection data exchange error message-->
-  <string name="nfc_export_lost_tag">L\'appareil s\'est déplacé trop vite, la connexion a été perdue. Réessayez.</string>
+  <string name="nfc_export_lost_tag">L’appareil s’est déplacé trop vite, la connexion a été perdue. Réessayez.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Une étiquette CCP non prise en charge a été découverte. Psiphon est-il ouvert et connecté sur l’autre appareil ?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Lecture des données…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Aide à la connexion</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Aide</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -135,13 +143,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Terminé</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Si vous éprouvez des difficultés à vous connecter à un serveur Psiphon, trouvez quelqu’un qui a réussi à se connecter et partagez ses données de connexion à l’aide de la CCP.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Assurez-vous que Psiphon est ouvert et connecté et que l’icône Psiphon Bump s’affiche dans la barre d’applis de l’autre appareil.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Avec la boîte de dialogue Psiphon Bump ouverte sur votre appareil et l’appli Psiphon ouverte et connectée sur l’autre appareil, placez vos appareils dos à dos pour lancer un transfert des donneés de connexion.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Une fois que le transfert des données de connexion est terminé et que votre appli Psiphon se connecte, la boîte de dialogue Psiphon Bump se ferme automatiquement. Si vous ne parvenez toujours pas à vous connecter, vous pouvez réessayer jusqu’à ce que Psiphon se connecte.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Activez la CCP dans les paramètres du système pour activer le mode d’aide Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Ouvrir les paramètres</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Localisation approximative</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Autorisez %s à accéder à la localisation approximative de votre appareil. Vos données de localisation sont utilisées pour optimiser le réseau Psiphon et sont exactes à environ 3 kilomètres carrés près.</string>
 </resources>

@@ -1,0 +1,14 @@
+
+[project]
+name = "i18n"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pyyaml>=6.0.2",
+    "requests>=2.32.3",
+    "six>=1.17.0",
+    "transifexlib",
+]
+[tool.uv.sources]
+transifexlib = { git = "https://github.com/Psiphon-Inc/transifexlib.git" }

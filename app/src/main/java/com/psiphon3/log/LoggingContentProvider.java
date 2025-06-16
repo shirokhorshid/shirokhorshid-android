@@ -122,18 +122,16 @@ public class LoggingContentProvider extends ContentProvider {
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         final Context context = getContext();
         if (context == null || values == null) {
-            return null;
+            throw new IllegalArgumentException("Invalid arguments for insert");
         }
-        LoggingRoomDatabase db =
-                LoggingRoomDatabase.getDatabase(context.getApplicationContext());
+        LoggingRoomDatabase db = LoggingRoomDatabase.getDatabase(context.getApplicationContext());
         db.getQueryExecutor().execute(() -> {
-            db.getOpenHelper().getWritableDatabase()
-                    .insert("log", SQLiteDatabase.CONFLICT_NONE, values);
+            db.getOpenHelper().getWritableDatabase().insert("log", SQLiteDatabase.CONFLICT_NONE, values);
             if (!values.getAsBoolean("is_diagnostic")) {
                 context.getContentResolver().notifyChange(uri, null);
             }
         });
-        return null;
+        return uri;
     }
 
     @Override

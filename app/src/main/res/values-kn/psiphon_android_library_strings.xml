@@ -111,6 +111,7 @@
     <item quantity="one">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗದಿಂದ ಹೊರಗಿಡಲಾಗಿದೆ</item>
     <item quantity="other">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗದಿಂದ ಹೊರಗಿಡಲಾಗಿದೆ</item>
   </plurals>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_routing_all_apps_tunnel_summary">ಎಲ್ಲಾ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು VPN ಮೂಲಕ ಸುರಂಗ ಮಾಡಲಾಗುತ್ತದೆ</string>
   <string name="preference_notifications_with_sound_title">ಧ್ವನಿ</string>
   <string name="preference_notifications_with_sound_summary"> ಸಂಪರ್ಕ ಸ್ಥಿತಿ ಬದಲಾದಾಗ ಧ್ವನಿ ಪ್ಲೇ ಮಾಡಿ</string>

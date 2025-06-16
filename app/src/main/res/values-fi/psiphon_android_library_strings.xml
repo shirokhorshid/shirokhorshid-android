@@ -11,6 +11,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-päivitys</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
   <string name="vpn_service_running">VPN-palvelu käynnissä</string>
+  <string name="vpn_service_revoked">VPN-palvelu peruutettu</string>
   <string name="current_network_type">Nykyinen verkko: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
   <string name="UpgradeManager.UpgradePromptTitle">Psiphon-päivitys</string>
@@ -43,6 +44,7 @@
   <string name="region_name_ie">Irlanti</string>
   <string name="about">Psiphon-ohjelmasta</string>
   <string name="feedback">Palaute</string>
+  <string name="region_selector">Valitse palvelinalue</string>
   <string name="network_proxy_connect_invalid_values">Virheelliset HTTP-välityspalvelinasetukset</string>
   <string name="preference_notifications_title">Ilmoitukset</string>
   <string name="preference_vpn_title">VPN</string>
@@ -60,6 +62,7 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="preference_notifications_with_sound_title">Ääni</string>
   <string name="preference_notifications_with_sound_summary">Soita ääntä, kun yhteystila muuttuu</string>
   <string name="preference_notifications_with_vibrate_title">Värähtele</string>
@@ -75,6 +78,11 @@
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="tunnel_connecting">Yhdistetään tunneliin...</string>
+  <string name="tunnel_connected">Tunneli yhdistetty</string>
+  <string name="waiting">Odotetaan...</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Ota Psiphon Bump käyttöön</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Käytä NFC:tä jakaaksesi Psiphon-yhteystietoja muiden laitteiden kanssa.</string>
 </resources>

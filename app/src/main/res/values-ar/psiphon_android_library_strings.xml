@@ -55,7 +55,7 @@
   <string name="region_name_cz">جمهورية التشيك</string>
   <string name="region_name_dk">الدنمارك</string>
   <string name="region_name_fr">فرنسا</string>
-  <string name="region_name_hu">اليونان</string>
+  <string name="region_name_hu">هنغاريا</string>
   <string name="region_name_it">إيطاليا</string>
   <string name="region_name_no">النرويج</string>
   <string name="region_name_ro">رومانيا</string>
@@ -106,7 +106,7 @@
   <!--Description of option to tunnel everything but selected apps-->
   <string name="preference_routing_exclude_apps_summary">لا تمرّر نفَقيا التطبيقات المحددة </string>
   <!--Log line for when an app is tunneled-->
-  <string name="individual_app_included">‫‫تطبيق مُمرَّر نفقيا : %s ‬</string>
+  <string name="individual_app_included">‫‫تطبيق مُمرَّر نفقيا : %s ‬</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">التطبيق المُستبعد من النفق: %s</string>
   <!--Log line for when all apps will be tunneled-->
@@ -115,12 +115,12 @@
   <string name="preference_routing_select_apps_title">حدد التطبيقات</string>
   <!--Description of option to select apps to exclusively tunnel-->
   <plurals name="preference_routing_select_apps_to_include_summary">
-    <item quantity="zero">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
-    <item quantity="one">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
-    <item quantity="two">سوف تُمرَّر %d تطبيقات عبر نفق الشبكة الخاصة الافتراضية</item>
-    <item quantity="few">سوف تُمرَّر %d تطبيقات عبر نفق الشبكة الخاصة الافتراضية</item>
-    <item quantity="many">سوف يُمرَّر %d تطبيقا عبر نفق الشبكة الخاصة الافتراضية</item>
-    <item quantity="other">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="zero">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="one">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="two">سوف تُمرَّر %d تطبيقات عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="few">سوف تُمرَّر %d تطبيقات عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="many">سوف يُمرَّر %d تطبيقا عبر نفق الشبكة الخاصة الافتراضية</item>
+    <item quantity="other">سوف يُمرَّر %d تطبيق عبر نفق الشبكة الخاصة الافتراضية</item>
   </plurals>
   <!--Description of option to select apps to not tunnel-->
   <plurals name="preference_routing_select_apps_to_exclude_summary">
@@ -151,7 +151,9 @@
     <item quantity="many">%d  تطبيقا مستثنى من النفق</item>
     <item quantity="other">%d تطبيق مستثنى من النفق</item>
   </plurals>
-  <string name="preference_routing_all_apps_tunnel_summary">‫كل التطبيقات سوف تُمرَّر نفقيا بواسطة VPN ‬</string>
+  <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">تطبيقات Psiphon معينة مستثناة تلقائياً من توجيه الشبكة الخاصة الافتراضية لضمان الوظائف السليمة. لا يمكن تعديل هذه الاستثناءات.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">‫كل التطبيقات سوف تُمرَّر نفقيا بواسطة VPN ‬</string>
   <string name="preference_notifications_with_sound_title">صوت </string>
   <string name="preference_notifications_with_sound_summary">إصدار صوت عند تغير حالة الإتصال </string>
   <string name="preference_notifications_with_vibrate_title">إهتزاز </string>
@@ -176,7 +178,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">خطأ في الأبستريم بروكسي: %s</string>
   <string name="start_tunnel_failed">فشل في تشغيل النفق: %s</string>
-  <string name="vpn_exclusions_conflict">هناك تداخل بين التطبيقات المستثناة في لائحة استثناءات شبكتك الخاصة الافتراضية، يُرجى الذهاب إلى إعدادات الشبكة الخاصة الافتراضية ثم تبديل نحو وضع ’مرّر كل التطبيقات نفَقيا‘ للاتصال.</string>
+  <string name="vpn_exclusions_conflict">هناك تداخل بين التطبيقات المستثناة في لائحة استثناءات شبكتك الخاصة الافتراضية، يُرجى الذهاب إلى إعدادات الشبكة الخاصة الافتراضية ثم تبديل نحو وضع \"مرّر كل التطبيقات نفَقيا\" للاتصال.</string>
   <string name="tunnel_connecting">النفق يحاول الإتصال... </string>
   <string name="tunnel_connected">النفق متصل </string>
   <string name="waiting">جاري الإنتظار ...</string>
