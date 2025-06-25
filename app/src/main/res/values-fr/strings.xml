@@ -4,7 +4,7 @@
   <string name="open_browser">Ouvrir le navigateur</string>
   <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des renseignements complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, envoyez un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Merci pour votre rétroaction</string>
-  <string name="FeedbackActivity.Failure">L’envoi a échoué. Veuillez réessayer.</string>
+  <string name="FeedbackActivity.Failure">L’envoi a échoué. Réessayez.</string>
   <string name="StatusActivity.VpnRevokedTitle">Le RPV Psiphon s’est arrêté</string>
   <string name="StatusActivity.VpnRevokedMessage">Le RPV de Psiphon a été déconnecté par vous ou par une autre appli. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et en cours d’exécution.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>

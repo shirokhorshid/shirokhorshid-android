@@ -166,7 +166,7 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Erreur de mandataire ascendant : %s</string>
   <string name="start_tunnel_failed">Échec de démarrage du tunnel : %s</string>
-  <string name="vpn_exclusions_conflict">Une ou plusieurs applications sont en conflit dans vos exclusions RPV actuelles. Veuillez accéder aux paramètres du RPV et sélectionner le mode « Tunnelliser toutes les applis » pour vous connecter.</string>
+  <string name="vpn_exclusions_conflict">Une ou plusieurs applications sont en conflit dans vos exclusions RPV actuelles. Accédez aux paramètres du RPV et sélectionner le mode « Tunnelliser toutes les applis » pour vous connecter.</string>
   <string name="tunnel_connecting">Connexion du tunnel…</string>
   <string name="tunnel_connected">Tunnel connecté</string>
   <string name="waiting">En attente..</string>
