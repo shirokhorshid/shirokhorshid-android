@@ -39,7 +39,7 @@
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/Theme.AppCompat"
+        android:theme="@style/Theme.Psiphon"
         android:supportsRtl="true"
         android:label="@string/app_name"
         android:usesCleartextTraffic="false"

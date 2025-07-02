@@ -114,6 +114,7 @@
                 android:layout_height="8dp"
                 android:layout_alignTop="@+id/buttonPanel"
                 android:background="@drawable/connection_waiting_network_animation_drawable"
+                android:orientation="horizontal"
                 android:visibility="invisible" />
             <ProgressBar
                 android:id="@+id/connectionProgressBar"
