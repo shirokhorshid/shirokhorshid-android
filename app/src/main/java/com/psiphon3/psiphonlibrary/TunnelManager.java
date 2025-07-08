@@ -434,6 +434,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
 
     private void stopAndWaitForTunnel() {
         if (m_tunnelThread == null) {
+            MyLog.i("TunnelManager: stopAndWaitForTunnel called but m_tunnelThread is null.");
             return;
         }
 
@@ -441,12 +442,20 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         // If it has not been called, then manually attempt to count down the latch here.
         // If the countdown hasn't been initiated, the `join` call may block the calling thread, potentially delaying execution.
         if (m_tunnelThreadStopSignal != null) {
+            if (m_tunnelThreadStopSignal.getCount() > 1) {
+                MyLog.e("TunnelManager: stopAndWaitForTunnel called but m_tunnelThreadStopSignal count is more than 1: " + m_tunnelThreadStopSignal.getCount());
+            }
+
+            MyLog.i("TunnelManager: counting down m_tunnelThreadStopSignal with count: " + m_tunnelThreadStopSignal.getCount());
             m_tunnelThreadStopSignal.countDown();
         }
 
         try {
+            MyLog.i("TunnelManager: Waiting for tunnel thread to stop.");
             m_tunnelThread.join();
+            MyLog.i("TunnelManager: Tunnel thread stopped.");
         } catch (InterruptedException e) {
+            MyLog.w("TunnelManager: Interrupted while waiting for tunnel thread to stop.");
             Thread.currentThread().interrupt();
         }
         m_tunnelThreadStopSignal = null;

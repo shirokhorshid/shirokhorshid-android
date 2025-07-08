@@ -16,8 +16,8 @@ android {
                 applicationId "com.psiphon3"
                 resValue "string", "tray__authority", "${applicationId}.tray"
                 minSdkVersion 14
-                compileSdk 34
-                targetSdkVersion 34
+                compileSdk 35
+                targetSdkVersion 35
                 versionCode verCode
                 versionName verName
                 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
