@@ -155,5 +155,6 @@
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Mở thiết đặt</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Vị trí gần đúng</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
 </resources>
