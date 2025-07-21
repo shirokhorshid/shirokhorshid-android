@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon सुधारणा</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon सर्व्हर अलर्ट</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon क्रॅश</string>
   <string name="vpn_service_running">चालू असलेली VPN सेवा </string>
   <string name="vpn_service_revoked">VPN सेवा रद्द केली</string>
   <string name="current_network_type">वर्तमान नेटवर्क: %s</string>
@@ -63,6 +64,29 @@
   <string name="region_name_sk"> स्लोवाकिया</string>
   <string name="region_name_rs">सर्बिया</string>
   <string name="region_name_au">ऑस्ट्रेलिया</string>
+  <string name="region_name_ae">संयुक्त अरब अमिराती</string>
+  <string name="region_name_ar">अर्जेंटिना</string>
+  <string name="region_name_br">ब्राझील</string>
+  <string name="region_name_cl">चिली</string>
+  <string name="region_name_ee">एस्टोनिया</string>
+  <string name="region_name_fi">फिनलंड</string>
+  <string name="region_name_is">आइसलंड</string>
+  <string name="region_name_ie">आयर्लंड</string>
+  <string name="region_name_ke">केन्या</string>
+  <string name="region_name_kr">कोरिया</string>
+  <string name="region_name_lt">लिथुआनिया</string>
+  <string name="region_name_lv">लात्व्हिया</string>
+  <string name="region_name_mx">मेक्सिको</string>
+  <string name="region_name_tw">तैवान</string>
+  <string name="region_name_za">दक्षिण आफ्रिका</string>
+  <string name="region_name_id">इंडोनेशिया</string>
+  <string name="region_name_nz">न्यूझीलंड</string>
+  <string name="region_name_gr">ग्रीस</string>
+  <string name="region_name_ua">युक्रेन</string>
+  <string name="region_name_pt">पोर्तुगाल</string>
+  <string name="region_name_hr">क्रोएशिया</string>
+  <string name="region_name_co">कोलंबिया</string>
+  <string name="region_name_my">मलेशिया</string>
   <string name="about">Psiphon बद्दल</string>
   <string name="feedback">प्रतिक्रिया</string>
   <string name="disableTimeoutsPreferenceSummary">स्लो नेटवर्कसाठी टाइमआउट अक्षम करा</string>
@@ -112,6 +136,7 @@
     <item quantity="other">%d अ‍ॅप्स टनेल मधून वगळले</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">योग्य कार्यक्षमता सुनिश्चित करण्यासाठी काही Psiphon अॅप्स आपोआप वीपीएन रूटिंगमधून वगळले जातात. हे बहिष्कार बदलता येत नाहीत.</string>
   <string name="preference_routing_all_apps_tunnel_summary">सर्व अ‍ॅप्स VPN द्वारे टनेल केले जातील </string>
   <string name="preference_notifications_with_sound_title">आवाज</string>
   <string name="preference_notifications_with_sound_summary">जेव्हा कनेक्शनची स्थिती बदलते तेव्हा आवाज प्ले करा</string>
@@ -148,6 +173,11 @@
   <string name="preference_summary_system_proxy">सिस्टम प्रॉक्सी</string>
   <string name="disableTimeoutsPreferenceTitle">टाइम आउट अक्षम करा</string>
   <string name="downloadWiFiOnlyPreferenceTitle">केवळ वायफाय</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware अलर्ट दाखवा</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">आपल्या डिव्हाइसवरून मॅलवेअर ट्रॅफिक आढळल्यास Psiphon कडून सूचना मिळवा.</string>
+  <string name="aboutMalAware">MalAware बद्दल</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump सक्षम करा</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">इतर डिव्हाइसेससह Psiphon कनेक्शन डेटा शेअर करण्यासाठी NFC वापरा.</string>
 </resources>

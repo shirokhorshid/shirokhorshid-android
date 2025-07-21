@@ -102,4 +102,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Taxminiy joylashuv</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Iltimos, %s ilovasiga qurilmangizning taxminiy joylashuviga kirishga ruxsat bering. Sizning joylashuv ma\'lumotlaringiz Psiphon tarmog\'ini optimallashtirish uchun ishlatiladi va taxminan 3 kvadrat kilometr doirasida aniq</string>
 </resources>

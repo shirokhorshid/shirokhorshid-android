@@ -85,4 +85,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Takmynan ýerleşişi</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">%s programmasynyň enjamyňyzyň takmynan ýerleşişine girmäge rugsat beriň. Ýerleşiş maglumatlaryňyz Psiphon toryny optimizasiýa etmek üçin ulanylýar we 3 kwadrat kilometriň içinde takyk</string>
 </resources>

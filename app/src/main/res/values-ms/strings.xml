@@ -102,4 +102,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Lokasi anggaran</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Sila benarkan %s untuk mengakses lokasi anggaran peranti anda. Anggaran data lokasi anda digunakan untuk mengoptimumkan rangkaian Psiphon, dan tepat dalam lingkungan kira-kira 3 kilometer persegi.</string>
 </resources>

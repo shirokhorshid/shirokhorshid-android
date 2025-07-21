@@ -101,4 +101,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">ตำแหน่งโดยประมาณ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">กรุณาอนุญาตให้ %s เข้าถึงตำแหน่งโดยประมาณของอุปกรณ์ของคุณ ข้อมูลตำแหน่งโดยประมาณของคุณจะถูกใช้เพื่อปรับปรุงเครือข่าย Psiphon และมีความแม่นยำภายในประมาณ 3 ตารางกิโลเมตร</string>
 </resources>

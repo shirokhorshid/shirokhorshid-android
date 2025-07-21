@@ -85,4 +85,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Болжолдуу жайгашуу</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Сураныч %sге сиздин түзмөктүн болжолдуу жайгашуусуна кирүүгө уруксат бериңиз. Сиздин жайгашуу берилиштериңиз Psiphon тармагын оптимизациялоо үчүн колдонулат жана болжолдуу 3 чарчы километрге чейин так болот.</string>
 </resources>

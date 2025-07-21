@@ -79,6 +79,7 @@
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s na amfani da VPN din Android domin samar maka da bayanan da basu da adadi a yanar gizo. Muna tattara da kuma adana bayanai da suka haɗa da:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Birnin ku, kasarku, ISP, da kuma kusan wuri idan kun yarda. Ana samun birni, kasa, da ISP daga adreshin IP da kuka haɗa da sabobin mu, kuma adreshin IP kansa ba a rubuta shi ba. Ana tattara wannan bayanan don amfani da ƙididdiga da ƙididdige ayyuka da dalilai na lafiyar hidima.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">Adreshin imel wanda ka turo mana matsalolin da ake fuskanta. Bada wannan adreshin, ba dole bane</string>
   <!--Data collection disclosure list item-->
@@ -153,4 +154,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Kusan wuri</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Da fatan za ku bari %s ya sami dama ga kusan wurin da na\'uraranku take. Ana amfani da bayanin wurin da kuke don inganta hanyar sadarwar Psiphon, kuma yana da daidai kusan kilomita murabba\'i 3.</string>
 </resources>

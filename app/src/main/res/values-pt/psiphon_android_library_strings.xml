@@ -61,6 +61,7 @@
   <string name="region_name_ro">Roménia</string>
   <string name="region_name_se">Suécia</string>
   <string name="region_name_pl">Polónia</string>
+  <string name="region_name_sk">Eslováquia</string>
   <string name="region_name_rs">Eslováquia</string>
   <string name="region_name_au">Austrália</string>
   <string name="region_name_ae">Emirados Árabes Unidos</string>
@@ -97,9 +98,11 @@
   <!--Description of option to tunnel everything-->
   <string name="preference_routing_include_all_apps_summary">Túnel de todas as aplicações</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Incluir aplicações</string>
   <!--Description of option to tunnel only selected apps-->
   <string name="preference_routing_include_apps_summary">Só túneis de aplicações selecionadas</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Excluir aplicações</string>
   <!--Description of option to tunnel everything but selected apps-->
   <string name="preference_routing_exclude_apps_summary">Não criar túneis em aplicações selecionadas </string>
   <!--Log line for when an app is tunneled-->
@@ -109,6 +112,7 @@
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Nenhuma aplicação foi excluída do túnel</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Selecionar aplicações</string>
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
@@ -116,25 +120,48 @@
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Certas aplicações Psiphon são automaticamente excluídas do encaminhamento VPN para garantir o funcionamento adequado. Estas exclusões não podem ser modificadas.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Todas as aplicações serão tunelizadas via VPN</string>
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Reproduzir um som quando o estado da ligação é alterado</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>
   <string name="preference_notifications_with_vibrate_summary">Vibrar quando o estado da ligação é alterado</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Descarregar atualizações apenas por Wi-Fi</string>
   <string name="moreOptions">Mais Opções</string>
   <string name="proxySettingsCategoryTitle">Definições de Proxy</string>
+  <string name="custom_proxy_host_summary">Nome do servidor proxy ou IP</string>
   <string name="custom_proxy_port_summary">Porta do servidor proxy</string>
   <string name="use_proxy_authentication_title">Usar autenticação de proxy</string>
   <string name="proxy_username_title">Nome de utilizador do Proxy</string>
+  <string name="proxy_username_summary">Nome de utilizador para autenticação de proxy</string>
   <string name="proxy_password_title">Palavra-passe do Proxy</string>
+  <string name="proxy_password_summary">Palavra-passe para autenticação de proxy</string>
   <string name="proxy_domain_title">Domínio do Proxy</string>
+  <string name="proxy_domain_summary">Domínio para autenticação de proxy</string>
+  <string name="http_proxy_port_in_use">A porta proxy HTTP local solicitada %d já está a ser utilizada por outra aplicação. Não é possível continuar.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Região do túnel dividido: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">Não tunelizado: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">Erro de proxy upstream: %s</string>
   <string name="start_tunnel_failed">Não foi possível iniciar o túnel: %s</string>
+  <string name="vpn_exclusions_conflict">Existem uma ou mais aplicações em conflito nas suas exclusões VPN atuais. Vá às configurações da VPN e mude para o modo \'Tunelizar todas as aplicações\' para se ligar.</string>
   <string name="tunnel_connecting">A ligar o túnel...</string>
   <string name="tunnel_connected">Túnel ligado</string>
   <string name="waiting">A aguardar...</string>
+  <string name="label_vpn_settings">Configurações de VPN</string>
   <string name="label_proxy_settings">Configurações de proxy</string>
+  <string name="preference_summary_no_proxy">Sem proxy</string>
+  <string name="preference_summary_custom_proxy">Proxy personalizado</string>
+  <string name="preference_summary_system_proxy">Proxy do sistema</string>
+  <string name="disableTimeoutsPreferenceTitle">Desativar tempos limite</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Apenas Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Mostrar alertas de MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Seja notificado quando o Psiphon detetar tráfego de malware originado no seu dispositivo.</string>
+  <string name="aboutMalAware">Sobre MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Ativar Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Utilizar NFC para partilhar dados de ligação do Psiphon com outros dispositivos.</string>
 </resources>

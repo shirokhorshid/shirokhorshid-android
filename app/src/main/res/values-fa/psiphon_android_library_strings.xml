@@ -136,6 +136,7 @@
     <item quantity="other">%d برنامه‌ها از تونل مستثنی شدند.</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">برخی برنامه‌های Psiphon بطور خودکار از مسیریابی VPN مستثنا شده‌اند تا عملکرد مناسب اطمینان حاصل شود. این استثناها قابل تغییر نیستند.</string>
   <string name="preference_routing_all_apps_tunnel_summary">تمام برنامه‌ها ازوی‌پی‌ان تونل خواهد شد</string>
   <string name="preference_notifications_with_sound_title">صدا </string>
   <string name="preference_notifications_with_sound_summary">وقتی وضعیت اتصال تغییر میکند صدا پخش شود</string>

@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Aguardando por conectividade de rede...</string>
   <string name="psiphon_service_notification_message_connecting">Conectando...</string>
   <string name="psiphon_service_notification_id">Notificação de Serviço Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Mudanças de Status do Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Atualização do Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Alertas do Servidor Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Crashes do Psiphon</string>
   <string name="vpn_service_running">Rodando serviço de VPN</string>
   <string name="vpn_service_revoked">Serviço de VPN revogado</string>
   <string name="current_network_type">Rede atual: %s</string>
@@ -70,6 +73,7 @@
   <string name="region_name_is">Islândia</string>
   <string name="region_name_ie">Irlanda</string>
   <string name="region_name_ke">Quênia</string>
+  <string name="region_name_kr">Coreia</string>
   <string name="region_name_lt">Lituânia</string>
   <string name="region_name_lv">Letônia</string>
   <string name="region_name_mx">México</string>
@@ -86,28 +90,43 @@
   <string name="about">Sobre o Psiphon</string>
   <string name="feedback">Comentários</string>
   <string name="disableTimeoutsPreferenceSummary">Desabilitar \"Expiração de tempo\" para redes lentas</string>
+  <string name="region_selector">Selecionar região do servidor</string>
   <string name="network_proxy_connect_invalid_values">Configurações de Proxy HTTP Inválidas</string>
+  <string name="tunnel_whole_device_exception">Seu dispositivo não suporta a opção de túnel para todo o dispositivo devido à falta da API VpnService.</string>
   <string name="preference_notifications_title">Notificações</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tunelizar todas as aplicações</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Incluir Aplicações</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Tunelizar apenas as aplicações selecionadas</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Excluir Aplicações</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Não tunelizar as aplicações selecionadas</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Tunelizando aplicação: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Aplicação excluída do túnel: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Nenhuma aplicação foi excluída do túnel</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Selecionar aplicações</string>
   <!--Description of option to select apps to exclusively tunnel-->
   <!--Description of option to select apps to not tunnel-->
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Tunelizando todas as aplicações</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Certas aplicações do Psiphon são automaticamente excluídas do roteamento VPN para garantir o funcionamento adequado. Essas exclusões não podem ser modificadas.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Todas as aplicações serão tunelizadas via VPN</string>
   <string name="preference_notifications_with_sound_title">Som</string>
   <string name="preference_notifications_with_sound_summary">Toque um som ao mudar o estado da conexão</string>
   <string name="preference_notifications_with_vibrate_title">Vibrar</string>
   <string name="preference_notifications_with_vibrate_summary">Vibrar ao mudar o estado da conexão</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Baixar atualizações apenas via Wi-Fi</string>
   <string name="moreOptions">Mais opções</string>
   <string name="proxySettingsCategoryTitle">Configurações de Proxy</string>
   <string name="custom_proxy_host_summary">Endereço ou IP do servidor Proxy</string>
@@ -127,12 +146,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Erro do Servidor Proxy: %s</string>
   <string name="start_tunnel_failed">Início do túnel falhou: %s</string>
+  <string name="vpn_exclusions_conflict">Há uma ou mais aplicações conflitantes em suas exclusões de VPN atuais. Por favor, vá às configurações de VPN e mude para o modo \'Tunelizar todos os aplicativos\' para conectar.</string>
   <string name="tunnel_connecting">Conectando túnel...</string>
   <string name="tunnel_connected">Túnel conectado</string>
   <string name="waiting">Aguarde...</string>
   <string name="label_vpn_settings">Configurações de VPN</string>
   <string name="label_proxy_settings">Configurações do Proxy</string>
   <string name="preference_summary_no_proxy">Sem proxy</string>
+  <string name="preference_summary_custom_proxy">Proxy personalizado</string>
+  <string name="preference_summary_system_proxy">Proxy do sistema</string>
+  <string name="disableTimeoutsPreferenceTitle">Desabilitar tempo limite</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Apenas Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Mostrar alertas MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Seja notificado quando o Psiphon detectar tráfego de malware originado do seu dispositivo.</string>
+  <string name="aboutMalAware">Sobre MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Habilitar Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Use NFC para compartilhar dados de conexão do Psiphon com outros dispositivos.</string>
 </resources>

@@ -96,4 +96,5 @@
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">ቀረባ ቦታ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">ብኽብረትካ %s ናብ ቀረባ ቦታ ናይ መሳርሒካ ክዕወተልካ ፍቐድ። ዳታ ቀረባ ቦታኻ ንሽቡክ Psiphon ንምምሕያሽ እዩ ዝጥቀመሉ፣ ከባቢ 3 ኪሎ ሜተር ስኴር ብትንዓት እዩ</string>
 </resources>
