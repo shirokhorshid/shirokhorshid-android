@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">নেটওয়ার্ক সংযোগের জন্য অপেক্ষা করা হচ্ছে ...</string>
   <string name="psiphon_service_notification_message_connecting">সংযুক্ত হচ্ছে ...</string>
   <string name="psiphon_service_notification_id">সাইফন সার্ভিস বিজ্ঞপ্তি</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon স্ট্যাটাস পরিবর্তন</string>
   <string name="psiphon_upgrade_notification_channel_name">সাইফন আপগ্রেড</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon সার্ভার সতর্কতা</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon ক্র্যাশ</string>
   <string name="vpn_service_running">ভিপিএন সেবা চলমান</string>
   <string name="vpn_service_revoked">ভিপিএন সেবা বাতিল করা হয়েছে</string>
   <string name="current_network_type">বর্তমান নেটওয়ার্ক:%s</string>
@@ -59,6 +62,31 @@
   <string name="region_name_se">সুইডেন</string>
   <string name="region_name_pl">পোল্যান্ড</string>
   <string name="region_name_sk">Slovakia</string>
+  <string name="region_name_rs">সার্বিয়া</string>
+  <string name="region_name_au">অস্ট্রেলিয়া</string>
+  <string name="region_name_ae">সংযুক্ত আরব আমিরাত</string>
+  <string name="region_name_ar">আর্জেন্টিনা</string>
+  <string name="region_name_br">ব্রাজিল</string>
+  <string name="region_name_cl">চিলি</string>
+  <string name="region_name_ee">এস্তোনিয়া</string>
+  <string name="region_name_fi">ফিনল্যান্ড</string>
+  <string name="region_name_is">আইসল্যান্ড</string>
+  <string name="region_name_ie">আয়ারল্যান্ড</string>
+  <string name="region_name_ke">কেনিয়া</string>
+  <string name="region_name_kr">কোরিয়া</string>
+  <string name="region_name_lt">লিথুয়ানিয়া</string>
+  <string name="region_name_lv">লাটভিয়া</string>
+  <string name="region_name_mx">মেক্সিকো</string>
+  <string name="region_name_tw">তাইওয়ান</string>
+  <string name="region_name_za">দক্ষিণ আফ্রিকা</string>
+  <string name="region_name_id">ইন্দোনেশিয়া</string>
+  <string name="region_name_nz">নিউজিল্যান্ড</string>
+  <string name="region_name_gr">গ্রিস</string>
+  <string name="region_name_ua">ইউক্রেন</string>
+  <string name="region_name_pt">পর্তুগাল</string>
+  <string name="region_name_hr">ক্রোয়েশিয়া</string>
+  <string name="region_name_co">কলম্বিয়া</string>
+  <string name="region_name_my">মালয়েশিয়া</string>
   <string name="about">সাইফন সম্পর্কে</string>
   <string name="feedback">প্রতিক্রিয়া</string>
   <string name="disableTimeoutsPreferenceSummary">ধীর গতির নেটওয়ার্কগুলির জন্য সময়সীমা অক্ষম করুন</string>
@@ -68,23 +96,48 @@
   <string name="preference_notifications_title">প্রজ্ঞাপন</string>
   <string name="preference_vpn_title">ভিপিএন</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">সকল অ্যাপ টানেল করুন</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">অ্যাপ অন্তর্ভুক্ত করুন</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">কেবলমাত্র নির্বাচিত অ্যাপ টানেল করুন</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">অ্যাপ্লিকেশনগুলি বাদ দিন</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">নির্বাচিত অ্যাপগুলি টানেল করবেন না</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">অ্যাপ টানেল করা হচ্ছে: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">টানেল থেকে অ্যাপটি বাদ দেওয়া হয়েছে:%s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">কোনো অ্যাপ্লিকেশন টানেল থেকে বাদ যায়নি</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">অ্যাপ নির্বাচন করুন</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d অ্যাপ VPN এর মাধ্যমে টানেল হবে</item>
+    <item quantity="other">%d অ্যাপ VPN এর মাধ্যমে টানেল হবে</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d অ্যাপ VPN থেকে বাদ দেওয়া হবে</item>
+    <item quantity="other">%d অ্যাপ VPN থেকে বাদ দেওয়া হবে</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">সকল অ্যাপ টানেল করা হচ্ছে</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d অ্যাপ টানেল করা হচ্ছে</item>
+    <item quantity="other">%d অ্যাপ টানেল করা হচ্ছে</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d অ্যাপ টানেল থেকে বাদ দেওয়া হয়েছে</item>
+    <item quantity="other">%d অ্যাপ টানেল থেকে বাদ দেওয়া হয়েছে</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">সঠিক কার্যকারিতা নিশ্চিত করতে কিছু Psiphon অ্যাপ স্বয়ংক্রিয়ভাবে VPN রাউটিং থেকে বাদ দেওয়া হয়েছে। এই বর্জনগুলি পরিবর্তন করা যায় না।</string>
+  <string name="preference_routing_all_apps_tunnel_summary">সকল অ্যাপ VPN এর মাধ্যমে টানেল হবে</string>
   <string name="preference_notifications_with_sound_title">শব্দ</string>
   <string name="preference_notifications_with_sound_summary">সংযোগ স্থিতি পরিবর্তন হলে শব্দটি প্লে করুন</string>
   <string name="preference_notifications_with_vibrate_title">কম্পন</string>
@@ -109,10 +162,20 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">আপস্ট্রিম প্রক্সি ত্রুটি:%s</string>
   <string name="start_tunnel_failed">টানেল শুরু করা ব্যর্থ হয়েছে:%s</string>
+  <string name="vpn_exclusions_conflict">আপনার বর্তমান VPN বর্জনে এক বা একাধিক সংঘর্ষপূর্ণ অ্যাপ্লিকেশন রয়েছে। সংযোগের জন্য VPN সেটিংসে যান এবং \'সকল অ্যাপ টানেল করুন\' মোডে স্যুইচ করুন।</string>
   <string name="tunnel_connecting">টানেল সংযুক্ত হচ্ছে ...</string>
   <string name="tunnel_connected">টানেল সংযুক্ত</string>
   <string name="waiting">অপেক্ষা করা হচ্ছে ...</string>
+  <string name="label_vpn_settings">VPN সেটিংস</string>
+  <string name="label_proxy_settings">প্রক্সি সেটিংস</string>
+  <string name="preference_summary_no_proxy">প্রক্সি নেই</string>
+  <string name="preference_summary_custom_proxy">কাস্টম প্রক্সি</string>
+  <string name="preference_summary_system_proxy">সিস্টেম প্রক্সি</string>
   <string name="disableTimeoutsPreferenceTitle">সময়সীমা অক্ষম করুন</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">শুধুমাত্র Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware সতর্কতা দেখান</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon আপনার ডিভাইস থেকে আগত ম্যালওয়্যার ট্রাফিক সনাক্ত করলে বিজ্ঞপ্তি পান।</string>
+  <string name="aboutMalAware">MalAware সম্পর্কে</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
   <string name="nfcBumpPreferenceTitle">Psiphon Bump সক্ষম করুন</string>
   <!--Summary for Psiphon Bump preference-->

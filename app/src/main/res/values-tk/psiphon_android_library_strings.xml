@@ -114,11 +114,27 @@
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">Programmalary saýla</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d programma VPN arkaly tunnellener</item>
+    <item quantity="other">%d programma VPN arkaly tunnellener</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d programma VPN-dan aýrylar</item>
+    <item quantity="other">%d programma VPN-dan aýrylar</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">Ähli programmalary tunnelleýär</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d programma tunnelleýär</item>
+    <item quantity="other">%d programma tunnelleýär</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d programma tunnelden aýrylan</item>
+    <item quantity="other">%d programma tunnelden aýrylan</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="vpn_preferences_default_exclusions_footer_text">Käbir Psiphon programmalary dogry işlemegi üçin VPN marşrutdan awtomatiki aýrylýar. Bu aýrylmalar üýtgedilip bilinmeýär.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Ähli programmalar VPN arkaly tunnellener</string>

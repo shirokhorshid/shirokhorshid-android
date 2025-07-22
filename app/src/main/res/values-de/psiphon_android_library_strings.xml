@@ -114,11 +114,27 @@
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">Apps auswählen</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d App wird über VPN getunnelt</item>
+    <item quantity="other">%d Apps werden über VPN getunnelt</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d App wird vom VPN ausgeschlossen</item>
+    <item quantity="other">%d Apps werden vom VPN ausgeschlossen</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">Alle Apps werden getunnelt</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d App wird getunnelt</item>
+    <item quantity="other">%d Apps werden getunnelt</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d App vom Tunnel ausgeschlossen</item>
+    <item quantity="other">%d Apps vom Tunnel ausgeschlossen</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="vpn_preferences_default_exclusions_footer_text">Bestimmte Psiphon-Apps sind automatisch vom VPN-Routing ausgeschlossen, um eine ordnungsgemäße Funktionalität zu gewährleisten. Diese Ausschlüsse können nicht geändert werden.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Alle Apps werden über VPN getunnelt</string>

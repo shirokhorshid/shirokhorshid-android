@@ -113,14 +113,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">សូមបើក NFC នៅក្នុងការកំណត់</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">កំហុសក្នុងការទាក់ទងជាមួយឧបករណ៍ផ្សេង។ សូមពិនិត្យថា Psiphon បានបើក និងភ្ជាប់នៅលើឧបករណ៍ផ្សេង ហើយព្យាយាមម្តងទៀត។</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">កំពុងរង់ចាំការទាក់ទង NFC ជាមួយឧបករណ៍ផ្សេង…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">ព័ត៌មានការតភ្ជាប់ត្រូវបានផ្លាស់ប្តូរដោយជោគជ័យ!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">កំហុសក្នុងការទាក់ទងជាមួយឧបករណ៍ផ្សេង។ សូមព្យាយាមម្តងទៀត។</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">ឧបករណ៍បានផ្លាស់ទីលឿនពេក ការតភ្ជាប់បានបាត់។ សូមព្យាយាមម្តងទៀត។</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">រកឃើញ NFC tag មិនគាំទ្រ។ តើ Psiphon បានបើក និងភ្ជាប់នៅលើឧបករណ៍ផ្សេងទេ?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">កំពុងអានទិន្នន័យ…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">ទទួលបានជំនួយក្នុងការតភ្ជាប់</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">ជំនួយ</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -130,12 +139,17 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">រួចរាល់</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">ប្រសិនបើអ្នកមានបញ្ហាក្នុងការតភ្ជាប់ទៅម៉ាស៊ីនមេ Psiphon សូមស្វែងរកមិត្តភក្តិដែលបានតភ្ជាប់ដោយជោគជ័យ ហើយចែករំលែកព័ត៌មានការតភ្ជាប់របស់ពួកគេដោយប្រើ NFC។</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">ត្រូវប្រាកដថា Psiphon បានបើក និងភ្ជាប់ ហើយរូបតំណាង Psiphon Bump កំពុងបង្ហាញនៅក្នុងរបារកម្មវិធីនៅលើឧបករណ៍ផ្សេង។</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">ជាមួយនឹងប្រអប់ Psiphon Bump បើកនៅលើឧបករណ៍របស់អ្នក និងកម្មវិធី Psiphon បើក និងភ្ជាប់នៅលើឧបករណ៍ផ្សេង សូមដាក់ឧបករណ៍របស់អ្នកពីក្រោយមកក្រោយដើម្បីចាប់ផ្តើមការផ្ទេរទិន្នន័យព័ត៌មានការតភ្ជាប់។</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">បន្ទាប់ពីការផ្ទេរទិន្នន័យព័ត៌មានការតភ្ជាប់ត្រូវបានបញ្ចប់ ហើយកម្មវិធី Psiphon របស់អ្នកអាចតភ្ជាប់បាន ប្រអប់ Psiphon Bump នឹងបិទដោយស្វ័យប្រវត្តិ។ ប្រសិនបើអ្នកនៅតែមិនអាចតភ្ជាប់បាន អ្នកអាចព្យាយាមម្តងទៀតរហូតដល់ Psiphon តភ្ជាប់ដោយជោគជ័យ។</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">សូមបើក NFC នៅក្នុងការកំណត់ប្រព័ន្ធដើម្បីបើកម៉ូដជំនួយ Psiphon Bump។</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">បើក​ការ​កំណត់</string>
   <!--Approximate location permission rationale alert title.-->

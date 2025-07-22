@@ -124,7 +124,13 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">ធ្វើថូនែលគ្រប់កម្មវិធី</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">បើកច្រក %d កម្មវិធី</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d កម្មវិធីត្រូវបានលើកលែងពីច្រក</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="vpn_preferences_default_exclusions_footer_text">កម្មវិធី Psiphon មួយចំនួនត្រូវបានលើកលែងដោយស្វាយប្រវត្តិពីការបញ្ជូនតាម VPN ដើម្បីធានដំណើរការប្រក្រតី។ ការលើកលែងទាំងនេះមិនអាចកែប្រែបានទេ។</string>
   <string name="preference_routing_all_apps_tunnel_summary">គ្រប់កម្មវិធីទាំងអស់នឹងត្រូវបើកច្រកតាម VPN</string>

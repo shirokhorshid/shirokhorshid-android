@@ -114,11 +114,23 @@
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">앱 선택</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">%d개 앱이 VPN을 통해 터널링됩니다</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">%d개 앱이 VPN에서 제외됩니다</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">모든 앱 터널링</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">%d개 앱 터널링</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d개 앱이 터널에서 제외됨</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="vpn_preferences_default_exclusions_footer_text">특정 Psiphon 앱은 적절한 기능을 보장하기 위해 VPN 라우팅에서 자동으로 제외됩니다. 이러한 제외 사항은 수정할 수 없습니다.</string>
   <string name="preference_routing_all_apps_tunnel_summary">모든 앱이 VPN을 통해 터널링됩니다</string>

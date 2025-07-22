@@ -128,7 +128,17 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">Tuneliranje svih aplikacija</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Tuneliranje %d aplikacije</item>
+    <item quantity="few">Tuneliranje %d aplikacije</item>
+    <item quantity="other">Tuneliranje %d aplikacija</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d aplikacija isključena iz tunela</item>
+    <item quantity="few">%d aplikacije isključene iz tunela</item>
+    <item quantity="other">%d aplikacija isključeno iz tunela</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="vpn_preferences_default_exclusions_footer_text">Određene Psiphon aplikacije automatski su isključene iz VPN usmjeravanja kako bi se osigurala ispravna funkcionalnost. Ova izuzeća se ne mogu modificirati.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Sve aplikacije će biti tunelirane kroz VPN</string>

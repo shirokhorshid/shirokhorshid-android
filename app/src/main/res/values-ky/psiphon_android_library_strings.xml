@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Тармак байланышын күтүү…</string>
   <string name="psiphon_service_notification_message_connecting">Байланышуу...</string>
   <string name="psiphon_service_notification_id">Psiphon сервисинин маалымкаттары</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon Абал Өзгөрүүлөрү</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-ду  Жаңылоо</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon Сервер Эскертүүлөр</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon Каталары</string>
   <string name="vpn_service_running">VPN кызматы жүрүүдө</string>
   <string name="vpn_service_revoked">VPN кызматы артка тартылды</string>
   <string name="current_network_type">Учурдагы тармак: %s</string>
@@ -57,30 +60,85 @@
   <string name="region_name_no">Норвегия</string>
   <string name="region_name_ro">Румыния</string>
   <string name="region_name_se">Швеция</string>
+  <string name="region_name_pl">Польша</string>
+  <string name="region_name_sk">Словакия</string>
+  <string name="region_name_rs">Сербия</string>
+  <string name="region_name_au">Австралия</string>
+  <string name="region_name_ae">Бириккен Араб Амирликтери</string>
+  <string name="region_name_ar">Аргентина</string>
+  <string name="region_name_br">Бразилия</string>
+  <string name="region_name_cl">Чили</string>
+  <string name="region_name_ee">Эстония</string>
+  <string name="region_name_fi">Финляндия</string>
+  <string name="region_name_is">Исландия</string>
+  <string name="region_name_ie">Ирландия</string>
+  <string name="region_name_ke">Кения</string>
+  <string name="region_name_kr">Корея</string>
+  <string name="region_name_lt">Литва</string>
+  <string name="region_name_lv">Латвия</string>
+  <string name="region_name_mx">Мексика</string>
+  <string name="region_name_tw">Тайвань</string>
+  <string name="region_name_za">Түштүк Африка</string>
+  <string name="region_name_id">Индонезия</string>
+  <string name="region_name_nz">Жаңы Зеландия</string>
+  <string name="region_name_gr">Греция</string>
+  <string name="region_name_ua">Украина</string>
+  <string name="region_name_pt">Португалия</string>
+  <string name="region_name_hr">Хорватия</string>
+  <string name="region_name_co">Колумбия</string>
+  <string name="region_name_my">Малайзия</string>
   <string name="about">Psiphon Тууралуу</string>
   <string name="feedback">Кайтарым байланыш</string>
   <string name="disableTimeoutsPreferenceSummary">Жай тармактар үчүн танаписти өчүрүү</string>
+  <string name="region_selector">Сервер аймагын тандоо</string>
   <string name="network_proxy_connect_invalid_values">HTTP прокси баптоолору жараксыз</string>
+  <string name="tunnel_whole_device_exception">Сиздин түзүлүш VpnService API жок болгондуктан бүт түзүлүштү туннелдөө мүмкүнчүлүгүн колдобойт.</string>
   <string name="preference_notifications_title">Маалымкаттар</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Бардык колдонмолорду туннелдөө</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Колдонмолорду Кошуу</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Тандалган колдонмолорду гана туннелдөө</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Колдонмолорду Чыгаруу</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Тандалган колдонмолорду туннелдебөө</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Колдонмону туннелдөө: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Колдонмо туннелден чыгарылды: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Эч бир колдонмо туннелден чыгарылган жок</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Колдонмолорду тандоо</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">%d колдонмо VPN аркылуу туннелденет</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">%d колдонмо VPN дан чыгарылат</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Бардык колдонмолорду туннелдөө</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">%d колдонмону туннелдөө</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d колдонмо туннелден чыгарылды</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Кээ бир Psiphon колдонмолору туура иштеши үчүн VPN багыттоо системасынан автоматтык түрдө чыгарылган. Бул четтетүүлөрдү өзгөртүү мүмкүн эмес.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Бардык колдонмолор VPN аркылуу туннелденет</string>
   <string name="preference_notifications_with_sound_title">Үн</string>
   <string name="preference_notifications_with_sound_summary">Байланыш статусу өзгөргөндө үн чыгаруу</string>
   <string name="preference_notifications_with_vibrate_title">Титирөө</string>
   <string name="preference_notifications_with_vibrate_summary">Байланыш статусу өзгөргөндө титирөө</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Жаңыртууларды Wi-Fi аркылуу гана жүктөө</string>
   <string name="moreOptions">Көбүрөөк Опциялар</string>
   <string name="proxySettingsCategoryTitle">Прокси баптоолору</string>
   <string name="custom_proxy_host_summary">Прокси сервердин түйүндүк аталышы же IP дареги</string>
@@ -100,9 +158,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Каршы прокси катасы: %s</string>
   <string name="start_tunnel_failed">Туннелдөө башталбай койду: %s</string>
+  <string name="vpn_exclusions_conflict">Сиздин учурдагы VPN четтетүүлөрүнүздө бир же бир нече карыма-каршы колдонмо бар. Туташуу үчүн VPN жөндөөлөрүнө өтүп, \'Бардык колдонмолорду туннелдөө\' режимине которулуңуз.</string>
   <string name="tunnel_connecting">Туннелге туташуу...</string>
   <string name="tunnel_connected">Туннелге байланышты</string>
   <string name="waiting">Күтүү...</string>
+  <string name="label_vpn_settings">VPN жөндөөлөрү</string>
+  <string name="label_proxy_settings">Прокси жөндөөлөр</string>
+  <string name="preference_summary_no_proxy">Прокси жок</string>
+  <string name="preference_summary_custom_proxy">Өзгөчө прокси</string>
+  <string name="preference_summary_system_proxy">Систем проксиси</string>
+  <string name="disableTimeoutsPreferenceTitle">Убакыт чектөөлөрүн өчүрүү</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi гана</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware эскертүүлөрүн көрсөтүү</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon сиздин түзүлүштөн келген зыянкеч трафикти аныктаганда кабарландыруу алыңыз.</string>
+  <string name="aboutMalAware">MalAware Жөнүндө</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump иштетүү</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Башка түзүлүштөр менен Psiphon байланыш маалыматтарын бөлүшүү үчүн NFC колдонуңуз.</string>
 </resources>
