@@ -56,31 +56,54 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon ने इंटरनेटवरील संभाव्य हानिकारक साइट्सचा प्रवेश ओळखला आणि अवरोधित केला आहे. अधिक जाणून घेण्यासाठी कृपया खालील दुवे फॉलो करा.\n\nआढळलेला मालवेअर:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon इंटरनेटवरील संभाव्य हानिकारक साइट्सचा प्रवेश आपोआप अवरोधित करते. हे घडल्यावर आपल्याला सूचना देण्यास आवडेल का?\n\nही सेटिंग नंतर अधिक पर्यायांमध्ये बदलली जाऊ शकते.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware बद्दल येथे अधिक जाणा:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">अपस्ट्रीम प्रॉक्सी त्रुटी</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">कृपया Psiphon उघडा आणि प्रॉक्सी सेटिंग्ज तपासा.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">प्रॉक्सी त्रुटी</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">आपण अपस्ट्रीम प्रॉक्सी वापरण्यासाठी Psiphon कॉन्फिगर केले आहे. तथापि, आम्ही त्या प्रॉक्सीद्वारे Psiphon सर्व्हरशी कनेक्ट होऊ शकत नाही असे दिसते.\n\nकृपया सेटिंग्ज दुरुस्त करा आणि पुन्हा प्रयत्न करा.\n\nतांत्रिक माहितीसाठी लॉग्स पहा.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon क्रॅश झाला</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">कृपया आम्हाला अभिप्राय पाठवा.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">कृपया आम्हाला अभिप्राय पाठवण्यासाठी ही अधिसूचना क्लिक करा. यामुळे आम्हाला समस्या समजण्यास मदत होईल जेणेकरून आम्ही ती जलद दुरुस्त करू शकू.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">मी स्वीकारतो</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">डेटा संकलन प्रकटीकरण</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s आपल्याला इंटरनेट सामग्रीचा अनसेन्सर केलेला प्रवेश प्रदान करण्यासाठी Android VPN सेवा वापरते. आम्ही खालील माहिती गोळा, एकत्रित आणि संग्रहित करतो:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">आपले शहर, देश, ISP आणि वैकल्पिकरित्या, अंदाजे स्थान. शहर, देश आणि ISP हे IP पत्त्यावरून काढले जाते ज्यावरून आपण आमच्या सर्व्हरशी कनेक्ट होता, आणि IP पत्ता स्वतः कधीही लॉग केला जात नाही. हा डेटा वापर आणि कामगिरी आकडेवारी आणि सेवा आरोग्य हेतूंसाठी गोळा केला जातो.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">आपला ईमेल, जेव्हा आपण आम्हाला डायग्नोस्टिक किंवा क्रॅश लॉग अभिप्राय पाठवता. अभिप्रायामध्ये ईमेल प्रदान करणे वैकल्पिक आहे.</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s अधिसूचना</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s अ‍ॅप पार्श्वभूमीत असताना आपल्याला महत्वाची माहिती प्रदान करण्यासाठी अधिसूचना वापरते. यामध्ये हे समाविष्ट आहे:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">आपल्या VPN कनेक्शन स्थितीतील बदल.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">आपल्या कनेक्शनमधील समस्या.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">क्रॅश अहवाल.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware अलर्ट.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">नवीन अ‍ॅप आवृत्त्या उपलब्ध.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">आपण कधीही अ‍ॅप सेटिंग्जमध्ये अधिसूचना अक्षम करू शकता.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -90,14 +113,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">कृपया सेटिंग्जमध्ये NFC सक्षम करा</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">दुसर्‍या डिव्हाइसशी संवाद साधण्यात त्रुटी. कृपया तपासा की दुसर्‍या डिव्हाइसवर Psiphon उघडे आणि कनेक्ट केलेले आहे आणि पुन्हा प्रयत्न करा.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">दुसर्‍या डिव्हाइससह NFC परस्परक्रियेची प्रतीक्षा करत आहे…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">कनेक्शन माहिती यशस्वीरित्या अदलाबदल केली!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">दुसर्‍या डिव्हाइसशी संवाद साधण्यात त्रुटी. कृपया पुन्हा प्रयत्न करा.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">डिव्हाइस खूप वेगाने हलले, कनेक्शन गमावले. कृपया पुन्हा प्रयत्न करा.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">असमर्थित NFC टॅग सापडला. दुसर्‍या डिव्हाइसवर Psiphon उघडे आणि कनेक्ट केलेले आहे का?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">डेटा वाचत आहे…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">कनेक्ट करण्यासाठी मदत मिळवा</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Help</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -107,14 +139,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">झाले</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">जर आपल्याला Psiphon सर्व्हरशी कनेक्ट करण्यात समस्या येत असेल, तर यशस्वीरित्या कनेक्ट केलेला मित्र शोधा आणि NFC वापरून त्यांची कनेक्शन माहिती सामायिक करा.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">खात्री करा की Psiphon उघडे आणि कनेक्ट केलेले आहे आणि Psiphon Bump आयकॉन दुसर्‍या डिव्हाइसवर अ‍ॅप बारमध्ये दिसत आहे.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">आपल्या डिव्हाइसवर Psiphon Bump संवादपट उघडे आणि दुसर्‍या डिव्हाइसवर Psiphon अ‍ॅप उघडे आणि कनेक्ट केलेले असल्यास, कनेक्शन माहिती डेटा ट्रान्सफर सुरू करण्यासाठी आपली डिव्हाइसेस पाठीमागे ठेवा.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">एकदा कनेक्शन माहिती डेटा ट्रान्सफर पूर्ण झाल्यानंतर आणि आपला Psiphon अ‍ॅप कनेक्ट होऊ शकल्यावर, Psiphon Bump संवादपट आपोआप बंद होईल. जर आपण अजूनही कनेक्ट होऊ शकत नसाल, तर Psiphon यशस्वीरित्या कनेक्ट होईपर्यंत आपण पुन्हा प्रयत्न करू शकता.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump सहाय्यक मोड सक्षम करण्यासाठी कृपया सिस्टम सेटिंग्जमध्ये NFC चालू करा.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">सेटिंग्ज उघडा</string>
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">अंदाजे स्थान</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">कृपया %s ला आपल्या डिव्हाइसच्या अंदाजे स्थानावर प्रवेश देण्याची परवानगी द्या. आपला स्थान डेटा अंदाज Psiphon नेटवर्क ऑप्टिमाइझ करण्यासाठी वापरला जातो आणि सुमारे 3 चौरस किलोमीटरपर्यंत अचूक आहे.</string>
 </resources>
