@@ -2,7 +2,7 @@
 <resources>
   <string name="banner_desc">Bango la mdhamini; bonyeza kutembelea ukurasa wa nyumbani wa wafadhili </string>
   <string name="open_browser">Fungua Kivinjari</string>
-  <string name="FeedbackActivity.DefaultText">Ikiwa una maoni yoyote maalum, maelezo zaidi kuhusu tovuti ambazo hazifanyi kazi, au ikiwa fomu hii haifanyi kazi kwako, tafadhali tuma barua pepe kwa &amp;lt;a href="mailto:feedback@psiphon.ca"&amp;gt;feedback@psiphon.ca&amp;lt ;/a&amp;gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Ikiwa una maoni yoyote maalum, maelezo zaidi kuhusu tovuti ambazo hazifanyi kazi, au ikiwa fomu hii haifanyi kazi kwako, tafadhali tuma barua pepe kwa &amp;lt;a href=\"mailto:feedback@psiphon.ca\"&amp;gt;feedback@psiphon.ca&amp;lt ;/a&amp;gt;.</string>
   <string name="FeedbackActivity.Success">Asante kwa kuwasilisha maoni yako</string>
   <string name="FeedbackActivity.Failure">Uwasilishaji umeshindwa. Tafadhali jaribu tena.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN imekoma</string>

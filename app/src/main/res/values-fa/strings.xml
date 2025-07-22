@@ -2,7 +2,7 @@
 <resources>
   <string name="banner_desc">بنر حامیان؛ برای دیدن صفحه اصلی  حامیان کلیک کنید</string>
   <string name="open_browser">بازکردن مرورگر</string>
-  <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href="mailto:feedback@psiphon.ca"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتون رو با ما در میان گذاشتید سپاسگزاریم</string>
   <string name="FeedbackActivity.Failure">ارسال نشد. لطفآ دوباره امتحان کنید</string>
   <string name="StatusActivity.VpnRevokedTitle">VPN Psiphon متوقف شده است</string>
