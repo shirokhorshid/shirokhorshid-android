@@ -52,11 +52,11 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
-  <string name="unsafe_traffic_alert_dialog_message">Psiphon internetdagi potentsial xavfli saytlarga kirishni aniqladi va blok qiladi. Ko\'proq bilish uchun quyidagi havolalarni bosing.\\n\\nAniqlangan zararli dastur:</string>
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon internetdagi potentsial xavfli saytlarga kirishni aniqladi va blok qiladi. Ko\'proq bilish uchun quyidagi havolalarni bosing.\n\nAniqlangan zararli dastur:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
-  <string name="unsafe_traffic_alert_prompt_message">Psiphon internetdagi potentsial xavfli saytlarga kirishni avtomatik ravishda blok qiladi. Bu hodisa sodir bo\'lganda sizga xabar berilsinmi?\\n\\nBu sozlama keyinroq \"Ko\'proq imkoniyatlar\"da o\'zgartirilishi mumkin.</string>
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon internetdagi potentsial xavfli saytlarga kirishni avtomatik ravishda blok qiladi. Bu hodisa sodir bo\'lganda sizga xabar berilsinmi?\n\nBu sozlama keyinroq \"Ko\'proq imkoniyatlar\"da o\'zgartirilishi mumkin.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware haqida ko\'proq bilish uchun:</string>
   <!--"Upstream proxy error" notification title-->
@@ -66,7 +66,7 @@
   <!--"Upstream proxy error" alert dialog title-->
   <string name="upstream_proxy_error_alert_title">Proksi xatosi</string>
   <!--"Upstream proxy error" alert dialog message-->
-  <string name="upstream_proxy_error_alert_message">Siz Psiphon-ni yuqori proksi ishlatish uchun sozladingiz. Biroq, biz bu proksi orqali Psiphon serveriga ulanishda muammo bor.\\n\\nIltimos sozlamalarni to\\'g\\'irlang va qayta urinib ko\\'ring.\\n\\nTexnik ma\\'lumotlar uchun jurnallarga qarang.</string>
+  <string name="upstream_proxy_error_alert_message">Siz Psiphon-ni yuqori proksi ishlatish uchun sozladingiz. Biroq, biz bu proksi orqali Psiphon serveriga ulanishda muammo bor.\n\nIltimos sozlamalarni to\'g\'irlang va qayta urinib ko\'ring.\n\nTexnik ma\'lumotlar uchun jurnallarga qarang.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_title">Psiphon ishlamay qoldi</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
