@@ -9,16 +9,19 @@
   <string name="socks_port_in_use">ዝተሓተተ ናይ ከባቢ SOCKS ተተካእI ፖርት %d ብኻልእ ኣፕ ተታሒዙ`ሎ። ምቕጻል ኣይክኣልን። </string>
   <string name="waiting_for_network_connectivity">ነትዎርክ ኣብ ምርኻብ ኣሎ...</string>
   <string name="psiphon_service_notification_message_connecting">የራኸብ ኣሎ...</string>
-  <string name="psiphon_service_notification_id">መዘኻኸሪ ኣገልግሎት ሳይፎን (Psiphon)</string>
-  <string name="psiphon_upgrade_notification_channel_name">ምሕየሻ ሳይፎን (Psiphon)</string>
+  <string name="psiphon_service_notification_id">መዘኻኸሪ ኣገልግሎት Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">ናይ Psiphon ኩነታት ለውጢ</string>
+  <string name="psiphon_upgrade_notification_channel_name">ምሕየሻ Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">ናይ Psiphon ሰርቨር ምጥቃዕ</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">ናይ Psiphon ጥሜት</string>
   <string name="vpn_service_running">VPN ኣብ ምስራሕ ኣሎ</string>
   <string name="vpn_service_revoked">ኣገልግሎት VPN ተመንዚዑ</string>
   <string name="current_network_type">ሕጂ ዘሎ ነትዎርክ: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptTitle">ምሕየሻ ሳይፎን (Psiphon)</string>
+  <string name="UpgradeManager.UpgradePromptTitle">ምሕየሻ Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptMessage">ንሳይፎን ዝኸውን ምሕየሻ ክጽዕን ድልው ኣሎ፡፡</string>
+  <string name="UpgradeManager.UpgradePromptMessage">ንPsiphon ዝኸውን ምሕየሻ ክጽዕን ድልው ኣሎ፡፡</string>
   <string name="connected_elapsed_time">ተራኺቡ: %s</string>
   <string name="disconnected">ኣይተራኸበን</string>
   <string name="label_sent">ተላኢኹ</string>
@@ -59,30 +62,82 @@
   <string name="region_name_se">ሽወደን</string>
   <string name="region_name_pl">ፖላንድ</string>
   <string name="region_name_sk">ስሎቫክያ</string>
-  <string name="about">ብዛዕባ ሳይፎን (Psiphon)</string>
+  <string name="region_name_rs">ሰርቢያ</string>
+  <string name="region_name_au">ኣውስትራልያ</string>
+  <string name="region_name_ae">ሓቢሩ ዓረባዊ ኢሚሬትስ</string>
+  <string name="region_name_ar">ኣርጀንትና</string>
+  <string name="region_name_br">ብራዚል</string>
+  <string name="region_name_cl">ቺሌ</string>
+  <string name="region_name_ee">ኢስቶንያ</string>
+  <string name="region_name_fi">ፊንላንድ</string>
+  <string name="region_name_is">ኣይስላንድ</string>
+  <string name="region_name_ie">ኣየርላንድ</string>
+  <string name="region_name_ke">ኬንያ</string>
+  <string name="region_name_kr">ኮርያ</string>
+  <string name="region_name_lt">ሊትዋንያ</string>
+  <string name="region_name_lv">ላቲቭያ</string>
+  <string name="region_name_mx">ሜክሲኮ</string>
+  <string name="region_name_tw">ታይዋን</string>
+  <string name="region_name_za">ደቡብ ኣፍሪቃ</string>
+  <string name="region_name_id">ኢንዶነዝያ</string>
+  <string name="region_name_nz">ሓዱሽ ዚላንድ</string>
+  <string name="region_name_gr">ግሪኽ</string>
+  <string name="region_name_ua">ዩክረይን</string>
+  <string name="region_name_pt">ፖርቱጋል</string>
+  <string name="region_name_hr">ክሮኦሽያ</string>
+  <string name="region_name_co">ኮሎምብያ</string>
+  <string name="region_name_my">ማለዝያ</string>
+  <string name="about">ብዛዕባ Psiphon</string>
   <string name="feedback">ግብረ-መልሲ</string>
   <string name="disableTimeoutsPreferenceSummary">ንዝሑላት ነትዎርክታት ናይ ግዜ ዕረፍቲታት ኣደስክል</string>
+  <string name="region_selector">ዝኾንካዮ ዞባ ሰርቨር መረጽ</string>
   <string name="network_proxy_connect_invalid_values">ዝተጋገየ HTTP ተካኢ ባይታ-ውህደት</string>
   <string name="tunnel_whole_device_exception">መሳርሕኻ ምስ ምሉእ መተሓላለፊ ምሳርሒ ኣማራጺ ኣይሰማማዕን። ምኽንያቱ VpnService API ስለዘይብሉ።</string>
   <string name="preference_notifications_title">መዘኻኸርታት</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">ንኹሉ ኣፓት ኣመሓላለፍ</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">ኣፓት ኣእቱ</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">ዝተመረጹ ኣፓት ጥራሕ ኣመሓላለፍ</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">ኣፓት ኣውጽእ</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">ዝተመረጹ ኣፓት ኣይትመሓላለፍን</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">ኣፕ ኣብ መሓላላፊ: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">ኣፕ ካብ መተሓላለፊ ተኣጊዱ`ሎ: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">መተግበሪታት ካብ መተሓላለፊ ኣይተኣገዱን</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">ኣፓት መረጽ</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d ኣፕ ብ VPN ክመሓላለፍ እዩ</item>
+    <item quantity="other">%d ኣፓት ብ VPN ክመሓላለፉ እዮም</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d ኣፕ ካብ VPN ክግለል እዩ</item>
+    <item quantity="other">%d ኣፓት ካብ VPN ክግለሉ እዮም</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">ንኹሉ ኣፓት ኣብ መሓላላፊ</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d ኣፕ ኣብ መሓላላፊ</item>
+    <item quantity="other">%d ኣፓት ኣብ መሓላላፊ</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d ኣፕ ካብ መሓላላፊ ተኣጊዱ</item>
+    <item quantity="other">%d ኣፓት ካብ መሓላላፊ ተኣጊዶም</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">ገለ ናይ Psiphon ኣፓት ናይ ግድን ካብ VPN መስመር ይግለሉ እዮም ንግቡእ ኣሰራርሓ ንምርግጋጽ። እዚ ምግላል እዚ ክልወጥ ኣይክእልን።</string>
+  <string name="preference_routing_all_apps_tunnel_summary">ኩሉ ኣፓት ብ VPN ክመሓላለፉ እዮም</string>
   <string name="preference_notifications_with_sound_title">ድምጺ</string>
   <string name="preference_notifications_with_sound_summary">ኩነታት ርክብ ክቕየር ከሎ ድምጺ ኣጻውት</string>
   <string name="preference_notifications_with_vibrate_title">ንዝረት</string>
@@ -107,10 +162,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">ተካኢ ዋሕዚ-ላዕሊ ጌጋ የርኢ: %s</string>
   <string name="start_tunnel_failed">መተሓላለፊ ምጅማር ኣይተኻእለን: %s</string>
+  <string name="vpn_exclusions_conflict">ኣብ ህሉው VPN ምግላልካ ሓደ ወይ ተወሳኺ ዝተጓዓዙ ኣፓት ኣለዉ። ብኽብሪ ናብ VPN ባይታ-ውህደት ኪድካ ናብ \'ኩሉ ኣፓት ኣመሓላለፍ\' ኩነታት ተቀይር ንምርኻብ።</string>
   <string name="tunnel_connecting">መተሓላለፊ ኣብ ምርኻብ...</string>
   <string name="tunnel_connected">መተሓላለፊ ተራኺቡ`ሎ</string>
   <string name="waiting">ኣብ ምጽባይ ኣሎ...</string>
-  <string name="disableTimeoutsPreferenceTitle">timeouts ኣደስክል</string>
+  <string name="label_vpn_settings">VPN ባይታ-ውህደት</string>
+  <string name="label_proxy_settings">ተካኢ ባይታ-ውህደት</string>
+  <string name="preference_summary_no_proxy">ተካኢ የለን</string>
+  <string name="preference_summary_custom_proxy">ብምርጫ ተካኢ</string>
+  <string name="preference_summary_system_proxy">ስርዓት ተካኢ</string>
+  <string name="disableTimeoutsPreferenceTitle">ናይ ግዜ ዕረፍቲ ኣደስክል</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi ጥራሕ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware ምጥቃዓት ኣርእይ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon ካብ መሳርሒኻ ዝወጽእ malware ትራፊክ ክረኽብ ከሎ ሓበሬታ ተቐበል።</string>
+  <string name="aboutMalAware">ብዛዕባ MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump ኣኺል</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">NFC ተጠቒምካ ናይ Psiphon ግንኙነት ሓበሬታ ምስ ካልኦት መሳርሒ ኣካፍል።</string>
 </resources>

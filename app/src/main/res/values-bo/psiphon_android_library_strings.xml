@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">དྲྭ་རྒྱ་མཐུད་ཐབས་བྱེད་བཞིན་པ།...</string>
   <string name="psiphon_service_notification_message_connecting">མཐུད་བཞིན་པ།...</string>
   <string name="psiphon_service_notification_id">སཡི་ཕོན་ཞབས་ཞུའི་སྔོན་བརྡ།</string>
+  <string name="psiphon_service_notification_channel_name">སཡི་ཕོན་རྣམ་པ་འགྱུར་བ།</string>
   <string name="psiphon_upgrade_notification_channel_name">སཡི་ཕོན་རིམ་སྤར།</string>
+  <string name="psiphon_server_alert_notification_channel_name">སཡི་ཕོན་ཞབས་ཞུ་འཕྲུལ་ཆས་གཏུབ་རིས།</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">སཡི་ཕོན་ཉམས་པ།</string>
   <string name="vpn_service_running">VPN ཞབས་ཞུ་འཁོར་སྐྱོད་བྱེད་བཞིན་པ།</string>
   <string name="vpn_service_revoked">VPN ཞབས་ཞུ་འཕྲུལ་ཆས་ཕྱིར་བསྡུ།</string>
   <string name="current_network_type">ད་ལྟའི་དྲྭ་ལམ།: %s</string>
@@ -57,30 +60,85 @@
   <string name="region_name_no">ནོར་ཝེ།</string>
   <string name="region_name_ro">རོ་མ་ནི་ཡ།</string>
   <string name="region_name_se">སི་ཝི་ཌན།</string>
+  <string name="region_name_pl">པོ་ལེཌ།</string>
+  <string name="region_name_sk">སི་ལོ་ཝ་ཀི་ཡ།</string>
+  <string name="region_name_rs">སར་བི་ཡ།</string>
+  <string name="region_name_au">ཨོས་ཀེ་ལི་ཡ།</string>
+  <string name="region_name_ae">ཨ་རབ་མཉམ་འབྲེལ་རིན་ལུང་།</string>
+  <string name="region_name_ar">ཨར་ཇེན་ཊི་ན།</string>
+  <string name="region_name_br">བ་ཟི་ལ།</string>
+  <string name="region_name_cl">ཅི་ལི།</string>
+  <string name="region_name_ee">ཨེས་ཏོ་ནི་ཡ།</string>
+  <string name="region_name_fi">ཕིན་ལེན།</string>
+  <string name="region_name_is">པོ་ལེན།</string>
+  <string name="region_name_ie">ཨའེ་ལེན།</string>
+  <string name="region_name_ke">ཁེ་ནི་ཡ།</string>
+  <string name="region_name_kr">ཀོ་རི་ཡ།</string>
+  <string name="region_name_lt">ལི་ཏུ་ཝེ་ནི་ཡ།</string>
+  <string name="region_name_lv">ལེ་ཊི་ཝི་ཡ།</string>
+  <string name="region_name_mx">མེཀ་སི་ཀོ།</string>
+  <string name="region_name_tw">ཏེ་ཝན།</string>
+  <string name="region_name_za">ལྷོ་ཨ་ཧྥི་རི་ཀ།</string>
+  <string name="region_name_id">ཨིན་རྡོ་ནི་སི་ཡ།</string>
+  <string name="region_name_nz">ནིའུ་ཟི་ལེན།</string>
+  <string name="region_name_gr">གི་རིག་སི།</string>
+  <string name="region_name_ua">ཡུ་ཀེ་རན།</string>
+  <string name="region_name_pt">པོར་ཅུ་གྷལ།</string>
+  <string name="region_name_hr">ཀུ་རོ་ཨེ་ཤི་ཡ།</string>
+  <string name="region_name_co">ཀོ་ལམ་བི་ཡ།</string>
+  <string name="region_name_my">མ་ལེ་སི་ཡ།</string>
   <string name="about">སཡི་ཕོན་གྱི་ངོ་སྤྲོད།</string>
   <string name="feedback">དགོངས་འཆར།</string>
   <string name="disableTimeoutsPreferenceSummary">དྲྭ་རྒྱ་དལ་པོ་ཡོད་ཚེ་དུས་རྫོགས་མེད་པ་བཟོས།</string>
+  <string name="region_selector">ཞབས་ཞུ་འཕྲུལ་ཆས་ས་གནས་བདམ་པ།</string>
   <string name="network_proxy_connect_invalid_values">HTTP ངོ་ཚབ་སྒྲིག་བཀོད་ཁུངས་མེད།</string>
+  <string name="tunnel_whole_device_exception">ཁྱེད་རང་གི་འཕྲུལ་ཆས་ནང་VpnService API མེད་པའི་ཕྱིར་འཕྲུལ་ཆས་ཡོངས་རྫོགས་ཡུར་བ་རམ་འདེགས་མི་ཐུབ།</string>
   <string name="preference_notifications_title">བརྡ་ཐོ།</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">འཕྲུལ་ཆས་ཆ་ཚང་ཡུར་བ་རྒྱུད་ནས།</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">འཕྲུལ་ཆས་ཁ་འཐུས།</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">བདམས་པའི་འཕྲུལ་ཆས་ཁོ་ན་ཡུར་བ་རྒྱུད་ནས།</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">འཕྲུལ་ཆས་མ་གཏོགས་པ།</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">བདམས་པའི་འཕྲུལ་ཆས་ཡུར་བ་རྒྱུད་མི་གཏང་།</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">འཕྲུལ་ཆས་ཡུར་བ་རྒྱུད་ནས་གཏོང་བ།: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">འཕྲུལ་ཆས་ཡུར་བ་ནས་མ་གཏོགས་པ།: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">འཕྲུལ་ཆས་གང་ཡང་ཡུར་བ་ནས་མ་གཏོགས་པ།</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">འཕྲུལ་ཆས་བདམས་པ།</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">འཕྲུལ་ཆས་%d VPN རྒྱུད་ནས་གཏང་རྒྱུ།</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">འཕྲུལ་ཆས་%d VPN ནས་མ་གཏོགས་རྒྱུ།</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">འཕྲུལ་ཆས་ཆ་ཚང་ཡུར་བ་རྒྱུད་ནས།</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">འཕྲུལ་ཆས་%d ཡུར་བ་རྒྱུད་ནས།</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">འཕྲུལ་ཆས་%d ཡུར་བ་ནས་མ་གཏོགས་པ།</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">སཡི་ཕོན་འཕྲུལ་ཆས་ལ་ལ་འགྲོ་སྟངས་ཡག་པོ་ཡིན་པའི་ཕྱིར་རང་འགུལ་གྱིས་VPN ལམ་ནས་མ་གཏོགས་པ་རེད། མ་གཏོགས་པ་འདི་དག་བཅོས་ཐུབ་མི་ཐུབ།</string>
+  <string name="preference_routing_all_apps_tunnel_summary">འཕྲུལ་ཆས་ཚང་མ་VPN རྒྱུད་ནས་ཡུར་བ་རྒྱུད་དེ་གཏང་རྒྱུ།</string>
   <string name="preference_notifications_with_sound_title">སྒྲ།</string>
   <string name="preference_notifications_with_sound_summary">འབྲེལ་མཐུད་བརྗེས་སྐབས་སྐད་བརྡ་བཏང་རོགས།</string>
   <string name="preference_notifications_with_vibrate_title">འབེར་རྒྱབ་པ།</string>
   <string name="preference_notifications_with_vibrate_summary">འབྲེལ་གཏུགས་ཀྱི་གནས་བབ་འགྱུར་ཚེ་འབེར་རྒྱབ།</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Wi-Fi ཁོ་ན་རྒྱུད་ནས་རིམ་སྤར་ཕབ་ལེན།</string>
   <string name="moreOptions">གདམ་ག་མང་པོ།</string>
   <string name="proxySettingsCategoryTitle">ངོ་ཚབ་སྒྲིག་བཀོད།</string>
   <string name="custom_proxy_host_summary">ཞབས་ཞུ་འཕྲུལ་ཆས་ངོ་ཚབ་གྱི་ངོས་འཛིན་ཐུབ་པའི་མིང་ངམ་IP</string>
@@ -100,9 +158,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">ངོ་ཚབ་ཡར་འཇུག་ནོར་བ་།:%s</string>
   <string name="start_tunnel_failed">ཡུར་བ་འགོ་འཛུགས་ཐུབ་མ་སོང།%s</string>
+  <string name="vpn_exclusions_conflict">ཁྱེད་རང་གི་ད་ལྟའི་VPN མ་གཏོགས་པའི་ནང་འཕྲུལ་ཆས་འགལ་ཟླ་ཞིག་ཡོད། VPN སྒྲིག་བཀོད་ནང་གཏོང་སྟེ་\'འཕྲུལ་ཆས་ཆ་ཚང་ཡུར་བ་རྒྱུད་ནས་\'རྣམ་པར་བསྒྱུར་ཏེ་འབྲེལ་མཐུད་གནང་།</string>
   <string name="tunnel_connecting">ཡུར་བ་ལ་མཐུད་བཞིན་པ།...</string>
   <string name="tunnel_connected">ཡུར་བར་མཐུད་ཚར་སོང་།</string>
   <string name="waiting">སྒུག་བཞིན་པ།</string>
+  <string name="label_vpn_settings">VPN སྒྲིག་བཀོད།</string>
+  <string name="label_proxy_settings">ངོ་ཚབ་སྒྲིག་བཀོད།</string>
+  <string name="preference_summary_no_proxy">ངོ་ཚབ་མེད།</string>
+  <string name="preference_summary_custom_proxy">རང་གསོ་ངོ་ཚབ།</string>
+  <string name="preference_summary_system_proxy">མ་ལག་ངོ་ཚབ།</string>
+  <string name="disableTimeoutsPreferenceTitle">དུས་ཚོད་རྫོགས་པ་མེད་པ།</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi ཁོ་ན།</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware གཏུབ་རིས་སྟོན།</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">སཡི་ཕོན་གྱིས་ཁྱེད་རང་གི་འཕྲུལ་ཆས་ནས་གནོད་པའི་མཉེན་ཆས་རིགས་རྙེད་ཚེ་བརྡ་ཐོ་འབྱོར།</string>
+  <string name="aboutMalAware">MalAware ངོ་སྤྲོད།</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">སཡི་ཕོན་Bump ནུས་པ་ཅན་བཟོ།</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">NFC བེད་སྤྱོད་ནས་འཕྲུལ་ཆས་གཞན་དང་སཡི་ཕོན་འབྲེལ་མཐུད་གྲས་ཚན་མཉམ་སྤྱོད།</string>
 </resources>

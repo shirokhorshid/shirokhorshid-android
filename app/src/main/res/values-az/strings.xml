@@ -56,20 +56,33 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon internetdə potensial təhlükəli saytlara girişi aşkarlayıb və bloklamışdır. Daha çox məlumat üçün aşağıdakı keçidlərə daxil olun.\n\nAşkarlanan zərərli proqram:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon avtomatik olaraq internetdə potensial təhlükəli saytlara girişi bloklayır. Bu baş verəndə xəbər almaq istəyirsinizmi?\n\nBu ayarı daha sonra Əlavə Ayarlarda dəyişdirə bilərsiniz.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware haqqında daha çox məlumat üçün buraya baxın:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Yuxarı proksi xətası</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Lütfən Psiphon\'u açın və proksi ayarlarını yoxlayın.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Proksi Xətası</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Siz Psiphon\'u yuxarı proksi istifadə etmək üçün konfiqurasiya etmisiniz. Lakin biz həmin proksi vasitəsilə Psiphon serverinə qoşula bilmirik.\n\nLütfən ayarları düzəldin və yenidən cəhd edin.\n\nTexniki məlumat üçün jurnal qeydlərinə baxın.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon Çökdü</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Lütfən bizə əks əlaqə göndərin.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Bu bildirişə klik edərək bizə əks əlaqə göndərin. Bu problemin nə olduğunu anlamamıza kömək edəcək ki, daha tez düzəldə bilək.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Qəbul edib</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Məlumat toplama açıqlaması</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s sizə internet məzmununa sənzərsiz giriş təmin etmək üçün Android VPN xidmətindən istifadə edir. Aşağıdakı məlumatları toplayır, birlikə gətirib saxlayırıq:</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp1">Şəhəriniz, ölkəniz, İSP və istəyə bağlı olaraq təxmini məkanınız. Şəhər, ölkə və İSP bizim serverlərimizə qoşulduğunuz IP ünvanından alınır və IP ünvanının özü heç vaxt qeydə alınmır. Bu məlumatlar istifadə və performans statistikaları və xidmət sağlamlığı məqsədləri üçün toplanır.</string>
   <!--Data collection disclosure list item-->
@@ -101,14 +114,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Lütfən ayarlarda NFC-ni aktiv edin</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Digər cıhazla əlaqə qurarkən xəta. Digər cıhazda Psiphon\'un açıq və bağlı olduğundan əmin olun və yenidən cəhd edin.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Digər cıhazla NFC əlaqəsi gözlənir…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Bağlantı məlumatı uğurla dəyişiləndi!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Digər cıhazla əlaqə qurarkən xəta. Lütfən yenidən cəhd edin.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Cıhaz çox sürətlə hərəkət etdi, bağlantı kəsildi. Lütfən yenidən cəhd edin.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Dəstəklənməyən NFC tag aşkarlandı. Digər cıhazda Psiphon açıq və bağlıdırmı?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Məlumat oxunur…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Bağlantı üçün kömək alın</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Yardım</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -118,14 +140,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Hazır</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Əgər Psiphon serverinə qoşulmaqda çətinlik çəkirsinizsə, uğurla qoşulmuş dostunuzu tapın və NFC istifadə edərək onların bağlantı məlumatını paylaşın.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Psiphon\'un açıq və bağlı olduğundan və Psiphon Bump nişanının digər cıhazda tətbiq çubuğunda göstərildiyindən əmin olun.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Cıhazınızda Psiphon Bump dialoqu açıq, digər cıhazda isə Psiphon tətbiqi açıq və bağlı olduğu halda, bağlantı məlumatları mübadiləsini başlatmaq üçün cıhazlarınızı arxa-arxaya yerləşdirin.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Bağlantı məlumatları mübadiləsi tamamlandıqdan və Psiphon tətbiqiniz qoşula bildikdən sonra, Psiphon Bump dialoqu avtomatik olaraq bağlanacaq. Hələ də qoşula bilmirsinizsə, Psiphon uğurla qoşulana qədər yenidən cəhd edə bilərsiniz.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump yardımçı rejimini aktiv etmək üçün sistem ayarlarında NFC-ni açın.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Ayarları aç</string>
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Təxmini məkan</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Lütfən %s tətbiqinə cıhazınızın təxmini məkanına daxil olma icazəsi verin. Məkan məlumatınızın təxmini Psiphon şəbəkəsini optimallaşdırmaq üçün istifadə edilir və təqribən 3 kvadrat kilometr dəqiqliyi ilə təmin edilir.</string>
 </resources>
