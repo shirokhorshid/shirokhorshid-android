@@ -64,26 +64,46 @@
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware-നെ കുറിച്ച് ഇവിടെ കൂടുതലറിയുക:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">അപ്‌സ്ട്രീം പ്രോക്സി പിശക്</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">ദയവായി സൈഫോൺ തുറന്ന് പ്രോക്സി ക്രമീകരണങ്ങൾ പരിശോധിക്കുക.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">പ്രോക്സി പിശക്</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">നിങ്ങൾ ഒരു അപ്‌സ്ട്രീം പ്രോക്സി ഉപയോഗിക്കാൻ സൈഫോൺ കോൺഫിഗർ ചെയ്തിട്ടുണ്ട്. എന്നിരുന്നാലും, ആ പ്രോക്സി വഴി സൈഫോൺ സെർവറുമായി ബന്ധിപ്പിക്കാൻ കഴിയുന്നില്ലെന്ന് തോന്നുന്നു.\\n\\nദയവായി ക്രമീകരണങ്ങൾ ശരിയാക്കി വീണ്ടും ശ്രമിക്കുക.\\n\\nസാങ്കേതിക വിവരങ്ങൾക്ക് ലോഗുകൾ കാണുക.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">സൈഫോൺ തകർന്നു</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">ദയവായി ഞങ്ങൾക്ക് ഫീഡ്‌ബാക്ക് അയയ്ക്കുക.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">ദയവായി ഞങ്ങൾക്ക് ഫീഡ്‌ബാക്ക് അയയ്ക്കാൻ ഈ അറിയിപ്പ് ക്ലിക്ക് ചെയ്യുക. ഇത് പ്രശ്നം മനസിലാക്കാൻ ഞങ്ങളെ സഹായിക്കും, അതുവഴി ഞങ്ങൾക്ക് അത് വേഗത്തിൽ പരിഹരിക്കാനാകും.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">ഞാൻ സമ്മതിക്കുന്നു</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">ഡാറ്റ ശേഖരണ വെളിപ്പെടുത്തൽ</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s ഇന്റർനെറ്റ് ഉള്ളടക്കത്തിലേക്ക് സെൻസർ ചെയ്യാത്ത ആക്‌സസ് നൽകാൻ Android VPN സേവനം ഉപയോഗിക്കുന്നു. ഞങ്ങൾ ഇനിപ്പറയുന്ന വിവരങ്ങൾ ശേഖരിക്കുകയും സംഗ്രഹിക്കുകയും സംഭരിക്കുകയും ചെയ്യുന്നു:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">നിങ്ങളുടെ നഗരം, രാജ്യം, ISP, ഓപ്ഷണലായി ഏകദേശ ലൊക്കേഷൻ. നഗരം, രാജ്യം, ISP എന്നിവ നിങ്ങൾ ഞങ്ങളുടെ സെർവറുകളിലേക്ക് കണക്റ്റ് ചെയ്യുന്ന IP വിലാസത്തിൽ നിന്ന് ഉരുത്തിരിഞ്ഞതാണ്, IP വിലാസം തന്നെ ഒരിക്കലും ലോഗ് ചെയ്യില്ല. ഈ ഡാറ്റ ഉപയോഗത്തിനും പ്രകടന സ്ഥിതിവിവരക്കണക്കുകൾക്കും സേവന ആരോഗ്യ ആവശ്യങ്ങൾക്കും ശേഖരിക്കുന്നു.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">നിങ്ങൾ ഞങ്ങൾക്ക് ഡയഗ്നോസ്റ്റിക് അല്ലെങ്കിൽ ക്രാഷ് ലോഗ് ഫീഡ്‌ബാക്ക് അയച്ചാൽ നിങ്ങളുടെ ഇമെയിൽ. ഫീഡ്‌ബാക്കിൽ ഇമെയിൽ നൽകുന്നത് ഓപ്ഷണലാണ്.</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s അറിയിപ്പുകൾ</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">ആപ്പ് പശ്ചാത്തലത്തിലായിരിക്കുമ്പോൾ നിങ്ങൾക്ക് പ്രധാനപ്പെട്ട വിവരങ്ങൾ നൽകാൻ %s അറിയിപ്പുകൾ ഉപയോഗിക്കുന്നു. ഇതിൽ ഉൾപ്പെടുന്നു:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">നിങ്ങളുടെ VPN കണക്ഷൻ നിലയിലെ മാറ്റങ്ങൾ.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">നിങ്ങളുടെ കണക്ഷനിലെ പ്രശ്നങ്ങൾ.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">ക്രാഷ് റിപ്പോർട്ടുകൾ.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware മുന്നറിയിപ്പുകൾ.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">പുതിയ ആപ്പ് പതിപ്പുകൾ ലഭ്യമാണ്.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും ആപ്പ് ക്രമീകരണങ്ങളിൽ അറിയിപ്പുകൾ പ്രവർത്തനരഹിതമാക്കാം.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -93,14 +113,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">ദയവായി ക്രമീകരണങ്ങളിൽ NFC പ്രവർത്തനക്ഷമമാക്കുക</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">മറ്റ് ഉപകരണവുമായി ആശയവിനിമയത്തിൽ പിശക്. മറ്റ് ഉപകരണത്തിൽ സൈഫോൺ തുറന്ന് കണക്റ്റ് ചെയ്തിട്ടുണ്ടെന്ന് പരിശോധിക്കുക വീണ്ടും ശ്രമിക്കുക.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">മറ്റ് ഉപകരണവുമായി NFC ഇടപെടലിനായി കാത്തിരിക്കുന്നു…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">കണക്ഷൻ വിവരങ്ങൾ വിജയകരമായി കൈമാറി!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">മറ്റ് ഉപകരണവുമായി ആശയവിനിമയത്തിൽ പിശക്. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">ഉപകരണം വളരെ വേഗത്തിൽ ചലിച്ചു, കണക്ഷൻ നഷ്ടപ്പെട്ടു. ദയവായി വീണ്ടും ശ്രമിക്കുക.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">പിന്തുണയ്ക്കാത്ത NFC ടാഗ് കണ്ടെത്തി. മറ്റ് ഉപകരണത്തിൽ സൈഫോൺ തുറന്ന് കണക്റ്റ് ചെയ്തിട്ടുണ്ടോ?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">ഡാറ്റ വായിക്കുന്നു…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">കണക്റ്റിംഗിനായി സഹായം നേടുക</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">സഹായം</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -110,14 +139,21 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">കഴിഞ്ഞു</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">സൈഫോൺ സെർവറിലേക്ക് കണക്റ്റ് ചെയ്യുന്നതിൽ നിങ്ങൾക്ക് പ്രശ്നമുണ്ടെങ്കിൽ, വിജയകരമായി കണക്റ്റ് ചെയ്ത ഒരു സുഹൃത്തിനെ കണ്ടെത്തി NFC ഉപയോഗിച്ച് അവരുടെ കണക്ഷൻ വിവരങ്ങൾ പങ്കിടുക.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">മറ്റ് ഉപകരണത്തിൽ സൈഫോൺ തുറന്ന് കണക്റ്റ് ചെയ്തിട്ടുണ്ടെന്നും ആപ്പ് ബാറിൽ സൈഫോൺ ബമ്പ് ഐക്കൺ കാണിക്കുന്നുണ്ടെന്നും ഉറപ്പുവരുത്തുക.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">നിങ്ങളുടെ ഉപകരണത്തിൽ സൈഫോൺ ബമ്പ് ഡയലോഗ് തുറന്നിട്ടും മറ്റ് ഉപകരണത്തിൽ സൈഫോൺ ആപ്പ് തുറന്ന് കണക്റ്റ് ചെയ്തിട്ടുമുള്ളപ്പോൾ, കണക്ഷൻ വിവര ഡാറ്റാ ട്രാൻസ്ഫർ ആരംഭിക്കാൻ നിങ്ങളുടെ ഉപകരണങ്ങൾ പുറകിൽ നിന്ന് പുറകിലേക്ക് വയ്ക്കുക.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">കണക്ഷൻ വിവര ഡാറ്റാ ട്രാൻസ്ഫർ പൂർത്തിയായി നിങ്ങളുടെ സൈഫോൺ ആപ്പിന് കണക്റ്റ് ചെയ്യാൻ കഴിഞ്ഞുകഴിഞ്ഞാൽ, സൈഫോൺ ബമ്പ് ഡയലോഗ് സ്വയമേവ അടയും. നിങ്ങൾക്ക് ഇനിയും കണക്റ്റ് ചെയ്യാൻ കഴിയുന്നില്ലെങ്കിൽ, സൈഫോൺ വിജയകരമായി കണക്റ്റ് ആകുന്നത് വരെ നിങ്ങൾക്ക് വീണ്ടും ശ്രമിക്കാവുന്നതാണ്.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">സൈഫോൺ ബമ്പ്</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">സൈഫോൺ ബമ്പ് ഹെൽപ്പർ മോഡ് പ്രവർത്തനക്ഷമമാക്കാൻ ദയവായി സിസ്റ്റം ക്രമീകരണങ്ങളിൽ NFC ഓണാക്കുക.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">ക്രമീകരണങ്ങൾ തുറക്കുക</string>
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">ഏകദേശ സ്ഥലം</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">ദയവായി നിങ്ങളുടെ ഉപകരണത്തിന്റെ ഏകദേശ സ്ഥാനം ആക്സസ് ചെയ്യാൻ %s നെ അനുവദിക്കുക. നിങ്ങളുടെ ലൊക്കേഷൻ ഡാറ്റാ എസ്റ്റിമേറ്റ് സൈഫോൺ നെറ്റ്‌വർക്ക് ഒപ്റ്റിമൈസ് ചെയ്യാൻ ഉപയോഗിക്കുന്നു, ഇത് ഏകദേശം 3 ചതുരശ്ര കിലോമീറ്ററിനുള്ളിൽ കൃത്യമാണ്.</string>
 </resources>

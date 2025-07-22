@@ -1,50 +1,109 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+  <string name="banner_desc">banner yemutsigiri; dzvanya kuti ushanyire pepa rekutanga remutsigiri</string>
   <string name="open_browser">Vhura browser</string>
+  <string name="FeedbackActivity.DefaultText">Kana uchine zvimwe zvaunoda kutaura, ruzivo rwakawanda nezvemasites asingashande, kana iyi fomu isingakushanden, tapota tumira email ku &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Tinotenda nemhinduro yawapa</string>
   <string name="FeedbackActivity.Failure">Zvawanga uchida kutumira zvaramba kuenda. Edza zvakare</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN yamira</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN yakaparadzaniswa newe kana neimwe application. VPN applications dzakawanda hadzigone kushanda pamwechete. Tarisa kana imwe VPN application yakagadzirwa uye irikushanda.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN haigone kutanga</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon haigone kutanga VPN. VPN applications dzakawanda hadzigone kushanda pamwechete. Tarisa kana imwe VPN application yakagadzirwa uye yakaiswa kuti ishande Always-on.</string>
+  <string name="selected_region_currently_not_available">Dunhu rawasarudza harisi kuwanikwa manje, tapota sarudza rimwe dunhu.</string>
+  <string name="ads_consent_preference_category_title">Zvekushambadza Zvakasarudzwa</string>
+  <string name="ads_consent_preference_dialog_preference_message">Unoda here kugadzira pamusoro pazvaunoda zvekushambadza zvakasarudzwa?</string>
+  <string name="ads_consent_preference_title">Gadzira pamusoro pazvaunoda zvekushambadza</string>
+  <string name="ads_consent_preference_dialog_title">Gadzira pamusoro</string>
+  <string name="ads_consent_preference_summary">Gadzira pamusoro pazvinodiwa zvako kuvimbisa kwemashandisiro emakuki nedata yako yepachivande kushambadza kutandira</string>
+  <string name="preference_language_selection_summary">Sarudza mutauro</string>
   <string name="preference_language_selection_title">Mutauro</string>
+  <string name="preference_language_title">Kusarudza Mutauro</string>
+  <string name="preference_language_default_language">Mutauro wakagadziriswa</string>
+  <string name="preference_category_advanced_title">Zvakaomarara</string>
+  <string name="preference_category_info_title">Ruzivo</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
+  <string name="preference_navigate_to_vpn_setting_title">VPN inogara ichishanda</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Enda kumasettings esystem kuti ubvumidze VPN inogara ichishanda</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Kwete</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">Hongu</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Chiito chinodiwa!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Tapota vhura Psiphon kuti upedze kubatana.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Dunhu rawasarudza harisi kuwanikwa</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Tapota vhura Psiphon uye usarudze rimwe dunhu.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN yamira</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN yakaparadzaniswa newe kana neimwe app.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">App Icon</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">VPN setting isina kusarudzwa zvakanaka</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Unofanira kuva neapp imwechete yakasarudzwa mune iyi mode!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Unofanira kuva neapp imwechete isina kusarudzwa mune iyi mode!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Inoda Android 5.0 kana yakakura</string>
+  <string name="vpn_always_on_preference_not_available_summary">Inoda Android 7.0 kana yakakura</string>
+  <string name="vpn_exclusions_tip_summary">Sarudza browser imwechete yechinyakare browser-chete mode</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Traffic yemaware yakawanikwa! Dzvanya kuti udzidze zvakawanda.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon yakaona nekuvhara kupinda kumasites angangoita kuti ukuvadze paInternet. Tapota tevera manzwiro ari pazasi kuti udzidze zvakawanda.\n\nMaware yakawanikwa:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon inongo vhara kupinda kumasites angangoita kuti ukuvadze paInternet. Unoda here kuziviswa kana izvi zvichiitika?\n\nIyi setting inogona kushandurwa gare gare muMore Options.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Dzidza zvakawanda nezveMalAware pano:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Kukanganisa kweproxy yekumusoro</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Tapota vhura Psiphon uye utarisa proxy settings.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Kukanganisa kweProxy</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Wakagadzirisa Psiphon kuti ishandise proxy yekumusoro. Nekudaro, tinotarisira kuti hatigonikone kubatana neserver yePsiphon kuburikidza neproxy iyoyo.\n\nTapota gadzirisa masettings uye uedze zvakare.\n\nOna matarwa kuziva tekiniki mamiriro.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon Yakaputsika</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Tapota titumire mhinduro.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Tapota dzvanya chiziviso ichi kuti utitumire mhinduro. Izvi zvichatabatsira kuti tinzwisise dambudziko kuti tigone kurigadzirisa nokukasira.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Ndinobvuma</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Kuburitsira pakunze nekuunganidzira data</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s inoshandisa basa reAndroid VPN kukupa iwe kupinda kune zviri muInternet zvisina kudziviswa. Tinounganidza, tinobatanidza, uye tinochengetera ruzivo runotevera:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Guta rako, nyika, ISP, uye zvingangodaro, nzvimbo inofungidzirwa. Guta, nyika, uye ISP zvinobva kuIP address yaunobatana nawo kuserver dzedu, uye IP address pachayo haina kumbotungamirwa. Data iyi inounganidza nokuda kwekuwanikwa nekushanda kwezviratidzo nekuda kwehutano hwesevisi.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Email yako, kana uchititumira diagnostics kana crash log feedback. Kupa email mumhinduro hazvimanikidzwi.</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s Zviziviso</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s inoshandisa zviziviso kukupa iwe ruzivo rukakosha app yapo irikumashure. Izvi zvinosanganisira:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Shanduko kumamiriro ako eVPN kubatana.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Matambudziko nekubatana kwako.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Mishumo yekuputsika.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware alerts.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">App mavhezheni matsva anowanikwa.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Unogona kuisa zviziviso kuti zvisashande muapp settings chero nguva.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -54,28 +113,45 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Tapota bvumidza NFC mumasettings</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Kukanganisa kutaurirana nechimwe chishandiso. Tapota tarisa kuti Psiphon yakavhurwa uye yakabatana pachimwe chishandiso uye uedze zvakare.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Kumirira NFC interaction nechimwe chishandiso…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Ruzivo rwekubatana rwakachinjaniswa zvakabudirira!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Kukanganisa kutaurirana nechimwe chishandiso. Tapota edza zvakare.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Chishandiso chakafamba nekukasira, kubatana kwakarasika. Tapota edza zvakare.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">NFC tag isina kutsigirwa yakawanikwa. Psiphon yakavhurwa here uye yakabatana pachimwe chishandiso?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Kuverenga data…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Wana rubatsiro rwekubatana</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
+  <string name="help_btn_label">Rubatsiro</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
   <string name="onboarding_skip">Svetuka</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">Tevedza</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
+  <string name="onboarding_done">Zwapera</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Kana uchitambudzika kubatana neserver yePsiphon, tsvaga shamwari yakabatana zviri nani uye ugove ruzivo rwavo rwekubatana uchishandisa NFC.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Ita kuti Psiphon ivhurwe uye ikabatana uye Psiphon Bump icon iri kuratidzwa muapp bar pachimwe chishandiso.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">NePsiphon Bump dialog yakavhurwa pachishandiso chako nePsiphon app yakavhurwa uye yakabatana pachimwe chishandiso, isa zviridziso zvako zviri kumashure kuti utange kutamisa data yekubatana.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Kana kutamisa data yekubatana kwapera uye Psiphon app yako yakakwanisa kubatana, Psiphon Bump dialog ichavhara oga. Kana uchiri kusingagone kubatana, unogona kudzokorora kusvika Psiphon ikabatana zvakanaka.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Tapota batidza NFC mumasettings esystem kuti ubvumidze Psiphon Bump helper mode.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Vhura masettings</string>
   <!--Approximate location permission rationale alert title.-->
   <string name="location_permission_rationale_title">Nzvimbo inofungidzirwa</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
