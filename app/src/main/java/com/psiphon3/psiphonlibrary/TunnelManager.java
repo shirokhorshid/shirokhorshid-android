@@ -30,8 +30,10 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
+import android.net.Uri;
 import android.net.VpnService;
 import android.net.VpnService.Builder;
 import android.os.Build;
@@ -50,10 +52,11 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
 
 import com.jakewharton.rxrelay2.PublishRelay;
+import com.psiphon3.BuildConfig;
 import com.psiphon3.Location;
+import com.psiphon3.PackageHelper;
 import com.psiphon3.PsiphonCrashService;
 import com.psiphon3.R;
-import com.psiphon3.PackageHelper;
 import com.psiphon3.TunnelState;
 import com.psiphon3.VpnManager;
 import com.psiphon3.log.MyLog;
@@ -1594,17 +1597,50 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         });
     }
 
+    private String getClientVersion() {
+        // Prefer compile-time constant for robustness.
+        String vn = BuildConfig.VERSION_NAME;
+        if (vn != null && !vn.isEmpty()) return vn;
+
+        try {
+            PackageManager pm = m_parentService.getPackageManager();
+            String pkg = m_parentService.getPackageName();
+            PackageInfo pi;
+            if (Build.VERSION.SDK_INT >= 33) {
+                pi = pm.getPackageInfo(pkg, PackageManager.PackageInfoFlags.of(0));
+            } else {
+                pi = pm.getPackageInfo(pkg, 0);
+            }
+            return pi.versionName != null ? pi.versionName : EmbeddedValues.CLIENT_VERSION;
+        } catch (Exception e) {
+            return EmbeddedValues.CLIENT_VERSION;
+        }
+    }
+
+    private String addClientVersionToUrl(String url) {
+        try {
+            Uri uri = Uri.parse(url);
+            return uri.buildUpon()
+                    .appendQueryParameter("client_version", getClientVersion())
+                    .toString();
+        } catch (Exception e) {
+            MyLog.w("Failed to add client_version to URL: " + e.getMessage());
+            return url;
+        }
+    }
+
     @Override
     public void onHomepage(final String url) {
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
+                String modifiedUrl = addClientVersionToUrl(url);
                 for (String homePage : m_tunnelState.homePages) {
-                    if (homePage.equals(url)) {
+                    if (homePage.equals(modifiedUrl)) {
                         return;
                     }
                 }
-                m_tunnelState.homePages.add(url);
+                m_tunnelState.homePages.add(modifiedUrl);
             }
         });
     }
