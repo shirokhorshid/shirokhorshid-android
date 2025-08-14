@@ -72,6 +72,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -254,6 +255,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         m_tunnelState.isRunning = true;
         // This service runs as a separate process, so it needs to initialize embedded values
         EmbeddedValues.initialize(getContext());
+
+        // Load trusted signatures from storage
+        PackageHelper.configureRuntimeTrustedSignatures(
+                PackageHelper.readTrustedSignaturesFromFile(getContext().getApplicationContext())
+        );
 
         m_compositeDisposable.add(connectionStatusUpdaterDisposable());
     }
@@ -1757,8 +1763,64 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
 
     @Override
     public void onApplicationParameters(@NonNull Object o) {
-        int deviceLocationPrecision = ((JSONObject) o).optInt("DeviceLocationPrecision");
-        final AppPreferences mp = new AppPreferences(getContext());
-        mp.put(m_parentService.getString(R.string.deviceLocationPrecisionParameter), deviceLocationPrecision);
+        if (!(o instanceof JSONObject)) {
+            MyLog.e("TunnelManager::onApplicationParameters: invalid parameter type. Expected JSONObject, got: " + o.getClass().getName());
+            return;
+        }
+        JSONObject params = (JSONObject) o;
+
+        // Process the application parameters
+        processDeviceLocationPrecision(params);
+        processTrustedApps(params);
+    }
+
+    private void processDeviceLocationPrecision(JSONObject params) {
+        // Parse the device location precision from the parameters json object
+        // The expected format is:
+        // {
+        //     "DeviceLocationPrecision": 0
+        // }
+        try {
+            int deviceLocationPrecision = params.optInt("DeviceLocationPrecision");
+            final AppPreferences mp = new AppPreferences(getContext());
+            mp.put(m_parentService.getString(R.string.deviceLocationPrecisionParameter), deviceLocationPrecision);
+        } catch (Exception e) {
+            MyLog.e("TunnelManager: failed to parse device location precision: " + e);
+        }
+    }
+
+    private void processTrustedApps(JSONObject params) {
+        // Parse the trusted apps configuration from the parameters json object
+        // The expected format is:
+        // {
+        //     "AndroidTrustedApps": {
+        //         "com.example.app1": ["signature1", "signature2"],
+        //         "com.example.app2": ["signature3", "signature4", "signature5"]
+        //     }
+        try {
+            JSONObject trustedApps = params.optJSONObject("AndroidTrustedApps");
+            if (trustedApps == null) {
+                return;
+            }
+
+            Map<String, Set<String>> trustedSignatures = new HashMap<>();
+            Iterator<String> packageNames = trustedApps.keys();
+
+            while (packageNames.hasNext()) {
+                String packageName = packageNames.next();
+                JSONArray signatures = trustedApps.getJSONArray(packageName);
+                Set<String> signatureSet = new HashSet<>(signatures.length());
+
+                for (int i = 0; i < signatures.length(); i++) {
+                    signatureSet.add(signatures.getString(i));
+                }
+                trustedSignatures.put(packageName, signatureSet);
+            }
+
+            // Save the trusted signatures to file
+            PackageHelper.saveTrustedSignaturesToFile(getContext().getApplicationContext(), trustedSignatures);
+        } catch (JSONException e) {
+            MyLog.e("TunnelManager: failed to parse trusted apps signatures: " + e);
+        }
     }
 }
