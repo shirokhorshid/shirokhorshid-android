@@ -30,6 +30,8 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 
 import com.psiphon3.R;
+import com.psiphon3.TunnelState;
+import com.psiphon3.VpnRulesHelper;
 
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
@@ -39,15 +41,10 @@ import java.util.List;
 import java.util.Set;
 
 public class VpnAppsUtils {
-    // Set of default excluded apps package names, these apps will always be excluded from VPN routing if their signature is verified
-    private static final Set<String> defaultExcludedApps = Set.of(
-            "ca.psiphon.conduit", // Conduit, must be listed in PackageHelper.TRUSTED_PACKAGES
-            "network.ryve.app" // Ryve, must be listed in PackageHelper.TRUSTED_PACKAGES
-    );
-    // Set of default included apps package names, these apps will always be included in VPN routing if their signature is verified
-    private static final Set<String> defaultIncludedApps = Set.of(
-            // Any default included apps would go here and must be listed in PackageHelper.TRUSTED_PACKAGES
-    );
+
+    public interface AppTunneledChecker {
+        boolean isAppTunneled(String packageId);
+    }
 
     public enum VpnAppsExclusionSetting {ALL_APPS, INCLUDE_APPS, EXCLUDE_APPS}
 
@@ -87,29 +84,81 @@ public class VpnAppsUtils {
         }
     }
 
-    public static Set<String> getUserAppsIncludedInVpn(Context context) {
+    static Set<String> getUserAppsIncludedInVpn(Context context) {
         AppPreferences prefs = new AppPreferences(context);
         String serializedSet = prefs.getString(context.getString(R.string.preferenceIncludeAppsInVpnString), "");
-        Set<String> includedApps = SharedPreferenceUtils.deserializeSet(serializedSet);
-
-        // Safeguard against including apps that should always be excluded from VPN by default
-        includedApps.removeAll(getDefaultAppsExcludedFromVpn());
-
-        return includedApps;
+        return SharedPreferenceUtils.deserializeSet(serializedSet);
     }
 
-    public static Set<String> getUserAppsExcludedFromVpn(Context context) {
+    // Get user selections that don't match any VPN rules (these are user-controllable)
+    public static Set<String> getUserControllableAppsIncludedInVpn(Context context) {
+        Set<String> userApps = getUserAppsIncludedInVpn(context);
+        PackageManager pm = context.getPackageManager();
+
+        // Remove apps that match any rules - they're system-managed now
+        java.util.Iterator<String> iterator = userApps.iterator();
+        while (iterator.hasNext()) {
+            String packageId = iterator.next();
+            try {
+                android.content.pm.PackageInfo packageInfo;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                    packageInfo = pm.getPackageInfo(packageId, android.content.pm.PackageManager.PackageInfoFlags.of(0));
+                } else {
+                    packageInfo = pm.getPackageInfo(packageId, 0);
+                }
+                int versionCode = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P ?
+                    (int) packageInfo.getLongVersionCode() : packageInfo.versionCode;
+
+                if (VpnRulesHelper.matchesAnyVpnRule(packageId, versionCode)) {
+                    iterator.remove();
+                }
+            } catch (android.content.pm.PackageManager.NameNotFoundException e) {
+                iterator.remove(); // Remove apps that aren't installed
+            }
+        }
+
+        return userApps;
+    }
+
+    static Set<String> getUserAppsExcludedFromVpn(Context context) {
         AppPreferences prefs = new AppPreferences(context);
         String serializedSet = prefs.getString(context.getString(R.string.preferenceExcludeAppsFromVpnString), "");
         Set<String> excludedApps = SharedPreferenceUtils.deserializeSet(serializedSet);
-
-        // Safeguard against excluding apps that should always be included in VPN by default
-        excludedApps.removeAll(getDefaultAppsIncludedInVpn());
 
         // Safeguard against excluding the self package
         excludedApps.remove(context.getPackageName());
 
         return excludedApps;
+    }
+
+    // Get user selections that don't match any VPN rules (these are user-controllable)
+    public static Set<String> getUserControllableAppsExcludedFromVpn(Context context) {
+        Set<String> userApps = getUserAppsExcludedFromVpn(context);
+        PackageManager pm = context.getPackageManager();
+        
+        // Remove apps that match any rules - they're system-managed now
+        java.util.Iterator<String> iterator = userApps.iterator();
+        while (iterator.hasNext()) {
+            String packageId = iterator.next();
+            try {
+                android.content.pm.PackageInfo packageInfo;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                    packageInfo = pm.getPackageInfo(packageId, android.content.pm.PackageManager.PackageInfoFlags.of(0));
+                } else {
+                    packageInfo = pm.getPackageInfo(packageId, 0);
+                }
+                int versionCode = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.P ?
+                    (int) packageInfo.getLongVersionCode() : packageInfo.versionCode;
+
+                if (VpnRulesHelper.matchesAnyVpnRule(packageId, versionCode)) {
+                    iterator.remove();
+                }
+            } catch (android.content.pm.PackageManager.NameNotFoundException e) {
+                iterator.remove(); // Remove apps that aren't installed
+            }
+        }
+
+        return userApps;
     }
 
     static void setPendingAppsToIncludeInVpn(Context context, Set<String> packageIds) {
@@ -156,34 +205,32 @@ public class VpnAppsUtils {
         return SharedPreferenceUtils.deserializeSet(serializedSet);
     }
 
-    public static boolean isTunneledAppId(Context context, String appId) {
-        AppPreferences prefs = new AppPreferences(context);
+    public static AppTunneledChecker createAppTunneledChecker(VpnAppsExclusionSetting mode,
+                                                              java.util.List<String> vpnApps) {
+        return new AppTunneledChecker() {
+            @Override
+            public boolean isAppTunneled(String packageId) {
+                switch (mode) {
+                    case ALL_APPS:
+                        return true;
+                    case EXCLUDE_APPS:
+                        return vpnApps == null || !vpnApps.contains(packageId);
+                    case INCLUDE_APPS:
+                        return vpnApps != null && vpnApps.contains(packageId);
+                    default:
+                        return true;
+                }
+            }
+        };
+    }
 
-        // Check if we are in EXCLUDE_APPS mode
-        if (prefs.getBoolean(context.getString(R.string.preferenceExcludeAppsFromVpn), false)) {
-            // Combine user-selected and default excluded apps
-            Set<String> excludedApps = getUserAppsExcludedFromVpn(context);
-            excludedApps.addAll(getDefaultAppsExcludedFromVpn()); // Add default excluded apps
-            // Return true if the app is NOT in the excluded list
-            return !excludedApps.contains(appId);
+    public static AppTunneledChecker createAppTunneledCheckerFromTunnelState(TunnelState tunnelState) {
+        if (tunnelState == null || !tunnelState.isRunning() || tunnelState.connectionData() == null) {
+            // Default to all apps tunneled when tunnel is not running or no data available
+            return createAppTunneledChecker(VpnAppsExclusionSetting.ALL_APPS, null);
         }
-
-        // Check if we are in INCLUDE_APPS mode
-        if (prefs.getBoolean(context.getString(R.string.preferenceIncludeAppsInVpn), false)) {
-            // Combine user-selected and default included apps
-            Set<String> includedApps = getUserAppsIncludedInVpn(context);
-            // Add default included apps
-            includedApps.addAll(getDefaultAppsIncludedInVpn());
-
-            // Add self because it should always be tunneled.
-            includedApps.add(context.getPackageName());
-
-            // Return true if the app is in the included list
-            return includedApps.contains(appId);
-        }
-
-        // If no specific mode is selected, tunnel all apps by default
-        return true;
+        TunnelState.ConnectionData connectionData = tunnelState.connectionData();
+        return createAppTunneledChecker(connectionData.vpnMode(), connectionData.vpnApps());
     }
 
     @NonNull
@@ -215,15 +262,5 @@ public class VpnAppsUtils {
             }
         }
         return packageIds;
-    }
-
-    // Method to get default excluded apps without performing a signature check here
-    public static Set<String> getDefaultAppsExcludedFromVpn() {
-        return defaultExcludedApps;
-    }
-
-    // Method to get default included apps without performing a signature check here
-    public static Set<String> getDefaultAppsIncludedInVpn() {
-        return defaultIncludedApps;
     }
 }

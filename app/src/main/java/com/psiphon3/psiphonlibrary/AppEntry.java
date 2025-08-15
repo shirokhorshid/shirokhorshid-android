@@ -28,11 +28,13 @@ public class AppEntry implements Comparable<AppEntry> {
     private final String packageId;
     private final Single<Drawable> iconLoader;
     private final String comparableName;
+    private final int versionCode;
 
-    public AppEntry(String name, String packageId, Single<Drawable> iconLoader) {
+    public AppEntry(String name, String packageId, Single<Drawable> iconLoader, int versionCode) {
         this.name = name;
         this.packageId = packageId;
         this.iconLoader = iconLoader;
+        this.versionCode = versionCode;
         comparableName = getComparableName();
     }
 
@@ -51,4 +53,5 @@ public class AppEntry implements Comparable<AppEntry> {
         return packageId;
     }
     public Single<Drawable> getIconLoader() { return iconLoader; }
+    public int getVersionCode() { return versionCode; }
 }

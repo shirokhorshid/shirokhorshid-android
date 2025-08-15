@@ -57,6 +57,11 @@ public abstract class TunnelState {
         @Nullable
         public abstract ArrayList<String> homePages();
 
+        public abstract com.psiphon3.psiphonlibrary.VpnAppsUtils.VpnAppsExclusionSetting vpnMode();
+
+        @Nullable
+        public abstract ArrayList<String> vpnApps();
+
         public static Builder builder() {
             return new AutoValue_TunnelState_ConnectionData.Builder()
                     .setNetworkConnectionState(NetworkConnectionState.CONNECTING)
@@ -65,7 +70,9 @@ public abstract class TunnelState {
                     .setPropagationChannelId("")
                     .setSponsorId("")
                     .setHttpPort(0)
-                    .setHomePages(null);
+                    .setHomePages(null)
+                    .setVpnMode(com.psiphon3.psiphonlibrary.VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS)
+                    .setVpnApps(null);
         }
 
         @AutoValue.Builder
@@ -83,6 +90,10 @@ public abstract class TunnelState {
             public abstract Builder setHttpPort(int port);
 
             public abstract Builder setHomePages(@Nullable ArrayList<String> homePages);
+
+            public abstract Builder setVpnMode(com.psiphon3.psiphonlibrary.VpnAppsUtils.VpnAppsExclusionSetting vpnMode);
+
+            public abstract Builder setVpnApps(@Nullable ArrayList<String> vpnApps);
 
             public abstract ConnectionData build();
         }
