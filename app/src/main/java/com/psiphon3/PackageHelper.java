@@ -34,16 +34,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.nio.channels.OverlappingFileLockException;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -57,9 +49,62 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class PackageHelper {
 
-    private static final String LOCK_FILE = "trusted_signatures.lock";
-    private static final String TEMP_FILE = "trusted_signatures_temp.json";
-    private static final String SIGNATURES_FILE = "trusted_signatures.json";
+    private static class TrustedSignaturesStorage extends SafeFileStorage<Map<String, Set<String>>> {
+        private static final String LOCK_FILE = "trusted_signatures.lock";
+        private static final String TEMP_FILE = "trusted_signatures_temp.json";
+        private static final String SIGNATURES_FILE = "trusted_signatures.json";
+
+        public TrustedSignaturesStorage() {
+            super(LOCK_FILE, TEMP_FILE, SIGNATURES_FILE);
+        }
+
+        @Override
+        protected void writeDataToStream(Map<String, Set<String>> data, OutputStreamWriter writer) throws IOException {
+            try {
+                JSONObject jsonObject = new JSONObject();
+                for (Map.Entry<String, Set<String>> entry : data.entrySet()) {
+                    jsonObject.put(entry.getKey(), new JSONArray(entry.getValue()));
+                }
+                writer.write(jsonObject.toString());
+            } catch (JSONException e) {
+                throw new IOException("Failed to serialize signatures to JSON", e);
+            }
+        }
+
+        @Override
+        protected Map<String, Set<String>> readDataFromStream(BufferedReader reader) throws IOException {
+            try {
+                StringBuilder builder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line);
+                }
+
+                JSONObject jsonObject = new JSONObject(builder.toString());
+                Map<String, Set<String>> signatures = new HashMap<>();
+                Iterator<String> keys = jsonObject.keys();
+                while (keys.hasNext()) {
+                    String packageName = keys.next();
+                    JSONArray signatureArray = jsonObject.getJSONArray(packageName);
+                    Set<String> signatureSet = new HashSet<>();
+                    for (int i = 0; i < signatureArray.length(); i++) {
+                        signatureSet.add(signatureArray.getString(i));
+                    }
+                    signatures.put(packageName, signatureSet);
+                }
+                return signatures;
+            } catch (JSONException e) {
+                throw new IOException("Failed to parse signatures from JSON", e);
+            }
+        }
+
+        @Override
+        protected Map<String, Set<String>> getDefaultValue() {
+            return new HashMap<>();
+        }
+    }
+
+    private static final TrustedSignaturesStorage signaturesStorage = new TrustedSignaturesStorage();
 
     // Unmodifiable map of trusted packages with their corresponding sets of SHA-256 signature hashes
     private static final Map<String, Set<String>> TRUSTED_PACKAGES;
@@ -163,166 +208,12 @@ public class PackageHelper {
         }
     }
 
-    // Saves the map of package signatures to a file in process-safe manner
-    // Uses file locking to ensure only one process can write at a time.
-    // Uses a temporary file and atomic rename to ensure data consistency.
-    @SuppressWarnings("resource") // Pre-API 19: manual resource handling required instead of try-with-resources
     public static void saveTrustedSignaturesToFile(Context context, Map<String, Set<String>> signatures) {
-        File tempFile = new File(context.getFilesDir(), TEMP_FILE);
-        File finalFile = new File(context.getFilesDir(), SIGNATURES_FILE);
-        File lockFile = new File(context.getFilesDir(), LOCK_FILE);
-
-        RandomAccessFile randomAccessFile = null;
-        FileChannel channel = null;
-        FileLock lock = null;
-
-        try {
-            randomAccessFile = new RandomAccessFile(lockFile, "rw");
-            channel = randomAccessFile.getChannel();
-
-            // Block until we can acquire the lock
-            // This ensures we don't miss writing important trusted signatures data
-            try {
-                lock = channel.lock();
-            } catch (OverlappingFileLockException e) {
-                // Lock is already held by another channel in this JVM
-                MyLog.e("PackageHelper: Lock already held by this JVM: " + e);
-                return;
-            }
-
-            try {
-                // Write to temporary file first to ensure atomic update
-                try (FileOutputStream fos = new FileOutputStream(tempFile);
-                     OutputStreamWriter writer = new OutputStreamWriter(fos, "UTF-8")) {
-
-                    // Convert signatures map to JSON
-                    JSONObject jsonObject = new JSONObject();
-                    for (Map.Entry<String, Set<String>> entry : signatures.entrySet()) {
-                        jsonObject.put(entry.getKey(), new JSONArray(entry.getValue()));
-                    }
-
-                    // Write and flush to ensure all data is written
-                    writer.write(jsonObject.toString());
-                    writer.flush();
-                    // Force system to sync file to disk
-                    fos.getFD().sync();
-                }
-
-                // Atomic rename operation - either completely succeeds or fails
-                if (!tempFile.renameTo(finalFile)) {
-                    MyLog.e("PackageHelper: Failed to rename temp file to final file.");
-                }
-            } finally {
-                // Always try to clean up temp file if it exists
-                if (tempFile.exists()) {
-                    tempFile.delete();
-                }
-            }
-
-        } catch (IOException | JSONException e) {
-            MyLog.e("PackageHelper: failed to save trusted signatures: " + e);
-        } finally {
-            // Always release the lock if we acquired it
-            if (lock != null) {
-                try {
-                    lock.release();
-                } catch (IOException e) {
-                    MyLog.e("PackageHelper: failed to release lock: " + e);
-                }
-            }
-            if (channel != null) {
-                try {
-                    channel.close();
-                } catch (IOException e) {
-                    MyLog.e("PackageHelper: failed to close channel: " + e);
-                }
-            }
-            if (randomAccessFile != null) {
-                try {
-                    randomAccessFile.close();
-                } catch (IOException e) {
-                    MyLog.e("PackageHelper: failed to close random access file: " + e);
-                }
-            }
-        }
+        signaturesStorage.save(context, signatures);
     }
 
-    // Reads package signatures from file in a process-safe manner.
-    // Uses shared file locking to allow multiple readers but prevent reading during writes.
-    // Returns empty map if file doesn't exist or on any error.
-    @SuppressWarnings("resource") // Pre-API 19: manual resource handling required instead of try-with-resources
     public static Map<String, Set<String>> readTrustedSignaturesFromFile(Context context) {
-        File file = new File(context.getFilesDir(), SIGNATURES_FILE);
-        File lockFile = new File(context.getFilesDir(), LOCK_FILE);
-        Map<String, Set<String>> signatures = new HashMap<>();
-
-        RandomAccessFile randomAccessFile = null;
-        FileChannel channel = null;
-        FileLock lock = null;
-
-        try {
-            randomAccessFile = new RandomAccessFile(lockFile, "rw");
-            channel = randomAccessFile.getChannel();
-
-            // Get shared lock - allows multiple readers but not during writes
-            try {
-                lock = channel.lock(0L, Long.MAX_VALUE, true);  // true = shared lock
-            } catch (OverlappingFileLockException e) {
-                MyLog.e("PackageHelper: Read lock already held by this JVM: " + e);
-                return signatures;
-            }
-
-            if (file.exists()) {
-                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                    // Read entire file into StringBuilder
-                    StringBuilder builder = new StringBuilder();
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        builder.append(line);
-                    }
-
-                    // Parse JSON and convert to signatures map
-                    JSONObject jsonObject = new JSONObject(builder.toString());
-                    Iterator<String> keys = jsonObject.keys();
-                    while (keys.hasNext()) {
-                        String packageName = keys.next();
-                        JSONArray signatureArray = jsonObject.getJSONArray(packageName);
-                        Set<String> signatureSet = new HashSet<>();
-                        for (int i = 0; i < signatureArray.length(); i++) {
-                            signatureSet.add(signatureArray.getString(i));
-                        }
-                        signatures.put(packageName, signatureSet);
-                    }
-                }
-            }
-
-        } catch (IOException | JSONException e) {
-            MyLog.e("PackageHelper: failed to read trusted signatures: " + e);
-        } finally {
-            if (lock != null) {
-                try {
-                    lock.release();
-                } catch (IOException e) {
-                    MyLog.e("PackageHelper: failed to release lock: " + e);
-                }
-            }
-            if (channel != null) {
-                try {
-                    channel.close();
-                } catch (IOException e) {
-                    MyLog.e("PackageHelper: failed to close channel: " + e);
-                }
-            }
-            if (randomAccessFile != null) {
-                try {
-                    randomAccessFile.close();
-                } catch (IOException e) {
-                    MyLog.e("PackageHelper: failed to close random access file: " + e);
-                }
-            }
-        }
-
-        return signatures;
+        return signaturesStorage.load(context);
     }
 
     // Load runtime trusted signatures configuration

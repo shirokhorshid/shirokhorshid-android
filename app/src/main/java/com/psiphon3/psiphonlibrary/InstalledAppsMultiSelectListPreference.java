@@ -25,6 +25,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,11 +37,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.psiphon3.R;
+import com.psiphon3.VpnRulesHelper;
 import com.psiphon3.log.MyLog;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -139,26 +140,31 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
     }
 
     private List<AppEntry> getInstalledApps(Context context) {
+        // Always load latest VPN rules from storage before filtering apps
+        VpnRulesHelper.configureRuntimeVpnRules(
+                VpnRulesHelper.readVpnRulesFromFile(context.getApplicationContext())
+        );
         PackageManager pm = context.getPackageManager();
 
         List<AppEntry> apps = new ArrayList<>();
         List<PackageInfo> packages = pm.getInstalledPackages(PackageManager.GET_PERMISSIONS);
 
-        // Get the set of apps that should not be shown in the list
-        Set <String> excludeApps = getExcludeApps(context);
-
         for (PackageInfo p : packages) {
-            if (excludeApps.contains(p.packageName)) {
-                continue;
-            }
-
             if (isInternetPermissionGranted(p)) {
                 // This takes a bit of time, but since we want the apps sorted by displayed name
                 // its best to do synchronously
                 String appName = p.applicationInfo.loadLabel(pm).toString();
                 String packageId = p.packageName;
                 Single<Drawable> iconLoader = getIconLoader(p.applicationInfo, pm);
-                apps.add(new AppEntry(appName, packageId, iconLoader));
+                int versionCode = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P ?
+                        (int) p.getLongVersionCode() : p.versionCode;
+
+                // Check if this app should be excluded from UI display
+                if (shouldHideFromUI(context, packageId, versionCode)) {
+                    continue;
+                }
+
+                apps.add(new AppEntry(appName, packageId, iconLoader, versionCode));
             }
         }
 
@@ -166,18 +172,14 @@ class InstalledAppsMultiSelectListPreference extends AlertDialog.Builder impleme
         return apps;
     }
 
-    // Apps that should be excluded or included from VPN routing by default should not be shown in the list
-    private Set<String> getExcludeApps (Context context) {
-        // Combine the default excluded and included apps
-        Set<String> excludedAndIncludedApps = new HashSet<>(VpnAppsUtils.getDefaultAppsExcludedFromVpn());
-        excludedAndIncludedApps.addAll(VpnAppsUtils.getDefaultAppsIncludedInVpn());
-        // Add self to the no-show list too
-        excludedAndIncludedApps.add(context.getPackageName());
-        return excludedAndIncludedApps;
-    }
+    private boolean shouldHideFromUI(Context context, String packageId, int versionCode) {
+        // Always hide self
+        if (packageId.equals(context.getPackageName())) {
+            return true;
+        }
 
-    private boolean isSystemPackage(PackageInfo pkgInfo) {
-        return ((pkgInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0);
+        // Hide apps that match any VPN rules for their installed version
+        return VpnRulesHelper.matchesAnyVpnRule(packageId, versionCode);
     }
 
     private boolean isInternetPermissionGranted(PackageInfo pkgInfo) {
