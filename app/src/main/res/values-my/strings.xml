@@ -160,4 +160,10 @@
   <string name="location_permission_rationale_title">ခန့်မှန်းခြေ တည်နေရာ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">ကျေးဇူးပြု၍ %s အား သင့်ကိရိယာ၏ ခန့်မှန်းခြေ တည်နေရာကို ဝင်ရောက်ခွင့်ပေးပါ။ သင့်တည်နေရာ အခြေအနေခန့်မှန်းချက်သည် Psiphon ကွန်ရက်ကို ပိုမိုအကောင်းဆုံး ဖြစ်စေရန်အတွက် အသုံးပြုပြီး ၃ စတုရန်းကီလိုမီတာ အတွင်းတွင် တိကျစေမည်ဖြစ်သည်။</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">အက်ပ် အပ်ဒိတ် အဆင်သင့်</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">ထည့်သွင်းမည်</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">အပ်ဒိတ် မအောင်မြင်ပါ</string>
 </resources>

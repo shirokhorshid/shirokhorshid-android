@@ -160,4 +160,10 @@
   <string name="location_permission_rationale_title">Mahali palipokadiriwa</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Tafadhali ruhusu programu %s kupata mahali panapokadiriwa kwenye kifaa chako. Taarifa hizi za mahali hutumika kuboresha mtandao wa Psiphon, na ni sahihi hadi kwenye eneo la takriban kilomita mraba 3.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Sasisho la programu limejiandaa</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Sakinisha</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Sasisho limeshindwa</string>
 </resources>

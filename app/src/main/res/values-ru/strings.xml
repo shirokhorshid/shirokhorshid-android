@@ -160,4 +160,10 @@
   <string name="location_permission_rationale_title">Приблизительное местоположение</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Пожалуйста, разрешите %s доступ к приблизительному местоположению устройства. Данные о вашем местоположении с точностью до 3 квадратных километров используются для оптимизации сети Psiphon.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Обновление приложения готово</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Установить</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Обновление не удалось</string>
 </resources>

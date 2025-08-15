@@ -161,4 +161,10 @@
   <string name="location_permission_rationale_title">الموقع التقريبي</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">من فضلك اسمح لـ %s بالوصول إلى الموقع التقريبي لجهازك. يتم استخدام البيانات التقريبية لموقعك الجغرافي من أجل تحسين شبكة Psiphon، ويكون دقيقًا في حدود 3 كيلومترات مربعة تقريبًا.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">تحديث التطبيق جاهز</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">تثبيت</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">فشل التحديث</string>
 </resources>

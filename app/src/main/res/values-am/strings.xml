@@ -157,4 +157,10 @@
   <string name="location_permission_rationale_title">ግምታዊ ቦታ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">እባክዎን %s የመሳሪያዎን ግምታዊ ቦታ እንዲደርስ ፍቀዱ። የቦታ መረጃ ግምትዎ የPsiphon አውታረ መረብን ለማሻሻል ይጠቅማል፣ እና ወደ 3 ካሬ ኪሎሜትሮች ያክል ትክክለኛ ነው።</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">የመተግበሪያ ማዘመን ዝግጁ ነው</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">ይጫኑ</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">ማዘመን አልተሳካም</string>
 </resources>

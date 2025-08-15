@@ -151,4 +151,10 @@
   <string name="location_permission_rationale_title">Bakka tilmaama</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Maaloo %s bakka tilmaama meeshaa keessanii argachuu akka danda\'u eeyyami. Tilmaama daataa bakka keessanii networka Psiphon fooyyessuuf gargaarama, fi gidduugaleessa kilomeetira iskuweerii 3 keessatti sirrii ta\'a.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Haaromsi appii qophaa\'e</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Kuusi</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Haaromsi hin milkoofne</string>
 </resources>

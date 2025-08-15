@@ -159,4 +159,10 @@
   <string name="location_permission_rationale_title">Lokasi Perkiraan</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Silakan izinkan %s untuk mengakses lokasi perkiraan perangkat Anda. Perkiraan data lokasi Anda digunakan untuk mengoptimalkan jaringan Psiphon, dan akurat dalam sekitar 3 kilometer persegi.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Update aplikasi siap</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Instal</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Update gagal</string>
 </resources>

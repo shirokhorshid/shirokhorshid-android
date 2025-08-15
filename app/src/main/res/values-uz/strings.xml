@@ -152,4 +152,10 @@
   <string name="location_permission_rationale_title">Taxminiy joylashuv</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Iltimos, %s ilovasiga qurilmangizning taxminiy joylashuviga kirishga ruxsat bering. Sizning joylashuv ma\'lumotlaringiz Psiphon tarmog\'ini optimallashtirish uchun ishlatiladi va taxminan 3 kvadrat kilometr doirasida aniqdir.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Ilova yangilanishi tayyor</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">O\'rnatish</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Yangilanish muvaffaqiyatsiz</string>
 </resources>

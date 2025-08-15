@@ -157,4 +157,10 @@
   <string name="location_permission_rationale_title">Təxmini məkan</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Lütfən %s tətbiqinə cıhazınızın təxmini məkanına daxil olma icazəsi verin. Məkan məlumatınızın təxmini Psiphon şəbəkəsini optimallaşdırmaq üçün istifadə edilir və təqribən 3 kvadrat kilometr dəqiqliyi ilə təmin edilir.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Tətbiq yeniləməsi hazırdır</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Quraşdır</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Yeniləmə uğursuz oldu</string>
 </resources>

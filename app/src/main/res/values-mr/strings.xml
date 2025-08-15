@@ -156,4 +156,10 @@
   <string name="location_permission_rationale_title">अंदाजे स्थान</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">कृपया %s ला आपल्या डिव्हाइसच्या अंदाजे स्थानावर प्रवेश देण्याची परवानगी द्या. आपला स्थान डेटा अंदाज Psiphon नेटवर्क ऑप्टिमाइझ करण्यासाठी वापरला जातो आणि सुमारे 3 चौरस किलोमीटरपर्यंत अचूक आहे.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">अॅप अपडेट तयार</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">स्थापित करा</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">अपडेट अयशस्वी</string>
 </resources>

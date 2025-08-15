@@ -154,4 +154,10 @@
   <string name="location_permission_rationale_title">Localização aproximada</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Permita que %s acesse a localização aproximada do seu dispositivo. A estimativa dos dados de localização é usada para otimizar a rede Psiphon, e é precisa dentro de cerca de 3 quilômetros quadrados.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Atualização do app pronta</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Instalar</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Atualização falhou</string>
 </resources>
