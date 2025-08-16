@@ -1853,6 +1853,17 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         //         "some.app": ["*"]
         //     }
         // }
+        // The match patterns are:
+        // "*" - matches all versions
+        // ">=100" - matches version codes greater than or equal to 100
+        // ">100" - matches version codes greater than 100
+        // "<=200" - matches version codes less than or equal to 200
+        // "<200" - matches version codes less than 200
+        // "[100-200]" - matches version codes in the range 100 to 200 (inclusive)
+        // "150" - matches exact version code 150
+        //
+        // Multiple patterns are evaluated in array order until first match (OR logic).
+        // Use care with ordering: ["*", ">=100"] will always match "*" first.
         try {
             JSONObject excludeRules = params.optJSONObject("VpnExcludeRules");
             JSONObject includeRules = params.optJSONObject("VpnIncludeRules");

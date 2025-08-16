@@ -108,6 +108,18 @@ abstract class VersionRule {
             }
         }
 
+        // Match exact version: "150"
+        Pattern exactPattern = Pattern.compile("^(\\d+)$");
+        Matcher exactMatcher = exactPattern.matcher(rule);
+        if (exactMatcher.matches()) {
+            try {
+                int exactVersion = Integer.parseInt(exactMatcher.group(1));
+                return new ExactVersionRule(exactVersion);
+            } catch (NumberFormatException e) {
+                // Invalid number format, skip this rule
+            }
+        }
+
         return null;
     }
 }
@@ -159,6 +171,19 @@ class RangeRule extends VersionRule {
     @Override
     public boolean matches(int versionCode) {
         return versionCode >= minVersion && versionCode <= maxVersion;
+    }
+}
+
+class ExactVersionRule extends VersionRule {
+    private final int version;
+
+    public ExactVersionRule(int version) {
+        this.version = version;
+    }
+
+    @Override
+    public boolean matches(int versionCode) {
+        return versionCode == version;
     }
 }
 
