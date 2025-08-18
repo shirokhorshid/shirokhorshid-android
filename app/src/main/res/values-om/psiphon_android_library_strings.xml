@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Neetwoorkiin hamma argamutti eegaa jira...</string>
   <string name="psiphon_service_notification_message_connecting">Wal agarsiisaa jira...</string>
   <string name="psiphon_service_notification_id">Beeksisa Tajaajila Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Jijjiirama Haalota Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Fooyyessa Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Akeekkachiisa Serverii Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Kufaatii Psiphon</string>
   <string name="vpn_service_running">Tajaajilli VPN hojjetaa jira</string>
   <string name="vpn_service_revoked">Tajaajilli VPN uggurameera</string>
   <string name="current_network_type">Neetwoorkii amma jiru: %s</string>
@@ -58,30 +61,83 @@
   <string name="region_name_ro">Roomaaniyaa</string>
   <string name="region_name_se">Iswiidin</string>
   <string name="region_name_pl">Polaand</string>
+  <string name="region_name_sk">Silovaakiyaa</string>
+  <string name="region_name_rs">Seerbiyaa</string>
+  <string name="region_name_au">Ostraayliyaa</string>
+  <string name="region_name_ae">Imaaraatii Arabii Tokko</string>
+  <string name="region_name_ar">Arjentiinaa</string>
+  <string name="region_name_br">Biraziil</string>
+  <string name="region_name_cl">Chiilay</string>
+  <string name="region_name_ee">Estoniyaa</string>
+  <string name="region_name_fi">Finlaand</string>
+  <string name="region_name_is">Ayislaaand</string>
+  <string name="region_name_ie">Ayarlaand</string>
+  <string name="region_name_ke">Keeniyaa</string>
+  <string name="region_name_kr">Kooriyaa</string>
+  <string name="region_name_lt">Lithuwaniyaa</string>
+  <string name="region_name_lv">Laativiyaa</string>
+  <string name="region_name_mx">Meksikoo</string>
+  <string name="region_name_tw">Taayiwaan</string>
+  <string name="region_name_za">Afrikaa Kibba</string>
+  <string name="region_name_id">Indoneeziyaa</string>
+  <string name="region_name_nz">Niiwziilaaand</string>
+  <string name="region_name_gr">Giriik</string>
+  <string name="region_name_ua">Yukreein</string>
+  <string name="region_name_pt">Poortuugaal</string>
+  <string name="region_name_hr">Korowaatiyaa</string>
+  <string name="region_name_co">Kolombiyaa</string>
+  <string name="region_name_my">Maleeziyaa</string>
   <string name="about">Waa\'ee Psiphon</string>
   <string name="feedback">Yaada</string>
   <string name="disableTimeoutsPreferenceSummary">Neetwoorkiiwwan boodatti harkifatoof akka adda hin cinne dhorki</string>
+  <string name="region_selector">Naannoo serverii fili</string>
   <string name="network_proxy_connect_invalid_values">Qindeessawwan bakka bu\'aa HTTP fudhatama hin qabne</string>
   <string name="tunnel_whole_device_exception">Meeshaan kee filannoo dabarsa meeshaa guutuu hin deggaru  kunis sababii VpnServcie API bade waan jiruufi.</string>
   <string name="preference_notifications_title">Yaadachiisawwan</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Appilikeeshiniiwwan hunda dabarsi</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Appilikeeshiniiwwan Dabaluu</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Appilikeeshiniiwwan filataman qofa dabarsi</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Appilikeeshiniiwwan moggaatti qoodi</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Appilikeeshiniiwwan filataman hin dabarsin</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Appilikeeshinii dabaršamaa jiru: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Appilikeeshinii dabarsa keessaa hambifame: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Appilikeeshiniin kamiyyu dabarsama keessaa hin hambifamne</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Appilikeeshiniiwwan fili</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">Appilikeeshinii %d VPN karaan dabaršama</item>
+    <item quantity="other">Appilikeeshiniiwwan %d VPN karaan dabaršamu</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">Appilikeeshinii %d VPN keessaa hambifama</item>
+    <item quantity="other">Appilikeeshiniiwwan %d VPN keessaa hambifamu</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Appilikeeshiniiwwan hunda dabaršamaa jiru</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Appilikeeshinii %d dabaršamaa jira</item>
+    <item quantity="other">Appilikeeshiniiwwan %d dabaršamaa jiru</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">Appilikeeshinii %d dabarsa keessaa hambifame</item>
+    <item quantity="other">Appilikeeshiniiwwan %d dabarsa keessaa hambifaman</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Appilikeeshiniiwwan Psiphon murtaa\'e tokko tokko akka sirriitti hojjetan mirkaneessuuf ofuma isaaniitiin VPN dabarsa keessaa hambifamu. Hambifamiinsi kun jijjiiramuu hin danda\'u.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Appilikeeshiniiwwan hundi VPN karaan dabaršamu</string>
   <string name="preference_notifications_with_sound_title">Sagalee</string>
   <string name="preference_notifications_with_sound_summary">Akkaataan wal qabsiisuu ennaa jijjiiramu sagalee dhageessisi</string>
   <string name="preference_notifications_with_vibrate_title">Hollachiisi</string>
@@ -106,9 +162,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Dogoggora bakka bu\'aa gara olii: %s</string>
   <string name="start_tunnel_failed">Dabarsa jalqabsiisuun hin milkoofne: %s</string>
+  <string name="vpn_exclusions_conflict">Appilikeeshiniiwwan VPN hambifamuu kee keessaa tokko yookiin tokko ol wal morman jiru. Wal qabsiisuuf gara qindeessawwan VPN deemii gara akkaataa \'Appilikeeshiniiwwan hunda dabarsi\'tti jijjiiri.</string>
   <string name="tunnel_connecting">Dabarsa wal qabsiisuutti jira...</string>
   <string name="tunnel_connected">Dabarsituun wal qabateera</string>
   <string name="waiting">Eegaa jira...</string>
+  <string name="label_vpn_settings">Qindeessawwan VPN</string>
+  <string name="label_proxy_settings">Qindeessawwan bakka bu\'aa</string>
+  <string name="preference_summary_no_proxy">Bakka bu\'aa hin jiru</string>
+  <string name="preference_summary_custom_proxy">Bakka bu\'aa dhuunfaa</string>
+  <string name="preference_summary_system_proxy">Bakka bu\'aa sirnaa</string>
+  <string name="disableTimeoutsPreferenceTitle">Yeroo addaatinne dhorki</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi qofa</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Akeekkachiisa MalAware agarsisiisi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon dabarsuma malware meeshaa kee irraa dhufaa jiru yommuu argatu beeksisamu argadhu.</string>
+  <string name="aboutMalAware">Waa\'ee MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump dandeessisi</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">NFC gargaaramuun odeeffannoo wal qabsiisaa Psiphon meeshaalee biroo waliin qooduuf fayyadami.</string>
 </resources>

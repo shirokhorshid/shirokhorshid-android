@@ -6,6 +6,9 @@
   <string name="FeedbackActivity.Success">Terima kasih kerana menghantar borang maklumbalas anda</string>
   <string name="FeedbackActivity.Failure">Penyerahan gagal. Sila cuba lagi.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN telah dihentikan</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN telah dihentikan oleh anda atau aplikasi lain. Beberapa aplikasi VPN tidak boleh aktif serentak. Sila periksa sama ada aplikasi VPN lain telah dipasang dan sedang aktif.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN tidak dapat dimulakan</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN tidak dapat dimulakan. Beberapa aplikasi VPN tidak boleh aktif serentak. Sila periksa sama ada aplikasi VPN lain telah dipasang dan aktif.</string>
   <string name="selected_region_currently_not_available">Rantau yang dipilih pada masa ini tidak tersedia, sila pilih rantau lain.</string>
   <string name="ads_consent_preference_dialog_title">Tetap Semula</string>
   <string name="preference_language_selection_summary">Pilih bahasa</string>
@@ -16,6 +19,8 @@
   <string name="preference_category_info_title">Maklumat</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">Baiklah</string>
+  <string name="preference_navigate_to_vpn_setting_title">Pastikan VPN sentiasa hidup</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Pergi ke tetapan sistem untuk memastikan VPN sentiasa hidup</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Tidak</string>
   <!--Generic positive button label.-->
@@ -34,6 +39,12 @@
   <string name="notification_text_vpn_revoked">Psiphon VPN telah diputuskan sambungannya oleh anda atau aplikasi lain.</string>
   <!--Description for an app icon image-->
   <string name="description_app_icon">Ikon aplikasi</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Tetapan VPN yang salah</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Dalam mod ini anda perlu memilih sekurang-kurangnya satu aplikasi!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Dalam mod ini anda perlu menyahpilih sekurang-kurangnya satu aplikasi!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Memerlukan Android 5.0 atau lebih tinggi</string>
+  <string name="vpn_always_on_preference_not_available_summary">Memerlukan Android 7.0 atau lebih tinggi</string>
+  <string name="vpn_exclusions_tip_summary">\"Hanya penyemak imbas tradisional\" untuk mod pilih satu penyemak imbas sahaja</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
@@ -41,31 +52,54 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon telah mengesan dan menghalang akses kepada laman web yang berpotensi berbahaya di Internet. Untuk maklumat lanjut, lihat pautan di bawah.\n\nPerisian hasad yang dikesan:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon secara automatik menghalang akses kepada laman web yang berpotensi berbahaya di Internet. Adakah anda mahu dimaklumkan apabila ini berlaku?\n\nAnda boleh mengubah tetapan ini nanti dalam Tetapan Lanjutan.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Untuk maklumat lanjut tentang MalAware, lihat di sini:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Ralat proksi huluan</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Sila buka Psiphon dan periksa tetapan proksi anda.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Ralat Proksi</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Anda telah mengkonfigurasi Psiphon untuk menggunakan proksi huluan. Tetapi kami tidak dapat menyambung ke pelayan Psiphon melalui proksi tersebut.\n\nSila betulkan tetapan dan cuba lagi.\n\nUntuk maklumat teknikal, lihat rekod log.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon ranap</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Sila hantar maklum balas kepada kami.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Ketuk pemberitahuan ini untuk menghantar maklum balas kepada kami. Ini membantu kami memahami apa yang berlaku supaya kami boleh membetulkannya dengan lebih cepat.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Diterima</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Pendedahan pengumpulan data</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s menggunakan perkhidmatan Android VPN untuk menyediakan akses percuma kepada kandungan internet. Kami mengumpul, mengagregatkan dan menyimpan maklumat berikut:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Bandar, negara, ISP dan anggaran lokasi pilihan anda. Bandar, negara dan ISP diperoleh daripada alamat IP anda yang menyambung ke pelayan kami dan alamat IP itu sendiri tidak pernah direkodkan. Maklumat ini dikumpulkan untuk statistik penggunaan dan prestasi serta tujuan kesihatan perkhidmatan.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">E-mel anda apabila menghantar maklum balas diagnostik atau maklumat ranap kepada kami. Menyediakan e-mel dalam maklum balas adalah pilihan.</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">Pemberitahuan %s</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s menggunakan pemberitahuan untuk memberikan anda maklumat penting apabila berjalan di latar belakang. Ini termasuk:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Perubahan dalam keadaan sambungan VPN anda.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Masalah dengan sambungan anda.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Laporan ranap.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Amaran MalAware.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Versi aplikasi baharu tersedia.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Anda boleh melumpuhkan pemberitahuan pada bila-bila masa dalam tetapan aplikasi.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -75,14 +109,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Sila dayakan NFC dalam tetapan</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Ralat memulihkan sambungan dengan peranti lain. Pastikan Psiphon terbuka dan tersambung pada peranti lain, dan cuba lagi.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Menunggu sambungan NFC dengan peranti lain...</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Data sambungan berjaya ditukar!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Ralat memulihkan sambungan dengan peranti lain. Sila cuba lagi.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Peranti bergerak terlalu cepat, sambungan terputus. Sila cuba lagi.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Tag NFC yang tidak disokong dikesan. Adakah Psiphon terbuka dan tersambung pada peranti lain?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Membaca data...</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Dapatkan bantuan untuk menyambung</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Bantuan</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -92,13 +135,27 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Selesai</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Jika anda menghadapi masalah menyambung ke pelayan Psiphon, cari rakan yang telah berjaya menyambung dan berkongsi data sambungan mereka menggunakan NFC.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Pastikan Psiphon terbuka dan tersambung dan ikon Psiphon Bump dipaparkan dalam bar aplikasi pada peranti lain.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Apabila dialog Psiphon Bump terbuka pada peranti anda dan aplikasi Psiphon terbuka dan tersambung pada peranti lain, letakkan peranti anda bersentuhan belakang dengan belakang untuk memulakan pertukaran data sambungan.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Selepas pertukaran data sambungan selesai dan aplikasi Psiphon anda berjaya menyambung, dialog Psiphon Bump akan ditutup secara automatik. Jika anda masih tidak dapat menyambung, anda boleh mencuba lagi sehingga Psiphon berjaya menyambung.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Untuk membolehkan mod bantuan Psiphon Bump, dayakan NFC dalam tetapan sistem.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Buka tetapan</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Lokasi anggaran</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Sila benarkan %s untuk mengakses lokasi anggaran peranti anda. Anggaran data lokasi anda digunakan untuk mengoptimumkan rangkaian Psiphon, dan tepat dalam lingkungan kira-kira 3 kilometer persegi.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Kemas kini aplikasi sedia</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Pasang</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Kemas kini gagal</string>
 </resources>

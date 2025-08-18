@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Интизори пайвасти шабака...</string>
   <string name="psiphon_service_notification_message_connecting">Пайваст мешавем...</string>
   <string name="psiphon_service_notification_id">Огоҳии хизматии Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Тағйирёбии Вазъияти Psiphon</string>
   <string name="psiphon_upgrade_notification_channel_name">Такмили Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Огоҳиҳои Сервери Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Хатоҳои Psiphon</string>
   <string name="vpn_service_running">Хидмати VPN кор мекунад</string>
   <string name="vpn_service_revoked">Хидмати VPN бозхонда шуд</string>
   <string name="current_network_type">Шабакаи ҷорӣ: %s</string>
@@ -57,30 +60,89 @@
   <string name="region_name_no">Норвегия</string>
   <string name="region_name_ro">Руминия</string>
   <string name="region_name_se">Шветсия</string>
+  <string name="region_name_pl">Лаҳистон</string>
+  <string name="region_name_sk">Словакия</string>
+  <string name="region_name_rs">Сербия</string>
+  <string name="region_name_au">Австралия</string>
+  <string name="region_name_ae">Аморатҳои Муттаҳидаи Араб</string>
+  <string name="region_name_ar">Аргентина</string>
+  <string name="region_name_br">Бразилия</string>
+  <string name="region_name_cl">Чили</string>
+  <string name="region_name_ee">Эстония</string>
+  <string name="region_name_fi">Финляндия</string>
+  <string name="region_name_is">Исландия</string>
+  <string name="region_name_ie">Ирландия</string>
+  <string name="region_name_ke">Кения</string>
+  <string name="region_name_kr">Корея</string>
+  <string name="region_name_lt">Литва</string>
+  <string name="region_name_lv">Латвия</string>
+  <string name="region_name_mx">Мексика</string>
+  <string name="region_name_tw">Тайван</string>
+  <string name="region_name_za">Африкаи Ҷанубӣ</string>
+  <string name="region_name_id">Индонезия</string>
+  <string name="region_name_nz">Зеландияи Нав</string>
+  <string name="region_name_gr">Юнонистон</string>
+  <string name="region_name_ua">Украина</string>
+  <string name="region_name_pt">Португалия</string>
+  <string name="region_name_hr">Хорватия</string>
+  <string name="region_name_co">Колумбия</string>
+  <string name="region_name_my">Малайзия</string>
   <string name="about">Оиди Psiphon</string>
   <string name="feedback">Изҳори назар</string>
   <string name="disableTimeoutsPreferenceSummary">Меъёрҳои интизориро барои шабакаҳои суст ғайрифаъол кардан</string>
+  <string name="region_selector">Интихоби минтақаи сервер</string>
   <string name="network_proxy_connect_invalid_values">Танзимоти HTTP-прокси нодуруст мебошад</string>
+  <string name="tunnel_whole_device_exception">Дастгоҳи шумо имкони нақбкунии тамоми дастгоҳро дарбар намегирад, зеро VpnService API мавҷуд нест.</string>
   <string name="preference_notifications_title">Огоҳиҳо</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Нақбкунии ҳама барномаҳо</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Дарбаргирии Барномаҳо</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Нақбкунии танҳо барномаҳои интихобшуда</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Хоричкунии Барномаҳо</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Барномаҳои интихобшударо нақб накардан</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Нақбкунии барнома: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Барнома аз нақб хорич карда шуд: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Ҳеч барнома аз нақб хорич карда нашудааст</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Интихоби барномаҳо</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d барнома тавассути VPN нақб карда мешавад</item>
+    <item quantity="other">%d барнома тавассути VPN нақб карда мешавад</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d барнома аз VPN хорич карда мешавад</item>
+    <item quantity="other">%d барнома аз VPN хорич карда мешавад</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Нақбкунии ҳама барномаҳо</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Нақбкунии %d барнома</item>
+    <item quantity="other">Нақбкунии %d барнома</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d барнома аз нақб хорич карда шуд</item>
+    <item quantity="other">%d барнома аз нақб хорич карда шуд</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Баъзе барномаҳои Psiphon барои таъмини кори дуруст аз равандгузории VPN ба таври худкор хорич карда мешаванд. Ин истисноҳо тағйир дода намешаванд.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Ҳама барномаҳо тавассути VPN нақб карда мешаванд</string>
   <string name="preference_notifications_with_sound_title">Садо</string>
   <string name="preference_notifications_with_sound_summary">Вақте ки ҳолати пайваст иваз мешавад, садо пахш карда мешавад</string>
   <string name="preference_notifications_with_vibrate_title">Ларзиш</string>
   <string name="preference_notifications_with_vibrate_summary">Вақте ки ҳолати пайваст иваз мешавад, ларзиш дода мешавад</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Навсозиҳоро танҳо тавассути Wi-Fi боргирӣ кардан</string>
   <string name="moreOptions">Имконоти бештар</string>
   <string name="proxySettingsCategoryTitle">Танзимоти прокси</string>
   <string name="custom_proxy_host_summary">Номи хост ё IP-суроғаи прокси-сервер</string>
@@ -100,10 +162,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Хатогии проксии баромад: %s</string>
   <string name="start_tunnel_failed">Ба кор даровардани нақб барор наёфт: %s</string>
+  <string name="vpn_exclusions_conflict">Дар истисноҳои ҷории VPN як ё якчанд барномаи музохим мавҷуданд. Барои пайвастшавӣ ба танзимоти VPN гузаред ва ба реҷаи \'Нақбкунии ҳама барномаҳо\' гузаред.</string>
   <string name="tunnel_connecting">Нақб пайваст карда мешавад...</string>
   <string name="tunnel_connected">Нақб пайваст карда шуд</string>
   <string name="waiting">Интизорӣ...</string>
+  <string name="label_vpn_settings">Танзимоти VPN</string>
+  <string name="label_proxy_settings">Танзимоти прокси</string>
+  <string name="preference_summary_no_proxy">Прокси нест</string>
+  <string name="preference_summary_custom_proxy">Проксии фармоишӣ</string>
+  <string name="preference_summary_system_proxy">Проксии система</string>
   <string name="disableTimeoutsPreferenceTitle">Танаффузҳоро бекор кардан</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Танҳо Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Нишон додани огоҳиҳои MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Огоҳӣ гиред, вақте ки Psiphon трафики зарарноки аз дастгоҳи шумо мебарояд муайян мекунад.</string>
+  <string name="aboutMalAware">Дар бораи MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Фаъол кардани Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Барои мубодилаи маълумоти пайваст бо дастгоҳҳои дигар NFC-ро истифода баред.</string>
 </resources>

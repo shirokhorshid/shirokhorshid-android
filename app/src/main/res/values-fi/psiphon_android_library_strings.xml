@@ -5,11 +5,16 @@
   <string name="client_version">Asiakasohjelmaversio %s</string>
   <string name="starting_tunnel">Käynnistetään tunneli...</string>
   <string name="stopping_tunnel">Pysäytetään tunneli...</string>
+  <string name="stopped_tunnel">Tunneli pysäytetty</string>
+  <string name="socks_port_in_use">Pyydetty paikallinen SOCKS-välityspalvelinportti %d on jo toisen sovelluksen käytössä. Ei voida jatkaa.</string>
   <string name="waiting_for_network_connectivity">Odotetaan verkkoyhteyttä...</string>
   <string name="psiphon_service_notification_message_connecting">Yhdistetään...</string>
   <string name="psiphon_service_notification_id">Psiphon-palveluilmoitus</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon-tilan muutokset</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-päivitys</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon-palvelinhälytykset</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon-kaatumiset</string>
   <string name="vpn_service_running">VPN-palvelu käynnissä</string>
   <string name="vpn_service_revoked">VPN-palvelu peruutettu</string>
   <string name="current_network_type">Nykyinen verkko: %s</string>
@@ -27,6 +32,7 @@
   <string name="settings_tab_name">Valitsimet</string>
   <string name="statistics_tab_name">Tilastot</string>
   <string name="logs_tab_name">Logitiedostot</string>
+  <string name="use_proxy_settings_toggle">Yhdistä HTTP-välityspalvelimen kautta</string>
   <string name="use_system_proxy_settings_radio">Käytä järjestelmäverkkoasetuksia</string>
   <string name="use_custom_proxy_settings_radio">Käytä seuraavia asetuksia:</string>
   <string name="custom_proxy_settings_host">Verkkokoneosoite</string>
@@ -40,47 +46,136 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Hollanti</string>
+  <string name="region_name_in">Intia</string>
+  <string name="region_name_es">Espanja</string>
+  <string name="region_name_at">Itävalta</string>
+  <string name="region_name_be">Belgia</string>
+  <string name="region_name_bg">Bulgaria</string>
+  <string name="region_name_ch">Sveitsi</string>
+  <string name="region_name_cz">Tšekki</string>
+  <string name="region_name_dk">Tanska</string>
+  <string name="region_name_fr">Ranska</string>
+  <string name="region_name_hu">Unkari</string>
+  <string name="region_name_it">Italia</string>
+  <string name="region_name_no">Norja</string>
+  <string name="region_name_ro">Romania</string>
+  <string name="region_name_se">Ruotsi</string>
+  <string name="region_name_pl">Puola</string>
+  <string name="region_name_sk">Slovakia</string>
+  <string name="region_name_rs">Serbia</string>
+  <string name="region_name_au">Australia</string>
+  <string name="region_name_ae">Yhdistyneet arabiemiirikunnat</string>
+  <string name="region_name_ar">Argentiina</string>
   <string name="region_name_br">Brasilia</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Viro</string>
+  <string name="region_name_fi">Suomi</string>
+  <string name="region_name_is">Islanti</string>
   <string name="region_name_ie">Irlanti</string>
+  <string name="region_name_ke">Kenia</string>
+  <string name="region_name_kr">Etelä-Korea</string>
+  <string name="region_name_lt">Liettua</string>
+  <string name="region_name_lv">Latvia</string>
+  <string name="region_name_mx">Meksiko</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">Etelä-Afrikka</string>
+  <string name="region_name_id">Indonesia</string>
+  <string name="region_name_nz">Uusi-Seelanti</string>
+  <string name="region_name_gr">Kreikka</string>
+  <string name="region_name_ua">Ukraina</string>
+  <string name="region_name_pt">Portugali</string>
+  <string name="region_name_hr">Kroatia</string>
+  <string name="region_name_co">Kolumbia</string>
+  <string name="region_name_my">Malesia</string>
   <string name="about">Psiphon-ohjelmasta</string>
   <string name="feedback">Palaute</string>
+  <string name="disableTimeoutsPreferenceSummary">Poista aikakatkaisu käytöstä hitaille verkoille</string>
   <string name="region_selector">Valitse palvelinalue</string>
   <string name="network_proxy_connect_invalid_values">Virheelliset HTTP-välityspalvelinasetukset</string>
+  <string name="tunnel_whole_device_exception">Laitteesi ei tue koko laitteen tunnelointitilaa puuttuvan VpnService-rajapinnan vuoksi.</string>
   <string name="preference_notifications_title">Ilmoitukset</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tunneloi kaikki sovellukset automaattisesti</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Sisällytä sovellukset</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Tunneloi vain valitut sovellukset</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Sulje pois sovellukset</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Tunneloi kaikki sovellukset paitsi valitut</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Sovellus sisällytetty tunneliin: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Sovellus suljettu pois tunnelista: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Yhtään sovellusta ei suljettu pois tunnelista</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Valitse sovellukset</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d sovellus valittu sisällyttämiseen</item>
+    <item quantity="other">%d sovellusta valittu sisällyttämiseen</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d sovellus valittu poissulkemiseen</item>
+    <item quantity="other">%d sovellusta valittu poissulkemiseen</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Kaikki sovellukset tunneloidaan</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d sovellus tunneloidaan</item>
+    <item quantity="other">%d sovellusta tunneloidaan</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d sovellus suljettu pois</item>
+    <item quantity="other">%d sovellusta suljettu pois</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Tietyt Psiphon-sovellukset suljetaan automaattisesti pois VPN-reitityksestä</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Tunneloi kaikki sovellukset VPN:n kautta</string>
   <string name="preference_notifications_with_sound_title">Ääni</string>
   <string name="preference_notifications_with_sound_summary">Soita ääntä, kun yhteystila muuttuu</string>
   <string name="preference_notifications_with_vibrate_title">Värähtele</string>
   <string name="preference_notifications_with_vibrate_summary">Värähtele, kun yhteystila muuttuu</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Lataa päivitykset vain Wi-Fi:n kautta</string>
   <string name="moreOptions">Lisää valitsimia</string>
   <string name="proxySettingsCategoryTitle">Välityspalvelinasetukset</string>
+  <string name="custom_proxy_host_summary">Välityspalvelimen isäntäosoite</string>
   <string name="custom_proxy_port_summary">Välityspalvelinportti</string>
   <string name="use_proxy_authentication_title">Käytä välityspalvelintodentamista</string>
   <string name="proxy_username_title">Välityspalvelinkäyttäjätunnus</string>
   <string name="proxy_username_summary">Käyttäjätunnus välityspalvelintodentamista varten</string>
   <string name="proxy_password_title">Välityspalvelinsalasana</string>
   <string name="proxy_password_summary">Salasana välityspalvelintodennukselle</string>
+  <string name="proxy_domain_title">Välityspalvelintoimialue</string>
+  <string name="proxy_domain_summary">Toimialue välityspalvelintodennukselle</string>
+  <string name="http_proxy_port_in_use">Pyydetty paikallinen HTTP-välityspalvelinportti %d on jo toisen sovelluksen käytössä. Ei voida jatkaa.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Jaettu tunneli alue: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">Ei tunneloitu: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">Ylävirta välityspalvelinvirhe: %s</string>
+  <string name="start_tunnel_failed">Tunnelin käynnistys epäonnistui: %s</string>
+  <string name="vpn_exclusions_conflict">VPN-poissulkemisasetuksissa on ristiriita</string>
   <string name="tunnel_connecting">Yhdistetään tunneliin...</string>
   <string name="tunnel_connected">Tunneli yhdistetty</string>
   <string name="waiting">Odotetaan...</string>
+  <string name="label_vpn_settings">VPN-asetukset</string>
+  <string name="label_proxy_settings">Välityspalvelinasetukset</string>
+  <string name="preference_summary_no_proxy">Ei välityspalvelinta</string>
+  <string name="preference_summary_custom_proxy">Käytä mukautettuja välityspalvelinasetuksia</string>
+  <string name="preference_summary_system_proxy">Käytä järjestelmän välityspalvelinta</string>
+  <string name="disableTimeoutsPreferenceTitle">Poista aikakatkaisu käytöstä</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Lataa vain Wi-Fi:n kautta</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Vaarallisen liikenteen hälytykset</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Näytä hälytykset kun vaarallinen liikenne estetään</string>
+  <string name="aboutMalAware">Tietoja MalAware-ominaisuudesta</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
   <string name="nfcBumpPreferenceTitle">Ota Psiphon Bump käyttöön</string>
   <!--Summary for Psiphon Bump preference-->

@@ -153,4 +153,10 @@
   <string name="location_permission_rationale_title">ཉེ་འགྲོའི་ས་གནས</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">%s ལ་ཁྱེད་ཀྱི་ཆས་ཀྱི་ཉེ་འགྲོའི་ས་གནས་ལ་ཕྱོད་ཆོག་པར་བྱོས། ཁྱེད་ཀྱི་ས་གནས་གཞི་གྲངས་ཚད་འཇོག་Psiphon དྲ་བ་དམ་འདེགས་ལ་སྤྱོད་ཡོད་ལ། ཆེ་ཙམ་རྒྱུ་ཁྱུང་ཀི་ལོ་མི་ཊར་༣ ཙམ་གྱི་ནང་ཚུད་ཀྱི་ནུས་པ་ཡོད།</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">ཉེར་སྤྱོད་གསར་བཟོ་གྲ་སྒྲིག</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">སྒྲིག་སྦྱོར</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">གསར་བཟོ་ཕམ</string>
 </resources>

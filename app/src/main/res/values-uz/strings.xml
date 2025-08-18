@@ -6,6 +6,9 @@
   <string name="FeedbackActivity.Success">Fikr-mulohazalaringiz uchun rahmat</string>
   <string name="FeedbackActivity.Failure">Xabar yuborilmadi. Qaytadan urinib ko‘ring.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN to\'xtatildi</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN siz yoki boshqa ilova tomonidan uzildi. Bir vaqtda bir nechta VPN ilovalari ishlay olmaydi. Boshqa VPN ilovasi o\'rnatilganligini va ishlab turganligini tekshiring.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN ishga tushirilmadi</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN-ni ishga tushira olmaydi. Bir vaqtda bir nechta VPN ilovalari ishlay olmaydi. Boshqa VPN ilovasi o\'rnatilganligini va \"Doimo yoniq\" holatga sozlanganligini tekshiring.</string>
   <string name="selected_region_currently_not_available">Tanlangan hudud hozirda mavjud emas, boshqa hududni tanlang.</string>
   <string name="ads_consent_preference_dialog_title">Qayta tiklash</string>
   <string name="preference_language_selection_summary">Tilni tanlash</string>
@@ -16,6 +19,8 @@
   <string name="preference_category_info_title">Ma\'lumot</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
+  <string name="preference_navigate_to_vpn_setting_title">Doimo yoniq VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Doimo yoniq VPN-ni yoqish uchun tizim sozlamalariga o\'ting</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Yoʻq</string>
   <!--Generic positive button label.-->
@@ -34,6 +39,12 @@
   <string name="notification_text_vpn_revoked">Psiphon VPN siz yoki boshqa ilova tomonidan uzildi.</string>
   <!--Description for an app icon image-->
   <string name="description_app_icon">Ilova belgisi</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Noto\'g\'ri VPN sozlamasi</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Bu rejimda kamida bitta ilova tanlanishi kerak!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Bu rejimda kamida bitta ilova tanlanmasligi kerak!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 yoki undan yuqorisi talab qilinadi</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 yoki undan yuqorisi talab qilinadi</string>
+  <string name="vpn_exclusions_tip_summary">Klassik brauzergina rejimi uchun faqat bitta brauzer tanlang</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
@@ -41,31 +52,54 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon internetdagi potentsial xavfli saytlarga kirishni aniqladi va blok qiladi. Ko\'proq bilish uchun quyidagi havolalarni bosing.\n\nAniqlangan zararli dastur:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon internetdagi potentsial xavfli saytlarga kirishni avtomatik ravishda blok qiladi. Bu hodisa sodir bo\'lganda sizga xabar berilsinmi?\n\nBu sozlama keyinroq \"Ko\'proq imkoniyatlar\"da o\'zgartirilishi mumkin.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware haqida ko\'proq bilish uchun:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Yuqori proksi xatosi</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Psiphon-ni oching va proksi sozlamalarini tekshiring.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Proksi xatosi</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Siz Psiphon-ni yuqori proksi ishlatish uchun sozladingiz. Biroq, biz bu proksi orqali Psiphon serveriga ulanishda muammo bor.\n\nIltimos sozlamalarni to\'g\'irlang va qayta urinib ko\'ring.\n\nTexnik ma\'lumotlar uchun jurnallarga qarang.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon ishlamay qoldi</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Iltimos bizga fikr-mulohaza yuboring.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Iltimos bizga fikr-mulohaza yuborish uchun bu bildirishnomani bosing. Bu muammoni tushunishimizga yordam beradi va uni tezroq hal qilishimiz mumkin.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Men roziman</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Ma\'lumot yig\'ish haqida ogohlantirish</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s sizga internet kontentiga senzurasiz kirishni ta\'minlash uchun Android VPN xizmatidan foydalanadi. Biz quyidagi ma\'lumotlarni yig\'amiz, birlashtitramiz va saqlaymiz:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Sizning shahringiz, mamlakatingiz, ISP va ixtiyoriy ravishda, taxminiy joylashuvingiz. Shahar, mamlakat va ISP sizning serverlarimizga ulanayotgan IP manzilidan olinadi, IP manzilning o\'zi hech qachon saqlanmaydi. Bu ma\'lumotlar foydalanish va ishlash statistikasi hamda xizmat sog\'lig\'i maqsadlarida yig\'iladi.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Bizga diagnostika yoki ishlamay qolish jurnali fikr-mulohazasini yuborganingizda elektron pochtangiz. Fikr-mulohazada elektron pochta ko\'rsatish majburiy emas.</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s bildirish</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s ilova orqa fonda bo\'lganda sizga muhim ma\'lumotlar berish uchun bildirishnomalardan foydalanadi. Bu quyidagilarni o\'z ichiga oladi:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">VPN ulanish holatingizdagi o\'zgarishlar.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Ulanishingiz bilan bog\'liq muammolar.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Ishlamay qolish hisobotlari.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware ogohlantirish.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Yangi ilova versiyalari mavjud.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Bildirishnomalarni ilova sozlamalarida istalgan vaqtda o\'chirishingiz mumkin.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -75,14 +109,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Iltimos sozlamalarda NFC-ni yoqing</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Boshqa qurilma bilan aloqa qilishda xatolik. Boshqa qurilmada Psiphon ochiq va ulanganligini tekshiring va qayta urinib ko\'ring.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Boshqa qurilma bilan NFC o\'zaro ta\'sir kutilmoqda…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Ulanish ma\'lumotlari muvaffaqiyatli almashildi!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Boshqa qurilma bilan aloqa qilishda xatolik. Qayta urinib ko\'ring.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Qurilma juda tez harakatlandi, ulanish uzildi. Qayta urinib ko\'ring.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Qo\'llab-quvvatlanmagan NFC tegi topildi. Boshqa qurilmada Psiphon ochiq va ulanganmi?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Ma\'lumotlar o\'qilmoqda…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Ulanishda yordam oling</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Yordam</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -92,13 +135,27 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Тайёр </string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Agar siz Psiphon serverga ulanishda qiyinchilik boshdan kechirayotgan bo\'lsangiz, muvaffaqiyatli ulanib bo\'lgan do\'stingizni toping va NFC yordamida ularning ulanish ma\'lumotlarini almashing.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Boshqa qurilmada Psiphon ochiq va ulangan bo\'lishi va ilova panelida Psiphon Bump belgisi ko\'rsatilayotganligiga ishonch hosil qiling.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Sizning qurilmangizda Psiphon Bump dialogi ochiq bo\'lsa va boshqa qurilmada Psiphon ilovasi ochiq va ulangan bo\'lsa, qurilmalarni orqa tomondan ulab ulanish ma\'lumotlari uzatishni boshlang.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Ulanish ma\'lumotlari uzatish tugagach va sizning Psiphon ilovangiz ulanishga qodir bo\'lgach, Psiphon Bump dialogi avtomatik ravishda yopiladi. Agar hali ham ulanolmasangiz, Psiphon muvaffaqiyatli ulanmaguncha qayta urinib ko\'rishingiz mumkin.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump yordam rejimini yoqish uchun tizim sozlamalarida NFC-ni yoqing.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Sozlamalarni ochish</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Taxminiy joylashuv</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Iltimos, %s ilovasiga qurilmangizning taxminiy joylashuviga kirishga ruxsat bering. Sizning joylashuv ma\'lumotlaringiz Psiphon tarmog\'ini optimallashtirish uchun ishlatiladi va taxminan 3 kvadrat kilometr doirasida aniqdir.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Ilova yangilanishi tayyor</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">O\'rnatish</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Yangilanish muvaffaqiyatsiz</string>
 </resources>

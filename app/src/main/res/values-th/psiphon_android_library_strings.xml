@@ -1,28 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="waiting_for_network_connectivity">กำลังรอการเชื่อมต่อเครือข่าย...</string>
-  <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ...</string>
+  <string name="socks_running">SOCKS ทำงานบนพอร์ต %d</string>
+  <string name="http_proxy_running">พร็อกซี HTTP ทำงานบนพอร์ต %d</string>
+  <string name="client_version">เวอร์ชันไคลเอนต์ %s</string>
+  <string name="starting_tunnel">กำลังเริ่มอุโมงค์…</string>
+  <string name="stopping_tunnel">กำลังหยุดอุโมงค์…</string>
+  <string name="stopped_tunnel">หยุดอุโมงค์แล้ว</string>
+  <string name="socks_port_in_use">พอร์ตพร็อกซี SOCKS ที่ต้องการ %d ถูกใช้โดยแอปอื่นแล้ว ไม่สามารถดำเนินการต่อได้</string>
+  <string name="waiting_for_network_connectivity">กำลังรอการเชื่อมต่อเครือข่าย…</string>
+  <string name="psiphon_service_notification_message_connecting">กำลังเชื่อมต่อ…</string>
+  <string name="psiphon_service_notification_id">การแจ้งเตือนบริการ Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">การเปลี่ยนสถานะ Psiphon</string>
+  <string name="psiphon_upgrade_notification_channel_name">อัปเกรด Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">การแจ้งเตือนเซิร์ฟเวอร์ Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">การขัดข้องของ Psiphon</string>
   <string name="vpn_service_running">บริการ VPN กำลังทำงาน</string>
   <string name="vpn_service_revoked">บริการ VPN ถูกยกเลิก</string>
   <string name="current_network_type">เครือข่ายปัจจุบัน: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptTitle">อัปเกรด Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptMessage">การอัปเกรดสำหรับ Psiphon พร้อมให้ติดตั้งแล้ว</string>
   <string name="connected_elapsed_time">เชื่อมต่อแล้ว: %s</string>
   <string name="disconnected">ตัดการเชื่อมต่อ</string>
   <string name="label_sent">ส่งแล้ว</string>
+  <string name="label_received">รับแล้ว</string>
   <string name="start">เริ่ม</string>
   <string name="stop">หยุด</string>
   <string name="home_tab_name">หน้าหลัก</string>
   <string name="settings_tab_name">ตัวเลือก</string>
   <string name="statistics_tab_name">สถิติ</string>
   <string name="logs_tab_name">ปูม</string>
+  <string name="use_proxy_settings_toggle">เชื่อมต่อผ่านพร็อกซี HTTP</string>
+  <string name="use_system_proxy_settings_radio">ใช้การตั้งค่าเครือข่ายของระบบ</string>
+  <string name="use_custom_proxy_settings_radio">ใช้การตั้งค่าต่อไปนี้:</string>
+  <string name="custom_proxy_settings_host">ที่อยู่โฮสต์</string>
   <string name="custom_proxy_settings_port">พอร์ต</string>
+  <string name="region_name_any">ประสิทธิภาพดีที่สุด</string>
   <string name="region_name_us">สหรัฐอเมริกา</string>
   <string name="region_name_gb">สหราชอาณาจักร</string>
   <string name="region_name_ca">แคนาดา</string>
+  <string name="region_name_de">เยอรมนี</string>
   <string name="region_name_jp">ญี่ปุ่น</string>
+  <string name="region_name_hk">ฮ่องกง</string>
   <string name="region_name_sg">สิงคโปร์</string>
+  <string name="region_name_nl">เนเธอร์แลนด์</string>
   <string name="region_name_in">อินเดีย</string>
   <string name="region_name_es">สเปน</string>
   <string name="region_name_at">ออสเตรีย</string>
@@ -31,26 +54,33 @@
   <string name="region_name_ch">สวิตเซอร์แลนด์</string>
   <string name="region_name_cz">สาธารณรัฐเช็ก</string>
   <string name="region_name_dk">เดนมาร์ก</string>
+  <string name="region_name_fr">ฝรั่งเศส</string>
   <string name="region_name_hu">ฮังการี</string>
   <string name="region_name_it">อิตาลี</string>
   <string name="region_name_no">นอร์เวย์</string>
   <string name="region_name_ro">โรมาเนีย</string>
   <string name="region_name_se">สวีเดน</string>
   <string name="region_name_pl">โปแลนด์</string>
+  <string name="region_name_sk">สโลวาเกีย</string>
   <string name="region_name_rs">เซอร์เบีย</string>
   <string name="region_name_au">ออสเตรเลีย</string>
   <string name="region_name_ae">สหรัฐอาหรับเอมิเรสต์</string>
   <string name="region_name_ar">อาร์เจนตินา</string>
   <string name="region_name_br">บราซิล</string>
   <string name="region_name_cl">ชิลี</string>
+  <string name="region_name_ee">เอสโตเนีย</string>
   <string name="region_name_fi">ฟินแลนด์</string>
   <string name="region_name_is">ไอซ์แลนด์</string>
   <string name="region_name_ie">ไอร์แลนด์</string>
   <string name="region_name_ke">เคนยา</string>
+  <string name="region_name_kr">เกาหลี</string>
+  <string name="region_name_lt">ลิทัวเนีย</string>
+  <string name="region_name_lv">ลัตเวีย</string>
   <string name="region_name_mx">เม็กซิโก</string>
   <string name="region_name_tw">ไต้หวัน</string>
   <string name="region_name_za">แอฟริกาใต้</string>
   <string name="region_name_id">อินโดนีเซีย</string>
+  <string name="region_name_nz">นิวซีแลนด์</string>
   <string name="region_name_gr">กรีซ</string>
   <string name="region_name_ua">ยูเครน</string>
   <string name="region_name_pt">โปรตุเกส</string>
@@ -59,34 +89,91 @@
   <string name="region_name_my">มาเลเซีย</string>
   <string name="about">เกี่ยวกับ Psiphon</string>
   <string name="feedback">การตอบสนอง</string>
+  <string name="disableTimeoutsPreferenceSummary">ปิดใช้งานการหมดเวลาสำหรับเครือข่ายช้า</string>
   <string name="region_selector">เลือกภูมิภาคเซิร์ฟเวอร์</string>
+  <string name="network_proxy_connect_invalid_values">การตั้งค่าพร็อกซี HTTP ไม่ถูกต้อง</string>
+  <string name="tunnel_whole_device_exception">อุปกรณ์ของคุณไม่สนับสนุนตัวเลือกอุโมงค์ทั้งอุปกรณ์เนื่องจากขาด VpnService API</string>
   <string name="preference_notifications_title">การแจ้งเตือน</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">ส่งแอปทั้งหมดผ่านอุโมงค์</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">รวมแอป</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">ส่งเฉพาะแอปที่เลือกผ่านอุโมงค์</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">ยกเว้นแอป</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">อย่าส่งแอปที่เลือกผ่านอุโมงค์</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">ส่งแอปผ่านอุโมงค์: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">แอปถูกยกเว้นจากอุโมงค์: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">ไม่มีแอปพลิเคชันที่ถูกยกเว้นจากอุโมงค์</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">เลือกแอป</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">แอป %d ตัวจะถูกส่งผ่านอุโมงค์ผ่าน VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">แอป %d ตัวจะถูกยกเว้นจาก VPN</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">ส่งแอปทั้งหมดผ่านอุโมงค์</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">ส่งแอป %d ตัวผ่านอุโมงค์</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">แอป %d ตัวถูกยกเว้นจากอุโมงค์</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">แอป Psiphon บางตัวถูกยกเว้นจากการจัดเส้นทาง VPN โดยอัตโนมัติเพื่อให้แน่ใจว่าทำงานได้อย่างถูกต้อง การยกเว้นเหล่านี้ไม่สามารถแก้ไขได้</string>
+  <string name="preference_routing_all_apps_tunnel_summary">แอปทั้งหมดจะถูกส่งผ่านอุโมงค์ผ่าน VPN</string>
   <string name="preference_notifications_with_sound_title">เสียง</string>
+  <string name="preference_notifications_with_sound_summary">เล่นเสียงเมื่อสถานะการเชื่อมต่อเปลี่ยน</string>
   <string name="preference_notifications_with_vibrate_title">สั่น</string>
+  <string name="preference_notifications_with_vibrate_summary">สั่นเมื่อสถานะการเชื่อมต่อเปลี่ยน</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">ดาวน์โหลดอัปเกรดผ่าน Wi-Fi เท่านั้น</string>
   <string name="moreOptions">ตัวเลือกเพิ่มเติม</string>
-  <string name="proxySettingsCategoryTitle">กำหนดค่า Proxy</string>
+  <string name="proxySettingsCategoryTitle">การตั้งค่าพร็อกซี</string>
+  <string name="custom_proxy_host_summary">ชื่อโฮสต์หรือ IP ของเซิร์ฟเวอร์พร็อกซี</string>
+  <string name="custom_proxy_port_summary">พอร์ตเซิร์ฟเวอร์พร็อกซี</string>
+  <string name="use_proxy_authentication_title">ใช้การยืนยันตัวตนพร็อกซี</string>
+  <string name="proxy_username_title">ชื่อผู้ใช้พร็อกซี</string>
+  <string name="proxy_username_summary">ชื่อผู้ใช้สำหรับการยืนยันตัวตนพร็อกซี</string>
+  <string name="proxy_password_title">รหัสผ่านพร็อกซี</string>
+  <string name="proxy_password_summary">รหัสผ่านสำหรับการยืนยันตัวตนพร็อกซี</string>
+  <string name="proxy_domain_title">โดเมนพร็อกซี</string>
+  <string name="proxy_domain_summary">โดเมนสำหรับการยืนยันตัวตนพร็อกซี</string>
+  <string name="http_proxy_port_in_use">พอร์ตพร็อกซี HTTP ที่ต้องการ %d ถูกใช้โดยแอปอื่นแล้ว ไม่สามารถดำเนินการต่อได้</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">ภูมิภาคอุโมงค์แยก: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">ไม่ส่งผ่านอุโมงค์: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
-  <string name="tunnel_connecting">กำลังเชื่อมต่ออุโมงค์...</string>
+  <string name="upstream_proxy_error">ข้อผิดพลาดพร็อกซีขาขึ้น: %s</string>
+  <string name="start_tunnel_failed">การเริ่มอุโมงค์ล้มเหลว: %s</string>
+  <string name="vpn_exclusions_conflict">มีแอปพลิเคชันที่ขัดแย้งกันหนึ่งรายการหรือมากกว่าในการยกเว้น VPN ปัจจุบันของคุณ โปรดไปที่การตั้งค่า VPN และเปลี่ยนเป็นโหมด \'ส่งแอปทั้งหมดผ่านอุโมงค์\' เพื่อเชื่อมต่อ</string>
+  <string name="tunnel_connecting">อุโมงค์กำลังเชื่อมต่อ…</string>
   <string name="tunnel_connected">อุโมงค์เชื่อมต่อแล้ว</string>
-  <string name="waiting">กำลังรอ...</string>
+  <string name="waiting">กำลังรอ…</string>
+  <string name="label_vpn_settings">การตั้งค่า VPN</string>
+  <string name="label_proxy_settings">การตั้งค่าพร็อกซี</string>
+  <string name="preference_summary_no_proxy">ไม่มีพร็อกซี</string>
+  <string name="preference_summary_custom_proxy">พร็อกซีแบบกำหนดเอง</string>
+  <string name="preference_summary_system_proxy">พร็อกซีระบบ</string>
+  <string name="disableTimeoutsPreferenceTitle">ปิดใช้งานการหมดเวลา</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi เท่านั้น</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">แสดงการแจ้งเตือน MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">รับการแจ้งเตือนเมื่อ Psiphon ตรวจพบการจราจรมัลแวร์ที่มาจากอุปกรณ์ของคุณ</string>
+  <string name="aboutMalAware">เกี่ยวกับ MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">เปิดใช้งาน Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">ใช้ NFC เพื่อแบ่งปันข้อมูลการเชื่อมต่อ Psiphon กับอุปกรณ์อื่น</string>
 </resources>

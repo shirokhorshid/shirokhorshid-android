@@ -144,6 +144,7 @@
     <item quantity="other">Виключених додатків: %d</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Деякі програми Psiphon автоматично виключені з маршрутизації VPN для забезпечення належної функціональності. Ці виключення не можна змінити.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Усі додатки будуть пропущені через VPN</string>
   <string name="preference_notifications_with_sound_title">Звук</string>
   <string name="preference_notifications_with_sound_summary">Звук під час зміни стану з\'єднання</string>

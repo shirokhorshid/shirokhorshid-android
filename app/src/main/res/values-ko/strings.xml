@@ -6,6 +6,9 @@
   <string name="FeedbackActivity.Success">피드백을 주셔서 감사합니다</string>
   <string name="FeedbackActivity.Failure">작업을 실패했습니다. 다시 시도해 주세요.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN이 중지되었습니다</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN이 사용자 또는 다른 앱에 의해 연결 해제되었습니다. 여러 VPN 앱은 동시에 실행될 수 없습니다. 다른 VPN 앱이 설치되어 실행 중인지 확인하세요.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN을 시작할 수 없음</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon은 VPN을 시작할 수 없습니다. 여러 VPN 앱은 동시에 실행될 수 없습니다. 다른 VPN 앱이 설치되어 항상 켜짐으로 설정되어 있는지 확인하세요.</string>
   <string name="selected_region_currently_not_available">선택한 지역을 현재 사용할 수 없습니다. 다른 지역을 선택해주세요.</string>
   <string name="ads_consent_preference_dialog_title">재설정</string>
   <string name="preference_language_selection_summary">언어 선택</string>
@@ -16,6 +19,8 @@
   <string name="preference_category_info_title">정보</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">확인</string>
+  <string name="preference_navigate_to_vpn_setting_title">항상 켜져 있는 VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">시스템 설정으로 이동하여 항상 켜져 있는 VPN을 활성화</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">아니오</string>
   <!--Generic positive button label.-->
@@ -34,6 +39,12 @@
   <string name="notification_text_vpn_revoked">Psiphon VPN이 사용자 또는 다른 앱에 의해 연결 해제되었습니다.</string>
   <!--Description for an app icon image-->
   <string name="description_app_icon">앱 아이콘</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">잘못된 VPN 설정</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">이 모드에서는 적어도 하나의 앱을 선택해야 합니다!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">이 모드에서는 적어도 하나의 앱을 선택하지 않아야 합니다!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 이상 필요</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 이상 필요</string>
+  <string name="vpn_exclusions_tip_summary">클래식 브라우저 전용 모드의 경우 브라우저를 하나만 선택</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
@@ -41,31 +52,58 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon이 인터넷에서 잠재적으로 악의적인 사이트에 대한 액세스를 감지하고 차단했습니다. 자세히 알아보려면 아래 링크를 따르세요.
+  감지된 멀웨어:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon은 인터넷에서 잠재적으로 악의적인 사이트에 대한 액세스를 자동으로 차단합니다. 이런 일이 발생했을 때 알림을 받으시겠습니까?
+  이 설정은 나중에 추가 옵션에서 변경할 수 있습니다.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware에 대해 자세히 알아보기:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">업스트림 프록시 오류</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Psiphon을 열고 프록시 설정을 확인하세요.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">프록시 오류</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Psiphon이 업스트림 프록시를 사용하도록 구성했습니다. 하지만 해당 프록시를 통해 Psiphon 서버에 연결할 수 없는 것 같습니다.
+  설정을 수정하고 다시 시도하세요.
+  기술 정보는 로그를 참조하세요.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon 충돌</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">피드백을 보내주세요.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">이 알림을 클릭하여 피드백을 보내주세요. 이렇게 하면 문제를 이해하고 더 빨리 수정할 수 있습니다.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">수락합니다</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">데이터 수집 공개</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s는 Android VPN 서비스를 사용하여 인터넷 콘텐츠에 대한 무검열 액세스를 제공합니다. 다음 정보를 수집, 집계 및 저장합니다:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">귀하의 도시, 국가, ISP 및 선택적으로 대략적인 위치. 도시, 국가 및 ISP는 귀하가 우리 서버에 연결하는 IP 주소에서 파생되며, IP 주소 자체는 결코 기록되지 않습니다. 이 데이터는 사용 및 성능 통계와 서비스 상태 목적으로 수집됩니다.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">진단 또는 충돌 로그 피드백을 보낼 때의 이메일. 피드백에서 이메일 제공은 선택사항입니다.</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s 알림</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s는 앱이 백그라운드에 있을 때 중요한 정보를 제공하기 위해 알림을 사용합니다. 여기에는 다음이 포함됩니다:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">VPN 연결 상태 변경.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">연결 문제.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">충돌 보고서.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware 경고.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">새 앱 버전 사용 가능.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">앱 설정에서 언제든지 알림을 비활성화할 수 있습니다.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -75,14 +113,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">설정에서 NFC를 활성화하세요</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">다른 장치와 통신하는 중 오류가 발생했습니다. 다른 장치에서 Psiphon이 열려 있고 연결되어 있는지 확인한 후 다시 시도하세요.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">다른 장치와의 NFC 상호작용을 대기 중…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">연결 정보를 성공적으로 교환했습니다!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">다른 장치와 통신하는 중 오류가 발생했습니다. 다시 시도하세요.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">장치가 너무 빨리 움직여서 연결이 끊어졌습니다. 다시 시도하세요.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">지원되지 않는 NFC 태그가 발견되었습니다. 다른 장치에서 Psiphon이 열려 있고 연결되어 있나요?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">데이터 읽는 중…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">연결 도움 받기</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">도움</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -92,13 +139,27 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">완료</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Psiphon 서버에 연결하는 데 문제가 있다면, 성공적으로 연결한 친구를 찾아 NFC를 사용하여 연결 정보를 공유하세요.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">다른 장치에서 Psiphon이 열려 있고 연결되어 있으며 앱 바에 Psiphon Bump 아이콘이 표시되고 있는지 확인하세요.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">장치에서 Psiphon Bump 대화상자가 열려 있고 다른 장치에서 Psiphon 앱이 열려 있고 연결되어 있는 상태에서, 장치를 등을 맞대고 놓아 연결 정보 데이터 전송을 시작하세요.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">연결 정보 데이터 전송이 완료되고 Psiphon 앱이 연결할 수 있게 되면, Psiphon Bump 대화상자가 자동으로 닫힙니다. 여전히 연결할 수 없다면, Psiphon이 성공적으로 연결될 때까지 재시도할 수 있습니다.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump 도우미 모드를 활성화하려면 시스템 설정에서 NFC를 켜세요.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">설정 열기</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">대략적인 위치</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">%s가 장치의 대략적인 위치에 액세스할 수 있도록 허용하세요. 위치 데이터 추정치는 Psiphon 네트워크를 최적화하는 데 사용되며 약 3제곱킬로미터 내에서 정확합니다.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">앱 업데이트 준비됨</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">설치</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">업데이트 실패</string>
 </resources>

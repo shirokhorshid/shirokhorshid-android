@@ -2,7 +2,7 @@
 <resources>
   <string name="banner_desc">بنر حامیان؛ برای دیدن صفحه اصلی  حامیان کلیک کنید</string>
   <string name="open_browser">بازکردن مرورگر</string>
-  <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href="mailto:feedback@psiphon.ca"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
+  <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتون رو با ما در میان گذاشتید سپاسگزاریم</string>
   <string name="FeedbackActivity.Failure">ارسال نشد. لطفآ دوباره امتحان کنید</string>
   <string name="StatusActivity.VpnRevokedTitle">VPN Psiphon متوقف شده است</string>
@@ -86,6 +86,7 @@
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s از سرویس Android VPN استفاده می‌کند تا دسترسی بدون سانسور به محتوای اینترنت را برای شما فراهم کند. ما اطلاعات زیر را جمع آوری و ذخیره می‌کنیم:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">شهر، کشور، ارائه‌دهنده خدمات اینترنتی (ISP) شما و به طور اختیاری، موقعیت تقریبی شما. شهر، کشور و ISP از آدرس IP که از طریق آن به سرورهای ما متصل می‌شوید استخراج می‌شوند و خود آدرس IP هرگز ذخیره نمی‌شود. این داده‌ها برای آماراستفاده و عملکرد و همچنین وضعیت سالم‌بودن سرویس جمع‌آوری می‌شوند.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">ایمیل شما، زمانی که برای ما بازخورد یا گزارش خرابی ارسال می‌کنید. ارائه ایمیل در بازخورد اختیاری است.</string>
   <!--Data collection disclosure list item-->
@@ -162,5 +163,13 @@
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">تنظیمات را باز کنید</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">موقعیت تقریبی</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">لطفاً به %s اجازه دهید به موقعیت تقریبی دستگاه شما دسترسی پیدا کند. برآورد داده‌های موقعیت مکانی شما برای بهینه‌سازی شبکه Psiphon استفاده می‌شود و دقت آن حدوداً در محدوده ۳ کیلومتر مربع است.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">به‌روزرسانی برنامه آماده است</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">نصب</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">به‌روزرسانی ناموفق</string>
 </resources>

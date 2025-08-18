@@ -4,7 +4,7 @@
   <string name="open_browser">Ouvrir le navigateur</string>
   <string name="FeedbackActivity.DefaultText">Si vous avez des commentaires spécifiques, des renseignements complémentaires sur des sites qui ne fonctionnent pas, ou si ce formulaire ne fonctionne pas, envoyez un courriel à &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Merci pour votre rétroaction</string>
-  <string name="FeedbackActivity.Failure">L’envoi a échoué. Veuillez réessayer.</string>
+  <string name="FeedbackActivity.Failure">L’envoi a échoué. Réessayez.</string>
   <string name="StatusActivity.VpnRevokedTitle">Le RPV Psiphon s’est arrêté</string>
   <string name="StatusActivity.VpnRevokedMessage">Le RPV de Psiphon a été déconnecté par vous ou par une autre appli. Plusieurs applis de RPV ne peuvent pas fonctionner en même temps. Vérifiez si une autre appli de RPV est installée et en cours d’exécution.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Le RPV Psiphon ne peut pas être démarré</string>
@@ -160,4 +160,10 @@
   <string name="location_permission_rationale_title">Localisation approximative</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Autorisez %s à accéder à la localisation approximative de votre appareil. Vos données de localisation sont utilisées pour optimiser le réseau Psiphon et sont exactes à environ 3 kilomètres carrés près.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Mise à jour de l\'application prête</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Installer</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Échec de la mise à jour</string>
 </resources>

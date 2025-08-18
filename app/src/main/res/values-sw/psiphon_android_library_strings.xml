@@ -75,6 +75,7 @@
   <string name="region_name_ie">Ireland</string>
   <string name="region_name_ke">Kenya</string>
   <string name="region_name_kr">Korea</string>
+  <string name="region_name_lt">Lithuania</string>
   <string name="region_name_lv">Latvia</string>
   <string name="region_name_mx">Mexico</string>
   <string name="region_name_tw">Taiwan</string>
@@ -136,6 +137,7 @@
     <item quantity="other">%dprogramu zimetengwa kwenye njia </item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Programu fulani za Psiphon zinazuiliwa kiotomatiki kutoka kwa mzunguko wa VPN ili kuhakikisha utendakazi sahihi. Vizuizi hivi haviwezi kubadilishwa.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Programu zote zitapitishwa kupitia VPN</string>
   <string name="preference_notifications_with_sound_title">Sauti</string>
   <string name="preference_notifications_with_sound_summary">Cheza sauti wakati hali ya muunganisho inabadilika</string>

@@ -195,12 +195,12 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                     vpnOptionsPreference.setSummary(R.string.preference_routing_all_apps_tunnel_summary);
                     break;
                 case EXCLUDE_APPS:
-                    count = VpnAppsUtils.getUserAppsExcludedFromVpn(getContext()).size();
+                    count = VpnAppsUtils.getUserControllableAppsExcludedFromVpn(getContext()).size();
                     summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_exclude_summary, count, count);
                     vpnOptionsPreference.setSummary(summary);
                     break;
                 case INCLUDE_APPS:
-                    count = VpnAppsUtils.getUserAppsIncludedInVpn(getContext()).size();
+                    count = VpnAppsUtils.getUserControllableAppsIncludedInVpn(getContext()).size();
                     summary = getResources().getQuantityString(R.plurals.preference_routing_select_apps_to_include_summary, count, count);
                     vpnOptionsPreference.setSummary(summary);
                     break;

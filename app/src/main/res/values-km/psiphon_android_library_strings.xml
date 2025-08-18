@@ -12,7 +12,9 @@
   <string name="psiphon_service_notification_id">សេវាជូនដំណឹង Psiphon </string>
   <string name="psiphon_service_notification_channel_name">ស្ថានភាព Psiphon ផ្លាស់ប្តូរ</string>
   <string name="psiphon_upgrade_notification_channel_name">បច្ចុប្បន្នភាព Psiphon </string>
+  <string name="psiphon_server_alert_notification_channel_name">ការជូនដំណឹងម៉ាស៊ីនមេ Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">ការគាំង Psiphon</string>
   <string name="vpn_service_running">សេវាកម្ម VPN កំពុងដំណើរការ</string>
   <string name="vpn_service_revoked">ដកសិទ្ធិសេវាកម្ម VPN</string>
   <string name="current_network_type">បណ្តាញបច្ចុប្បន្ន៖ %s</string>
@@ -62,8 +64,29 @@
   <string name="region_name_sk">ស្លូវ៉ាគី</string>
   <string name="region_name_rs">ស៊ែប៊ី</string>
   <string name="region_name_au">អូស្ត្រាលី</string>
+  <string name="region_name_ae">អេមីរ៉ាតអារ៉ាប់រួម</string>
+  <string name="region_name_ar">អាហ្សង់ទីន</string>
   <string name="region_name_br">ប្រេស៊ីល</string>
+  <string name="region_name_cl">ញីលី</string>
+  <string name="region_name_ee">អេស្តូនី</string>
+  <string name="region_name_fi">ហ្វាំងឡង់</string>
+  <string name="region_name_is">អ៊ីស្លង់</string>
   <string name="region_name_ie">អៀរឡង់</string>
+  <string name="region_name_ke">កេនយ៉ា</string>
+  <string name="region_name_kr">កូរ៉េ</string>
+  <string name="region_name_lt">លីទុយអានី</string>
+  <string name="region_name_lv">ឡាតវី</string>
+  <string name="region_name_mx">ម៉ិកស៊ិក</string>
+  <string name="region_name_tw">តព៣វ៉ាន់</string>
+  <string name="region_name_za">អាហ្វ្រិកខាងត្បូង</string>
+  <string name="region_name_id">ញ័ណ័នេស៊ី</string>
+  <string name="region_name_nz">នូវែលសេឡង់</string>
+  <string name="region_name_gr">ក្រិច</string>
+  <string name="region_name_ua">អ៊ុយក្រែន</string>
+  <string name="region_name_pt">ព័រទុយហ្គាល់</string>
+  <string name="region_name_hr">ក្រូអាស៊ី</string>
+  <string name="region_name_co">កូឡុំប៊ី</string>
+  <string name="region_name_my">ម៉ាឡេស៊ី</string>
   <string name="about">អំពី Psiphon</string>
   <string name="feedback">មតិយោបល់</string>
   <string name="disableTimeoutsPreferenceSummary">បិទ ការហួសម៉ោង សម្រាប់បណ្តាញយឺត</string>
@@ -101,8 +124,15 @@
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">ធ្វើថូនែលគ្រប់កម្មវិធី</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">បើកច្រក %d កម្មវិធី</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d កម្មវិធីត្រូវបានលើកលែងពីច្រក</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">កម្មវិធី Psiphon មួយចំនួនត្រូវបានលើកលែងដោយស្វាយប្រវត្តិពីការបញ្ជូនតាម VPN ដើម្បីធានដំណើរការប្រក្រតី។ ការលើកលែងទាំងនេះមិនអាចកែប្រែបានទេ។</string>
   <string name="preference_routing_all_apps_tunnel_summary">គ្រប់កម្មវិធីទាំងអស់នឹងត្រូវបើកច្រកតាម VPN</string>
   <string name="preference_notifications_with_sound_title">សំឡេង</string>
   <string name="preference_notifications_with_sound_summary">ចាក់សំឡេងពេលស្ថានភាពការតភ្ជាប់ផ្លាស់ប្តូរ</string>
@@ -128,12 +158,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">បញ្ហាការឡើងប្រូកស៊ី៖ %s</string>
   <string name="start_tunnel_failed">បរាជ័យបើកច្រក៖ %s</string>
+  <string name="vpn_exclusions_conflict">មានកម្មវិធីមួយ ឬច្រើនដែលមានការចម្លាស់គ្នាននៅក្នុងការលើកលែង VPN បច្ចុប្បន្នរបស់អ្នក។ សូមចូលទៅការកំណត់ VPN និងប្តូរទៅរបារប់ \'ធ្វើទូណែលគ្រប់កម្មវិធី\' ដើម្បីតភ្ជាប់។</string>
   <string name="tunnel_connecting">កំពុងតភ្ជាប់ច្រក...</string>
   <string name="tunnel_connected">ច្រកបានតភ្ជាប់</string>
   <string name="waiting">កំពុងរង់ចាំ...</string>
   <string name="label_vpn_settings">ការកំណត់VPN</string>
+  <string name="label_proxy_settings">ការកំណត់ប្រូកស៊ី</string>
+  <string name="preference_summary_no_proxy">គ្មានប្រូកស៊ី</string>
+  <string name="preference_summary_custom_proxy">ប្រូកស៊ីកំណត់ផ្ទាល់</string>
+  <string name="preference_summary_system_proxy">ប្រូកស៊ីប្រព័ន្ធ</string>
   <string name="disableTimeoutsPreferenceTitle">បិទ ការកំណត់ពេល</string>
   <string name="downloadWiFiOnlyPreferenceTitle">មានតែWiFi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">បង្ហាញការជូនដំណឹង MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">ទទួលការជូនដំណឹងពេលដែល Psiphon រកឃើញចរាចរណ៍មាល់វែរពីជុបករណ៍របស់អ្នក។</string>
+  <string name="aboutMalAware">អំពី MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">បើក Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">ប្រើ NFC ដើម្បីចែករំលែកទិន្ននាន់ការតភ្ជាប់ Psiphon ជាមួយជុបករណ៍ផ្សេង។</string>
 </resources>

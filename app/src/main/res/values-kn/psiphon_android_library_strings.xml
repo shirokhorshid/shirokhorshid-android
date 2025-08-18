@@ -14,6 +14,7 @@
   <string name="psiphon_upgrade_notification_channel_name">Psiphon ಅಪ್‌ಗ್ರೇಡ್</string>
   <string name="psiphon_server_alert_notification_channel_name">Psiphon ಸರ್ವರ್ ಎಚ್ಚರಿಕೆಗಳು</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon ಕ್ರ್ಯಾಷ್‌ಗಳು</string>
   <string name="vpn_service_running">VPN ಸೇವೆ ಚಾಲ್ತಿಯಲ್ಲಿದೆ</string>
   <string name="vpn_service_revoked">VPN ಸೇವೆಯನ್ನು ರದ್ದುಪಡಿಸಲಾಗಿದೆ</string>
   <string name="current_network_type">ಪ್ರಸ್ತುತ ನೆಟ್‌ವರ್ಕ್: %s</string>
@@ -63,6 +64,29 @@
   <string name="region_name_sk">ಸ್ಲೊವಕಿಯ</string>
   <string name="region_name_rs">ಸೆರ್ಬಿಯ</string>
   <string name="region_name_au">ಆಸ್ಟ್ರೇಲಿಯ</string>
+  <string name="region_name_ae">ಯುನೈಟೆಡ್ ಅರಬ್ ಎಮಿರೇಟ್ಸ್</string>
+  <string name="region_name_ar">ಅರ್ಜೆಂಟೀನಾ</string>
+  <string name="region_name_br">ಬ್ರೆಜಿಲ್</string>
+  <string name="region_name_cl">ಚಿಲಿ</string>
+  <string name="region_name_ee">ಎಸ್ಟೋನಿಯಾ</string>
+  <string name="region_name_fi">ಫಿನ್‌ಲ್ಯಾಂಡ್</string>
+  <string name="region_name_is">ಐಸ್‌ಲ್ಯಾಂಡ್</string>
+  <string name="region_name_ie">ಐರ್ಲೆಂಡ್</string>
+  <string name="region_name_ke">ಕೀನ್ಯಾ</string>
+  <string name="region_name_kr">ಕೊರಿಯಾ</string>
+  <string name="region_name_lt">ಲಿಥುವೇನಿಯಾ</string>
+  <string name="region_name_lv">ಲಾಟ್ವಿಯಾ</string>
+  <string name="region_name_mx">ಮೆಕ್ಸಿಕೋ</string>
+  <string name="region_name_tw">ತೈವಾನ್</string>
+  <string name="region_name_za">ದಕ್ಷಿಣ ಆಫ್ರಿಕಾ</string>
+  <string name="region_name_id">ಇಂಡೋನೇಶಿಯಾ</string>
+  <string name="region_name_nz">ನ್ಯೂ ಝೀಲ್ಯಾಂಡ್</string>
+  <string name="region_name_gr">ಗ್ರೀಸ್</string>
+  <string name="region_name_ua">ಉಕ್ರೇನ್</string>
+  <string name="region_name_pt">ಪೋರ್ಚುಗಲ್</string>
+  <string name="region_name_hr">ಕ್ರೊಯೇಷಿಯಾ</string>
+  <string name="region_name_co">ಕೊಲಂಬಿಯಾ</string>
+  <string name="region_name_my">ಮಲೇಶಿಯಾ</string>
   <string name="about">Psiphon ಬಗ್ಗೆ</string>
   <string name="feedback">ಅಭಿಪ್ರಾಯ</string>
   <string name="disableTimeoutsPreferenceSummary">ನಿಧಾನಗತಿಯ ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗಾಗಿ ಸಮಯ ಮೀರುವಿಕೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
@@ -112,6 +136,7 @@
     <item quantity="other">%d ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸುರಂಗದಿಂದ ಹೊರಗಿಡಲಾಗಿದೆ</item>
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">ಸರಿಯಾದ ಕಾರ್ಯನಿರ್ವಹಣೆಯನ್ನು ಖಚಿತಪಡಿಸಲು ಕೆಲವು Psiphon ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ವಿಪಿಎನ್ ರೂಟಿಂಗ್‌ನಿಂದ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹೊರಗಿಡಲಾಗುತ್ತದೆ. ಈ ಹೊರಗಿಡುವಿಕೆಗಳನ್ನು ಮಾರ್ಪಡಿಸಲಾಗುವುದಿಲ್ಲ.</string>
   <string name="preference_routing_all_apps_tunnel_summary">ಎಲ್ಲಾ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು VPN ಮೂಲಕ ಸುರಂಗ ಮಾಡಲಾಗುತ್ತದೆ</string>
   <string name="preference_notifications_with_sound_title">ಧ್ವನಿ</string>
   <string name="preference_notifications_with_sound_summary"> ಸಂಪರ್ಕ ಸ್ಥಿತಿ ಬದಲಾದಾಗ ಧ್ವನಿ ಪ್ಲೇ ಮಾಡಿ</string>
@@ -148,6 +173,11 @@
   <string name="preference_summary_system_proxy">ಸಿಸ್ಟಂ ಪ್ರಾಕ್ಸಿ</string>
   <string name="disableTimeoutsPreferenceTitle">ಟೈಮ್‌ಔಟ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
   <string name="downloadWiFiOnlyPreferenceTitle">ಕೇವಲ ವೈಫೈ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware ಎಚ್ಚರಿಕೆಗಳನ್ನು ತೋರಿಸಿ</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">ನಿಮ್ಮ ಸಾಧನದಿಂದ ಮಾಲ್‌ವೇರ್ ಟ್ರಾಫಿಕ್ ಪತ್ತೆಯಾದಾಗ Psiphon ನಿಮಗೆ ತಿಳಿಸಲು ಅಧಿಸೂಚನೆ ಪಡೆಯಿರಿ.</string>
+  <string name="aboutMalAware">MalAware ಬಗ್ಗೆ</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">ಇತರ ಸಾಧನಗಳೊಂದಿಗೆ Psiphon ಸಂಪರ್ಕ ಡೇಟಾವನ್ನು ಹಂಚಿಕೊಳ್ಳಲು NFC ಬಳಸಿ.</string>
 </resources>

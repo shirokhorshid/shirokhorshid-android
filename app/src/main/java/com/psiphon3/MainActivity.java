@@ -67,6 +67,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.psiphon3.VpnRulesHelper;
 import com.psiphon3.log.LogsMaintenanceWorker;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
@@ -208,6 +209,12 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         helpConnectFab = findViewById(R.id.help_connect_fab);
 
         EmbeddedValues.initialize(getApplicationContext());
+
+        // Load VPN exclusion rules from storage for main app process
+        VpnRulesHelper.configureRuntimeVpnRules(
+                VpnRulesHelper.readVpnRulesFromFile(getApplicationContext())
+        );
+
         multiProcessPreferences = new AppPreferences(this);
 
         viewModel = new ViewModelProvider(this,
@@ -369,7 +376,17 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         // Observe link clicks in the embedded web view to open in the external browser
         compositeDisposable.add(viewModel.externalBrowserUrlFlowable()
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext(url -> displayBrowser(this, url))
+                .doOnNext(url -> {
+                    // Get current tunnel state to create the VPN checker
+                    compositeDisposable.add(getTunnelServiceInteractor().tunnelStateFlowable()
+                            .take(1)
+                            .subscribe(tunnelState -> {
+                                VpnAppsUtils.AppTunneledChecker isAppTunneled =
+                                        VpnAppsUtils.createAppTunneledCheckerFromTunnelState(
+                                        tunnelState);
+                                displayBrowser(this, url, isAppTunneled);
+                            }));
+                })
                 .subscribe());
 
         // Check if user data collection disclosure needs to be shown followed by the unsafe traffic
@@ -556,7 +573,12 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 } else {
                     url = null;
                 }
-                openBrowserButton.setOnClickListener(view -> displayBrowser(this, url));
+                openBrowserButton.setOnClickListener(view -> {
+                    VpnAppsUtils.AppTunneledChecker isAppTunneled =
+                            VpnAppsUtils.createAppTunneledCheckerFromTunnelState(
+                            tunnelState);
+                    displayBrowser(this, url, isAppTunneled);
+                });
             } else {
                 openBrowserButton.setEnabled(false);
                 boolean waitingForNetwork =
@@ -638,7 +660,7 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         updatePsiphonBumpHelpMenuItem(psiphonBumpHelpState);
     }
 
-    private void displayBrowser(Context context, String urlString) {
+    private void displayBrowser(Context context, String urlString, VpnAppsUtils.AppTunneledChecker isAppTunneled) {
         // TODO: support multiple home pages in whole device mode. This is
         // disabled due to the case where users haven't set a default browser
         // and will get the prompt once per home page.
@@ -674,9 +696,8 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         // If we have a candidate then set the app package ID for the browser intent and try to
         // start the app with the intent right away.
         for (String id : browserIdsSet) {
-            // Note that VpnAppsUtils.isTunneledAppId(...) will return true as long as the app is not
-            // excluded from VPN in the settings, even if the app is not installed!
-            if (VpnAppsUtils.isTunneledAppId(context, id)) {
+            // Check if this browser app is tunneled
+            if (isAppTunneled.isAppTunneled(id)) {
                 browserIntent.setPackage(id);
                 try {
                     context.startActivity(browserIntent);
@@ -745,7 +766,14 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                     // in an external browser. The home tab fragment will make a decision to open
                     // the URL in an embedded web view independently, if needed.
                     if (!shouldLoadInEmbeddedWebView(url)) {
-                        displayBrowser(this, url);
+                        // Extract VPN data from bundle
+                        VpnAppsUtils.VpnAppsExclusionSetting vpnMode = (VpnAppsUtils.VpnAppsExclusionSetting) data.getSerializable(TunnelManager.DATA_TUNNEL_STATE_VPN_MODE);
+                        ArrayList<String> vpnApps = data.getStringArrayList(TunnelManager.DATA_TUNNEL_STATE_VPN_APPS);
+                        if (vpnMode == null) {
+                            vpnMode = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
+                        }
+                        VpnAppsUtils.AppTunneledChecker isAppTunneled = VpnAppsUtils.createAppTunneledChecker(vpnMode, vpnApps);
+                        displayBrowser(this, url, isAppTunneled);
                     } else {
                         selectTabByTag("home");
                     }

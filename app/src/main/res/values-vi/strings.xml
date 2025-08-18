@@ -83,6 +83,7 @@
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
   <string name="vpn_data_collection_disclosure_top">%s dùng dịch vụ Android VPN để giúp bạn truy cập vào mạng không bị kiểm duyệt. Chúng tôi thu thập, tổng hợp, và lưu trữ các thông tin sau đây:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Thành phố, quốc gia, ISP của bạn, và tùy chọn, vị trí xấp xỉ. Thành phố, quốc gia và ISP được lấy từ địa chỉ IP mà bạn kết nối với máy chủ của chúng tôi, và chính địa chỉ IP không bao giờ được ghi lại. Dữ liệu này được thu thập cho mục đích thống kê sử dụng và hiệu suất và sức khỏe dịch vụ.</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp2">Email của bạn, khi bạn gửi chúng tôi dữ liệu chẩn đoán hoặc phản hồi sự cố hỏng. Cho biết email hay không trong phản hồi là tùy ý bạn.</string>
   <!--Data collection disclosure list item-->
@@ -155,5 +156,13 @@
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">Mở thiết đặt</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Vị trí gần đúng</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Xin hãy cho phép %s truy cập vị trí xấp xỉ của thiết bị của bạn. Dữ liệu ước tính vị trí của bạn được sử dụng để tối ưu hóa mạng Psiphon, và chính xác trong phạm vi khoảng 3 km vuông.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Bản cập nhật ứng dụng đã sẵn sàng</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Cài đặt</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Cập nhật thất bại</string>
 </resources>

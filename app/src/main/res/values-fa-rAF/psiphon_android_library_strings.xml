@@ -9,16 +9,19 @@
   <string name="socks_port_in_use">پورت پراکسی SOCKS محلی %d درخواست شده توسط برنامه دیگر در حال استفاده است.  نمیتوان ادامه داد.</string>
   <string name="waiting_for_network_connectivity">در حال انتظار برای اتصال به شبکه...</string>
   <string name="psiphon_service_notification_message_connecting">درحال اتصال...</string>
-  <string name="psiphon_service_notification_id">اعلان سرویس سایفون</string>
-  <string name="psiphon_upgrade_notification_channel_name">ارتقاع سایفون</string>
+  <string name="psiphon_service_notification_id">اعلان سرویس Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">تغییرات وضعیت Psiphon</string>
+  <string name="psiphon_upgrade_notification_channel_name">ارتقاع Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">هشدارهای سرور Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">کرش‌های Psiphon</string>
   <string name="vpn_service_running">سرویس VPN در حال اجرا است</string>
   <string name="vpn_service_revoked">سرویس VPN لغو شد</string>
   <string name="current_network_type">شبکه فعلی: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptTitle">ارتقاع سایفون</string>
+  <string name="UpgradeManager.UpgradePromptTitle">ارتقاع Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="UpgradeManager.UpgradePromptMessage">ارتقاع سایفون آماده نصب است.</string>
+  <string name="UpgradeManager.UpgradePromptMessage">ارتقاع Psiphon آماده نصب است.</string>
   <string name="connected_elapsed_time">متصل شد: %s</string>
   <string name="disconnected">اتصال قطع شد</string>
   <string name="label_sent">ارسال شد</string>
@@ -57,30 +60,89 @@
   <string name="region_name_no">ناروی</string>
   <string name="region_name_ro">رومانیا</string>
   <string name="region_name_se">سویدن</string>
-  <string name="about">درباره سایفون</string>
+  <string name="region_name_pl">لهستان</string>
+  <string name="region_name_sk">اسلواکیا</string>
+  <string name="region_name_rs">صربستان</string>
+  <string name="region_name_au">استرالیا</string>
+  <string name="region_name_ae">امارات متحده عربی</string>
+  <string name="region_name_ar">آرژانتین</string>
+  <string name="region_name_br">برزیل</string>
+  <string name="region_name_cl">شیلی</string>
+  <string name="region_name_ee">استونیا</string>
+  <string name="region_name_fi">فنلاند</string>
+  <string name="region_name_is">آیسلند</string>
+  <string name="region_name_ie">ایرلند</string>
+  <string name="region_name_ke">کنیا</string>
+  <string name="region_name_kr">کوریا</string>
+  <string name="region_name_lt">لیتوانیا</string>
+  <string name="region_name_lv">لتونیا</string>
+  <string name="region_name_mx">مکزیک</string>
+  <string name="region_name_tw">تایوان</string>
+  <string name="region_name_za">آفریقای جنوبی</string>
+  <string name="region_name_id">اندونزیا</string>
+  <string name="region_name_nz">نیوزیلند</string>
+  <string name="region_name_gr">یونان</string>
+  <string name="region_name_ua">اوکراین</string>
+  <string name="region_name_pt">پرتگال</string>
+  <string name="region_name_hr">کرواسی</string>
+  <string name="region_name_co">کلمبیا</string>
+  <string name="region_name_my">مالزیا</string>
+  <string name="about">درباره Psiphon</string>
   <string name="feedback">ملاحظات</string>
   <string name="disableTimeoutsPreferenceSummary">غیرفعال‌سازی مهلت زمانی برای شبکه‌های کم‌سرعت</string>
+  <string name="region_selector">انتخاب منطقه سرور</string>
   <string name="network_proxy_connect_invalid_values">تنظیمات پراکسی HTTP نامعتبر است</string>
+  <string name="tunnel_whole_device_exception">دستگاه شما از گزینه تونل کل دستگاه حمایت نمی‌کند به دلیل عدم وجود VpnService API.</string>
   <string name="preference_notifications_title">اعلانات</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">تونل برای تمام برنامه‌ها</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">شامل کردن برنامه‌ها</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">فقط برنامه‌های انتخابی را تونل کن</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">مستثنی کردن برنامه‌ها</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">برنامه‌های انتخابی را تونل نکن</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">تونل برنامه: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">برنامه از تونل مستثنی شد: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">هیچ برنامه‌ای از تونل مستثنی نشد</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">انتخاب برنامه‌ها</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d برنامه از طریق VPN تونل می‌شود</item>
+    <item quantity="other">%d برنامه از طریق VPN تونل می‌شوند</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d برنامه از VPN مستثنی می‌شود</item>
+    <item quantity="other">%d برنامه از VPN مستثنی می‌شوند</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">تونل تمام برنامه‌ها</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">تونل %d برنامه</item>
+    <item quantity="other">تونل %d برنامه</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d برنامه از تونل مستثنی شد</item>
+    <item quantity="other">%d برنامه از تونل مستثنی شدند</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">برخی برنامه‌های Psiphon به طور خودکار از مسیریابی VPN مستثنی می‌شوند تا عملکرد مناسب تضمین شود. این مستثنی‌ها قابل تغییر نیستند.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">تمام برنامه‌ها از طریق VPN تونل می‌شوند</string>
   <string name="preference_notifications_with_sound_title">صدا</string>
   <string name="preference_notifications_with_sound_summary">هنگامکه وضعیت اتصال تغییر میکند، لرزش صورت میگیرد</string>
   <string name="preference_notifications_with_vibrate_title">لرزش</string>
   <string name="preference_notifications_with_vibrate_summary">لرزش در هنگام تغییر وضعیت اتصال</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">دانلود ارتقاء روی Wi-Fi فقط</string>
   <string name="moreOptions">گذینه‌های بیشتر</string>
   <string name="proxySettingsCategoryTitle">تنظیمات پراکسی</string>
   <string name="custom_proxy_host_summary">نام میزبان یا IP سرور پراکسی</string>
@@ -100,9 +162,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">خطای پراکسی در قسمت فوقانی: %s</string>
   <string name="start_tunnel_failed">شروع تونل ناموفق بود: %s</string>
+  <string name="vpn_exclusions_conflict">در مستثنی‌های VPN فعلی شما یک یا چند برنامه متضاد وجود دارد. لطفاً به تنظیمات VPN بروید و به حالت \'تونل تمام برنامه‌ها\' تغییر دهید تا متصل شوید.</string>
   <string name="tunnel_connecting">تونل در حال اتصال...</string>
   <string name="tunnel_connected">تونل متصل شد</string>
   <string name="waiting">در حال انتظار…</string>
+  <string name="label_vpn_settings">تنظیمات VPN</string>
+  <string name="label_proxy_settings">تنظیمات پراکسی</string>
+  <string name="preference_summary_no_proxy">بدون پراکسی</string>
+  <string name="preference_summary_custom_proxy">پراکسی سفارشی</string>
+  <string name="preference_summary_system_proxy">پراکسی سیستم</string>
+  <string name="disableTimeoutsPreferenceTitle">غیرفعال کردن مهلت زمانی</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi فقط</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">نمایش هشدارهای MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">زمانی که Psiphon ترافیک بدافزار را که از دستگاه شما سرچشمه می‌گیرد شناسایی کرد مطلع شوید.</string>
+  <string name="aboutMalAware">درباره MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">فعال کردن Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">از NFC برای اشتراک‌گذاری داده‌های اتصال Psiphon با دستگاه‌های دیگر استفاده کنید.</string>
 </resources>

@@ -5,39 +5,84 @@
   <string name="FeedbackActivity.DefaultText">Εάν έχετε συγκεκριμένες παρατηρήσεις, περισσότερες πληροφορίες σχετικά με ιστότοπους που δεν λειτουργούν ή εάν αυτή η φόρμα δεν λειτουργεί για εσάς, παρακαλούμε στείλτε email στο &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Σας ευχαριστούμε για την καταχώρηση του σχολίου σας</string>
   <string name="FeedbackActivity.Failure">Η καταχώρηση απέτυχε. Δοκιμάστε ξανά.</string>
+  <string name="StatusActivity.VpnRevokedTitle">Το Psiphon VPN έχει σταματήσει</string>
+  <string name="StatusActivity.VpnRevokedMessage">Το VPN του Psiphon έχει αποσυνδεθεί από εσάς ή από κάποια άλλη εφαρμογή. Δεν είναι δυνατή η ταυτόχρονη εκτέλεση πολλαπλών εφαρμογών VPN. Ελέγξτε εάν κάποια άλλη εφαρμογή VPN είναι εγκατεστημένη και εκτελείται.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Δεν είναι δυνατή η εκκίνηση του Psiphon VPN</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Το Psiphon δεν μπορεί να εκκινήσει το VPN. Δεν είναι δυνατή η ταυτόχρονη εκτέλεση πολλαπλών εφαρμογών VPN. Ελέγξτε αν κάποια άλλη εφαρμογή VPN είναι εγκατεστημένη και αν έχει οριστεί σε Πάντα ενεργή.</string>
+  <string name="selected_region_currently_not_available">Η επιλεγμένη περιοχή δεν είναι διαθέσιμη αυτήν τη στιγμή, παρακαλούμε επιλέξτε άλλη περιοχή</string>
+  <string name="ads_consent_preference_category_title">Εξατομίκευση διαφημίσεων</string>
+  <string name="ads_consent_preference_dialog_preference_message">Θέλετε πραγματικά να επαναφέρετε την προτίμηση εξατομίκευσης διαφημίσεων;</string>
+  <string name="ads_consent_preference_title">Επαναφορά προτίμησης εξατομίκευσης διαφημίσεων</string>
+  <string name="ads_consent_preference_dialog_title">Επαναφορά</string>
+  <string name="ads_consent_preference_summary">Επαναφέρετε την προτίμησή σας για να επιτρέψετε στα διαφημιστικά δίκτυα να χρησιμοποιούν cookies και τα προσωπικά σας δεδομένα</string>
+  <string name="preference_language_selection_summary">Επιλέξτε τη γλώσσα </string>
   <string name="preference_language_selection_title">Γλώσσα</string>
+  <string name="preference_language_title">Επιλογή Γλώσσας</string>
   <string name="preference_language_default_language">Γλώσσα Προεπιλογής</string>
   <string name="preference_category_advanced_title">Προχωρημένες</string>
+  <string name="preference_category_info_title">Πληροφορίες</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
+  <string name="preference_navigate_to_vpn_setting_title">Πάντα ενεργό VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Μεταβείτε στις ρυθμίσεις συστήματος για να ενεργοποιήσετε το Πάντα ενεργό VPN</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Όχι</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">Ναι </string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Απαιτείται ενέργεια!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Παρακαλούμε ανοίξτε το Psiphon για να ολοκληρώσετε τη σύνδεση.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Η επιλεγμένη περιοχή δεν είναι διαθέσιμη </string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Παρακαλούμε ανοίξτε το Psiphon και επιλέξτε μια άλλη περιοχή.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Το Psiphon VPN έχει σταματήσει</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Το Psiphon VPN έχει αποσυνδεθεί από εσάς ή από κάποιο άλλη εφαρμογή.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Εικονίδιο Εφαρμογής</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Μη έγκυρη ρύθμιση VPN</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Πρέπει να έχετε τουλάχιστον μία εφαρμογή επιλεγμένη σε αυτήν τη λειτουργία!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Πρέπει να έχετε τουλάχιστον μία εφαρμογή αποεπιλεγμένη σε αυτήν τη λειτουργία!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Απαιτείται Android 5.0 ή νεότερη έκδοση</string>
+  <string name="vpn_always_on_preference_not_available_summary">Απαιτείται Android 7.0 ή νεότερη έκδοση</string>
+  <string name="vpn_exclusions_tip_summary">Επιλέξτε μόνο ένα πρόγραμμα περιήγησης για την κλασική λειτουργία μόνο πρόγραμμα περιήγησης</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Εντοπίστηκε κακόβουλη κίνηση! Κάντε κλικ για να μάθετε περισσότερα.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Το Psiphon εντόπισε και απέκλεισε την πρόσβαση σε πιθανώς κακόβουλους ιστότοπους στο Διαδίκτυο. Παρακαλούμε ακολουθήστε τους παρακάτω συνδέσμους για να μάθετε περισσότερα.\n\nΕντοπίστηκε κακόβουλο λογισμικό:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Το Psiphon αποκλείει αυτόματα την πρόσβαση σε πιθανώς κακόβουλους ιστότοπους στο Διαδίκτυο. Θα θέλατε να ειδοποιείστε όταν συμβεί αυτό;\n\nΑυτή η ρύθμιση μπορεί να αλλάξει αργότερα στις Περισσότερες Επιλογές.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Μάθετε περισσότερα για το MalAware εδώ:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Σφάλμα διακομιστή μεσολάβησης upstream</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Παρακαλούμε ανοίξτε το Psiphon και ελέγξτε τις ρυθμίσεις του διακομιστή μεσολάβησης.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Σφάλμα διακομιστή μεσολάβησης</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Έχετε ρυθμίσει το Psiphon να χρησιμοποιεί έναν διακομιστή μεσολάβησης upstream. Ωστόσο, φαίνεται ότι δεν μπορούμε να συνδεθούμε σε έναν διακομιστή Psiphon μέσω αυτού του διακομιστή μεσολάβησης.\n\nΠαρακαλούμε διορθώστε τις ρυθμίσεις και δοκιμάστε ξανά.\n\nΔείτε τα αρχεία καταγραφής για τεχνικές πληροφορίες.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Το Psiphon κατέρρευσε</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Παρακαλούμε στείλτε μας τα σχόλιά σας</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Παρακαλούμε κάντε κλικ σε αυτήν την ειδοποίηση για να μας στείλετε σχόλια. Αυτό θα μας βοηθήσει να κατανοήσουμε το πρόβλημα, ώστε να μπορέσουμε να το διορθώσουμε πιο γρήγορα.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Αποδέχομαι</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Γνωστοποίηση συλλογής δεδομένων</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">Το %s χρησιμοποιεί την υπηρεσία VPN Android για να σας παρέχει πρόσβαση χωρίς λογοκρισία σε περιεχόμενο Διαδικτύου. Συλλέγουμε, συγκεντρώνουμε και αποθηκεύουμε τις ακόλουθες πληροφορίες:</string>
   <!--Data collection disclosure list item-->
   <string name="vpn_data_collection_disclosure_bp1">Η πόλη σας, η χώρα σας, ο ISP σας και προαιρετικά, η κατά προσέγγιση τοποθεσία σας. Η πόλη, η χώρα και ο ISP προέρχονται από τη διεύθυνση IP από την οποία συνδέεστε στους διακομιστές μας, και η ίδια η διεύθυνση IP δεν καταγράφεται ποτέ. Αυτά τα δεδομένα συλλέγονται για στατιστικά χρήσης και απόδοσης και σκοπούς υγείας υπηρεσίας.</string>
   <!--Data collection disclosure list item-->
@@ -62,36 +107,63 @@
   <string name="notifications_permission_rationale_disable_any_time">Μπορείτε να απενεργοποιήσετε τις ειδοποιήσεις στις ρυθμίσεις της εφαρμογής οποιαδήποτε στιγμή.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Παρακαλούμε περιμένετε όσο συνδέεται το Psiphon</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">Κλείσιμο</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">Κλείσιμο</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">Θα θέλατε να κλείσετε αυτό το παράθυρο τώρα;</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">Σας ευχαριστούμε για τη συμμετοχή σας!</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Παρακαλούμε ενεργοποιήστε το NFC στις ρυθμίσεις</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Σφάλμα επικοινωνίας με την άλλη συσκευή. Παρακαλούμε ελέγξτε ότι το Psiphon είναι ανοιχτό και συνδεδεμένο στην άλλη συσκευή και προσπαθήστε ξανά.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Αναμονή για αλληλεπίδραση NFC με την άλλη συσκευή…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Οι πληροφορίες σύνδεσης ανταλλάχθηκαν με επιτυχία!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Σφάλμα επικοινωνίας με την άλλη συσκευή. Παρακαλούμε δοκιμάστε ξανά.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Η συσκευή κινήθηκε πολύ γρήγορα, η σύνδεση χάθηκε. Παρακαλούμε δοκιμάστε ξανά.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Εντοπίστηκε μη υποστηριζόμενη ετικέτα NFC. Είναι το Psiphon ανοιχτό και συνδεδεμένο στην άλλη συσκευή;</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Ανάγνωση δεδομένων…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Λάβετε βοήθεια για τη σύνδεση</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Βοήθεια</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Παράλειψη</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">Επόμενο</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Έγινε</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Αν αντιμετωπίζετε προβλήματα με τη σύνδεση σε έναν διακομιστή Psiphon, βρείτε έναν φίλο που έχει συνδεθεί με επιτυχία και μοιραστείτε τις πληροφορίες σύνδεσής του χρησιμοποιώντας NFC.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Βεβαιωθείτε ότι το Psiphon είναι ανοιχτό και συνδεδεμένο και ότι το εικονίδιο Psiphon Bump εμφανίζεται στη γραμμή εφαρμογής στην άλλη συσκευή.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Με το παράθυρο διαλόγου Psiphon Bump ανοιχτό στη συσκευή σας και την εφαρμογή Psiphon ανοιχτή και συνδεδεμένη στην άλλη συσκευή, τοποθετήστε τις συσκευές σας πλάτη με πλάτη για να ξεκινήσετε τη μεταφορά δεδομένων πληροφοριών σύνδεσης.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Μόλις ολοκληρωθεί η μεταφορά δεδομένων πληροφοριών σύνδεσης και η εφαρμογή Psiphon σας μπορεί να συνδεθεί, το παράθυρο διαλόγου Psiphon Bump θα κλείσει αυτόματα. Εάν εξακολουθείτε να μην μπορείτε να συνδεθείτε, μπορείτε να προσπαθήσετε ξανά μέχρι να συνδεθεί το Psiphon με επιτυχία.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Παρακαλούμε ενεργοποιήστε το NFC στις ρυθμίσεις συστήματος για να ενεργοποιήσετε τη λειτουργία βοηθού του Psiphon Bump.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Άνοιγμα ρυθμίσεων</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Τοποθεσία κατά προσέγγιση</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Παρακαλούμε επιτρέψτε στο %s να έχει πρόσβαση στην κατά προσέγγιση τοποθεσία της συσκευής σας. Η εκτίμηση των δεδομένων τοποθεσίας σας χρησιμοποιείται για τη βελτιστοποίηση του δικτύου Psiphon και έχει ακρίβεια περίπου 3 τετραγωνικών χιλιομέτρων.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Ενημέρωση εφαρμογής έτοιμη</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Εγκατάσταση</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Η ενημέρωση απέτυχε</string>
 </resources>

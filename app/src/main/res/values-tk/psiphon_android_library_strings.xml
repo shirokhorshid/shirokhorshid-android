@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Network birikdirilmesine garaşylýar…</string>
   <string name="psiphon_service_notification_message_connecting">Birikdirilýär...</string>
   <string name="psiphon_service_notification_id">Psiphon Hyzmat Habarnamasy</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon status üýtgeşmeleri</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon beýgeldiş</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon server duýduryşlary</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon çökgünleri</string>
   <string name="vpn_service_running">VPN hyzmaty işleýär</string>
   <string name="vpn_service_revoked">VPN hyzmaty goýbolsun edildi</string>
   <string name="current_network_type">Häzirki network: %s</string>
@@ -70,6 +73,7 @@
   <string name="region_name_is">Islandiýa</string>
   <string name="region_name_ie">Irlandiýa</string>
   <string name="region_name_ke">Keniýa</string>
+  <string name="region_name_kr">Koreýa</string>
   <string name="region_name_lt">Litwa</string>
   <string name="region_name_lv">Latwiýa</string>
   <string name="region_name_mx">Meksika</string>
@@ -86,27 +90,59 @@
   <string name="about">Psiphon hakynda</string>
   <string name="feedback">Seslenme</string>
   <string name="disableTimeoutsPreferenceSummary">Yuwaş network üçin goşmaça wagtalmalary öçür </string>
+  <string name="region_selector">Server sebitini saýla</string>
   <string name="network_proxy_connect_invalid_values">HTTP Proksi sazlamary nädogry</string>
+  <string name="tunnel_whole_device_exception">Siziň enjamyňyz ýitip giden VpnService API sebäpli ähli enjamy tunel etmek opsiýasyny goldamaýar.</string>
   <string name="preference_notifications_title">Duýduryş</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Ähli programmalary tunel et</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Programmalary goş</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Diñe saýlanan programmalary tunel et</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Programmalary aýyr</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Saýlanan programmalary tunel etme</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Tunnelledýän programma: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Tunnelden aýrylan programma: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Tunelden aýrylan programma ýok</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Programmalary saýla</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d programma VPN arkaly tunnellener</item>
+    <item quantity="other">%d programma VPN arkaly tunnellener</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d programma VPN-dan aýrylar</item>
+    <item quantity="other">%d programma VPN-dan aýrylar</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Ähli programmalary tunnelleýär</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d programma tunnelleýär</item>
+    <item quantity="other">%d programma tunnelleýär</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d programma tunnelden aýrylan</item>
+    <item quantity="other">%d programma tunnelden aýrylan</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Käbir Psiphon programmalary dogry işlemegi üçin VPN marşrutdan awtomatiki aýrylýar. Bu aýrylmalar üýtgedilip bilinmeýär.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Ähli programmalar VPN arkaly tunnellener</string>
   <string name="preference_notifications_with_sound_title">Ses</string>
   <string name="preference_notifications_with_sound_summary">Birikme statusy üýtgän halatynda ses çykar</string>
   <string name="preference_notifications_with_vibrate_title">Titremek</string>
   <string name="preference_notifications_with_vibrate_summary">Birikmäniň  statusy üýtgände titre</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Beýgeldişleri diñe Wi-Fi arkaly ýükle</string>
   <string name="moreOptions">Goşmaça Opsiýalar</string>
   <string name="proxySettingsCategoryTitle">Proksi Sazlamalary</string>
   <string name="custom_proxy_host_summary">Proksi serwer eýe-ady ýada IP</string>
@@ -126,9 +162,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Upstream prokside säwlik: %s</string>
   <string name="start_tunnel_failed">Tunel başlangyjy şowsuz: %s</string>
+  <string name="vpn_exclusions_conflict">Häzirki VPN çykarylanlaryňyzda bir ýa-da birnäçe gapma-garşy programma bar. VPN sazlamalaryna gidiň we birikme üçin \'Ähli programmalary tunel et\' rejimine geçiň.</string>
   <string name="tunnel_connecting">Tunel birikdirilýär...</string>
   <string name="tunnel_connected">Tunel birikdi</string>
   <string name="waiting">Garaşylýar...</string>
+  <string name="label_vpn_settings">VPN sazlamalary</string>
+  <string name="label_proxy_settings">Proksi sazlamalary</string>
+  <string name="preference_summary_no_proxy">Proksi ýok</string>
+  <string name="preference_summary_custom_proxy">Öz proksim</string>
+  <string name="preference_summary_system_proxy">Ulgam proksisi</string>
+  <string name="disableTimeoutsPreferenceTitle">Wagt dolmagy öçür</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Diñe Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware duýduryşlaryny görkez</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon siziň enjamyňyzdan zyýanly trafigi tapanynda habar berýär.</string>
+  <string name="aboutMalAware">MalAware hakynda</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump işjeňleşdir</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Beýleki enjamlar bilen Psiphon birikme maglumatlary paýlaşmak üçin NFC ulan.</string>
 </resources>

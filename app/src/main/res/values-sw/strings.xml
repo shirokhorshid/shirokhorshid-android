@@ -2,7 +2,7 @@
 <resources>
   <string name="banner_desc">Bango la mdhamini; bonyeza kutembelea ukurasa wa nyumbani wa wafadhili </string>
   <string name="open_browser">Fungua Kivinjari</string>
-  <string name="FeedbackActivity.DefaultText">Ikiwa una maoni yoyote maalum, maelezo zaidi kuhusu tovuti ambazo hazifanyi kazi, au ikiwa fomu hii haifanyi kazi kwako, tafadhali tuma barua pepe kwa &amp;lt;a href="mailto:feedback@psiphon.ca"&amp;gt;feedback@psiphon.ca&amp;lt ;/a&amp;gt;.</string>
+  <string name="FeedbackActivity.DefaultText">Ikiwa una maoni yoyote maalum, maelezo zaidi kuhusu tovuti ambazo hazifanyi kazi, au ikiwa fomu hii haifanyi kazi kwako, tafadhali tuma barua pepe kwa &amp;lt;a href=\"mailto:feedback@psiphon.ca\"&amp;gt;feedback@psiphon.ca&amp;lt ;/a&amp;gt;.</string>
   <string name="FeedbackActivity.Success">Asante kwa kuwasilisha maoni yako</string>
   <string name="FeedbackActivity.Failure">Uwasilishaji umeshindwa. Tafadhali jaribu tena.</string>
   <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN imekoma</string>
@@ -160,4 +160,10 @@
   <string name="location_permission_rationale_title">Mahali palipokadiriwa</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">Tafadhali ruhusu programu %s kupata mahali panapokadiriwa kwenye kifaa chako. Taarifa hizi za mahali hutumika kuboresha mtandao wa Psiphon, na ni sahihi hadi kwenye eneo la takriban kilomita mraba 3.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Sasisho la programu limejiandaa</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Sakinisha</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Sasisho limeshindwa</string>
 </resources>

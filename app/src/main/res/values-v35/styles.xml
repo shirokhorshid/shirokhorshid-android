@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Psiphon" parent="Theme.AppCompat">
+        <!-- workaround for opting out of edge-to-edge enforcement, v35+ specific -->
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
+</resources>

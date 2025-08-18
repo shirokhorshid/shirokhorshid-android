@@ -50,48 +50,86 @@
   <string name="vpn_always_on_preference_not_available_summary">ಆಂಡ್ರಾಯ್ಡ್ 7.0 ಅಥವಾ ಹೆಚ್ಚಿನ ಅಗತ್ಯವಿದೆ</string>
   <string name="vpn_exclusions_tip_summary">ಕ್ಲಾಸಿಕ್ ಬ್ರೌಸರ್-ಮಾತ್ರ ಮೋಡ್‌ಗಾಗಿ ಕೇವಲ ಒಂದೇ ಬ್ರೌಸರ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">ಮಾಲ್‌ವೇರ್ ಟ್ರಾಫಿಕ್ ಪತ್ತೆಯಾಗಿದೆ! ಹೆಚ್ಚು ತಿಳಿಯಲು ಕ್ಲಿಕ್ ಮಾಡಿ.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon ಇಂಟರ್ನೆಟ್‌ನಲ್ಲಿ ಸಂಭಾವ್ಯ ಹಾನಿಕಾರಕ ಸೈಟ್‌ಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಪತ್ತೆ ಮಾಡಿದೆ ಮತ್ತು ನಿರ್ಬಂಧಿಸಿದೆ. ಹೆಚ್ಚು ತಿಳಿಯಲು ದಯವಿಟ್ಟು ಕೆಳಗಿನ ಲಿಂಕ್‌ಗಳನ್ನು ಅನುಸರಿಸಿ.\n\nಪತ್ತೆಯಾದ ಮಾಲ್‌ವೇರ್:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon ಇಂಟರ್ನೆಟ್‌ನಲ್ಲಿ ಸಂಭಾವ್ಯ ಹಾನಿಕಾರಕ ಸೈಟ್‌ಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನಿರ್ಬಂಧಿಸುತ್ತದೆ. ಇದು ಸಂಭವಿಸಿದಾಗ ನಿಮಗೆ ತಿಳಿಸಲು ನೀವು ಬಯಸುತ್ತೀರಾ?\n\nಈ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ನಂತರ ಹೆಚ್ಚಿನ ಆಯ್ಕೆಗಳಲ್ಲಿ ಬದಲಾಯಿಸಬಹುದು.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware ಬಗ್ಗೆ ಇಲ್ಲಿ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">ಅಪ್‌ಸ್ಟ್ರೀಮ್ ಪ್ರಾಕ್ಸಿ ದೋಷ</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">ದಯವಿಟ್ಟು Psiphon ತೆರೆಯಿರಿ ಮತ್ತು ಪ್ರಾಕ್ಸಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">ಪ್ರಾಕ್ಸಿ ದೋಷ</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">ನೀವು ಅಪ್‌ಸ್ಟ್ರೀಮ್ ಪ್ರಾಕ್ಸಿ ಬಳಸಲು Psiphon ಅನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿದ್ದೀರಿ. ಆದರೆ, ಆ ಪ್ರಾಕ್ಸಿ ಮೂಲಕ Psiphon ಸರ್ವರ್‌ಗೆ ಸಂಪರ್ಕಿಸಲು ನಮಗೆ ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ.\n\nದಯವಿಟ್ಟು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಸರಿಪಡಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.\n\nತಾಂತ್ರಿಕ ಮಾಹಿತಿಗಾಗಿ ಲಾಗ್‌ಗಳನ್ನು ನೋಡಿ.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon ಕ್ರ್ಯಾಶ್ ಆಗಿದೆ</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">ದಯವಿಟ್ಟು ನಮಗೆ ಪ್ರತಿಕ್ರಿಯೆ ಕಳುಹಿಸಿ.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">ದಯವಿಟ್ಟು ನಮಗೆ ಪ್ರತಿಕ್ರಿಯೆ ಕಳುಹಿಸಲು ಈ ಅಧಿಸೂಚನೆಯನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ. ಇದು ನಮಗೆ ಸಮಸ್ಯೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ ಇದರಿಂದ ನಾವು ಅದನ್ನು ವೇಗವಾಗಿ ಸರಿಪಡಿಸಬಹುದು.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">ನಾನು ಒಪ್ಪುತ್ತೇನೆ</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">ಡೇಟಾ ಸಂಗ್ರಹಣೆ ಬಹಿರಂಗಪಡಿಸುವಿಕೆ</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s ಇಂಟರ್ನೆಟ್ ವಿಷಯಕ್ಕೆ ಸೆನ್ಸರ್ ಮಾಡದ ಪ್ರವೇಶವನ್ನು ಒದಗಿಸಲು Android VPN ಸೇವೆಯನ್ನು ಬಳಸುತ್ತದೆ. ನಾವು ಕೆಳಗಿನ ಮಾಹಿತಿಯನ್ನು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ, ಸಂಯೋಜಿಸುತ್ತೇವೆ ಮತ್ತು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">ನಿಮ್ಮ ನಗರ, ದೇಶ, ISP ಮತ್ತು ಐಚ್ಛಿಕವಾಗಿ, ಅಂದಾಜು ಸ್ಥಳ. ನಗರ, ದೇಶ ಮತ್ತು ISP ಅನ್ನು ನೀವು ನಮ್ಮ ಸರ್ವರ್‌ಗಳಿಗೆ ಸಂಪರ್ಕಿಸುವ IP ವಿಳಾಸದಿಂದ ಪಡೆಯಲಾಗುತ್ತದೆ ಮತ್ತು IP ವಿಳಾಸವನ್ನು ಯಾವಾಗಲೂ ಲಾಗ್ ಮಾಡಲಾಗುವುದಿಲ್ಲ. ಈ ಡೇಟಾವನ್ನು ಬಳಕೆ ಮತ್ತು ಕಾರ್ಯಕ್ಷಮತೆಯ ಅಂಕಿಅಂಶಗಳು ಮತ್ತು ಸೇವಾ ಆರೋಗ್ಯ ಉದ್ದೇಶಗಳಿಗಾಗಿ ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">ನೀವು ನಮಗೆ ರೋಗನಿರ್ಣಯ ಅಥವಾ ಕ್ರ್ಯಾಶ್ ಲಾಗ್ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಕಳುಹಿಸಿದಾಗ ನಿಮ್ಮ ಇಮೇಲ್. ಪ್ರತಿಕ್ರಿಯೆಯಲ್ಲಿ ಇಮೇಲ್ ಒದಗಿಸುವುದು ಐಚ್ಛಿಕವಾಗಿದೆ.</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s ಅಧಿಸೂಚನೆಗಳು</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s ಅಪ್ಲಿಕೇಶನ್ ಹಿನ್ನೆಲೆಯಲ್ಲಿದ್ದಾಗ ಪ್ರಮುಖ ಮಾಹಿತಿಯನ್ನು ನಿಮಗೆ ಒದಗಿಸಲು ಅಧಿಸೂಚನೆಗಳನ್ನು ಬಳಸುತ್ತದೆ. ಇದು ಇವುಗಳನ್ನು ಒಳಗೊಂಡಿದೆ:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">ನಿಮ್ಮ VPN ಸಂಪರ್ಕ ಸ್ಥಿತಿಯಲ್ಲಿನ ಬದಲಾವಣೆಗಳು.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">ನಿಮ್ಮ ಸಂಪರ್ಕದ ಸಮಸ್ಯೆಗಳು.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">ಕ್ರ್ಯಾಶ್ ವರದಿಗಳು.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware ಎಚ್ಚರಿಕೆಗಳು.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">ಲಭ್ಯವಿರುವ ಹೊಸ ಅಪ್ಲಿಕೇಶನ್ ಆವೃತ್ತಿಗಳು.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">ನೀವು ಯಾವಾಗ ಬೇಕಾದರೂ ಅಪ್ಲಿಕೇಶನ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಅಧಿಸೂಚನೆಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬಹುದು.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
+  <string name="close_btn_label">ಮುಚ್ಚಿ</string>
   <!--Generic 'close' alert title-->
+  <string name="close_alert_title">ಮುಚ್ಚಿ</string>
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">ದಯವಿಟ್ಟು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ NFC ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">ಇತರ ಸಾಧನದೊಂದಿಗೆ ಸಂವಹನದಲ್ಲಿ ದೋಷ. ದಯವಿಟ್ಟು ಇತರ ಸಾಧನದಲ್ಲಿ Psiphon ತೆರೆದು ಸಂಪರ್ಕಗೊಂಡಿದೆ ಎಂದು ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">ಇತರ ಸಾಧನದೊಂದಿಗೆ NFC ಸಂವಾದಕ್ಕಾಗಿ ಕಾಯುತ್ತಿದೆ…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಯಶಸ್ವಿಯಾಗಿ ವಿನಿಮಯ ಮಾಡಲಾಗಿದೆ!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">ಇತರ ಸಾಧನದೊಂದಿಗೆ ಸಂವಹನದಲ್ಲಿ ದೋಷ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">ಸಾಧನ ತುಂಬಾ ವೇಗವಾಗಿ ಚಲಿಸಿದೆ, ಸಂಪರ್ಕ ಕಳೆದುಹೋಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">ಬೆಂಬಲಿಸದ NFC ಟ್ಯಾಗ್ ಪತ್ತೆಯಾಗಿದೆ. ಇತರ ಸಾಧನದಲ್ಲಿ Psiphon ತೆರೆದು ಸಂಪರ್ಕಗೊಂಡಿದೆಯೇ?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">ಡೇಟಾ ಓದುತ್ತಿದೆ…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">ಸಂಪರ್ಕಿಸುವ ಸಹಾಯ ಪಡೆಯಿರಿ</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Help</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -101,13 +139,27 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">‍ಮುಗಿದಿದೆ</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">ನೀವು Psiphon ಸರ್ವರ್‌ಗೆ ಸಂಪರ್ಕಿಸುವಲ್ಲಿ ತೊಂದರೆ ಅನುಭವಿಸುತ್ತಿದ್ದರೆ, ಯಶಸ್ವಿಯಾಗಿ ಸಂಪರ್ಕಗೊಂಡಿರುವ ಸ್ನೇಹಿತರನ್ನು ಹುಡುಕಿ ಮತ್ತು NFC ಬಳಸಿ ಅವರ ಸಂಪರ್ಕ ಮಾಹಿತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Psiphon ತೆರೆದು ಸಂಪರ್ಕಗೊಂಡಿದೆ ಮತ್ತು ಇತರ ಸಾಧನದಲ್ಲಿ ಅಪ್ಲಿಕೇಶನ್ ಬಾರ್‌ನಲ್ಲಿ Psiphon Bump ಐಕಾನ್ ತೋರಿಸುತ್ತಿದೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ Psiphon Bump ಸಂವಾದ ತೆರೆದಿರುವಾಗ ಮತ್ತು ಇತರ ಸಾಧನದಲ್ಲಿ Psiphon ಅಪ್ಲಿಕೇಶನ್ ತೆರೆದು ಸಂಪರ್ಕಗೊಂಡಿರುವಾಗ, ಸಂಪರ್ಕ ಮಾಹಿತಿ ಡೇಟಾ ವರ್ಗಾವಣೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಸಾಧನಗಳನ್ನು ಬೆನ್ನಿಗೆ ಬೆನ್ನಾಗಿ ಇರಿಸಿ.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">ಸಂಪರ್ಕ ಮಾಹಿತಿ ಡೇಟಾ ವರ್ಗಾವಣೆ ಪೂರ್ಣಗೊಂಡ ನಂತರ ಮತ್ತು ನಿಮ್ಮ Psiphon ಅಪ್ಲಿಕೇಶನ್ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾದ ನಂತರ, Psiphon Bump ಸಂವಾದವು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮುಚ್ಚುತ್ತದೆ. ನೀವು ಇನ್ನೂ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, Psiphon ಯಶಸ್ವಿಯಾಗಿ ಸಂಪರ್ಕಗೊಳ್ಳುವವರೆಗೆ ನೀವು ಮರು ಪ್ರಯತ್ನಿಸಬಹುದು.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump ಸಹಾಯಕ ಮೋಡ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ದಯವಿಟ್ಟು ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ NFC ಅನ್ನು ಚಾಲು ಮಾಡಿ.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">ಅಂದಾಜು ಸ್ಥಳ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">ದಯವಿಟ್ಟು %s ಗೆ ನಿಮ್ಮ ಸಾಧನದ ಅಂದಾಜು ಸ್ಥಳವನ್ನು ಪ್ರವೇಶಿಸಲು ಅನುಮತಿ ನೀಡಿ. ನಿಮ್ಮ ಸ್ಥಾನ ಡೇಟಾ ಅಂದಾಜು Psiphon ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಅತ್ಯುತ್ತಮಗೊಳಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ ಮತ್ತು ಸುಮಾರು 3 ಚದರ ಕಿಲೋಮೀಟರ್‌ಗಳ ಮಧ್ಯೆ ನಿಖರವಾಗಿರುತ್ತದೆ.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">ಆ್ಯಪ್ ಅಪ್‌ಡೇಟ್ ಸಿದ್ಧ</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">ಸ್ಥಾಪಿಸಿ</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">ಅಪ್‌ಡೇಟ್ ವಿಫಲ</string>
 </resources>

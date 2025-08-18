@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">네트워크 연결을 기다리는 중...</string>
   <string name="psiphon_service_notification_message_connecting">연결 중…</string>
   <string name="psiphon_service_notification_id">Psiphon 서비스 알림</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon 상태 변경</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon 업그레이드</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon 서버 알림</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon 충돌</string>
   <string name="vpn_service_running">VPN 서비스 실행 중</string>
   <string name="vpn_service_revoked">VPN 서비스 취소</string>
   <string name="current_network_type">현재 네트워크: %s</string>
@@ -70,6 +73,7 @@
   <string name="region_name_is">아이스란드</string>
   <string name="region_name_ie">아일랜드</string>
   <string name="region_name_ke">케냐</string>
+  <string name="region_name_kr">한국</string>
   <string name="region_name_lt">리투아니아</string>
   <string name="region_name_lv">라트비아</string>
   <string name="region_name_mx">멕시코</string>
@@ -85,29 +89,56 @@
   <string name="region_name_my">말레이시아</string>
   <string name="about">Psiphon에 대하여</string>
   <string name="feedback">피드백</string>
+  <string name="disableTimeoutsPreferenceSummary">느린 네트워크를 위한 타임아웃 비활성화</string>
   <string name="region_selector">서버 지역 선택</string>
   <string name="network_proxy_connect_invalid_values">유효하지 않은 HTTP Proxy 설정</string>
+  <string name="tunnel_whole_device_exception">기기에서 VpnService API가 누락되어 전체 기기 터널 옵션을 지원하지 않습니다.</string>
   <string name="preference_notifications_title">알림</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">모든 앱 터널링</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">앱 포함</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">선택된 앱만 터널링</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">앱 제외</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">선택한 어플리케이션은 터널링하지 않음</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">터널링 중인 앱: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">터널에서 제외된 앱: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">터널에서 제외된 어플리케이션이 없습니다</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">앱 선택</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">%d개 앱이 VPN을 통해 터널링됩니다</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">%d개 앱이 VPN에서 제외됩니다</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">모든 앱 터널링</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">%d개 앱 터널링</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d개 앱이 터널에서 제외됨</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">특정 Psiphon 앱은 적절한 기능을 보장하기 위해 VPN 라우팅에서 자동으로 제외됩니다. 이러한 제외 사항은 수정할 수 없습니다.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">모든 앱이 VPN을 통해 터널링됩니다</string>
   <string name="preference_notifications_with_sound_title">소리</string>
   <string name="preference_notifications_with_sound_summary">연결 상태가 변경될 때 사운드 재생</string>
   <string name="preference_notifications_with_vibrate_title">진동</string>
   <string name="preference_notifications_with_vibrate_summary">연결 상태가 변경될 때 사운드 재생</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Wi-Fi에서만 업그레이드 다운로드</string>
   <string name="moreOptions">설정 더보기</string>
   <string name="proxySettingsCategoryTitle">프록시 설정</string>
   <string name="custom_proxy_host_summary">프록시 서버 호스트 이름 또는 IP</string>
@@ -127,10 +158,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">업스트림 프록시 오류: %s</string>
   <string name="start_tunnel_failed">터널링에 실패했습니다: %s</string>
+  <string name="vpn_exclusions_conflict">현재 VPN 제외 목록에 충돌하는 어플리케이션이 하나 이상 있습니다. VPN 설정으로 이동하여 \'모든 앱 터널링\' 모드로 전환하여 연결해주세요.</string>
   <string name="tunnel_connecting">터널 연결중...</string>
   <string name="tunnel_connected">터널 연결됨</string>
   <string name="waiting">기다려 주세요...</string>
+  <string name="label_vpn_settings">VPN 설정</string>
+  <string name="label_proxy_settings">프록시 설정</string>
   <string name="preference_summary_no_proxy">프록시 없음</string>
+  <string name="preference_summary_custom_proxy">사용자 정의 프록시</string>
+  <string name="preference_summary_system_proxy">시스템 프록시</string>
+  <string name="disableTimeoutsPreferenceTitle">타임아웃 비활성화</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi 전용</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware 알림 표시</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon이 기기에서 발생하는 멀웨어 트래픽을 감지할 때 알림을 받습니다.</string>
+  <string name="aboutMalAware">MalAware에 대하여</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Psiphon Bump 활성화</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">NFC를 사용하여 다른 기기와 Psiphon 연결 데이터를 공유합니다.</string>
 </resources>

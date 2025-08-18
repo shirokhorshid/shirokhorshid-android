@@ -290,6 +290,14 @@ public class TunnelServiceInteractor {
         if (homePages != null && tunnelState.isConnected()) {
             tunnelState.homePages = homePages;
         }
+        tunnelState.vpnMode = (VpnAppsUtils.VpnAppsExclusionSetting) data.getSerializable(TunnelManager.DATA_TUNNEL_STATE_VPN_MODE);
+        if (tunnelState.vpnMode == null) {
+            tunnelState.vpnMode = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
+        }
+        ArrayList<String> vpnApps = data.getStringArrayList(TunnelManager.DATA_TUNNEL_STATE_VPN_APPS);
+        if (vpnApps != null) {
+            tunnelState.vpnApps = vpnApps;
+        }
         return tunnelState;
     }
 
@@ -342,6 +350,8 @@ public class TunnelServiceInteractor {
                                 .setSponsorId(state.sponsorId)
                                 .setHttpPort(state.listeningLocalHttpProxyPort)
                                 .setHomePages(state.homePages)
+                                .setVpnMode(state.vpnMode)
+                                .setVpnApps(state.vpnApps)
                                 .build();
                         tunnelState = TunnelState.running(connectionData);
                     } else {

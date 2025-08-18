@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Şəbəkənin qoşulmasını gözləyir...</string>
   <string name="psiphon_service_notification_message_connecting">Qoşulur...</string>
   <string name="psiphon_service_notification_id">Psiphon xidmət xəbərdarlığı</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon Status Dəyişiklikləri</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon yeniləməsi</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon Server Xəbərdarlıqları</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon Çökümləri</string>
   <string name="vpn_service_running">VPN xidməti işləyir                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </string>
   <string name="vpn_service_revoked">VPN xidməti ləğv edildi</string>
   <string name="current_network_type">Hazırkı şəbəkə:: %s</string>
@@ -57,6 +60,33 @@
   <string name="region_name_no">Norveç</string>
   <string name="region_name_ro">Rumıniya</string>
   <string name="region_name_se">İsveç</string>
+  <string name="region_name_pl">Polşa</string>
+  <string name="region_name_sk">Slovakiya</string>
+  <string name="region_name_rs">Serbiya</string>
+  <string name="region_name_au">Avstraliya</string>
+  <string name="region_name_ae">Birləşmiş Ərəb Əmirlikləri</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Braziliya</string>
+  <string name="region_name_cl">Çili</string>
+  <string name="region_name_ee">Estoniya</string>
+  <string name="region_name_fi">Finlandiya</string>
+  <string name="region_name_is">İslandiya</string>
+  <string name="region_name_ie">İrlandiya</string>
+  <string name="region_name_ke">Keniya</string>
+  <string name="region_name_kr">Koreya</string>
+  <string name="region_name_lt">Litva</string>
+  <string name="region_name_lv">Latviya</string>
+  <string name="region_name_mx">Meksika</string>
+  <string name="region_name_tw">Tayvan</string>
+  <string name="region_name_za">Cənubi Afrika</string>
+  <string name="region_name_id">İndoneziya</string>
+  <string name="region_name_nz">Yeni Zelandiya</string>
+  <string name="region_name_gr">Yunanıstan</string>
+  <string name="region_name_ua">Ukrayna</string>
+  <string name="region_name_pt">Portuqaliya</string>
+  <string name="region_name_hr">Xorvatiya</string>
+  <string name="region_name_co">Kolumbiya</string>
+  <string name="region_name_my">Malayziya</string>
   <string name="about">Psiphon haqda</string>
   <string name="feedback">Şərhiniz</string>
   <string name="disableTimeoutsPreferenceSummary">Aşağı sürətli şəbəkələr üçün dayanmaları söndürün</string>
@@ -107,10 +137,12 @@
   </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="vpn_preferences_default_exclusions_footer_text">Düzgün işləməyi təmin etmək üçün müəyyən Psiphon tətbiqləri avtomatik olaraq VPN yönləndirməsindən çıxarılır. Bu istisnalar dəyişdirilə bilməz.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Bütün tətbiqlər VPN vasitəsilə tunellənəcək</string>
   <string name="preference_notifications_with_sound_title">Səs</string>
   <string name="preference_notifications_with_sound_summary">Qoşulma statusu dəyişəndə səslə bildir</string>
   <string name="preference_notifications_with_vibrate_title">Vibrasiya</string>
   <string name="preference_notifications_with_vibrate_summary">Qoşulma statusu dəyişəndə vibrasiya et</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Yeniləmələri yalnız Wi-Fi üzərindən endirin</string>
   <string name="moreOptions">Əlavə opsiyalar</string>
   <string name="proxySettingsCategoryTitle">Proksi quraşdırmaları</string>
   <string name="custom_proxy_host_summary">Proksi serverinin host adı və ya İP</string>
@@ -130,9 +162,20 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Upstream proksi səhvi: %s</string>
   <string name="start_tunnel_failed">Tuneli başlatmaq olmadı: %s</string>
+  <string name="vpn_exclusions_conflict">Hazırkı VPN istisnaları arasında bir və ya bir neçə ziddiyyətli tətbiq var. VPN parametrlərinə gedib \'Bütün tətbiqləri tunel et\' rejiminə keçərək bağlanın.</string>
   <string name="tunnel_connecting">Tunel qoşulur...</string>
   <string name="tunnel_connected">Tunel qoşuldu</string>
   <string name="waiting">Gözləyir...</string>
+  <string name="label_vpn_settings">VPN parametrləri</string>
+  <string name="label_proxy_settings">Proksi parametrləri</string>
+  <string name="preference_summary_no_proxy">Proksi yoxdur</string>
+  <string name="preference_summary_custom_proxy">Xüsusi proksi</string>
+  <string name="preference_summary_system_proxy">Sistem proksisi</string>
+  <string name="disableTimeoutsPreferenceTitle">Vaxt bitməsini söndür</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Yalnız Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">MalAware xəbərdarlıqlarını göstər</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Psiphon cihazınızdan gələn zərərli proqram trafikini aşkar etdikdə bildirilsin.</string>
+  <string name="aboutMalAware">MalAware haqqında</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
   <string name="nfcBumpPreferenceTitle">Psiphon Bump-ı aktivləşdir</string>
   <!--Summary for Psiphon Bump preference-->

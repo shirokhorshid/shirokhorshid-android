@@ -46,6 +46,9 @@
   <string name="bad_vpn_exclusion_setting_alert_title">ការកំណត់ VPN មិនត្រឹមត្រូវ</string>
   <string name="bad_vpn_exclusion_whitelist_alert_message">អ្នកត្រូវមានកម្មវិធីយ៉ាងហោចណាស់មួយ ត្រូវបានជ្រើសរើសនៅក្នុងទម្រង់នេះ!</string>
   <string name="bad_vpn_exclusion_blacklist_alert_message">អ្នកត្រូវមានកម្មវិធីយ៉ាងហោចណាស់មួយ ត្រូវមិនបានជ្រើសរើសនៅក្នុងទម្រង់នេះ!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">ត្រូវការ Android 5.0 ឬខ្ពស់ជាងនេះ</string>
+  <string name="vpn_always_on_preference_not_available_summary">ត្រូវការ Android 7.0 ឬខ្ពស់ជាងនេះ</string>
+  <string name="vpn_exclusions_tip_summary">ជ្រើសរើសតែកម្មវិធីរុករកមួយសម្រាប់របៀបរុករកបុរាណ</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
@@ -53,31 +56,54 @@
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
   <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon បានរកឃើញ និងបិទការចូលទៅកាន់គេហទំព័រដែលអាចមានគ្រោះថ្នាក់លើអ៊ីនធឺណិត។ សូមចុចតំណភ្ជាប់ខាងក្រោមដើម្បីស្វែងយល់បន្ថែម។\n\nរកឃើញមាល់វែរ៖</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
   <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon បិទការចូលទៅកាន់គេហទំព័រដែលអាចមានគ្រោះថ្នាក់លើអ៊ីនធឺណិតដោយស្វ័យប្រវត្តិ។ តើអ្នកចង់ទទួលបានការជូនដំណឹងពេលដែលបានកើតឡើងនេះទេ?\n\nការកំណត់នេះអាចត្រូវបានផ្លាស់ប្តូរនៅពេលក្រោយនៅក្នុងជម្រើសបន្ថែម។</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">ស្វែងយល់បន្ថែមអំពី MalAware នៅទីនេះ៖</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">បញ្ហាប្រូកស៊ីផ្ទាល់ខ្លួន</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">សូមបើក Psiphon និងពិនិត្យការកំណត់ប្រូកស៊ី។</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">បញ្ហាប្រូកស៊ី</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">អ្នកបានកំណត់ Psiphon ឱ្យប្រើប្រូកស៊ីផ្ទាល់ខ្លួន។ ទោះជាយ៉ាងណាក៏ដោយ យើងហាក់ដូចជាមិនអាចតភ្ជាប់ទៅម៉ាស៊ីនមេ Psiphon តាមរយៈប្រូកស៊ីនោះបានទេ។\n\nសូមដោះស្រាយការកំណត់ និងសាកល្បងម្តងទៀត។\n\nមើលកំណត់ត្រាសម្រាប់ព័ត៌មានបច្ចេកទេស។</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon គាំង</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">សូមផ្ញើមតិយោបល់មកកាន់យើង។</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">សូមចុចលើការជូនដំណឹងនេះដើម្បីផ្ញើមតិយោបល់មកកាន់យើង។ នេះនឹងជួយយើងឱ្យយល់ពីបញ្ហា ដើម្បីឱ្យយើងអាចដោះស្រាយបានលឿនជាង។</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">ខ្ញុំយល់ព្រម</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">ការបង្ហាញការប្រមូលទិន្នន័យ</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s ប្រើសេវាកម្ម VPN របស់ Android ដើម្បីផ្ដល់ឱ្យអ្នកនូវការចូលដំណើរការដោយមិនមានការក្រញិតក្រញាស់ដល់មាតិកាអ៊ីនធឺណិត។ យើងប្រមូល តម្រុំ និងរក្សាទុកព័ត៌មានខាងក្រោម៖</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">ទីក្រុង ប្រទេស អ្នកផ្តល់សេវាអ៊ីនធឺណិត និងជាជម្រើស ទីតាំងប្រហាក់ប្រហែល។ ទីក្រុង ប្រទេស និងអ្នកផ្តល់សេវាអ៊ីនធឺណិតត្រូវបានទាញយកពីអាសយដ្ឋាន IP ដែលអ្នកតភ្ជាប់ទៅម៉ាស៊ីនមេរបស់យើង និងអាសយដ្ឋាន IP ខ្លួនវាមិនត្រូវបានកត់ត្រាទេ។ ទិន្នន័យនេះត្រូវបានប្រមូលសម្រាប់ស្ថិតិការប្រើប្រាស់ និងការអនុវត្ត និងគោលបំណងសុខភាពសេវាកម្ម។</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">អ៊ីមែលរបស់អ្នក ពេលអ្នកផ្ញើការកែលំអ ឬកំណត់ត្រាបញ្ហាការគាំងមកកាន់យើង។ ការផ្តល់អ៊ីមែលនៅក្នុងមតិយោបល់គឺជាជម្រើស។</string>
   <!--Data collection disclosure list item-->
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">ការជូនដំណឹង %s</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s ប្រើការជូនដំណឹងដើម្បីផ្តល់ព័ត៌មានសំខាន់ៗដល់អ្នកពេលកម្មវិធីនៅផ្ទៃខាងក្រោយ។ នេះរួមបញ្ចូល៖</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">ការផ្លាស់ប្តូរស្ថានភាពការតភ្ជាប់ VPN របស់អ្នក។</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">បញ្ហាជាមួយការតភ្ជាប់របស់អ្នក។</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">របាយការណ៍ការគាំង។</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">ការជូនដំណឹង MalAware។</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">កំណែថ្មីៗនៃកម្មវិធីដែលអាចប្រើបាន។</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">អ្នកអាចបិទការជូនដំណឹងនៅក្នុងការកំណត់កម្មវិធីនៅពេលណាក៏បាន។</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -87,14 +113,23 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">សូមបើក NFC នៅក្នុងការកំណត់</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">កំហុសក្នុងការទាក់ទងជាមួយឧបករណ៍ផ្សេង។ សូមពិនិត្យថា Psiphon បានបើក និងភ្ជាប់នៅលើឧបករណ៍ផ្សេង ហើយព្យាយាមម្តងទៀត។</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">កំពុងរង់ចាំការទាក់ទង NFC ជាមួយឧបករណ៍ផ្សេង…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">ព័ត៌មានការតភ្ជាប់ត្រូវបានផ្លាស់ប្តូរដោយជោគជ័យ!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">កំហុសក្នុងការទាក់ទងជាមួយឧបករណ៍ផ្សេង។ សូមព្យាយាមម្តងទៀត។</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">ឧបករណ៍បានផ្លាស់ទីលឿនពេក ការតភ្ជាប់បានបាត់។ សូមព្យាយាមម្តងទៀត។</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">រកឃើញ NFC tag មិនគាំទ្រ។ តើ Psiphon បានបើក និងភ្ជាប់នៅលើឧបករណ៍ផ្សេងទេ?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">កំពុងអានទិន្នន័យ…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">ទទួលបានជំនួយក្នុងការតភ្ជាប់</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">ជំនួយ</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
@@ -104,14 +139,27 @@
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">រួចរាល់</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">ប្រសិនបើអ្នកមានបញ្ហាក្នុងការតភ្ជាប់ទៅម៉ាស៊ីនមេ Psiphon សូមស្វែងរកមិត្តភក្តិដែលបានតភ្ជាប់ដោយជោគជ័យ ហើយចែករំលែកព័ត៌មានការតភ្ជាប់របស់ពួកគេដោយប្រើ NFC។</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">ត្រូវប្រាកដថា Psiphon បានបើក និងភ្ជាប់ ហើយរូបតំណាង Psiphon Bump កំពុងបង្ហាញនៅក្នុងរបារកម្មវិធីនៅលើឧបករណ៍ផ្សេង។</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">ជាមួយនឹងប្រអប់ Psiphon Bump បើកនៅលើឧបករណ៍របស់អ្នក និងកម្មវិធី Psiphon បើក និងភ្ជាប់នៅលើឧបករណ៍ផ្សេង សូមដាក់ឧបករណ៍របស់អ្នកពីក្រោយមកក្រោយដើម្បីចាប់ផ្តើមការផ្ទេរទិន្នន័យព័ត៌មានការតភ្ជាប់។</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">បន្ទាប់ពីការផ្ទេរទិន្នន័យព័ត៌មានការតភ្ជាប់ត្រូវបានបញ្ចប់ ហើយកម្មវិធី Psiphon របស់អ្នកអាចតភ្ជាប់បាន ប្រអប់ Psiphon Bump នឹងបិទដោយស្វ័យប្រវត្តិ។ ប្រសិនបើអ្នកនៅតែមិនអាចតភ្ជាប់បាន អ្នកអាចព្យាយាមម្តងទៀតរហូតដល់ Psiphon តភ្ជាប់ដោយជោគជ័យ។</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">សូមបើក NFC នៅក្នុងការកំណត់ប្រព័ន្ធដើម្បីបើកម៉ូដជំនួយ Psiphon Bump។</string>
   <!--Button that opens NFC related system settings-->
   <string name="psiphon_bump_need_system_nfc_open_btn">បើក​ការ​កំណត់</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">ទីតាំងប្រហាក់ប្រហែល</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">សូមអនុញ្ញាត %s ឱ្យចូលដំណើរការទីតាំងប្រហាក់ប្រហែលរបស់ឧបករណ៍របស់អ្នក។ ការប៉ាន់ស្មានទិន្នន័យទីតាំងរបស់អ្នកត្រូវបានប្រើដើម្បីបង្កើនប្រសិទ្ធភាពបណ្តាញ Psiphon ហើយមានភាពត្រឹមត្រូវនៅក្នុងប្រហែល ៣ គីឡូម៉ែត្រការ៉េ។</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">កំណែថ្មីកម្មវិធីរួចរាល់</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">ដំឡើង</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">កំណែថ្មីបរាជ័យ</string>
 </resources>

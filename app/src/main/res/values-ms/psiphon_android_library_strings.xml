@@ -1,48 +1,179 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="waiting_for_network_connectivity">Menunggu sambungan rangkaian...</string>
+  <string name="socks_running">SOCKS berjalan pada port %d</string>
+  <string name="http_proxy_running">Proksi HTTP berjalan pada port %d</string>
+  <string name="client_version">Versi Klien %s</string>
+  <string name="starting_tunnel">Memulakan terowong…</string>
+  <string name="stopping_tunnel">Menghentikan terowong…</string>
+  <string name="stopped_tunnel">Terowong dihentikan</string>
+  <string name="socks_port_in_use">Port proksi SOCKS tempatan yang diminta %d sudah digunakan oleh aplikasi lain. Tidak dapat meneruskan.</string>
+  <string name="waiting_for_network_connectivity">Menunggu sambungan rangkaian…</string>
+  <string name="psiphon_service_notification_message_connecting">Menyambung…</string>
+  <string name="psiphon_service_notification_id">Pemberitahuan Perkhidmatan Psiphon</string>
+  <string name="psiphon_service_notification_channel_name">Perubahan Status Psiphon</string>
+  <string name="psiphon_upgrade_notification_channel_name">Naik Taraf Psiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Amaran Pelayan Psiphon</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Kemalangan Psiphon</string>
   <string name="vpn_service_running">Perkhidmatan VPN sedang berjalan</string>
-  <string name="vpn_service_revoked">perkhidmatan VPN dibatalkan</string>
+  <string name="vpn_service_revoked">Perkhidmatan VPN dibatalkan</string>
   <string name="current_network_type">Rangkaian semasa: %s</string>
   <!--Do not translate or transliterate "Psiphon"-->
+  <string name="UpgradeManager.UpgradePromptTitle">Naik Taraf Psiphon</string>
   <!--Do not translate or transliterate "Psiphon"-->
-  <string name="connected_elapsed_time">Sambungan: %s</string>
+  <string name="UpgradeManager.UpgradePromptMessage">Naik taraf untuk Psiphon sedia untuk dipasang.</string>
+  <string name="connected_elapsed_time">Disambungkan: %s</string>
+  <string name="disconnected">Terputus</string>
+  <string name="label_sent">Dihantar</string>
+  <string name="label_received">Diterima</string>
   <string name="start">Mula</string>
   <string name="stop">Henti</string>
   <string name="home_tab_name">Rumah</string>
   <string name="settings_tab_name">Pilihan</string>
-  <string name="statistics_tab_name">Stat</string>
+  <string name="statistics_tab_name">Statistik</string>
+  <string name="logs_tab_name">Log</string>
+  <string name="use_proxy_settings_toggle">Sambung melalui Proksi HTTP</string>
+  <string name="use_system_proxy_settings_radio">Gunakan tetapan rangkaian sistem</string>
+  <string name="use_custom_proxy_settings_radio">Gunakan tetapan berikut:</string>
+  <string name="custom_proxy_settings_host">Alamat Hos</string>
+  <string name="custom_proxy_settings_port">Port</string>
+  <string name="region_name_any">Prestasi terbaik</string>
+  <string name="region_name_us">Amerika Syarikat</string>
+  <string name="region_name_gb">United Kingdom</string>
+  <string name="region_name_ca">Kanada</string>
+  <string name="region_name_de">Jerman</string>
+  <string name="region_name_jp">Jepun</string>
+  <string name="region_name_hk">Hong Kong</string>
+  <string name="region_name_sg">Singapura</string>
+  <string name="region_name_nl">Belanda</string>
+  <string name="region_name_in">India</string>
+  <string name="region_name_es">Sepanyol</string>
+  <string name="region_name_at">Austria</string>
+  <string name="region_name_be">Belgium</string>
+  <string name="region_name_bg">Bulgaria</string>
+  <string name="region_name_ch">Switzerland</string>
+  <string name="region_name_cz">Republik Czech</string>
+  <string name="region_name_dk">Denmark</string>
+  <string name="region_name_fr">Perancis</string>
+  <string name="region_name_hu">Hungary</string>
+  <string name="region_name_it">Itali</string>
+  <string name="region_name_no">Norway</string>
+  <string name="region_name_ro">Romania</string>
+  <string name="region_name_se">Sweden</string>
+  <string name="region_name_pl">Poland</string>
+  <string name="region_name_sk">Slovakia</string>
+  <string name="region_name_rs">Serbia</string>
+  <string name="region_name_au">Australia</string>
+  <string name="region_name_ae">Emiriah Arab Bersatu</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Brazil</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Estonia</string>
+  <string name="region_name_fi">Finland</string>
+  <string name="region_name_is">Iceland</string>
+  <string name="region_name_ie">Ireland</string>
+  <string name="region_name_ke">Kenya</string>
+  <string name="region_name_kr">Korea</string>
+  <string name="region_name_lt">Lithuania</string>
+  <string name="region_name_lv">Latvia</string>
+  <string name="region_name_mx">Mexico</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">Afrika Selatan</string>
+  <string name="region_name_id">Indonesia</string>
+  <string name="region_name_nz">New Zealand</string>
+  <string name="region_name_gr">Greece</string>
+  <string name="region_name_ua">Ukraine</string>
+  <string name="region_name_pt">Portugal</string>
+  <string name="region_name_hr">Croatia</string>
+  <string name="region_name_co">Colombia</string>
+  <string name="region_name_my">Malaysia</string>
   <string name="about">Mengenai Psiphon</string>
   <string name="feedback">Maklum balas</string>
+  <string name="disableTimeoutsPreferenceSummary">Lumpuhkan masa tamat untuk rangkaian perlahan</string>
   <string name="region_selector">Pilih rantau pelayan</string>
-  <string name="preference_notifications_title">Notifications</string>
-  <string name="preference_vpn_title">Apps</string>
+  <string name="network_proxy_connect_invalid_values">Tetapan Proksi HTTP tidak sah</string>
+  <string name="tunnel_whole_device_exception">Peranti anda tidak menyokong pilihan terowong keseluruhan peranti kerana kehilangan API VpnService.</string>
+  <string name="preference_notifications_title">Pemberitahuan</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Terowong semua aplikasi</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Sertakan Aplikasi</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Hanya terowong aplikasi yang dipilih</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Kecualikan Aplikasi</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Jangan terowong aplikasi yang dipilih</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Aplikasi terowong: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">Aplikasi dikecualikan dari terowong: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Tiada aplikasi dikecualikan dari terowong</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Pilih aplikasi</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="other">%d aplikasi akan diterowong melalui VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="other">%d aplikasi akan dikecualikan dari VPN</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Menerowong semua aplikasi</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="other">Menerowong %d aplikasi</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="other">%d aplikasi dikecualikan dari terowong</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Aplikasi Psiphon tertentu secara automatik dikecualikan dari penghalaan VPN untuk memastikan kefungsian yang betul. Pengecualian ini tidak boleh diubah suai.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Semua aplikasi akan diterowong melalui VPN</string>
   <string name="preference_notifications_with_sound_title">Bunyi</string>
+  <string name="preference_notifications_with_sound_summary">Mainkan bunyi apabila status sambungan berubah</string>
   <string name="preference_notifications_with_vibrate_title">Getar</string>
-  <string name="moreOptions">Lebih pilihan</string>
-  <string name="proxySettingsCategoryTitle">Tetapan proxy</string>
+  <string name="preference_notifications_with_vibrate_summary">Bergetar apabila status sambungan berubah</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Muat turun naik taraf pada Wi-Fi sahaja</string>
+  <string name="moreOptions">Lebih Pilihan</string>
+  <string name="proxySettingsCategoryTitle">Tetapan Proksi</string>
+  <string name="custom_proxy_host_summary">Nama hos pelayan proksi atau IP</string>
+  <string name="custom_proxy_port_summary">Port pelayan proksi</string>
+  <string name="use_proxy_authentication_title">Gunakan pengesahan proksi</string>
+  <string name="proxy_username_title">Nama pengguna proksi</string>
+  <string name="proxy_username_summary">Nama pengguna untuk pengesahan proksi</string>
+  <string name="proxy_password_title">Kata laluan proksi</string>
+  <string name="proxy_password_summary">Kata laluan untuk pengesahan proksi</string>
+  <string name="proxy_domain_title">Domain proksi</string>
+  <string name="proxy_domain_summary">Domain untuk pengesahan proksi</string>
+  <string name="http_proxy_port_in_use">Port proksi HTTP tempatan yang diminta %d sudah digunakan oleh aplikasi lain. Tidak dapat meneruskan.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Rantau terowong berpecah: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">Tidak diterowong: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
-  <string name="tunnel_connecting">Menyambung terowong...</string>
+  <string name="upstream_proxy_error">Ralat proksi huluan: %s</string>
+  <string name="start_tunnel_failed">Memulakan terowong gagal: %s</string>
+  <string name="vpn_exclusions_conflict">Terdapat satu atau lebih aplikasi yang bercanggah dalam pengecualian VPN semasa anda. Sila pergi ke tetapan VPN dan tukar kepada mod \'Terowong semua aplikasi\' untuk menyambung.</string>
+  <string name="tunnel_connecting">Terowong menyambung…</string>
   <string name="tunnel_connected">Terowong disambungkan</string>
-  <string name="waiting">Menunggu...</string>
+  <string name="waiting">Menunggu…</string>
+  <string name="label_vpn_settings">Tetapan VPN</string>
+  <string name="label_proxy_settings">Tetapan proksi</string>
+  <string name="preference_summary_no_proxy">Tiada proksi</string>
+  <string name="preference_summary_custom_proxy">Proksi tersuai</string>
+  <string name="preference_summary_system_proxy">Proksi sistem</string>
+  <string name="disableTimeoutsPreferenceTitle">Lumpuhkan masa tamat</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi sahaja</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Tunjukkan amaran MalAware</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Dapatkan pemberitahuan apabila Psiphon mengesan trafik perisian hasad yang berasal dari peranti anda.</string>
+  <string name="aboutMalAware">Mengenai MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Dayakan Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Gunakan NFC untuk berkongsi data sambungan Psiphon dengan peranti lain.</string>
 </resources>

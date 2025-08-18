@@ -8,54 +8,100 @@
   <string name="StatusActivity.VpnRevokedTitle">Psiphon  VPN бозистод</string>
   <string name="StatusActivity.VpnRevokedMessage">VPNи Psiphon аз тарафи шумо ё дигар замима чудо шуд. Якчанд замимахои VPN дар як вакт фаъол буда наметавонанд. Санчед ки дигар VPN фаъол аст ё не.</string>
   <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN наметавонад фаъол шавад</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN наметавонад фаъол шавад. Якчанд замимахои VPN дар як ваҳт фаъол буда наметавонанд. Санҷед, ки дигар замимаи VPN насб ва фаъол шудааст.</string>
   <string name="selected_region_currently_not_available">Минтақаи интихобшуда айни ҳол дастнорас аст, лутфан дигар минтақаро интихоб намоед.</string>
   <string name="ads_consent_preference_category_title">Шахсигардонии реклама</string>
   <string name="ads_consent_preference_dialog_title">Барқарор кардан</string>
+  <string name="preference_language_selection_summary">Интихоби забон</string>
   <string name="preference_language_selection_title">Забон</string>
+  <string name="preference_language_title">Интихоби забон</string>
   <string name="preference_language_default_language">Забони пешфарз</string>
   <string name="preference_category_advanced_title">Бештар</string>
+  <string name="preference_category_info_title">Маълумот</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">ОК</string>
+  <string name="preference_navigate_to_vpn_setting_title">Ҹамиша VPN-ро фаъол нагоҳ доред</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Барои ҳамиша фаъол нагоҳ доштани VPN ба танзимоти система гзаред</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Не</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">Ҳа</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Амал талаб карда мешавад!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Барои анҷом додани пайваст Psiphon-ро кушоед.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Минтақаи интихобшуда дастнорас аст</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Лутфан Psiphon-ро кушода, минтақаи дигарро интихоб намоед.</string>
   <!--"VPN stopped" notification title-->
   <string name="notification_title_vpn_revoked">Psiphon  VPN бозистод</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">VPNи Psiphon аз тарафи шумо ё дигар замима чудо шуд.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Аломати барнома</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Танзими нодурусти VPN</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Дар ин ҳолат шумо бояд ақаллан як замимаро интихоб кунед!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Дар ин ҳолат шумо бояд ақаллан як замимаро аз интихоб хориҷ кунед!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ё нусхаи болотар талаб карда мешавад</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ё нусхаи болотар талаб карда мешавад</string>
+  <string name="vpn_exclusions_tip_summary">\"Танҳо браузери анъанавӣ\" барои ҳолати танҳо як браузерро интихоб кунед</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Траффики нармафзори зараррасон кашф карда шуд! Барои дониши бештар зер кунед.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon дастрасии эҳтимолан хатарноки сайтҳоро дар интернет кашф ва манъ кардааст. Барои дониши бештар, равондҳои зеринро бинед.\n\nНармафзори зараррасони кашфшуда:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon ба таври худкор дастрасии эҳтимолан хатарноки сайтҳоро дар интернет манъ мекунад. Шумо мехоҳед, ки ҳангоми рух доданаш ба шумо хабар дода шавад?\n\nШумо ин танзимотро дертар дар Танзимоти иловагӣ тағйир дода метавонед.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">Барои дониши бештар дар бораи MalAware инҷоро бинед:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Хатои прокси болоӣ</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Лутфан Psiphon-ро кушода, танзимоти прокси-ро санҷед.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Хатои прокси</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Шумо Psiphon-ро барои истифодаи прокси болоӣ танзим кардаед. Аммо мо наметавонем тавассути он прокси ба сервери Psiphon пайваст шавем.\n\nЛутфан танзимотро ислоҳ карда, аз нав кӯшиш кунед.\n\nБарои маълумоти техникӣ, бақайдҳои логро бинед.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon вайрон шуд</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Лутфан ба мо фикру мулоҳизаҳо фиристед.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Бо зер кардани ин огоҳӣ ба мо фикру мулоҳизаҳо фиристед. Ин ба мо дар фаҳмидани он ки чӣ мушкилӣ рух дода кӯмак мекунад то тезтар ҳал карда тавонем.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Қабул карда</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Афшои ҷамъоварии маълумот</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s аз хизмати Android VPN барои таъмини дастрасии озод ба мундариҷаи интернет истифода мебарад. Мо маълумоти зеринро ҷамъ, якҷоя ва захира мекунем:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Шаҳр, кишвар, ISP ва ба таври ихтиёрӣ ҷойгиршавии тахминии шумо. Шаҳр, кишвар ва ISP аз нишонии IP-и шумо гирифта мешавад, ки ба серверҳои мо пайваст мешавед ва худи нишонии IP ҳеҷ гоҳ сабт намешавад. Ин маълумот барои омор ва амалкарди истифода ва мақсадҳои солимии хизмат ҷамъ карда мешавад.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Почтаи электронии шумо ҳангоми фиристодани фикру мулоҳизаҳои ташхисӣ ё маълумоти вайронӣ. Додани почтаи электронӣ дар фикру мулоҳизаҳо ихтиёрӣ аст.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Номи корбарӣ, калидвожа ва ба таври ихтиёрӣ почтаи электронии ҳисоби PsiCash-и шумо.</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">Огоҳӣҳои %s</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s аз огоҳӣҳо барои таъмини маълумоти муҳим ҳангоми буданаш дар пасзамина истифода мебарад. Ин моваридро дар бар мегирад:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">Тағйирот дар ҳолати пайвасти VPN-и шумо.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Мушкилот бо пайвастатон.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Гузоришҳои вайронӣ.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">Ҳушдорӣҳои MalAware.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Нусхаҳои нави барнома дасторас аст.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Шумо метавонед дар ҳар вақт огоҳӣҳоро дар танзимоти барнома хомӯш кунед.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -65,29 +111,53 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Лутфан NFC-ро дар танзимот фаъол кунед</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Хато ҳангоми барқарор кардани алоқа бо дастгоҳи дигар. Муҳаккак кунед, ки Psiphon дар дастгоҳи дигар кушода шуда ва пайваст аст, ва аз нав кӯшиш кунед.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Интизори алоқаи NFC бо дастгоҳи дигар...</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Маълумоти пайваст бо муваффақият мубодила шуд!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Хато ҳангоми барқарор кардани алоқа бо дастгоҳи дигар. Лутфан аз нав кӯшиш кунед.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Дастгоҳ хелӣ тез ҳаракат кард, пайваст қатъ шуд. Лутфан аз нав кӯшиш кунед.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Барчаспи NFC-и дастгирӣнашаванда кашф карда шуд. Psiphon дар дастгоҳи дигар кушода шуда ва пайваст аст?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Хондани маълумот...</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Барои пайваст кӯмак гиред</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Кумак</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Надида гирифтан</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">Навбатӣ</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Иҷро шуд</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Агар бо пайваст шудан ба сервери Psiphon мушкилӣ доред, дӯсти бо муваффақият пайвастшудагитонро ёфта ва маълумоти пайвасташонро бо истифодаи NFC мубодила кунед.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Муҳаккак кунед, ки Psiphon кушода шуда ва пайваст башад ва намади Psiphon Bump дар навори барномаро дар дастгоҳи дигар намоиш даҳад.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Ҳангоми кӯ доилоги Psiphon Bump дар дастгоҳи шумо кушода шуда ва барномаи Psiphon дар дастгоҳи дигар кушода шуда ва пайваст аст, барои оғози мубодилаи маълумоти пайваст дастгоҳҳойатонро пушт ба пушт ҷойгир кунед.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Пас аз анҷоми мубодилаи маълумоти пайваст ва моъфақиятбахшӣ пайваст шудани барномаи Psiphon, доилоги Psiphon Bump автоматӣ пӯшида мешавад. Агар ҳанӯз наметавонед пайваст шавед, метавонед то ҳангоми кӳ Psiphon бо муваффақият пайваст мешавад, аз нав кӳшиш кнед.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Барои фаъол кардани ҳолати кӳмаки Psiphon Bump NFC-ро дар танзимоти система кушоед.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Кушодани танзимот</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Ҷойгиршавии тахминӣ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">Лутфан ба %s иҷозат диҳед, то ба ҷойгиршавии тахминии дастгоҳатон дастрасӣ пайдо кунад. Маълумоти тахминии ҷойгиршавии шумо барои беҳтар кардани шабакаи Psiphon истифода мешавад ва дар доираи 3 километри мураббаъ дақиқ аст</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Навсозии барнома омода аст</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Насб кардан</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Навсозӣ бо нокомӣ анҷом ёфт</string>
 </resources>

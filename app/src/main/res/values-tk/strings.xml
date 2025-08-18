@@ -5,51 +5,102 @@
   <string name="FeedbackActivity.DefaultText">Haýsydyr bir aýratyn teswiriňiz bar bolsa, işlemeýän web saýtlar barada has giňişleýin maglumat üçin ýa-da bu maglumatnama siziň üçin işlemeýän bolsa, e-poçta iberiň &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">Seslenme ibereniňiz üçin sag boluň</string>
   <string name="FeedbackActivity.Failure">Tabşyrmak şowsuz. Täzeden synanyşyň</string>
+  <string name="StatusActivity.VpnRevokedTitle">Psiphon VPN durup galdy</string>
+  <string name="StatusActivity.VpnRevokedMessage">Psiphon VPN siz ýa-da başga programma tarapyndan kesildi. Birnäçe VPN programmasy şol bir wagtyň özünde işläp bilmeýär. Beýleki VPN programmasyny gurnalan we işleýändigini barlaň.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">Psiphon VPN başlap bilmeýär</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon VPN başlap bilmeýär. Birnäçe VPN programmasy şol bir wagtyň özünde işläp bilmeýär. Beýleki VPN programmasyny gurnalan we hemişe açyk edilen barlaň.</string>
+  <string name="selected_region_currently_not_available">Saýlanan sebit häzir elýeterli däl, başga sebit saýlaň.</string>
   <string name="ads_consent_preference_dialog_title">Täzeden düz</string>
+  <string name="preference_language_selection_summary">Dili saýlaň</string>
   <string name="preference_language_selection_title">Dil</string>
+  <string name="preference_language_title">Dil saýlawy</string>
   <string name="preference_language_default_language">Asyl dili</string>
   <string name="preference_category_advanced_title">Ösen</string>
+  <string name="preference_category_info_title">Maglumat</string>
   <!--Generic string to say OK or acknowledge-->
   <string name="label_ok">OK</string>
+  <string name="preference_navigate_to_vpn_setting_title">Hemişe açyk VPN</string>
+  <string name="preference_navigate_to_vpn_setting_summary">Hemişe açyk VPN-y açmak üçin ulgam sazlamalyna giriň</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">Ýok</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">Hawa</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">Hereket talap edilýär!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">Baglanyşygy tamamlamak üçin Psiphon-y açyň.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">Saýlanan sebit elýeterli däl</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">Psiphon-y açyp başga sebit saýlaň.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">Psiphon VPN durup galdy</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">Psiphon VPN siz ýa-da başga programma tarapyndan kesildi.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">Programma nyşany</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">Nädogry VPN sazlamasy</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">Bu usulda azyndan bir programma saýlamaly!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">Bu usulda azyndan bir programma saýlamaly däl!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">Android 5.0 ýa-da ýokary talap edilýär</string>
+  <string name="vpn_always_on_preference_not_available_summary">Android 7.0 ýa-da ýokary talap edilýär</string>
+  <string name="vpn_exclusions_tip_summary">Adaty brauzer-diňe usuly üçin diňe bir brauzer saýlaň</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">Zyýanly programma trafiği tapyldy! Has giňişleýin öwrenmek üçin basyň.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon internetdäki howply bolup biljek saýtlara girişi kesgitledi we bloklaşdyrdy. Has giňişleýin öwrenmek üçin aşakdaky baglanyşyklary ulanyn.\n\nTapylan zyýanly programma:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon awtomatiki usulda internetdäki howply bolup biljek saýtlara girişi bloklaşdyrýar. Bu ýagdaýda habardar bolmak isleýärsiňizmi?\n\nBu sazlamany soňundan Goşmaça opsiýalarda üýtgedip bilersiňiz.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">MalAware hakda bu ýerde has giňişleýin öwreniň:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">Ýokary proksi ýalňyşlygy</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">Psiphon-y açyp proksi sazlamalaryny barlaň.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">Proksi ýalňyşlygy</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">Siz Psiphon-y ýokary proksi ulanmak üçin konfigurasiýa etdiňiz. Ýöne şol proksi arkaly Psiphon serwerine baglanşyp bilmeýäris.\n\nSazlamalary düzediň we täzeden synanyşyň.\n\nTehniki maglumatlar üçin gündeliklere serediň.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon çöküpdi</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">Bize jogap iberiň.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">Bize jogap ibermek üçin bu habar basyň. Bu meseli düşünmegimize kömek eder we has çalt düzedip bileris.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">Kabul edýärin</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">Maglumatlary toplama açyklamasy</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s internet mazmunyna senzurasyz giriş üpjün etmek üçin Android VPN hyzmatyny ulanýar. Biz aşakdaky maglumatlary toplaýarys, birleşdirýäris we saklaýarys:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">Siziň şäheriňiz, ýurduňyz, internet üpjünçiňiz we islege baglylykda takmynan ýerleşişiňiz. Şäher, ýurt we internet üpjünçisi biziň serwerlerimize baglanýan IP adresiňizden alynýar, IP adresiň özi hiç wagt ýazylmaýar. Bu maglumatlar ulanyş we öndürijilik statistikasy we hyzmatin saglygynyň maksatlary üçin toplanýar.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">Bize diagnostika ýa-da çökme gündelik jogap ibereniňizde e-poçta adresiňiz. Jogapda e-poçta bermek islege bagly.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">Siziň PsiCash ulanyjy adyňyz, paroly we islege bagly e-poçta.</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">%s habarlary</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s programma fonda bolanda möhüm maglumatlary berýän habar ulanýar. Munuň özi:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">VPN baglanşygyňyzyň ýagdaýynyň üýtgemegi.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">Baglanşygyňyzdaky problemalar.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">Çökme hasabatlary.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">MalAware duýduryşlary.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">Täze programma wersiýalary elýeterli.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">Haýsy wagt bolsa-da programma sazlamalarynda habarlary öçürip bilersiňiz.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -59,29 +110,53 @@
   <!--Generic 'close' alert prompt message-->
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">Sazlamalarda NFC açyň</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">Beýleki enjam bilen aragatnaşykda ýalňyşlyk. Beýleki enjamda Psiphon açyk we baglanandygyny barlaň we täzeden synanyşyň.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">Beýleki enjam bilen NFC aragatnaşygyny garaşýarys…</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">Baglanyşyk maglumatlary üstünlikli çalşyryldy!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">Beýleki enjam bilen aragatnaşykda ýalňyşlyk. Täzeden synanyşyň.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">Enjam gaty çalt hereket etdi, baglanyşyk ýitdi. Täzeden synanyşyň.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">Goldanylmaýan NFC belgisi tapyldy. Beýleki enjamda Psiphon açyk we baglanandymy?</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">Maglumatlar okalýar…</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">Baglanmakda kömek alyň</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">Kömek</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">Geç</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">Indiki</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">Boldy</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">Eger Psiphon serwerine baglanmakda kynçylyk çekýän bolsaňyz, üstünlikli baglan dostyny tapyň we olaryň baglanyşyk maglumatlary NFC ulanyp paýlaşyň.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">Psiphon açyk we baglanan we beýleki enjamda programma panelinde Psiphon Bump nyşanynyň görkezilýändigine göz ýetiriň.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">Siziň enjamyňyzda Psiphon Bump dialoogy açyk we beýleki enjamda Psiphon programmasy açyk we baglanan mahaly, baglanyşyk maglumatlaryny geçirmegi başlatmak üçin enjamlarny yza-arka goýuň.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">Baglanyşyk maglumatlaryny geçirmek tamamlanandan we siziň Psiphon programmaňyz baglanandan soň, Psiphon Bump dialoogy awtomatiki ýapylar. Henizem baglanşyp bilmediňiz bolsaňyz, Psiphon üstünlikli baglanýança gaýtadan synanyşyp bilersiňiz.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_title"></string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">Psiphon Bump kömek usulyny açmak üçin ulgam sazlamalarynda NFC açyň.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">Sazlamalary aç</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">Takmynan ýerleşişi</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">%s programmasynyň enjamyňyzyň takmynan ýerleşişine girmäge rugsat beriň. Ýerleşiş maglumatlaryňyz Psiphon toryny optimizasiýa etmek üçin ulanylýar we 3 kwadrat kilometriň içinde takyk</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">Programma täzelenmesi taýýar</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">Gurnamak</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">Täzelenme şowsuz boldy</string>
 </resources>

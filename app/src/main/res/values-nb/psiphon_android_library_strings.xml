@@ -10,8 +10,11 @@
   <string name="waiting_for_network_connectivity">Venter på nettverkstilkobling…</string>
   <string name="psiphon_service_notification_message_connecting">Kobler til…</string>
   <string name="psiphon_service_notification_id">Psiphon tjeneste-kunngjøring</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon-statusendringer</string>
   <string name="psiphon_upgrade_notification_channel_name">Psiphon-oppgradering</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon servervarsler</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon krasj</string>
   <string name="vpn_service_running">VPN-tjeneste kjører</string>
   <string name="vpn_service_revoked">VPN-tjeneste tilbakedratt</string>
   <string name="current_network_type">Gjeldende nettverk: %s</string>
@@ -58,6 +61,32 @@
   <string name="region_name_ro">Romania</string>
   <string name="region_name_se">Sverige</string>
   <string name="region_name_pl">Polen</string>
+  <string name="region_name_sk">Slovakia</string>
+  <string name="region_name_rs">Serbia</string>
+  <string name="region_name_au">Australia</string>
+  <string name="region_name_ae">De forente arabiske emirater</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Brasil</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Estland</string>
+  <string name="region_name_fi">Finland</string>
+  <string name="region_name_is">Island</string>
+  <string name="region_name_ie">Irland</string>
+  <string name="region_name_ke">Kenya</string>
+  <string name="region_name_kr">Sør-Korea</string>
+  <string name="region_name_lt">Litauen</string>
+  <string name="region_name_lv">Latvia</string>
+  <string name="region_name_mx">Mexico</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">Sør-Afrika</string>
+  <string name="region_name_id">Indonesia</string>
+  <string name="region_name_nz">New Zealand</string>
+  <string name="region_name_gr">Hellas</string>
+  <string name="region_name_ua">Ukraina</string>
+  <string name="region_name_pt">Portugal</string>
+  <string name="region_name_hr">Kroatia</string>
+  <string name="region_name_co">Colombia</string>
+  <string name="region_name_my">Malaysia</string>
   <string name="about">Om Psiphon</string>
   <string name="feedback">Tilbakemeldinger</string>
   <string name="disableTimeoutsPreferenceSummary">Skru av tidsavbrudd for trege nettverk</string>
@@ -67,23 +96,48 @@
   <string name="preference_notifications_title">Kunngjøringer</string>
   <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tunnel alle apper automatisk</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Inkluder apper</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Tunnel bare valgte apper</string>
   <!--Title for selecting apps to be excluded-->
   <string name="preference_routing_exclude_apps_title">Ekskluder programmer</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Tunnel alle apper unntatt valgte</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">App inkludert i tunnel: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
   <string name="individual_app_excluded">Program ekskludert fra tunnel: %s</string>
   <!--Log line for when all apps will be tunneled-->
   <string name="no_apps_excluded">Ingen programmer ble ekskludert fra tunnelen</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Velg apper</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d app valgt for inkludering</item>
+    <item quantity="other">%d apper valgt for inkludering</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d app valgt for ekskludering</item>
+    <item quantity="other">%d apper valgt for ekskludering</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Alle apper tunneleres</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">%d app tunneleres</item>
+    <item quantity="other">%d apper tunneleres</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d app ekskludert</item>
+    <item quantity="other">%d apper ekskludert</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Visse Psiphon-apper ekskluderes automatisk fra VPN-ruting</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Tunnel alle apper gjennom VPN</string>
   <string name="preference_notifications_with_sound_title">Lyd</string>
   <string name="preference_notifications_with_sound_summary">Avspill lyd når tilkoblingsstatus endres</string>
   <string name="preference_notifications_with_vibrate_title">Vibrer</string>
@@ -108,11 +162,22 @@
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
   <string name="upstream_proxy_error">Oppstrøms mellomtjenerfeil: %s</string>
   <string name="start_tunnel_failed">Oppstart av tunnel feilet: %s</string>
+  <string name="vpn_exclusions_conflict">Konflikt i VPN-ekskluderingsinnstillinger</string>
   <string name="tunnel_connecting">Kobler til tunnel</string>
   <string name="tunnel_connected">Tunnel tilkoblet</string>
   <string name="waiting">Venter …</string>
+  <string name="label_vpn_settings">VPN-innstillinger</string>
   <string name="label_proxy_settings">Mellomtjenerinnstillinger</string>
+  <string name="preference_summary_no_proxy">Ingen proxy</string>
+  <string name="preference_summary_custom_proxy">Bruk tilpassede proxy-innstillinger</string>
+  <string name="preference_summary_system_proxy">Bruk systemproxy</string>
   <string name="disableTimeoutsPreferenceTitle">Skru av tidsavbrudd</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Last ned kun på Wi-Fi</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Varsler om farlig trafikk</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Vis varsler når farlig trafikk blokkeres</string>
+  <string name="aboutMalAware">Om MalAware-funksjonen</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Aktiver Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Bruk NFC for å dele Psiphon tilkoblingsdata med andre enheter.</string>
 </resources>

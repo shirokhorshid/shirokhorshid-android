@@ -11,8 +11,8 @@
   <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon မှ VPN ဖွင့်၍မရပါ။ VPN အပ္ပလီကေးရှင်း တစ်ခုထက်ပို၍ တစ်ပြိုင်တည်း ဖွင့်ထားလို့မရပါ။ VPN အပ္ပလီကေးရှင်း နောက်တစ်ခုကို တပ်ဆင်ထားပြီး အမြဲပွင့်နေသလားဆိုတာ တစ်ချက်စစ်ဆေးပေးပါ။</string>
   <string name="selected_region_currently_not_available">လက်ရှိရွေးချယ်ထားသော ဒေသကို မရရှိနိုင်ပါ ၊ အခြားဒေသကို ရွေးပေးပါ။</string>
   <string name="ads_consent_preference_category_title">ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်း</string>
-  <string name="ads_consent_preference_dialog_preference_message">သင်သည် ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်း ကို ပြောင်းလဲချိန်ဆမှုများ ပြုလုပ်စေချင်ပါသလား?</string>
-  <string name="ads_consent_preference_title">ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်းကို ပြောင်းလဲချိန်ဆမယ်</string>
+  <string name="ads_consent_preference_dialog_preference_message">သင်သည် ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်း ကို ပြန်လည်သတ်မှတ်ချင်ပါသလား?</string>
+  <string name="ads_consent_preference_title">ကြော်ငြာများ စိတ်ကြိုက်ပြင်ဆင်ခြင်းကို ပြန်လည်သတ်မှတ်မယ်</string>
   <string name="ads_consent_preference_dialog_title">ပြန်လည်သတ်မှတ်မည်</string>
   <string name="ads_consent_preference_summary">ကြော်ငြာကွန်ရက်များ ကို ကွတ်ကီးမှတ်တမ်းများ (cookies) နှင့် သင့်ကိုယ်ပိုင်ဒေတာများအား အသုံးပြုနိုင်ရန် သင့် စိတ်ကြိုက်ပြင်ဆင်ခြင်းများကို ပြောင်းလဲချိန်ဆပါ။</string>
   <string name="preference_language_selection_summary">ဘာသာစကား ရွေးချယ်ပါ</string>
@@ -107,12 +107,15 @@
   <string name="notifications_permission_rationale_disable_any_time">သင်သည် အပ္ပလီကေးရှင်း ဆက်တင်များတွင် အကြောင်းကြားချက်များကို မည်သည့်အချိန်မျှ ပိတ်နိုင်သည်။</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
+  <string name="pxe_web_wait_tunnel_connecting">Psiphon ချိတ်ဆက်နေစဉ် စောင့်ပါ</string>
   <!--Generic 'close' button label-->
   <string name="close_btn_label">ပိတ်မည်</string>
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">ပိတ်မည်</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">သင်သည် ဤဝင်းဒိုးကို ယခုပိတ်ချင်ပါသလား?</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
+  <string name="pxe_submit_thank_you">သင့်ပါဝင်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
   <string name="enable_nfc_in_settings">ကျေးဇူးပြု၍ ဆက်တင်များတွင် NFC အားဖွင့်ပေးပါ</string>
   <!--NFC connection data exchange error message-->
@@ -148,7 +151,7 @@
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_help_4">ချိတ်ဆက်မှု အချက်အလက် ဒေတာ ကူးပြောင်းမှု ပြီးဆုံးပြီး သင့် Psiphon အပ္ပလီကေးရှင်းသည် ချိတ်ဆက်နိုင်သောအခါ၊ Psiphon Bump ဒိုင်ယာလိုရ်သည် အလိုအလျောက် ပိတ်သွားမည်ဖြစ်သည်။ အကယ်၍ သင်သည် ချိတ်ဆက်မရသေးလျှင်၊ Psiphon အောင်မြင်စွာ ချိတ်ဆက်သည်အထိ ထပ်မံကြိုးစားနိုင်သည်။</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
   <string name="psiphon_bump_need_system_nfc_message">ကျေးဇူးပြု၍ Psiphon Bump အကူအညီ မုဒ်ကို ဖွင့်ရန် စနစ် ဆက်တင်များတွင် NFC ကို ဖွင့်ပေးပါ။</string>
   <!--Button that opens NFC related system settings-->
@@ -157,4 +160,10 @@
   <string name="location_permission_rationale_title">ခန့်မှန်းခြေ တည်နေရာ</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
   <string name="location_permission_rationale_text">ကျေးဇူးပြု၍ %s အား သင့်ကိရိယာ၏ ခန့်မှန်းခြေ တည်နေရာကို ဝင်ရောက်ခွင့်ပေးပါ။ သင့်တည်နေရာ အခြေအနေခန့်မှန်းချက်သည် Psiphon ကွန်ရက်ကို ပိုမိုအကောင်းဆုံး ဖြစ်စေရန်အတွက် အသုံးပြုပြီး ၃ စတုရန်းကီလိုမီတာ အတွင်းတွင် တိကျစေမည်ဖြစ်သည်။</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">အက်ပ် အပ်ဒိတ် အဆင်သင့်</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">ထည့်သွင်းမည်</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">အပ်ဒိတ် မအောင်မြင်ပါ</string>
 </resources>

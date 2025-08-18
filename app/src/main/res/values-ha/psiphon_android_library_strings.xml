@@ -114,11 +114,27 @@
   <!--Title for option to select apps for routing changes-->
   <string name="preference_routing_select_apps_title">Zaɓi manhajoji</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d manhaja za\'a sirrance ta ta hanyar VPN</item>
+    <item quantity="other">%d manhajoji za\'a sirrance su ta hanyar VPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d manhaja za\'a ware ta daga VPN</item>
+    <item quantity="other">%d manhajoji za\'a ware su daga VPN</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
   <string name="psiphon_service_notification_message_vpn_all_apps">Sirrance dukkan manhaja</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Sirrance %d manhaja</item>
+    <item quantity="other">Sirrance %d manhajoji</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d manhaja ta ware daga sirri</item>
+    <item quantity="other">%d manhajoji sun ware daga sirri</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
   <string name="vpn_preferences_default_exclusions_footer_text">Wasu aikace-aikacen Psiphon ana keɓe su ne ta atomatik daga hanyoyin VPN domin tabbatar da aiki mai kyau. Ba za a iya canza waɗannan keɓewar ba.</string>
   <string name="preference_routing_all_apps_tunnel_summary">Za\'a sirrance dukkan manhajoji ta hanyar VPN</string>

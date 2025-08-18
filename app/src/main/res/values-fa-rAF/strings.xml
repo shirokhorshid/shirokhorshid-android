@@ -5,50 +5,102 @@
   <string name="FeedbackActivity.DefaultText">اگر کدام نظر خاص دارید، به معلومات بیشتر در مورد ویب سایت‌های که کار نمیکنند نیاز دارید یا اگر این فورم برایتان کار نمیکند، لطفاً به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;. ایمیل بفرستید.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتان را ارسال کردید سپاسگزار هستیم</string>
   <string name="FeedbackActivity.Failure">ارسال ناموفق بود. لطفاً دوباره امتحان کنید.</string>
+  <string name="StatusActivity.VpnRevokedTitle">VPN Psiphon متوقف شده است</string>
+  <string name="StatusActivity.VpnRevokedMessage">VPN Psiphon توسط شما یا برنامه دیگری قطع شده است. چندین برنامه VPN نمی‌توانند همزمان کار کنند. بررسی کنید که آیا برنامه VPN دیگری نصب شده و در حال اجرا است.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">VPN Psiphon نمی‌تواند شروع شود</string>
+  <string name="StatusActivity.VpnPromptCancelledMessage">Psiphon نمی‌تواند VPN را شروع کند. چندین برنامه VPN نمی‌توانند همزمان کار کنند. بررسی کنید که آیا برنامه VPN دیگری نصب شده و روی Always-on تنظیم شده است.</string>
+  <string name="selected_region_currently_not_available">منطقه انتخاب شده در حال حاضر در دسترس نیست، لطفاً منطقه دیگری انتخاب کنید.</string>
   <string name="ads_consent_preference_dialog_title">تنظیم دوباره</string>
+  <string name="preference_language_selection_summary">زبان را انتخاب کنید</string>
   <string name="preference_language_selection_title">زبان</string>
+  <string name="preference_language_title">انتخاب زبان</string>
   <string name="preference_language_default_language">زبان پیش فرض</string>
   <string name="preference_category_advanced_title">پیشرفته</string>
+  <string name="preference_category_info_title">اطلاعات</string>
   <!--Generic string to say OK or acknowledge-->
+  <string name="label_ok">تأیید</string>
+  <string name="preference_navigate_to_vpn_setting_title">VPN همیشه روشن</string>
+  <string name="preference_navigate_to_vpn_setting_summary">برای فعال کردن VPN همیشه روشن به تنظیمات سیستم بروید</string>
   <!--Generic negative button label.-->
   <string name="lbl_no">نخیر</string>
   <!--Generic positive button label.-->
   <string name="lbl_yes">بلی</string>
   <!--"Please open Psiphon to keep connecting" notification title-->
+  <string name="notification_title_action_required">اقدام لازم است!</string>
   <!--Message shown in notification informing the user that Psiphon application needs to be open in order to finish connection sequence. Clicking this notification also opens the app.-->
+  <string name="notification_text_open_psiphon_to_finish_connecting">لطفاً Psiphon را باز کنید تا اتصال کامل شود.</string>
   <!--"Selected region is not available" notification title-->
+  <string name="notification_title_region_not_available">منطقه انتخاب شده در دسترس نیست</string>
   <!--Message shown in notification informing the user that selected region is not currently available-->
+  <string name="notification_text_region_not_available">لطفاً Psiphon را باز کرده و منطقه دیگری انتخاب کنید.</string>
   <!--"VPN stopped" notification title-->
+  <string name="notification_title_vpn_revoked">VPN Psiphon متوقف شده است</string>
   <!--Message shown in notification informing the user that VPN has been disconnected by another app or revoked by the user-->
+  <string name="notification_text_vpn_revoked">VPN Psiphon توسط شما یا برنامه دیگری قطع شده است.</string>
   <!--Description for an app icon image-->
+  <string name="description_app_icon">آیکن برنامه</string>
+  <string name="bad_vpn_exclusion_setting_alert_title">تنظیمات VPN نامعتبر</string>
+  <string name="bad_vpn_exclusion_whitelist_alert_message">شما باید حداقل یک برنامه را در این حالت انتخاب کنید!</string>
+  <string name="bad_vpn_exclusion_blacklist_alert_message">شما باید حداقل یک برنامه را در این حالت انتخاب نکنید!</string>
+  <string name="vpn_exclusions_preference_not_available_summary">نیاز به اندروید ۵.۰ یا بالاتر دارد</string>
+  <string name="vpn_always_on_preference_not_available_summary">نیاز به اندروید ۷.۰ یا بالاتر دارد</string>
+  <string name="vpn_exclusions_tip_summary">برای حالت کلاسیک فقط مرورگر، تنها یک مرورگر انتخاب کنید</string>
   <!--Title of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_title">Psiphon MalAware</string>
   <!--Content of the toolbar notification which is shown to the user when Psiphon server detects an unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_notification_message">ترافیک بدافزار شناسایی شد! برای اطلاعات بیشتر کلیک کنید.</string>
   <!--Title of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which is shown to the user when they click toolbar notification of unsafe Internet traffic-->
+  <string name="unsafe_traffic_alert_dialog_message">Psiphon دسترسی به سایت‌های احتمالی مخرب اینترنت را شناسایی و مسدود کرده است. لطفاً لینک‌های زیر را برای اطلاعات بیشتر دنبال کنید.\n\nبدافزار شناسایی شده:</string>
   <!--Title of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_title">Psiphon MalAware</string>
   <!--Content of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message">Psiphon به طور خودکار دسترسی به سایت‌های احتمالی مخرب اینترنت را مسدود می‌کند. آیا می‌خواهید وقتی این اتفاق می‌افتد مطلع شوید؟\n\nاین تنظیم را می‌توان بعداً در گزینه‌های بیشتر تغییر داد.</string>
   <!--More info with a URL link in the contents of the alert dialog which prompts the user to enable or disable unsafe Internet traffic alerts-->
+  <string name="unsafe_traffic_alert_prompt_message_more_info">در اینجا درباره MalAware بیشتر بیاموزید:</string>
   <!--"Upstream proxy error" notification title-->
+  <string name="notification_title_upstream_proxy_error">خطای پراکسی بالادست</string>
   <!--"Upstream proxy error" notification text-->
+  <string name="notification_text_upstream_proxy_error">لطفاً Psiphon را باز کرده و تنظیمات پراکسی را بررسی کنید.</string>
   <!--"Upstream proxy error" alert dialog title-->
+  <string name="upstream_proxy_error_alert_title">خطای پراکسی</string>
   <!--"Upstream proxy error" alert dialog message-->
+  <string name="upstream_proxy_error_alert_message">شما Psiphon را برای استفاده از پراکسی بالادست پیکربندی کرده‌اید. اما به نظر می‌رسد ما نمی‌توانیم از طریق آن پراکسی به سرور Psiphon متصل شویم.\n\nلطفاً تنظیمات را اصلاح کرده و دوباره امتحان کنید.\n\nاطلاعات فنی را در گزارش‌ها ببینید.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_title">Psiphon کرش کرده است</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg">لطفاً برای ما بازخورد ارسال کنید.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
+  <string name="psiphon_native_crash_notification_msg_long">لطفاً روی این اعلان کلیک کنید تا برای ما بازخورد ارسال کنید. این به ما کمک می‌کند مشکل را درک کنیم تا بتوانیم سریع‌تر آن را رفع کنیم.</string>
   <!--Data collection disclosure prompt button text-->
+  <string name="vpn_data_collection_disclosure_accept_btn_text">می‌پذیرم</string>
   <!--Data collection disclosure prompt title-->
+  <string name="vpn_data_collection_disclosure_prompt_title">افشای جمع‌آوری داده</string>
   <!--First sentence of the data collection disclosure prompt body. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="vpn_data_collection_disclosure_top">%s از سرویس VPN اندروید استفاده می‌کند تا دسترسی بدون سانسور به محتوای اینترنت را برای شما فراهم کند. ما اطلاعات زیر را جمع‌آوری، تجمیع و ذخیره می‌کنیم:</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp1">شهر، کشور، ISP شما و به صورت اختیاری، موقعیت تقریبی. شهر، کشور و ISP از آدرس IP که از آن به سرورهای ما متصل می‌شوید استخراج می‌شود و خود آدرس IP هرگز ثبت نمی‌شود. این داده‌ها برای آمار استفاده و عملکرد و اهداف سلامت سرویس جمع‌آوری می‌شوند.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp2">ایمیل شما، وقتی گزارش تشخیص یا کرش برای ما ارسال می‌کنید. ارائه ایمیل در بازخورد اختیاری است.</string>
   <!--Data collection disclosure list item-->
+  <string name="vpn_data_collection_disclosure_bp3">تجربه استفاده شما، از جمله تعداد ارسال و دریافت داده‌هاو مدت زمان اتصال.</string>
   <!--Notifications permission rationale alert title. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_title">اعلان‌های %s</string>
   <!--First sentence of the notifications permission rationale message. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro' and should be placed according to the rules of the translation language.-->
+  <string name="notifications_permission_rationale_intro">%s از اعلان‌ها استفاده می‌کند تا وقتی برنامه در پس‌زمینه است اطلاعات مهم را به شما ارائه دهد. این شامل:</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_vpn_state_bp">تغییرات در وضعیت اتصال VPN شما.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_connection_problems_bp">مشکلات در اتصال شما.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_crash_reports_bp">گزارش‌های کرش.</string>
   <!--Notifications permission rationale list item, do not translate or transliterate "MalAware"-->
+  <string name="notifications_permission_rationale_malaware_alerts_bp">هشدارهای MalAware.</string>
   <!--Notifications permission rationale list item-->
+  <string name="notifications_permission_rationale_upgrade_available_bp">نسخه‌های جدید برنامه در دسترس.</string>
   <!--Notifications permission rationale last sentence-->
+  <string name="notifications_permission_rationale_disable_any_time">شما می‌توانید اعلان‌ها را در تنظیمات برنامه در هر زمان غیرفعال کنید.</string>
   <!--A message shown on the blocking overlay of the PXE experiment screen while Psiphon is connecting to the server.
     Note: 'Psiphon' should not be translated or transliterated.-->
   <!--Generic 'close' button label-->
@@ -56,31 +108,56 @@
   <!--Generic 'close' alert title-->
   <string name="close_alert_title">بستن</string>
   <!--Generic 'close' alert prompt message-->
+  <string name="close_alert_message">آیا مطمئن هستید که می‌خواهید ببندید؟</string>
   <!--Toast message shown briefly after user completes PXE experiment tests-->
   <!--Message telling users to enable NFC in system settings in order to use NFC connection data exchange feature-->
+  <string name="enable_nfc_in_settings">لطفاً NFC را در تنظیمات فعال کنید</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_data_empty">خطا در ارتباط با دستگاه دیگر. لطفاً بررسی کنید که Psiphon روی دستگاه دیگر باز و متصل است و دوباره امتحان کنید.</string>
   <!--NFC connection data exchange message when waiting for interaction with host device-->
+  <string name="nfc_reader_default_message">در انتظار تعامل NFC با دستگاه دیگر...</string>
   <!--NFC connection data exchange success message-->
+  <string name="nfc_export_success">اطلاعات اتصال با موفقیت مبادله شد!</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_bad_data">خطا در ارتباط با دستگاه دیگر. لطفاً دوباره امتحان کنید.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_lost_tag">دستگاه خیلی سریع حرکت کرد، اتصال قطع شد. لطفاً دوباره امتحان کنید.</string>
   <!--NFC connection data exchange error message-->
+  <string name="nfc_export_unsupported_tag">تگ NFC پشتیبانی نشده کشف شد. آیا Psiphon روی دستگاه دیگر باز و متصل است؟</string>
   <!--NFC connection data exchange message when devices are connected and data is being exchanged-->
+  <string name="nfc_export_reading_data">در حال خواندن داده‌ها...</string>
   <!--Tooltip appearing on long press of the button that opens NFC connection exchange dialog-->
+  <string name="help_connect_fab_tooltip">کمک برای اتصال گرفتن</string>
   <!--Label on the button that opens NFC exchange onboarding screen-->
   <string name="help_btn_label">راهنما</string>
   <!--NFC connection exchange onboarding / tutorial Skip button label, closes the tutorial dialog when pressed-->
+  <string name="onboarding_skip">رد شدن</string>
   <!--NFC connection exchange onboarding / tutorial Next button label, shows next slide when pressed-->
   <string name="onboarding_next">بعدی</string>
   <!--NFC connection exchange onboarding / tutorial Done button label, appears on last slide and closes the tutorial when pressed-->
   <string name="onboarding_done">انجام شد</string>
   <!--NFC connection exchange onboarding / tutorial slide text-->
+  <string name="psiphon_bump_help_1">اگر در اتصال به سرور Psiphon مشکل دارید، دوستی که با موفقیت متصل شده پیدا کنید و اطلاعات اتصال آنها را با استفاده از NFC اشتراک کنید.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_2">مطمئن شوید که Psiphon باز و متصل است و آیکون Psiphon Bump در نوار برنامه روی دستگاه دیگر نمایش داده می‌شود.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_3">با دایلوگ Psiphon Bump باز روی دستگاه شما و برنامه Psiphon باز و متصل روی دستگاه دیگر، دستگاه‌های خود را پشت به پشت قرار دهید تا انتقال داده‌های اطلاعات اتصال آغاز شود.</string>
   <!--NFC connection exchange onboarding / tutorial slide text, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_help_4">پس از تکمیل انتقال داده‌های اطلاعات اتصال و قابل بودن اتصال برنامه Psiphon شما، دایلوگ Psiphon Bump به طور خودکار بسته می‌شود. اگر هنوز نمی‌توانید متصل شوید، می‌توانید تا زمانی که Psiphon با موفقیت متصل شود دوباره امتحان کنید.</string>
   <!--Title of the alert dialog prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
-  <string name="psiphon_bump_need_system_nfc_title"></string>
+  <string name="psiphon_bump_need_system_nfc_title">Psiphon Bump</string>
   <!--Alert dialog message prompting the user to enable NFC in system settings, do not translate or transliterate 'Psiphon Bump'-->
+  <string name="psiphon_bump_need_system_nfc_message">لطفاً NFC را در تنظیمات سیستم روشن کنید تا حالت کمکی Psiphon Bump فعال شود.</string>
   <!--Button that opens NFC related system settings-->
+  <string name="psiphon_bump_need_system_nfc_open_btn">باز کردن تنظیمات</string>
   <!--Approximate location permission rationale alert title.-->
+  <string name="location_permission_rationale_title">موقعیت تقریبی</string>
   <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name, either 'Psiphon' or 'Psiphon Pro'-->
+  <string name="location_permission_rationale_text">لطفاً به %s اجازه دهید تا به موقعیت تقریبی دستگاه شما دسترسی پیدا کند. برآورد داده‌های موقعیت شما برای بهینه‌سازی شبکه Psiphon استفاده می‌شود و تا حدود ۳ کیلومتر مربع دقیق است.</string>
+  <!--Snack bar message shown when an app update is downloaded and ready to be installed-->
+  <string name="app_update_ready_to_install">به‌روزرسانی برنامه آماده است</string>
+  <!--Snack bar action button text to install the downloaded app update-->
+  <string name="app_update_restart">نصب</string>
+  <!--Generic toast message shown when an app update fails to download or install-->
+  <string name="app_update_error">به‌روزرسانی ناموفق</string>
 </resources>

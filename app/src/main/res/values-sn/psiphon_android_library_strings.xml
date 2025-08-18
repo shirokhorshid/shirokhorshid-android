@@ -6,10 +6,15 @@
   <string name="starting_tunnel">Kuenda padandemutande nenzira yakahwanda kwakutanga...</string>
   <string name="stopping_tunnel">Kuenda padandemutande nenzira yakahwanda kwakumira...</string>
   <string name="stopped_tunnel">Kuenda padandemutande nenzira yakahwanda kwamira</string>
+  <string name="socks_port_in_use">Yakakumbirwa local SOCKS proxy port %d iri kushandiswa neimwe app. Hatigone kuenderera mberi.</string>
   <string name="waiting_for_network_connectivity">Takamirira kochekero yetande...</string>
   <string name="psiphon_service_notification_message_connecting">Kukochekera...</string>
+  <string name="psiphon_service_notification_id">Psiphon Service Notification</string>
+  <string name="psiphon_service_notification_channel_name">Psiphon Status Changes</string>
   <string name="psiphon_upgrade_notification_channel_name">Kwidziridzo yesoftware yePsiphon</string>
+  <string name="psiphon_server_alert_notification_channel_name">Psiphon Server Alerts</string>
   <!--Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun.-->
+  <string name="psiphon_native_crash_notification_channel_name">Psiphon Crashes</string>
   <string name="vpn_service_running">Chirango cheVPN chirikushanda</string>
   <string name="vpn_service_revoked">Chirango cheVPN chakanzurwa</string>
   <string name="current_network_type">Tande yamanje: %s</string>
@@ -25,10 +30,12 @@
   <string name="stop">Mira</string>
   <string name="home_tab_name">Pekutangira</string>
   <string name="settings_tab_name">Sarudzo</string>
+  <string name="statistics_tab_name">Zvikwangwani</string>
   <string name="logs_tab_name">Matarwa emakare</string>
   <string name="use_proxy_settings_toggle">Kochekera kuburikidza neHTTP Proxy</string>
   <string name="use_system_proxy_settings_radio">Shandisa gadziro dzesistemu yetande</string>
   <string name="use_custom_proxy_settings_radio">Shandisa gadziro dzinotevera:</string>
+  <string name="custom_proxy_settings_host">Host Address</string>
   <string name="custom_proxy_settings_port">Port</string>
   <string name="region_name_any">Mashandiro arinane</string>
   <string name="region_name_us">kuUnited States </string>
@@ -39,34 +46,138 @@
   <string name="region_name_hk">Hong Kong</string>
   <string name="region_name_sg">Singapore</string>
   <string name="region_name_nl">Netherlands</string>
+  <string name="region_name_in">India</string>
+  <string name="region_name_es">Spain</string>
+  <string name="region_name_at">Austria</string>
+  <string name="region_name_be">Belgium</string>
+  <string name="region_name_bg">Bulgaria</string>
+  <string name="region_name_ch">Switzerland</string>
+  <string name="region_name_cz">Czech Republic</string>
+  <string name="region_name_dk">Denmark</string>
+  <string name="region_name_fr">France</string>
+  <string name="region_name_hu">Hungary</string>
+  <string name="region_name_it">Italy</string>
+  <string name="region_name_no">Norway</string>
+  <string name="region_name_ro">Romania</string>
+  <string name="region_name_se">Sweden</string>
+  <string name="region_name_pl">Poland</string>
+  <string name="region_name_sk">Slovakia</string>
+  <string name="region_name_rs">Serbia</string>
+  <string name="region_name_au">Australia</string>
+  <string name="region_name_ae">United Arab Emirates</string>
+  <string name="region_name_ar">Argentina</string>
+  <string name="region_name_br">Brazil</string>
+  <string name="region_name_cl">Chile</string>
+  <string name="region_name_ee">Estonia</string>
+  <string name="region_name_fi">Finland</string>
+  <string name="region_name_is">Iceland</string>
+  <string name="region_name_ie">Ireland</string>
+  <string name="region_name_ke">Kenya</string>
+  <string name="region_name_kr">Korea</string>
+  <string name="region_name_lt">Lithuania</string>
+  <string name="region_name_lv">Latvia</string>
+  <string name="region_name_mx">Mexico</string>
+  <string name="region_name_tw">Taiwan</string>
+  <string name="region_name_za">South Africa</string>
+  <string name="region_name_id">Indonesia</string>
+  <string name="region_name_nz">New Zealand</string>
+  <string name="region_name_gr">Greece</string>
+  <string name="region_name_ua">Ukraine</string>
+  <string name="region_name_pt">Portugal</string>
+  <string name="region_name_hr">Croatia</string>
+  <string name="region_name_co">Colombia</string>
+  <string name="region_name_my">Malaysia</string>
   <string name="about">Nezve pamusoro pePsiphon</string>
   <string name="feedback">Mhinduro</string>
   <string name="disableTimeoutsPreferenceSummary">Rambidza kupera kwenguva kana paine matande anononoka</string>
+  <string name="region_selector">Sarudza server region</string>
   <string name="network_proxy_connect_invalid_values">Gadziro dzeHTTP Proxy dzisingashande</string>
+  <string name="tunnel_whole_device_exception">Chishandiso chako hachitsigiri whole device tunnel sarudzo nekuda kwekushaikwa kweVpnService API.</string>
   <string name="preference_notifications_title">Zviziviso</string>
+  <string name="preference_vpn_title">VPN</string>
   <!--Description of option to tunnel everything-->
+  <string name="preference_routing_include_all_apps_summary">Tunnel all apps</string>
   <!--Title for selecting apps to be tunneled-->
+  <string name="preference_routing_include_apps_title">Sanganisira Apps</string>
   <!--Description of option to tunnel only selected apps-->
+  <string name="preference_routing_include_apps_summary">Tunnel masarudzwa apps chete</string>
   <!--Title for selecting apps to be excluded-->
+  <string name="preference_routing_exclude_apps_title">Siya Apps</string>
   <!--Description of option to tunnel everything but selected apps-->
+  <string name="preference_routing_exclude_apps_summary">Usatunnel masarudzwa apps</string>
   <!--Log line for when an app is tunneled-->
+  <string name="individual_app_included">Kutunnel app: %s</string>
   <!--Log line for when an app is excluded from being tunneled-->
+  <string name="individual_app_excluded">App yakasiywa kubva kutunnel: %s</string>
   <!--Log line for when all apps will be tunneled-->
+  <string name="no_apps_excluded">Hapana applications dzakasiywa kubva kutunnel</string>
   <!--Title for option to select apps for routing changes-->
+  <string name="preference_routing_select_apps_title">Sarudza apps</string>
   <!--Description of option to select apps to exclusively tunnel-->
+  <plurals name="preference_routing_select_apps_to_include_summary">
+    <item quantity="one">%d app ichaitunnel kuburikidza neVPN</item>
+    <item quantity="other">%d apps dzichaitunnel kuburikidza neVPN</item>
+  </plurals>
   <!--Description of option to select apps to not tunnel-->
+  <plurals name="preference_routing_select_apps_to_exclude_summary">
+    <item quantity="one">%d app ichasiywa kubva kuVPN</item>
+    <item quantity="other">%d apps dzichasiywa kubva kuVPN</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when tunneling all apps-->
+  <string name="psiphon_service_notification_message_vpn_all_apps">Kutunnel apps dzose</string>
   <!--Vpn service notification text shown in the toolbar when tunneling only selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_include_apps">
+    <item quantity="one">Kutunnel %d app</item>
+    <item quantity="other">Kutunnel %d apps</item>
+  </plurals>
   <!--Vpn service notification text shown in the toolbar when not tunneling selected apps-->
+  <plurals name="psiphon_service_notification_message_vpn_exclude_apps">
+    <item quantity="one">%d app yakasiywa kubva kutunnel</item>
+    <item quantity="other">%d apps dzakasiywa kubva kutunnel</item>
+  </plurals>
   <!--Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon"-->
+  <string name="vpn_preferences_default_exclusions_footer_text">Dzimwe Psiphon apps dzinosiywa otomatiki kubva kuVPN routing kuti dzishande zvakanaka. Kusiywa uku hakugone kushandurwa.</string>
+  <string name="preference_routing_all_apps_tunnel_summary">Apps dzose dzichaitunnel kuburikidza neVPN</string>
   <string name="preference_notifications_with_sound_title">Ruzha</string>
+  <string name="preference_notifications_with_sound_summary">Ridza ruzha kana connection status ikachinja</string>
+  <string name="preference_notifications_with_vibrate_title">Dedera</string>
+  <string name="preference_notifications_with_vibrate_summary">Dedera kana connection status ikachinja</string>
+  <string name="downloadWiFiOnlyPreferenceSummary">Dhawunrodha upgrades paWi-Fi chete</string>
   <string name="moreOptions">Sarudzo dzimwe</string>
   <string name="proxySettingsCategoryTitle">Gadziro dzeProxy</string>
+  <string name="custom_proxy_host_summary">Proxy server hostname kana IP</string>
   <string name="custom_proxy_port_summary">Port yeProxy server</string>
+  <string name="use_proxy_authentication_title">Shandisa proxy authentication</string>
+  <string name="proxy_username_title">Proxy username</string>
+  <string name="proxy_username_summary">Username yeproxy authentication</string>
+  <string name="proxy_password_title">Proxy password</string>
+  <string name="proxy_password_summary">Password yeproxy authentication</string>
+  <string name="proxy_domain_title">Proxy domain</string>
+  <string name="proxy_domain_summary">Domain yeproxy authentication</string>
+  <string name="http_proxy_port_in_use">Yakakumbirwa local HTTP proxy port %d iri kushandiswa neimwe app. Hatigone kuenderera mberi.</string>
   <!--When the split tunnel option is enabled, the current region is used to determine which requests should and shouldn't be tunneled. This log message tells the user which region (in '%s') is being used for this decision.-->
+  <string name="split_tunnel_region">Split tunnel region: %s</string>
   <!--When the split tunnel option is enabled, this log message is shown when a domain is not tunneled (because it's detected as being in the same region as the user). The '%s' is the domain name.-->
+  <string name="untunneled_address">Asina kutunneled: %s</string>
   <!--The log message is shown to the user if an upstream proxy error occurs. The '%s' is the detail of the error.-->
+  <string name="upstream_proxy_error">Upstream proxy error: %s</string>
+  <string name="start_tunnel_failed">Kutanga tunnel kwakakonesa: %s</string>
+  <string name="vpn_exclusions_conflict">Pane imwe kana dzakawanda apps dzinopesana muhutachisi hwezvino hweVPN. Tapota enda kuVPN settings uye ushanduke ku\'Tunnel all apps\' mode kuti ukochekere.</string>
+  <string name="tunnel_connecting">Tunnel irikukochekera...</string>
+  <string name="tunnel_connected">Tunnel yakochekera</string>
   <string name="waiting">Kumirira...</string>
+  <string name="label_vpn_settings">VPN settings</string>
+  <string name="label_proxy_settings">Proxy settings</string>
+  <string name="preference_summary_no_proxy">Hapana proxy</string>
+  <string name="preference_summary_custom_proxy">Custom proxy</string>
+  <string name="preference_summary_system_proxy">System proxy</string>
+  <string name="disableTimeoutsPreferenceTitle">Dzima timeouts</string>
+  <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi chete</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceTitle">Ratidza MalAware alerts</string>
+  <string name="unsafeTrafficAlertsOptInPreferenceSummary">Uziviswe kana Psiphon ikaona malware traffic inobva pachishandiso chako.</string>
+  <string name="aboutMalAware">Nezve MalAware</string>
   <!--Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump'-->
+  <string name="nfcBumpPreferenceTitle">Bvumidza Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
+  <string name="nfcBumpPreferenceSummary">Shandisa NFC kugova Psiphon connection data nezvimwe zvishandiso.</string>
 </resources>
