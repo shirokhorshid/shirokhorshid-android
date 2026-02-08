@@ -12,6 +12,9 @@ on:
         type: string
         default: 'feat/inproxy-client-geoip-filtering'
 
+permissions:
+  contents: write
+
 jobs:
   build-aar:
     name: Build tunnel-core AAR
@@ -45,25 +48,24 @@ jobs:
         run: |
           echo "GOPATH=${{ runner.temp }}/gopath" >> $GITHUB_ENV
           echo "GO111MODULE=off" >> $GITHUB_ENV
+          echo "${{ runner.temp }}/gopath/bin" >> $GITHUB_PATH
           mkdir -p "${{ runner.temp }}/gopath/src/github.com/Psiphon-Labs"
           ln -s "$GITHUB_WORKSPACE/psiphon-tunnel-core" \
             "${{ runner.temp }}/gopath/src/github.com/Psiphon-Labs/psiphon-tunnel-core"
 
       - name: Install vendored gomobile
         run: |
-          GOPATH="${{ runner.temp }}/gopath"
           mkdir -p "$GOPATH/src/golang.org/x"
           cp -r psiphon-tunnel-core/MobileLibrary/go-mobile "$GOPATH/src/golang.org/x/mobile"
           # Patch gomobile to not fetch gobind from network
           sed -i 's/golang.org\/x\/mobile\/cmd\/gobind@latest/golang.org\/x\/mobile\/cmd\/gobind/' \
             "$GOPATH/src/golang.org/x/mobile/cmd/gomobile/init.go"
-          GO111MODULE=off go install golang.org/x/mobile/cmd/gomobile
-          GO111MODULE=off go install golang.org/x/mobile/cmd/gobind
-          "$GOPATH/bin/gomobile" init -v
+          go install golang.org/x/mobile/cmd/gomobile
+          go install golang.org/x/mobile/cmd/gobind
+          gomobile init -v
 
       - name: Build AAR with gomobile bind
         run: |
-          GOPATH="${{ runner.temp }}/gopath"
           BUILDDATE=$(date --iso-8601=seconds)
           BUILDREPO=$(cd "$GITHUB_WORKSPACE/psiphon-tunnel-core" && git remote get-url origin)
           BUILDREV=$(cd "$GITHUB_WORKSPACE/psiphon-tunnel-core" && git rev-parse --short HEAD)
@@ -82,7 +84,7 @@ jobs:
           export CGO_LDFLAGS="-Wl,-z,max-page-size=16384,-z,common-page-size=16384"
           export GOCACHE=/tmp/go-cache
 
-          "$GOPATH/bin/gomobile" bind -v \
+          gomobile bind -v \
             -target=android/arm,android/arm64 \
             -tags="$BUILD_TAGS" \
             -ldflags="$LDFLAGS" \
@@ -169,25 +171,26 @@ jobs:
       - name: Fetch server entries
         run: |
           pip3 install cryptography --quiet
-          cat > fetch_server_list.py << 'FETCHSCRIPT'
-${{ secrets.FETCH_SERVER_LIST_SCRIPT }}
-FETCHSCRIPT
+          printenv FETCH_SCRIPT > fetch_server_list.py
           SERVER_ENTRIES_OUTPUT=server_entries.txt python3 fetch_server_list.py
           rm fetch_server_list.py
         env:
+          FETCH_SCRIPT: ${{ secrets.FETCH_SERVER_LIST_SCRIPT }}
           PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
           PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
 
       - name: Set up signing
         run: |
-          mkdir -p /Data/CodeSigning
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > /Data/CodeSigning/release.keystore
-          cat > signing.properties << 'EOF'
-storeFile=../../Data/CodeSigning/release.keystore
-storePassword=${{ secrets.KEYSTORE_PASSWORD }}
-keyAlias=${{ secrets.KEY_ALIAS }}
-keyPassword=${{ secrets.KEY_PASSWORD }}
-EOF
+          echo "$KEYSTORE_B64" | base64 -d > release.keystore
+          printf 'STORE_FILE=../release.keystore\n' > signing.properties
+          printf 'STORE_PASSWORD=%s\n' "$STORE_PASSWORD" >> signing.properties
+          printf 'KEY_ALIAS=%s\n' "$KEY_ALIAS" >> signing.properties
+          printf 'KEY_PASSWORD=%s\n' "$KEY_PASSWORD" >> signing.properties
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
       - name: Set version info
         id: version
@@ -228,17 +231,58 @@ EOF
       - name: Clean up secrets
         if: always()
         run: |
-          rm -f server_entries.txt signing.properties
-          rm -f /Data/CodeSigning/release.keystore
+          rm -f server_entries.txt signing.properties release.keystore
 
-      - name: Create GitHub Release
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shirokhorshid-apk
+          path: app/build/outputs/apk/release/ShirOKhorshid-release.apk
+          retention-days: 1
+
+  release:
+    name: Create GitHub Release
+    needs: build-apk
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: shirokhorshid-apk
+
+      - name: Set version info
+        id: version
         run: |
-          APK=app/build/outputs/apk/release/ShirOKhorshid-release.apk
-          mv "$APK" "ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
+          CALVER=$(date -u +%Y.%m.%d)
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          echo "calver=$CALVER" >> "$GITHUB_OUTPUT"
+          echo "tag=v${CALVER}-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare release assets
+        run: |
+          mv ShirOKhorshid-release.apk "ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
+          APK="ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
+          SHA256=$(sha256sum "$APK" | cut -d' ' -f1)
+          MD5=$(md5sum "$APK" | cut -d' ' -f1)
+          echo "::notice::SHA-256: $SHA256"
+          echo "::notice::MD5: $MD5"
+          echo "### Checksums" > checksums.txt
+          echo '```' >> checksums.txt
+          echo "SHA-256: $SHA256" >> checksums.txt
+          echo "MD5:     $MD5" >> checksums.txt
+          echo '```' >> checksums.txt
+          echo "" >> checksums.txt
+          echo "Built from commit ${{ github.sha }}" >> checksums.txt
+
+      - name: Create release
+        run: |
+          APK="ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
           gh release create "${{ steps.version.outputs.tag }}" \
-            "ShirOKhorshid-${{ steps.version.outputs.calver }}.apk" \
+            "$APK" \
+            --repo "${{ github.repository }}" \
             --title "ShirOKhorshid ${{ steps.version.outputs.calver }}" \
-            --notes "Built from commit ${{ github.sha }}" \
+            --notes-file checksums.txt \
             --latest
         env:
           GH_TOKEN: ${{ github.token }}
