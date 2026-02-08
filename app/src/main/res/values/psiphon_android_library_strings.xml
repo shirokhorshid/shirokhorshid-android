@@ -10,19 +10,19 @@
     <string name="socks_port_in_use">Requested local SOCKS proxy port %d is already in use by another app.  Cannot continue.</string>
     <string name="waiting_for_network_connectivity">Waiting for network connectivity…</string>
     <string name="psiphon_service_notification_message_connecting">Connecting…</string>
-    <string name="psiphon_service_notification_id">Psiphon Service Notification</string>
-    <string name="psiphon_service_notification_channel_name">Psiphon Status Changes</string>
-    <string name="psiphon_upgrade_notification_channel_name">Psiphon Upgrade</string>
-    <string name="psiphon_server_alert_notification_channel_name">Psiphon Server Alerts</string>
+    <string name="psiphon_service_notification_id">Shir o Khorshid Service Notification</string>
+    <string name="psiphon_service_notification_channel_name">Shir o Khorshid Status Changes</string>
+    <string name="psiphon_upgrade_notification_channel_name">Shir o Khorshid Upgrade</string>
+    <string name="psiphon_server_alert_notification_channel_name">Shir o Khorshid Server Alerts</string>
     <!-- Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun. -->
-    <string name="psiphon_native_crash_notification_channel_name">Psiphon Crashes</string>
+    <string name="psiphon_native_crash_notification_channel_name">Shir o Khorshid Crashes</string>
     <string name="vpn_service_running">VPN service running</string>
     <string name="vpn_service_revoked">VPN service revoked</string>
     <string name="current_network_type">Current network: %s</string>
     <!-- Do not translate or transliterate "Psiphon" -->
-    <string name="UpgradeManager.UpgradePromptTitle">Psiphon Upgrade</string>
+    <string name="UpgradeManager.UpgradePromptTitle">Shir o Khorshid Upgrade</string>
     <!-- Do not translate or transliterate "Psiphon" -->
-    <string name="UpgradeManager.UpgradePromptMessage">An upgrade for Psiphon is ready to be installed.</string>
+    <string name="UpgradeManager.UpgradePromptMessage">An upgrade for Shir o Khorshid is ready to be installed.</string>
     <string name="connected_elapsed_time">Connected: %s</string>
     <string name="disconnected">Disconnected</string>
     <string name="label_sent">Sent</string>
@@ -88,9 +88,23 @@
     <string name="region_name_hr">Croatia</string>
     <string name="region_name_co">Colombia</string>
     <string name="region_name_my">Malaysia</string>
-    <string name="about">About Psiphon</string>
+    <string name="about">About Shir o Khorshid</string>
     <string name="feedback">Feedback</string>
     <string name="disableTimeoutsPreferenceSummary">Disable timeouts for slow networks</string>
+    <string name="protocolSelectionPreferenceTitle">Connection Protocol</string>
+    <string name="protocolSelectionPreferenceSummary">Choose how the app connects to servers</string>
+    <string name="protocolSelectionSummaryAuto">Auto - The app chooses the best protocol</string>
+    <string name="protocolSelectionSummaryConduit">Conduit - Connect via volunteer relays (censored country proxies are blocked)</string>
+    <string name="protocolSelectionSummaryDirect">Direct - Connect directly to Psiphon servers</string>
+    <string name="protocol_auto">Auto (Recommended)</string>
+    <string name="protocol_conduit">Conduit Relays</string>
+    <string name="protocol_direct">Direct Connection</string>
+    <string name="rejectCensoredCountryProxiesPreferenceTitle">Reject proxies in censored countries</string>
+    <string name="rejectCensoredCountryProxiesPreferenceSummary">Block Conduit stations located in Iran, China, Russia, and other censored countries</string>
+    <string name="conduit_proxy_trying">Trying Conduit relay (country: %s)</string>
+    <string name="conduit_proxy_connected">Tunnel connected via Conduit (protocol: %1$s, country: %2$s)</string>
+    <string name="conduit_proxy_connected_no_country">Tunnel connected via Conduit (protocol: %s)</string>
+    <string name="tunnel_connected_protocol">Tunnel connected (protocol: %s)</string>
     <string name="region_selector">Select server region</string>
     <string name="network_proxy_connect_invalid_values">Invalid HTTP Proxy settings</string>
     <string name="tunnel_whole_device_exception">Your device does not support the whole device tunnel option due to missing VpnService API.</string>
@@ -136,8 +150,8 @@
         <item quantity="one">%d app excluded from the tunnel</item>
         <item quantity="other">%d apps excluded from the tunnel</item>
     </plurals>
-    <!-- Text shown in the footer of the VPN settings screen notifying the user that certain Psiphon apps are automatically excluded from VPN routing, do not translate or transliterate "Psiphon" -->
-    <string name="vpn_preferences_default_exclusions_footer_text">Certain Psiphon apps are automatically excluded from VPN routing to ensure proper functionality. These exclusions cannot be modified.</string>
+    <!-- Text shown in the footer of the VPN settings screen notifying the user that certain apps are automatically excluded from VPN routing -->
+    <string name="vpn_preferences_default_exclusions_footer_text">Certain related apps are automatically excluded from VPN routing to ensure proper functionality. These exclusions cannot be modified.</string>
     <string name="preference_routing_all_apps_tunnel_summary">All apps will be tunnelled via VPN</string>
     <string name="preference_notifications_with_sound_title">Sound</string>
     <string name="preference_notifications_with_sound_summary">Play sound when connection status changes</string>
@@ -181,11 +195,11 @@
     <string name="downloadWiFiOnlyPreferenceTitle">Wi-Fi only</string>
 
     <string name="unsafeTrafficAlertsOptInPreferenceTitle">Show MalAware alerts</string>
-    <string name="unsafeTrafficAlertsOptInPreferenceSummary">Get notified when Psiphon detects malware traffic originating from your device.</string>
+    <string name="unsafeTrafficAlertsOptInPreferenceSummary">Get notified when the app detects malware traffic originating from your device.</string>
     <string name="aboutMalAware">About MalAware</string>
 
-    <!-- Preference title for Psiphon Bump (NFC based connection data exchange), do not transliterate or translate 'Psiphon Bump' -->
-    <string name="nfcBumpPreferenceTitle">Enable Psiphon Bump</string>
-    <!-- Summary for Psiphon Bump preference -->
-    <string name="nfcBumpPreferenceSummary">Use NFC to share Psiphon connection data with other devices.</string>
+    <!-- Preference title for NFC based connection data exchange -->
+    <string name="nfcBumpPreferenceTitle">Enable NFC Bump</string>
+    <!-- Summary for NFC Bump preference -->
+    <string name="nfcBumpPreferenceSummary">Use NFC to share connection data with other devices.</string>
 </resources>

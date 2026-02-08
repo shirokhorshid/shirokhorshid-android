@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Psiphon</string>
-    <string name="nfc_emulation_service_description" translatable="false">Psiphon HCE service</string>
-    <string name="psiphon_nfc_aid_description" translatable="false">Psiphon NFC AID</string>
+    <string name="app_name">Shir o Khorshid</string>
+    <string name="nfc_emulation_service_description" translatable="false">Shir o Khorshid HCE service</string>
+    <string name="psiphon_nfc_aid_description" translatable="false">Shir o Khorshid NFC AID</string>
+
+    <!-- Disclaimer strings -->
+    <string name="unofficial_disclaimer_short" translatable="false">Unofficial Psiphon client. Not affiliated with or endorsed by Psiphon Inc.</string>
+    <string name="unofficial_disclaimer_about_title" translatable="false">About Shir o Khorshid</string>
+    <string name="unofficial_disclaimer_about_body" translatable="false">"Shir o Khorshid is an unofficial, independently maintained build of the Psiphon open-source client software. This application is NOT developed, endorsed, sponsored, or affiliated with Psiphon Inc. in any way.\n\nFor the official Psiphon application, please visit:\nhttps://psiphon.ca\n\nMODIFICATIONS\n\nThis build includes modifications to the original Psiphon source code, including but not limited to: rebranding, protocol selection settings, proxy region filtering, and UI changes. The complete source code is available at:\nhttps://github.com/shirokhorshid/psiphon-android\n\nTHIRD-PARTY NOTICES\n\nThis product includes GeoLite2 Data created by MaxMind, available from https://www.maxmind.com. Licensed under CC BY-SA 4.0.\n\nDISCLAIMER OF WARRANTY AND LIABILITY\n\nTHIS SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, CONTRIBUTORS, OR DISTRIBUTORS OF THIS SOFTWARE BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\nYOU USE THIS APPLICATION ENTIRELY AT YOUR OWN RISK. THE DEVELOPERS AND DISTRIBUTORS OF THIS APPLICATION MAKE NO REPRESENTATIONS OR WARRANTIES REGARDING THE SECURITY, PRIVACY, RELIABILITY, OR AVAILABILITY OF THIS SOFTWARE. BY USING THIS APPLICATION, YOU ACKNOWLEDGE AND AGREE THAT YOU ARE SOLELY RESPONSIBLE FOR ANY AND ALL CONSEQUENCES ARISING FROM SUCH USE.\n\nThis software is distributed under the GNU General Public License v3.0 (GPL-3.0), based on code originally developed by Psiphon Inc."</string>
+    <string name="official_psiphon_link" translatable="false">https://psiphon.ca</string>
+    <string name="official_psiphon_link_label" translatable="false">Visit official Psiphon website</string>
 </resources>

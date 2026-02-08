@@ -25,7 +25,7 @@
                 <ImageButton
                     android:id="@+id/statusViewImage"
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp"
+                    android:layout_height="500dp"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     android:padding="20dp"
@@ -39,10 +39,27 @@
                     android:text="" />
 
                 <TextView
-                    android:id="@+id/lastlogline"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/disclaimerNotice"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:textSize="11sp"
+                    android:textColor="#888888"
+                    android:text="@string/unofficial_disclaimer_short" />
+
+                <TextView
+                    android:id="@+id/lastlogline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAlignment="center"
                     android:text="" />
             </LinearLayout>
         </ScrollView>

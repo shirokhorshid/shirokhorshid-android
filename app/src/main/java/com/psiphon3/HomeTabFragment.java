@@ -19,6 +19,8 @@
 
 package com.psiphon3;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -61,6 +63,7 @@ public class HomeTabFragment extends Fragment {
     private boolean isWebViewLoaded = false;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private TextView lastLogEntryTv;
+    private ObjectAnimator pulseAnimator;
 
     @Nullable
     @Override
@@ -82,6 +85,9 @@ public class HomeTabFragment extends Fragment {
 
         statusLayout = view.findViewById(R.id.statusLayout);
         statusViewImage = view.findViewById(R.id.statusViewImage);
+        // Use Lion & Sun emblem for all states; connection state shown via alpha/animation
+        statusViewImage.setImageResource(R.drawable.lion_and_sun);
+        statusViewImage.setImageAlpha(77); // Start dimmed (disconnected)
 
         lastLogEntryTv = view.findViewById(R.id.lastlogline);
 
@@ -132,23 +138,10 @@ public class HomeTabFragment extends Fragment {
                 // Load the embedded web view if needed
                 .switchMap(tunnelState -> {
                     // Check if tunnel is connected
-                    if (!tunnelState.isRunning() || !tunnelState.connectionData().isConnected()) {
-                        return Flowable.empty();
-                    }
-                    // Check if there is a URL to load
-                    ArrayList<String> homePages = tunnelState.connectionData().homePages();
-                    if (homePages == null || homePages.size() == 0) {
-                       return Flowable.empty();
-                    }
-                    String url = homePages.get(0);
-
-                    // Check if the web view has loaded the URL already or the URL should not
-                    // be loaded in the embedded view
-                    if (isWebViewLoaded || !MainActivity.shouldLoadInEmbeddedWebView(url)) {
-                        return Flowable.empty();
-                    }
-                    // Pass the URL downstream to be loaded in the embedded web view
-                    return Flowable.just(url);
+                    // Sponsor home pages disabled in Shir o Khorshid — these are
+                    // Psiphon Inc promotional pages (e.g. "Install Conduit" prompts)
+                    // that are not appropriate for this community build.
+                    return Flowable.<String>empty();
                 })
                 .doOnNext(this::loadEmbeddedWebView)
                 .subscribe());
@@ -158,6 +151,7 @@ public class HomeTabFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         compositeDisposable.dispose();
+        stopPulseAnimation();
         if (sponsorHomePage != null) {
             sponsorHomePage.stop();
         }
@@ -166,13 +160,35 @@ public class HomeTabFragment extends Fragment {
     private void updateStatusUI(TunnelState tunnelState) {
         if (tunnelState.isRunning()) {
             if (tunnelState.connectionData().isConnected()) {
-                statusViewImage.setImageResource(R.drawable.status_icon_connected);
+                // Connected: full brightness, no animation
+                stopPulseAnimation();
+                statusViewImage.setImageAlpha(255);
             } else {
-                statusViewImage.setImageResource(R.drawable.status_icon_connecting);
+                // Connecting: pulse animation
+                startPulseAnimation();
             }
         } else {
-            // the tunnel state is either unknown or not running
-            statusViewImage.setImageResource(R.drawable.status_icon_disconnected);
+            // Disconnected: dim, no animation
+            stopPulseAnimation();
+            statusViewImage.setImageAlpha(77);
+        }
+    }
+
+    private void startPulseAnimation() {
+        if (pulseAnimator != null && pulseAnimator.isRunning()) {
+            return; // Already pulsing
+        }
+        pulseAnimator = ObjectAnimator.ofInt(statusViewImage, "imageAlpha", 77, 255);
+        pulseAnimator.setDuration(1000);
+        pulseAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        pulseAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        pulseAnimator.start();
+    }
+
+    private void stopPulseAnimation() {
+        if (pulseAnimator != null) {
+            pulseAnimator.cancel();
+            pulseAnimator = null;
         }
     }
 

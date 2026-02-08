@@ -138,3 +138,10 @@ build.properties
 # Ignore .cxx directory in the app module
 app/.cxx
 
+.env.secrets
+EmbeddedValues.java
+signing.properties
+app/src/main/assets/GeoLite2-Country.mmdb
+fetch_server_list.py
+server_entries.txt
+app/libs/ca.psiphon.aar

@@ -1,2 +1,0 @@
-app/libs/*.aar filter=lfs diff=lfs merge=lfs -text
-app/libs/*.jar filter=lfs diff=lfs merge=lfs -text

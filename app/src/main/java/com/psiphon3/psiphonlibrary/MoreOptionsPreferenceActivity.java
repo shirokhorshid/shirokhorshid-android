@@ -24,10 +24,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.CheckBoxPreference;
+import androidx.preference.ListPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -111,6 +117,17 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                 preferences.removePreferenceRecursively(getString(R.string.nfcBumpPreference));
             }
 
+            // Protocol selection
+            ListPreference protocolSelectionList =
+                    (ListPreference) preferences.findPreference(getString(R.string.protocolSelectionPreference));
+            String protocolValue = preferenceGetter.getString(getString(R.string.protocolSelectionPreference), "auto");
+            protocolSelectionList.setValue(protocolValue);
+            updateProtocolSelectionSummary(protocolSelectionList, protocolValue);
+            protocolSelectionList.setOnPreferenceChangeListener((preference, newValue) -> {
+                updateProtocolSelectionSummary((ListPreference) preference, (String) newValue);
+                return true;
+            });
+
             setupLanguageSelector(preferences);
             setupAbouts(preferences);
         }
@@ -165,6 +182,21 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             requireActivity().finish();
         }
 
+        private void updateProtocolSelectionSummary(ListPreference preference, String value) {
+            switch (value) {
+                case "conduit":
+                    preference.setSummary(getString(R.string.protocolSelectionSummaryConduit));
+                    break;
+                case "direct":
+                    preference.setSummary(getString(R.string.protocolSelectionSummaryDirect));
+                    break;
+                case "auto":
+                default:
+                    preference.setSummary(getString(R.string.protocolSelectionSummaryAuto));
+                    break;
+            }
+        }
+
         private void setupLanguageSelector(PreferenceScreen preferences) {
             // Get the preference view and create the locale manager with the app's context.
             // Cannot use this activity as the context as we also need MainActivity to pick up on it.
@@ -215,14 +247,47 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         private void setupAbouts(PreferenceScreen preferences) {
             setupAbout(preferences.findPreference(getString(R.string.preferenceAbout)), EmbeddedValues.INFO_LINK_URL);
             setupAbout(preferences.findPreference(getString(R.string.preferenceAboutMalAware)), getString(R.string.AboutMalAwareLink));
+            setupAboutShirOKhorshid(preferences.findPreference("preferenceAboutShirOKhorshid"));
         }
 
         private void setupAbout(Preference pref, String aboutURL) {
+            if (pref == null) return;
             final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(aboutURL));
             pref.setOnPreferenceClickListener(preference -> {
                 try {
                     requireContext().startActivity(browserIntent);
                 } catch (ActivityNotFoundException ignored) {
+                }
+                return true;
+            });
+        }
+
+        private void setupAboutShirOKhorshid(Preference pref) {
+            if (pref == null) return;
+            pref.setOnPreferenceClickListener(preference -> {
+                SpannableString message = new SpannableString(
+                        getString(R.string.unofficial_disclaimer_about_body));
+                Linkify.addLinks(message, Linkify.WEB_URLS);
+
+                AlertDialog dialog = new AlertDialog.Builder(requireContext())
+                        .setTitle(getString(R.string.unofficial_disclaimer_about_title))
+                        .setMessage(message)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .setNeutralButton(getString(R.string.official_psiphon_link_label), (d, which) -> {
+                            try {
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                                        Uri.parse(getString(R.string.official_psiphon_link)));
+                                requireContext().startActivity(browserIntent);
+                            } catch (ActivityNotFoundException ignored) {
+                            }
+                        })
+                        .create();
+                dialog.show();
+
+                // Make links clickable in the dialog message
+                TextView messageView = dialog.findViewById(android.R.id.message);
+                if (messageView != null) {
+                    messageView.setMovementMethod(LinkMovementMethod.getInstance());
                 }
                 return true;
             });

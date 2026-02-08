@@ -151,6 +151,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
     static class Config {
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
+        String protocolSelection = "auto"; // "auto", "conduit", or "direct"
         String sponsorId = EmbeddedValues.SPONSOR_ID;
         String deviceLocation = "";
     }
@@ -536,6 +537,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             tunnelConfig.disableTimeouts = multiProcessPreferences
                     .getBoolean(getContext().getString(R.string.disableTimeoutsPreference),
                             false);
+            tunnelConfig.protocolSelection = multiProcessPreferences
+                    .getString(getContext().getString(R.string.protocolSelectionPreference),
+                            "auto");
             return tunnelConfig;
         });
 
@@ -911,6 +915,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
     }
 
     private final static String LEGACY_SERVER_ENTRY_FILENAME = "psiphon_server_entries.json";
+    private final static String GEOIP_DATABASE_FILENAME = "GeoLite2-Country.mmdb";
 
     static String getServerEntries(Context context) {
         StringBuilder list = new StringBuilder();
@@ -925,6 +930,58 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
 
         return list.toString();
     }
+
+    /**
+     * Copy the GeoIP database from assets to the app's files directory if it doesn't exist
+     * or is older than the APK. Returns the path to the database file, or null if copy failed.
+     */
+    private static String copyGeoIPDatabaseFromAssets(Context context) {
+        File geoIPFile = new File(context.getFilesDir(), GEOIP_DATABASE_FILENAME);
+
+        try {
+            // Check if we need to update the database by comparing APK install time
+            long apkLastModified = context.getPackageManager()
+                    .getPackageInfo(context.getPackageName(), 0).lastUpdateTime;
+
+            if (geoIPFile.exists() && geoIPFile.lastModified() >= apkLastModified) {
+                // Database is up to date
+                return geoIPFile.getAbsolutePath();
+            }
+
+            // Copy from assets
+            java.io.InputStream in = context.getAssets().open(GEOIP_DATABASE_FILENAME);
+            java.io.FileOutputStream out = new java.io.FileOutputStream(geoIPFile);
+            byte[] buffer = new byte[8192];
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                out.write(buffer, 0, read);
+            }
+            out.flush();
+            out.close();
+            in.close();
+
+            // Set last modified to APK time so we know it's current
+            geoIPFile.setLastModified(apkLastModified);
+
+            MyLog.i("GeoIP", "copied", true, "path", geoIPFile.getAbsolutePath());
+            return geoIPFile.getAbsolutePath();
+        } catch (Exception e) {
+            MyLog.w("GeoIP", "copyFailed", true, "error", e.getMessage());
+            return null;
+        }
+    }
+
+    // List of country codes for countries known to heavily censor internet access.
+    // These proxies are rejected to prevent connecting through potentially malicious
+    // or ineffective proxies located in censored countries.
+    private static final String[] CENSORED_COUNTRY_CODES = {
+            "IR",  // Iran
+            "CN",  // China
+            "RU",  // Russia
+            "BY",  // Belarus
+            "TM",  // Turkmenistan
+            "KP",  // North Korea
+    };
 
     private Handler sendDataTransferStatsHandler = new Handler();
     private final long sendDataTransferStatsIntervalMs = 1000;
@@ -1348,6 +1405,46 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 json.put("NetworkLatencyMultiplierLambda", 0.1);
             }
 
+            // Protocol selection: auto, conduit, or direct
+            String protocolSelection = tunnelConfig.protocolSelection;
+            MyLog.i("ProtocolSelection", "mode", protocolSelection);
+            
+            if ("conduit".equals(protocolSelection)) {
+                // Conduit: only use inproxy protocols
+                JSONArray limitProtocols = new JSONArray();
+                limitProtocols.put("INPROXY-WEBRTC-OSSH");
+                limitProtocols.put("INPROXY-WEBRTC-UNFRONTED-MEEK-HTTPS-OSSH");
+                limitProtocols.put("INPROXY-WEBRTC-UNFRONTED-MEEK-SESSION-TICKET-OSSH");
+                limitProtocols.put("INPROXY-WEBRTC-FRONTED-MEEK-OSSH");
+                limitProtocols.put("INPROXY-WEBRTC-FRONTED-MEEK-HTTP-OSSH");
+                limitProtocols.put("INPROXY-WEBRTC-QUIC-OSSH");
+                json.put("LimitTunnelProtocols", limitProtocols);
+                
+                // Load GeoIP database for proxy country display and rejection
+                String geoIPPath = copyGeoIPDatabaseFromAssets(context);
+                if (geoIPPath != null) {
+                    json.put("GeoIPDatabasePath", geoIPPath);
+                    
+                    // Always reject proxies from censored countries
+                    JSONArray rejectCountryCodes = new JSONArray();
+                    for (String countryCode : CENSORED_COUNTRY_CODES) {
+                        rejectCountryCodes.put(countryCode);
+                    }
+                    json.put("InproxyRejectProxyCountryCodes", rejectCountryCodes);
+                    MyLog.i("ConduitMode", "rejectCountries", java.util.Arrays.toString(CENSORED_COUNTRY_CODES));
+                }
+            } else if ("direct".equals(protocolSelection)) {
+                // Direct: only use non-inproxy, non-meek protocols
+                JSONArray limitProtocols = new JSONArray();
+                limitProtocols.put("SSH");
+                limitProtocols.put("OSSH");
+                limitProtocols.put("TLS-OSSH");
+                limitProtocols.put("QUIC-OSSH");
+                limitProtocols.put("SHADOWSOCKS-OSSH");
+                json.put("LimitTunnelProtocols", limitProtocols);
+            }
+            // For "auto" mode, don't set LimitTunnelProtocols - let Psiphon choose
+
             json.put("EmitServerAlerts", true);
 
             JSONArray clientFeaturesJsonArray = new JSONArray();
@@ -1427,6 +1524,46 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
+                // Check for Conduit proxy messages and display in UI
+                
+                // Pattern for "trying Conduit relay (country: XX)"
+                if (message.contains("trying Conduit relay (country:")) {
+                    java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\(country: ([A-Z]{2})\\)");
+                    java.util.regex.Matcher matcher = pattern.matcher(message);
+                    if (matcher.find()) {
+                        String countryCode = matcher.group(1);
+                        MyLog.i(R.string.conduit_proxy_trying, MyLog.Sensitivity.NOT_SENSITIVE, countryCode);
+                    }
+                }
+                // Pattern for "tunnel connected via Conduit relay (protocol: XXX, country: XX)"
+                else if (message.contains("tunnel connected via Conduit relay (protocol:") && message.contains("country:")) {
+                    java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\(protocol: ([^,]+), country: ([A-Z]{2})\\)");
+                    java.util.regex.Matcher matcher = pattern.matcher(message);
+                    if (matcher.find()) {
+                        String protocol = matcher.group(1);
+                        String countryCode = matcher.group(2);
+                        MyLog.i(R.string.conduit_proxy_connected, MyLog.Sensitivity.NOT_SENSITIVE, protocol, countryCode);
+                    }
+                }
+                // Pattern for "tunnel connected via Conduit relay (protocol: XXX)" - no country (replay)
+                else if (message.contains("tunnel connected via Conduit relay (protocol:")) {
+                    java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\(protocol: ([^)]+)\\)");
+                    java.util.regex.Matcher matcher = pattern.matcher(message);
+                    if (matcher.find()) {
+                        String protocol = matcher.group(1);
+                        MyLog.i(R.string.conduit_proxy_connected_no_country, MyLog.Sensitivity.NOT_SENSITIVE, protocol);
+                    }
+                }
+                // Pattern for "tunnel connected (protocol: XXX)" - non-Conduit
+                else if (message.contains("tunnel connected (protocol:")) {
+                    java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("\\(protocol: ([^)]+)\\)");
+                    java.util.regex.Matcher matcher = pattern.matcher(message);
+                    if (matcher.find()) {
+                        String protocol = matcher.group(1);
+                        MyLog.i(R.string.tunnel_connected_protocol, MyLog.Sensitivity.NOT_SENSITIVE, protocol);
+                    }
+                }
+                
                 MyLog.i(now, message);
             }
         });

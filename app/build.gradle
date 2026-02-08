@@ -1,28 +1,265 @@
 apply plugin: 'com.android.application'
 
+// ---------------------------------------------------------------------------
+// Generate EmbeddedValues.java from environment variables before compilation.
+//
+// Values are read from environment variables (for CI) with fallback to
+// Gradle project properties (-P flags or gradle.properties) for local dev.
+//
+// Required:
+//   PSIPHON_PROPAGATION_CHANNEL_ID
+//   PSIPHON_SPONSOR_ID
+//
+// Optional (all have sensible defaults):
+//   PSIPHON_CLIENT_VERSION, PSIPHON_EMBEDDED_SERVER_LIST,
+//   PSIPHON_EMBEDDED_SERVER_LIST_FILE,
+//   PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY, PSIPHON_FEEDBACK_UPLOAD_URLS_JSON,
+//   PSIPHON_REMOTE_SERVER_LIST_URLS_JSON, PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON,
+//   PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY,
+//   PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY,
+//   PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY,
+//   PSIPHON_INFO_LINK_URL, PSIPHON_FAQ_URL, PSIPHON_GET_NEW_VERSION_URL,
+//   PSIPHON_GET_NEW_VERSION_EMAIL, PSIPHON_DATA_COLLECTION_INFO_URL
+// ---------------------------------------------------------------------------
+def embeddedValuesFile = file('src/main/java/com/psiphon3/psiphonlibrary/EmbeddedValues.java')
+
+// Helper: read from env var, then Gradle property, then default.
+// Strips wrapping double quotes that Docker --env-file preserves from shell-style .env files.
+def embedded = { String name, String fallback = '' ->
+    def val = System.getenv(name) ?: (project.hasProperty(name) ? project.property(name) : fallback)
+    if (val && val.length() >= 2) {
+        def first = val.charAt(0)
+        def last = val.charAt(val.length() - 1)
+        if (first == last && (first == (char)34 || first == (char)39)) {
+            val = val.substring(1, val.length() - 1)
+        }
+    }
+    val
+}
+
+task generateEmbeddedValues {
+    description 'Generates EmbeddedValues.java from environment variables'
+
+    outputs.file embeddedValuesFile
+    // Re-run whenever env changes (no caching across CI runs)
+    outputs.upToDateWhen { false }
+
+    doLast {
+        def propagationChannelId = embedded('PSIPHON_PROPAGATION_CHANNEL_ID', '')
+        def sponsorId = embedded('PSIPHON_SPONSOR_ID', '')
+
+        if (!propagationChannelId) {
+            throw new GradleException('PSIPHON_PROPAGATION_CHANNEL_ID is required (set as env var or -P flag)')
+        }
+        if (!sponsorId) {
+            throw new GradleException('PSIPHON_SPONSOR_ID is required (set as env var or -P flag)')
+        }
+
+        def clientVersion     = embedded('PSIPHON_CLIENT_VERSION', '1')
+        def serverList        = embedded('PSIPHON_EMBEDDED_SERVER_LIST', '')
+        def feedbackKey       = embedded('PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY', '')
+        def feedbackUrls      = embedded('PSIPHON_FEEDBACK_UPLOAD_URLS_JSON', '[]')
+        def remoteListUrls    = embedded('PSIPHON_REMOTE_SERVER_LIST_URLS_JSON', '[]')
+        def obfuscatedUrls    = embedded('PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON', '[]')
+        def remoteListSigKey  = embedded('PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY', '')
+        def serverEntrySigKey = embedded('PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY', '')
+        def serverEntryObfKey = embedded('PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY', '')
+        def infoLinkUrl       = embedded('PSIPHON_INFO_LINK_URL', 'https://psiphon.ca')
+        def faqUrl            = embedded('PSIPHON_FAQ_URL', 'https://psiphon.ca/faq.html')
+        def getNewVersionUrl  = embedded('PSIPHON_GET_NEW_VERSION_URL', 'https://psiphon.ca')
+        def getNewVersionEmail = embedded('PSIPHON_GET_NEW_VERSION_EMAIL', 'get@psiphon3.com')
+        def dataCollectionUrl = embedded('PSIPHON_DATA_COLLECTION_INFO_URL', 'https://psiphon.ca/privacy.html')
+
+        // Build the server list array initializer
+        // Supports a file with one entry per line, or a single entry from env var
+        def serverListFilePath = embedded('PSIPHON_EMBEDDED_SERVER_LIST_FILE', '')
+        def serverListEntries = ''
+        if (serverListFilePath) {
+            def listFile = new File(serverListFilePath)
+            if (listFile.exists()) {
+                def entries = listFile.readLines().findAll { it.trim() }
+                serverListEntries = entries.collect { "\"${it}\"" }.join(', ')
+                logger.lifecycle("Read ${entries.size()} server entries from file")
+            }
+        } else if (serverList) {
+            serverListEntries = "\"${serverList}\""
+        }
+
+        // Escape double quotes in JSON strings for embedding in Java string literals
+        def escapeJava = { String s -> s.replace('"', '\\"') }
+
+        embeddedValuesFile.text = """\
+/*
+ * Copyright (c) 2012, Psiphon Inc.
+ * All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+package com.psiphon3.psiphonlibrary;
+
+import android.content.Context;
+import net.grandcentrix.tray.AppPreferences;
+import net.grandcentrix.tray.core.ItemNotFoundException;
+import net.grandcentrix.tray.core.SharedPreferencesImport;
+
+// AUTO-GENERATED BY GRADLE — DO NOT EDIT
+public class EmbeddedValues
+{
+    public static final String CLIENT_VERSION = "${clientVersion}";
+
+    public static final String[] EMBEDDED_SERVER_LIST = {${serverListEntries}};
+
+    public static final boolean IGNORE_NON_EMBEDDED_SERVER_ENTRIES = false;
+
+    public static final String PROXIED_WEB_APP_HTTP_AUTH_USERNAME = "";
+
+    public static final String PROXIED_WEB_APP_HTTP_AUTH_PASSWORD = "";
+
+    public static final boolean IS_PLAY_STORE_BUILD = false;
+
+    public static final String[] HOME_TAB_URL_EXCLUSIONS = {"psiphon_external_homepage"};
+
+    public static final String FEEDBACK_ENCRYPTION_PUBLIC_KEY = "${feedbackKey}";
+    public static final String FEEDBACK_DIAGNOSTIC_INFO_UPLOAD_URLS_JSON = "${escapeJava(feedbackUrls)}";
+
+    public static final String PROPAGATION_CHANNEL_ID = "${propagationChannelId}";
+
+    public static final String REMOTE_SERVER_LIST_URLS_JSON = "${escapeJava(remoteListUrls)}";
+    public static final String REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY = "${remoteListSigKey}";
+    public static final String OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON = "${escapeJava(obfuscatedUrls)}";
+
+    public static final String UPGRADE_URLS_JSON = "[]";
+    public static final String UPGRADE_SIGNATURE_PUBLIC_KEY = "";
+
+    public static final String SERVER_ENTRY_SIGNATURE_PUBLIC_KEY = "${serverEntrySigKey}";
+    public static final String SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY = "${serverEntryObfKey}";
+
+    public static final String ADDITIONAL_PARAMETERS = "";
+
+    public static String SPONSOR_ID = "${sponsorId}";
+    public static String INFO_LINK_URL = "${infoLinkUrl}";
+    public static String GET_NEW_VERSION_URL = "${getNewVersionUrl}";
+    public static String GET_NEW_VERSION_EMAIL = "${getNewVersionEmail}";
+    public static String FAQ_URL = "${faqUrl}";
+    public static String DATA_COLLECTION_INFO_URL = "${dataCollectionUrl}";
+
+    private static final String SPONSOR_ID_PREFERENCE = "sponsorIdPreference";
+    private static final String INFO_LINK_URL_PREFERENCE = "infoLinkUrlPreference";
+    private static final String GET_NEW_VERSION_URL_PREFERENCE = "getNewVersionUrlPreference";
+    private static final String GET_NEW_VERSION_EMAIL_PREREFENCE = "getNewVersionEmailPreference";
+    private static final String FAQ_URL_PREFERENCE = "faqUrlPreference";
+    private static final String DATA_COLLECTION_INFO_URL_PREFERENCE = "dataCollectionInfoUrlPreference";
+
+    public static void initialize(Context context)
+    {
+        AppPreferences mpPreferences = new AppPreferences(context);
+        String prefFileName = context.getPackageName() + "_preferences";
+
+        mpPreferences.migrate(
+                new SharedPreferencesImport(context, prefFileName, SPONSOR_ID_PREFERENCE, SPONSOR_ID_PREFERENCE),
+                new SharedPreferencesImport(context, prefFileName, INFO_LINK_URL_PREFERENCE, INFO_LINK_URL_PREFERENCE),
+                new SharedPreferencesImport(context, prefFileName, GET_NEW_VERSION_URL_PREFERENCE, GET_NEW_VERSION_URL_PREFERENCE),
+                new SharedPreferencesImport(context, prefFileName, GET_NEW_VERSION_EMAIL_PREREFENCE, GET_NEW_VERSION_EMAIL_PREREFENCE),
+                new SharedPreferencesImport(context, prefFileName, FAQ_URL_PREFERENCE, FAQ_URL_PREFERENCE),
+                new SharedPreferencesImport(context, prefFileName, DATA_COLLECTION_INFO_URL_PREFERENCE, DATA_COLLECTION_INFO_URL_PREFERENCE)
+        );
+
+        if (!IS_PLAY_STORE_BUILD) {
+            mpPreferences.put(SPONSOR_ID_PREFERENCE, SPONSOR_ID);
+            mpPreferences.put(INFO_LINK_URL_PREFERENCE, INFO_LINK_URL);
+            mpPreferences.put(GET_NEW_VERSION_URL_PREFERENCE, GET_NEW_VERSION_URL);
+            mpPreferences.put(GET_NEW_VERSION_EMAIL_PREREFENCE, GET_NEW_VERSION_EMAIL);
+            mpPreferences.put(FAQ_URL_PREFERENCE, FAQ_URL);
+            mpPreferences.put(DATA_COLLECTION_INFO_URL_PREFERENCE, DATA_COLLECTION_INFO_URL);
+        } else {
+            SPONSOR_ID = mpPreferences.getString(SPONSOR_ID_PREFERENCE, SPONSOR_ID);
+            INFO_LINK_URL = mpPreferences.getString(INFO_LINK_URL_PREFERENCE, INFO_LINK_URL);
+            GET_NEW_VERSION_URL = mpPreferences.getString(GET_NEW_VERSION_URL_PREFERENCE, GET_NEW_VERSION_URL);
+            GET_NEW_VERSION_EMAIL = mpPreferences.getString(GET_NEW_VERSION_EMAIL_PREREFENCE, GET_NEW_VERSION_EMAIL);
+            FAQ_URL = mpPreferences.getString(FAQ_URL_PREFERENCE, FAQ_URL);
+            DATA_COLLECTION_INFO_URL = mpPreferences.getString(DATA_COLLECTION_INFO_URL_PREFERENCE, DATA_COLLECTION_INFO_URL);
+        }
+    }
+
+    public static boolean hasEverBeenSideLoaded(Context context)
+    {
+        if (IS_PLAY_STORE_BUILD)
+        {
+            AppPreferences mpPreferences = new AppPreferences(context);
+            try {
+                mpPreferences.getString(SPONSOR_ID_PREFERENCE);
+            } catch (ItemNotFoundException e) {
+                return false;
+            }
+            return true;
+        }
+        else
+        {
+            return true;
+        }
+    }
+}
+"""
+
+        logger.lifecycle("Generated EmbeddedValues.java (propagation=${propagationChannelId}, sponsor=${sponsorId})")
+    }
+}
+
+// Wire into build: generate before any compilation
+tasks.matching { it.name == 'preBuild' }.configureEach {
+    dependsOn generateEmbeddedValues
+}
+
 android {
     namespace 'com.psiphon3'
 
-    def versionPropsFile = rootProject.file('version.properties')
+    // Version: CalVer YYYY.MM.DD from env var, or version.properties fallback
+    def calver = System.getenv('APP_VERSION_NAME') ?: ''
+    def verCode
+    def verName
 
-    if (versionPropsFile.canRead()) {
-        def Properties props = new Properties()
+    if (calver) {
+        verName = calver
+        // versionCode: YYYYMMDD * 100 + run number (allows 100 builds/day)
+        def run = (System.getenv('APP_VERSION_RUN') ?: '0').toInteger()
+        verCode = calver.replace('.', '').toInteger() * 100 + run
+    } else {
+        def versionPropsFile = rootProject.file('version.properties')
+        if (versionPropsFile.canRead()) {
+            def Properties props = new Properties()
+            props.load(new FileInputStream(versionPropsFile))
+            verName = props['VERSION_CODE'] ?: '1'
+            verCode = verName.toInteger()
+        } else {
+            verName = '0.0.0'
+            verCode = 1
+        }
+    }
 
-        props.load(new FileInputStream(versionPropsFile))
-        if (props != null && props.containsKey('VERSION_CODE')) {
-            def verName = props['VERSION_CODE']
-            def verCode = verName.toInteger()
-            defaultConfig {
-                applicationId "com.psiphon3"
-                resValue "string", "tray__authority", "${applicationId}.tray"
-                minSdkVersion 14
-                compileSdk 35
-                targetSdkVersion 35
-                versionCode verCode
-                versionName verName
-                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-                multiDexEnabled true
-                vectorDrawables.useSupportLibrary = true
+    defaultConfig {
+        applicationId "com.shirokhorshid.vpn"
+        resValue "string", "tray__authority", "${applicationId}.tray"
+        minSdkVersion 14
+        compileSdk 35
+        targetSdkVersion 35
+        versionCode verCode
+        versionName verName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
 
                 // tun2socks NDK build configuration
                 externalNativeBuild {
@@ -31,12 +268,6 @@ android {
                     }
                 }
             }
-        } else {
-            throw new GradleException('version.properties found but entries are missing')
-        }
-    } else {
-        throw new GradleException("Could not read version.properties!")
-    }
 
     signingConfigs {
         release
@@ -45,7 +276,7 @@ android {
     // Configure output APK file name
     applicationVariants.configureEach { variant ->
         variant.outputs.configureEach { output ->
-            def fileName = "PsiphonAndroid-${variant.buildType.name}.apk"
+            def fileName = "ShirOKhorshid-${variant.buildType.name}.apk"
             output.outputFileName = fileName
         }
     }

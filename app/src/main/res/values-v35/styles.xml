@@ -5,4 +5,7 @@
         <!-- workaround for opting out of edge-to-edge enforcement, v35+ specific -->
         <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
+    <style name="Theme.Psiphon.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+    </style>
 </resources>

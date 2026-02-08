@@ -56,6 +56,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.PermissionChecker;
@@ -144,9 +145,9 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.activity_main, menu);
-        // Set up version label in the action bar
+        // Set up version label in the action bar — hidden for cleaner UI
         TextView versionLabel = menu.getItem(1).getActionView().findViewById(R.id.toolbar_version_label);
-        versionLabel.setText(String.format(Locale.US, "v. %s", EmbeddedValues.CLIENT_VERSION));
+        versionLabel.setVisibility(View.GONE);
         // Psiphon Bump
         psiphonBumpHelpItem = menu.getItem(0);
         // Set up "Can Help" item state in the action bar
@@ -225,8 +226,16 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         // Schedule db maintenance
         LogsMaintenanceWorker.schedule(getApplicationContext());
 
-        banner = findViewById(R.id.banner);
-        setUpBanner();
+        // Banner removed in Shir o Khorshid rebrand
+        // banner = findViewById(R.id.banner);
+        // setUpBanner();
+
+        // Set up custom Toolbar as ActionBar
+        Toolbar toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         toggleButton = findViewById(R.id.toggleButton);
         connectionProgressBar = findViewById(R.id.connectionProgressBar);
@@ -739,8 +748,8 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         }
         // Handle external deep links first
         // Examples:
-        // psiphon://settings
-        // psiphon://settings/vpn
+        // shirokhorshid://settings
+        // shirokhorshid://settings/vpn
         if (handleDeepLinkIntent(intent)) {
             return;
         }

@@ -3,6 +3,8 @@
     <style name="Theme.Psiphon" parent="Theme.AppCompat">
         <!-- workaround for opting out of edge-to-edge enforcement, see v35+ specific styles -->
     </style>
+    <style name="Theme.Psiphon.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+    </style>
     <style name="Theme.DialogAlert" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:windowIsFloating">true</item>
         <item name="windowActionBar">false</item>

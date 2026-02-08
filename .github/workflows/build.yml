@@ -1,0 +1,244 @@
+name: Build & Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      clean_build:
+        description: 'Clean build (slower but ensures fresh state)'
+        type: boolean
+        default: true
+      tunnel_core_ref:
+        description: 'Tunnel-core branch/tag/commit to build AAR from'
+        type: string
+        default: 'feat/inproxy-client-geoip-filtering'
+
+jobs:
+  build-aar:
+    name: Build tunnel-core AAR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tunnel-core
+        uses: actions/checkout@v4
+        with:
+          repository: ssmirr/psiphon-tunnel-core
+          ref: ${{ inputs.tunnel_core_ref }}
+          path: psiphon-tunnel-core
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.12'
+          cache: false
+
+      - name: Install Android NDK 23 and platform 30
+        run: |
+          echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;23.1.7779620" "platforms;android-30"
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/23.1.7779620" >> $GITHUB_ENV
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+
+      - name: Set up GOPATH workspace
+        run: |
+          echo "GOPATH=${{ runner.temp }}/gopath" >> $GITHUB_ENV
+          echo "GO111MODULE=off" >> $GITHUB_ENV
+          mkdir -p "${{ runner.temp }}/gopath/src/github.com/Psiphon-Labs"
+          ln -s "$GITHUB_WORKSPACE/psiphon-tunnel-core" \
+            "${{ runner.temp }}/gopath/src/github.com/Psiphon-Labs/psiphon-tunnel-core"
+
+      - name: Install vendored gomobile
+        run: |
+          GOPATH="${{ runner.temp }}/gopath"
+          mkdir -p "$GOPATH/src/golang.org/x"
+          cp -r psiphon-tunnel-core/MobileLibrary/go-mobile "$GOPATH/src/golang.org/x/mobile"
+          # Patch gomobile to not fetch gobind from network
+          sed -i 's/golang.org\/x\/mobile\/cmd\/gobind@latest/golang.org\/x\/mobile\/cmd\/gobind/' \
+            "$GOPATH/src/golang.org/x/mobile/cmd/gomobile/init.go"
+          GO111MODULE=off go install golang.org/x/mobile/cmd/gomobile
+          GO111MODULE=off go install golang.org/x/mobile/cmd/gobind
+          "$GOPATH/bin/gomobile" init -v
+
+      - name: Build AAR with gomobile bind
+        run: |
+          GOPATH="${{ runner.temp }}/gopath"
+          BUILDDATE=$(date --iso-8601=seconds)
+          BUILDREPO=$(cd "$GITHUB_WORKSPACE/psiphon-tunnel-core" && git remote get-url origin)
+          BUILDREV=$(cd "$GITHUB_WORKSPACE/psiphon-tunnel-core" && git rev-parse --short HEAD)
+          GOFLAGS=""
+
+          LDFLAGS="-checklinkname=0 -s -w"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildDate=$BUILDDATE"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildRepo=$BUILDREPO"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildRev=$BUILDREV"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.goVersion=$(go version | perl -ne '/go(.*?)\s/ && print $1')"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.gomobileVersion=vendored"
+          LDFLAGS="$LDFLAGS -extldflags=-Wl,-z,max-page-size=16384,-z,common-page-size=16384"
+
+          BUILD_TAGS="PSIPHON_ENABLE_INPROXY"
+
+          export CGO_LDFLAGS="-Wl,-z,max-page-size=16384,-z,common-page-size=16384"
+          export GOCACHE=/tmp/go-cache
+
+          "$GOPATH/bin/gomobile" bind -v \
+            -target=android/arm,android/arm64 \
+            -tags="$BUILD_TAGS" \
+            -ldflags="$LDFLAGS" \
+            -o psi.aar \
+            github.com/Psiphon-Labs/psiphon-tunnel-core/MobileLibrary/psi
+        working-directory: ${{ runner.temp }}/gopath/src/github.com/Psiphon-Labs/psiphon-tunnel-core/MobileLibrary/Android
+
+      - name: Post-process AAR
+        run: |
+          WORKDIR="${{ runner.temp }}/gopath/src/github.com/Psiphon-Labs/psiphon-tunnel-core/MobileLibrary/Android"
+          cd "$WORKDIR"
+
+          # Unpack the gomobile-generated AAR
+          mkdir -p aar_tmp && cd aar_tmp
+          unzip -o ../psi.aar
+
+          # Replace AndroidManifest with PsiphonTunnel's version
+          cp ../PsiphonTunnel/AndroidManifest.xml .
+
+          # Add backup rules
+          mkdir -p res/xml
+          cp ../PsiphonTunnel/ca_psiphon_psiphontunnel_backup_rules.xml res/xml/
+
+          # Compile PsiphonTunnel.java and add to classes.jar
+          ANDROID_JAR="$ANDROID_HOME/platforms/android-30/android.jar"
+          mkdir -p compiled_classes
+          javac -source 1.8 -target 1.8 -bootclasspath "$ANDROID_JAR" \
+            -classpath classes.jar \
+            -d compiled_classes \
+            ../PsiphonTunnel/PsiphonTunnel.java
+
+          # Merge compiled classes into classes.jar
+          if [ -d compiled_classes ] && [ "$(ls -A compiled_classes)" ]; then
+            cd compiled_classes
+            jar uf ../classes.jar .
+            cd ..
+          fi
+
+          # Add proguard rules
+          echo "-keep class ca.psiphon.** { *; }" >> proguard.txt
+          echo "-keep class psi.** { *; }" >> proguard.txt
+
+          # Repackage as ca.psiphon.aar
+          rm -f ../ca.psiphon.aar
+          zip -r ../ca.psiphon.aar . -x '*.DS_Store'
+          cd ..
+          rm -rf aar_tmp psi.aar
+
+      - name: Upload AAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ca-psiphon-aar
+          path: ${{ runner.temp }}/gopath/src/github.com/Psiphon-Labs/psiphon-tunnel-core/MobileLibrary/Android/ca.psiphon.aar
+          retention-days: 1
+
+  build-apk:
+    name: Build APK
+    needs: build-aar
+    runs-on: ubuntu-latest
+    container:
+      image: cimg/android:2024.01.1-ndk
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download AAR artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ca-psiphon-aar
+          path: app/libs/
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libtinfo5 python3-pip
+
+      - name: Download GeoLite2 database
+        run: |
+          curl -sL "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${{ secrets.MAXMIND_LICENSE_KEY }}&suffix=tar.gz" \
+            | tar xz --strip-components=1 --wildcards '*/GeoLite2-Country.mmdb'
+          mv GeoLite2-Country.mmdb app/src/main/assets/GeoLite2-Country.mmdb
+
+      - name: Fetch server entries
+        run: |
+          pip3 install cryptography --quiet
+          cat > fetch_server_list.py << 'FETCHSCRIPT'
+${{ secrets.FETCH_SERVER_LIST_SCRIPT }}
+FETCHSCRIPT
+          SERVER_ENTRIES_OUTPUT=server_entries.txt python3 fetch_server_list.py
+          rm fetch_server_list.py
+        env:
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+
+      - name: Set up signing
+        run: |
+          mkdir -p /Data/CodeSigning
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > /Data/CodeSigning/release.keystore
+          cat > signing.properties << 'EOF'
+storeFile=../../Data/CodeSigning/release.keystore
+storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+keyAlias=${{ secrets.KEY_ALIAS }}
+keyPassword=${{ secrets.KEY_PASSWORD }}
+EOF
+
+      - name: Set version info
+        id: version
+        run: |
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          CALVER=$(date -u +%Y.%m.%d)
+          echo "short_sha=$SHORT_SHA" >> "$GITHUB_OUTPUT"
+          echo "calver=$CALVER" >> "$GITHUB_OUTPUT"
+          echo "tag=v${CALVER}-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Build APK
+        run: |
+          export PSIPHON_EMBEDDED_SERVER_LIST_FILE=server_entries.txt
+          export APP_VERSION_NAME=${{ steps.version.outputs.calver }}
+          export APP_VERSION_RUN=${{ github.run_number }}
+          if [ "${{ inputs.clean_build }}" = "true" ]; then
+            ./gradlew clean assembleRelease
+          else
+            ./gradlew assembleRelease
+          fi
+        env:
+          PSIPHON_PROPAGATION_CHANNEL_ID: ${{ secrets.PSIPHON_PROPAGATION_CHANNEL_ID }}
+          PSIPHON_SPONSOR_ID: ${{ secrets.PSIPHON_SPONSOR_ID }}
+          PSIPHON_CLIENT_VERSION: ${{ secrets.PSIPHON_CLIENT_VERSION }}
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+          PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON: ${{ secrets.PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON }}
+          PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY: ${{ secrets.PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY }}
+          PSIPHON_FEEDBACK_UPLOAD_URLS_JSON: ${{ secrets.PSIPHON_FEEDBACK_UPLOAD_URLS_JSON }}
+          PSIPHON_INFO_LINK_URL: ${{ secrets.PSIPHON_INFO_LINK_URL }}
+          PSIPHON_GET_NEW_VERSION_URL: ${{ secrets.PSIPHON_GET_NEW_VERSION_URL }}
+          PSIPHON_GET_NEW_VERSION_EMAIL: ${{ secrets.PSIPHON_GET_NEW_VERSION_EMAIL }}
+          PSIPHON_FAQ_URL: ${{ secrets.PSIPHON_FAQ_URL }}
+          PSIPHON_DATA_COLLECTION_INFO_URL: ${{ secrets.PSIPHON_DATA_COLLECTION_INFO_URL }}
+
+      - name: Clean up secrets
+        if: always()
+        run: |
+          rm -f server_entries.txt signing.properties
+          rm -f /Data/CodeSigning/release.keystore
+
+      - name: Create GitHub Release
+        run: |
+          APK=app/build/outputs/apk/release/ShirOKhorshid-release.apk
+          mv "$APK" "ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
+          gh release create "${{ steps.version.outputs.tag }}" \
+            "ShirOKhorshid-${{ steps.version.outputs.calver }}.apk" \
+            --title "ShirOKhorshid ${{ steps.version.outputs.calver }}" \
+            --notes "Built from commit ${{ github.sha }}" \
+            --latest
+        env:
+          GH_TOKEN: ${{ github.token }}
