@@ -53,14 +53,10 @@
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!-- Accepts URIs in the form of "psiphon://settings” -->
+                <!-- Accepts URIs in the form of "shirokhorshid://settings" -->
                 <data
                     android:scheme="shirokhorshid"
                     android:host="settings" />
@@ -70,6 +66,81 @@
             android:name="com.psiphon3.psiphonlibrary.TunnelIntentsHandler"
             android:exported="false"
             android:targetActivity="com.psiphon3.MainActivity" />
+
+        <!-- Disguise: Default identity (Shir o Khorshid) -->
+        <activity-alias
+            android:name=".LauncherDefault"
+            android:label="@string/app_name"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:targetActivity=".MainActivity"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Disguise: Calculator -->
+        <activity-alias
+            android:name=".LauncherCalculator"
+            android:label="@string/disguise_name_calculator"
+            android:icon="@mipmap/ic_disguise_calculator"
+            android:roundIcon="@mipmap/ic_disguise_calculator"
+            android:targetActivity=".MainActivity"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Disguise: Weather -->
+        <activity-alias
+            android:name=".LauncherWeather"
+            android:label="@string/disguise_name_weather"
+            android:icon="@mipmap/ic_disguise_weather"
+            android:roundIcon="@mipmap/ic_disguise_weather"
+            android:targetActivity=".MainActivity"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Disguise: Notes -->
+        <activity-alias
+            android:name=".LauncherNotes"
+            android:label="@string/disguise_name_notes"
+            android:icon="@mipmap/ic_disguise_notes"
+            android:roundIcon="@mipmap/ic_disguise_notes"
+            android:targetActivity=".MainActivity"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Disguise: Clock -->
+        <activity-alias
+            android:name=".LauncherClock"
+            android:label="@string/disguise_name_clock"
+            android:icon="@mipmap/ic_disguise_clock"
+            android:roundIcon="@mipmap/ic_disguise_clock"
+            android:targetActivity=".MainActivity"
+            android:exported="true"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
         <activity
             android:name=".FeedbackActivity"
             android:parentActivityName=".MainActivity"

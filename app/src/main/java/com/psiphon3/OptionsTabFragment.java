@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 
+import com.psiphon3.psiphonlibrary.DisguiseManager;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
 import com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity;
 import com.psiphon3.psiphonlibrary.ProxyOptionsPreferenceActivity;
@@ -448,7 +449,8 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.unsafeTrafficAlertsPreference), getString(R.string.unsafeTrafficAlertsPreference)),
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.disableTimeoutsPreference), getString(R.string.disableTimeoutsPreference)),
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.nfcBumpPreference), getString(R.string.nfcBumpPreference)),
-                new SharedPreferencesImport(requireContext(), prefName, getString(R.string.protocolSelectionPreference), getString(R.string.protocolSelectionPreference))
+                new SharedPreferencesImport(requireContext(), prefName, getString(R.string.protocolSelectionPreference), getString(R.string.protocolSelectionPreference)),
+                new SharedPreferencesImport(requireContext(), prefName, DisguiseManager.PREF_STEALTH_NOTIFICATIONS, DisguiseManager.PREF_STEALTH_NOTIFICATIONS)
         );
     }
 }

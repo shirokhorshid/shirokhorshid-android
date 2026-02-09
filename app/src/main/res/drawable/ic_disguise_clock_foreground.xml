@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Clock icon centered in safe zone -->
+    <!-- Clock face -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,22c-17.7,0 -32,14.3 -32,32s14.3,32 32,32s32,-14.3 32,-32s-14.3,-32 -32,-32zM54,80c-14.3,0 -26,-11.7 -26,-26s11.7,-26 26,-26s26,11.7 26,26s-11.7,26 -26,26z"/>
+    <!-- Hour hand -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52.5,54l0,-16l3,0l0,16z"/>
+    <!-- Minute hand -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,52.5l14,0l0,3l-14,0z"/>
+    <!-- Center dot -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,54m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <!-- Hour markers -->
+    <path android:fillColor="#FFFFFF" android:pathData="M53,28h2v5h-2z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M53,75h2v5h-2z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M76,53h5v2h-5z"/>
+    <path android:fillColor="#FFFFFF" android:pathData="M27,53h5v2h-5z"/>
+</vector>

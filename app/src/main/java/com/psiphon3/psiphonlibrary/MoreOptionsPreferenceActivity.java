@@ -28,7 +28,6 @@ import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
@@ -129,6 +128,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             });
 
             setupLanguageSelector(preferences);
+            setupDisguise(preferences);
             setupAbouts(preferences);
         }
 
@@ -195,6 +195,69 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                     preference.setSummary(getString(R.string.protocolSelectionSummaryAuto));
                     break;
             }
+        }
+
+        private void setupDisguise(PreferenceScreen preferences) {
+            // Disguise identity list preference
+            ListPreference disguiseList = (ListPreference) preferences.findPreference(
+                    DisguiseManager.PREF_DISGUISE_IDENTITY);
+            if (disguiseList != null) {
+                // Build entries and values arrays
+                CharSequence[] entries = new CharSequence[]{
+                        getString(R.string.disguise_identity_default),
+                        getString(R.string.disguise_name_calculator),
+                        getString(R.string.disguise_name_weather),
+                        getString(R.string.disguise_name_notes),
+                        getString(R.string.disguise_name_clock)
+                };
+                CharSequence[] entryValues = new CharSequence[]{
+                        DisguiseManager.IDENTITY_DEFAULT,
+                        DisguiseManager.IDENTITY_CALCULATOR,
+                        DisguiseManager.IDENTITY_WEATHER,
+                        DisguiseManager.IDENTITY_NOTES,
+                        DisguiseManager.IDENTITY_CLOCK
+                };
+                disguiseList.setEntries(entries);
+                disguiseList.setEntryValues(entryValues);
+
+                // Set current value
+                String currentIdentity = DisguiseManager.getCurrentIdentity(requireContext());
+                disguiseList.setValue(currentIdentity);
+                updateDisguiseSummary(disguiseList, currentIdentity);
+
+                disguiseList.setOnPreferenceChangeListener((preference, newValue) -> {
+                    String identity = (String) newValue;
+                    String oldIdentity = DisguiseManager.getCurrentIdentity(requireContext());
+                    if (!identity.equals(oldIdentity)) {
+                        // Show warning dialog before switching
+                        new AlertDialog.Builder(requireContext())
+                                .setTitle(getString(R.string.preference_disguise_identity_title))
+                                .setMessage(getString(R.string.disguise_switch_warning))
+                                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                    DisguiseManager.switchIdentity(requireContext(), identity);
+                                    updateDisguiseSummary((ListPreference) preference, identity);
+                                    ((ListPreference) preference).setValue(identity);
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+                        return false; // Don't auto-apply, we handle it in the dialog
+                    }
+                    return true;
+                });
+            }
+
+            // Stealth notifications checkbox
+            CheckBoxPreference stealthNotifCheckBox = (CheckBoxPreference) preferences.findPreference(
+                    DisguiseManager.PREF_STEALTH_NOTIFICATIONS);
+            if (stealthNotifCheckBox != null) {
+                stealthNotifCheckBox.setChecked(
+                        DisguiseManager.isStealthNotificationsEnabled(requireContext()));
+            }
+        }
+
+        private void updateDisguiseSummary(ListPreference preference, String identity) {
+            preference.setSummary(
+                    DisguiseManager.getIdentityDisplayName(requireContext(), identity));
         }
 
         private void setupLanguageSelector(PreferenceScreen preferences) {

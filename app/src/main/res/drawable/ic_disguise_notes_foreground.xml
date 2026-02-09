@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Notes/notepad icon centered in safe zone -->
+    <!-- Notepad body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,24h44c2.2,0 4,1.8 4,4v52c0,2.2 -1.8,4 -4,4h-44c-2.2,0 -4,-1.8 -4,-4v-52c0,-2.2 1.8,-4 4,-4z"/>
+    <!-- Lines on notepad -->
+    <path android:fillColor="#BDBDBD" android:pathData="M36,40h36v2h-36z"/>
+    <path android:fillColor="#BDBDBD" android:pathData="M36,48h36v2h-36z"/>
+    <path android:fillColor="#BDBDBD" android:pathData="M36,56h36v2h-36z"/>
+    <path android:fillColor="#BDBDBD" android:pathData="M36,64h24v2h-24z"/>
+    <!-- Top binding -->
+    <path android:fillColor="#FFC107" android:pathData="M28,28h52v6h-52z"/>
+</vector>

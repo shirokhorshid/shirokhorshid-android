@@ -236,8 +236,17 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 // since we changed server alert notification priority from DEFAULT to HIGH
                 mNotificationManager.deleteNotificationChannel(NOTIFICATION_SERVER_ALERT_CHANNEL_ID_OLD);
 
+                // Use stealth channel name if disguise is active
+                CharSequence channelName;
+                String stealthChannelName = DisguiseManager.getStealthChannelName(getContext());
+                if (stealthChannelName != null) {
+                    channelName = stealthChannelName;
+                } else {
+                    channelName = getContext().getText(R.string.psiphon_service_notification_channel_name);
+                }
+
                 NotificationChannel notificationChannel = new NotificationChannel(
-                        NOTIFICATION_CHANNEL_ID, getContext().getText(R.string.psiphon_service_notification_channel_name),
+                        NOTIFICATION_CHANNEL_ID, channelName,
                         NotificationManager.IMPORTANCE_LOW);
                 mNotificationManager.createNotificationChannel(notificationChannel);
 
@@ -565,35 +574,62 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             TunnelState.ConnectionData.NetworkConnectionState networkConnectionState) {
         int iconID;
         CharSequence contentText;
+        CharSequence contentTitle;
         CharSequence ticker = null;
         int defaults = 0;
 
+        // Determine connection state string for DisguiseManager
+        String stateStr;
         if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED) {
-            iconID = R.drawable.notification_icon_connected;
-            switch (vpnAppsExclusionSetting) {
-                case INCLUDE_APPS:
-                    contentText = getContext().getResources()
-                            .getQuantityString(R.plurals.psiphon_service_notification_message_vpn_include_apps,
-                                    vpnAppsExclusionCount, vpnAppsExclusionCount);
-                    break;
-                case EXCLUDE_APPS:
-                    contentText = getContext().getResources()
-                            .getQuantityString(R.plurals.psiphon_service_notification_message_vpn_exclude_apps,
-                                    vpnAppsExclusionCount, vpnAppsExclusionCount);
-                    break;
-                case ALL_APPS:
-                default:
-                    contentText = getContext().getString(R.string.psiphon_service_notification_message_vpn_all_apps);
-                    break;
-            }
+            stateStr = "connected";
         } else if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK) {
-            iconID = R.drawable.notification_icon_waiting;
-            contentText = getContext().getString(R.string.waiting_for_network_connectivity);
-            ticker = getContext().getText(R.string.waiting_for_network_connectivity);
+            stateStr = "waiting";
         } else {
-            iconID = R.drawable.notification_icon_connecting_animation;
-            contentText = getContext().getString(R.string.psiphon_service_notification_message_connecting);
-            ticker = getContext().getText(R.string.psiphon_service_notification_message_connecting);
+            stateStr = "connecting";
+        }
+
+        // Check if stealth notifications are enabled
+        int stealthIcon = DisguiseManager.getNotificationIcon(getContext(),
+                networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
+        String stealthTitle = DisguiseManager.getNotificationTitle(getContext());
+        String stealthText = DisguiseManager.getNotificationText(getContext(), stateStr);
+
+        if (stealthIcon != 0 && stealthTitle != null && stealthText != null) {
+            // Stealth mode: use disguise icon, title, and text
+            iconID = stealthIcon;
+            contentTitle = stealthTitle;
+            contentText = stealthText;
+        } else {
+            // Normal mode: use default notification content
+            contentTitle = getContext().getText(R.string.app_name);
+
+            if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED) {
+                iconID = R.drawable.notification_icon_connected;
+                switch (vpnAppsExclusionSetting) {
+                    case INCLUDE_APPS:
+                        contentText = getContext().getResources()
+                                .getQuantityString(R.plurals.psiphon_service_notification_message_vpn_include_apps,
+                                        vpnAppsExclusionCount, vpnAppsExclusionCount);
+                        break;
+                    case EXCLUDE_APPS:
+                        contentText = getContext().getResources()
+                                .getQuantityString(R.plurals.psiphon_service_notification_message_vpn_exclude_apps,
+                                        vpnAppsExclusionCount, vpnAppsExclusionCount);
+                        break;
+                    case ALL_APPS:
+                    default:
+                        contentText = getContext().getString(R.string.psiphon_service_notification_message_vpn_all_apps);
+                        break;
+                }
+            } else if (networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.WAITING_FOR_NETWORK) {
+                iconID = R.drawable.notification_icon_waiting;
+                contentText = getContext().getString(R.string.waiting_for_network_connectivity);
+                ticker = getContext().getText(R.string.waiting_for_network_connectivity);
+            } else {
+                iconID = R.drawable.notification_icon_connecting_animation;
+                contentText = getContext().getString(R.string.psiphon_service_notification_message_connecting);
+                ticker = getContext().getText(R.string.psiphon_service_notification_message_connecting);
+            }
         }
 
         // Only add notification vibration and sound defaults from preferences
@@ -626,18 +662,24 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 .build();
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getContext(), NOTIFICATION_CHANNEL_ID);
-        return notificationBuilder
+        notificationBuilder
                 .setSmallIcon(iconID)
                 .setGroup(getContext().getString(R.string.status_notification_group))
-                .setContentTitle(getContext().getText(R.string.app_name))
+                .setContentTitle(contentTitle)
                 .setContentText(contentText)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(contentText))
                 .setTicker(ticker)
                 .setDefaults(defaults)
                 .setContentIntent(m_notificationPendingIntent)
-                .addAction(notificationAction)
-                .setOngoing(true)
-                .build();
+                .setOngoing(true);
+
+        // In stealth mode, hide the Stop action button (it would look suspicious
+        // on a "Calculator" or "Weather" notification)
+        if (stealthIcon == 0) {
+            notificationBuilder.addAction(notificationAction);
+        }
+
+        return notificationBuilder.build();
     }
 
     /**

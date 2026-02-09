@@ -25,9 +25,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.nfc.NfcAdapter;
@@ -48,7 +45,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,13 +75,8 @@ import com.psiphon3.psiphonlibrary.VpnAppsUtils;
 import net.grandcentrix.tray.AppPreferences;
 import net.grandcentrix.tray.core.ItemNotFoundException;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -109,8 +100,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
 
     public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainActivity.PREVENT_AUTO_START";
     private static final String CURRENT_TAB = "currentTab";
-    private static final String BANNER_FILE_NAME = "bannerImage";
-
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private Button toggleButton;
     private ProgressBar connectionProgressBar;
@@ -121,7 +110,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private AppPreferences multiProcessPreferences;
     private ViewPager viewPager;
     private PsiphonTabLayout tabLayout;
-    private ImageView banner;
     private boolean isFirstRun = true;
     private AlertDialog upstreamProxyErrorAlertDialog;
     private MenuItem psiphonBumpHelpItem;
@@ -225,10 +213,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
 
         // Schedule db maintenance
         LogsMaintenanceWorker.schedule(getApplicationContext());
-
-        // Banner removed in Shir o Khorshid rebrand
-        // banner = findViewById(R.id.banner);
-        // setUpBanner();
 
         // Set up custom Toolbar as ActionBar
         Toolbar toolbar = findViewById(R.id.main_toolbar);
@@ -952,80 +936,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
             }
         }
         return true;
-    }
-
-    private void setUpBanner() {
-        // Play Store Build instances should use existing banner from previously installed APK
-        // (if present). To enable this, non-Play Store Build instances write their banner to
-        // a private file.
-        try {
-            Bitmap bitmap = getBannerBitmap();
-            if (!EmbeddedValues.IS_PLAY_STORE_BUILD) {
-                saveBanner(bitmap);
-            }
-
-            // If we successfully got the banner image set it and it's background
-            if (bitmap != null) {
-                banner.setImageBitmap(bitmap);
-                banner.setBackgroundColor(getMostCommonColor(bitmap));
-            }
-        } catch (IOException e) {
-            // Ignore failure
-        }
-    }
-
-    private void saveBanner(Bitmap bitmap) throws IOException {
-        if (bitmap == null) {
-            return;
-        }
-
-        FileOutputStream out = openFileOutput(BANNER_FILE_NAME, Context.MODE_PRIVATE);
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
-        out.close();
-    }
-
-    private Bitmap getBannerBitmap() {
-        if (EmbeddedValues.IS_PLAY_STORE_BUILD) {
-            File bannerImageFile = new File(getFilesDir(), BANNER_FILE_NAME);
-            if (bannerImageFile.exists()) {
-                return BitmapFactory.decodeFile(bannerImageFile.getAbsolutePath());
-            }
-        }
-
-        return BitmapFactory.decodeResource(getResources(), R.drawable.banner);
-    }
-
-    private int getMostCommonColor(Bitmap bitmap) {
-        if (bitmap == null) {
-            return Color.WHITE;
-        }
-
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        int size = width * height;
-        int pixels[] = new int[size];
-
-        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
-
-        HashMap<Integer, Integer> colorMap = new HashMap<>();
-
-        for (int i = 0; i < pixels.length; i++) {
-            int color = pixels[i];
-            if (colorMap.containsKey(color)) {
-                colorMap.put(color, colorMap.get(color) + 1);
-            } else {
-                colorMap.put(color, 1);
-            }
-        }
-
-        ArrayList<Map.Entry<Integer, Integer>> entries = new ArrayList<>(colorMap.entrySet());
-        Collections.sort(entries, new Comparator<Map.Entry<Integer, Integer>>() {
-            @Override
-            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                return o2.getValue().compareTo(o1.getValue());
-            }
-        });
-        return entries.get(0).getKey();
     }
 
     public void selectTabByTag(@NonNull Object tag) {

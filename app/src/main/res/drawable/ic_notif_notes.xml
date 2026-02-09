@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Notes/description notification icon: white on transparent -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M14,2h-8c-1.1,0 -2,0.9 -2,2v16c0,1.1 0.9,2 2,2h12c1.1,0 2,-0.9 2,-2v-12l-6,-6zM6,20v-16h7v5h5v11h-12zM8,12h8v2h-8v-2zM8,16h5v2h-5v-2zM8,8h4v2h-4v-2z"/>
+</vector>

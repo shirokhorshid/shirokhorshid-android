@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="banner_desc">بنر حامی مالی؛ برای بازدید از صفحه مرکزی حامی مالی کلیک کنید</string>
   <string name="open_browser">باز کردن مرورگر</string>
   <string name="FeedbackActivity.DefaultText">اگر کدام نظر خاص دارید، به معلومات بیشتر در مورد ویب سایت‌های که کار نمیکنند نیاز دارید یا اگر این فورم برایتان کار نمیکند، لطفاً به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;. ایمیل بفرستید.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتان را ارسال کردید سپاسگزار هستیم</string>

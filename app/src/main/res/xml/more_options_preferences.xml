@@ -63,6 +63,21 @@
             android:defaultValue="auto" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:title="@string/preference_category_stealth_title">
+        <ListPreference
+            android:icon="@drawable/ic_notif_clock"
+            android:key="disguiseIdentity"
+            android:title="@string/preference_disguise_identity_title"
+            android:summary="@string/preference_disguise_identity_summary"
+            android:defaultValue="default" />
+        <CheckBoxPreference
+            android:icon="@drawable/ic_notif_notes"
+            android:key="stealthNotifications"
+            android:title="@string/preference_stealth_notifications_title"
+            android:summary="@string/preference_stealth_notifications_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/preference_category_info_title">
         <Preference
             android:icon="@drawable/baseline_info_white_24"

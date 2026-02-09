@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="banner_desc">sponsor banner; click to visit sponsor home page</string>
     <string name="open_browser">Open Browser</string>
     <string name="FeedbackActivity.DefaultText">If you have any specific comments, further information about web sites that do not work, or if this form is not working for you, please email &lt;a href=&quot;mailto:feedback@psiphon.ca&quot;&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
     <string name="FeedbackActivity.Success">Thank you for submitting your feedback</string>
@@ -191,5 +190,29 @@
 
     <!--Approximate location permission rationale alert text. The format qualifier %s will be replaced by the app name  -->
     <string name="location_permission_rationale_text">Please allow %s to access your device\'s approximate location. Your location data estimate is used to optimize the network, and is accurate to within about 3 square kilometers.</string>
+
+    <!-- Stealth Mode / App Disguise -->
+    <string name="preference_category_stealth_title">Stealth Mode</string>
+    <string name="preference_disguise_identity_title">App appearance</string>
+    <string name="preference_disguise_identity_summary">Change app icon and name in launcher</string>
+    <string name="preference_stealth_notifications_title">Stealth notifications</string>
+    <string name="preference_stealth_notifications_summary">Show notifications matching disguise identity</string>
+    <string name="disguise_identity_default">Shir o Khorshid (default)</string>
+
+    <string name="disguise_name_calculator">Calculator</string>
+    <string name="disguise_name_weather">Weather</string>
+    <string name="disguise_name_notes">Notes</string>
+    <string name="disguise_name_clock">Clock</string>
+
+    <string name="disguise_notif_calculator_connected">Ready</string>
+    <string name="disguise_notif_calculator_connecting">Calculating\u2026</string>
+    <string name="disguise_notif_weather_connected">Weather synced</string>
+    <string name="disguise_notif_weather_connecting">Updating forecast\u2026</string>
+    <string name="disguise_notif_notes_connected">Notes synced</string>
+    <string name="disguise_notif_notes_connecting">Syncing notes\u2026</string>
+    <string name="disguise_notif_clock_connected">Alarm set</string>
+    <string name="disguise_notif_clock_connecting">Syncing time\u2026</string>
+
+    <string name="disguise_switch_warning">The app icon and name will change after a few seconds. You may need to add the new icon to your home screen.</string>
 
 </resources>

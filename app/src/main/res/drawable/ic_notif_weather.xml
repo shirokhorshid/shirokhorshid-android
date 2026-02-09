@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Cloud notification icon: white on transparent -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M19.35,10.04c-0.68,-3.45 -3.71,-6.04 -7.35,-6.04c-2.89,0 -5.4,1.64 -6.65,4.04c-3.01,0.32 -5.35,2.87 -5.35,5.96c0,3.31 2.69,6 6,6h13c2.76,0 5,-2.24 5,-5c0,-2.64 -2.05,-4.78 -4.65,-4.96z"/>
+</vector>

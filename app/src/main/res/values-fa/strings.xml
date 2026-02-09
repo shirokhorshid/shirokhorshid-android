@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <string name="app_name">شیر و خورشید</string>
-  <string name="banner_desc">بنر حامیان؛ برای دیدن صفحه اصلی  حامیان کلیک کنید</string>
   <string name="open_browser">بازکردن مرورگر</string>
   <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتون رو با ما در میان گذاشتید سپاسگزاریم</string>
@@ -173,4 +172,29 @@
   <string name="app_update_restart">نصب</string>
   <!--Generic toast message shown when an app update fails to download or install-->
   <string name="app_update_error">به‌روزرسانی ناموفق</string>
+
+  <!-- Stealth Mode / App Disguise -->
+  <string name="preference_category_stealth_title">حالت مخفی</string>
+  <string name="preference_disguise_identity_title">ظاهر برنامه</string>
+  <string name="preference_disguise_identity_summary">تغییر آیکون و نام برنامه در صفحه اصلی</string>
+  <string name="preference_stealth_notifications_title">اعلان‌های مخفی</string>
+  <string name="preference_stealth_notifications_summary">نمایش اعلان‌ها متناسب با ظاهر انتخاب شده</string>
+  <string name="disguise_identity_default">شیر و خورشید (پیش‌فرض)</string>
+
+  <string name="disguise_name_calculator">ماشین‌حساب</string>
+  <string name="disguise_name_weather">هواشناسی</string>
+  <string name="disguise_name_notes">یادداشت‌ها</string>
+  <string name="disguise_name_clock">ساعت</string>
+
+  <string name="disguise_notif_calculator_connected">آماده</string>
+  <string name="disguise_notif_calculator_connecting">در حال محاسبه\u2026</string>
+  <string name="disguise_notif_weather_connected">هواشناسی به‌روز شد</string>
+  <string name="disguise_notif_weather_connecting">به‌روزرسانی پیش‌بینی\u2026</string>
+  <string name="disguise_notif_notes_connected">یادداشت‌ها همگام شد</string>
+  <string name="disguise_notif_notes_connecting">در حال همگام‌سازی\u2026</string>
+  <string name="disguise_notif_clock_connected">زنگ تنظیم شد</string>
+  <string name="disguise_notif_clock_connecting">همگام‌سازی ساعت\u2026</string>
+
+  <string name="disguise_switch_warning">آیکون و نام برنامه پس از چند ثانیه تغییر خواهد کرد. ممکن است نیاز باشد آیکون جدید را به صفحه اصلی اضافه کنید.</string>
+
 </resources>
