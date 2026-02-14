@@ -202,4 +202,38 @@
     <string name="nfcBumpPreferenceTitle">Enable NFC Bump</string>
     <!-- Summary for NFC Bump preference -->
     <string name="nfcBumpPreferenceSummary">Use NFC to share connection data with other devices.</string>
+
+    <!-- Conduit configuration preferences -->
+    <string name="conduitModePreference">conduitMode</string>
+    <string name="conduitTimeoutPreference">conduitTimeout</string>
+
+    <string name="preference_category_conduit_title">Conduit Configuration</string>
+    <string name="preference_category_conduit_description">Configure how the app connects through volunteer relay conduits. Conduits are run by volunteers to help users in censored regions access the internet.</string>
+
+    <string name="conduitModePreferenceTitle">Conduit Mode</string>
+    <string name="conduitModePreferenceSummary">Choose which conduits to connect through</string>
+
+    <string name="conduitModeSummaryAuto">Auto - First tries Shir o Khorshid conduits, then falls back to public conduits if no connection is made within the timeout period</string>
+    <string name="conduitModeSummaryShirOKhorshid">Dedicated Shir o Khorshid conduits only</string>
+    <string name="conduitModeSummaryPublic">Public conduits only</string>
+
+    <string name="conduit_mode_auto">Auto (Recommended)</string>
+    <string name="conduit_mode_shirokhorshid">Shir o Khorshid Conduits</string>
+    <string name="conduit_mode_public">Public Conduits</string>
+
+    <string name="conduitTimeoutPreferenceTitle">Fallback Timeout</string>
+    <string name="conduitTimeoutPreferenceSummary">How long to wait before trying the next conduit mode (Auto mode only)</string>
+
+    <string name="conduitTimeoutSummary">Wait %s before falling back to the next mode</string>
+
+    <string name="conduit_timeout_2min">2 minutes</string>
+    <string name="conduit_timeout_3min">3 minutes (Recommended)</string>
+    <string name="conduit_timeout_5min">5 minutes</string>
+    <string name="conduit_timeout_10min">10 minutes</string>
+
+    <!-- Conduit fallback log messages -->
+    <string name="conduit_fallback_trying_shirokhorshid">Trying Shir o Khorshid conduits\u2026</string>
+    <string name="conduit_fallback_timeout">Shir o Khorshid conduits timed out after %s</string>
+    <string name="conduit_fallback_trying_public">Trying public conduits\u2026</string>
+    <string name="conduit_mode_status">Conduit mode: %s</string>
 </resources>

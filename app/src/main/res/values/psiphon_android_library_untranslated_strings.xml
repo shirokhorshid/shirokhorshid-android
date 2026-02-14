@@ -70,4 +70,30 @@
         <item>conduit</item>
         <item>direct</item>
     </string-array>
+
+    <string-array name="conduit_mode_entries" translatable="false">
+        <item>@string/conduit_mode_auto</item>
+        <item>@string/conduit_mode_shirokhorshid</item>
+        <item>@string/conduit_mode_public</item>
+    </string-array>
+
+    <string-array name="conduit_mode_values" translatable="false">
+        <item>auto</item>
+        <item>shirokhorshid</item>
+        <item>public</item>
+    </string-array>
+
+    <string-array name="conduit_timeout_entries" translatable="false">
+        <item>@string/conduit_timeout_2min</item>
+        <item>@string/conduit_timeout_3min</item>
+        <item>@string/conduit_timeout_5min</item>
+        <item>@string/conduit_timeout_10min</item>
+    </string-array>
+
+    <string-array name="conduit_timeout_values" translatable="false">
+        <item>120</item>
+        <item>180</item>
+        <item>300</item>
+        <item>600</item>
+    </string-array>
 </resources>

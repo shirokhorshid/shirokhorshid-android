@@ -63,6 +63,34 @@
             android:defaultValue="auto" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:title="@string/preference_category_conduit_title">
+        <Preference
+            android:key="conduitDescription"
+            android:summary="@string/preference_category_conduit_description"
+            android:selectable="false" />
+        <ListPreference
+            android:icon="@drawable/baseline_device_hub_white_24"
+            android:key="@string/conduitModePreference"
+            android:title="@string/conduitModePreferenceTitle"
+            android:summary="@string/conduitModePreferenceSummary"
+            android:entries="@array/conduit_mode_entries"
+            android:entryValues="@array/conduit_mode_values"
+            android:defaultValue="auto" />
+        <ListPreference
+            android:icon="@drawable/ic_notif_clock"
+            android:key="@string/conduitTimeoutPreference"
+            android:title="@string/conduitTimeoutPreferenceTitle"
+            android:summary="@string/conduitTimeoutPreferenceSummary"
+            android:entries="@array/conduit_timeout_entries"
+            android:entryValues="@array/conduit_timeout_values"
+            android:defaultValue="180" />
+        <SwitchPreference
+            android:key="@string/rejectCensoredCountryProxiesPreference"
+            android:title="@string/rejectCensoredCountryProxiesPreferenceTitle"
+            android:summary="@string/rejectCensoredCountryProxiesPreferenceSummary"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/preference_category_stealth_title">
         <ListPreference
             android:icon="@drawable/ic_notif_clock"

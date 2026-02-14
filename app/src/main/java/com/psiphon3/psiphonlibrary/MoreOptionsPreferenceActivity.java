@@ -129,6 +129,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
 
             setupLanguageSelector(preferences);
             setupDisguise(preferences);
+            setupConduitSettings(preferences, preferenceGetter);
             setupAbouts(preferences);
         }
 
@@ -258,6 +259,81 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         private void updateDisguiseSummary(ListPreference preference, String identity) {
             preference.setSummary(
                     DisguiseManager.getIdentityDisplayName(requireContext(), identity));
+        }
+
+        private void setupConduitSettings(PreferenceScreen preferences, PreferenceGetter preferenceGetter) {
+            // Conduit mode selection
+            ListPreference conduitModeList =
+                    (ListPreference) preferences.findPreference(getString(R.string.conduitModePreference));
+            if (conduitModeList != null) {
+                String conduitModeValue = preferenceGetter.getString(getString(R.string.conduitModePreference), "auto");
+                conduitModeList.setValue(conduitModeValue);
+                updateConduitModeSummary(conduitModeList, conduitModeValue);
+                conduitModeList.setOnPreferenceChangeListener((preference, newValue) -> {
+                    String mode = (String) newValue;
+                    updateConduitModeSummary((ListPreference) preference, mode);
+                    // Show/hide timeout based on mode
+                    ListPreference timeoutPref = (ListPreference) preferences.findPreference(
+                            getString(R.string.conduitTimeoutPreference));
+                    if (timeoutPref != null) {
+                        timeoutPref.setVisible("auto".equals(mode));
+                    }
+                    return true;
+                });
+            }
+
+            // Conduit timeout selection
+            ListPreference conduitTimeoutList =
+                    (ListPreference) preferences.findPreference(getString(R.string.conduitTimeoutPreference));
+            if (conduitTimeoutList != null) {
+                String timeoutValue = preferenceGetter.getString(getString(R.string.conduitTimeoutPreference), "180");
+                conduitTimeoutList.setValue(timeoutValue);
+                updateConduitTimeoutSummary(conduitTimeoutList, timeoutValue);
+                conduitTimeoutList.setOnPreferenceChangeListener((preference, newValue) -> {
+                    updateConduitTimeoutSummary((ListPreference) preference, (String) newValue);
+                    return true;
+                });
+
+                // Hide timeout if mode is not auto
+                String currentMode = conduitModeList != null ?
+                        conduitModeList.getValue() : "auto";
+                conduitTimeoutList.setVisible("auto".equals(currentMode));
+            }
+        }
+
+        private void updateConduitModeSummary(ListPreference preference, String value) {
+            switch (value) {
+                case "shirokhorshid":
+                    preference.setSummary(getString(R.string.conduitModeSummaryShirOKhorshid));
+                    break;
+                case "public":
+                    preference.setSummary(getString(R.string.conduitModeSummaryPublic));
+                    break;
+                case "auto":
+                default:
+                    preference.setSummary(getString(R.string.conduitModeSummaryAuto));
+                    break;
+            }
+        }
+
+        private void updateConduitTimeoutSummary(ListPreference preference, String value) {
+            String label;
+            switch (value) {
+                case "120":
+                    label = getString(R.string.conduit_timeout_2min);
+                    break;
+                case "300":
+                    label = getString(R.string.conduit_timeout_5min);
+                    break;
+                case "600":
+                    label = getString(R.string.conduit_timeout_10min);
+                    break;
+                case "180":
+                default:
+                    label = getString(R.string.conduit_timeout_3min);
+                    break;
+            }
+            preference.setSummary(String.format(getString(R.string.conduitTimeoutSummary), label));
         }
 
         private void setupLanguageSelector(PreferenceScreen preferences) {
