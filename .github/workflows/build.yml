@@ -227,6 +227,7 @@ jobs:
           PSIPHON_GET_NEW_VERSION_EMAIL: ${{ secrets.PSIPHON_GET_NEW_VERSION_EMAIL }}
           PSIPHON_FAQ_URL: ${{ secrets.PSIPHON_FAQ_URL }}
           PSIPHON_DATA_COLLECTION_INFO_URL: ${{ secrets.PSIPHON_DATA_COLLECTION_INFO_URL }}
+          PSIPHON_CONDUIT_COMPARTMENT_ID: ${{ secrets.PSIPHON_CONDUIT_COMPARTMENT_ID }}
 
       - name: Clean up secrets
         if: always()
