@@ -63,6 +63,7 @@
             android:defaultValue="auto" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:key="conduitCategory"
         android:title="@string/preference_category_conduit_title">
         <Preference
             android:key="conduitDescription"

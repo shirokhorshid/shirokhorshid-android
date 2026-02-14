@@ -33,8 +33,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.ListPreference;
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
 import com.psiphon3.MainActivityViewModel;
@@ -122,8 +122,21 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             String protocolValue = preferenceGetter.getString(getString(R.string.protocolSelectionPreference), "auto");
             protocolSelectionList.setValue(protocolValue);
             updateProtocolSelectionSummary(protocolSelectionList, protocolValue);
+
+            // Set initial conduit category visibility based on current protocol
+            PreferenceCategory conduitCategory =
+                    (PreferenceCategory) preferences.findPreference("conduitCategory");
+            if (conduitCategory != null) {
+                conduitCategory.setVisible(isConduitRelevantProtocol(protocolValue));
+            }
+
             protocolSelectionList.setOnPreferenceChangeListener((preference, newValue) -> {
-                updateProtocolSelectionSummary((ListPreference) preference, (String) newValue);
+                String protocol = (String) newValue;
+                updateProtocolSelectionSummary((ListPreference) preference, protocol);
+                // Show conduit settings only when protocol is auto or conduit
+                if (conduitCategory != null) {
+                    conduitCategory.setVisible(isConduitRelevantProtocol(protocol));
+                }
                 return true;
             });
 
@@ -196,6 +209,10 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                     preference.setSummary(getString(R.string.protocolSelectionSummaryAuto));
                     break;
             }
+        }
+
+        private boolean isConduitRelevantProtocol(String protocol) {
+            return "auto".equals(protocol) || "conduit".equals(protocol);
         }
 
         private void setupDisguise(PreferenceScreen preferences) {
