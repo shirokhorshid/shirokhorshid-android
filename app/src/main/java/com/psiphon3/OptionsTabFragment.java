@@ -279,7 +279,6 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 if (activity != null && !activity.isFinishing()) {
                     activity.finish();
                     Intent intent = new Intent(activity, MainActivity.class);
-                    intent.putExtra(MainActivity.INTENT_EXTRA_PREVENT_AUTO_START, true);
                     startActivity(intent);
                     System.exit(1);
                 }

@@ -84,7 +84,6 @@ import java.util.Map;
 import java.util.Set;
 
 import io.reactivex.Completable;
-import io.reactivex.Maybe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -98,7 +97,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     static final int REQUEST_CODE_NOTIFICATION_RATIONALE = 104;
     static final int REQUEST_CODE_LOCATION_RATIONALE = 105;
 
-    public static final String INTENT_EXTRA_PREVENT_AUTO_START = "com.psiphon3.MainActivity.PREVENT_AUTO_START";
     private static final String CURRENT_TAB = "currentTab";
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private Button toggleButton;
@@ -110,7 +108,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     private AppPreferences multiProcessPreferences;
     private ViewPager viewPager;
     private PsiphonTabLayout tabLayout;
-    private boolean isFirstRun = true;
     private AlertDialog upstreamProxyErrorAlertDialog;
     private MenuItem psiphonBumpHelpItem;
     private FloatingActionButton helpConnectFab;
@@ -121,12 +118,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
         DISABLED,
         NEED_SYSTEM_NFC,
         ENABLED
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putBoolean("isFirstRun", isFirstRun);
-        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -189,9 +180,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            isFirstRun = savedInstanceState.getBoolean("isFirstRun", isFirstRun);
-        }
 
         setContentView(R.layout.main_activity);
 
@@ -382,13 +370,10 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 })
                 .subscribe());
 
-        // Check if user data collection disclosure needs to be shown followed by the unsafe traffic
-        // alerts preference check and then check if the tunnel should be started automatically
+        // Show VPN data collection disclosure and unsafe traffic alerts if needed on resume
         compositeDisposable.add(
                 vpnServiceDataCollectionDisclosureCompletable()
                         .andThen(unsafeTrafficAlertsCompletable())
-                        .andThen(autoStartMaybe())
-                        .doOnSuccess(__ -> startTunnel())
                         .subscribe());
     }
 
@@ -902,31 +887,6 @@ public class MainActivity extends LocalizedActivities.AppCompatActivity {
                 }
             }
         }
-    }
-
-    private void preventAutoStart() {
-        isFirstRun = false;
-    }
-
-    private boolean shouldAutoStart() {
-        return isFirstRun &&
-                !getIntent().getBooleanExtra(INTENT_EXTRA_PREVENT_AUTO_START, false);
-    }
-
-    // Returns an object only if tunnel should be auto-started,
-    // completes with no value otherwise.
-    private Maybe<Object> autoStartMaybe() {
-        return Maybe.create(emitter -> {
-            boolean shouldAutoStart = shouldAutoStart();
-            preventAutoStart();
-            if (!emitter.isDisposed()) {
-                if (shouldAutoStart) {
-                    emitter.onSuccess(new Object());
-                } else {
-                    emitter.onComplete();
-                }
-            }
-        });
     }
 
     public static boolean shouldLoadInEmbeddedWebView(String url) {
