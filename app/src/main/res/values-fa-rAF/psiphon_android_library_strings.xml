@@ -180,4 +180,38 @@
   <string name="nfcBumpPreferenceTitle">فعال کردن Psiphon Bump</string>
   <!--Summary for Psiphon Bump preference-->
   <string name="nfcBumpPreferenceSummary">از NFC برای اشتراک‌گذاری داده‌های اتصال Psiphon با دستگاه‌های دیگر استفاده کنید.</string>
+
+  <!-- Reject censored country proxies -->
+  <string name="rejectCensoredCountryProxiesPreferenceTitle">رد پروکسی‌های کشورهای سانسورشده</string>
+  <string name="rejectCensoredCountryProxiesPreferenceSummary">مسدود کردن ایستگاه‌های Conduit واقع در ایران، چین، روسیه و سایر کشورهای سانسورشده</string>
+
+  <!-- Conduit configuration preferences -->
+  <string name="preference_category_conduit_title">تنظیمات Conduit</string>
+  <string name="preference_category_conduit_description">نحوه اتصال برنامه از طریق رله‌های داوطلبانه (Conduit) را تنظیم کنید. Conduit‌ها توسط داوطلبان اجرا می‌شوند تا به کاربران در مناطق سانسورشده کمک کنند به اینترنت دسترسی پیدا کنند.</string>
+
+  <string name="conduitModePreferenceTitle">حالت Conduit</string>
+  <string name="conduitModePreferenceSummary">انتخاب کنید از طریق کدام Conduit‌ها متصل شوید</string>
+
+  <string name="conduitModeSummaryAuto">خودکار - ابتدا Conduit‌های شیر و خورشید را امتحان می‌کند، سپس در صورت عدم اتصال در مدت زمان تعیین شده، به Conduit‌های عمومی منتقل می‌شود</string>
+  <string name="conduitModeSummaryShirOKhorshid">فقط Conduit‌های اختصاصی شیر و خورشید</string>
+  <string name="conduitModeSummaryPublic">فقط Conduit‌های عمومی</string>
+
+  <string name="conduit_mode_auto">خودکار (پیشنهادی)</string>
+  <string name="conduit_mode_shirokhorshid">Conduit‌های شیر و خورشید</string>
+  <string name="conduit_mode_public">Conduit‌های عمومی</string>
+
+  <string name="conduitTimeoutPreferenceTitle">مهلت زمانی جایگزینی</string>
+  <string name="conduitTimeoutPreferenceSummary">مدت انتظار قبل از امتحان حالت بعدی (فقط در حالت خودکار)</string>
+
+  <string name="conduitTimeoutSummary">%s صبر کنید قبل از تغییر به حالت بعدی</string>
+
+  <string name="conduit_timeout_2min">۲ دقیقه</string>
+  <string name="conduit_timeout_3min">۳ دقیقه (پیشنهادی)</string>
+  <string name="conduit_timeout_5min">۵ دقیقه</string>
+  <string name="conduit_timeout_10min">۱۰ دقیقه</string>
+
+  <string name="conduit_fallback_trying_shirokhorshid">در حال تلاش با Conduit‌های شیر و خورشید\u2026</string>
+  <string name="conduit_fallback_timeout">Conduit‌های شیر و خورشید پس از %s پاسخ ندادند</string>
+  <string name="conduit_fallback_trying_public">در حال تلاش با Conduit‌های عمومی\u2026</string>
+  <string name="conduit_mode_status">حالت Conduit: %s</string>
 </resources>

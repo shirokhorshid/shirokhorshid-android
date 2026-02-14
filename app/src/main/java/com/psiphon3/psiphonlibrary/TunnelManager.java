@@ -152,11 +152,20 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
         String protocolSelection = "auto"; // "auto", "conduit", or "direct"
+        String conduitMode = "auto"; // "auto", "shirokhorshid", or "public"
+        int conduitTimeoutSeconds = 180; // fallback timeout for auto conduit mode
+        boolean rejectCensoredCountryProxies = true; // block conduits in censored countries
+        boolean conduitFallbackToPublic = false; // true when auto mode has fallen back
         String sponsorId = EmbeddedValues.SPONSOR_ID;
         String deviceLocation = "";
     }
 
     private Config m_tunnelConfig;
+
+    // Conduit fallback state: when in "auto" conduit mode, tracks whether we've
+    // fallen back from shirokhorshid to public conduits
+    private volatile boolean m_conduitFallbackToPublic = false;
+    private Runnable m_conduitFallbackRunnable = null;
 
     private void setTunnelConfig(Config config) {
         m_tunnelConfig = config;
@@ -549,6 +558,20 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             tunnelConfig.protocolSelection = multiProcessPreferences
                     .getString(getContext().getString(R.string.protocolSelectionPreference),
                             "auto");
+            tunnelConfig.conduitMode = multiProcessPreferences
+                    .getString(getContext().getString(R.string.conduitModePreference),
+                            "auto");
+            try {
+                tunnelConfig.conduitTimeoutSeconds = Integer.parseInt(
+                        multiProcessPreferences.getString(
+                                getContext().getString(R.string.conduitTimeoutPreference),
+                                "180"));
+            } catch (NumberFormatException e) {
+                tunnelConfig.conduitTimeoutSeconds = 180;
+            }
+            tunnelConfig.rejectCensoredCountryProxies = multiProcessPreferences
+                    .getBoolean(getContext().getString(R.string.rejectCensoredCountryProxiesPreference),
+                            true);
             return tunnelConfig;
         });
 
@@ -1044,6 +1067,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         NDCrash.nativeInitializeStdErrRedirect(stdErrRedirectPath);
 
         m_isStopping.set(false);
+        m_conduitFallbackToPublic = false; // Reset fallback state for fresh tunnel start
         m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
         m_isRoutingThroughTunnelPublishRelay.accept(Boolean.FALSE);
 
@@ -1063,6 +1087,18 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
 
             m_tunnel.setVpnMode(true);
             m_tunnel.startTunneling(getServerEntries(m_parentService));
+
+            // Start conduit fallback timer immediately after tunneling begins.
+            // We can't wait for onConnecting() because tunnel-core may never emit
+            // a connecting notice when using INPROXY protocols with a personal
+            // compartment ID that has no matching proxies.
+            m_Handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    startConduitFallbackTimerIfNeeded();
+                }
+            });
+
             try {
                 m_tunnelThreadStopSignal.await();
             } catch (InterruptedException e) {
@@ -1082,6 +1118,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             MyLog.i(R.string.stopping_tunnel, MyLog.Sensitivity.NOT_SENSITIVE);
 
             m_isStopping.set(true);
+            cancelConduitFallbackTimer();
             m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTING);
             m_isRoutingThroughTunnelPublishRelay.accept(false);
             m_vpnManager.vpnTeardown();
@@ -1462,18 +1499,58 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 limitProtocols.put("INPROXY-WEBRTC-QUIC-OSSH");
                 json.put("LimitTunnelProtocols", limitProtocols);
                 
+                // Determine whether to use personal compartment ID based on conduit mode
+                String conduitMode = tunnelConfig.conduitMode;
+                boolean useCompartmentId = false;
+                if ("shirokhorshid".equals(conduitMode)) {
+                    // Only shirokhorshid conduits, always use compartment ID
+                    useCompartmentId = true;
+                    MyLog.i(R.string.conduit_mode_status, MyLog.Sensitivity.NOT_SENSITIVE,
+                            context.getString(R.string.conduit_mode_shirokhorshid));
+                } else if ("public".equals(conduitMode)) {
+                    // Public conduits only, never use compartment ID
+                    useCompartmentId = false;
+                    MyLog.i(R.string.conduit_mode_status, MyLog.Sensitivity.NOT_SENSITIVE,
+                            context.getString(R.string.conduit_mode_public));
+                } else {
+                    // Auto mode: use compartment ID unless we've fallen back
+                    if (tunnelConfig.conduitFallbackToPublic) {
+                        useCompartmentId = false;
+                        MyLog.i(R.string.conduit_mode_status, MyLog.Sensitivity.NOT_SENSITIVE,
+                                context.getString(R.string.conduit_mode_auto) + " → " + context.getString(R.string.conduit_mode_public));
+                    } else {
+                        useCompartmentId = true;
+                        MyLog.i(R.string.conduit_mode_status, MyLog.Sensitivity.NOT_SENSITIVE,
+                                context.getString(R.string.conduit_mode_auto));
+                    }
+                }
+                
+                if (useCompartmentId) {
+                    // Personal compartment ID for private conduit pairing (from build config)
+                    String compartmentId = EmbeddedValues.CONDUIT_COMPARTMENT_ID;
+                    if (compartmentId != null && !compartmentId.isEmpty()) {
+                        json.put("InproxyClientPersonalCompartmentID", compartmentId);
+                    } else {
+                        MyLog.w("ConduitMode", "compartmentId", "empty — PSIPHON_CONDUIT_COMPARTMENT_ID not set at build time");
+                    }
+                }
+                
                 // Load GeoIP database for proxy country display and rejection
                 String geoIPPath = copyGeoIPDatabaseFromAssets(context);
                 if (geoIPPath != null) {
                     json.put("GeoIPDatabasePath", geoIPPath);
                     
-                    // Always reject proxies from censored countries
-                    JSONArray rejectCountryCodes = new JSONArray();
-                    for (String countryCode : CENSORED_COUNTRY_CODES) {
-                        rejectCountryCodes.put(countryCode);
+                    // Reject proxies from censored countries if enabled
+                    if (tunnelConfig.rejectCensoredCountryProxies) {
+                        JSONArray rejectCountryCodes = new JSONArray();
+                        for (String countryCode : CENSORED_COUNTRY_CODES) {
+                            rejectCountryCodes.put(countryCode);
+                        }
+                        json.put("InproxyRejectProxyCountryCodes", rejectCountryCodes);
+                        MyLog.i("ConduitConfig", "rejectCountries", java.util.Arrays.toString(CENSORED_COUNTRY_CODES));
+                    } else {
+                        MyLog.i("ConduitConfig", "rejectCountries", "disabled");
                     }
-                    json.put("InproxyRejectProxyCountryCodes", rejectCountryCodes);
-                    MyLog.i("ConduitMode", "rejectCountries", java.util.Arrays.toString(CENSORED_COUNTRY_CODES));
                 }
             } else if ("direct".equals(protocolSelection)) {
                 // Direct: only use non-inproxy, non-meek protocols
@@ -1555,6 +1632,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
     @Override
     public String getPsiphonConfig() {
         setPlatformAffixes(m_tunnel, null);
+        // Sync instance fallback state into config for the static buildTunnelCoreConfig
+        m_tunnelConfig.conduitFallbackToPublic = m_conduitFallbackToPublic;
         String config = buildTunnelCoreConfig(getContext(), m_tunnelConfig, true, null);
         return config == null ? "" : config;
     }
@@ -1787,6 +1866,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                     mNotificationManager.cancel(R.id.notification_id_upstream_proxy_error);
                 }
 
+                // Cancel conduit fallback timer - we connected successfully
+                cancelConduitFallbackTimer();
+
                 DataTransferStats.getDataTransferStatsForService().startConnected();
 
                 MyLog.i(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
@@ -1794,6 +1876,66 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
             }
         });
+    }
+
+    /**
+     * Start the conduit fallback timer if conditions are met:
+     * - Protocol is "conduit"
+     * - Conduit mode is "auto"
+     * - We haven't already fallen back to public
+     */
+    private void startConduitFallbackTimerIfNeeded() {
+        if (m_tunnelConfig == null) return;
+        if (!"conduit".equals(m_tunnelConfig.protocolSelection)) return;
+        if (!"auto".equals(m_tunnelConfig.conduitMode)) return;
+        if (m_conduitFallbackToPublic) return;
+        // Only start the timer once — don't restart on repeated onConnecting() calls
+        if (m_conduitFallbackRunnable != null) return;
+
+        int timeoutMs = m_tunnelConfig.conduitTimeoutSeconds * 1000;
+        String timeoutLabel = getConduitTimeoutLabel(m_tunnelConfig.conduitTimeoutSeconds);
+
+        m_conduitFallbackRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (m_isStopping.get()) return;
+                if (m_tunnelState.isConnected()) return;
+
+                // Timeout reached without connection — fall back to public conduits
+                m_conduitFallbackToPublic = true;
+                MyLog.i(R.string.conduit_fallback_timeout, MyLog.Sensitivity.NOT_SENSITIVE, timeoutLabel);
+                MyLog.i(R.string.conduit_fallback_trying_public, MyLog.Sensitivity.NOT_SENSITIVE);
+
+                // Restart tunnel — getConfig will now omit the compartment ID
+                try {
+                    m_tunnel.restartPsiphon();
+                } catch (PsiphonTunnel.Exception e) {
+                    MyLog.e(R.string.start_tunnel_failed, MyLog.Sensitivity.NOT_SENSITIVE, e.getMessage());
+                }
+            }
+        };
+
+        m_Handler.postDelayed(m_conduitFallbackRunnable, timeoutMs);
+    }
+
+    /**
+     * Cancel any pending conduit fallback timer.
+     */
+    private void cancelConduitFallbackTimer() {
+        if (m_conduitFallbackRunnable != null) {
+            m_Handler.removeCallbacks(m_conduitFallbackRunnable);
+            m_conduitFallbackRunnable = null;
+        }
+    }
+
+    /**
+     * Get a human-readable label for timeout seconds.
+     */
+    private String getConduitTimeoutLabel(int seconds) {
+        if (seconds <= 120) return getContext().getString(R.string.conduit_timeout_2min);
+        if (seconds <= 180) return getContext().getString(R.string.conduit_timeout_3min);
+        if (seconds <= 300) return getContext().getString(R.string.conduit_timeout_5min);
+        return getContext().getString(R.string.conduit_timeout_10min);
     }
 
     private String getClientVersion() {

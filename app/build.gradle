@@ -19,7 +19,8 @@ apply plugin: 'com.android.application'
 //   PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY,
 //   PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY,
 //   PSIPHON_INFO_LINK_URL, PSIPHON_FAQ_URL, PSIPHON_GET_NEW_VERSION_URL,
-//   PSIPHON_GET_NEW_VERSION_EMAIL, PSIPHON_DATA_COLLECTION_INFO_URL
+//   PSIPHON_GET_NEW_VERSION_EMAIL, PSIPHON_DATA_COLLECTION_INFO_URL,
+//   PSIPHON_CONDUIT_COMPARTMENT_ID
 // ---------------------------------------------------------------------------
 def embeddedValuesFile = file('src/main/java/com/psiphon3/psiphonlibrary/EmbeddedValues.java')
 
@@ -69,6 +70,7 @@ task generateEmbeddedValues {
         def getNewVersionUrl  = embedded('PSIPHON_GET_NEW_VERSION_URL', 'https://psiphon.ca')
         def getNewVersionEmail = embedded('PSIPHON_GET_NEW_VERSION_EMAIL', 'get@psiphon3.com')
         def dataCollectionUrl = embedded('PSIPHON_DATA_COLLECTION_INFO_URL', 'https://psiphon.ca/privacy.html')
+        def conduitCompartmentId = embedded('PSIPHON_CONDUIT_COMPARTMENT_ID', '')
 
         // Build the server list array initializer
         // Supports a file with one entry per line, or a single entry from env var
@@ -149,6 +151,8 @@ public class EmbeddedValues
 
     public static final String ADDITIONAL_PARAMETERS = "";
 
+    public static final String CONDUIT_COMPARTMENT_ID = "${conduitCompartmentId}";
+
     public static String SPONSOR_ID = "${sponsorId}";
     public static String INFO_LINK_URL = "${infoLinkUrl}";
     public static String GET_NEW_VERSION_URL = "${getNewVersionUrl}";
@@ -214,7 +218,7 @@ public class EmbeddedValues
 }
 """
 
-        logger.lifecycle("Generated EmbeddedValues.java (propagation=${propagationChannelId}, sponsor=${sponsorId})")
+        logger.lifecycle("Generated EmbeddedValues.java (propagation=${propagationChannelId}, sponsor=${sponsorId}, conduitCompartmentId=${conduitCompartmentId ? 'set' : 'empty'})")
     }
 }
 
