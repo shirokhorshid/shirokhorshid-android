@@ -281,19 +281,22 @@ public class HomeTabFragment extends Fragment {
         ConnectivityManager cm = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null) return null;
-        Network activeNetwork = cm.getActiveNetwork();
-        if (activeNetwork == null) return null;
-        NetworkCapabilities capabilities = cm.getNetworkCapabilities(activeNetwork);
-        if (capabilities == null ||
-                !capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-            return null;
-        }
-        LinkProperties linkProperties = cm.getLinkProperties(activeNetwork);
-        if (linkProperties == null) return null;
-        for (android.net.LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
-            InetAddress address = linkAddress.getAddress();
-            if (address instanceof Inet4Address && !address.isLoopbackAddress()) {
-                return address.getHostAddress();
+
+        // When a VPN is active, getActiveNetwork() returns the VPN network,
+        // not the underlying Wi-Fi. Iterate all networks to find Wi-Fi.
+        for (Network network : cm.getAllNetworks()) {
+            NetworkCapabilities capabilities = cm.getNetworkCapabilities(network);
+            if (capabilities == null ||
+                    !capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                continue;
+            }
+            LinkProperties linkProperties = cm.getLinkProperties(network);
+            if (linkProperties == null) continue;
+            for (android.net.LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
+                InetAddress address = linkAddress.getAddress();
+                if (address instanceof Inet4Address && !address.isLoopbackAddress()) {
+                    return address.getHostAddress();
+                }
             }
         }
         return null;

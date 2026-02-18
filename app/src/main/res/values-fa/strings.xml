@@ -197,4 +197,17 @@
 
   <string name="disguise_switch_warning">آیکون و نام برنامه پس از چند ثانیه تغییر خواهد کرد. ممکن است نیاز باشد آیکون جدید را به صفحه اصلی اضافه کنید.</string>
 
+  <!-- Network Sharing / LAN Proxy -->
+  <string name="preference_category_network_sharing_title">اشتراک‌گذاری شبکه</string>
+  <string name="preference_share_proxy_title">اشتراک‌گذاری پروکسی در شبکه</string>
+  <string name="preference_share_proxy_summary">به دستگاه‌های دیگر در همان شبکه Wi-Fi اجازه دهید از طریق تونل این دستگاه متصل شوند</string>
+  <string name="preference_share_proxy_description">با فعال‌سازی، پروکسی HTTP و SOCKS5 برای دستگاه‌های دیگر در شبکه محلی شما در دسترس خواهد بود. تنظیمات پروکسی دستگاه‌های دیگر را با آدرسی که در صفحه اصلی نشان داده می‌شود پیکربندی کنید.</string>
+  <string name="share_proxy_security_warning_title">هشدار امنیتی</string>
+  <string name="share_proxy_security_warning_message">فعال‌سازی اشتراک‌گذاری شبکه، پروکسی را در دسترس تمام دستگاه‌های شبکه Wi-Fi شما قرار می‌دهد.\n\nهر دستگاهی در همان شبکه می‌تواند ترافیک خود را از طریق تونل شما عبور دهد.\n\nفقط در شبکه‌های مورد اعتماد فعال کنید.</string>
+  <string name="lan_proxy_http_address">پروکسی HTTP: %1$s:%2$d</string>
+  <string name="lan_proxy_socks_address">پروکسی SOCKS5: %1$s:%2$d</string>
+  <string name="lan_proxy_sharing_active">اشتراک‌گذاری شبکه فعال است</string>
+  <string name="lan_proxy_configure_hint">تنظیمات پروکسی دستگاه‌های دیگر را با این آدرس‌ها پیکربندی کنید</string>
+  <string name="log_lan_sharing_enabled">اشتراک‌گذاری شبکه فعال شد — پروکسی در شبکه محلی در دسترس است</string>
+
 </resources>

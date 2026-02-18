@@ -407,7 +407,16 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 prefs.getBoolean(getString(R.string.disableTimeoutsPreference), false);
         boolean disableTimeoutsCurrentPreference =
                 multiProcessPreferences.getBoolean(getString(R.string.disableTimeoutsPreference), false);
-        return disableTimeoutsCurrentPreference != disableTimeoutsNewPreference;
+        if (disableTimeoutsCurrentPreference != disableTimeoutsNewPreference) {
+            return true;
+        }
+
+        // check if share proxy on network setting has changed
+        boolean shareProxyNew =
+                prefs.getBoolean(getString(R.string.shareProxyOnNetworkPreference), false);
+        boolean shareProxyCurrent =
+                multiProcessPreferences.getBoolean(getString(R.string.shareProxyOnNetworkPreference), false);
+        return shareProxyCurrent != shareProxyNew;
     }
 
     private void updateVpnSettingsFromPreferences() {
@@ -452,6 +461,7 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.conduitModePreference), getString(R.string.conduitModePreference)),
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.conduitTimeoutPreference), getString(R.string.conduitTimeoutPreference)),
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.rejectCensoredCountryProxiesPreference), getString(R.string.rejectCensoredCountryProxiesPreference)),
+                new SharedPreferencesImport(requireContext(), prefName, getString(R.string.shareProxyOnNetworkPreference), getString(R.string.shareProxyOnNetworkPreference)),
                 new SharedPreferencesImport(requireContext(), prefName, DisguiseManager.PREF_STEALTH_NOTIFICATIONS, DisguiseManager.PREF_STEALTH_NOTIFICATIONS)
         );
     }
