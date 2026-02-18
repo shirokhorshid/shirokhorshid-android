@@ -21,6 +21,13 @@ package com.psiphon3;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.LinkProperties;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,6 +39,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -45,7 +53,13 @@ import androidx.lifecycle.ViewModelProvider;
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -64,6 +78,11 @@ public class HomeTabFragment extends Fragment {
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private TextView lastLogEntryTv;
     private ObjectAnimator pulseAnimator;
+
+    // LAN proxy info views
+    private LinearLayout lanProxyInfoSection;
+    private TextView lanProxyHttpText;
+    private TextView lanProxySocksText;
 
     @Nullable
     @Override
@@ -90,6 +109,11 @@ public class HomeTabFragment extends Fragment {
         statusViewImage.setImageAlpha(77); // Start dimmed (disconnected)
 
         lastLogEntryTv = view.findViewById(R.id.lastlogline);
+
+        // LAN proxy info views
+        lanProxyInfoSection = view.findViewById(R.id.lanProxyInfoSection);
+        lanProxyHttpText = view.findViewById(R.id.lanProxyHttpText);
+        lanProxySocksText = view.findViewById(R.id.lanProxySocksText);
 
         viewModel = new ViewModelProvider(requireActivity(),
                 new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()))
@@ -163,15 +187,153 @@ public class HomeTabFragment extends Fragment {
                 // Connected: full brightness, no animation
                 stopPulseAnimation();
                 statusViewImage.setImageAlpha(255);
+                // Show LAN proxy info if sharing is enabled
+                updateLanProxyInfo(tunnelState.connectionData());
             } else {
                 // Connecting: pulse animation
                 startPulseAnimation();
+                hideLanProxyInfo();
             }
         } else {
             // Disconnected: dim, no animation
             stopPulseAnimation();
             statusViewImage.setImageAlpha(77);
+            hideLanProxyInfo();
         }
+    }
+
+    private void updateLanProxyInfo(TunnelState.ConnectionData connectionData) {
+        if (lanProxyInfoSection == null) {
+            return;
+        }
+
+        if (!connectionData.isLanSharingEnabled()) {
+            hideLanProxyInfo();
+            return;
+        }
+
+        Context context = getContext();
+        if (context == null) {
+            hideLanProxyInfo();
+            return;
+        }
+
+        String lanIp = getLanIpAddress(context);
+        if (lanIp == null) {
+            hideLanProxyInfo();
+            return;
+        }
+
+        int httpPort = connectionData.httpPort();
+        int socksPort = connectionData.socksPort();
+
+        if (httpPort <= 0 && socksPort <= 0) {
+            hideLanProxyInfo();
+            return;
+        }
+
+        lanProxyInfoSection.setVisibility(View.VISIBLE);
+
+        if (httpPort > 0) {
+            lanProxyHttpText.setText(getString(R.string.lan_proxy_http_address, lanIp, httpPort));
+            lanProxyHttpText.setVisibility(View.VISIBLE);
+        } else {
+            lanProxyHttpText.setVisibility(View.GONE);
+        }
+
+        if (socksPort > 0) {
+            lanProxySocksText.setText(getString(R.string.lan_proxy_socks_address, lanIp, socksPort));
+            lanProxySocksText.setVisibility(View.VISIBLE);
+        } else {
+            lanProxySocksText.setVisibility(View.GONE);
+        }
+    }
+
+    private void hideLanProxyInfo() {
+        if (lanProxyInfoSection != null) {
+            lanProxyInfoSection.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * Get the device's LAN IPv4 address using a multi-strategy approach.
+     * Strategy 1: ConnectivityManager + LinkProperties (API 23+, most reliable)
+     * Strategy 2: NetworkInterface enumeration (all API levels)
+     * Strategy 3: WifiManager (pre-API 31 fallback)
+     */
+    private static String getLanIpAddress(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            String ip = getLanIpFromConnectivityManager(context);
+            if (ip != null) return ip;
+        }
+
+        String ip = getLanIpFromNetworkInterfaces();
+        if (ip != null) return ip;
+
+        if (Build.VERSION.SDK_INT < 31) {
+            return getLanIpFromWifiManager(context);
+        }
+        return null;
+    }
+
+    @android.annotation.TargetApi(Build.VERSION_CODES.M)
+    private static String getLanIpFromConnectivityManager(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)
+                context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) return null;
+        Network activeNetwork = cm.getActiveNetwork();
+        if (activeNetwork == null) return null;
+        NetworkCapabilities capabilities = cm.getNetworkCapabilities(activeNetwork);
+        if (capabilities == null ||
+                !capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+            return null;
+        }
+        LinkProperties linkProperties = cm.getLinkProperties(activeNetwork);
+        if (linkProperties == null) return null;
+        for (android.net.LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
+            InetAddress address = linkAddress.getAddress();
+            if (address instanceof Inet4Address && !address.isLoopbackAddress()) {
+                return address.getHostAddress();
+            }
+        }
+        return null;
+    }
+
+    private static String getLanIpFromNetworkInterfaces() {
+        try {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            if (interfaces == null) return null;
+            for (NetworkInterface ni : Collections.list(interfaces)) {
+                if (ni.isLoopback() || !ni.isUp()) continue;
+                String name = ni.getName().toLowerCase();
+                if (name.startsWith("tun") || name.startsWith("ppp") ||
+                        name.startsWith("rmnet") || name.startsWith("lo") ||
+                        name.startsWith("dummy")) {
+                    continue;
+                }
+                for (InetAddress addr : Collections.list(ni.getInetAddresses())) {
+                    if (addr instanceof Inet4Address && !addr.isLoopbackAddress()
+                            && addr.isSiteLocalAddress()) {
+                        return addr.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException ignored) {}
+        return null;
+    }
+
+    @SuppressWarnings("deprecation")
+    private static String getLanIpFromWifiManager(Context context) {
+        WifiManager wm = (WifiManager)
+                context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (wm == null) return null;
+        WifiInfo info = wm.getConnectionInfo();
+        if (info == null) return null;
+        int ipInt = info.getIpAddress();
+        if (ipInt == 0) return null;
+        return String.format("%d.%d.%d.%d",
+                (ipInt & 0xff), (ipInt >> 8 & 0xff),
+                (ipInt >> 16 & 0xff), (ipInt >> 24 & 0xff));
     }
 
     private void startPulseAnimation() {

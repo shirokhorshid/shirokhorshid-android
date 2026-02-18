@@ -298,6 +298,7 @@ public class TunnelServiceInteractor {
         if (vpnApps != null) {
             tunnelState.vpnApps = vpnApps;
         }
+        tunnelState.shareProxyOnNetwork = data.getBoolean(TunnelManager.DATA_TUNNEL_STATE_SHARE_PROXY_ON_NETWORK);
         return tunnelState;
     }
 
@@ -349,6 +350,8 @@ public class TunnelServiceInteractor {
                                 .setPropagationChannelId(EmbeddedValues.PROPAGATION_CHANNEL_ID)
                                 .setSponsorId(state.sponsorId)
                                 .setHttpPort(state.listeningLocalHttpProxyPort)
+                                .setSocksPort(state.listeningLocalSocksProxyPort)
+                                .setIsLanSharingEnabled(state.shareProxyOnNetwork)
                                 .setHomePages(state.homePages)
                                 .setVpnMode(state.vpnMode)
                                 .setVpnApps(state.vpnApps)

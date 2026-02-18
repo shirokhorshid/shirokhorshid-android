@@ -53,6 +53,63 @@
                     android:textColor="#888888"
                     android:text="@string/unofficial_disclaimer_short" />
 
+                <!-- LAN Proxy Info (visible only when network sharing is active) -->
+                <LinearLayout
+                    android:id="@+id/lanProxyInfoSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/lanProxySharingLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/lan_proxy_sharing_active"
+                        android:textStyle="bold"
+                        android:textColor="#4CAF50"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/lanProxyHttpText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="4dp"
+                        android:textSize="12sp"
+                        android:fontFamily="monospace"
+                        android:textColor="#DDDDDD" />
+
+                    <TextView
+                        android:id="@+id/lanProxySocksText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="2dp"
+                        android:textSize="12sp"
+                        android:fontFamily="monospace"
+                        android:textColor="#DDDDDD" />
+
+                    <TextView
+                        android:id="@+id/lanProxyHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:paddingTop="4dp"
+                        android:text="@string/lan_proxy_configure_hint"
+                        android:textSize="10sp"
+                        android:textColor="#888888" />
+
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/lastlogline"
                     android:layout_width="match_parent"

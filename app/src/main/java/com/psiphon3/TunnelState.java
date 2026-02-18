@@ -54,6 +54,10 @@ public abstract class TunnelState {
 
         public abstract int httpPort();
 
+        public abstract int socksPort();
+
+        public abstract boolean isLanSharingEnabled();
+
         @Nullable
         public abstract ArrayList<String> homePages();
 
@@ -70,6 +74,8 @@ public abstract class TunnelState {
                     .setPropagationChannelId("")
                     .setSponsorId("")
                     .setHttpPort(0)
+                    .setSocksPort(0)
+                    .setIsLanSharingEnabled(false)
                     .setHomePages(null)
                     .setVpnMode(com.psiphon3.psiphonlibrary.VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS)
                     .setVpnApps(null);
@@ -88,6 +94,10 @@ public abstract class TunnelState {
             public abstract Builder setSponsorId(String value);
 
             public abstract Builder setHttpPort(int port);
+
+            public abstract Builder setSocksPort(int port);
+
+            public abstract Builder setIsLanSharingEnabled(boolean isLanSharingEnabled);
 
             public abstract Builder setHomePages(@Nullable ArrayList<String> homePages);
 

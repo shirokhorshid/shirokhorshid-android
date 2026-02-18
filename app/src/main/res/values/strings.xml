@@ -215,4 +215,18 @@
 
     <string name="disguise_switch_warning">The app icon and name will change after a few seconds. You may need to add the new icon to your home screen.</string>
 
+    <!-- Network Sharing / LAN Proxy -->
+    <string name="shareProxyOnNetworkPreference">shareProxyOnNetworkPreference</string>
+    <string name="preference_category_network_sharing_title">Network Sharing</string>
+    <string name="preference_share_proxy_title">Share proxy on network</string>
+    <string name="preference_share_proxy_summary">Allow other devices on the same Wi-Fi network to connect through this device\'s tunnel</string>
+    <string name="preference_share_proxy_description">When enabled, the HTTP and SOCKS5 proxy will be available to other devices on your local network. Configure other devices\' proxy settings with the address shown on the home screen.</string>
+    <string name="share_proxy_security_warning_title">Security Warning</string>
+    <string name="share_proxy_security_warning_message">Enabling network sharing will expose the proxy to all devices on your Wi-Fi network.\n\nAny device on the same network will be able to route its traffic through your tunnel.\n\nOnly enable this on trusted networks.</string>
+    <string name="lan_proxy_http_address">HTTP Proxy: %1$s:%2$d</string>
+    <string name="lan_proxy_socks_address">SOCKS5 Proxy: %1$s:%2$d</string>
+    <string name="lan_proxy_sharing_active">Network sharing active</string>
+    <string name="lan_proxy_configure_hint">Configure other devices\' proxy settings with these addresses</string>
+    <string name="log_lan_sharing_enabled">Network sharing enabled — proxy exposed on LAN</string>
+
 </resources>

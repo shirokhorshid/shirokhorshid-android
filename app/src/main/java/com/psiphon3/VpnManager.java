@@ -19,7 +19,9 @@
 
 package com.psiphon3;
 
+import android.net.IpPrefix;
 import android.net.VpnService;
+import android.os.Build;
 import android.os.ParcelFileDescriptor;
 
 import com.psiphon3.log.MyLog;
@@ -30,9 +32,12 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -58,6 +63,7 @@ public class VpnManager {
     private PrivateAddress mPrivateAddress;
     private final AtomicReference<ParcelFileDescriptor> tunFd;
     private final AtomicBoolean isRoutingThroughTunnel;
+    private volatile boolean mShareProxyOnNetwork = false;
     private Thread mTun2SocksThread;
     private WeakReference<VpnServiceBuilderProvider> vpnServiceBuilderProviderRef;
 
@@ -166,6 +172,12 @@ public class VpnManager {
         throw new IllegalStateException("No private address available");
     }
 
+    // Set whether LAN proxy sharing is enabled. When enabled, VPN routes will exclude
+    // private LAN subnets so that other devices on the local network can reach the proxy.
+    public void setShareProxyOnNetwork(boolean share) {
+        mShareProxyOnNetwork = share;
+    }
+
     // Pick a private address and create the VPN interface
     public synchronized void vpnEstablish() {
         mPrivateAddress = selectPrivateAddress();
@@ -183,13 +195,30 @@ public class VpnManager {
                 throw new IllegalStateException("HostService reference is null");
             }
 
-            ParcelFileDescriptor tunFd = vpnServiceBuilderProvider.vpnServiceBuilder()
+            VpnService.Builder builder = vpnServiceBuilderProvider.vpnServiceBuilder()
                     .setMtu(VPN_INTERFACE_MTU)
                     .addAddress(mPrivateAddress.mIpAddress, mPrivateAddress.mPrefixLength)
-                    .addRoute("0.0.0.0", 0)
-                    .addRoute(mPrivateAddress.mSubnet, mPrivateAddress.mPrefixLength)
-                    .addDnsServer(dnsResolver)
-                    .establish();
+                    .addDnsServer(dnsResolver);
+
+            if (mShareProxyOnNetwork) {
+                // When LAN sharing is enabled, route all traffic through VPN EXCEPT
+                // private LAN subnets so other devices can reach the proxy directly.
+                addLanExcludedRoutes(builder);
+            } else {
+                builder.addRoute("0.0.0.0", 0);
+            }
+
+            // Add route for the VPN interface's own subnet to ensure traffic to the
+            // tun2socks gateway (DNS resolver) is routed through the tun interface.
+            // When LAN sharing is enabled, use a /24 route for just the VPN gateway
+            // instead of the full private subnet, to avoid re-adding the excluded range.
+            if (mShareProxyOnNetwork) {
+                builder.addRoute(mPrivateAddress.mSubnet, 24);
+            } else {
+                builder.addRoute(mPrivateAddress.mSubnet, mPrivateAddress.mPrefixLength);
+            }
+
+            ParcelFileDescriptor tunFd = builder.establish();
             if (tunFd == null) {
                 // As per
                 // http://developer.android.com/reference/android/net/VpnService.Builder.html#establish%28%29,
@@ -202,6 +231,137 @@ public class VpnManager {
             // Restore the original locale
             Locale.setDefault(previousLocale);
         }
+    }
+
+    // RFC 1918 private ranges to exclude from VPN when LAN sharing is enabled.
+    // These ranges are excluded so that LAN devices can reach the proxy directly.
+    private static final String[][] LAN_SUBNETS = {
+            {"10.0.0.0", "8"},
+            {"172.16.0.0", "12"},
+            {"192.168.0.0", "16"},
+    };
+
+    /**
+     * Add VPN routes that cover 0.0.0.0/0 minus the RFC 1918 private LAN subnets.
+     * On API 33+ uses {@code excludeRoute(IpPrefix)} for clarity.
+     * On older APIs, computes the complementary CIDR routes programmatically.
+     */
+    private static void addLanExcludedRoutes(VpnService.Builder builder) {
+        if (Build.VERSION.SDK_INT >= 33) {
+            // API 33+ (Android 13): use excludeRoute directly — clean and declarative
+            builder.addRoute("0.0.0.0", 0);
+            for (String[] subnet : LAN_SUBNETS) {
+                try {
+                    InetAddress addr = InetAddress.getByName(subnet[0]);
+                    builder.excludeRoute(new IpPrefix(addr, Integer.parseInt(subnet[1])));
+                } catch (UnknownHostException e) {
+                    // Static addresses, cannot fail
+                    throw new RuntimeException(e);
+                }
+            }
+        } else {
+            // API 14-32: compute complementary routes by subtracting each private
+            // range from the full IPv4 address space
+            List<long[]> routes = new ArrayList<>();
+            routes.add(new long[]{0L, 0}); // 0.0.0.0/0
+
+            for (String[] subnet : LAN_SUBNETS) {
+                long ip = ipToLong(subnet[0]);
+                int prefix = Integer.parseInt(subnet[1]);
+                routes = subtractCidr(routes, ip, prefix);
+            }
+
+            for (long[] route : routes) {
+                builder.addRoute(longToIp(route[0]), (int) route[1]);
+            }
+        }
+    }
+
+    /**
+     * Subtract a CIDR block from a list of CIDR blocks, returning the remaining blocks.
+     * Each block is represented as {ipAsLong, prefixLength}.
+     */
+    private static List<long[]> subtractCidr(List<long[]> routes, long subtractIp, int subtractPrefix) {
+        long subtractMask = prefixToMask(subtractPrefix);
+        long subtractStart = subtractIp & subtractMask;
+        long subtractEnd = subtractStart | ~subtractMask & 0xFFFFFFFFL;
+
+        List<long[]> result = new ArrayList<>();
+        for (long[] route : routes) {
+            long routeMask = prefixToMask((int) route[1]);
+            long routeStart = route[0] & routeMask;
+            long routeEnd = routeStart | ~routeMask & 0xFFFFFFFFL;
+
+            if (subtractStart > routeEnd || subtractEnd < routeStart) {
+                // No overlap — keep this route unchanged
+                result.add(route);
+            } else if (subtractStart <= routeStart && subtractEnd >= routeEnd) {
+                // Fully covered — remove this route entirely
+            } else {
+                // Partial overlap — split into sub-blocks that don't overlap
+                splitExcluding(result, routeStart, (int) route[1], subtractStart, subtractEnd);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Split a CIDR block into the largest possible sub-blocks that don't overlap
+     * with the excluded range [exclStart, exclEnd].
+     */
+    private static void splitExcluding(List<long[]> result, long blockStart, int blockPrefix,
+                                       long exclStart, long exclEnd) {
+        // Try each sub-block at one prefix level deeper (split in half)
+        int childPrefix = blockPrefix + 1;
+        if (childPrefix > 32) {
+            return;
+        }
+        long childSize = 1L << (32 - childPrefix);
+
+        // Left half
+        long leftStart = blockStart;
+        long leftEnd = leftStart + childSize - 1;
+        // Right half
+        long rightStart = blockStart + childSize;
+        long rightEnd = rightStart + childSize - 1;
+
+        // For each half: if no overlap with excluded range, add it whole.
+        // If fully covered, skip. If partial overlap, recurse.
+        long[][] children = {{leftStart, leftEnd}, {rightStart, rightEnd}};
+        for (long[] child : children) {
+            if (exclStart > child[1] || exclEnd < child[0]) {
+                // No overlap — keep whole
+                result.add(new long[]{child[0], childPrefix});
+            } else if (exclStart <= child[0] && exclEnd >= child[1]) {
+                // Fully excluded — skip
+            } else {
+                // Partial overlap — recurse
+                splitExcluding(result, child[0], childPrefix, exclStart, exclEnd);
+            }
+        }
+    }
+
+    /** Convert a prefix length (0-32) to a 32-bit mask as an unsigned long. */
+    private static long prefixToMask(int prefix) {
+        if (prefix == 0) return 0L;
+        return (~0L << (32 - prefix)) & 0xFFFFFFFFL;
+    }
+
+    /** Convert a dotted-quad IPv4 string to an unsigned long. */
+    private static long ipToLong(String ip) {
+        String[] parts = ip.split("\\.");
+        return (Long.parseLong(parts[0]) << 24)
+                | (Long.parseLong(parts[1]) << 16)
+                | (Long.parseLong(parts[2]) << 8)
+                | Long.parseLong(parts[3]);
+    }
+
+    /** Convert an unsigned long to a dotted-quad IPv4 string. */
+    private static String longToIp(long ip) {
+        return ((ip >> 24) & 0xFF) + "."
+                + ((ip >> 16) & 0xFF) + "."
+                + ((ip >> 8) & 0xFF) + "."
+                + (ip & 0xFF);
     }
 
     // Stop tun2socks if running and close tun FD

@@ -142,6 +142,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
     public static final String DATA_UNSAFE_TRAFFIC_SUBJECTS_LIST = "dataUnsafeTrafficSubjects";
     public static final String DATA_UNSAFE_TRAFFIC_ACTION_URLS_LIST = "dataUnsafeTrafficActionUrls";
     public static final String DATA_NFC_CONNECTION_INFO_EXCHANGE = "dataNfcConnectionInfoExchange";
+    static final String DATA_TUNNEL_STATE_SHARE_PROXY_ON_NETWORK = "shareProxyOnNetwork";
 
     void updateNotifications() {
         postServiceNotification(false, m_tunnelState.networkConnectionState);
@@ -158,6 +159,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         boolean conduitFallbackToPublic = false; // true when auto mode has fallen back
         String sponsorId = EmbeddedValues.SPONSOR_ID;
         String deviceLocation = "";
+        boolean shareProxyOnNetwork = false;
     }
 
     private Config m_tunnelConfig;
@@ -169,6 +171,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
 
     private void setTunnelConfig(Config config) {
         m_tunnelConfig = config;
+        m_tunnelState.shareProxyOnNetwork = config.shareProxyOnNetwork;
     }
 
     // Shared tunnel state, sent to the client in the HANDSHAKE
@@ -184,6 +187,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         ArrayList<String> homePages = new ArrayList<>();
         VpnAppsUtils.VpnAppsExclusionSetting vpnMode = VpnAppsUtils.VpnAppsExclusionSetting.ALL_APPS;
         ArrayList<String> vpnApps = new ArrayList<>();
+        boolean shareProxyOnNetwork = false;
 
         boolean isConnected() {
             return networkConnectionState == TunnelState.ConnectionData.NetworkConnectionState.CONNECTED;
@@ -313,6 +317,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                     getTunnelConfigSingle()
                             .doOnSuccess(config -> {
                                 setTunnelConfig(config);
+                                if (config.shareProxyOnNetwork) {
+                                    MyLog.i(R.string.log_lan_sharing_enabled,
+                                            MyLog.Sensitivity.NOT_SENSITIVE);
+                                }
                                 m_tunnelThread = new Thread(this::runTunnel);
                                 m_tunnelThread.start();
                             })
@@ -572,6 +580,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             tunnelConfig.rejectCensoredCountryProxies = multiProcessPreferences
                     .getBoolean(getContext().getString(R.string.rejectCensoredCountryProxiesPreference),
                             true);
+            tunnelConfig.shareProxyOnNetwork = multiProcessPreferences
+                    .getBoolean(getContext().getString(R.string.shareProxyOnNetworkPreference),
+                            false);
             return tunnelConfig;
         });
 
@@ -964,6 +975,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         data.putStringArrayList(DATA_TUNNEL_STATE_HOME_PAGES, m_tunnelState.homePages);
         data.putSerializable(DATA_TUNNEL_STATE_VPN_MODE, m_tunnelState.vpnMode);
         data.putStringArrayList(DATA_TUNNEL_STATE_VPN_APPS, m_tunnelState.vpnApps);
+        data.putBoolean(DATA_TUNNEL_STATE_SHARE_PROXY_ON_NETWORK, m_tunnelState.shareProxyOnNetwork);
         return data;
     }
 
@@ -1082,6 +1094,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         sendDataTransferStatsHandler.postDelayed(sendDataTransferStats, sendDataTransferStatsIntervalMs);
 
         try {
+            m_vpnManager.setShareProxyOnNetwork(m_tunnelConfig.shareProxyOnNetwork);
             m_vpnManager.vpnEstablish();
             MyLog.i(R.string.vpn_service_running, MyLog.Sensitivity.NOT_SENSITIVE);
 
@@ -1590,6 +1603,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             }
 
             json.put("EmitBytesTransferred", true);
+
+            // When LAN sharing is enabled, bind proxy listeners to all interfaces
+            if (tunnelConfig.shareProxyOnNetwork) {
+                json.put("ListenInterface", "any");
+            }
 
             return json.toString();
         } catch (JSONException e) {

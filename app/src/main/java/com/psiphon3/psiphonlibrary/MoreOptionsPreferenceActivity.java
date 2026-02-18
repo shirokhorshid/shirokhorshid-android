@@ -36,6 +36,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
 import com.psiphon3.MainActivityViewModel;
 import com.psiphon3.R;
@@ -143,6 +144,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             setupLanguageSelector(preferences);
             setupDisguise(preferences);
             setupConduitSettings(preferences, preferenceGetter);
+            setupNetworkSharing(preferences, preferenceGetter);
             setupAbouts(preferences);
         }
 
@@ -351,6 +353,50 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                     break;
             }
             preference.setSummary(String.format(getString(R.string.conduitTimeoutSummary), label));
+        }
+
+        private void setupNetworkSharing(PreferenceScreen preferences, PreferenceGetter preferenceGetter) {
+            SwitchPreference shareProxySwitch =
+                    (SwitchPreference) preferences.findPreference(getString(R.string.shareProxyOnNetworkPreference));
+            if (shareProxySwitch != null) {
+                shareProxySwitch.setChecked(
+                        preferenceGetter.getBoolean(getString(R.string.shareProxyOnNetworkPreference), false));
+
+                shareProxySwitch.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean enabled = (Boolean) newValue;
+                    if (enabled) {
+                        // Show security warning dialog before enabling
+                        new AlertDialog.Builder(requireContext())
+                                .setTitle(getString(R.string.share_proxy_security_warning_title))
+                                .setMessage(getString(R.string.share_proxy_security_warning_message))
+                                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                                    // Manually persist the value since we returned false
+                                    shareProxySwitch.setChecked(true);
+                                    shareProxySwitch.getSharedPreferences().edit()
+                                            .putBoolean(getString(R.string.shareProxyOnNetworkPreference), true)
+                                            .apply();
+                                    // Request tunnel restart to apply the new setting
+                                    restartTunnelForNetworkSharing();
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+                        return false; // Don't auto-apply, we handle it in the dialog
+                    } else {
+                        // Disabling doesn't need confirmation, but does need a tunnel restart
+                        restartTunnelForNetworkSharing();
+                        return true;
+                    }
+                });
+            }
+        }
+
+        private void restartTunnelForNetworkSharing() {
+            TunnelServiceInteractor tunnelServiceInteractor =
+                    ((LocalizedActivities.AppCompatActivity) requireActivity())
+                            .getTunnelServiceInteractor();
+            if (tunnelServiceInteractor != null) {
+                tunnelServiceInteractor.scheduleVpnServiceRestart(requireContext());
+            }
         }
 
         private void setupLanguageSelector(PreferenceScreen preferences) {

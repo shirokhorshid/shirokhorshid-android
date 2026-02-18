@@ -92,6 +92,20 @@
             android:defaultValue="true" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:key="networkSharingCategory"
+        android:title="@string/preference_category_network_sharing_title">
+        <Preference
+            android:key="networkSharingDescription"
+            android:summary="@string/preference_share_proxy_description"
+            android:selectable="false" />
+        <SwitchPreference
+            android:icon="@drawable/baseline_device_hub_white_24"
+            android:key="@string/shareProxyOnNetworkPreference"
+            android:title="@string/preference_share_proxy_title"
+            android:summary="@string/preference_share_proxy_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/preference_category_stealth_title">
         <ListPreference
             android:icon="@drawable/ic_notif_clock"

@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.psiphon3.psiphonlibrary.DataTransferStats;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
+import com.psiphon3.psiphonlibrary.TunnelServiceInteractor;
 import com.psiphon3.psiphonlibrary.Utils;
 
 import org.achartengine.ChartFactory;
@@ -70,8 +71,11 @@ public class StatisticsTabFragment extends Fragment {
         fastSentGraph = new DataTransferGraph(fragmentView, R.id.fastSentGraph);
         fastReceivedGraph = new DataTransferGraph(fragmentView, R.id.fastReceivedGraph);
 
-        compositeDisposable.add(((LocalizedActivities.AppCompatActivity) requireActivity())
-                .getTunnelServiceInteractor().dataStatsFlowable()
+        TunnelServiceInteractor tunnelServiceInteractor =
+                ((LocalizedActivities.AppCompatActivity) requireActivity())
+                        .getTunnelServiceInteractor();
+
+        compositeDisposable.add(tunnelServiceInteractor.dataStatsFlowable()
                 .startWith(Boolean.FALSE)
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext(this::updateStatisticsUICallback)
