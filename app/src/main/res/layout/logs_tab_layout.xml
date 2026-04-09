@@ -9,7 +9,33 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:divider="#000000"
         android:drawSelectorOnTop="false" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="4dp">
+
+        <Button
+            android:id="@+id/btnClearLogs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="@string/clear_logs_button" />
+
+        <Button
+            android:id="@+id/btnShareLogs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="@string/share_logs_button" />
+
+    </LinearLayout>
+
 </LinearLayout>

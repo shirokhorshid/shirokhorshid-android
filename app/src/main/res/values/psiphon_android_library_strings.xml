@@ -99,6 +99,8 @@
     <string name="protocol_auto">Auto (Recommended)</string>
     <string name="protocol_conduit">Conduit Relays</string>
     <string name="protocol_direct">Direct Connection</string>
+    <string name="protocolFilterPreferenceTitle">Protocol Filter</string>
+    <string name="protocolFilterPreferenceSummaryNone">No filter — all protocols are tried</string>
     <string name="beastModePreferenceTitle">Beast Mode</string>
     <string name="beastModePreferenceSummaryOn">Aggressive connection: tries all protocols on every server</string>
     <string name="beastModePreferenceSummaryOff">Normal connection: randomly selects protocols per server</string>
@@ -107,6 +109,8 @@
     <string name="conduit_proxy_trying">Trying Conduit relay (country: %s)</string>
     <string name="beast_mode_active">Beast Mode active — testing all protocols (%s workers)</string>
     <string name="beast_mode_connected">Beast Mode connected after %1$s attempts across %2$s servers</string>
+    <string name="tunnel_log_tunnel_event">%1$s</string>
+    <string name="tunnel_log_handshake_pending">Local HTTP proxy is up. Psiphon is still negotiating with servers in the background. Wait for "Connected" or an error.</string>
     <string name="conduit_proxy_connected">Tunnel connected via Conduit (protocol: %1$s, country: %2$s)</string>
     <string name="conduit_proxy_connected_no_country">Tunnel connected via Conduit (protocol: %s)</string>
     <string name="conduit_diag">[Conduit] %s</string>
@@ -237,9 +241,27 @@
     <string name="conduit_timeout_5min">5 minutes</string>
     <string name="conduit_timeout_10min">10 minutes</string>
 
+    <string name="preference_category_tcp_reachability_title">TCP Reachability Probe</string>
+    <string name="tcpReachabilityProbeTitle">Enable TCP reachability probe</string>
+    <string name="tcpReachabilityProbeSummary">Probe server TCP reachability before full tunnel dialing.</string>
+    <string name="tcpReachabilityProbeSkipDialOnFailTitle">Skip dial when probe fails</string>
+    <string name="tcpReachabilityProbeSkipDialOnFailSummary">When probe fails, skip this candidate/server instead of attempting full dial.</string>
+    <string name="tcpReachabilityProbeBoostTitle">Probe boost</string>
+    <string name="tcpReachabilityProbeBoostSummary">Re-queue the same server/protocol sooner after a successful probe (may add parallel attempts)</string>
+    <string name="tcpReachabilityProbeTimeoutTitle">Probe timeout</string>
+    <string name="tcp_probe_timeout_400ms">400 ms</string>
+    <string name="tcp_probe_timeout_600ms">600 ms</string>
+    <string name="tcp_probe_timeout_800ms">800 ms (default)</string>
+    <string name="tcp_probe_timeout_1200ms">1200 ms</string>
+    <string name="tcp_probe_timeout_2000ms">2000 ms</string>
+
     <!-- Conduit fallback log messages -->
     <string name="conduit_fallback_trying_shirokhorshid">Trying Shir o Khorshid conduits\u2026</string>
     <string name="conduit_fallback_timeout">Shir o Khorshid conduits timed out after %s</string>
     <string name="conduit_fallback_trying_public">Trying public conduits\u2026</string>
     <string name="conduit_mode_status">Conduit mode: %s</string>
+
+    <!-- Log tab buttons -->
+    <string name="clear_logs_button">Clear Logs</string>
+    <string name="share_logs_button">Save &amp; Share Logs</string>
 </resources>

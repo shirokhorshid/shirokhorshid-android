@@ -152,7 +152,12 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
     static class Config {
         String egressRegion = PsiphonConstants.REGION_CODE_ANY;
         boolean disableTimeouts = false;
+        boolean tcpReachabilityProbe = false;
+        boolean tcpReachabilityProbeSkipDialOnFail = false;
+        boolean tcpReachabilityProbeBoost = false;
+        int tcpReachabilityProbeTimeoutMs = 800;
         String protocolSelection = "auto"; // "auto", "conduit", or "direct"
+        java.util.Set<String> protocolFilter = new java.util.HashSet<>(); // empty = no filter
         boolean beastMode = true; // aggressive establishment: try all protocols on all servers
         String conduitMode = "auto"; // "auto", "shirokhorshid", or "public"
         int conduitTimeoutSeconds = 180; // fallback timeout for auto conduit mode
@@ -565,9 +570,31 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             tunnelConfig.disableTimeouts = multiProcessPreferences
                     .getBoolean(getContext().getString(R.string.disableTimeoutsPreference),
                             false);
+            tunnelConfig.tcpReachabilityProbe = multiProcessPreferences
+                    .getBoolean(getContext().getString(R.string.tcpReachabilityProbePreference), false);
+            tunnelConfig.tcpReachabilityProbeSkipDialOnFail = multiProcessPreferences
+                    .getBoolean(getContext().getString(R.string.tcpReachabilityProbeSkipDialOnFailPreference), false);
+            tunnelConfig.tcpReachabilityProbeBoost = multiProcessPreferences
+                    .getBoolean(getContext().getString(R.string.tcpReachabilityProbeBoostPreference), false);
+            try {
+                tunnelConfig.tcpReachabilityProbeTimeoutMs = Integer.parseInt(
+                        multiProcessPreferences.getString(
+                                getContext().getString(R.string.tcpReachabilityProbeTimeoutPreference),
+                                "800"));
+            } catch (NumberFormatException e) {
+                tunnelConfig.tcpReachabilityProbeTimeoutMs = 800;
+            }
             tunnelConfig.protocolSelection = multiProcessPreferences
                     .getString(getContext().getString(R.string.protocolSelectionPreference),
                             "auto");
+            // Read protocol filter from Tray (AppPreferences/SQLite) – safe for cross-process access.
+            // The UI writes directly to Tray via AppPreferences.put() before triggering a restart.
+            String protocolFilterStr = multiProcessPreferences.getString(
+                    getContext().getString(R.string.protocolFilterStringPreference), "");
+            if (protocolFilterStr != null && !protocolFilterStr.isEmpty()) {
+                tunnelConfig.protocolFilter = new java.util.HashSet<>(
+                        java.util.Arrays.asList(protocolFilterStr.split(",")));
+            }
             tunnelConfig.beastMode = multiProcessPreferences
                     .getBoolean(getContext().getString(R.string.beastModePreference),
                             true);
@@ -1502,6 +1529,21 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 json.put("NetworkLatencyMultiplierLambda", 0.1);
             }
 
+            if (tunnelConfig.tcpReachabilityProbe) {
+                json.put("TCPReachabilityProbe", true);
+                json.put("TCPReachabilityProbeTimeoutMilliseconds", tunnelConfig.tcpReachabilityProbeTimeoutMs);
+                if (tunnelConfig.tcpReachabilityProbeSkipDialOnFail) {
+                    json.put("TCPReachabilityProbeSkipDialOnFail", true);
+                }
+                if (tunnelConfig.tcpReachabilityProbeBoost) {
+                    json.put("TCPReachabilityProbeBoost", true);
+                }
+                MyLog.i("TcpReachabilityProbe", "enabled", true,
+                        "timeoutMs", Integer.valueOf(tunnelConfig.tcpReachabilityProbeTimeoutMs),
+                        "skipDialOnFail", Boolean.valueOf(tunnelConfig.tcpReachabilityProbeSkipDialOnFail),
+                        "boost", Boolean.valueOf(tunnelConfig.tcpReachabilityProbeBoost));
+            }
+
             // Protocol selection: auto, conduit, or direct
             String protocolSelection = tunnelConfig.protocolSelection;
             MyLog.i("ProtocolSelection", "mode", protocolSelection);
@@ -1572,15 +1614,38 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 }
             } else if ("direct".equals(protocolSelection)) {
                 // Direct: only use non-inproxy, non-meek protocols
+                // If a protocol filter is set, use that subset; otherwise use the full direct list.
+                java.util.Set<String> filter = tunnelConfig.protocolFilter;
                 JSONArray limitProtocols = new JSONArray();
-                limitProtocols.put("SSH");
-                limitProtocols.put("OSSH");
-                limitProtocols.put("TLS-OSSH");
-                limitProtocols.put("QUIC-OSSH");
-                limitProtocols.put("SHADOWSOCKS-OSSH");
+                if (filter != null && !filter.isEmpty()) {
+                    for (String proto : filter) {
+                        limitProtocols.put(proto);
+                    }
+                    MyLog.i(R.string.tunnel_log_tunnel_event, MyLog.Sensitivity.NOT_SENSITIVE,
+                            "Protocol filter active: " + android.text.TextUtils.join(", ", filter));
+                } else {
+                    limitProtocols.put("SSH");
+                    limitProtocols.put("OSSH");
+                    limitProtocols.put("TLS-OSSH");
+                    limitProtocols.put("QUIC-OSSH");
+                    limitProtocols.put("SHADOWSOCKS-OSSH");
+                }
                 json.put("LimitTunnelProtocols", limitProtocols);
+            } else if ("auto".equals(protocolSelection)) {
+                // Auto: let Psiphon choose, but apply protocol filter if set
+                java.util.Set<String> filter = tunnelConfig.protocolFilter;
+                if (filter != null && !filter.isEmpty()) {
+                    JSONArray limitProtocols = new JSONArray();
+                    for (String proto : filter) {
+                        limitProtocols.put(proto);
+                    }
+                    json.put("LimitTunnelProtocols", limitProtocols);
+                    MyLog.i(R.string.tunnel_log_tunnel_event, MyLog.Sensitivity.NOT_SENSITIVE,
+                            "Protocol filter active: " + android.text.TextUtils.join(", ", filter));
+                }
+                // If no filter, don't set LimitTunnelProtocols - let Psiphon choose freely
             }
-            // For "auto" mode, don't set LimitTunnelProtocols - let Psiphon choose
+            // Note: "conduit" mode uses fixed inproxy protocols; protocol filter is ignored there
 
             // Beast mode: aggressive establishment, try all protocols on all servers
             if (tunnelConfig.beastMode) {
@@ -1674,6 +1739,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         m_Handler.post(new Runnable() {
             @Override
             public void run() {
+                TunnelNoticeStatusEmitter.maybeEmitStatusLog(getContext(), message);
                 // Check for Conduit proxy messages and display in UI
                 
                 // Pattern for "trying Conduit relay (country: XX)"
@@ -1747,6 +1813,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                             m_lastInproxyDiagMsg = diagMsg;
                             MyLog.i(R.string.conduit_diag, MyLog.Sensitivity.NOT_SENSITIVE, diagMsg);
                         }
+                    } else {
+                        // If inproxy-specific parsing fails, still emit a generic status line.
+                        TunnelNoticeStatusEmitter.maybeEmitStatusLog(getContext(), message);
                     }
                     // Don't log the raw diagnostic JSON for inproxy-dial
                     return;
@@ -1815,6 +1884,17 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
      */
     private static String parseInproxyDiagnostic(String diagnosticMessage) {
         try {
+            if (diagnosticMessage != null && diagnosticMessage.trim().startsWith("{")) {
+                org.json.JSONObject root = new org.json.JSONObject(diagnosticMessage);
+                org.json.JSONObject dataObj = root.optJSONObject("data");
+                if (dataObj != null) {
+                    String msgObj = dataObj.optString("message", "");
+                    if (msgObj.startsWith("inproxy-dial:")) {
+                        return buildInproxyDiagnosticLineFromData(dataObj);
+                    }
+                }
+            }
+
             // The message format is "NoticeType: {json data object}"
             // Strip the prefix to get the JSON data object
             String jsonStr = diagnosticMessage;
@@ -1824,46 +1904,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             }
 
             org.json.JSONObject data = new org.json.JSONObject(jsonStr);
-
-            String msg = data.optString("message", "");
-            if (!msg.startsWith("inproxy-dial:")) return null;
-
-            // Extract the phase description after "inproxy-dial: "
-            String phase = msg.substring("inproxy-dial: ".length());
-
-            StringBuilder sb = new StringBuilder(phase);
-
-            // Append diagnostic fields if present
-            String duration = formatDuration(data.optString("duration", null));
-            if (duration != null) {
-                sb.append(" (").append(duration).append(")");
-            }
-
-            String timeout = formatDuration(data.optString("timeout", null));
-            if (timeout != null) {
-                sb.append(" [timeout=").append(timeout).append("]");
-            }
-
-            String natType = data.optString("natType", null);
-            if (natType != null) {
-                sb.append(" [NAT=").append(natType).append("]");
-            }
-
-            String attempt = data.optString("attempt", null);
-            if (attempt != null) {
-                sb.insert(0, "#" + attempt + " ");
-            }
-
-            String error = data.optString("error", null);
-            if (error != null) {
-                // Truncate long error messages for readability
-                if (error.length() > 120) {
-                    error = error.substring(0, 120) + "...";
-                }
-                sb.append(" | ").append(error);
-            }
-
-            return sb.toString();
+            return buildInproxyDiagnosticLineFromData(data);
         } catch (org.json.JSONException e) {
             // Fallback: extract just the phase text after "inproxy-dial: "
             // and before any JSON artifacts (comma or closing brace)
@@ -1882,6 +1923,50 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             }
             return null;
         }
+    }
+
+    private static String buildInproxyDiagnosticLineFromData(org.json.JSONObject data) {
+        if (data == null) return null;
+
+        String msg = data.optString("message", "");
+        if (!msg.startsWith("inproxy-dial:")) return null;
+
+        // Extract the phase description after "inproxy-dial: "
+        String phase = msg.substring("inproxy-dial: ".length());
+
+        StringBuilder sb = new StringBuilder(phase);
+
+        // Append diagnostic fields if present
+        String duration = formatDuration(data.optString("duration", null));
+        if (duration != null) {
+            sb.append(" (").append(duration).append(")");
+        }
+
+        String timeout = formatDuration(data.optString("timeout", null));
+        if (timeout != null) {
+            sb.append(" [timeout=").append(timeout).append("]");
+        }
+
+        String natType = data.optString("natType", null);
+        if (natType != null) {
+            sb.append(" [NAT=").append(natType).append("]");
+        }
+
+        String attempt = data.optString("attempt", null);
+        if (attempt != null) {
+            sb.insert(0, "#" + attempt + " ");
+        }
+
+        String error = data.optString("error", null);
+        if (error != null) {
+            // Truncate long error messages for readability
+            if (error.length() > 120) {
+                error = error.substring(0, 120) + "...";
+            }
+            sb.append(" | ").append(error);
+        }
+
+        return sb.toString();
     }
 
     @Override
@@ -1978,6 +2063,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             @Override
             public void run() {
                 MyLog.i(R.string.http_proxy_running, MyLog.Sensitivity.NOT_SENSITIVE, port);
+                MyLog.i(R.string.tunnel_log_handshake_pending, MyLog.Sensitivity.NOT_SENSITIVE);
                 m_tunnelState.listeningLocalHttpProxyPort = port;
 
                 final AppPreferences multiProcessPreferences = new AppPreferences(getContext());

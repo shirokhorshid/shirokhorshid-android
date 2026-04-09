@@ -61,6 +61,12 @@
             android:entries="@array/protocol_selection_entries"
             android:entryValues="@array/protocol_selection_values"
             android:defaultValue="auto" />
+        <MultiSelectListPreference
+            android:key="@string/protocolFilterPreference"
+            android:title="@string/protocolFilterPreferenceTitle"
+            android:summary="@string/protocolFilterPreferenceSummaryNone"
+            android:entries="@array/protocol_filter_entries"
+            android:entryValues="@array/protocol_filter_values" />
         <SwitchPreference
             android:icon="@drawable/ic_beast_mode"
             android:key="@string/beastModePreference"
@@ -111,6 +117,31 @@
             android:title="@string/preference_share_proxy_title"
             android:summary="@string/preference_share_proxy_summary"
             android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="tcpReachabilityCategory"
+        android:title="@string/preference_category_tcp_reachability_title">
+        <SwitchPreference
+            android:key="@string/tcpReachabilityProbePreference"
+            android:title="@string/tcpReachabilityProbeTitle"
+            android:summary="@string/tcpReachabilityProbeSummary"
+            android:defaultValue="false" />
+        <SwitchPreference
+            android:key="@string/tcpReachabilityProbeSkipDialOnFailPreference"
+            android:title="@string/tcpReachabilityProbeSkipDialOnFailTitle"
+            android:summary="@string/tcpReachabilityProbeSkipDialOnFailSummary"
+            android:defaultValue="false" />
+        <SwitchPreference
+            android:key="@string/tcpReachabilityProbeBoostPreference"
+            android:title="@string/tcpReachabilityProbeBoostTitle"
+            android:summary="@string/tcpReachabilityProbeBoostSummary"
+            android:defaultValue="false" />
+        <ListPreference
+            android:key="@string/tcpReachabilityProbeTimeoutPreference"
+            android:title="@string/tcpReachabilityProbeTimeoutTitle"
+            android:entries="@array/tcp_probe_timeout_entries"
+            android:entryValues="@array/tcp_probe_timeout_values"
+            android:defaultValue="800" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preference_category_stealth_title">

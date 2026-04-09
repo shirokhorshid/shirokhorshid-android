@@ -188,6 +188,8 @@
   <string name="conduit_proxy_trying">در حال تلاش برای اتصال به رله Conduit (کشور: %s)</string>
   <string name="beast_mode_active">حالت قدرتمند فعال — آزمایش همه پروتکل‌ها (%s کارگر)</string>
   <string name="beast_mode_connected">حالت قدرتمند پس از %1$s تلاش در %2$s سرور متصل شد</string>
+  <string name="tunnel_log_tunnel_event">%1$s</string>
+  <string name="tunnel_log_handshake_pending">پروکسی HTTP محلی بالا است. Psiphon در پس‌زمینه با سرورها مذاکره می‌کند. منتظر «متصل شد» یا خطا بمانید.</string>
 
   <!-- Protocol selection preferences -->
   <string name="protocolSelectionPreferenceTitle">پروتکل اتصال</string>
@@ -198,6 +200,8 @@
   <string name="protocol_auto">خودکار (پیشنهادی)</string>
   <string name="protocol_conduit">رله‌های Conduit</string>
   <string name="protocol_direct">اتصال مستقیم</string>
+  <string name="protocolFilterPreferenceTitle">فیلتر پروتکل</string>
+  <string name="protocolFilterPreferenceSummaryNone">بدون فیلتر — همه پروتکل‌ها تست می‌شوند</string>
   <string name="beastModePreferenceTitle">حالت قدرتمند</string>
   <string name="beastModePreferenceSummaryOn">اتصال تهاجمی: همه پروتکل‌ها را روی هر سرور امتحان می‌کند</string>
   <string name="beastModePreferenceSummaryOff">اتصال عادی: پروتکل‌ها را به‌صورت تصادفی برای هر سرور انتخاب می‌کند</string>
@@ -231,9 +235,27 @@
   <string name="conduit_timeout_5min">۵ دقیقه</string>
   <string name="conduit_timeout_10min">۱۰ دقیقه</string>
 
+  <string name="preference_category_tcp_reachability_title">پروب دسترسی TCP</string>
+  <string name="tcpReachabilityProbeTitle">فعال‌سازی پروب دسترسی TCP</string>
+  <string name="tcpReachabilityProbeSummary">پیش از برقراری کامل تونل، دسترسی TCP سرور بررسی شود.</string>
+  <string name="tcpReachabilityProbeSkipDialOnFailTitle">عدم تلاش اتصال در صورت شکست پروب</string>
+  <string name="tcpReachabilityProbeSkipDialOnFailSummary">اگر پروب شکست خورد، این کاندید/سرور را رد کن و اتصال کامل را امتحان نکن.</string>
+  <string name="tcpReachabilityProbeBoostTitle">تقویت پروب</string>
+  <string name="tcpReachabilityProbeBoostSummary">پس از پروب موفق، همان سرور/پروتکل را زودتر دوباره در صف قرار بده (ممکن است تلاش‌های موازی اضافه کند)</string>
+  <string name="tcpReachabilityProbeTimeoutTitle">تایم‌اوت پروب</string>
+  <string name="tcp_probe_timeout_400ms">۴۰۰ میلی‌ثانیه</string>
+  <string name="tcp_probe_timeout_600ms">۶۰۰ میلی‌ثانیه</string>
+  <string name="tcp_probe_timeout_800ms">۸۰۰ میلی‌ثانیه (پیش‌فرض)</string>
+  <string name="tcp_probe_timeout_1200ms">۱۲۰۰ میلی‌ثانیه</string>
+  <string name="tcp_probe_timeout_2000ms">۲۰۰۰ میلی‌ثانیه</string>
+
   <!-- Conduit fallback log messages -->
   <string name="conduit_fallback_trying_shirokhorshid">در حال تلاش با Conduit‌های شیر و خورشید\u2026</string>
   <string name="conduit_fallback_timeout">Conduit‌های شیر و خورشید پس از %s پاسخ ندادند</string>
   <string name="conduit_fallback_trying_public">در حال تلاش با Conduit‌های عمومی\u2026</string>
   <string name="conduit_mode_status">حالت Conduit: %s</string>
+
+  <!-- Log tab buttons -->
+  <string name="clear_logs_button">پاک کردن لاگ</string>
+  <string name="share_logs_button">ذخیره و اشتراک‌گذاری لاگ</string>
 </resources>

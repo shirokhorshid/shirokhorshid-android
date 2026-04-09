@@ -35,6 +35,12 @@
     <string name="protocolSelectionPreference" translatable="false">protocolSelectionPreference</string>
     <string name="beastModePreference" translatable="false">beastModePreference</string>
     <string name="rejectCensoredCountryProxiesPreference" translatable="false">rejectCensoredCountryProxiesPreference</string>
+    <string name="tcpReachabilityProbePreference" translatable="false">tcpReachabilityProbePreference</string>
+    <string name="tcpReachabilityProbeSkipDialOnFailPreference" translatable="false">tcpReachabilityProbeSkipDialOnFailPreference</string>
+    <string name="tcpReachabilityProbeBoostPreference" translatable="false">tcpReachabilityProbeBoostPreference</string>
+    <string name="tcpReachabilityProbeTimeoutPreference" translatable="false">tcpReachabilityProbeTimeoutPreference</string>
+    <string name="protocolFilterPreference" translatable="false">protocolFilterPreference</string>
+    <string name="protocolFilterStringPreference" translatable="false">protocolFilterStringPreference</string>
     <string name="unsafeTrafficAlertsPreference" translatable="false">unsafeTrafficAlertsPreference</string>
     <string name="egressRegionPreference">egressRegionPreference</string>
     <string name="moreOptionsPreferencesName">moreOptionsPreferencesName</string>
@@ -96,5 +102,51 @@
         <item>180</item>
         <item>300</item>
         <item>600</item>
+    </string-array>
+
+    <string-array name="tcp_probe_timeout_entries" translatable="false">
+        <item>@string/tcp_probe_timeout_400ms</item>
+        <item>@string/tcp_probe_timeout_600ms</item>
+        <item>@string/tcp_probe_timeout_800ms</item>
+        <item>@string/tcp_probe_timeout_1200ms</item>
+        <item>@string/tcp_probe_timeout_2000ms</item>
+    </string-array>
+
+    <string-array name="tcp_probe_timeout_values" translatable="false">
+        <item>400</item>
+        <item>600</item>
+        <item>800</item>
+        <item>1200</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="protocol_filter_entries" translatable="false">
+        <item>OSSH</item>
+        <item>SSH</item>
+        <item>TLS-OSSH</item>
+        <item>QUIC-OSSH</item>
+        <item>SHADOWSOCKS-OSSH</item>
+        <item>UNFRONTED-MEEK-OSSH</item>
+        <item>UNFRONTED-MEEK-HTTPS-OSSH</item>
+        <item>UNFRONTED-MEEK-SESSION-TICKET-OSSH</item>
+        <item>FRONTED-MEEK-OSSH</item>
+        <item>FRONTED-MEEK-HTTP-OSSH</item>
+        <item>TAPDANCE-OSSH</item>
+        <item>CONJURE-OSSH</item>
+    </string-array>
+
+    <string-array name="protocol_filter_values" translatable="false">
+        <item>OSSH</item>
+        <item>SSH</item>
+        <item>TLS-OSSH</item>
+        <item>QUIC-OSSH</item>
+        <item>SHADOWSOCKS-OSSH</item>
+        <item>UNFRONTED-MEEK-OSSH</item>
+        <item>UNFRONTED-MEEK-HTTPS-OSSH</item>
+        <item>UNFRONTED-MEEK-SESSION-TICKET-OSSH</item>
+        <item>FRONTED-MEEK-OSSH</item>
+        <item>FRONTED-MEEK-HTTP-OSSH</item>
+        <item>TAPDANCE-OSSH</item>
+        <item>CONJURE-OSSH</item>
     </string-array>
 </resources>

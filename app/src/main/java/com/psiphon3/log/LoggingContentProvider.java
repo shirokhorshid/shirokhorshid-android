@@ -128,7 +128,7 @@ public class LoggingContentProvider extends ContentProvider {
         db.getQueryExecutor().execute(() -> {
             db.getOpenHelper().getWritableDatabase().insert("log", SQLiteDatabase.CONFLICT_NONE, values);
             if (!values.getAsBoolean("is_diagnostic")) {
-                context.getContentResolver().notifyChange(uri, null);
+                context.getContentResolver().notifyChange(CONTENT_URI, null);
             }
         });
         return uri;

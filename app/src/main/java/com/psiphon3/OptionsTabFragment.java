@@ -416,7 +416,38 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 prefs.getBoolean(getString(R.string.shareProxyOnNetworkPreference), false);
         boolean shareProxyCurrent =
                 multiProcessPreferences.getBoolean(getString(R.string.shareProxyOnNetworkPreference), false);
-        return shareProxyCurrent != shareProxyNew;
+        if (shareProxyCurrent != shareProxyNew) {
+            return true;
+        }
+
+        boolean tcpProbeNew = prefs.getBoolean(getString(R.string.tcpReachabilityProbePreference), false);
+        boolean tcpProbeCurrent = multiProcessPreferences.getBoolean(getString(R.string.tcpReachabilityProbePreference), false);
+        if (tcpProbeCurrent != tcpProbeNew) {
+            return true;
+        }
+        boolean tcpSkipNew = prefs.getBoolean(getString(R.string.tcpReachabilityProbeSkipDialOnFailPreference), false);
+        boolean tcpSkipCurrent = multiProcessPreferences.getBoolean(getString(R.string.tcpReachabilityProbeSkipDialOnFailPreference), false);
+        if (tcpSkipCurrent != tcpSkipNew) {
+            return true;
+        }
+        boolean tcpBoostNew = prefs.getBoolean(getString(R.string.tcpReachabilityProbeBoostPreference), false);
+        boolean tcpBoostCurrent = multiProcessPreferences.getBoolean(getString(R.string.tcpReachabilityProbeBoostPreference), false);
+        if (tcpBoostCurrent != tcpBoostNew) {
+            return true;
+        }
+        String tcpTimeoutNew = prefs.getString(getString(R.string.tcpReachabilityProbeTimeoutPreference), "800");
+        String tcpTimeoutCurrent = multiProcessPreferences.getString(getString(R.string.tcpReachabilityProbeTimeoutPreference), "800");
+        if (!tcpTimeoutCurrent.equals(tcpTimeoutNew)) {
+            return true;
+        }
+
+        String protoFilterNew = prefs.getString(getString(R.string.protocolFilterStringPreference), "");
+        String protoFilterCurrent = multiProcessPreferences.getString(getString(R.string.protocolFilterStringPreference), "");
+        if (!protoFilterCurrent.equals(protoFilterNew)) {
+            return true;
+        }
+
+        return false;
     }
 
     private void updateVpnSettingsFromPreferences() {
@@ -462,8 +493,18 @@ public class OptionsTabFragment extends PsiphonPreferenceFragmentCompat {
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.conduitModePreference), getString(R.string.conduitModePreference)),
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.conduitTimeoutPreference), getString(R.string.conduitTimeoutPreference)),
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.rejectCensoredCountryProxiesPreference), getString(R.string.rejectCensoredCountryProxiesPreference)),
+                new SharedPreferencesImport(requireContext(), prefName, getString(R.string.tcpReachabilityProbePreference), getString(R.string.tcpReachabilityProbePreference)),
+                new SharedPreferencesImport(requireContext(), prefName, getString(R.string.tcpReachabilityProbeSkipDialOnFailPreference), getString(R.string.tcpReachabilityProbeSkipDialOnFailPreference)),
+                new SharedPreferencesImport(requireContext(), prefName, getString(R.string.tcpReachabilityProbeBoostPreference), getString(R.string.tcpReachabilityProbeBoostPreference)),
+                new SharedPreferencesImport(requireContext(), prefName, getString(R.string.tcpReachabilityProbeTimeoutPreference), getString(R.string.tcpReachabilityProbeTimeoutPreference)),
                 new SharedPreferencesImport(requireContext(), prefName, getString(R.string.shareProxyOnNetworkPreference), getString(R.string.shareProxyOnNetworkPreference)),
                 new SharedPreferencesImport(requireContext(), prefName, DisguiseManager.PREF_STEALTH_NOTIFICATIONS, DisguiseManager.PREF_STEALTH_NOTIFICATIONS)
         );
+        // Protocol filter must be written directly to Tray (not via migrate()) because
+        // Tray's migrate() is one-time and will not overwrite an already-migrated key.
+        SharedPreferences sp = requireActivity()
+                .getSharedPreferences(prefName, android.content.Context.MODE_PRIVATE);
+        String filterStr = sp.getString(getString(R.string.protocolFilterStringPreference), "");
+        multiProcessPreferences.put(getString(R.string.protocolFilterStringPreference), filterStr);
     }
 }

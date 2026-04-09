@@ -149,10 +149,34 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                 return true;
             });
 
+            // Protocol filter: always visible; applies to auto and direct modes.
+            // The Set<String> from MultiSelectListPreference is stored in UI prefs.
+            // A comma-joined copy is saved under protocolFilterStringPreference so
+            // OptionsTabFragment can copy it to Tray via a direct put() (not migrate()).
+            androidx.preference.MultiSelectListPreference protocolFilterPref =
+                    (androidx.preference.MultiSelectListPreference) preferences.findPreference(
+                            getString(R.string.protocolFilterPreference));
+            if (protocolFilterPref != null) {
+                updateProtocolFilterSummary(protocolFilterPref, null);
+                protocolFilterPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    @SuppressWarnings("unchecked")
+                    java.util.Set<String> selected = (java.util.Set<String>) newValue;
+                    updateProtocolFilterSummary(
+                            (androidx.preference.MultiSelectListPreference) preference, selected);
+                    String joined = (selected == null || selected.isEmpty())
+                            ? "" : android.text.TextUtils.join(",", selected);
+                    getPreferenceManager().getSharedPreferences().edit()
+                            .putString(getString(R.string.protocolFilterStringPreference), joined)
+                            .apply();
+                    return true;
+                });
+            }
+
             setupLanguageSelector(preferences);
             setupDisguise(preferences);
             setupConduitSettings(preferences, preferenceGetter);
             setupNetworkSharing(preferences, preferenceGetter);
+            setupTcpReachability(preferences, preferenceGetter);
             setupAbouts(preferences);
         }
 
@@ -223,6 +247,19 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
 
         private boolean isConduitRelevantProtocol(String protocol) {
             return "auto".equals(protocol) || "conduit".equals(protocol);
+        }
+
+        private void updateProtocolFilterSummary(
+                androidx.preference.MultiSelectListPreference pref,
+                java.util.Set<String> selected) {
+            if (selected == null) {
+                selected = pref.getValues();
+            }
+            if (selected == null || selected.isEmpty()) {
+                pref.setSummary(getString(R.string.protocolFilterPreferenceSummaryNone));
+            } else {
+                pref.setSummary(android.text.TextUtils.join(", ", selected));
+            }
         }
 
         private void setupDisguise(PreferenceScreen preferences) {
@@ -395,6 +432,58 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                         return true;
                     }
                 });
+            }
+        }
+
+        private void setupTcpReachability(PreferenceScreen preferences, PreferenceGetter preferenceGetter) {
+            SwitchPreference tcpProbeSwitch =
+                    (SwitchPreference) preferences.findPreference(getString(R.string.tcpReachabilityProbePreference));
+            SwitchPreference tcpSkipDialSwitch =
+                    (SwitchPreference) preferences.findPreference(getString(R.string.tcpReachabilityProbeSkipDialOnFailPreference));
+            SwitchPreference tcpBoostSwitch =
+                    (SwitchPreference) preferences.findPreference(getString(R.string.tcpReachabilityProbeBoostPreference));
+            ListPreference tcpTimeoutList =
+                    (ListPreference) preferences.findPreference(getString(R.string.tcpReachabilityProbeTimeoutPreference));
+
+            if (tcpProbeSwitch == null || tcpSkipDialSwitch == null || tcpBoostSwitch == null || tcpTimeoutList == null) {
+                return;
+            }
+
+            boolean enabled = preferenceGetter.getBoolean(
+                    getString(R.string.tcpReachabilityProbePreference), false);
+            tcpProbeSwitch.setChecked(enabled);
+            tcpSkipDialSwitch.setChecked(preferenceGetter.getBoolean(
+                    getString(R.string.tcpReachabilityProbeSkipDialOnFailPreference), false));
+            tcpBoostSwitch.setChecked(preferenceGetter.getBoolean(
+                    getString(R.string.tcpReachabilityProbeBoostPreference), false));
+
+            String timeoutValue = preferenceGetter.getString(
+                    getString(R.string.tcpReachabilityProbeTimeoutPreference), "800");
+            tcpTimeoutList.setValue(timeoutValue);
+            updateTcpTimeoutSummary(tcpTimeoutList, timeoutValue);
+
+            tcpSkipDialSwitch.setVisible(enabled);
+            tcpBoostSwitch.setVisible(enabled);
+            tcpTimeoutList.setVisible(enabled);
+
+            tcpProbeSwitch.setOnPreferenceChangeListener((preference, newValue) -> {
+                boolean probeEnabled = (Boolean) newValue;
+                tcpSkipDialSwitch.setVisible(probeEnabled);
+                tcpBoostSwitch.setVisible(probeEnabled);
+                tcpTimeoutList.setVisible(probeEnabled);
+                return true;
+            });
+
+            tcpTimeoutList.setOnPreferenceChangeListener((preference, newValue) -> {
+                updateTcpTimeoutSummary((ListPreference) preference, (String) newValue);
+                return true;
+            });
+        }
+
+        private void updateTcpTimeoutSummary(ListPreference preference, String value) {
+            int idx = preference.findIndexOfValue(value);
+            if (idx >= 0 && preference.getEntries() != null && idx < preference.getEntries().length) {
+                preference.setSummary(preference.getEntries()[idx]);
             }
         }
 
