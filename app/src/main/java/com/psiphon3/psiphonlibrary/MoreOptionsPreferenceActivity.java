@@ -172,6 +172,14 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                 });
             }
 
+            Preference cdnFrontingScanner = preferences.findPreference("cdnFrontingScanner");
+            if (cdnFrontingScanner != null) {
+                cdnFrontingScanner.setOnPreferenceClickListener(preference -> {
+                    startActivity(new Intent(getActivity(), CdnFrontingScannerActivity.class));
+                    return true;
+                });
+            }
+
             // Beast mode (aggressive establishment)
             SwitchPreference beastModeSwitch =
                     (SwitchPreference) preferences.findPreference(getString(R.string.beastModePreference));
@@ -216,6 +224,12 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         @Override
         public void onResume() {
             super.onResume();
+            if (mCdnFrontingCustomIpList != null) {
+                String customIpList = getPreferenceGetter().getString(
+                        getString(R.string.cdnFrontingCustomIpListPreference), "");
+                mCdnFrontingCustomIpList.setText(customIpList);
+                updateCdnFrontingCustomIpSummary(mCdnFrontingCustomIpList, customIpList);
+            }
             // Set up a listener whenever a key changes
             getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         }
