@@ -172,6 +172,15 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                 });
             }
 
+            Preference cdnFrontingScanner =
+                    preferences.findPreference(getString(R.string.cdnFrontingScannerPreference));
+            if (cdnFrontingScanner != null) {
+                cdnFrontingScanner.setOnPreferenceClickListener(preference -> {
+                    startActivity(new Intent(getActivity(), CdnFrontingScannerActivity.class));
+                    return true;
+                });
+            }
+
             // Beast mode (aggressive establishment)
             SwitchPreference beastModeSwitch =
                     (SwitchPreference) preferences.findPreference(getString(R.string.beastModePreference));
@@ -216,6 +225,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         @Override
         public void onResume() {
             super.onResume();
+            syncCdnFrontingPreferenceSummaries();
             // Set up a listener whenever a key changes
             getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         }
@@ -225,6 +235,27 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
             super.onPause();
             // Unregister the listener whenever a key changes
             getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+        }
+
+        private void syncCdnFrontingPreferenceSummaries() {
+            SharedPreferences sharedPreferences = getPreferenceScreen().getSharedPreferences();
+            if (sharedPreferences == null) {
+                return;
+            }
+
+            if (mCdnFrontingCustomIpList != null) {
+                String customIpList = sharedPreferences.getString(
+                        getString(R.string.cdnFrontingCustomIpListPreference), "");
+                mCdnFrontingCustomIpList.setText(customIpList);
+                updateCdnFrontingCustomIpSummary(mCdnFrontingCustomIpList, customIpList);
+            }
+
+            if (mCdnFrontingCustomSni != null) {
+                String customSni = sharedPreferences.getString(
+                        getString(R.string.cdnFrontingCustomSniPreference), "");
+                mCdnFrontingCustomSni.setText(customSni);
+                updateCdnFrontingCustomSniSummary(mCdnFrontingCustomSni, customSni);
+            }
         }
 
         @SuppressWarnings("deprecation")
