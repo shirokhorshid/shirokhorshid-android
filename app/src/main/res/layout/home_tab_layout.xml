@@ -97,6 +97,18 @@
                         android:textColor="#DDDDDD" />
 
                     <TextView
+                        android:id="@+id/lanProxyInterfacesText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:paddingTop="8dp"
+                        android:textSize="11sp"
+                        android:fontFamily="monospace"
+                        android:textColor="#CCCCCC" />
+
+                    <TextView
                         android:id="@+id/lanProxyHint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

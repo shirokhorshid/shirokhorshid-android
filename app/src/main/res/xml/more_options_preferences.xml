@@ -88,6 +88,11 @@
             android:inputType="textUri|textNoSuggestions"
             android:summary="@string/cdnFrontingCustomSniPreferenceSummary"
             android:title="@string/cdnFrontingCustomSniPreferenceTitle" />
+        <Preference
+            android:icon="@drawable/ic_cdn_edge"
+            android:key="cdnFrontingScanner"
+            android:summary="@string/cdnFrontingScannerPreferenceSummary"
+            android:title="@string/cdnFrontingScannerPreferenceTitle" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="conduitCategory"
@@ -131,6 +136,11 @@
             android:title="@string/preference_share_proxy_title"
             android:summary="@string/preference_share_proxy_summary"
             android:defaultValue="false" />
+        <Preference
+            android:key="networkSharingAddresses"
+            android:title="@string/preference_network_sharing_addresses_title"
+            android:summary="@string/preference_network_sharing_addresses_unavailable"
+            android:selectable="false" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/preference_category_stealth_title">

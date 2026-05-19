@@ -44,6 +44,8 @@ import androidx.preference.SwitchPreference;
 import com.psiphon3.MainActivityViewModel;
 import com.psiphon3.R;
 
+import net.grandcentrix.tray.AppPreferences;
+
 public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompatActivity {
     public static final String INTENT_EXTRA_LANGUAGE_CHANGED = "com.psiphon3.psiphonlibrary.MoreOptionsPreferenceActivity.LANGUAGE_CHANGED";
 
@@ -67,6 +69,7 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         ListPreference mLanguageSelector;
         EditTextPreference mCdnFrontingCustomIpList;
         EditTextPreference mCdnFrontingCustomSni;
+        Preference mNetworkSharingAddresses;
 
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             super.onCreatePreferences(savedInstanceState, rootKey);
@@ -172,6 +175,14 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                 });
             }
 
+            Preference cdnFrontingScanner = preferences.findPreference("cdnFrontingScanner");
+            if (cdnFrontingScanner != null) {
+                cdnFrontingScanner.setOnPreferenceClickListener(preference -> {
+                    startActivity(new Intent(getActivity(), CdnFrontingScannerActivity.class));
+                    return true;
+                });
+            }
+
             // Beast mode (aggressive establishment)
             SwitchPreference beastModeSwitch =
                     (SwitchPreference) preferences.findPreference(getString(R.string.beastModePreference));
@@ -216,6 +227,13 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         @Override
         public void onResume() {
             super.onResume();
+            if (mCdnFrontingCustomIpList != null) {
+                String customIpList = getPreferenceGetter().getString(
+                        getString(R.string.cdnFrontingCustomIpListPreference), "");
+                mCdnFrontingCustomIpList.setText(customIpList);
+                updateCdnFrontingCustomIpSummary(mCdnFrontingCustomIpList, customIpList);
+            }
+            updateNetworkSharingAddressesSummary();
             // Set up a listener whenever a key changes
             getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
         }
@@ -540,6 +558,9 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
         }
 
         private void setupNetworkSharing(PreferenceScreen preferences, PreferenceGetter preferenceGetter) {
+            mNetworkSharingAddresses = preferences.findPreference("networkSharingAddresses");
+            updateNetworkSharingAddressesSummary();
+
             SwitchPreference shareProxySwitch =
                     (SwitchPreference) preferences.findPreference(getString(R.string.shareProxyOnNetworkPreference));
             if (shareProxySwitch != null) {
@@ -571,6 +592,34 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                         return true;
                     }
                 });
+            }
+        }
+
+        private void updateNetworkSharingAddressesSummary() {
+            if (mNetworkSharingAddresses == null) {
+                return;
+            }
+
+            java.util.List<LocalProxyInterfaces.InterfaceAddress> addresses =
+                    LocalProxyInterfaces.getAvailableAddresses();
+            if (addresses.isEmpty()) {
+                mNetworkSharingAddresses.setSummary(
+                        getString(R.string.preference_network_sharing_addresses_unavailable));
+                return;
+            }
+
+            AppPreferences preferences = new AppPreferences(requireContext());
+            int httpPort = preferences.getInt(getString(R.string.current_local_http_proxy_port), 0);
+            int socksPort = preferences.getInt(getString(R.string.current_local_socks_proxy_port), 0);
+
+            if (httpPort > 0 || socksPort > 0) {
+                mNetworkSharingAddresses.setSummary(LocalProxyInterfaces.formatProxyAddresses(
+                        requireContext(), addresses, httpPort, socksPort));
+            } else {
+                mNetworkSharingAddresses.setSummary(
+                        LocalProxyInterfaces.formatInterfaceAddresses(requireContext(), addresses) +
+                                "\n\n" +
+                                getString(R.string.preference_network_sharing_addresses_ports_unavailable));
             }
         }
 
