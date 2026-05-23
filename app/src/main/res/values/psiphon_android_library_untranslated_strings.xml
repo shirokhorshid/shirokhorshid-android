@@ -43,6 +43,7 @@
     <string name="upgrade_checker_service_name">ShirOKhorshid:UpgradeChecker</string>
 
     <string name="current_local_http_proxy_port">currentLocalHttpProxyPort</string>
+    <string name="current_local_socks_proxy_port">currentLocalSocksProxyPort</string>
     <string name="proxyOptionsPreferenceKey" translatable="false">proxyOptionsPreferenceKey</string>
     <string name="vpnOptionsPreferenceKey" translatable="false">vpnOptionsPreferenceKey</string>
     <string name="feedbackPreferenceKey" translatable="false">feedbackPreferenceKey</string>

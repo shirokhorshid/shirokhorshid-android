@@ -229,5 +229,17 @@
     <string name="lan_proxy_sharing_active">Network sharing active</string>
     <string name="lan_proxy_configure_hint">Configure other devices\' proxy settings with these addresses</string>
     <string name="log_lan_sharing_enabled">Network sharing enabled — proxy exposed on LAN</string>
+    <string name="lan_proxy_interface_name">%1$s (%2$s)</string>
+    <string name="lan_proxy_interface_address">%1$s: %2$s</string>
+    <string name="lan_proxy_interface_hotspot">Hotspot</string>
+    <string name="lan_proxy_interface_wifi">Wi-Fi</string>
+    <string name="lan_proxy_interface_usb">USB tethering</string>
+    <string name="lan_proxy_interface_ethernet">Ethernet</string>
+    <string name="lan_proxy_interface_bluetooth">Bluetooth tethering</string>
+    <string name="lan_proxy_interface_local">Local network</string>
+    <string name="log_lan_proxy_addresses">Network proxy addresses:\n%1$s</string>
+    <string name="preference_network_sharing_addresses_title">Available proxy addresses</string>
+    <string name="preference_network_sharing_addresses_unavailable">No local network adapters are currently available.</string>
+    <string name="preference_network_sharing_addresses_ports_unavailable">Connect once with network sharing enabled to show HTTP and SOCKS ports.</string>
 
 </resources>

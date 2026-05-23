@@ -993,6 +993,28 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
         return data;
     }
 
+    private void logLanProxyAddresses() {
+        if (m_tunnelConfig == null || !m_tunnelConfig.shareProxyOnNetwork) {
+            return;
+        }
+
+        int httpPort = m_tunnelState.listeningLocalHttpProxyPort;
+        int socksPort = m_tunnelState.listeningLocalSocksProxyPort;
+        if (httpPort <= 0 && socksPort <= 0) {
+            return;
+        }
+
+        List<LocalProxyInterfaces.InterfaceAddress> addresses =
+                LocalProxyInterfaces.getAvailableAddresses();
+        if (addresses.isEmpty()) {
+            return;
+        }
+
+        MyLog.i(R.string.log_lan_proxy_addresses,
+                MyLog.Sensitivity.SENSITIVE_FORMAT_ARGS,
+                LocalProxyInterfaces.formatProxyAddresses(getContext(), addresses, httpPort, socksPort));
+    }
+
     private Bundle getDataTransferStatsBundle() {
         Bundle data = new Bundle();
         data.putLong(DATA_TRANSFER_STATS_CONNECTED_TIME, DataTransferStats.getDataTransferStatsForService().m_connectedTime);
@@ -2270,6 +2292,11 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             public void run() {
                 MyLog.i(R.string.socks_running, MyLog.Sensitivity.NOT_SENSITIVE, port);
                 m_tunnelState.listeningLocalSocksProxyPort = port;
+
+                final AppPreferences multiProcessPreferences = new AppPreferences(getContext());
+                multiProcessPreferences.put(
+                        m_parentService.getString(R.string.current_local_socks_proxy_port),
+                        port);
             }
         });
     }
@@ -2368,6 +2395,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 DataTransferStats.getDataTransferStatsForService().startConnected();
 
                 MyLog.i(R.string.tunnel_connected, MyLog.Sensitivity.NOT_SENSITIVE);
+                logLanProxyAddresses();
 
                 m_networkConnectionStatePublishRelay.accept(TunnelState.ConnectionData.NetworkConnectionState.CONNECTED);
             }

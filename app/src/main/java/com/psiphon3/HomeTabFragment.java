@@ -22,12 +22,6 @@ package com.psiphon3;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.LinkProperties;
-import android.net.Network;
-import android.net.NetworkCapabilities;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -52,14 +46,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.psiphon3.psiphonlibrary.EmbeddedValues;
 import com.psiphon3.psiphonlibrary.LocalizedActivities;
+import com.psiphon3.psiphonlibrary.LocalProxyInterfaces;
 
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -83,6 +72,7 @@ public class HomeTabFragment extends Fragment {
     private LinearLayout lanProxyInfoSection;
     private TextView lanProxyHttpText;
     private TextView lanProxySocksText;
+    private TextView lanProxyInterfacesText;
 
     @Nullable
     @Override
@@ -114,6 +104,7 @@ public class HomeTabFragment extends Fragment {
         lanProxyInfoSection = view.findViewById(R.id.lanProxyInfoSection);
         lanProxyHttpText = view.findViewById(R.id.lanProxyHttpText);
         lanProxySocksText = view.findViewById(R.id.lanProxySocksText);
+        lanProxyInterfacesText = view.findViewById(R.id.lanProxyInterfacesText);
 
         viewModel = new ViewModelProvider(requireActivity(),
                 new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication()))
@@ -218,12 +209,6 @@ public class HomeTabFragment extends Fragment {
             return;
         }
 
-        String lanIp = getLanIpAddress(context);
-        if (lanIp == null) {
-            hideLanProxyInfo();
-            return;
-        }
-
         int httpPort = connectionData.httpPort();
         int socksPort = connectionData.socksPort();
 
@@ -232,6 +217,14 @@ public class HomeTabFragment extends Fragment {
             return;
         }
 
+        List<LocalProxyInterfaces.InterfaceAddress> addresses =
+                LocalProxyInterfaces.getAvailableAddresses();
+        if (addresses.isEmpty()) {
+            hideLanProxyInfo();
+            return;
+        }
+
+        String lanIp = addresses.get(0).address();
         lanProxyInfoSection.setVisibility(View.VISIBLE);
 
         if (httpPort > 0) {
@@ -247,166 +240,15 @@ public class HomeTabFragment extends Fragment {
         } else {
             lanProxySocksText.setVisibility(View.GONE);
         }
+
+        lanProxyInterfacesText.setText(LocalProxyInterfaces.formatProxyAddresses(
+                context, addresses, httpPort, socksPort));
+        lanProxyInterfacesText.setVisibility(View.VISIBLE);
     }
 
     private void hideLanProxyInfo() {
         if (lanProxyInfoSection != null) {
             lanProxyInfoSection.setVisibility(View.GONE);
-        }
-    }
-
-    /**
-     * Get the device's LAN IPv4 address using a multi-strategy approach.
-     * This must work reliably even when our own VPN is active — the VPN
-     * obscures the real Wi-Fi/Ethernet IP in several Android APIs.
-     *
-     * Strategy 1 (API 23+): ConnectivityManager — iterate ALL networks
-     *   looking for TRANSPORT_WIFI or TRANSPORT_ETHERNET (skip VPN/cellular),
-     *   then read LinkProperties for a site-local IPv4 address.
-     *
-     * Strategy 2 (all levels): NetworkInterface enumeration — walk every
-     *   interface, skip known non-LAN names (tun, ppp, rmnet, lo, dummy,
-     *   p2p, wigig), and return the first site-local IPv4 address.
-     *
-     * Strategy 3 (all levels, deprecated but functional through API 34+):
-     *   WifiManager.getConnectionInfo().getIpAddress() — returns the raw
-     *   Wi-Fi IPv4 even with VPN active because it reads from the Wi-Fi
-     *   HAL directly, not from the routing table.
-     *
-     * Every strategy is tried in order; the first non-null result wins.
-     */
-    private static String getLanIpAddress(Context context) {
-        // Strategy 1: ConnectivityManager + LinkProperties (most authoritative)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            String ip = getLanIpFromConnectivityManager(context);
-            if (ip != null) return ip;
-        }
-
-        // Strategy 2: NetworkInterface enumeration
-        String ip = getLanIpFromNetworkInterfaces();
-        if (ip != null) return ip;
-
-        // Strategy 3: WifiManager — deprecated but still functional on all
-        // API levels through at least API 34. This is our most reliable
-        // fallback because it reads the Wi-Fi IP directly from the HAL,
-        // bypassing any VPN routing interference.
-        return getLanIpFromWifiManager(context);
-    }
-
-    /**
-     * Strategy 1: Walk all networks via ConnectivityManager looking for a
-     * Wi-Fi or Ethernet transport that is NOT a VPN. When our VPN is active,
-     * getActiveNetwork() returns the VPN network, so we must iterate
-     * getAllNetworks() to find the underlying physical network.
-     */
-    @android.annotation.TargetApi(Build.VERSION_CODES.M)
-    private static String getLanIpFromConnectivityManager(Context context) {
-        ConnectivityManager cm = (ConnectivityManager)
-                context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cm == null) return null;
-
-        try {
-            for (Network network : cm.getAllNetworks()) {
-                NetworkCapabilities capabilities = cm.getNetworkCapabilities(network);
-                if (capabilities == null) continue;
-
-                // Skip VPN and cellular transports — we only want the
-                // physical LAN network (Wi-Fi or Ethernet).
-                if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) continue;
-                if (!capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) &&
-                        !capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
-                    continue;
-                }
-
-                LinkProperties linkProperties = cm.getLinkProperties(network);
-                if (linkProperties == null) continue;
-                for (android.net.LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
-                    InetAddress address = linkAddress.getAddress();
-                    if (address instanceof Inet4Address &&
-                            !address.isLoopbackAddress() &&
-                            address.isSiteLocalAddress()) {
-                        return address.getHostAddress();
-                    }
-                }
-            }
-        } catch (Exception ignored) {
-            // SecurityException possible on some OEMs; fall through to next strategy
-        }
-        return null;
-    }
-
-    /**
-     * Strategy 2: Enumerate all NetworkInterfaces and return the first
-     * site-local IPv4 address on a physical-looking interface. We skip
-     * known virtual/tunnel interface name prefixes.
-     */
-    private static String getLanIpFromNetworkInterfaces() {
-        try {
-            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
-            if (interfaces == null) return null;
-
-            // Collect candidates — prefer wlan/eth over others
-            String otherCandidate = null;
-
-            for (NetworkInterface ni : Collections.list(interfaces)) {
-                if (ni.isLoopback() || !ni.isUp()) continue;
-                String name = ni.getName().toLowerCase();
-
-                // Skip known non-LAN interfaces
-                if (name.startsWith("tun") || name.startsWith("ppp") ||
-                        name.startsWith("rmnet") || name.startsWith("lo") ||
-                        name.startsWith("dummy") || name.startsWith("p2p") ||
-                        name.startsWith("wigig") || name.startsWith("v4-") ||
-                        name.startsWith("clat")) {
-                    continue;
-                }
-
-                for (InetAddress addr : Collections.list(ni.getInetAddresses())) {
-                    if (addr instanceof Inet4Address &&
-                            !addr.isLoopbackAddress() &&
-                            addr.isSiteLocalAddress()) {
-                        String ip = addr.getHostAddress();
-                        if (name.startsWith("wlan") || name.startsWith("eth") ||
-                                name.startsWith("en")) {
-                            // High-confidence LAN interface — return immediately
-                            return ip;
-                        }
-                        if (otherCandidate == null) {
-                            otherCandidate = ip;
-                        }
-                    }
-                }
-            }
-
-            // Return best candidate found
-            return otherCandidate;
-        } catch (SocketException ignored) {}
-        return null;
-    }
-
-    /**
-     * Strategy 3: WifiManager.getConnectionInfo().getIpAddress() reads the
-     * IPv4 address directly from the Wi-Fi HAL, so it works correctly even
-     * when a VPN is the active network. The API is deprecated since API 31
-     * but remains functional and returns correct values through at least
-     * Android 14 (API 34). This is the most reliable single-call fallback.
-     */
-    @SuppressWarnings("deprecation")
-    private static String getLanIpFromWifiManager(Context context) {
-        try {
-            WifiManager wm = (WifiManager)
-                    context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            if (wm == null) return null;
-            WifiInfo info = wm.getConnectionInfo();
-            if (info == null) return null;
-            int ipInt = info.getIpAddress();
-            if (ipInt == 0) return null;
-            return String.format("%d.%d.%d.%d",
-                    (ipInt & 0xff), (ipInt >> 8 & 0xff),
-                    (ipInt >> 16 & 0xff), (ipInt >> 24 & 0xff));
-        } catch (Exception ignored) {
-            // SecurityException on some OEMs without ACCESS_WIFI_STATE
-            return null;
         }
     }
 

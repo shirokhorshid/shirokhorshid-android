@@ -210,5 +210,17 @@
   <string name="lan_proxy_sharing_active">اشتراک‌گذاری شبکه فعال است</string>
   <string name="lan_proxy_configure_hint">تنظیمات پروکسی دستگاه‌های دیگر را با این آدرس‌ها پیکربندی کنید</string>
   <string name="log_lan_sharing_enabled">اشتراک‌گذاری شبکه فعال شد — پروکسی در شبکه محلی در دسترس است</string>
+  <string name="lan_proxy_interface_name">%1$s (%2$s)</string>
+  <string name="lan_proxy_interface_address">%1$s: %2$s</string>
+  <string name="lan_proxy_interface_hotspot">هات‌اسپات</string>
+  <string name="lan_proxy_interface_wifi">وای‌فای</string>
+  <string name="lan_proxy_interface_usb">اشتراک‌گذاری USB</string>
+  <string name="lan_proxy_interface_ethernet">اترنت</string>
+  <string name="lan_proxy_interface_bluetooth">اشتراک‌گذاری بلوتوث</string>
+  <string name="lan_proxy_interface_local">شبکه محلی</string>
+  <string name="log_lan_proxy_addresses">آدرس‌های پروکسی شبکه:\n%1$s</string>
+  <string name="preference_network_sharing_addresses_title">آدرس‌های پروکسی موجود</string>
+  <string name="preference_network_sharing_addresses_unavailable">در حال حاضر هیچ آداپتور شبکه محلی در دسترس نیست.</string>
+  <string name="preference_network_sharing_addresses_ports_unavailable">برای نمایش پورت‌های HTTP و SOCKS، یک بار با اشتراک‌گذاری شبکه متصل شوید.</string>
 
 </resources>
