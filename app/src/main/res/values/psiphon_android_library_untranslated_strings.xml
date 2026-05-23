@@ -56,6 +56,7 @@
     <string name="serviceRunningPreference" translatable="false">serviceRunningPreference</string>
     <string name="cdnFrontingCustomIpListPreference" translatable="false">cdnFrontingCustomIpListPreference</string>
     <string name="cdnFrontingCustomSniPreference" translatable="false">cdnFrontingCustomSniPreference</string>
+    <string name="cdnFrontingScannerPreference" translatable="false">cdnFrontingScannerPreference</string>
 
     <string-array name="languages">
         <item>فارسی,fa</item>

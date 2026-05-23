@@ -88,6 +88,11 @@
             android:inputType="textUri|textNoSuggestions"
             android:summary="@string/cdnFrontingCustomSniPreferenceSummary"
             android:title="@string/cdnFrontingCustomSniPreferenceTitle" />
+        <Preference
+            android:icon="@drawable/ic_cdn_edge"
+            android:key="@string/cdnFrontingScannerPreference"
+            android:summary="@string/cdnFrontingScannerPreferenceSummary"
+            android:title="@string/cdnFrontingScannerPreferenceTitle" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="conduitCategory"

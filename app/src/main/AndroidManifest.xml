@@ -168,6 +168,15 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".psiphonlibrary.CdnFrontingScannerActivity"
+            android:parentActivityName=".psiphonlibrary.MoreOptionsPreferenceActivity"
+            android:exported="false"
+            android:label="@string/cdnFrontingScannerPreferenceTitle">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".psiphonlibrary.MoreOptionsPreferenceActivity" />
+        </activity>
+        <activity
             android:name=".psiphonlibrary.VpnOptionsPreferenceActivity"
             android:parentActivityName=".MainActivity"
             android:label="@string/app_name">
