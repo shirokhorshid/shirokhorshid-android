@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cdnFrontingScannerIntro"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cdnFrontingScannerPresetLabel" />
+
+        <Spinner
+            android:id="@+id/cdnScannerPresetSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/cdnFrontingScannerInputLabel" />
+
+        <EditText
+            android:id="@+id/cdnScannerInput"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="top"
+            android:hint="@string/cdnFrontingScannerInputHint"
+            android:inputType="textMultiLine|textNoSuggestions" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/cdnScannerTimeout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/cdnFrontingScannerTimeoutLabel"
+                android:inputType="number"
+                android:text="3000" />
+
+            <EditText
+                android:id="@+id/cdnScannerConcurrency"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:hint="@string/cdnFrontingScannerConcurrencyLabel"
+                android:inputType="number"
+                android:text="20" />
+
+            <EditText
+                android:id="@+id/cdnScannerMaxIps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:hint="@string/cdnFrontingScannerMaxIpsLabel"
+                android:inputType="number"
+                android:text="256" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cdnScannerStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/cdnFrontingScannerStart" />
+
+            <Button
+                android:id="@+id/cdnScannerStop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="@string/cdnFrontingScannerStop" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/cdnScannerProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/cdnScannerStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/cdnFrontingScannerReady" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cdnFrontingScannerResultsHeader"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cdnScannerResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:minHeight="72dp"
+            android:paddingTop="8dp"
+            android:text="@string/cdnFrontingScannerResultsEmpty" />
+
+        <Button
+            android:id="@+id/cdnScannerApply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:enabled="false"
+            android:text="@string/cdnFrontingScannerApply" />
+
+        <Button
+            android:id="@+id/cdnScannerCopy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:enabled="false"
+            android:text="@string/cdnFrontingScannerCopy" />
+    </LinearLayout>
+</ScrollView>

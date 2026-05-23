@@ -183,6 +183,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".psiphonlibrary.CdnFrontingScannerActivity"
+            android:parentActivityName=".psiphonlibrary.MoreOptionsPreferenceActivity"
+            android:label="@string/cdnFrontingScannerPreferenceTitle" />
         <activity android:theme="@style/Theme.DialogAlert"
             android:excludeFromRecents="true"
             android:name=".NotificationPermissionRationaleActivity" />
