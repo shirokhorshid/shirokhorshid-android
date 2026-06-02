@@ -186,6 +186,7 @@
   <string name="disguise_name_weather">هواشناسی</string>
   <string name="disguise_name_notes">یادداشت‌ها</string>
   <string name="disguise_name_clock">ساعت</string>
+  <string name="disguise_name_booru">بورو</string>
 
   <string name="disguise_notif_calculator_connected">آماده</string>
   <string name="disguise_notif_calculator_connecting">در حال محاسبه\u2026</string>
@@ -195,6 +196,8 @@
   <string name="disguise_notif_notes_connecting">در حال همگام‌سازی\u2026</string>
   <string name="disguise_notif_clock_connected">زنگ تنظیم شد</string>
   <string name="disguise_notif_clock_connecting">همگام‌سازی ساعت\u2026</string>
+  <string name="disguise_notif_booru_connected">بورو همگام شد</string>
+  <string name="disguise_notif_booru_connecting">همگام‌سازی بورو</string>
 
   <string name="disguise_switch_warning">آیکون و نام برنامه پس از چند ثانیه تغییر خواهد کرد. ممکن است نیاز باشد آیکون جدید را به صفحه اصلی اضافه کنید.</string>
 

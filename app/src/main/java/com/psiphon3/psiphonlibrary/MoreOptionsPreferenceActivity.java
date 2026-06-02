@@ -481,14 +481,16 @@ public class MoreOptionsPreferenceActivity extends LocalizedActivities.AppCompat
                         getString(R.string.disguise_name_calculator),
                         getString(R.string.disguise_name_weather),
                         getString(R.string.disguise_name_notes),
-                        getString(R.string.disguise_name_clock)
+                        getString(R.string.disguise_name_clock),
+                        getString(R.string.disguise_name_booru)
                 };
                 CharSequence[] entryValues = new CharSequence[]{
                         DisguiseManager.IDENTITY_DEFAULT,
                         DisguiseManager.IDENTITY_CALCULATOR,
                         DisguiseManager.IDENTITY_WEATHER,
                         DisguiseManager.IDENTITY_NOTES,
-                        DisguiseManager.IDENTITY_CLOCK
+                        DisguiseManager.IDENTITY_CLOCK,
+                        DisguiseManager.IDENTITY_BOORU
                 };
                 disguiseList.setEntries(entries);
                 disguiseList.setEntryValues(entryValues);

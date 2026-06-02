@@ -204,6 +204,7 @@
     <string name="disguise_name_weather">Weather</string>
     <string name="disguise_name_notes">Notes</string>
     <string name="disguise_name_clock">Clock</string>
+    <string name="disguise_name_booru">Booru</string>
 
     <string name="disguise_notif_calculator_connected">Ready</string>
     <string name="disguise_notif_calculator_connecting">Calculating\u2026</string>
@@ -213,6 +214,8 @@
     <string name="disguise_notif_notes_connecting">Syncing notes\u2026</string>
     <string name="disguise_notif_clock_connected">Alarm set</string>
     <string name="disguise_notif_clock_connecting">Syncing time\u2026</string>
+    <string name="disguise_notif_booru_connected">Booru synced</string>
+    <string name="disguise_notif_booru_connecting">Syncing booru</string>
 
     <string name="disguise_switch_warning">The app icon and name will change after a few seconds. You may need to add the new icon to your home screen.</string>
 

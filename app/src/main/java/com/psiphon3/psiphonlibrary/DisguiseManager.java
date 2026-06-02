@@ -39,6 +39,7 @@ public class DisguiseManager {
     public static final String IDENTITY_WEATHER = "weather";
     public static final String IDENTITY_NOTES = "notes";
     public static final String IDENTITY_CLOCK = "clock";
+    public static final String IDENTITY_BOORU = "booru";
 
     // Activity-alias names (must match AndroidManifest.xml)
     private static final String ALIAS_DEFAULT = "com.psiphon3.LauncherDefault";
@@ -46,13 +47,14 @@ public class DisguiseManager {
     private static final String ALIAS_WEATHER = "com.psiphon3.LauncherWeather";
     private static final String ALIAS_NOTES = "com.psiphon3.LauncherNotes";
     private static final String ALIAS_CLOCK = "com.psiphon3.LauncherClock";
+    private static final String ALIAS_BOORU = "com.psiphon3.LauncherBooru";
 
     private static final String[] ALL_ALIASES = {
-            ALIAS_DEFAULT, ALIAS_CALCULATOR, ALIAS_WEATHER, ALIAS_NOTES, ALIAS_CLOCK
+            ALIAS_DEFAULT, ALIAS_CALCULATOR, ALIAS_WEATHER, ALIAS_NOTES, ALIAS_CLOCK, ALIAS_BOORU
     };
 
     private static final String[] ALL_IDENTITIES = {
-            IDENTITY_DEFAULT, IDENTITY_CALCULATOR, IDENTITY_WEATHER, IDENTITY_NOTES, IDENTITY_CLOCK
+            IDENTITY_DEFAULT, IDENTITY_CALCULATOR, IDENTITY_WEATHER, IDENTITY_NOTES, IDENTITY_CLOCK, IDENTITY_BOORU
     };
 
     /**
@@ -116,6 +118,8 @@ public class DisguiseManager {
                 return R.drawable.ic_notif_notes;
             case IDENTITY_CLOCK:
                 return R.drawable.ic_notif_clock;
+            case IDENTITY_BOORU:
+                return R.drawable.ic_notif_booru;
             default:
                 return 0; // Use default notification icon
         }
@@ -141,6 +145,8 @@ public class DisguiseManager {
                 return context.getString(R.string.disguise_name_notes);
             case IDENTITY_CLOCK:
                 return context.getString(R.string.disguise_name_clock);
+            case IDENTITY_BOORU:
+                return context.getString(R.string.disguise_name_booru);
             default:
                 return null;
         }
@@ -176,6 +182,10 @@ public class DisguiseManager {
                 return "connected".equals(state)
                         ? context.getString(R.string.disguise_notif_clock_connected)
                         : context.getString(R.string.disguise_notif_clock_connecting);
+            case IDENTITY_BOORU:
+                return "connected".equals(state)
+                        ? context.getString(R.string.disguise_notif_booru_connected)
+                        : context.getString(R.string.disguise_notif_booru_connecting);
             default:
                 return null;
         }
@@ -200,6 +210,8 @@ public class DisguiseManager {
                 return context.getString(R.string.disguise_name_notes);
             case IDENTITY_CLOCK:
                 return context.getString(R.string.disguise_name_clock);
+            case IDENTITY_BOORU:
+                return context.getString(R.string.disguise_name_booru);
             default:
                 return null;
         }
@@ -225,6 +237,8 @@ public class DisguiseManager {
                 return context.getString(R.string.disguise_name_notes);
             case IDENTITY_CLOCK:
                 return context.getString(R.string.disguise_name_clock);
+            case IDENTITY_BOORU:
+                return context.getString(R.string.disguise_name_booru);
             default:
                 return context.getString(R.string.app_name);
         }
@@ -240,6 +254,8 @@ public class DisguiseManager {
                 return ALIAS_NOTES;
             case IDENTITY_CLOCK:
                 return ALIAS_CLOCK;
+            case IDENTITY_BOORU:
+                return ALIAS_BOORU;
             default:
                 return ALIAS_DEFAULT;
         }
