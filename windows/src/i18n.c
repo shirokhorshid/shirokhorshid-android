@@ -1,0 +1,242 @@
+/*
+ * Shir o Khorshid for Windows - localisation (فارسی / English).
+ * GPLv3. See shir.h for the full notice.
+ *
+ * The Persian strings mirror the translations shipped in the Android client
+ * (app/src/main/res/values-fa/strings.xml) so both builds read identically.
+ */
+
+#include "shir.h"
+
+static int g_persian = 1;
+
+/* ------------------------------------------------------------------ regions */
+
+/* "Any" first: the Android client's default (best performance). */
+const wchar_t *const kRegionCodes[REGION_COUNT] = {
+    L"Any", L"AE", L"AR", L"AT", L"AU", L"BE", L"BG", L"BR", L"CA", L"CH",
+    L"CL", L"CO", L"CZ", L"DE", L"DK", L"EE", L"ES", L"FI", L"FR", L"GB",
+    L"GR", L"HK", L"HR", L"HU", L"ID", L"IE", L"IN", L"IS", L"IT", L"JP",
+    L"KE", L"KR", L"LT", L"LV", L"MX", L"MY", L"NL", L"NO", L"NZ", L"PL",
+    L"PT", L"RO", L"RS", L"SE", L"SG", L"SK", L"TW", L"UA", L"US", L"ZA"
+};
+
+const wchar_t *const kRegionNamesFa[REGION_COUNT] = {
+    L"\u0647\u0631 \u0645\u0646\u0637\u0642\u0647 (\u0628\u0647\u062a\u0631\u06cc\u0646 \u0639\u0645\u0644\u06a9\u0631\u062f)", /* هر منطقه (بهترین عملکرد) */
+    L"\u0627\u0645\u0627\u0631\u0627\u062a \u0645\u062a\u062d\u062f\u0647\u0654 \u0639\u0631\u0628\u06cc", L"\u0622\u0631\u0698\u0627\u0646\u062a\u06cc\u0646", L"\u0627\u062a\u0631\u06cc\u0634",
+    L"\u0627\u0633\u062a\u0631\u0627\u0644\u06cc\u0627", L"\u0628\u0644\u0698\u06cc\u06a9", L"\u0628\u0644\u063a\u0627\u0631\u0633\u062a\u0627\u0646", L"\u0628\u0631\u0632\u06cc\u0644",
+    L"\u06a9\u0627\u0646\u0627\u062f\u0627", L"\u0633\u0648\u0626\u06cc\u0633", L"\u0634\u06cc\u0644\u06cc", L"\u06a9\u0644\u0645\u0628\u06cc\u0627",
+    L"\u062c\u0645\u0647\u0648\u0631\u06cc \u0686\u06a9", L"\u0622\u0644\u0645\u0627\u0646", L"\u062f\u0627\u0646\u0645\u0627\u0631\u06a9", L"\u0627\u0633\u062a\u0648\u0646\u06cc",
+    L"\u0627\u0633\u067e\u0627\u0646\u06cc\u0627", L"\u0641\u0646\u0644\u0627\u0646\u062f", L"\u0641\u0631\u0627\u0646\u0633\u0647", L"\u0628\u0631\u06cc\u062a\u0627\u0646\u06cc\u0627",
+    L"\u06cc\u0648\u0646\u0627\u0646", L"\u0647\u0646\u06af\u06a9\u0646\u06af", L"\u06a9\u0631\u0648\u0627\u0633\u06cc", L"\u0645\u062c\u0627\u0631\u0633\u062a\u0627\u0646",
+    L"\u0627\u0646\u062f\u0648\u0646\u0632\u06cc", L"\u0627\u06cc\u0631\u0644\u0646\u062f", L"\u0647\u0646\u062f", L"\u0627\u06cc\u0633\u0644\u0646\u062f",
+    L"\u0627\u06cc\u062a\u0627\u0644\u06cc\u0627", L"\u0698\u0627\u067e\u0646", L"\u06a9\u0646\u06cc\u0627", L"\u06a9\u0631\u0647\u0654 \u062c\u0646\u0648\u0628\u06cc",
+    L"\u0644\u06cc\u062a\u0648\u0627\u0646\u06cc", L"\u0644\u062a\u0648\u0646\u06cc", L"\u0645\u06a9\u0632\u06cc\u06a9", L"\u0645\u0627\u0644\u0632\u06cc",
+    L"\u0647\u0644\u0646\u062f", L"\u0646\u0631\u0648\u0698", L"\u0646\u06cc\u0648\u0632\u06cc\u0644\u0646\u062f", L"\u0644\u0647\u0633\u062a\u0627\u0646",
+    L"\u067e\u0631\u062a\u063a\u0627\u0644", L"\u0631\u0648\u0645\u0627\u0646\u06cc", L"\u0635\u0631\u0628\u0633\u062a\u0627\u0646", L"\u0633\u0648\u0626\u062f",
+    L"\u0633\u0646\u06af\u0627\u067e\u0648\u0631", L"\u0627\u0633\u0644\u0648\u0627\u06a9\u06cc", L"\u062a\u0627\u06cc\u0648\u0627\u0646", L"\u0627\u0648\u06a9\u0631\u0627\u06cc\u0646",
+    L"\u0627\u06cc\u0627\u0644\u0627\u062a \u0645\u062a\u062d\u062f\u0647", L"\u0622\u0641\u0631\u06cc\u0642\u0627\u06cc \u062c\u0646\u0648\u0628\u06cc"
+};
+
+const wchar_t *const kRegionNamesEn[REGION_COUNT] = {
+    L"Any (best performance)",
+    L"United Arab Emirates", L"Argentina", L"Austria", L"Australia", L"Belgium",
+    L"Bulgaria", L"Brazil", L"Canada", L"Switzerland", L"Chile", L"Colombia",
+    L"Czech Republic", L"Germany", L"Denmark", L"Estonia", L"Spain", L"Finland",
+    L"France", L"United Kingdom", L"Greece", L"Hong Kong", L"Croatia", L"Hungary",
+    L"Indonesia", L"Ireland", L"India", L"Iceland", L"Italy", L"Japan", L"Kenya",
+    L"South Korea", L"Lithuania", L"Latvia", L"Mexico", L"Malaysia", L"Netherlands",
+    L"Norway", L"New Zealand", L"Poland", L"Portugal", L"Romania", L"Serbia",
+    L"Sweden", L"Singapore", L"Slovakia", L"Taiwan", L"Ukraine",
+    L"United States", L"South Africa"
+};
+
+const wchar_t *region_display_name(const wchar_t *code)
+{
+    int i;
+    if (!code || !*code) return kRegionNamesFa[0];
+    for (i = 0; i < REGION_COUNT; i++) {
+#ifdef _WIN32
+        if (!_wcsicmp(kRegionCodes[i], code))
+#else
+        if (!wcscmp(kRegionCodes[i], code))
+#endif
+            return g_persian ? kRegionNamesFa[i] : kRegionNamesEn[i];
+    }
+    return code;
+}
+
+/* ------------------------------------------------------------------ strings */
+
+static const wchar_t *const kFa[S_COUNT_] = {
+    /* S_APP_NAME */                L"\u0634\u06cc\u0631 \u0648 \u062e\u0648\u0631\u0634\u06cc\u062f",
+    /* S_TAB_HOME */                L"\u062e\u0627\u0646\u0647",
+    /* S_TAB_STATISTICS */          L"\u0622\u0645\u0627\u0631",
+    /* S_TAB_SETTINGS */            L"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a",
+    /* S_TAB_LOGS */                L"\u06af\u0632\u0627\u0631\u0634\u200c\u0647\u0627",
+    /* S_START */                   L"\u0627\u062a\u0635\u0627\u0644",
+    /* S_STOP */                    L"\u0642\u0637\u0639 \u0627\u062a\u0635\u0627\u0644",
+    /* S_CONNECTING */              L"\u062f\u0631 \u062d\u0627\u0644 \u0627\u062a\u0635\u0627\u0644...",
+    /* S_CONNECTED */               L"\u0645\u062a\u0635\u0644",
+    /* S_DISCONNECTED */            L"\u0642\u0637\u0639 \u0627\u0633\u062a",
+    /* S_STOPPING */                L"\u062f\u0631 \u062d\u0627\u0644 \u0642\u0637\u0639...",
+    /* S_OPEN_BROWSER */            L"\u0628\u0627\u0632\u06a9\u0631\u062f\u0646 \u0645\u0631\u0648\u0631\u06af\u0631",
+    /* S_WAITING */                 L"\u062f\u0631 \u0627\u0646\u062a\u0638\u0627\u0631 \u0634\u0628\u06a9\u0647...",
+    /* S_TUNNEL_WHOLE_DEVICE */     L"\u0627\u0631\u0633\u0627\u0644 \u062a\u0645\u0627\u0645 \u062a\u0631\u0627\u0641\u06cc\u06a9 \u0633\u06cc\u0633\u062a\u0645",
+    /* S_TUNNEL_WHOLE_DEVICE_SUMMARY */ L"\u067e\u0631\u0648\u06a9\u0633\u06cc \u0633\u0631\u0627\u0633\u0631\u06cc \u0648\u06cc\u0646\u062f\u0648\u0632 \u0631\u0627 \u0628\u0631\u0627\u06cc \u0647\u0645\u0647\u0654 \u0628\u0631\u0646\u0627\u0645\u0647\u200c\u0647\u0627 \u062a\u0646\u0638\u06cc\u0645 \u06a9\u0646",
+    /* S_REGION */                  L"\u0645\u0646\u0637\u0642\u0647",
+    /* S_REGION_ANY */              L"\u0647\u0631 \u0645\u0646\u0637\u0642\u0647",
+    /* S_REGION_BEST */             L"\u0628\u0647\u062a\u0631\u06cc\u0646 \u0639\u0645\u0644\u06a9\u0631\u062f",
+    /* S_SENT */                    L"\u0627\u0631\u0633\u0627\u0644\u06cc",
+    /* S_RECEIVED */                L"\u062f\u0631\u06cc\u0627\u0641\u062a\u06cc",
+    /* S_ELAPSED */                 L"\u0632\u0645\u0627\u0646 \u0633\u067e\u0631\u06cc\u200c\u0634\u062f\u0647",
+    /* S_STATUS */                  L"\u0648\u0636\u0639\u06cc\u062a",
+    /* S_SERVER */                  L"\u0633\u0631\u0648\u0631",
+    /* S_PROTOCOL */                L"\u067e\u0631\u0648\u062a\u06a9\u0644",
+    /* S_LOCAL_PROXY */             L"\u067e\u0631\u0648\u06a9\u0633\u06cc \u0645\u062d\u0644\u06cc",
+    /* S_LOCAL_PROXY_SUMMARY */     L"\u0628\u0631\u0646\u0627\u0645\u0647\u200c\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0632 \u067e\u0631\u0648\u06a9\u0633\u06cc \u0633\u06cc\u0633\u062a\u0645\u06cc \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0646\u0645\u06cc\u200c\u06a9\u0646\u0646\u062f\u060c \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u0646\u062f \u0627\u0632 \u0627\u06cc\u0646 \u0622\u062f\u0631\u0633\u200c\u0647\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646\u0646\u062f",
+    /* S_OPTIONS_VPN */             L"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u062a\u0631\u0627\u0641\u06cc\u06a9",
+    /* S_OPTIONS_PROXY */           L"\u067e\u0631\u0648\u06a9\u0633\u06cc \u0628\u0627\u0644\u0627\u062f\u0633\u062a\u06cc",
+    /* S_OPTIONS_MORE */            L"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0628\u06cc\u0634\u062a\u0631",
+    /* S_CLEAR_LOGS */              L"\u067e\u0627\u06a9 \u06a9\u0631\u062f\u0646 \u06af\u0632\u0627\u0631\u0634\u200c\u0647\u0627",
+    /* S_COPY_LOGS */               L"\u06a9\u067e\u06cc \u06af\u0632\u0627\u0631\u0634\u200c\u0647\u0627",
+    /* S_SEND_FEEDBACK */           L"\u0627\u0631\u0633\u0627\u0644 \u0628\u0627\u0632\u062e\u0648\u0631\u062f",
+    /* S_LOG_FILTER_ALL */          L"\u0647\u0645\u0647",
+    /* S_LOG_FILTER_INFO */         L"\u0627\u0637\u0644\u0627\u0639\u0627\u062a",
+    /* S_LOG_FILTER_DIAGNOSTIC */   L"\u0639\u06cc\u0628\u200c\u06cc\u0627\u0628\u06cc",
+    /* S_SETTINGS_LANGUAGE */       L"\u0632\u0628\u0627\u0646",
+    /* S_SETTINGS_LANGUAGE_SUMMARY */ L"\u0632\u0628\u0627\u0646 \u0631\u0627\u0628\u0637 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f",
+    /* S_SETTINGS_NOTIFICATIONS_SOUND */ L"\u0627\u0639\u0644\u0627\u0646 \u0628\u0627 \u0635\u062f\u0627",
+    /* S_SETTINGS_NOTIFICATIONS_SOUND_SUMMARY */ L"\u067e\u0633 \u0627\u0632 \u0628\u0631\u0642\u0631\u0627\u0631\u06cc \u0627\u062a\u0635\u0627\u0644 \u0635\u062f\u0627 \u067e\u062e\u0634 \u0634\u0648\u062f",
+    /* S_SETTINGS_DISABLE_TIMEOUTS */ L"\u063a\u06cc\u0631\u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u0646 \u0645\u0647\u0644\u062a\u200c\u0647\u0627",
+    /* S_SETTINGS_DISABLE_TIMEOUTS_SUMMARY */ L"\u0628\u0631\u0627\u06cc \u0634\u0628\u06a9\u0647\u200c\u0647\u0627\u06cc \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0646\u062f",
+    /* S_SETTINGS_AUTO_OPEN_HOMEPAGE */ L"\u0628\u0627\u0632 \u06a9\u0631\u062f\u0646 \u062e\u0648\u062f\u06a9\u0627\u0631 \u0635\u0641\u062d\u0647\u0654 \u062e\u0627\u0646\u06af\u06cc",
+    /* S_SETTINGS_AUTO_OPEN_HOMEPAGE_SUMMARY */ L"\u067e\u0633 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644\u060c \u0635\u0641\u062d\u0647\u0654 \u062e\u0627\u0646\u06af\u06cc \u062f\u0631 \u0645\u0631\u0648\u0631\u06af\u0631 \u0628\u0627\u0632 \u0634\u0648\u062f",
+    /* S_SETTINGS_SYSTEM_PROXY */   L"\u062a\u0646\u0638\u06cc\u0645 \u067e\u0631\u0648\u06a9\u0633\u06cc \u0633\u06cc\u0633\u062a\u0645 \u0648\u06cc\u0646\u062f\u0648\u0632",
+    /* S_SETTINGS_SYSTEM_PROXY_SUMMARY */ L"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u067e\u0631\u0648\u06a9\u0633\u06cc \u0648\u06cc\u0646\u062f\u0648\u0632 \u0631\u0627 \u0628\u0647\u200c\u0637\u0648\u0631 \u062e\u0648\u062f\u06a9\u0627\u0631 \u062a\u063a\u06cc\u06cc\u0631 \u0628\u062f\u0647",
+    /* S_SETTINGS_LAN_SHARING */    L"\u0627\u0634\u062a\u0631\u0627\u06a9\u200c\u06af\u0630\u0627\u0631\u06cc \u062f\u0631 \u0634\u0628\u06a9\u0647\u0654 \u0645\u062d\u0644\u06cc",
+    /* S_SETTINGS_LAN_SHARING_SUMMARY */ L"\u0627\u062c\u0627\u0632\u0647 \u0628\u0647 \u062f\u0633\u062a\u06af\u0627\u0647\u200c\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0634\u0628\u06a9\u0647 \u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u062a\u0635\u0627\u0644",
+    /* S_SETTINGS_MINIMIZE_TRAY */  L"\u06a9\u0648\u0686\u06a9 \u06a9\u0631\u062f\u0646 \u062f\u0631 \u0633\u06cc\u0646\u06cc \u0633\u06cc\u0633\u062a\u0645",
+    /* S_SETTINGS_MINIMIZE_TRAY_SUMMARY */ L"\u0628\u0627 \u0628\u0633\u062a\u0646 \u067e\u0646\u062c\u0631\u0647\u060c \u0628\u0631\u0646\u0627\u0645\u0647 \u062f\u0631 \u0633\u06cc\u0646\u06cc \u0633\u06cc\u0633\u062a\u0645 \u0628\u0627\u0642\u06cc \u0628\u0645\u0627\u0646\u062f",
+    /* S_SETTINGS_START_WITH_WINDOWS */ L"\u0627\u062c\u0631\u0627 \u0628\u0627 \u0634\u0631\u0648\u0639 \u0648\u06cc\u0646\u062f\u0648\u0632",
+    /* S_SETTINGS_START_WITH_WINDOWS_SUMMARY */ L"\u0628\u0631\u0646\u0627\u0645\u0647 \u0647\u0645\u0631\u0627\u0647 \u0628\u0627 \u0648\u06cc\u0646\u062f\u0648\u0632 \u0627\u062c\u0631\u0627 \u0634\u0648\u062f",
+    /* S_SETTINGS_UPSTREAM_PROXY */ L"\u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u067e\u0631\u0648\u06a9\u0633\u06cc \u0628\u0627\u0644\u0627\u062f\u0633\u062a\u06cc",
+    /* S_SETTINGS_UPSTREAM_PROXY_SUMMARY */ L"\u0627\u062a\u0635\u0627\u0644 \u0627\u0628\u062a\u062f\u0627 \u0627\u0632 \u06cc\u06a9 \u067e\u0631\u0648\u06a9\u0633\u06cc \u062f\u06cc\u06af\u0631 \u0639\u0628\u0648\u0631 \u06a9\u0646\u062f",
+    /* S_SETTINGS_PROTOCOL */       L"\u067e\u0631\u0648\u062a\u06a9\u0644 \u062a\u0648\u0646\u0644",
+    /* S_SETTINGS_PROTOCOL_SUMMARY */ L"\u0645\u062d\u062f\u0648\u062f \u06a9\u0631\u062f\u0646 \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u067e\u0631\u0648\u062a\u06a9\u0644\u200c\u0647\u0627\u06cc \u062e\u0627\u0635",
+    /* S_UPSTREAM_HOST */           L"\u0645\u06cc\u0632\u0628\u0627\u0646",
+    /* S_UPSTREAM_PORT */           L"\u062f\u0631\u06af\u0627\u0647",
+    /* S_UPSTREAM_USERNAME */       L"\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc",
+    /* S_UPSTREAM_PASSWORD */       L"\u06af\u0630\u0631\u0648\u0627\u0698\u0647",
+    /* S_UPSTREAM_HTTPS */          L"\u067e\u0631\u0648\u06a9\u0633\u06cc HTTPS",
+    /* S_UPSTREAM_HTTPS_SUMMARY */  L"\u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 HTTPS \u0628\u0631\u0627\u06cc \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u067e\u0631\u0648\u06a9\u0633\u06cc",
+    /* S_APPLY */                   L"\u0627\u0639\u0645\u0627\u0644",
+    /* S_CANCEL */                  L"\u0627\u0646\u0635\u0631\u0627\u0641",
+    /* S_STATISTICS_TOTAL */        L"\u0645\u062c\u0645\u0648\u0639 \u0627\u0646\u062a\u0642\u0627\u0644",
+    /* S_STATISTICS_PER_REGION */   L"\u0628\u0647 \u062a\u0641\u06a9\u06cc\u06a9 \u0645\u0646\u0637\u0642\u0647",
+    /* S_STATISTICS_EMPTY */        L"\u0647\u0646\u0648\u0632 \u0622\u0645\u0627\u0631\u06cc \u062b\u0628\u062a \u0646\u0634\u062f\u0647 \u0627\u0633\u062a",
+    /* S_NO_LOGS */                 L"\u06af\u0632\u0627\u0631\u0634\u06cc \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f",
+    /* S_DISCLAIMER */              L"\u0627\u06cc\u0646 \u0628\u0631\u0646\u0627\u0645\u0647 \u06cc\u06a9 \u0633\u0627\u062e\u062a \u063a\u06cc\u0631\u0631\u0633\u0645\u06cc \u0648 \u0645\u0633\u062a\u0642\u0644 \u0627\u0633\u062a \u0648 \u0628\u0647 \u0634\u0631\u06a9\u062a \u0633\u0627\u06cc\u0641\u0648\u0646 \u0648\u0627\u0628\u0633\u062a\u0647 \u0646\u06cc\u0633\u062a.",
+    /* S_TRAY_OPEN */               L"\u0628\u0627\u0632 \u06a9\u0631\u062f\u0646 \u0634\u06cc\u0631 \u0648 \u062e\u0648\u0631\u0634\u06cc\u062f",
+    /* S_TRAY_CONNECT */            L"\u0627\u062a\u0635\u0627\u0644",
+    /* S_TRAY_DISCONNECT */         L"\u0642\u0637\u0639 \u0627\u062a\u0635\u0627\u0644",
+    /* S_TRAY_EXIT */               L"\u062e\u0631\u0648\u062c",
+    /* S_ABOUT */                   L"\u062f\u0631\u0628\u0627\u0631\u0647",
+    /* S_BUTTON_OK */                      L"\u062a\u0627\u06cc\u06cc\u062f",
+    /* S_ERROR_TITLE */             L"\u062e\u0637\u0627",
+    /* S_CORE_MISSING */            L"\u0645\u0648\u062a\u0648\u0631 \u062a\u0648\u0646\u0644 (psiphon-tunnel-core.exe) \u067e\u06cc\u062f\u0627 \u0646\u0634\u062f.\u0644\u0637\u0641\u0627 \u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f.",
+    /* S_LANGUAGE_FA */             L"\u0641\u0627\u0631\u0633\u06cc",
+    /* S_LANGUAGE_EN */             L"English",
+    /* S_PROTOCOL_ALL */            L"\u0647\u0645\u0647\u0654 \u067e\u0631\u0648\u062a\u06a9\u0644\u200c\u0647\u0627",
+};
+
+static const wchar_t *const kEn[S_COUNT_] = {
+    /* S_APP_NAME */                L"Shir o Khorshid",
+    /* S_TAB_HOME */                L"Home",
+    /* S_TAB_STATISTICS */          L"Statistics",
+    /* S_TAB_SETTINGS */            L"Settings",
+    /* S_TAB_LOGS */                L"Logs",
+    /* S_START */                   L"Start",
+    /* S_STOP */                    L"Stop",
+    /* S_CONNECTING */              L"Connecting...",
+    /* S_CONNECTED */               L"Connected",
+    /* S_DISCONNECTED */            L"Disconnected",
+    /* S_STOPPING */                L"Stopping...",
+    /* S_OPEN_BROWSER */            L"Open browser",
+    /* S_WAITING */                 L"Waiting for network...",
+    /* S_TUNNEL_WHOLE_DEVICE */     L"Tunnel whole device",
+    /* S_TUNNEL_WHOLE_DEVICE_SUMMARY */ L"Set the Windows system proxy so every app goes through the tunnel",
+    /* S_REGION */                  L"Region",
+    /* S_REGION_ANY */              L"Any region",
+    /* S_REGION_BEST */             L"Best performance",
+    /* S_SENT */                    L"Sent",
+    /* S_RECEIVED */                L"Received",
+    /* S_ELAPSED */                 L"Elapsed",
+    /* S_STATUS */                  L"Status",
+    /* S_SERVER */                  L"Server",
+    /* S_PROTOCOL */                L"Protocol",
+    /* S_LOCAL_PROXY */             L"Local proxy",
+    /* S_LOCAL_PROXY_SUMMARY */     L"Apps that do not use the Windows system proxy can be pointed at these addresses",
+    /* S_OPTIONS_VPN */             L"Traffic routing",
+    /* S_OPTIONS_PROXY */           L"Upstream proxy",
+    /* S_OPTIONS_MORE */            L"More options",
+    /* S_CLEAR_LOGS */              L"Clear logs",
+    /* S_COPY_LOGS */               L"Copy logs",
+    /* S_SEND_FEEDBACK */           L"Send feedback",
+    /* S_LOG_FILTER_ALL */          L"All",
+    /* S_LOG_FILTER_INFO */         L"Info",
+    /* S_LOG_FILTER_DIAGNOSTIC */   L"Diagnostic",
+    /* S_SETTINGS_LANGUAGE */       L"Language",
+    /* S_SETTINGS_LANGUAGE_SUMMARY */ L"Choose the interface language",
+    /* S_SETTINGS_NOTIFICATIONS_SOUND */ L"Notification sound",
+    /* S_SETTINGS_NOTIFICATIONS_SOUND_SUMMARY */ L"Play a sound once the connection is established",
+    /* S_SETTINGS_DISABLE_TIMEOUTS */ L"Disable timeouts",
+    /* S_SETTINGS_DISABLE_TIMEOUTS_SUMMARY */ L"For very slow networks",
+    /* S_SETTINGS_AUTO_OPEN_HOMEPAGE */ L"Auto-open homepage",
+    /* S_SETTINGS_AUTO_OPEN_HOMEPAGE_SUMMARY */ L"Open the homepage in your browser once connected",
+    /* S_SETTINGS_SYSTEM_PROXY */   L"Set Windows system proxy",
+    /* S_SETTINGS_SYSTEM_PROXY_SUMMARY */ L"Automatically configure the Windows proxy settings",
+    /* S_SETTINGS_LAN_SHARING */    L"Share on the local network",
+    /* S_SETTINGS_LAN_SHARING_SUMMARY */ L"Let other devices on your network use this connection",
+    /* S_SETTINGS_MINIMIZE_TRAY */  L"Minimize to system tray",
+    /* S_SETTINGS_MINIMIZE_TRAY_SUMMARY */ L"Keep running in the tray when the window is closed",
+    /* S_SETTINGS_START_WITH_WINDOWS */ L"Start with Windows",
+    /* S_SETTINGS_START_WITH_WINDOWS_SUMMARY */ L"Launch the app when you sign in",
+    /* S_SETTINGS_UPSTREAM_PROXY */ L"Use an upstream proxy",
+    /* S_SETTINGS_UPSTREAM_PROXY_SUMMARY */ L"Route the connection through another proxy first",
+    /* S_SETTINGS_PROTOCOL */       L"Tunnel protocol",
+    /* S_SETTINGS_PROTOCOL_SUMMARY */ L"Restrict the connection to specific protocols",
+    /* S_UPSTREAM_HOST */           L"Host",
+    /* S_UPSTREAM_PORT */           L"Port",
+    /* S_UPSTREAM_USERNAME */       L"Username",
+    /* S_UPSTREAM_PASSWORD */       L"Password",
+    /* S_UPSTREAM_HTTPS */          L"HTTPS proxy",
+    /* S_UPSTREAM_HTTPS_SUMMARY */  L"Use HTTPS when connecting to the proxy",
+    /* S_APPLY */                   L"Apply",
+    /* S_CANCEL */                  L"Cancel",
+    /* S_STATISTICS_TOTAL */        L"Total transferred",
+    /* S_STATISTICS_PER_REGION */   L"By region",
+    /* S_STATISTICS_EMPTY */        L"No statistics recorded yet",
+    /* S_NO_LOGS */                 L"No log entries",
+    /* S_DISCLAIMER */              L"This is an unofficial, independently maintained build and is not affiliated with Psiphon Inc.",
+    /* S_TRAY_OPEN */               L"Open Shir o Khorshid",
+    /* S_TRAY_CONNECT */            L"Connect",
+    /* S_TRAY_DISCONNECT */         L"Disconnect",
+    /* S_TRAY_EXIT */               L"Exit",
+    /* S_ABOUT */                   L"About",
+    /* S_BUTTON_OK */                      L"OK",
+    /* S_ERROR_TITLE */             L"Error",
+    /* S_CORE_MISSING */            L"The tunnel engine (psiphon-tunnel-core.exe) was not found. Please reinstall the application.",
+    /* S_LANGUAGE_FA */             L"\u0641\u0627\u0631\u0633\u06cc",
+    /* S_LANGUAGE_EN */             L"English",
+    /* S_PROTOCOL_ALL */            L"All protocols",
+};
+
+const wchar_t *tr(StrId id)
+{
+    if (id < 0 || id >= S_COUNT_) return L"";
+    return g_persian ? kFa[id] : kEn[id];
+}
+
+void i18n_set_language(int persian) { g_persian = persian ? 1 : 0; }
+int  i18n_is_persian(void) { return g_persian; }

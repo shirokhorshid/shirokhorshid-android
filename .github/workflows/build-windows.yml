@@ -1,0 +1,142 @@
+name: Build Windows client
+
+on:
+  workflow_dispatch:
+    inputs:
+      tunnel_core_ref:
+        description: 'tunnel-core branch/tag/commit to build the engine from'
+        type: string
+        default: 'shirokhorshid'
+  push:
+    paths:
+      - 'windows/**'
+      - '.github/workflows/build-windows.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-windows:
+    name: Build Windows installer
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.3'
+          cache: false
+
+      - name: Build psiphon-tunnel-core.exe for Windows
+        run: |
+          set -e
+          REF="${{ inputs.tunnel_core_ref || 'shirokhorshid' }}"
+          git clone --depth 1 -b "$REF" \
+            https://github.com/shirokhorshid/psiphon-tunnel-core.git "$RUNNER_TEMP/tc"
+          cd "$RUNNER_TEMP/tc"
+          BUILDDATE=$(date --iso-8601=seconds)
+          BUILDREV=$(git rev-parse --short HEAD)
+          LDFLAGS="-s -w"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildDate=$BUILDDATE"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildRepo=https://github.com/shirokhorshid/psiphon-tunnel-core.git"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildRev=$BUILDREV"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.goVersion=$(go version | perl -ne '/go(.*?)\s/ && print $1')"
+          export GOFLAGS=""
+          GOOS=windows GOARCH=amd64 CGO_ENABLED=0 \
+            go build -trimpath -tags "PSIPHON_ENABLE_INPROXY" -ldflags "$LDFLAGS" \
+              -o "$GITHUB_WORKSPACE/windows/build/stage/psiphon-tunnel-core.exe" \
+              ./ConsoleClient
+
+      - name: Fetch server entries
+        run: |
+          set -e
+          if [ -z "${{ secrets.FETCH_SERVER_LIST_SCRIPT }}" ]; then
+            echo "FETCH_SERVER_LIST_SCRIPT not set; building without embedded server entries"
+            exit 0
+          fi
+          pip3 install cryptography --quiet
+          printenv FETCH_SCRIPT > fetch_server_list.py
+          SERVER_ENTRIES_OUTPUT=server_entries.txt python3 fetch_server_list.py
+          rm -f fetch_server_list.py
+        env:
+          FETCH_SCRIPT: ${{ secrets.FETCH_SERVER_LIST_SCRIPT }}
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+
+      - name: Build the installer
+        run: ./build.sh --clean
+        working-directory: windows
+        env:
+          PSIPHON_PROPAGATION_CHANNEL_ID: ${{ secrets.PSIPHON_PROPAGATION_CHANNEL_ID }}
+          PSIPHON_SPONSOR_ID: ${{ secrets.PSIPHON_SPONSOR_ID }}
+          PSIPHON_CLIENT_VERSION: ${{ secrets.PSIPHON_CLIENT_VERSION }}
+          PSIPHON_EMBEDDED_SERVER_LIST_FILE: ${{ github.workspace }}/server_entries.txt
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+          PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON: ${{ secrets.PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON }}
+          PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY: ${{ secrets.PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY }}
+          PSIPHON_FEEDBACK_UPLOAD_URLS_JSON: ${{ secrets.PSIPHON_FEEDBACK_UPLOAD_URLS_JSON }}
+          PSIPHON_INFO_LINK_URL: ${{ secrets.PSIPHON_INFO_LINK_URL }}
+          PSIPHON_GET_NEW_VERSION_URL: ${{ secrets.PSIPHON_GET_NEW_VERSION_URL }}
+          PSIPHON_GET_NEW_VERSION_EMAIL: ${{ secrets.PSIPHON_GET_NEW_VERSION_EMAIL }}
+          PSIPHON_FAQ_URL: ${{ secrets.PSIPHON_FAQ_URL }}
+          PSIPHON_DATA_COLLECTION_INFO_URL: ${{ secrets.PSIPHON_DATA_COLLECTION_INFO_URL }}
+          PSIPHON_CONDUIT_COMPARTMENT_ID: ${{ secrets.PSIPHON_CONDUIT_COMPARTMENT_ID }}
+
+      - name: Clean up secrets
+        if: always()
+        run: rm -f server_entries.txt
+
+      - name: Set version info
+        id: version
+        run: |
+          CALVER=$(date -u +%Y.%m.%d)
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          echo "calver=$CALVER" >> "$GITHUB_OUTPUT"
+          echo "tag=v${CALVER}-win-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+
+      - name: Checksums
+        id: sums
+        run: |
+          cd windows/build
+          mv ShirOKhorshid-Setup.exe "ShirOKhorshid-${{ steps.version.outputs.calver }}-Setup.exe"
+          BIN="ShirOKhorshid-${{ steps.version.outputs.calver }}-Setup.exe"
+          echo "bin=$BIN" >> "$GITHUB_OUTPUT"
+          SHA256=$(sha256sum "$BIN" | cut -d' ' -f1)
+          {
+            echo "### Checksums"
+            echo '```'
+            echo "SHA-256: $SHA256"
+            echo '```'
+            echo
+            echo "Built from commit ${{ github.sha }}"
+          } > ../checksums.txt
+
+      - name: Upload artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shirokhorshid-windows
+          path: windows/build/ShirOKhorshid-${{ steps.version.outputs.calver }}-Setup.exe
+          retention-days: 7
+
+      - name: Create release
+        run: |
+          BIN="ShirOKhorshid-${{ steps.version.outputs.calver }}-Setup.exe"
+          gh release create "${{ steps.version.outputs.tag }}" \
+            "windows/build/$BIN" \
+            --repo "${{ github.repository }}" \
+            --title "ShirOKhorshid ${CALVER} (Windows)" \
+            --notes-file windows/checksums.txt \
+            --latest
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CALVER: ${{ steps.version.outputs.calver }}

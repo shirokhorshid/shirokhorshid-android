@@ -1,0 +1,41 @@
+/* Shir o Khorshid for Windows - resources. */
+
+#include <windows.h>
+#include "resource.h"
+
+/* Application icon (multi-resolution PNG-compressed .ico). */
+IDI_APP     ICON    "app.ico"
+
+/* Tray icons: coloured badge shown while the tunnel is up. */
+IDI_TRAY_OFF ICON   "tray-off.ico"
+IDI_TRAY_ON  ICON   "tray-on.ico"
+
+/* DPI awareness + common controls v6. */
+IDR_MANIFEST 24     "app.manifest"
+
+1 VERSIONINFO
+FILEVERSION     SHIR_VERSION_CSV
+PRODUCTVERSION  SHIR_VERSION_CSV
+FILEOS          0x00040004L
+FILETYPE        VFT_APP
+FILESUBTYPE     VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "CompanyName",      "Shir o Khorshid"
+            VALUE "FileDescription",  "Shir o Khorshid"
+            VALUE "FileVersion",      SHIR_VERSION_STR
+            VALUE "InternalName",     "ShirOKhorshid"
+            VALUE "OriginalFilename", "ShirOKhorshid.exe"
+            VALUE "ProductName",      "Shir o Khorshid"
+            VALUE "ProductVersion",   SHIR_VERSION_STR
+            VALUE "Comments",         "Unofficial build; not affiliated with Psiphon Inc."
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0000, 1200
+    END
+END
