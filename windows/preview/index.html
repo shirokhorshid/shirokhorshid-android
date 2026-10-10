@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>شیر و خورشید برای ویندوز — پیش‌نمایش</title>
+<style>
+  :root{
+    --brand:#1A237E; --brand-dk:#12185B; --accent:#00A050;
+    --bg:#F5F6F8; --card:#fff; --text:#1F2228; --text2:#6B7079;
+    --divider:#E3E6EA; --ok:#2E9B57; --warn:#D98310; --err:#D43B33;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:#0F1330; color:#E8EAF0;
+    font-family:"Segoe UI",Tahoma,"Noto Nastaliq Urdu",sans-serif;
+    display:flex; flex-direction:column; align-items:center;
+    padding:28px 16px 40px; gap:22px;
+  }
+  .lede{max-width:900px; line-height:1.9; font-size:14px; color:#C3C8DA; text-align:right}
+  .lede b{color:#fff}
+  .dl{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--accent); color:#fff; text-decoration:none;
+    padding:13px 26px; border-radius:6px; font-weight:600; font-size:15px;
+    box-shadow:0 6px 18px rgba(0,160,80,.35);
+  }
+  .dl:hover{filter:brightness(1.08)}
+  .dl small{opacity:.85; font-weight:400}
+  .meta{font-size:12px; color:#8E94AC}
+
+  /* ---------- the app window mock ---------- */
+  .frame{
+    width:900px; max-width:100%; background:var(--bg); color:var(--text);
+    border-radius:8px; overflow:hidden; box-shadow:0 24px 70px rgba(0,0,0,.55);
+  }
+  .titlebar{
+    height:30px; background:#fff; display:flex; align-items:center;
+    justify-content:space-between; padding:0 12px; font-size:12px; color:#444;
+    border-bottom:1px solid var(--divider);
+  }
+  .titlebar .dots{display:flex; gap:6px}
+  .dots i{width:10px;height:10px;border-radius:50%;display:block}
+  .toolbar{
+    height:48px; background:var(--brand); display:flex; align-items:center;
+    gap:10px; padding:0 12px; color:#fff;
+  }
+  .toolbar img{width:28px;height:28px;border-radius:50%;background:#fff}
+  .toolbar .name{font-size:15px;font-weight:600}
+  .tabbar{height:42px;background:var(--brand);display:flex;position:relative}
+  .tabbar button{
+    flex:1; background:none; border:0; color:#B8BEDB; font-size:14px;
+    font-family:inherit; cursor:pointer; position:relative; font-weight:600;
+  }
+  .tabbar button.on{color:#fff}
+  .tabbar button.on::after{
+    content:""; position:absolute; bottom:0; left:6px; right:6px; height:3px;
+    background:#fff; border-radius:2px 2px 0 0;
+  }
+  .content{height:470px; overflow-y:auto; padding:14px 0}
+  .bottom{
+    height:58px; background:var(--card); border-top:1px solid var(--divider);
+    display:flex; align-items:center; gap:12px; padding:0 12px;
+  }
+  .bottom button{
+    flex:1; height:36px; border:0; border-radius:4px; font-family:inherit;
+    font-size:13.5px; cursor:pointer;
+  }
+  .b-main{background:var(--accent); color:#fff}
+  .b-second{background:var(--card); color:var(--text); border:1px solid var(--divider)}
+
+  .badge-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:12px}
+  .badge{width:132px;height:132px;border-radius:50%;background:var(--accent);
+         display:flex;align-items:center;justify-content:center}
+  .badge img{width:88px;height:88px}
+  .state{font-size:20px;font-weight:700;color:var(--ok)}
+  .notice{font-size:11.5px;color:var(--text2)}
+
+  .card{
+    background:var(--card); border:1px solid var(--divider); border-radius:6px;
+    margin:0 16px 12px; padding:10px 18px;
+  }
+  .row{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .row .k{font-size:12px;color:var(--text2)}
+  .row .v{font-size:13.5px;color:var(--text)}
+  .row .v.accent{color:var(--accent)}
+  .fact{height:34px;border-bottom:0}
+  .fact:last-child{border-bottom:0}
+  .disclaimer{text-align:center;font-size:11px;color:var(--text2);padding:6px 32px 14px;line-height:1.8}
+
+  .stat-title{font-size:14px;font-weight:600;margin:0 16px 10px}
+  .bar-row{margin:0 16px 10px}
+  .bar-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .track{height:14px;background:var(--divider);border-radius:7px;overflow:hidden}
+  .fill{height:100%;background:var(--accent);border-radius:7px}
+
+  .srow{
+    background:var(--card);border-bottom:1px solid var(--divider);
+    padding:8px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;
+    min-height:62px; cursor:pointer;
+  }
+  .srow:hover{background:#EEF0F4}
+  .srow .t{font-size:13.5px;color:var(--text);margin-bottom:3px}
+  .srow .s{font-size:11.5px;color:var(--text2)}
+  .srow .side{display:flex;align-items:center;gap:14px}
+  .srow .val{font-size:13.5px;color:var(--accent)}
+  .sw{width:40px;height:20px;border-radius:10px;position:relative;flex:none}
+  .sw.on{background:#A6D3B8}
+  .sw.off{background:#C7CBD1}
+  .sw i{position:absolute;top:3px;width:14px;height:14px;border-radius:50%;
+        background:#fff;transition:left .15s}
+  .sw.on i{background:var(--accent);left:23px}
+  .sw.off i{left:3px}
+  .group{font-size:12px;color:var(--text2);padding:14px 16px 6px;font-weight:600}
+
+  .chips{display:flex;gap:8px;padding:10px 16px 12px}
+  .chip{padding:6px 16px;border-radius:15px;font-size:13px;cursor:pointer;
+        border:1px solid var(--divider);background:var(--card);color:var(--text)}
+  .chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .log{font-family:Consolas,monospace;font-size:12px;padding:2px 16px;
+       white-space:pre-wrap;line-height:1.5}
+  .l-info{color:var(--text)} .l-warn{color:var(--warn)}
+  .l-err{color:var(--err)} .l-diag{color:var(--text2)}
+  .hide{display:none}
+</style>
+</head>
+<body>
+
+<div class="lede">
+  این <b>پیش‌نمایش دقیقِ رابط ویندوزیِ «شیر و خورشید»</b> است — همان رنگ‌بندی، همان چیدمان تب‌ها
+  (خانه / آمار / تنظیمات / گزارش‌ها)، همان متن‌های فارسی و راست‌به‌چپ. رابط در برنامه‌ی واقعی
+  با Win32 و ترسیم مستقیم پیاده شده و این صفحه همان طراحی را نشان می‌دهد.
+  تب‌ها را عوض کن و روی سوئیچ‌ها کلیک کن.
+</div>
+
+<div class="frame">
+  <div class="titlebar">
+    <span class="dots"><i style="background:#E5533D"></i><i style="background:#E1A02B"></i><i style="background:#4CAF50"></i></span>
+    <span>شیر و خورشید</span>
+    <span></span>
+  </div>
+
+  <div class="toolbar">
+    <img src="app.png" alt="">
+    <span class="name">شیر و خورشید</span>
+  </div>
+
+  <div class="tabbar">
+    <button class="on" data-tab="home">خانه</button>
+    <button data-tab="stats">آمار</button>
+    <button data-tab="settings">تنظیمات</button>
+    <button data-tab="logs">گزارش‌ها</button>
+  </div>
+
+  <div class="content">
+    <!-- HOME -->
+    <div id="home">
+      <div class="badge-wrap">
+        <div class="badge"><img src="app.png" alt=""></div>
+        <div class="state">متصل</div>
+        <div class="notice">Tunnels: count=1</div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="row" style="height:32px">
+          <span class="k">منطقه</span>
+          <span class="v accent" id="regionVal">هر منطقه (بهترین عملکرد)</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="row fact"><span class="k">منطقه</span><span class="v">آلمان</span></div>
+        <div class="row fact"><span class="k">زمان سپری‌شده</span><span class="v">00:12:47</span></div>
+        <div class="row fact"><span class="k">ارسالی</span><span class="v">1.4 MB</span></div>
+        <div class="row fact"><span class="k">دریافتی</span><span class="v">18.2 MB</span></div>
+        <div class="row fact"><span class="k">پروتکل</span><span class="v">OSSH  •  DE</span></div>
+      </div>
+
+      <div class="card">
+        <div class="row" style="height:24px"><span class="k" style="font-size:13.5px;color:var(--text)">پروکسی محلی</span></div>
+        <div class="row" style="height:22px;font-family:Consolas,monospace;font-size:12px"><span class="v" style="color:var(--text2)">SOCKS</span><span class="v" style="color:var(--text2);font-family:Consolas,monospace">127.0.0.1:1080</span></div>
+        <div class="row" style="height:22px"><span class="v" style="color:var(--text2);font-family:Consolas,monospace;font-size:12px">HTTP</span><span class="v" style="color:var(--text2);font-family:Consolas,monospace;font-size:12px">127.0.0.1:8080</span></div>
+      </div>
+
+      <div class="disclaimer">
+        این برنامه یک ساخت غیررسمی و مستقل است و به شرکت سایفون وابسته نیست.
+      </div>
+    </div>
+
+    <!-- STATISTICS -->
+    <div id="stats" class="hide">
+      <div class="card" style="padding:12px 18px">
+        <div class="row" style="height:24px"><span class="v" style="font-size:14px;font-weight:600">مجموع انتقال</span></div>
+        <div class="row" style="height:22px"><span class="k">دریافتی</span><span class="v">312.8 MB</span></div>
+        <div class="row" style="height:22px"><span class="k">ارسالی</span><span class="v">41.5 MB</span></div>
+      </div>
+      <div class="stat-title">به تفکیک منطقه</div>
+      <div id="bars"></div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="settings" class="hide">
+      <div class="group">ارسال ترافیک</div>
+      <div class="srow" data-sw><div><div class="t">ارسال تمام ترافیک سیستم</div><div class="s">پروکسی سراسری ویندوز را برای همه‌ی برنامه‌ها تنظیم کن</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
+      <div class="srow" data-sw><div><div class="t">تنظیم پروکسی سیستم ویندوز</div><div class="s">تنظیمات پروکسی ویندوز را به‌طور خودکار تغییر بده</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
+      <div class="srow"><div><div class="t">منطقه</div><div class="s">بهترین عملکرد</div></div><div class="side"><span class="val">هر منطقه (بهترین عملکرد)</span></div></div>
+      <div class="srow"><div><div class="t">پروتکل تونل</div><div class="s">محدود کردن اتصال به پروتکل‌های خاص</div></div><div class="side"><span class="val">همه‌ی پروتکل‌ها</span></div></div>
+
+      <div class="group">پروکسی بالادستی</div>
+      <div class="srow" data-sw><div><div class="t">استفاده از پروکسی بالادستی</div><div class="s">اتصال ابتدا از یک پروکسی دیگر عبور کند</div></div><div class="side"><div class="sw off"><i></i></div></div></div>
+      <div class="srow"><div><div class="t">پروکسی بالادستی</div><div class="s">میزبان</div></div><div class="side"><span class="val">-</span></div></div>
+
+      <div class="group">پیشرفته</div>
+      <div class="srow" data-sw><div><div class="t">اجرا با شروع ویندوز</div><div class="s">برنامه همراه با ویندوز اجرا شود</div></div><div class="side"><div class="sw off"><i></i></div></div></div>
+      <div class="srow" data-sw><div><div class="t">کوچک کردن در سینی سیستم</div><div class="s">با بستن پنجره، برنامه در سینی سیستم باقی بماند</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
+      <div class="srow" data-sw><div><div class="t">باز کردن خودکار صفحه‌ی خانگی</div><div class="s">پس از اتصال، صفحه‌ی خانگی در مرورگر باز شود</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
+      <div class="srow" data-sw><div><div class="t">غیرفعال کردن مهلت‌ها</div><div class="s">برای شبکه‌های بسیار کند</div></div><div class="side"><div class="sw off"><i></i></div></div></div>
+      <div class="srow" data-sw><div><div class="t">اشتراک‌گذاری در شبکه‌ی محلی</div><div class="s">اجازه به دستگاه‌های دیگر در شبکه برای استفاده از این اتصال</div></div><div class="side"><div class="sw off"><i></i></div></div></div>
+      <div class="srow"><div><div class="t">زبان</div><div class="s">زبان رابط را انتخاب کنید</div></div><div class="side"><span class="val">فارسی</span></div></div>
+    </div>
+
+    <!-- LOGS -->
+    <div id="logs" class="hide">
+      <div class="chips">
+        <div class="chip on">همه</div><div class="chip">اطلاعات</div><div class="chip">عیب‌یابی</div>
+      </div>
+      <div id="loglines"></div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <button class="b-main" id="btnMain">قطع اتصال</button>
+    <button class="b-second">باز کردن مرورگر</button>
+  </div>
+</div>
+
+<a class="dl" href="../build/ShirOKhorshid-1.0.0-preview-Setup.exe" download>
+  ⬇ دانلود نصب‌کننده ویندوز <small>ShirOKhorshid-1.0.0-preview-Setup.exe — ۲۸.۷ مگابایت</small>
+</a>
+<div class="meta" id="note"></div>
+
+<script>
+const tabs = ["home","stats","settings","logs"];
+document.querySelectorAll(".tabbar button").forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll(".tabbar button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");
+    tabs.forEach(t=>document.getElementById(t).classList.add("hide"));
+    document.getElementById(b.dataset.tab).classList.remove("hide");
+  };
+});
+document.querySelectorAll("[data-sw]").forEach(r=>{
+  r.onclick = ()=>{ const s=r.querySelector(".sw"); s.classList.toggle("on"); s.classList.toggle("off"); };
+});
+document.querySelectorAll(".chip").forEach(c=>{
+  c.onclick = ()=>{
+    document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
+    c.classList.add("on");
+    const mode=c.textContent.trim();
+    document.querySelectorAll("#loglines .log").forEach(l=>{
+      const d=l.dataset.level;
+      l.style.display = (mode==="همه" || (mode==="اطلاعات"&&d!=="diag") || (mode==="عیب‌یابی"&&d==="diag")) ? "" : "none";
+    });
+  };
+});
+let connected = true;
+document.getElementById("btnMain").onclick = e=>{
+  connected = !connected;
+  e.target.textContent = connected ? "قطع اتصال" : "اتصال";
+  document.querySelector(".badge").style.background = connected ? "var(--accent)" : "#B0B6BD";
+  document.querySelector(".state").textContent = connected ? "متصل" : "قطع است";
+  document.querySelector(".state").style.color = connected ? "var(--ok)" : "var(--text)";
+};
+
+const regions = [["آلمان",354],["هلند",268],["آمریکا",201],["کانادا",142],["سوئد",97]];
+const max = Math.max(...regions.map(r=>r[1]));
+document.getElementById("bars").innerHTML = regions.map(([n,v])=>`
+  <div class="bar-row">
+    <div class="bar-top"><span>${n}</span><span style="color:var(--text2);font-size:11.5px">${(v/1000).toFixed(2)} MB</span></div>
+    <div class="track"><div class="fill" style="width:${v/max*100}%"></div></div>
+  </div>`).join("");
+
+const logs = [
+  ["info","12:04:11  NoticeBuildInfo: buildDate=2026-07-23, goVersion=go1.26.5"],
+  ["info","12:04:11  starting the tunnel (هر منطقه (بهترین عملکرد))"],
+  ["diag","12:04:12  CandidateServers: region=Any, count=1284"],
+  ["diag","12:04:13  AvailableEgressRegions: regions=DE,NL,US,CA,SE,GB,FR,CH,JP,SG"],
+  ["diag","12:04:15  ListeningSocksProxyPort: port=1080"],
+  ["diag","12:04:15  ListeningHttpProxyPort: port=8080"],
+  ["diag","12:04:17  ConnectingServer: region=DE, protocol=OSSH"],
+  ["diag","12:04:19  ActiveTunnel: protocol=OSSH"],
+  ["info","12:04:19  Tunnels: count=1"],
+  ["diag","12:04:19  ClientRegion: region=DE"],
+  ["diag","12:04:20  Homepage: url=https://example.org/?client=fa"],
+  ["warn","12:09:02  UpstreamProxyError: message=dial tcp: i/o timeout"],
+  ["diag","12:09:03  BytesTransferred: sent=48213, received=1043922"],
+  ["err","12:11:41  ConnectingServer: error=server entry failed"],
+  ["diag","12:11:43  Tunnels: count=1"]
+];
+document.getElementById("loglines").innerHTML = logs.map(([lv,t])=>
+  `<div class="log l-${lv}" data-level="${lv}">${t.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</div>`).join("");
+</script>
+</body>
+</html>
