@@ -1,0 +1,249 @@
+name: Build Windows client
+
+on:
+  workflow_dispatch:
+    inputs:
+      tunnel_core_ref:
+        description: 'tunnel-core branch/tag/commit to build the engine from'
+        type: string
+        default: 'shirokhorshid'
+      allow_unconfigured:
+        description: 'Build even when the Psiphon credentials are not set'
+        type: boolean
+        default: true
+  push:
+    paths:
+      - 'windows/**'
+      - '.github/workflows/build-windows.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-windows-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-windows:
+    name: Build Windows installer
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.3'
+          cache: false
+
+      # The tunnel engine is built here and reused by build.sh below, so the
+      # build must not wipe the staging directory.
+      - name: Build psiphon-tunnel-core.exe for Windows
+        run: |
+          set -e
+          REF="${{ inputs.tunnel_core_ref || 'shirokhorshid' }}"
+          mkdir -p windows/build/stage
+          git clone --depth 1 -b "$REF" \
+            https://github.com/shirokhorshid/psiphon-tunnel-core.git "$RUNNER_TEMP/tc"
+          cd "$RUNNER_TEMP/tc"
+          BUILDDATE=$(date --iso-8601=seconds)
+          BUILDREV=$(git rev-parse --short HEAD)
+          LDFLAGS="-s -w"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildDate=$BUILDDATE"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildRepo=https://github.com/shirokhorshid/psiphon-tunnel-core.git"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.buildRev=$BUILDREV"
+          LDFLAGS="$LDFLAGS -X github.com/Psiphon-Labs/psiphon-tunnel-core/psiphon/common/buildinfo.goVersion=$(go version | perl -ne '/go(.*?)\s/ && print $1')"
+          export GOFLAGS=""
+          GOOS=windows GOARCH=amd64 CGO_ENABLED=0 \
+            go build -trimpath -tags "PSIPHON_ENABLE_INPROXY" -ldflags "$LDFLAGS" \
+              -o "$GITHUB_WORKSPACE/windows/build/stage/psiphon-tunnel-core.exe" \
+              ./ConsoleClient
+          test -s "$GITHUB_WORKSPACE/windows/build/stage/psiphon-tunnel-core.exe"
+
+      - name: Fetch server entries
+        run: |
+          set -e
+          if [ -z "${{ secrets.FETCH_SERVER_LIST_SCRIPT }}" ]; then
+            echo "FETCH_SERVER_LIST_SCRIPT is not set; building without embedded server entries"
+            exit 0
+          fi
+          pip3 install cryptography --quiet
+          printenv FETCH_SCRIPT > fetch_server_list.py
+          SERVER_ENTRIES_OUTPUT=server_entries.txt python3 fetch_server_list.py
+          rm -f fetch_server_list.py
+          wc -l server_entries.txt
+        env:
+          FETCH_SCRIPT: ${{ secrets.FETCH_SERVER_LIST_SCRIPT }}
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+
+      # Reports (without ever printing values) which of the repository secrets
+      # this build needs are actually present, so a misconfigured repo is
+      # obvious from the release page instead of from a failed build.
+      - name: Check whether the Psiphon secrets are configured
+        id: cfg
+        env:
+          PSIPHON_PROPAGATION_CHANNEL_ID: ${{ secrets.PSIPHON_PROPAGATION_CHANNEL_ID }}
+          PSIPHON_SPONSOR_ID: ${{ secrets.PSIPHON_SPONSOR_ID }}
+          PSIPHON_CLIENT_VERSION: ${{ secrets.PSIPHON_CLIENT_VERSION }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON: ${{ secrets.PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON }}
+          PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY }}
+          PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY: ${{ secrets.PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY }}
+          PSIPHON_FEEDBACK_UPLOAD_URLS_JSON: ${{ secrets.PSIPHON_FEEDBACK_UPLOAD_URLS_JSON }}
+          FETCH_SERVER_LIST_SCRIPT: ${{ secrets.FETCH_SERVER_LIST_SCRIPT }}
+        run: |
+          HAVE=1
+          REQUIRED=""
+          {
+            echo "| Secret | Set |"
+            echo "| --- | --- |"
+            for key in PSIPHON_PROPAGATION_CHANNEL_ID PSIPHON_SPONSOR_ID \
+                       PSIPHON_CLIENT_VERSION \
+                       PSIPHON_REMOTE_SERVER_LIST_URLS_JSON \
+                       PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY \
+                       PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON \
+                       PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY \
+                       PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY \
+                       PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY \
+                       PSIPHON_FEEDBACK_UPLOAD_URLS_JSON \
+                       FETCH_SERVER_LIST_SCRIPT; do
+              eval "VALUE=\"\${$key-}\""
+              if [ -n "$VALUE" ]; then
+                echo "| \`$key\` | yes |"
+              else
+                echo "| \`$key\` | **no** |"
+                case "$key" in
+                  PSIPHON_PROPAGATION_CHANNEL_ID|PSIPHON_SPONSOR_ID)
+                    HAVE=0
+                    REQUIRED="$REQUIRED $key"
+                    ;;
+                esac
+              fi
+            done
+          } > "$RUNNER_TEMP/secrets_report.md"
+          echo "have_creds=$HAVE" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/secrets_report.md"
+          if [ "$HAVE" = "0" ]; then
+            echo "::warning::missing required secrets:$REQUIRED - the installer will be"
+            echo "::warning::built without credentials and will not be able to connect."
+            if [ "${{ inputs.allow_unconfigured }}" = "false" ]; then
+              echo "allow_unconfigured is false; aborting"
+              exit 1
+            fi
+          fi
+
+      # Host-side unit tests: the JSON layer and the tunnel-core configuration
+      # builder (which must match the Android client's TunnelManager).
+      - name: Run unit tests
+        run: |
+          set -e
+          mkdir -p /tmp/shir-test-install
+          cc -std=c11 -Wall -Wno-unused-parameter -fsanitize=address,undefined \
+             -I src -o /tmp/test_json tests/test_json.c src/json.c
+          /tmp/test_json
+          cc -std=c11 -Wall -Wno-unused-parameter -fsanitize=address,undefined \
+             -I src -o /tmp/test_config tests/test_config.c \
+             src/json.c src/core.c src/i18n.c tests/stubs.c
+          /tmp/test_config
+        working-directory: windows
+
+      - name: Build the installer
+        run: |
+          set -e
+          if [ "${{ steps.cfg.outputs.have_creds }}" != "1" ]; then
+            export SHIR_ALLOW_EMPTY=1
+          fi
+          ./build.sh
+        working-directory: windows
+        env:
+          PSIPHON_PROPAGATION_CHANNEL_ID: ${{ secrets.PSIPHON_PROPAGATION_CHANNEL_ID }}
+          PSIPHON_SPONSOR_ID: ${{ secrets.PSIPHON_SPONSOR_ID }}
+          PSIPHON_CLIENT_VERSION: ${{ secrets.PSIPHON_CLIENT_VERSION }}
+          PSIPHON_EMBEDDED_SERVER_LIST_FILE: ${{ github.workspace }}/server_entries.txt
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+          PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON: ${{ secrets.PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON }}
+          PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY: ${{ secrets.PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY }}
+          PSIPHON_FEEDBACK_UPLOAD_URLS_JSON: ${{ secrets.PSIPHON_FEEDBACK_UPLOAD_URLS_JSON }}
+          PSIPHON_INFO_LINK_URL: ${{ secrets.PSIPHON_INFO_LINK_URL }}
+          PSIPHON_GET_NEW_VERSION_URL: ${{ secrets.PSIPHON_GET_NEW_VERSION_URL }}
+          PSIPHON_GET_NEW_VERSION_EMAIL: ${{ secrets.PSIPHON_GET_NEW_VERSION_EMAIL }}
+          PSIPHON_FAQ_URL: ${{ secrets.PSIPHON_FAQ_URL }}
+          PSIPHON_DATA_COLLECTION_INFO_URL: ${{ secrets.PSIPHON_DATA_COLLECTION_INFO_URL }}
+          PSIPHON_CONDUIT_COMPARTMENT_ID: ${{ secrets.PSIPHON_CONDUIT_COMPARTMENT_ID }}
+
+      - name: Clean up secrets
+        if: always()
+        run: rm -f server_entries.txt
+
+      - name: Set version info
+        id: version
+        run: |
+          CALVER=$(date -u +%Y.%m.%d)
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          SUFFIX=""
+          if [ "${{ steps.cfg.outputs.have_creds }}" != "1" ]; then SUFFIX="-unconfigured"; fi
+          echo "calver=$CALVER" >> "$GITHUB_OUTPUT"
+          echo "suffix=$SUFFIX" >> "$GITHUB_OUTPUT"
+          echo "tag=v${CALVER}-win-${SHORT_SHA}${SUFFIX}" >> "$GITHUB_OUTPUT"
+
+      - name: Rename and checksum
+        id: sums
+        run: |
+          cd windows/build
+          BIN="ShirOKhorshid-${{ steps.version.outputs.calver }}${{ steps.version.outputs.suffix }}-Setup.exe"
+          mv ShirOKhorshid-Setup.exe "$BIN"
+          echo "bin=$BIN" >> "$GITHUB_OUTPUT"
+          SHA256=$(sha256sum "$BIN" | cut -d' ' -f1)
+          {
+            echo "### Checksums"
+            echo '```'
+            echo "SHA-256: $SHA256"
+            echo '```'
+            echo
+            echo "Built from commit ${{ github.sha }}"
+          } > ../checksums.txt
+
+      - name: Upload artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: shirokhorshid-windows
+          path: windows/build/ShirOKhorshid-${{ steps.version.outputs.calver }}${{ steps.version.outputs.suffix }}-Setup.exe
+          retention-days: 7
+
+      - name: Create release
+        run: |
+          BIN="ShirOKhorshid-${CALVER}${SUFFIX}-Setup.exe"
+          TITLE="ShirOKhorshid ${CALVER} (Windows)"
+          EXTRA=""
+          if [ "${{ steps.cfg.outputs.have_creds }}" != "1" ]; then
+            TITLE="${TITLE} - unconfigured"
+            EXTRA=$'\n> [!WARNING]\n> This build has no Psiphon credentials'
+            EXTRA="${EXTRA} (PSIPHON_PROPAGATION_CHANNEL_ID / PSIPHON_SPONSOR_ID are not set as"
+            EXTRA="${EXTRA} repository secrets), so it installs and runs but cannot connect."
+          fi
+          {
+            echo "$EXTRA"
+            echo
+            cat windows/checksums.txt
+            echo
+            echo "### Repository secrets used by this build"
+            echo
+            cat "$RUNNER_TEMP/secrets_report.md"
+          } > "$RUNNER_TEMP/notes.md"
+          gh release create "${{ steps.version.outputs.tag }}" \
+            "windows/build/$BIN" \
+            --repo "${{ github.repository }}" \
+            --title "$TITLE" \
+            --notes-file "$RUNNER_TEMP/notes.md"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CALVER: ${{ steps.version.outputs.calver }}
+          SUFFIX: ${{ steps.version.outputs.suffix }}
