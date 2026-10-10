@@ -26,10 +26,14 @@ enum {
     WID_TAB = 100,           /* + tab index */
     WID_FILTER = 110,        /* + filter level */
     WID_REGION = 20,
-    WID_PROTOCOL = 21,
+    WID_PROTOCOL_SELECTION = 21,
     WID_LANG = 22,
     WID_UPSTREAM = 23,
     WID_STAT_RESET = 24,
+    WID_CONDUIT_MODE = 25,
+    WID_CONDUIT_TIMEOUT = 26,
+    WID_CDN_IP_LIST = 27,
+    WID_CDN_SNI = 28,
     WID_SETTING = 200        /* + setting index */
 };
 

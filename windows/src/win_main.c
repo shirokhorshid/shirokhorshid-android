@@ -16,6 +16,7 @@
 #define WM_TRAYICON        (WM_APP + 2)
 #define IDT_PUMP           1
 #define IDT_REPAINT        2
+#define IDT_CONDUIT_FALLBACK 3
 
 /* --------------------------------------------------------------- globals */
 
@@ -37,6 +38,9 @@ HWND g_main_hwnd = NULL;
 
 static void do_uninstall(void);
 static void warn_if_unconfigured(void);
+static void arm_conduit_fallback_timer(void);
+static void connect_tunnel(void);
+static void disconnect_tunnel(void);
 
 static void msg_box(const wchar_t *text, const wchar_t *title)
 {
@@ -194,23 +198,70 @@ static void open_browser(const wchar_t *url)
     ShellExecuteW(NULL, L"open", target, NULL, NULL, SW_SHOWNORMAL);
 }
 
-static void connect_tunnel(void)
+/* Restart the engine without touching the fallback flag (used when auto
+   conduit mode gives up on the private compartment). */
+static int start_engine(void)
 {
     if (!tunnel_core_available()) {
         msg_box(tr(S_CORE_MISSING), tr(S_ERROR_TITLE));
-        return;
+        return 0;
     }
     if (tunnel_start(&g_settings)) {
         log_ring_add(0, L"connect requested");
         InvalidateRect(g_hwnd, NULL, FALSE);
+        arm_conduit_fallback_timer();
+        return 1;
     }
+    return 0;
+}
+
+static void connect_tunnel(void)
+{
+    /* Fresh user-initiated start: the Android client resets
+       m_conduitFallbackToPublic here so auto mode tries the private
+       Shir o Khorshid conduits first again. */
+    core_set_conduit_fallback(0);
+    start_engine();
 }
 
 static void disconnect_tunnel(void)
 {
+    KillTimer(g_hwnd, IDT_CONDUIT_FALLBACK);
     tunnel_stop();
     apply_system_proxy(0, 0);
     InvalidateRect(g_hwnd, NULL, FALSE);
+}
+
+/* startConduitFallbackTimerIfNeeded(): only in protocol=conduit with
+   conduitMode=auto, and only while we are still on the private compartment. */
+static void arm_conduit_fallback_timer(void)
+{
+    KillTimer(g_hwnd, IDT_CONDUIT_FALLBACK);
+    if (wcscmp(g_settings.protocol_selection, L"conduit") != 0) return;
+    if (wcscmp(g_settings.conduit_mode, L"auto") != 0) return;
+    if (core_get_conduit_fallback()) return;
+    if (tunnel_status()->state == TSTATE_STOPPED) return;
+    {
+        int secs = g_settings.conduit_timeout > 0 ? g_settings.conduit_timeout : 180;
+        SetTimer(g_hwnd, IDT_CONDUIT_FALLBACK, (UINT)secs * 1000u, NULL);
+    }
+}
+
+static void on_conduit_fallback_timer(void)
+{
+    TunnelStatus *st = tunnel_status();
+    KillTimer(g_hwnd, IDT_CONDUIT_FALLBACK);
+    if (st->state == TSTATE_STOPPED) return;
+    if (st->state == TSTATE_CONNECTED) return;    /* made it - nothing to do */
+    if (core_get_conduit_fallback()) return;
+    if (wcscmp(g_settings.protocol_selection, L"conduit") != 0) return;
+    if (wcscmp(g_settings.conduit_mode, L"auto") != 0) return;
+
+    log_ring_add(1, L"%ls", tr(S_CONDUIT_MODE_AUTO));
+    core_set_conduit_fallback(1);
+    tunnel_stop();
+    apply_system_proxy(0, 0);
+    start_engine();
 }
 
 static void toggle_connection(void)
@@ -226,11 +277,12 @@ static void toggle_connection(void)
 #define IDC_UP_PORT     102
 #define IDC_UP_USER     103
 #define IDC_UP_PASS     104
-#define IDC_UP_HTTPS    105
-#define IDC_UP_OK       106
-#define IDC_UP_CANCEL   107
+#define IDC_UP_DOMAIN   105
+#define IDC_UP_HTTPS    106
+#define IDC_UP_OK       107
+#define IDC_UP_CANCEL   108
 
-static HWND g_ed_host, g_ed_port, g_ed_user, g_ed_pass, g_cb_https;
+static HWND g_ed_host, g_ed_port, g_ed_user, g_ed_pass, g_ed_domain, g_cb_https;
 
 static LRESULT CALLBACK upstream_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
@@ -260,17 +312,18 @@ static LRESULT CALLBACK upstream_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
     case WM_CREATE: {
         int w = 420, pad = 18, y = 18, lw = 150;
         HFONT f = g_ui.f_body;
-        const StrId labels[4] = { S_UPSTREAM_HOST, S_UPSTREAM_PORT,
-                                  S_UPSTREAM_USERNAME, S_UPSTREAM_PASSWORD };
+        const StrId labels[5] = { S_UPSTREAM_HOST, S_UPSTREAM_PORT,
+                                  S_UPSTREAM_USERNAME, S_UPSTREAM_PASSWORD,
+                                  S_SETTINGS_UPSTREAM_DOMAIN };
         int i;
-        HWND edits[4];
+        HWND edits[5];
         wchar_t portbuf[32];
         DWORD style = WS_VISIBLE | WS_CHILD | WS_BORDER | ES_AUTOHSCROLL;
         DWORD rtl = i18n_is_persian() ? WS_EX_RTLREADING : 0;
         DWORD ltr = i18n_is_persian() ? (WS_EX_RIGHT | WS_EX_RTLREADING) : 0;
 
         (void)lp;
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 5; i++) {
             HWND lbl = CreateWindowExW(rtl, L"STATIC", tr(labels[i]),
                 WS_VISIBLE | WS_CHILD | (i18n_is_persian() ? SS_RIGHT : SS_LEFT),
                 w - pad - lw, y + i * 38, lw, 22, hwnd, NULL, g_inst, NULL);
@@ -282,18 +335,20 @@ static LRESULT CALLBACK upstream_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         }
         g_ed_host = edits[0]; g_ed_port = edits[1];
         g_ed_user = edits[2]; g_ed_pass = edits[3];
+        g_ed_domain = edits[4];
 
         SendMessageW(g_ed_host, WM_SETTEXT, 0, (LPARAM)g_settings.upstream_host);
         swprintf(portbuf, 32, L"%d", g_settings.upstream_port);
         SendMessageW(g_ed_port, WM_SETTEXT, 0, (LPARAM)portbuf);
         SendMessageW(g_ed_user, WM_SETTEXT, 0, (LPARAM)g_settings.upstream_username);
         SendMessageW(g_ed_pass, WM_SETTEXT, 0, (LPARAM)g_settings.upstream_password);
+        SendMessageW(g_ed_domain, WM_SETTEXT, 0, (LPARAM)g_settings.upstream_domain);
         if (g_settings.upstream_password[0])
-            SendMessageW(g_ed_pass, EM_SETPASSWORDCHAR, (WPARAM)L'•', 0);
+            SendMessageW(g_ed_pass, EM_SETPASSWORDCHAR, (WPARAM)L'\x2022', 0);
 
         g_cb_https = CreateWindowExW(rtl, L"BUTTON", tr(S_UPSTREAM_HTTPS),
             WS_VISIBLE | WS_CHILD | BS_AUTOCHECKBOX,
-            18, y + 4 * 38 + 6, w - 36, 24, hwnd,
+            18, y + 5 * 38 + 6, w - 36, 24, hwnd,
             (HMENU)(INT_PTR)IDC_UP_HTTPS, g_inst, NULL);
         SendMessageW(g_cb_https, WM_SETFONT, (WPARAM)f, TRUE);
         SendMessageW(g_cb_https, BM_SETCHECK,
@@ -302,11 +357,11 @@ static LRESULT CALLBACK upstream_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         {
             HWND ok = CreateWindowExW(0, L"BUTTON", tr(S_APPLY),
                 WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
-                w - 18 - 200, y + 5 * 38 + 20, 92, 30, hwnd,
+                w - 18 - 200, y + 6 * 38 + 20, 92, 30, hwnd,
                 (HMENU)(INT_PTR)IDC_UP_OK, g_inst, NULL);
             HWND cancel = CreateWindowExW(0, L"BUTTON", tr(S_CANCEL),
                 WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
-                w - 18 - 100, y + 5 * 38 + 20, 92, 30, hwnd,
+                w - 18 - 100, y + 6 * 38 + 20, 92, 30, hwnd,
                 (HMENU)(INT_PTR)IDC_UP_CANCEL, g_inst, NULL);
             SendMessageW(ok, WM_SETFONT, (WPARAM)f, TRUE);
             SendMessageW(cancel, WM_SETFONT, (WPARAM)f, TRUE);
@@ -320,6 +375,7 @@ static LRESULT CALLBACK upstream_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
             GetWindowTextW(g_ed_host, g_settings.upstream_host, 255);
             GetWindowTextW(g_ed_user, g_settings.upstream_username, 127);
             GetWindowTextW(g_ed_pass, g_settings.upstream_password, 127);
+            GetWindowTextW(g_ed_domain, g_settings.upstream_domain, 127);
             GetWindowTextW(g_ed_port, buf, 255);
             g_settings.upstream_port = _wtoi(buf);
             if (g_settings.upstream_port <= 0) g_settings.upstream_port = 8080;
@@ -353,7 +409,7 @@ static void show_upstream_dialog(void)
     g_upstream_dlg = CreateWindowExW(WS_EX_DLGMODALFRAME, L"ShirUpstreamDlg",
         tr(S_OPTIONS_PROXY),
         WS_POPUPWINDOW | WS_CAPTION | WS_SYSMENU,
-        CW_USEDEFAULT, CW_USEDEFAULT, 420, 300,
+        CW_USEDEFAULT, CW_USEDEFAULT, 420, 345,
         g_hwnd, NULL, g_inst, NULL);
     if (g_upstream_dlg) {
         RECT rc, parent;
@@ -425,23 +481,180 @@ static void do_region_pick(void)
     }
 }
 
-static void do_protocol_pick(void)
+/* ------------------------------------------------ multi-line text dialog
+   Used for the CDN edge-IP / SNI lists (EditTextPreference in Android).  */
+
+#define IDC_TXT_EDIT    201
+#define IDC_TXT_OK      202
+#define IDC_TXT_CANCEL  203
+
+static HWND     g_text_dlg = NULL;
+static HWND     g_text_edit = NULL;
+static wchar_t *g_text_target = NULL;
+static size_t   g_text_cap = 0;
+static const wchar_t *g_text_hint = L"";
+
+static LRESULT CALLBACK text_dlg_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
-    static const wchar_t *codes[] = { L"", L"SSH", L"OSSH", L"UNFRONTED-MEEK-OSSH",
-                                      L"UNFRONTED-MEEK-HTTPS", L"FRONTED-MEEK-OSSH",
-                                      L"FRONTED-MEEK-HTTP", L"QUIC-OSSH", L"TLS-OSSH" };
-    const wchar_t *labels[9];
+    switch (msg) {
+    case WM_CREATE: {
+        int w = 460, pad = 18, y = 14;
+        HFONT f = g_ui.f_body;
+        DWORD rtl = i18n_is_persian() ? WS_EX_RTLREADING : 0;
+        HWND hint = CreateWindowExW(rtl, L"STATIC", g_text_hint,
+            WS_VISIBLE | WS_CHILD | (i18n_is_persian() ? SS_RIGHT : SS_LEFT),
+            pad, y, w - pad * 2, 44, hwnd, NULL, g_inst, NULL);
+        SendMessageW(hint, WM_SETFONT, (WPARAM)g_ui.f_small, TRUE);
+
+        g_text_edit = CreateWindowExW(WS_EX_CLIENTEDGE, L"EDIT", L"",
+            WS_VISIBLE | WS_CHILD | WS_VSCROLL | ES_MULTILINE | ES_AUTOVSCROLL |
+            ES_WANTRETURN | ES_LEFT,
+            pad, y + 50, w - pad * 2, 150, hwnd,
+            (HMENU)(INT_PTR)IDC_TXT_EDIT, g_inst, NULL);
+        SendMessageW(g_text_edit, WM_SETFONT, (WPARAM)g_ui.f_mono, TRUE);
+        SendMessageW(g_text_edit, EM_SETLIMITTEXT, (WPARAM)(g_text_cap - 1), 0);
+        SendMessageW(g_text_edit, WM_SETTEXT, 0, (LPARAM)g_text_target);
+        {
+            HWND ok = CreateWindowExW(0, L"BUTTON", tr(S_APPLY),
+                WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
+                w - pad - 200, y + 214, 92, 30, hwnd,
+                (HMENU)(INT_PTR)IDC_TXT_OK, g_inst, NULL);
+            HWND cancel = CreateWindowExW(0, L"BUTTON", tr(S_CANCEL),
+                WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
+                w - pad - 100, y + 214, 92, 30, hwnd,
+                (HMENU)(INT_PTR)IDC_TXT_CANCEL, g_inst, NULL);
+            SendMessageW(ok, WM_SETFONT, (WPARAM)f, TRUE);
+            SendMessageW(cancel, WM_SETFONT, (WPARAM)f, TRUE);
+        }
+        SetFocus(g_text_edit);
+        (void)lp;
+        return 0;
+    }
+    case WM_COMMAND:
+        switch (LOWORD(wp)) {
+        case IDC_TXT_OK: {
+            int was_running = (tunnel_status()->state != TSTATE_STOPPED);
+            GetWindowTextW(g_text_edit, g_text_target, (int)g_text_cap - 1);
+            g_text_target[g_text_cap - 1] = 0;
+            save_settings();
+            DestroyWindow(hwnd);
+            if (was_running) { disconnect_tunnel(); connect_tunnel(); }
+            return 0;
+        }
+        case IDC_TXT_CANCEL:
+            DestroyWindow(hwnd);
+            return 0;
+        }
+        break;
+    case WM_DESTROY:
+        g_text_dlg = NULL;
+        g_text_edit = NULL;
+        EnableWindow(g_hwnd, TRUE);
+        SetForegroundWindow(g_hwnd);
+        InvalidateRect(g_hwnd, NULL, FALSE);
+        return 0;
+    case WM_CLOSE:
+        DestroyWindow(hwnd);
+        return 0;
+    }
+    return DefWindowProcW(hwnd, msg, wp, lp);
+}
+
+static void show_text_dialog(const wchar_t *title, const wchar_t *hint,
+                             wchar_t *target, size_t cap)
+{
+    if (g_text_dlg) { SetForegroundWindow(g_text_dlg); return; }
+    g_text_target = target;
+    g_text_cap = cap;
+    g_text_hint = hint;
+    g_text_dlg = CreateWindowExW(WS_EX_DLGMODALFRAME, L"ShirTextDlg", title,
+        WS_POPUPWINDOW | WS_CAPTION | WS_SYSMENU,
+        CW_USEDEFAULT, CW_USEDEFAULT, 460, 300,
+        g_hwnd, NULL, g_inst, NULL);
+    if (g_text_dlg) {
+        RECT rc, parent;
+        GetWindowRect(g_hwnd, &parent);
+        GetWindowRect(g_text_dlg, &rc);
+        SetWindowPos(g_text_dlg, HWND_TOP,
+            parent.left + ((parent.right - parent.left) - (rc.right - rc.left)) / 2,
+            parent.top + ((parent.bottom - parent.top) - (rc.bottom - rc.top)) / 2,
+            0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
+        EnableWindow(g_hwnd, FALSE);
+        EnableWindow(g_text_dlg, TRUE);
+        SetForegroundWindow(g_text_dlg);
+    }
+}
+
+/* --------------------------------------------- protocol-selection pickers */
+
+/* Pick between the four Android "Connection Protocol" entries. */
+static void do_protocol_selection_pick(void)
+{
+    static const wchar_t *const codes[4] = { L"auto", L"direct", L"cdn_fronting", L"conduit" };
+    static const StrId names[4] = { S_PROTOCOL_AUTO, S_PROTOCOL_DIRECT,
+                                    S_PROTOCOL_CDN_FRONTING, S_PROTOCOL_CONDUIT };
+    const wchar_t *labels[4];
     int i, cur = 0, pick;
     RECT anchor = { 60, 260, 240, 290 };
 
-    labels[0] = tr(S_PROTOCOL_ALL);
-    for (i = 1; i < 9; i++) labels[i] = codes[i];
-    for (i = 0; i < 9; i++) if (!wcscmp(codes[i], g_settings.protocol)) { cur = i; break; }
-
-    pick = ui_popup_pick_strings(g_hwnd, labels, 9, cur, anchor);
-    if (pick >= 0) {
-        wcsncpy(g_settings.protocol, codes[pick], 31);
+    for (i = 0; i < 4; i++) {
+        labels[i] = tr(names[i]);
+        if (!wcscmp(codes[i], g_settings.protocol_selection)) cur = i;
+    }
+    pick = ui_popup_pick_strings(g_hwnd, labels, 4, cur, anchor);
+    if (pick >= 0 && wcscmp(codes[pick], g_settings.protocol_selection) != 0) {
+        int was_running = (tunnel_status()->state != TSTATE_STOPPED);
+        wcsncpy(g_settings.protocol_selection, codes[pick],
+                sizeof(g_settings.protocol_selection) / sizeof(wchar_t) - 1);
         save_settings();
+        if (was_running) { disconnect_tunnel(); connect_tunnel(); }
+        InvalidateRect(g_hwnd, NULL, FALSE);
+    }
+}
+
+static void do_conduit_mode_pick(void)
+{
+    static const wchar_t *const codes[3] = { L"auto", L"shirokhorshid", L"public" };
+    static const StrId names[3] = { S_CONDUIT_MODE_LABEL_AUTO,
+                                    S_CONDUIT_MODE_LABEL_SHIROKHORSHID,
+                                    S_CONDUIT_MODE_LABEL_PUBLIC };
+    const wchar_t *labels[3];
+    int i, cur = 0, pick;
+    RECT anchor = { 60, 320, 240, 350 };
+
+    for (i = 0; i < 3; i++) {
+        labels[i] = tr(names[i]);
+        if (!wcscmp(codes[i], g_settings.conduit_mode)) cur = i;
+    }
+    pick = ui_popup_pick_strings(g_hwnd, labels, 3, cur, anchor);
+    if (pick >= 0 && wcscmp(codes[pick], g_settings.conduit_mode) != 0) {
+        int was_running = (tunnel_status()->state != TSTATE_STOPPED);
+        wcsncpy(g_settings.conduit_mode, codes[pick],
+                sizeof(g_settings.conduit_mode) / sizeof(wchar_t) - 1);
+        save_settings();
+        if (was_running) { disconnect_tunnel(); connect_tunnel(); }
+        InvalidateRect(g_hwnd, NULL, FALSE);
+    }
+}
+
+static void do_conduit_timeout_pick(void)
+{
+    static const int secs[4] = { 120, 180, 300, 600 };
+    static const StrId names[4] = { S_CONDUIT_TIMEOUT_2MIN, S_CONDUIT_TIMEOUT_3MIN,
+                                    S_CONDUIT_TIMEOUT_5MIN, S_CONDUIT_TIMEOUT_10MIN };
+    const wchar_t *labels[4];
+    int i, cur = 1, pick;
+    RECT anchor = { 60, 380, 240, 410 };
+
+    for (i = 0; i < 4; i++) {
+        labels[i] = tr(names[i]);
+        if (secs[i] == g_settings.conduit_timeout) cur = i;
+    }
+    pick = ui_popup_pick_strings(g_hwnd, labels, 4, cur, anchor);
+    if (pick >= 0) {
+        g_settings.conduit_timeout = secs[pick];
+        save_settings();
+        arm_conduit_fallback_timer();
         InvalidateRect(g_hwnd, NULL, FALSE);
     }
 }
@@ -468,27 +681,32 @@ static void handle_setting_toggle(int index)
     int changed = 0;
     int was_running = (tunnel_status()->state != TSTATE_STOPPED);
 
+    int needs_reconnect = 0;
+
     switch (index) {
-    case 0: g_settings.tunnel_whole_device ^= 1; changed = 1; break;
-    case 1: g_settings.set_system_proxy ^= 1; changed = 1; break;
-    case 4: g_settings.upstream_proxy_enabled ^= 1; changed = 1; break;
+    case 0: g_settings.tunnel_whole_device ^= 1; changed = 1; needs_reconnect = 1; break;
+    case 1: g_settings.set_system_proxy ^= 1; changed = 1; needs_reconnect = 1; break;
+    case 4: g_settings.beast_mode ^= 1; changed = 1; needs_reconnect = 1; break;
+    case 5: g_settings.upstream_proxy_enabled ^= 1; changed = 1; needs_reconnect = 1; break;
     case 6:
         g_settings.start_with_windows ^= 1;
         set_start_with_windows(g_settings.start_with_windows);
         changed = 1;
         break;
-    case 7: g_settings.minimize_to_tray ^= 1; changed = 1; break;
-    case 8: g_settings.auto_open_homepage ^= 1; changed = 1; break;
-    case 9: g_settings.disable_timeouts ^= 1; changed = 1; break;
-    case 10: g_settings.lan_proxy_sharing ^= 1; changed = 1; break;
+    case 7: g_settings.reject_censored_proxies ^= 1; changed = 1; needs_reconnect = 1; break;
+    case 8: g_settings.minimize_to_tray ^= 1; changed = 1; break;
+    case 9: g_settings.auto_open_homepage ^= 1; changed = 1; break;
+    case 10: g_settings.diagnostics_upload ^= 1; changed = 1; needs_reconnect = 1; break;
+    case 11: g_settings.disable_timeouts ^= 1; changed = 1; needs_reconnect = 1; break;
+    case 12: g_settings.lan_proxy_sharing ^= 1; changed = 1; needs_reconnect = 1; break;
     default: break;
     }
 
     if (!changed) return;
     save_settings();
 
-    if (was_running && (index == 0 || index == 1 || index == 4 || index == 10)) {
-        /* Routing changes need a reconnect to take effect. */
+    if (was_running && needs_reconnect) {
+        /* Like the Android client, tunnel-affecting options restart the tunnel. */
         disconnect_tunnel();
         connect_tunnel();
     }
@@ -634,6 +852,8 @@ static LRESULT CALLBACK wnd_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         if (wp == IDT_PUMP) {
             tunnel_pump();
             tray_update();
+        } else if (wp == IDT_CONDUIT_FALLBACK) {
+            on_conduit_fallback_timer();
         }
         InvalidateRect(hwnd, NULL, FALSE);
         return 0;
@@ -671,7 +891,19 @@ static LRESULT CALLBACK wnd_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         case WID_CLEAR_LOGS: log_ring_clear(); InvalidateRect(hwnd, NULL, FALSE); break;
         case WID_COPY_LOGS: copy_logs_to_clipboard(); break;
         case WID_REGION: do_region_pick(); break;
-        case WID_PROTOCOL: do_protocol_pick(); break;
+        case WID_PROTOCOL_SELECTION: do_protocol_selection_pick(); break;
+        case WID_CONDUIT_MODE: do_conduit_mode_pick(); break;
+        case WID_CONDUIT_TIMEOUT: do_conduit_timeout_pick(); break;
+        case WID_CDN_IP_LIST:
+            show_text_dialog(tr(S_SETTINGS_CDN_IP_LIST), tr(S_SETTINGS_CDN_IP_LIST_SUM),
+                             g_settings.cdn_ip_list,
+                             sizeof(g_settings.cdn_ip_list) / sizeof(wchar_t));
+            break;
+        case WID_CDN_SNI:
+            show_text_dialog(tr(S_SETTINGS_CDN_SNI), tr(S_SETTINGS_CDN_SNI_SUM),
+                             g_settings.cdn_sni,
+                             sizeof(g_settings.cdn_sni) / sizeof(wchar_t));
+            break;
         case WID_LANG: do_language_pick(); break;
         case WID_UPSTREAM: show_upstream_dialog(); break;
         default:
@@ -762,6 +994,7 @@ static LRESULT CALLBACK wnd_proc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
     case WM_DESTROY:
         KillTimer(hwnd, IDT_PUMP);
         KillTimer(hwnd, IDT_REPAINT);
+        KillTimer(hwnd, IDT_CONDUIT_FALLBACK);
         disconnect_tunnel();
         tray_remove();
         PostQuitMessage(0);
@@ -836,6 +1069,10 @@ int WINAPI wWinMain(HINSTANCE inst, HINSTANCE prev, PWSTR cmdline, int show)
         dlg.lpszClassName = L"ShirUpstreamDlg";
         dlg.hCursor = LoadCursor(NULL, IDC_ARROW);
         dlg.hbrBackground = (HBRUSH)(COLOR_BTNFACE + 1);
+        RegisterClassW(&dlg);
+
+        dlg.lpfnWndProc = text_dlg_proc;
+        dlg.lpszClassName = L"ShirTextDlg";
         RegisterClassW(&dlg);
     }
 

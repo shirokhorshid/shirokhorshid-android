@@ -200,11 +200,20 @@
 
     <!-- SETTINGS -->
     <div id="settings" class="hide">
-      <div class="group">ارسال ترافیک</div>
+      <div class="group">گزینه‌های VPN</div>
       <div class="srow" data-sw><div><div class="t">ارسال تمام ترافیک سیستم</div><div class="s">پروکسی سراسری ویندوز را برای همه‌ی برنامه‌ها تنظیم کن</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
       <div class="srow" data-sw><div><div class="t">تنظیم پروکسی سیستم ویندوز</div><div class="s">تنظیمات پروکسی ویندوز را به‌طور خودکار تغییر بده</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
       <div class="srow"><div><div class="t">منطقه</div><div class="s">بهترین عملکرد</div></div><div class="side"><span class="val">هر منطقه (بهترین عملکرد)</span></div></div>
-      <div class="srow"><div><div class="t">پروتکل تونل</div><div class="s">محدود کردن اتصال به پروتکل‌های خاص</div></div><div class="side"><span class="val">همه‌ی پروتکل‌ها</span></div></div>
+
+      <div class="group">گزینه‌های بیشتر</div>
+      <div class="srow" id="protoRow"><div><div class="t">پروتکل اتصال</div><div class="s">نحوه اتصال برنامه به سرورها را انتخاب کنید</div></div><div class="side"><span class="val" id="protoVal">خودکار (پیشنهادی)</span></div></div>
+      <div class="srow" data-sw><div><div class="t">حالت قدرتمند</div><div class="s">اتصال تهاجمی: همه پروتکل‌ها را روی هر سرور امتحان می‌کند</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
+      <div class="srow conduit-only hide" id="conduitRow"><div><div class="t">حالت Conduit</div><div class="s" id="conduitSum">خودکار - ابتدا Conduit‌های شیر و خورشید را امتحان می‌کند، سپس در صورت عدم اتصال در مدت زمان تعیین شده، به Conduit‌های عمومی منتقل می‌شود</div></div><div class="side"><span class="val" id="conduitVal">خودکار (پیشنهادی)</span></div></div>
+      <div class="srow conduit-only hide" id="timeoutRow"><div><div class="t">مهلت زمانی جایگزینی</div><div class="s">مدت انتظار قبل از امتحان حالت بعدی (فقط در حالت خودکار)</div></div><div class="side"><span class="val" id="timeoutVal">۳ دقیقه (پیشنهادی)</span></div></div>
+      <div class="srow conduit-only hide" data-sw><div><div class="t">رد پروکسی‌های کشورهای سانسورشده</div><div class="s">پروکسی‌های کشورهای سانسورشده را رد می‌کند (نیازمند پایگاه‌داده GeoIP)</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
+      <div class="srow fronting-only"><div><div class="t">ای‌پی‌های لبه CDN</div><div class="s">ای‌پی‌ها یا CIDRهای اضافی لبه CDN؛ با کاما، فاصله یا خط جدید جدا کنید. پیش از فهرست داخلی امتحان می‌شوند</div></div><div class="side"><span class="val">-</span></div></div>
+      <div class="srow fronting-only"><div><div class="t">نام‌های میزبان SNI برای CDN</div><div class="s">نام‌های میزبان SNI اضافی؛ با کاما، فاصله یا خط جدید جدا کنید. حالت‌های بدون SNI هم امتحان می‌شوند</div></div><div class="side"><span class="val">-</span></div></div>
+      <div class="srow" data-sw><div><div class="t">ارسال گزارش خطا</div><div class="s">ارسال خودکار گزارش‌های تشخیصی برای بهبود برنامه</div></div><div class="side"><div class="sw on"><i></i></div></div></div>
 
       <div class="group">پروکسی بالادستی</div>
       <div class="srow" data-sw><div><div class="t">استفاده از پروکسی بالادستی</div><div class="s">اتصال ابتدا از یک پروکسی دیگر عبور کند</div></div><div class="side"><div class="sw off"><i></i></div></div></div>
@@ -263,6 +272,40 @@ document.querySelectorAll(".chip").forEach(c=>{
     });
   };
 });
+// Connection-protocol picker (cycles through the four Android entries) and
+// shows/hides the conduit-only and fronting-only rows like the real app.
+const protos = [
+  ["خودکار (پیشنهادی)", true,  false],
+  ["اتصال مستقیم",     true,  false],
+  ["فرانتینگ CDN",     true,  false],
+  ["رله‌های Conduit",  false, true ]
+];
+let protoIdx = 0;
+function applyProto(){
+  const [label, fronting, conduit] = protos[protoIdx];
+  document.getElementById("protoVal").textContent = label;
+  document.querySelectorAll(".fronting-only").forEach(r=>r.classList.toggle("hide", !fronting));
+  document.querySelectorAll(".conduit-only").forEach(r=>r.classList.toggle("hide", !conduit));
+}
+document.getElementById("protoRow").onclick = ()=>{ protoIdx = (protoIdx+1) % protos.length; applyProto(); };
+const conduitModes = [
+  ["خودکار (پیشنهادی)", "خودکار - ابتدا Conduit‌های شیر و خورشید را امتحان می‌کند، سپس در صورت عدم اتصال در مدت زمان تعیین شده، به Conduit‌های عمومی منتقل می‌شود", true],
+  ["Conduit‌های شیر و خورشید", "فقط Conduit‌های اختصاصی شیر و خورشید", false],
+  ["Conduit‌های عمومی", "فقط Conduit‌های عمومی", false]
+];
+let cmIdx = 0;
+document.getElementById("conduitRow").onclick = ()=>{
+  cmIdx = (cmIdx+1) % conduitModes.length;
+  const [label, sum, isAuto] = conduitModes[cmIdx];
+  document.getElementById("conduitVal").textContent = label;
+  document.getElementById("conduitSum").textContent = sum;
+  document.getElementById("timeoutRow").classList.toggle("hide", !isAuto);
+};
+const timeouts = ["۲ دقیقه","۳ دقیقه (پیشنهادی)","۵ دقیقه","۱۰ دقیقه"];
+let toIdx = 1;
+document.getElementById("timeoutRow").onclick = ()=>{ toIdx=(toIdx+1)%4; document.getElementById("timeoutVal").textContent = timeouts[toIdx]; };
+applyProto();
+
 let connected = true;
 document.getElementById("btnMain").onclick = e=>{
   connected = !connected;

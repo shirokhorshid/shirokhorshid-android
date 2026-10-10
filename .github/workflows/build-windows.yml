@@ -137,6 +137,21 @@ jobs:
             fi
           fi
 
+      # Host-side unit tests: the JSON layer and the tunnel-core configuration
+      # builder (which must match the Android client's TunnelManager).
+      - name: Run unit tests
+        run: |
+          set -e
+          mkdir -p /tmp/shir-test-install
+          cc -std=c11 -Wall -Wno-unused-parameter -fsanitize=address,undefined \
+             -I src -o /tmp/test_json tests/test_json.c src/json.c
+          /tmp/test_json
+          cc -std=c11 -Wall -Wno-unused-parameter -fsanitize=address,undefined \
+             -I src -o /tmp/test_config tests/test_config.c \
+             src/json.c src/core.c src/i18n.c tests/stubs.c
+          /tmp/test_config
+        working-directory: windows
+
       - name: Build the installer
         run: |
           set -e

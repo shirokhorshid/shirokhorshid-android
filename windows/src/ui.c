@@ -397,7 +397,7 @@ static void paint_home(UI *u, const Settings *s)
         y += card_h + 12 * u->scale;
     }
 
-    /* local proxy card */
+    /* local proxy card (always shown while a proxy is listening) */
     if (st->socks_port || st->http_port) {
         int card_h = (st->socks_port && st->http_port) ? 78 * u->scale : 56 * u->scale;
         RECT c = mk(u, 16 * u->scale, y, w - 32 * u->scale, card_h);
@@ -426,6 +426,54 @@ static void paint_home(UI *u, const Settings *s)
             text(u, buf, t, C_TEXT2, u->f_mono, 0);
         }
         y += card_h + 12 * u->scale;
+    }
+
+    /* lanProxyInfoSection: visible only while network sharing is active and
+       a LAN address is known - mirrors HomeTabFragment.updateLanProxyInfo(). */
+    if (s->lan_proxy_sharing && st->state == TSTATE_CONNECTED &&
+        (st->socks_port || st->http_port)) {
+        wchar_t ip[64];
+        if (tunnel_lan_ip(ip, 64)) {
+            int lines = 1 + (st->http_port ? 1 : 0) + (st->socks_port ? 1 : 0) +
+                        ((s->lan_proxy_auth && s->lan_user[0]) ? 2 : 0) + 1;
+            int line_h = 20 * u->scale;
+            int card_h = lines * line_h + 24 * u->scale;
+            RECT c = mk(u, 16 * u->scale, y, w - 32 * u->scale, card_h);
+            int ry = c.top + 10 * u->scale;
+            RECT t;
+            card(u, c);
+
+            t = c; t.left += 18 * u->scale; t.right -= 18 * u->scale;
+            t.top = ry; t.bottom = ry + line_h;
+            text(u, tr(S_LAN_SHARING_ACTIVE), t, RGB(0x4C, 0xAF, 0x50), u->f_body, 1);
+            ry += line_h + 2 * u->scale;
+
+            if (st->http_port) {
+                t.top = ry; t.bottom = ry + line_h;
+                swprintf(buf, 256, tr(S_LAN_HTTP_ADDRESS), ip, st->http_port);
+                text(u, buf, t, C_TEXT, u->f_mono, 1);
+                ry += line_h;
+            }
+            if (st->socks_port) {
+                t.top = ry; t.bottom = ry + line_h;
+                swprintf(buf, 256, tr(S_LAN_SOCKS_ADDRESS), ip, st->socks_port);
+                text(u, buf, t, C_TEXT, u->f_mono, 1);
+                ry += line_h;
+            }
+            if (s->lan_proxy_auth && s->lan_user[0]) {
+                t.top = ry; t.bottom = ry + line_h;
+                swprintf(buf, 256, tr(S_LAN_USERNAME), s->lan_user);
+                text(u, buf, t, C_TEXT, u->f_mono, 1);
+                ry += line_h;
+                t.top = ry; t.bottom = ry + line_h;
+                swprintf(buf, 256, tr(S_LAN_PASSWORD), s->lan_pass);
+                text(u, buf, t, C_TEXT, u->f_mono, 1);
+                ry += line_h;
+            }
+            t.top = ry; t.bottom = ry + line_h;
+            text(u, tr(S_LAN_CONFIGURE_HINT), t, C_TEXT2, u->f_small, 1);
+            y += card_h + 12 * u->scale;
+        }
     }
 
     /* disclaimer */
@@ -537,22 +585,122 @@ static void paint_statistics(UI *u, const Settings *s)
 typedef struct { int id; RowKind kind; StrId title; StrId summary; int *flag;
                  const wchar_t *value; int disabled; } RowDef;
 
-static const wchar_t *protocol_label(const wchar_t *code)
+/* ------------------------------------------- protocol-selection helpers
+   These mirror the Android client's protocolSelectionPreference /
+   conduitModePreference / conduitTimeoutPreference entries.                */
+
+typedef enum {
+    PROTO_SEL_AUTO = 0,
+    PROTO_SEL_DIRECT,
+    PROTO_SEL_CDN_FRONTING,
+    PROTO_SEL_CONDUIT,
+    PROTO_SEL_COUNT
+} ProtoSel;
+
+typedef enum {
+    CONDUIT_AUTO = 0,
+    CONDUIT_SHIROKHORSHID,
+    CONDUIT_PUBLIC,
+    CONDUIT_COUNT
+} ConduitMode;
+
+static const wchar_t *const kProtoSelCodes[PROTO_SEL_COUNT] = {
+    L"auto", L"direct", L"cdn_fronting", L"conduit"
+};
+static const wchar_t *const kConduitModeCodes[CONDUIT_COUNT] = {
+    L"auto", L"shirokhorshid", L"public"
+};
+static const int kConduitTimeouts[4] = { 120, 180, 300, 600 };
+
+static const StrId kProtoSelLabels[PROTO_SEL_COUNT] = {
+    S_PROTOCOL_AUTO, S_PROTOCOL_DIRECT, S_PROTOCOL_CDN_FRONTING, S_PROTOCOL_CONDUIT
+};
+static const StrId kConduitModeLabels[CONDUIT_COUNT] = {
+    S_CONDUIT_MODE_LABEL_AUTO, S_CONDUIT_MODE_LABEL_SHIROKHORSHID,
+    S_CONDUIT_MODE_LABEL_PUBLIC
+};
+static const StrId kConduitTimeoutLabels[4] = {
+    S_CONDUIT_TIMEOUT_2MIN, S_CONDUIT_TIMEOUT_3MIN,
+    S_CONDUIT_TIMEOUT_5MIN, S_CONDUIT_TIMEOUT_10MIN
+};
+
+static int proto_sel_index(const wchar_t *code)
 {
-    if (!code || !*code) return tr(S_PROTOCOL_ALL);
-    return code;
+    int i;
+    for (i = 0; i < PROTO_SEL_COUNT; i++)
+        if (!wcscmp(code, kProtoSelCodes[i])) return i;
+    return PROTO_SEL_AUTO;
 }
+
+static int conduit_mode_index(const wchar_t *code)
+{
+    int i;
+    for (i = 0; i < CONDUIT_COUNT; i++)
+        if (!wcscmp(code, kConduitModeCodes[i])) return i;
+    return CONDUIT_AUTO;
+}
+
+static int conduit_timeout_index(int seconds)
+{
+    int i;
+    for (i = 0; i < 4; i++) if (kConduitTimeouts[i] == seconds) return i;
+    return 1;   /* 180s, the Android default */
+}
+
+/* conduitModeSummary* – shown under the row, exactly like the Android
+   ListPreference summaries. */
+static const StrId kConduitModeSummaries[CONDUIT_COUNT] = {
+    S_CONDUIT_MODE_AUTO, S_CONDUIT_MODE_SHIROKHORSHID, S_CONDUIT_MODE_PUBLIC
+};
+
+static int sel_is_conduit(const wchar_t *code)
+{
+    return wcscmp(code, L"conduit") == 0;
+}
+
+static int sel_enables_fronting(const wchar_t *code)
+{
+    /* auto | direct | cdn_fronting  (see TunnelManager.buildTunnelCoreConfig) */
+    return !code[0] || wcscmp(code, L"auto") == 0 ||
+           wcscmp(code, L"direct") == 0 || wcscmp(code, L"cdn_fronting") == 0;
+}
+
+/* "%d مورد" / "%d items" for the CDN lists. */
+static const wchar_t *cdn_count_label(int n)
+{
+    static wchar_t buf[64];
+    _snwprintf(buf, 63, tr(S_CDN_COUNT), n);
+    buf[63] = 0;
+    return buf;
+}
+
+static int count_tokens(const wchar_t *src)
+{
+    int n = 0, in = 0;
+    if (!src) return 0;
+    for (; *src; src++) {
+        int sep = (*src == L' ' || *src == L'\t' || *src == L'\r' ||
+                   *src == L'\n' || *src == L',' || *src == L';');
+        if (sep) { in = 0; }
+        else if (!in) { in = 1; n++; }
+    }
+    return n;
+}
+
 
 static void paint_settings(UI *u, Settings *s)
 {
     int w = u->cr.right - u->cr.left;
     int y = 0;
-    (void)w;
-    RowDef rows[12];
-    int n = 0, i;
     int scroll = u->scroll[TAB_SETTINGS];
+    int is_conduit   = sel_is_conduit(s->protocol_selection);
+    int is_fronting  = sel_enables_fronting(s->protocol_selection);
+    int is_auto_cnd  = is_conduit &&
+                       conduit_mode_index(s->conduit_mode) == CONDUIT_AUTO;
+    int n = 0, i;
+    RowDef rows[24];
 
-    (void)u;
+    /* ---- VPN options ------------------------------------------------- */
     rows[n].id = WID_SETTING + 0; rows[n].kind = ROW_SWITCH;
     rows[n].title = S_TUNNEL_WHOLE_DEVICE; rows[n].summary = S_TUNNEL_WHOLE_DEVICE_SUMMARY;
     rows[n].flag = &s->tunnel_whole_device; rows[n].value = NULL; rows[n].disabled = 0; n++;
@@ -564,13 +712,70 @@ static void paint_settings(UI *u, Settings *s)
 
     rows[n].id = WID_REGION; rows[n].kind = ROW_COMBO;
     rows[n].title = S_REGION; rows[n].summary = S_REGION_BEST;
-    rows[n].flag = NULL; rows[n].value = region_display_name(s->region); rows[n].disabled = 0; n++;
+    rows[n].flag = NULL; rows[n].value = region_display_name(s->region);
+    rows[n].disabled = 0; n++;
 
-    rows[n].id = WID_PROTOCOL; rows[n].kind = ROW_COMBO;
-    rows[n].title = S_SETTINGS_PROTOCOL; rows[n].summary = S_SETTINGS_PROTOCOL_SUMMARY;
-    rows[n].flag = NULL; rows[n].value = protocol_label(s->protocol); rows[n].disabled = 0; n++;
+    /* ---- "More options": the protocol matrix -------------------------- */
+    rows[n].id = WID_PROTOCOL_SELECTION; rows[n].kind = ROW_COMBO;
+    rows[n].title = S_SETTINGS_PROTOCOL_SELECTION;
+    rows[n].summary = S_SETTINGS_PROTOCOL_SELECTION_SUM;
+    rows[n].flag = NULL;
+    rows[n].value = tr(kProtoSelLabels[proto_sel_index(s->protocol_selection)]);
+    rows[n].disabled = 0; n++;
 
     rows[n].id = WID_SETTING + 4; rows[n].kind = ROW_SWITCH;
+    rows[n].title = S_SETTINGS_BEAST_MODE; rows[n].summary = S_SETTINGS_BEAST_MODE_SUM;
+    rows[n].flag = &s->beast_mode; rows[n].value = NULL; rows[n].disabled = 0; n++;
+
+    if (is_conduit) {
+        int cm = conduit_mode_index(s->conduit_mode);
+
+        rows[n].id = WID_CONDUIT_MODE; rows[n].kind = ROW_COMBO;
+        rows[n].title = S_SETTINGS_CONDUIT_MODE;
+        rows[n].summary = kConduitModeSummaries[cm];
+        rows[n].flag = NULL;
+        rows[n].value = tr(kConduitModeLabels[cm]);
+        rows[n].disabled = 0; n++;
+
+        if (is_auto_cnd) {
+            int ti = conduit_timeout_index(s->conduit_timeout);
+            rows[n].id = WID_CONDUIT_TIMEOUT; rows[n].kind = ROW_COMBO;
+            rows[n].title = S_SETTINGS_CONDUIT_TIMEOUT;
+            rows[n].summary = S_SETTINGS_CONDUIT_TIMEOUT_SUM;
+            rows[n].flag = NULL;
+            rows[n].value = tr(kConduitTimeoutLabels[ti]);
+            rows[n].disabled = 0; n++;
+        }
+
+        rows[n].id = WID_SETTING + 7; rows[n].kind = ROW_SWITCH;
+        rows[n].title = S_SETTINGS_REJECT_CENSORED;
+        rows[n].summary = S_SETTINGS_REJECT_CENSORED_SUM;
+        rows[n].flag = &s->reject_censored_proxies; rows[n].value = NULL;
+        rows[n].disabled = 0; n++;
+    }
+
+    if (is_fronting) {
+        rows[n].id = WID_CDN_IP_LIST; rows[n].kind = ROW_ACTION;
+        rows[n].title = S_SETTINGS_CDN_IP_LIST; rows[n].summary = S_SETTINGS_CDN_IP_LIST_SUM;
+        rows[n].flag = NULL;
+        rows[n].value = s->cdn_ip_list[0]
+                        ? cdn_count_label(count_tokens(s->cdn_ip_list)) : L"-";
+        rows[n].disabled = 0; n++;
+
+        rows[n].id = WID_CDN_SNI; rows[n].kind = ROW_ACTION;
+        rows[n].title = S_SETTINGS_CDN_SNI; rows[n].summary = S_SETTINGS_CDN_SNI_SUM;
+        rows[n].flag = NULL;
+        rows[n].value = s->cdn_sni[0]
+                        ? cdn_count_label(count_tokens(s->cdn_sni)) : L"-";
+        rows[n].disabled = 0; n++;
+    }
+
+    rows[n].id = WID_SETTING + 10; rows[n].kind = ROW_SWITCH;
+    rows[n].title = S_SETTINGS_DIAGNOSTICS; rows[n].summary = S_SETTINGS_DIAGNOSTICS_SUM;
+    rows[n].flag = &s->diagnostics_upload; rows[n].value = NULL; rows[n].disabled = 0; n++;
+
+    /* ---- Proxy options ------------------------------------------------ */
+    rows[n].id = WID_SETTING + 5; rows[n].kind = ROW_SWITCH;
     rows[n].title = S_SETTINGS_UPSTREAM_PROXY; rows[n].summary = S_SETTINGS_UPSTREAM_PROXY_SUMMARY;
     rows[n].flag = &s->upstream_proxy_enabled; rows[n].value = NULL; rows[n].disabled = 0; n++;
 
@@ -580,23 +785,24 @@ static void paint_settings(UI *u, Settings *s)
     rows[n].value = s->upstream_host[0] ? s->upstream_host : L"-";
     rows[n].disabled = !s->upstream_proxy_enabled; n++;
 
+    /* ---- More options -------------------------------------------------- */
     rows[n].id = WID_SETTING + 6; rows[n].kind = ROW_SWITCH;
     rows[n].title = S_SETTINGS_START_WITH_WINDOWS; rows[n].summary = S_SETTINGS_START_WITH_WINDOWS_SUMMARY;
     rows[n].flag = &s->start_with_windows; rows[n].value = NULL; rows[n].disabled = 0; n++;
 
-    rows[n].id = WID_SETTING + 7; rows[n].kind = ROW_SWITCH;
+    rows[n].id = WID_SETTING + 8; rows[n].kind = ROW_SWITCH;
     rows[n].title = S_SETTINGS_MINIMIZE_TRAY; rows[n].summary = S_SETTINGS_MINIMIZE_TRAY_SUMMARY;
     rows[n].flag = &s->minimize_to_tray; rows[n].value = NULL; rows[n].disabled = 0; n++;
 
-    rows[n].id = WID_SETTING + 8; rows[n].kind = ROW_SWITCH;
+    rows[n].id = WID_SETTING + 9; rows[n].kind = ROW_SWITCH;
     rows[n].title = S_SETTINGS_AUTO_OPEN_HOMEPAGE; rows[n].summary = S_SETTINGS_AUTO_OPEN_HOMEPAGE_SUMMARY;
     rows[n].flag = &s->auto_open_homepage; rows[n].value = NULL; rows[n].disabled = 0; n++;
 
-    rows[n].id = WID_SETTING + 9; rows[n].kind = ROW_SWITCH;
+    rows[n].id = WID_SETTING + 11; rows[n].kind = ROW_SWITCH;
     rows[n].title = S_SETTINGS_DISABLE_TIMEOUTS; rows[n].summary = S_SETTINGS_DISABLE_TIMEOUTS_SUMMARY;
     rows[n].flag = &s->disable_timeouts; rows[n].value = NULL; rows[n].disabled = 0; n++;
 
-    rows[n].id = WID_SETTING + 10; rows[n].kind = ROW_SWITCH;
+    rows[n].id = WID_SETTING + 12; rows[n].kind = ROW_SWITCH;
     rows[n].title = S_SETTINGS_LAN_SHARING; rows[n].summary = S_SETTINGS_LAN_SHARING_SUMMARY;
     rows[n].flag = &s->lan_proxy_sharing; rows[n].value = NULL; rows[n].disabled = 0; n++;
 

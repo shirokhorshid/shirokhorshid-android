@@ -11,6 +11,11 @@
 #include "shir.h"
 #include <stdlib.h>
 #include <string.h>
+#ifdef _WIN32
+#  include <winsock2.h>
+#  include <ws2tcpip.h>
+#  include <iphlpapi.h>
+#endif
 
 #ifdef _WIN32
 
@@ -599,6 +604,55 @@ void tunnel_elapsed_text(wchar_t *out, size_t n)
 void tunnel_bytes_text(unsigned long long bytes, wchar_t *out, size_t n)
 {
     fmt_bytes(bytes, out, n);
+}
+
+/* getLanIpAddress() in HomeTabFragment: the first non-loopback, non-APIPA
+   IPv4 address of an interface that is up.  Cached for a few seconds because
+   the home tab repaints once per second. */
+int tunnel_lan_ip(wchar_t *out, size_t n)
+{
+    static wchar_t cached[64];
+    static unsigned long cached_at = 0;
+    unsigned long now = GetTickCount();
+    IP_ADAPTER_ADDRESSES *addrs = NULL, *a;
+    ULONG size = 0, r;
+    int found = 0;
+
+    if (cached[0] && now - cached_at < 5000UL) {
+        wcsncpy(out, cached, n - 1); out[n - 1] = 0;
+        return 1;
+    }
+
+    r = GetAdaptersAddresses(AF_INET, GAA_FLAG_SKIP_ANYCAST | GAA_FLAG_SKIP_MULTICAST |
+                             GAA_FLAG_SKIP_DNS_SERVER, NULL, NULL, &size);
+    if (r != ERROR_BUFFER_OVERFLOW || !size) return 0;
+    addrs = (IP_ADAPTER_ADDRESSES *)malloc(size);
+    if (!addrs) return 0;
+    r = GetAdaptersAddresses(AF_INET, GAA_FLAG_SKIP_ANYCAST | GAA_FLAG_SKIP_MULTICAST |
+                             GAA_FLAG_SKIP_DNS_SERVER, NULL, addrs, &size);
+    if (r != NO_ERROR) { free(addrs); return 0; }
+
+    for (a = addrs; a && !found; a = a->Next) {
+        IP_ADAPTER_UNICAST_ADDRESS *ua;
+        if (a->OperStatus != IfOperStatusUp) continue;
+        if (a->IfType == IF_TYPE_SOFTWARE_LOOPBACK) continue;
+        for (ua = a->FirstUnicastAddress; ua; ua = ua->Next) {
+            struct sockaddr_in *sin = (struct sockaddr_in *)ua->Address.lpSockaddr;
+            unsigned char *b;
+            if (!sin || sin->sin_family != AF_INET) continue;
+            b = (unsigned char *)&sin->sin_addr;
+            if (b[0] == 127) continue;                  /* loopback   */
+            if (b[0] == 169 && b[1] == 254) continue;   /* link-local */
+            swprintf(cached, 64, L"%u.%u.%u.%u", b[0], b[1], b[2], b[3]);
+            cached_at = now;
+            found = 1;
+            break;
+        }
+    }
+    free(addrs);
+    if (!found) { cached[0] = 0; return 0; }
+    wcsncpy(out, cached, n - 1); out[n - 1] = 0;
+    return 1;
 }
 
 #endif /* _WIN32 */

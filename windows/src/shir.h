@@ -48,6 +48,10 @@
 #  include <string.h>
 #  include <stdlib.h>
 #  include <wchar.h>
+#  include <stdio.h>
+/* Provided by tests/stubs.c when building host-side unit tests. */
+FILE *_wfopen(const wchar_t *path, const wchar_t *mode);
+int   _snwprintf(wchar_t *buf, size_t n, const wchar_t *fmt, ...);
 #endif
 
 #include <stdio.h>
@@ -144,6 +148,47 @@ typedef enum {
     S_LANGUAGE_FA,
     S_LANGUAGE_EN,
     S_PROTOCOL_ALL,
+
+    /* "More options" - the Android client's protocol-selection matrix. */
+    S_SETTINGS_PROTOCOL_SELECTION,
+    S_SETTINGS_PROTOCOL_SELECTION_SUM,
+    S_PROTOCOL_AUTO,
+    S_PROTOCOL_DIRECT,
+    S_PROTOCOL_CDN_FRONTING,
+    S_PROTOCOL_CONDUIT,
+    S_SETTINGS_BEAST_MODE,
+    S_SETTINGS_BEAST_MODE_SUM,
+    S_SETTINGS_CONDUIT_MODE,
+    S_SETTINGS_CONDUIT_MODE_SUM,
+    S_CONDUIT_MODE_LABEL_AUTO,
+    S_CONDUIT_MODE_LABEL_SHIROKHORSHID,
+    S_CONDUIT_MODE_LABEL_PUBLIC,
+    S_CONDUIT_MODE_AUTO,
+    S_CONDUIT_MODE_SHIROKHORSHID,
+    S_CONDUIT_MODE_PUBLIC,
+    S_SETTINGS_CONDUIT_TIMEOUT,
+    S_SETTINGS_CONDUIT_TIMEOUT_SUM,
+    S_CONDUIT_TIMEOUT_2MIN,
+    S_CONDUIT_TIMEOUT_3MIN,
+    S_CONDUIT_TIMEOUT_5MIN,
+    S_CONDUIT_TIMEOUT_10MIN,
+    S_SETTINGS_CDN_IP_LIST,
+    S_SETTINGS_CDN_IP_LIST_SUM,
+    S_SETTINGS_CDN_SNI,
+    S_SETTINGS_CDN_SNI_SUM,
+    S_SETTINGS_REJECT_CENSORED,
+    S_SETTINGS_REJECT_CENSORED_SUM,
+    S_SETTINGS_UPSTREAM_DOMAIN,
+    S_SETTINGS_DIAGNOSTICS,
+    S_SETTINGS_DIAGNOSTICS_SUM,
+    S_CDN_COUNT,
+    S_LAN_SHARING_ACTIVE,
+    S_LAN_HTTP_ADDRESS,
+    S_LAN_SOCKS_ADDRESS,
+    S_LAN_USERNAME,
+    S_LAN_PASSWORD,
+    S_LAN_CONFIGURE_HINT,
+    S_CONDUIT_MODE_STATUS,
     S_COUNT_ /* must be last */
 } StrId;
 
@@ -173,11 +218,23 @@ typedef struct {
     int  persian;                  /* UI language: 1 = فارسی, 0 = English */
     int  auto_connect;
     wchar_t region[32];
-    wchar_t protocol[32];
+
+    /* Protocol selection, mirroring the Android client's
+       protocolSelectionPreference / conduitModePreference / beastModePreference. */
+    wchar_t protocol_selection[24];   /* auto | direct | cdn_fronting | conduit */
+    wchar_t conduit_mode[24];         /* auto | shirokhorshid | public          */
+    int     conduit_timeout;          /* seconds: 120 | 180 | 300 | 600         */
+    wchar_t cdn_ip_list[1024];        /* extra CDN edge IPs / CIDRs             */
+    wchar_t cdn_sni[512];             /* extra CDN SNI hostnames                */
+    int     beast_mode;               /* AggressiveEstablishment                */
+    int     reject_censored_proxies;  /* InproxyRejectProxyCountryCodes         */
+
     wchar_t upstream_host[256];
     int     upstream_port;
     wchar_t upstream_username[128];
     wchar_t upstream_password[128];
+    wchar_t upstream_domain[128];
+    int     diagnostics_upload;
     wchar_t lan_user[64];
     wchar_t lan_pass[64];
 } Settings;
@@ -234,6 +291,13 @@ void app_ensure_dirs(void);
 /* Build-time "embedded values" (see tools/gen_values.py). */
 int values_lookup_string(const wchar_t *key, wchar_t *out, size_t n);
 int values_lookup_array(const wchar_t *key, char ***out, int *count);
+
+/* Conduit fallback state (see conduitTimeoutPreference in the Android client).
+   In "auto" conduit mode the app starts with the private Shir o Khorshid
+   compartment and, if no tunnel comes up within the fallback timeout, restarts
+   the engine using public conduits instead. */
+void core_set_conduit_fallback(int on);
+int  core_get_conduit_fallback(void);
 
 void log_ring_add(int level, const wchar_t *fmt, ...);
 int  log_ring_count(void);
@@ -322,12 +386,17 @@ const wchar_t *tunnel_core_path(wchar_t *out, size_t n);
 int  tunnel_core_available(void);
 const wchar_t *tunnel_homepage(void);
 const wchar_t *tunnel_available_regions(void);
+/* Best-effort IPv4 address of this machine on the local network (for the
+   network-sharing card).  Returns 0 when no non-loopback address exists. */
+int tunnel_lan_ip(wchar_t *out, size_t n);
 void tunnel_elapsed_text(wchar_t *out, size_t n);
 void tunnel_bytes_text(unsigned long long bytes, wchar_t *out, size_t n);
 
 /* Shared with the window procedure so the reader thread can trigger a repaint. */
+#ifdef _WIN32
 extern UINT WM_APP_NOTICE;
 extern HWND g_main_hwnd;
+#endif
 
 /* Statistics persistence (bytes transferred, aggregated per region). */
 void stats_add(const wchar_t *region, unsigned long long sent,

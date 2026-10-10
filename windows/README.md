@@ -91,12 +91,40 @@ runs on every push touching `windows/` and can also be dispatched by hand.
 
 ## Tests
 
-The portable layers (JSON parsing/serialisation, UTF-8 conversion) have native
-unit tests:
+The portable layers have native unit tests that run on Linux/macOS without a
+Windows machine (CI runs them under ASan/UBSan before every build):
 
 ```bash
+# JSON parsing / serialisation / UTF-8 conversion
 cc -std=c11 -I src -o /tmp/test_json tests/test_json.c src/json.c && /tmp/test_json
+
+# tunnel-core configuration builder - verifies that every protocol-selection
+# mode (auto / direct / CDN fronting / conduit), conduit mode, beast mode,
+# CDN edge-IP / SNI lists, LAN sharing and upstream-proxy options produce the
+# same tunnel-core config as the Android client's TunnelManager
+cc -std=c11 -I src -o /tmp/test_config tests/test_config.c \
+   src/json.c src/core.c src/i18n.c tests/stubs.c && /tmp/test_config
 ```
+
+## Feature parity with the Android client
+
+| Android preference | Windows | Notes |
+| --- | --- | --- |
+| Region (`regionPreferenceKey`) | ✔ | all 50 regions, Persian names from `values-fa` |
+| Connection Protocol (`protocolSelectionPreference`) | ✔ | auto / direct / CDN fronting / conduit, same `LimitTunnelProtocols` lists |
+| Beast Mode (`beastModePreference`) | ✔ | `AggressiveEstablishment` |
+| Conduit Mode (`conduitModePreference`) | ✔ | auto / Shir o Khorshid / public, same compartment-id rules |
+| Fallback Timeout (`conduitTimeoutPreference`) | ✔ | 2/3/5/10 min; auto mode restarts on public conduits after the timeout |
+| CDN edge IPs / SNI hostnames | ✔ | same validation, `FrontedMeekDialOverrides` + `FrontedMeekCDNScanSpec` |
+| Reject proxies in censored countries | ✔ | needs `GeoLite2-Country.mmdb` next to the exe (Android bundles it) |
+| Disable timeouts | ✔ | `NetworkLatencyMultiplierLambda = 0.1` |
+| Upstream proxy (host/port/user/password/domain) | ✔ | `UpstreamProxyUrl`, NTLM `domain\user` |
+| Network sharing (+ username/password) | ✔ | `ListenInterface 0.0.0.0`, `LocalProxyUsername/Password`, LAN card on Home |
+| Auto-open homepage, notifications | ✔ | tray balloon + sound |
+| Tunnel whole device | ≈ | Windows system proxy (see limitations) |
+| Language (`preferenceLanguageSelection`) | ✔ | فارسی / English |
+| NFC "Psiphon Bump" | ✖ | hardware feature without a desktop equivalent |
+| Per-app VPN routing | ✖ | requires a TUN adapter (see limitations) |
 
 ## Notes and limitations
 
