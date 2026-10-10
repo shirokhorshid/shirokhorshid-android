@@ -79,19 +79,58 @@ jobs:
           PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
           PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
 
-      - name: Check whether the Psiphon credentials are configured
+      # Reports (without ever printing values) which of the repository secrets
+      # this build needs are actually present, so a misconfigured repo is
+      # obvious from the release page instead of from a failed build.
+      - name: Check whether the Psiphon secrets are configured
         id: cfg
+        env:
+          PSIPHON_PROPAGATION_CHANNEL_ID: ${{ secrets.PSIPHON_PROPAGATION_CHANNEL_ID }}
+          PSIPHON_SPONSOR_ID: ${{ secrets.PSIPHON_SPONSOR_ID }}
+          PSIPHON_CLIENT_VERSION: ${{ secrets.PSIPHON_CLIENT_VERSION }}
+          PSIPHON_REMOTE_SERVER_LIST_URLS_JSON: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_URLS_JSON }}
+          PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON: ${{ secrets.PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON }}
+          PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY }}
+          PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY: ${{ secrets.PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY }}
+          PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY: ${{ secrets.PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY }}
+          PSIPHON_FEEDBACK_UPLOAD_URLS_JSON: ${{ secrets.PSIPHON_FEEDBACK_UPLOAD_URLS_JSON }}
+          FETCH_SERVER_LIST_SCRIPT: ${{ secrets.FETCH_SERVER_LIST_SCRIPT }}
         run: |
           HAVE=1
-          if [ -z "${{ secrets.PSIPHON_PROPAGATION_CHANNEL_ID }}" ]; then HAVE=0; fi
-          if [ -z "${{ secrets.PSIPHON_SPONSOR_ID }}" ]; then HAVE=0; fi
-          if [ "${{ inputs.allow_unconfigured }}" = "false" ]; then :; fi
+          REQUIRED=""
+          {
+            echo "| Secret | Set |"
+            echo "| --- | --- |"
+            for key in PSIPHON_PROPAGATION_CHANNEL_ID PSIPHON_SPONSOR_ID \
+                       PSIPHON_CLIENT_VERSION \
+                       PSIPHON_REMOTE_SERVER_LIST_URLS_JSON \
+                       PSIPHON_REMOTE_SERVER_LIST_SIGNATURE_PUBLIC_KEY \
+                       PSIPHON_OBFUSCATED_SERVER_LIST_ROOT_URLS_JSON \
+                       PSIPHON_SERVER_ENTRY_SIGNATURE_PUBLIC_KEY \
+                       PSIPHON_SERVER_ENTRY_EXCHANGE_OBFUSCATION_KEY \
+                       PSIPHON_FEEDBACK_ENCRYPTION_PUBLIC_KEY \
+                       PSIPHON_FEEDBACK_UPLOAD_URLS_JSON \
+                       FETCH_SERVER_LIST_SCRIPT; do
+              eval "VALUE=\"\${$key-}\""
+              if [ -n "$VALUE" ]; then
+                echo "| \`$key\` | yes |"
+              else
+                echo "| \`$key\` | **no** |"
+                case "$key" in
+                  PSIPHON_PROPAGATION_CHANNEL_ID|PSIPHON_SPONSOR_ID)
+                    HAVE=0
+                    REQUIRED="$REQUIRED $key"
+                    ;;
+                esac
+              fi
+            done
+          } > "$RUNNER_TEMP/secrets_report.md"
           echo "have_creds=$HAVE" >> "$GITHUB_OUTPUT"
-          if [ "$HAVE" = "1" ]; then
-            echo "credentials are configured"
-          else
-            echo "::warning::PSIPHON_PROPAGATION_CHANNEL_ID / PSIPHON_SPONSOR_ID are not set -"
-            echo "::warning::the installer will be built without credentials and cannot connect."
+          cat "$RUNNER_TEMP/secrets_report.md"
+          if [ "$HAVE" = "0" ]; then
+            echo "::warning::missing required secrets:$REQUIRED - the installer will be"
+            echo "::warning::built without credentials and will not be able to connect."
             if [ "${{ inputs.allow_unconfigured }}" = "false" ]; then
               echo "allow_unconfigured is false; aborting"
               exit 1
@@ -179,6 +218,10 @@ jobs:
             echo "$EXTRA"
             echo
             cat windows/checksums.txt
+            echo
+            echo "### Repository secrets used by this build"
+            echo
+            cat "$RUNNER_TEMP/secrets_report.md"
           } > "$RUNNER_TEMP/notes.md"
           gh release create "${{ steps.version.outputs.tag }}" \
             "windows/build/$BIN" \
