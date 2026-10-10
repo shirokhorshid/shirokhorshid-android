@@ -39,8 +39,13 @@ mkdir -p "$BUILD" "$STAGE"
 if ! command -v "$ZIG" >/dev/null 2>&1; then
     say "installing the Zig toolchain (cross-compiler) from PyPI"
     "$PYTHON" -m pip install --quiet --break-system-packages ziglang \
-        || "$PYTHON" -m pip install --quiet ziglang
+        || "$PYTHON" -m pip install --quiet ziglang \
+        || "$PYTHON" -m pip install --quiet --break-system-packages --user ziglang \
+        || true
     ZIG="$("$PYTHON" -c 'import ziglang,os;print(os.path.join(os.path.dirname(ziglang.__file__),"zig"))')"
+fi
+if ! "$ZIG" version >/dev/null 2>&1; then
+    die "the Zig toolchain is unavailable - install it with: $PYTHON -m pip install ziglang"
 fi
 say "using $("$ZIG" version)"
 
