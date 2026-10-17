@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Forough</string>
+
+    <!-- Connection -->
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="status_ready">Ready to connect</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_reconnecting">Reconnecting…</string>
+    <string name="status_disconnecting">Disconnecting…</string>
+    <string name="status_connected_in">Connected in %1$.1fs</string>
+
+    <!-- Stats panel -->
+    <string name="stats_status">Status</string>
+    <string name="stats_protocol">Protocol</string>
+    <string name="stats_tunnel">Tunnel</string>
+    <string name="stats_uptime">Uptime</string>
+    <string name="stats_proxies">Proxies</string>
+    <string name="stats_regions">Regions</string>
+    <string name="stats_public_ip">Public IP</string>
+    <string name="stats_routing">Routing</string>
+    <string name="stats_beast">Beast mode</string>
+    <string name="stats_cdn_scan">CDN scan</string>
+    <string name="stats_traffic">Traffic</string>
+
+    <!-- Scanner -->
+    <string name="scanner_title">CDN IP Scanner</string>
+    <string name="scanner_scope">Scan scope</string>
+    <string name="scanner_cloudflare">Cloudflare</string>
+    <string name="scanner_cf_desc">15 ranges — the main Psiphon CDN fronting network</string>
+    <string name="scanner_fastly">Fastly</string>
+    <string name="scanner_fastly_desc">19 ranges</string>
+    <string name="scanner_akamai">Akamai</string>
+    <string name="scanner_akamai_desc">Curated edges + Iranian fronting SNIs</string>
+    <string name="scanner_cloudfront">CloudFront</string>
+    <string name="scanner_cloudfront_desc">AWS edge prefixes</string>
+    <string name="scanner_bunny">Bunny CDN</string>
+    <string name="scanner_bunny_desc">Edge POPs used by the Android client</string>
+    <string name="scanner_sample_size">Sample size</string>
+    <string name="scanner_sample_desc">How many random IPs to probe</string>
+    <string name="scanner_concurrency">Concurrency</string>
+    <string name="scanner_conc_desc">Parallel probes — raise on fast connections</string>
+    <string name="scanner_custom_ranges">Custom ranges (optional)</string>
+    <string name="scanner_custom_sni">Custom SNI (optional)</string>
+    <string name="scanner_start">Start scan</string>
+    <string name="scanner_stop">Stop</string>
+    <string name="scanner_alive">alive</string>
+    <string name="scanner_use_selected">Use selected</string>
+    <string name="scanner_select_all">Select all</string>
+    <string name="scanner_selected_fmt">%1$d selected</string>
+    <string name="scanner_finished_fmt">Scan finished: %1$d alive of %2$d probed</string>
+    <string name="scanner_edges_applied_fmt">%1$d edges applied — reconnect to use them</string>
+    <string name="scanner_select_needed">Select at least one edge</string>
+    <string name="scanner_no_results">No results yet — start a scan</string>
+    <string name="scan_stopped">Scan stopped</string>
+    <string name="tls_failed">TLS failed</string>
+
+    <!-- Settings -->
+    <string name="settings">Connection settings</string>
+    <string name="settings_connection">Connection</string>
+    <string name="settings_connection_desc">Protocol, region, and proxy options used on connect.</string>
+    <string name="settings_protocol">Protocol</string>
+    <string name="mode_auto">Auto</string>
+    <string name="mode_conduit">Conduit</string>
+    <string name="mode_direct">Direct</string>
+    <string name="mode_cdn">CDN Fronting</string>
+    <string name="settings_region">Region</string>
+    <string name="region_any">Any</string>
+    <string name="settings_beast">Beast mode</string>
+    <string name="settings_beast_desc">Aggressive establishment: try all protocols on all servers</string>
+    <string name="settings_timeout">Enable timeout</string>
+    <string name="settings_timeout_desc">Use the establish-tunnel timeout from the config</string>
+    <string name="settings_lan">Enable LAN sharing</string>
+    <string name="settings_lan_desc">Keep private LAN subnets outside the VPN so other devices can reach the proxy</string>
+    <string name="settings_upstream">Upstream proxy</string>
+    <string name="settings_upstream_hint">http, https, or socks5 URL (optional)</string>
+    <string name="settings_compartment">Personal conduit compartment ID</string>
+    <string name="settings_compartment_desc">For private in-proxy pairing. Leave empty for public conduits.</string>
+    <string name="settings_cdn_group">CDN fronting</string>
+    <string name="settings_cdn_ips">IP candidates</string>
+    <string name="settings_cdn_ips_desc">IPv4 or CIDR, separated by space, comma, or semicolon</string>
+    <string name="settings_cdn_sni">Custom SNI</string>
+    <string name="settings_cdn_sni_desc">Hostname used for scanning and edge overrides; leave empty to use the IP</string>
+    <string name="settings_advanced">Advanced</string>
+    <string name="settings_osl">OSL server list URLs</string>
+    <string name="settings_osl_desc">Obfuscated server list root URLs; leave empty for the standard list</string>
+    <string name="settings_interface">Interface</string>
+    <string name="settings_language">Language</string>
+    <string name="lang_system">System</string>
+    <string name="lang_fa">Persian</string>
+    <string name="lang_en">English</string>
+    <string name="settings_save">Save</string>
+    <string name="settings_saved">Settings saved</string>
+    <string name="settings_note">Changes apply on the next connect. Language changes take effect immediately.</string>
+
+    <!-- Logs / About / Tools -->
+    <string name="logs_title">Tunnel logs</string>
+    <string name="logs_empty">No logs yet. Connect to populate this view.</string>
+    <string name="about">About</string>
+    <string name="about_tagline">Forough — a bright window to the open internet</string>
+    <string name="about_body">Forough is a fast, beautiful VPN client for the open internet — built on the Psiphon network, with a native Android interface, full Persian RTL support, a manual CDN edge scanner, a live traffic graph, a built-in speed test, and automatic tunnel restarts. Unofficial project — not affiliated with Psiphon Inc. Learn more at psiphon.ca.</string>
+    <string name="about_attribution">Built on the open-source Psiphon network and the psiphon-tunnel-core engine. Psiphon is a registered trademark of Psiphon Inc. This is a community client, not the official Psiphon app.</string>
+    <string name="about_license">Released under the GNU GPL v3.0</string>
+    <string name="diagnostics">Copy diagnostics</string>
+    <string name="diagnostics_copied">Diagnostics copied to clipboard</string>
+    <string name="speed_test">Run speed test</string>
+    <string name="speed_test_running">Speed test running — numbers land in the log and diagnostics</string>
+    <string name="speed_test_unavailable">Connect first, then run the speed test</string>
+    <string name="cdn_edges_updated">CDN edges updated</string>
+    <string name="menu_more">More</string>
+
+    <!-- Notification -->
+    <string name="notif_channel">Tunnel status</string>
+    <string name="notif_channel_desc">Shows whether Forough is connected</string>
+    <string name="notif_connected">Connected</string>
+    <string name="notif_connecting">Connecting…</string>
+    <string name="notif_reconnecting">Reconnecting…</string>
+    <string name="notif_disconnecting">Disconnecting…</string>
+    <string name="notif_disconnected">Disconnected</string>
+    <string name="notif_disconnect">Disconnect</string>
+</resources>

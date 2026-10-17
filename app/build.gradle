@@ -280,7 +280,7 @@ android {
     // Configure output APK file name
     applicationVariants.configureEach { variant ->
         variant.outputs.configureEach { output ->
-            def fileName = "ShirOKhorshid-${variant.buildType.name}.apk"
+            def fileName = "Forough-${variant.buildType.name}.apk"
             output.outputFileName = fileName
         }
     }

@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-  <string name="app_name">شیر و خورشید</string>
+  <string name="app_name">فروغ</string>
   <string name="open_browser">بازکردن مرورگر</string>
   <string name="clear_logs">پاک کردن لاگ‌ها</string>
   <string name="FeedbackActivity.DefaultText">اگر نظر خاصی دارید، اطلاعات بیشتر در مورد سایت های که کار نمیکنند یا این فرم برای شما کار نمیکند، لطفآ ایمیل بزنید به &lt;a href=\"mailto:feedback@psiphon.ca\"&gt;feedback@psiphon.ca&lt;/a&gt;.</string>
   <string name="FeedbackActivity.Success">از اینکه نظرتون رو با ما در میان گذاشتید سپاسگزاریم</string>
   <string name="FeedbackActivity.Failure">ارسال نشد. لطفآ دوباره امتحان کنید</string>
-  <string name="StatusActivity.VpnRevokedTitle">VPN شیر و خورشید متوقف شده است</string>
-  <string name="StatusActivity.VpnRevokedMessage">وی‌پی‌ان شیر و خورشید توسط شما یا یک اپ دیگر قطع شد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و در حال اجرا است.</string>
-  <string name="StatusActivity.VpnPromptCancelledTitle">VPN شیر و خورشید نمی‌تواند شروع به کار کند</string>
+  <string name="StatusActivity.VpnRevokedTitle">VPN فروغ متوقف شده است</string>
+  <string name="StatusActivity.VpnRevokedMessage">وی‌پی‌ان فروغ توسط شما یا یک اپ دیگر قطع شد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و در حال اجرا است.</string>
+  <string name="StatusActivity.VpnPromptCancelledTitle">VPN فروغ نمی‌تواند شروع به کار کند</string>
   <string name="StatusActivity.VpnPromptCancelledMessage">امکان اجرای وی‌پی‌ان وجود ندارد. چندین اپ وی‌پی‌ان نمی‌توانند هم زمان با هم اجرا شوند. بررسی کنید که آیا اپ وی‌پی‌ان دیگری نصب شده و تنظیم شده تا همیشه در حال اجراء باشد.</string>
   <string name="selected_region_currently_not_available">ناحیه‌ی انتخاب شده در حال حاضر در دسترس نیست، لطفا ناحیه‌ی دیگری را انتخاب کنید.</string>
   <string name="ads_consent_preference_category_title">شخصی کردن آگهی‌ها</string>
@@ -75,7 +75,7 @@
   <!--"Upstream proxy error" alert dialog message-->
   <string name="upstream_proxy_error_alert_message">شما برنامه را برای استفاده از پروکسی بالادست پیکربندی کرده‌اید. با این حال، به نظر می‌رسد که نمی‌توانیم از طریق آن پروکسی به سرور متصل شویم.\n\nلطفا تنظیمات را اصلاح و دوباره امتحان کنید.\n\nبرای اطلاعات فنی به گزارش‌ها مراجعه کنید.</string>
   <!--Notification title for the 'Psiphon crash detected' notification-->
-  <string name="psiphon_native_crash_notification_title">شیر و خورشید خراب شد</string>
+  <string name="psiphon_native_crash_notification_title">فروغ خراب شد</string>
   <!--Notification short message for the 'Psiphon crash detected' notification-->
   <string name="psiphon_native_crash_notification_msg">لطفا برای ما بازخورد ارسال کنید.</string>
   <!--Notification longer message for the 'Psiphon crash detected' notification-->
@@ -180,7 +180,7 @@
   <string name="preference_disguise_identity_summary">تغییر آیکون و نام برنامه در صفحه اصلی</string>
   <string name="preference_stealth_notifications_title">اعلان‌های مخفی</string>
   <string name="preference_stealth_notifications_summary">نمایش اعلان‌ها متناسب با ظاهر انتخاب شده</string>
-  <string name="disguise_identity_default">شیر و خورشید (پیش‌فرض)</string>
+  <string name="disguise_identity_default">فروغ (پیش‌فرض)</string>
 
   <string name="disguise_name_calculator">ماشین‌حساب</string>
   <string name="disguise_name_weather">هواشناسی</string>

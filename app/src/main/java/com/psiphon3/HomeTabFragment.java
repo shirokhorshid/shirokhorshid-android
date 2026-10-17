@@ -169,7 +169,7 @@ public class HomeTabFragment extends Fragment {
                 // Load the embedded web view if needed
                 .switchMap(tunnelState -> {
                     // Check if tunnel is connected
-                    // Sponsor home pages disabled in Shir o Khorshid — these are
+                    // Sponsor home pages disabled in Forough — these are
                     // Psiphon Inc promotional pages (e.g. "Install Conduit" prompts)
                     // that are not appropriate for this community build.
                     return Flowable.<String>empty();

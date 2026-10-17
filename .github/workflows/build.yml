@@ -23,7 +23,7 @@ jobs:
       - name: Checkout tunnel-core
         uses: actions/checkout@v4
         with:
-          repository: shirokhorshid/psiphon-tunnel-core
+          repository: nayrasolcr-arch/psiphon-tunnel-core
           ref: ${{ inputs.tunnel_core_ref }}
           path: psiphon-tunnel-core
 
@@ -141,8 +141,9 @@ jobs:
           retention-days: 1
 
   build-apk:
-    name: Build APK
+    name: Build APK (legacy Psiphon UI — needs org secrets)
     needs: build-aar
+    continue-on-error: true
     runs-on: ubuntu-latest
     container:
       image: cimg/android:2024.01.1-ndk
@@ -284,53 +285,116 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: shirokhorshid-apk
-          path: app/build/outputs/apk/release/ShirOKhorshid-release.apk
+          name: forough-apk
+          path: app/build/outputs/apk/release/Forough-release.apk
           retention-days: 1
 
-  release:
-    name: Create GitHub Release
-    needs: build-apk
+  # ------------------------------------------------------------------
+  # Forough native client (io.github.nayrasolcr.forough) — the exact
+  # port of the Forough Linux desktop client: same engine (the AAR built
+  # above), same features, same libadwaita-dark theme. This is the APK
+  # the releases ship.
+  # ------------------------------------------------------------------
+  build-native-apk:
+    name: Build Forough native APK
+    needs: build-aar
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download APK artifact
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download AAR artifact
         uses: actions/download-artifact@v4
         with:
-          name: shirokhorshid-apk
+          name: ca-psiphon-aar
+          path: native/app/libs/
 
-      - name: Set version info
-        id: version
+      - name: Show AAR
+        run: ls -la native/app/libs/
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Install Android SDK components
         run: |
-          CALVER=$(date -u +%Y.%m.%d)
-          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
-          echo "calver=$CALVER" >> "$GITHUB_OUTPUT"
-          echo "tag=v${CALVER}-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
+          echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \
+            "platforms;android-35" "build-tools;35.0.0" "ndk;27.0.12077973" \
+            "platform-tools" >/dev/null
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.0.12077973" >> $GITHUB_ENV
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+          # The legacy Psiphon app at the repo root carries an old wrapper
+          # jar that is not in Gradle's checksum database; we don't use
+          # wrappers here (Gradle is installed by this action), so
+          # validation is off.
+          validate-wrappers: false
+
+      - name: Build native APK
+        run: |
+          gradle -p native assembleRelease --no-daemon --stacktrace
+
+      - name: Verify APK
+        run: |
+          APK=native/app/build/outputs/apk/release/app-release.apk
+          test -s "$APK"
+          ls -la "$APK"
+          unzip -l "$APK" | grep -E "libgojni|tun2socks|classes" || true
+          SHA256=$(sha256sum "$APK" | cut -d' ' -f1)
+          echo "SHA-256: $SHA256"
+          echo "apk_sha=$SHA256" >> "$GITHUB_ENV"
+
+      - name: Upload native APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: forough-native-apk
+          path: native/app/build/outputs/apk/release/app-release.apk
+          retention-days: 1
+
+  release:
+    name: Create GitHub Release (native APK)
+    needs: build-native-apk
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (for release notes)
+        uses: actions/checkout@v4
+
+      - name: Download native APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: forough-native-apk
 
       - name: Prepare release assets
         run: |
-          mv ShirOKhorshid-release.apk "ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
-          APK="ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
-          SHA256=$(sha256sum "$APK" | cut -d' ' -f1)
-          MD5=$(md5sum "$APK" | cut -d' ' -f1)
-          echo "::notice::SHA-256: $SHA256"
-          echo "::notice::MD5: $MD5"
-          echo "### Checksums" > checksums.txt
-          echo '```' >> checksums.txt
-          echo "SHA-256: $SHA256" >> checksums.txt
-          echo "MD5:     $MD5" >> checksums.txt
-          echo '```' >> checksums.txt
-          echo "" >> checksums.txt
-          echo "Built from commit ${{ github.sha }}" >> checksums.txt
+          mv app-release.apk Forough-2.0.1-android.apk
+          SHA256=$(sha256sum "Forough-2.0.1-android.apk" | cut -d' ' -f1)
+          {
+            cat native/RELEASE_NOTES.md
+            echo
+            echo "## Checksums"
+            echo
+            echo '```'
+            echo "SHA-256: $SHA256"
+            echo "Built from commit ${{ github.sha }}"
+            echo '```'
+          } > release-notes.md
 
       - name: Create release
         run: |
-          APK="ShirOKhorshid-${{ steps.version.outputs.calver }}.apk"
-          gh release create "${{ steps.version.outputs.tag }}" \
-            "$APK" \
+          # Idempotent: recreate the version tag/release on re-runs.
+          gh release delete "v2.0.1" --repo "${{ github.repository }}" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "v2.0.1" \
+            "Forough-2.0.1-android.apk" \
             --repo "${{ github.repository }}" \
-            --title "ShirOKhorshid ${{ steps.version.outputs.calver }}" \
-            --notes-file checksums.txt \
+            --title "Forough (فروغ) 2.0.1 — Android" \
+            --notes-file release-notes.md \
             --latest
         env:
           GH_TOKEN: ${{ github.token }}

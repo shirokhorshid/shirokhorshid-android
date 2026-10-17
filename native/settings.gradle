@@ -1,0 +1,31 @@
+// Forough (فروغ) — native Android client
+//
+// This is a SEPARATE Gradle project from the legacy Psiphon-based `app`
+// module at the repository root. It exists so the two toolchains never
+// fight: the legacy app builds with its own wrapper/AGP, while the native
+// Forough client builds with modern AGP + Kotlin + Jetpack Compose.
+//
+// The native client is a faithful port of the Forough Linux desktop client
+// (nayrasolcr-arch/forough-linux): same engine (psiphon-tunnel-core fork),
+// same features (CDN edge scanner, speed test, live traffic graph, region
+// and protocol selection, beast mode, CDN fronting overrides, diagnostics)
+// and the same libadwaita-style dark theme.
+
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "ForoughNative"
+include ':app'

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">فروغ</string>
+
+    <!-- اتصال -->
+    <string name="connect">اتصال</string>
+    <string name="disconnect">قطع اتصال</string>
+    <string name="status_ready">آمادهٔ اتصال</string>
+    <string name="status_connecting">در حال اتصال…</string>
+    <string name="status_reconnecting">در حال اتصال مجدد…</string>
+    <string name="status_disconnecting">در حال قطع اتصال…</string>
+    <string name="status_connected_in">متصل شد در %1$.1f ثانیه</string>
+
+    <!-- پنل آمار -->
+    <string name="stats_status">وضعیت</string>
+    <string name="stats_protocol">پروتکل</string>
+    <string name="stats_tunnel">تونل</string>
+    <string name="stats_uptime">مدت اتصال</string>
+    <string name="stats_proxies">پروکسی‌ها</string>
+    <string name="stats_regions">منطقه‌ها</string>
+    <string name="stats_public_ip">آی‌پی عمومی</string>
+    <string name="stats_routing">مسیریابی</string>
+    <string name="stats_beast">حالت بیست</string>
+    <string name="stats_cdn_scan">اسکن CDN</string>
+    <string name="stats_traffic">ترافیک</string>
+
+    <!-- اسکنر -->
+    <string name="scanner_title">اسکنر IP هر CDN</string>
+    <string name="scanner_scope">گسترهٔ اسکن</string>
+    <string name="scanner_cloudflare">کلادفلر</string>
+    <string name="scanner_cf_desc">۱۵ رنج — شبکهٔ اصلی فرونتینگ CDN سایفون</string>
+    <string name="scanner_fastly">فستلی</string>
+    <string name="scanner_fastly_desc">۱۹ رنج</string>
+    <string name="scanner_akamai">آکامای</string>
+    <string name="scanner_akamai_desc">لبه‌های گزینش‌شده + SNIهای فرونتینگ ایرانی</string>
+    <string name="scanner_cloudfront">کلادفرانت</string>
+    <string name="scanner_cloudfront_desc">پیشوندهای لبهٔ AWS</string>
+    <string name="scanner_bunny">بانی CDN</string>
+    <string name="scanner_bunny_desc">لبه‌هایی که کلاینت اندروید استفاده می‌کند</string>
+    <string name="scanner_sample_size">اندازهٔ نمونه</string>
+    <string name="scanner_sample_desc">چند IP تصادفی بررسی شود</string>
+    <string name="scanner_concurrency">تعداد هم‌زمان</string>
+    <string name="scanner_conc_desc">بررسی‌های موازی — روی اینترنت سریع بیشتر کنید</string>
+    <string name="scanner_custom_ranges">رنج‌های دلخواه (اختیاری)</string>
+    <string name="scanner_custom_sni">SNI دلخواه (اختیاری)</string>
+    <string name="scanner_start">شروع اسکن</string>
+    <string name="scanner_stop">توقف</string>
+    <string name="scanner_alive">زنده</string>
+    <string name="scanner_use_selected">استفاده از انتخاب‌شده‌ها</string>
+    <string name="scanner_select_all">انتخاب همه</string>
+    <string name="scanner_selected_fmt">%1$d انتخاب‌شده</string>
+    <string name="scanner_finished_fmt">اسکن تمام شد: %1$d زنده از %2$d بررسی‌شده</string>
+    <string name="scanner_edges_applied_fmt">%1$d لبه اعمال شد — برای استفاده دوباره وصل شوید</string>
+    <string name="scanner_select_needed">حداقل یک لبه انتخاب کنید</string>
+    <string name="scanner_no_results">هنوز نتیجه‌ای نیست — اسکن را شروع کنید</string>
+    <string name="scan_stopped">اسکن متوقف شد</string>
+    <string name="tls_failed">TLS ناموفق</string>
+
+    <!-- تنظیمات -->
+    <string name="settings">تنظیمات اتصال</string>
+    <string name="settings_connection">اتصال</string>
+    <string name="settings_connection_desc">گزینه‌های پروتکل، منطقه و پروکسی که هنگام اتصال استفاده می‌شوند.</string>
+    <string name="settings_protocol">پروتکل</string>
+    <string name="mode_auto">خودکار</string>
+    <string name="mode_conduit">کانالیوت</string>
+    <string name="mode_direct">مستقیم</string>
+    <string name="mode_cdn">فرونتینگ CDN</string>
+    <string name="settings_region">منطقه</string>
+    <string name="region_any">هر جا (خودکار)</string>
+    <string name="settings_beast">حالت بیست</string>
+    <string name="settings_beast_desc">برقراری تهاجمی: امتحان همهٔ پروتکل‌ها روی همهٔ سرورها</string>
+    <string name="settings_timeout">فعال‌سازی زمان قطع</string>
+    <string name="settings_timeout_desc">استفاده از مهلت برقراری تونل از پیکربندی</string>
+    <string name="settings_lan">فعال‌سازی اشتراک LAN</string>
+    <string name="settings_lan_desc">زیرشبکه‌های محلی بیرون از VPN می‌مانند تا دستگاه‌های دیگر به پروکسی برسند</string>
+    <string name="settings_upstream">پروکسی بالادستی</string>
+    <string name="settings_upstream_hint">نشانی http، https یا socks5 (اختیاری)</string>
+    <string name="settings_compartment">شناسهٔ بخش شخصی کانالیوت</string>
+    <string name="settings_compartment_desc">برای جفت‌سازی خصوصی in-proxy. برای کانالیوت عمومی خالی بگذارید.</string>
+    <string name="settings_cdn_group">فرونتینگ CDN</string>
+    <string name="settings_cdn_ips">کاندیدهای IP</string>
+    <string name="settings_cdn_ips_desc">IPv4 یا CIDR، جدا‌شده با فاصله، ویرگول یا نقطه‌ویرگول</string>
+    <string name="settings_cdn_sni">SNI دلخواه</string>
+    <string name="settings_cdn_sni_desc">نام میزبان برای اسکن و Overrideهای لبه؛ برای استفاده از IP خالی بگذارید</string>
+    <string name="settings_advanced">پیشرفته</string>
+    <string name="settings_osl">آدرس‌های لیست سرور OSL</string>
+    <string name="settings_osl_desc">آدرس‌های ریشهٔ لیست سرورهای مبهم‌شده؛ برای لیست استاندارد خالی بگذارید</string>
+    <string name="settings_interface">رابط کاربری</string>
+    <string name="settings_language">زبان</string>
+    <string name="lang_system">سیستم</string>
+    <string name="lang_fa">فارسی</string>
+    <string name="lang_en">انگلیسی</string>
+    <string name="settings_save">ذخیره</string>
+    <string name="settings_saved">تنظیمات ذخیره شد</string>
+    <string name="settings_note">تغییرات در اتصال بعدی اعمال می‌شوند. تغییر زبان بلافاصله اعمال می‌شود.</string>
+
+    <!-- لاگ / درباره / ابزارها -->
+    <string name="logs_title">لاگ‌های تونل</string>
+    <string name="logs_empty">هنوز لاگی نیست. برای پر شدن این صفحه متصل شوید.</string>
+    <string name="about">درباره</string>
+    <string name="about_tagline">فروغ؛ پنجره‌ای روشن به اینترنت آزاد</string>
+    <string name="about_body">فروغ کلاینت VPN سریع و زیبا برای اینترنت آزاد است — ساخته‌شده روی شبکهٔ سایفون، با رابط بومی اندروید، پشتیبانی کامل راست‌به‌چپ فارسی، اسکنر دستی لبه‌های CDN، نمودار زندهٔ ترافیک، تست سرعت داخلی و ری‌استارت خودکار تونل. پروژه‌ای غیررسمی و وابسته به Psiphon Inc. نیست. بیشتر در psiphon.ca.</string>
+    <string name="about_attribution">ساخته‌شده روی شبکهٔ متن‌باز سایفون و موتور psiphon-tunnel-core. Psiphon نشان تجاری ثبت‌شدهٔ Psiphon Inc. است. این یک کلاینت اجتماعی است، نه برنامهٔ رسمی سایفون.</string>
+    <string name="about_license">تحت مجوز GNU GPL v3.0 منتشر شده است</string>
+    <string name="diagnostics">کپی گزارش عیب‌یابی</string>
+    <string name="diagnostics_copied">گزارش عیب‌یابی کپی شد</string>
+    <string name="speed_test">اجرای تست سرعت</string>
+    <string name="speed_test_running">تست سرعت در حال اجراست — اعداد در لاگ و گزارش عیب‌یابی ثبت می‌شوند</string>
+    <string name="speed_test_unavailable">اول وصل شوید، بعد تست سرعت را اجرا کنید</string>
+    <string name="cdn_edges_updated">لبه‌های CDN به‌روز شد</string>
+    <string name="menu_more">بیشتر</string>
+
+    <!-- نوتیفیکیشن -->
+    <string name="notif_channel">وضعیت تونل</string>
+    <string name="notif_channel_desc">نشان می‌دهد فروغ متصل است یا نه</string>
+    <string name="notif_connected">متصل</string>
+    <string name="notif_connecting">در حال اتصال…</string>
+    <string name="notif_reconnecting">در حال اتصال مجدد…</string>
+    <string name="notif_disconnecting">در حال قطع اتصال…</string>
+    <string name="notif_disconnected">قطع شده</string>
+    <string name="notif_disconnect">قطع اتصال</string>
+</resources>

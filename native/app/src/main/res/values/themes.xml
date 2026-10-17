@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- libadwaita-dark style base theme (Compose draws everything). -->
+    <style name="Theme.Forough" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#242428</item>
+        <item name="android:statusBarColor">#242428</item>
+        <item name="android:navigationBarColor">#242428</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

@@ -10,19 +10,19 @@
     <string name="socks_port_in_use">Requested local SOCKS proxy port %d is already in use by another app.  Cannot continue.</string>
     <string name="waiting_for_network_connectivity">Waiting for network connectivity…</string>
     <string name="psiphon_service_notification_message_connecting">Connecting…</string>
-    <string name="psiphon_service_notification_id">Shir o Khorshid Service Notification</string>
-    <string name="psiphon_service_notification_channel_name">Shir o Khorshid Status Changes</string>
-    <string name="psiphon_upgrade_notification_channel_name">Shir o Khorshid Upgrade</string>
-    <string name="psiphon_server_alert_notification_channel_name">Shir o Khorshid Server Alerts</string>
+    <string name="psiphon_service_notification_id">Forough Service Notification</string>
+    <string name="psiphon_service_notification_channel_name">Forough Status Changes</string>
+    <string name="psiphon_upgrade_notification_channel_name">Forough Upgrade</string>
+    <string name="psiphon_server_alert_notification_channel_name">Forough Server Alerts</string>
     <!-- Name of the notification channel for 'Psiphon crashed' notifications, note that 'Crashes' is a plural noun. -->
-    <string name="psiphon_native_crash_notification_channel_name">Shir o Khorshid Crashes</string>
+    <string name="psiphon_native_crash_notification_channel_name">Forough Crashes</string>
     <string name="vpn_service_running">VPN service running</string>
     <string name="vpn_service_revoked">VPN service revoked</string>
     <string name="current_network_type">Current network: %s</string>
     <!-- Do not translate or transliterate "Psiphon" -->
-    <string name="UpgradeManager.UpgradePromptTitle">Shir o Khorshid Upgrade</string>
+    <string name="UpgradeManager.UpgradePromptTitle">Forough Upgrade</string>
     <!-- Do not translate or transliterate "Psiphon" -->
-    <string name="UpgradeManager.UpgradePromptMessage">An upgrade for Shir o Khorshid is ready to be installed.</string>
+    <string name="UpgradeManager.UpgradePromptMessage">An upgrade for Forough is ready to be installed.</string>
     <string name="connected_elapsed_time">Connected: %s</string>
     <string name="disconnected">Disconnected</string>
     <string name="label_sent">Sent</string>
@@ -88,7 +88,7 @@
     <string name="region_name_hr">Croatia</string>
     <string name="region_name_co">Colombia</string>
     <string name="region_name_my">Malaysia</string>
-    <string name="about">About Shir o Khorshid</string>
+    <string name="about">About Forough</string>
     <string name="feedback">Feedback</string>
     <string name="disableTimeoutsPreferenceSummary">Disable timeouts for slow networks</string>
     <string name="protocolSelectionPreferenceTitle">Connection Protocol</string>
@@ -239,12 +239,12 @@
     <string name="conduitModePreferenceTitle">Conduit Mode</string>
     <string name="conduitModePreferenceSummary">Choose which conduits to connect through</string>
 
-    <string name="conduitModeSummaryAuto">Auto - First tries Shir o Khorshid conduits, then falls back to public conduits if no connection is made within the timeout period</string>
-    <string name="conduitModeSummaryShirOKhorshid">Dedicated Shir o Khorshid conduits only</string>
+    <string name="conduitModeSummaryAuto">Auto - First tries Forough conduits, then falls back to public conduits if no connection is made within the timeout period</string>
+    <string name="conduitModeSummaryShirOKhorshid">Dedicated Forough conduits only</string>
     <string name="conduitModeSummaryPublic">Public conduits only</string>
 
     <string name="conduit_mode_auto">Auto (Recommended)</string>
-    <string name="conduit_mode_shirokhorshid">Shir o Khorshid Conduits</string>
+    <string name="conduit_mode_shirokhorshid">Forough Conduits</string>
     <string name="conduit_mode_public">Public Conduits</string>
 
     <string name="conduitTimeoutPreferenceTitle">Fallback Timeout</string>
@@ -258,8 +258,8 @@
     <string name="conduit_timeout_10min">10 minutes</string>
 
     <!-- Conduit fallback log messages -->
-    <string name="conduit_fallback_trying_shirokhorshid">Trying Shir o Khorshid conduits\u2026</string>
-    <string name="conduit_fallback_timeout">Shir o Khorshid conduits timed out after %s</string>
+    <string name="conduit_fallback_trying_shirokhorshid">Trying Forough conduits\u2026</string>
+    <string name="conduit_fallback_timeout">Forough conduits timed out after %s</string>
     <string name="conduit_fallback_trying_public">Trying public conduits\u2026</string>
     <string name="conduit_mode_status">Conduit mode: %s</string>
 </resources>

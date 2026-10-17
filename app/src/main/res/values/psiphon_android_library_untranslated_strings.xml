@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="UpgradeManager.UpgradeAvailableNotificationId">Shir o Khorshid Upgrade Available Notification</string>
+    <string name="UpgradeManager.UpgradeAvailableNotificationId">Forough Upgrade Available Notification</string>
     <string name="preferencesNotifications">preferencesNotifications</string>
     <string name="preferenceNotificationsWithSound">preferenceNotificationsWithSoundDefaultOff</string>
     <string name="preferenceNotificationsWithVibrate">preferenceNotificationsWithVibrateDefaultOff</string>
@@ -41,7 +41,7 @@
     <string name="moreOptionsPreferencesName">moreOptionsPreferencesName</string>
     <string name="nfcBumpPreference" translatable="false">nfcBumpPreference</string>
 
-    <string name="upgrade_checker_service_name">ShirOKhorshid:UpgradeChecker</string>
+    <string name="upgrade_checker_service_name">Forough:UpgradeChecker</string>
 
     <string name="current_local_http_proxy_port">currentLocalHttpProxyPort</string>
     <string name="proxyOptionsPreferenceKey" translatable="false">proxyOptionsPreferenceKey</string>

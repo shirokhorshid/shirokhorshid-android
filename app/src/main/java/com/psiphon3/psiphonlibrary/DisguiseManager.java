@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026, Shir o Khorshid contributors
+ * Copyright (c) 2026, Forough contributors
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ import com.psiphon3.R;
  * notification icon and text resources for each disguise identity.
  *
  * Disguise identities:
- *   "default"    — Shir o Khorshid (real identity)
+ *   "default"    — Forough (real identity)
  *   "calculator" — Calculator
  *   "weather"    — Weather
  *   "notes"      — Notes

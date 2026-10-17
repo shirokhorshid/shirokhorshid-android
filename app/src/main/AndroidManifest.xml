@@ -67,7 +67,7 @@
             android:exported="false"
             android:targetActivity="com.psiphon3.MainActivity" />
 
-        <!-- Disguise: Default identity (Shir o Khorshid) -->
+        <!-- Disguise: Default identity (Forough) -->
         <activity-alias
             android:name=".LauncherDefault"
             android:label="@string/app_name"
